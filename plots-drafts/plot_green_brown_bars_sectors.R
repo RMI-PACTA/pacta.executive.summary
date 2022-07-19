@@ -26,7 +26,7 @@ data_summ <- data_sec %>%
   ungroup() %>%
   mutate(
     tech_type = r2dii.plot::to_title(tech_type),
-    tech_type = factor(tech_type, levels = c("Green", "Neutral", "Brown")),
+    tech_type = factor(tech_type, levels = c("Green", "Hydro And Nuclear", "Brown", "Other")),
     sector_reordered = reorder_within(
       sector, exp_sector, asset_type
     )
@@ -37,10 +37,13 @@ data_summ <- data_sec %>%
     perc_sec_exposure = exp_sector/sum(sum_exp)
   )
 
+colours_fossil <- c("#181716", "#4e3b37", "#977447")
+names(colours_fossil) <- c("Fossil Fuels", "Coal", "Other Brown")
+
 colours <- c(
-  "#7BC17E", "#b9b5b0", "#181716", "#4e3b37", "#977447", "#977447"
+  "#7BC17E", "#b9b5b0", "#977447", "#6e819c"
 )
-names(colours) <- c("Green","Neutral", "Fossil Fuels", "Coal", "Other Brown", "Brown")
+names(colours) <- c("Green", "Hydro And Nuclear", "Brown", "Other")
 
 p <- ggplot(data_summ, aes(x = sector_reordered, y = perc_tech_exposure, fill = tech_type)) +
   geom_bar(stat = "identity") +
@@ -54,7 +57,7 @@ p <- ggplot(data_summ, aes(x = sector_reordered, y = perc_tech_exposure, fill = 
   scale_y_continuous(expand = expansion(mult = c(0, .4)), labels = scales::percent) +
   scale_fill_manual(
     values = colours, 
-    labels = c("Green" = "Low-carbon", "Neutral" = "Unspecified", "Brown" = "High-carbon"),
+    labels = c("Green" = "Low-carbon", "Hydro And Nuclear" = "Hydro & Nuclear", "Brown" = "High-carbon", "Other" = "Other sectors"),
     name = "Technology classification") +
   coord_flip() +
   theme_2dii(base_size = 24) +
@@ -64,12 +67,11 @@ p <- ggplot(data_summ, aes(x = sector_reordered, y = perc_tech_exposure, fill = 
     axis.ticks = element_blank(),
     axis.text.x = element_blank(),
     strip.text = element_text(face = "bold"),
+    legend.text = element_text(size = 7),
     legend.position = "bottom"
   ) +
-  facet_wrap(~ asset_type, scale = "free", labeller = as_labeller(r2dii.plot::to_title)) + labs(
-  title = "Sectoral exposure to\nhigh- and low-carbon technologies",
-  subtitle = "Within PACTA sectors"
-)
+  facet_wrap(~ asset_type, scale = "free", labeller = as_labeller(r2dii.plot::to_title)) +
+  guides(fill = guide_legend(nrow = 2, byrow = TRUE))
 p
 
 data_brown <- data_sec %>%
