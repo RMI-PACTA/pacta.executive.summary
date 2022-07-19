@@ -37,9 +37,6 @@ data_summ <- data_sec %>%
     perc_sec_exposure = exp_sector/sum(sum_exp)
   )
 
-colours_fossil <- c("#181716", "#4e3b37", "#977447")
-names(colours_fossil) <- c("Fossil Fuels", "Coal", "Other Brown")
-
 colours <- c(
   "#7BC17E", "#b9b5b0", "#977447", "#6e819c"
 )
@@ -67,87 +64,10 @@ p <- ggplot(data_summ, aes(x = sector_reordered, y = perc_tech_exposure, fill = 
     axis.ticks = element_blank(),
     axis.text.x = element_blank(),
     strip.text = element_text(face = "bold"),
-    legend.text = element_text(size = 7),
     legend.position = "bottom"
   ) +
-  facet_wrap(~ asset_type, scale = "free", labeller = as_labeller(r2dii.plot::to_title)) +
-  guides(fill = guide_legend(nrow = 2, byrow = TRUE))
+  facet_wrap(~ asset_type, scale = "free", labeller = as_labeller(r2dii.plot::to_title))
 p
-
-data_brown <- data_sec %>%
-  group_by(asset_type) %>%
-  mutate(
-    perc_tech_exposure = tech_exp/sum(tech_exp),
-    perc_sec_exposure = exp_sector/sum(tech_exp)
-  ) %>%
-  filter(
-    sector == "Fossil Fuels"
+ggsave(
+  "../../visualisation/Executive-summary/exposure_sector_green_brown.png"
   )
-
-q <- ggplot(data_brown, aes(x = sector, y = perc_tech_exposure, fill = tech)) +
-  geom_bar(stat = "identity") +
-  geom_text(
-    aes(y = perc_sec_exposure, 
-        label = scales::percent(round(perc_sec_exposure, digits = 2))), 
-    hjust = -0.2,
-    size = 7
-    ) +
-  scale_x_reordered() +
-  scale_y_continuous(expand = expansion(mult = c(0, .8)), labels = scales::percent) +
-  scale_fill_2dii(palette = "pacta") +
-  coord_flip() +
-  theme_2dii(base_size = 24) +
-  theme(
-    axis.title = element_blank(),
-    axis.line.x = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.x = element_blank(),
-    strip.text = element_blank(),
-    legend.position = "bottom"
-  ) +
-  facet_wrap(~ asset_type, scale = "free") +
-  labs(
-    subtitle = "In particular"
-  )
-q
-
-p/q + plot_layout(heights = c(4,1))
-#ggsave("../../../visualisation/Executive-summary/exposure_sector.png")
-
-data_brown <- data_brown %>%
-  mutate(
-    tech_title = r2dii.plot::to_title(tech),
-    tech_reordered = reorder_within(
-      tech_title, tech_exp, asset_type
-    )
-  )
-
-q2 <- ggplot(data_brown, aes(x = tech_reordered, y = tech_exp/ 10^3, fill = tech)) +
-  geom_bar(stat = "identity") +
-  geom_text(
-    aes(y = tech_exp/ 10^3, 
-        label = paste0(as.character(tech_exp/ 10^3), "k")), 
-    hjust = -0.2,
-    size = 7
-    ) +
-  scale_x_reordered() +
-  scale_y_continuous(expand = expansion(mult = c(0, .8)), labels = scales::percent) +
-  scale_fill_2dii(palette = "pacta") +
-  coord_flip() +
-  theme_2dii(base_size = 24) +
-  theme(
-    axis.title = element_blank(),
-    axis.line.x = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.x = element_blank(),
-    strip.text = element_blank(),
-    legend.position = "none"
-  ) +
-  facet_wrap(~ asset_type, scale = "free") +
-  labs(
-    subtitle = "In particular, technology exposure within Fossil Fuels:"
-  )
-q2
-
-p / q2 + plot_layout(heights = c(3,1))
-#ggsave("../../../visualisation/Executive-summary/exposure_sector2.png")
