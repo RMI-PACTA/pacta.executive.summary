@@ -54,10 +54,10 @@ p <- ggplot(data_summ, aes(x = sector_reordered, y = perc_tech_exposure, fill = 
   scale_y_continuous(expand = expansion(mult = c(0, .4)), labels = scales::percent) +
   scale_fill_manual(
     values = colours, 
-    labels = c("Green" = "Low-carbon", "Hydro And Nuclear" = "Hydro & Nuclear", "Brown" = "High-carbon", "Other" = "Other sectors"),
+    labels = c("Green" = "Low-carbon", "Hydro And Nuclear" = "Hydro & Nuclear", "Brown" = "High-carbon", "Other" = "Sectors without\ntech. roadmap"),
     name = "Technology classification") +
   coord_flip() +
-  theme_2dii(base_size = 24) +
+  theme_2dii(base_size = 28) +
   theme(
     axis.title = element_blank(),
     axis.line.x = element_blank(),
