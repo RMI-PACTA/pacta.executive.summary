@@ -14,14 +14,14 @@ data <- readxl::read_excel(here::here("plots-drafts/toy-data/data_exposure_fossi
     entity_name_title = factor(entity_name_title, levels = r2dii.plot::to_title(c("MSCI_world", "peers", "portfolio")))
   )
 
-colours_fossil <- c("#181716", "#8a8681")
+colours_fossil <- c("#181716", "#c5c4cf")
 names(colours_fossil) <- c("this_portfolio", "benchmark")
 
 q <- ggplot(data, aes(x = entity_name_title, y = perc_aum, fill = entity_type)) +
   geom_bar(stat = "identity") +
   geom_text(
     aes(y = perc_aum, 
-        label = scales::percent(round(perc_aum, digits = 2))), 
+        label = scales::percent(round(perc_aum, digits = 4))), 
     hjust = -0.2,
     size = 7
     ) +
@@ -31,7 +31,7 @@ q <- ggplot(data, aes(x = entity_name_title, y = perc_aum, fill = entity_type)) 
     labels = c("this_portfolio" = "Portfolio", "benchmark" = "Benchmarks"),
     name = "Technology classification") +
   coord_flip() + 
-  theme_2dii(base_size = 24) +
+  theme_2dii(base_size = 28) +
   theme(
     axis.title = element_blank(),
     axis.line.x = element_blank(),
