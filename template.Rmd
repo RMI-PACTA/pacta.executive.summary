@@ -1,0 +1,197 @@
+---
+output: pdf_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+devtools::load_all()
+
+survey_dir <- here::here("survey-example-plots")
+real_estate_dir <- here::here("real-estate-example-plots")
+investor_name <- "XYZ"
+portfolio_name <- "Test"
+```
+
+---
+title: Executive summary
+subtitle:  |  
+  | PACTA Climate Test Switzerland 2022
+  | Results of `r investor_name`, portfolio: `r portfolio_name`
+---
+
+<!-- This lives in create_interactive_report as template but an example template could also live in the executive-summary package if we have example data to run it -->
+
+<!--  Questions -->
+<!--  1. where should the example charts for this one live? 'img' folder in  -->
+<!--  'create_interactive_report' like for the report? Or in the standalone  -->
+<!--  executive-summary package?   -->
+<!--  2. Where will ES-specific calculations be performed (eg. alignment scores)? Inside of prep functions or as a  part of PACTA analysis?  -->
+
+### Table of contents
+
+### About PACTA Climate Test 2022
+
+Text
+
+### Measuring climate alignment
+
+Text in 3 columns
+
+### Equity & bonds module overview
+
+Text
+
+```{r diagram}
+data_diagram <- prep_diagram(audit_data, emissions_data)
+plot_diagram(data_diagram)
+```
+\newpage
+
+## Equity & Bonds Module
+
+### Current state (PACTA sectors)
+
+#### Exposure to climate-relevant sectors & technologies as % of AUM
+
+Text
+
+```{r exposure}
+data_green_brown_bars <- prep_green_brown_bars(results_portfolio)
+plot_green_brown_bars(data_green_brown_bars)
+
+data_fossil_bars <- prep_fossil_bars(results_portfolio, peers_results_aggregated, 
+                                     indices_results_portfolio)
+plot_fossil_bars(data_fossil_bars)
+```
+
+### Current & future state (Power sector)
+
+#### Current exposure vs. future alignment for Power sector
+
+Text
+
+```{r scatter}
+# REMEMBER: we need an average here
+data_scatter_power <- prep_scatter(results_portfolio, peers_results_individual, 
+                                     indices_results_portfolio, sector = "power")
+plot_scatter(data_scatter_power)
+```
+
+### Future state (PACTA sectors)
+
+#### Aggregated alignment scores
+
+Text
+
+```{r scores}
+data_scores <- prep_scores(results_portfolio, peers_results_portfolio)
+plot_scores(data_scores)
+```
+
+\newpage
+
+## Equity & Bonds Module
+
+### Future state (PACTA sectors)
+
+#### Scenario alignment per technology
+
+Text
+
+```{r alignment_table}
+data_alignment_table <- prep_alignment_table(results_portfolio, 
+                                             peers_results_portfolio)
+plot_alignment_table(data_alignment_table)
+```
+
+\newpage
+
+## Survey
+
+Text
+Text in a box
+![Initiatives you are a part of.](`r file.path(survey_dir, "wordcloud_initiatives.png")`){width=50%}
+![Climate strategy badge.](`r file.path(survey_dir, "climate_strategy_layerchart.png")`){width=50%}
+### Overview
+
+Text
+
+### Investee engagement per sector
+
+Text
+
+![Power engagement badge.](`r file.path(survey_dir, "engagement_layerchart_power.png")`){width=33%}
+![Automotive engagement badge.](`r file.path(survey_dir, "engagement_layerchart_automotive.png")`){width=33%}
+![Fossil fuels engagement badge.](`r file.path(survey_dir, "engagement_layerchart_fossil-fuels.png")`){width=33%}
+
+### Climate-aligned strategies and PACTA fossil fuel exposure
+
+Text
+
+![Coal exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_coal_equity.png")`){width=50%}
+![Coal exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_coal_bonds.png")`){width=50%}
+![Oil & gas exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_equity.png")`){width=50%}
+![Oil & gas exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_bonds.png")`){width=50%}
+
+\newpage
+
+## Real Estate & Mortgage Module
+
+Text
+
+![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`)
+
+ <!-- TODO: the formatting in this one will most probably be different than the rest of the document - investigate -->
+ 
+\newpage
+
+## Climate Score Card
+
+### Current State
+
+#### Carbon Emissions
+
+Text
+
+```{r emissions_scorecard}
+data_emissions_scorecard <- prep_emissions_scorecard(emissions_data)
+plot_emissions_scorecard(data_emissions_scorecard)
+```
+
+#### Exposure to Fossil-fuel and other climate-relevant activities
+
+Text
+
+```{r exposures_scorecard}
+data_exposures_scorecard <- prep_exposures_scorecard(results_portfolio)
+plot_exposures_scorecard(data_exposures_scorecard)
+```
+
+### Transition to Net zero
+
+#### Global Warming Alignment
+
+Text
+
+```{r scores_scorecard}
+data_scores_scorecard <- prep_scores_scorecard(results_portfolio)
+plot_scores_scorecard(data_scores_scorecard)
+```
+
+#### Verified Commitments to Net-Zero
+<!-- TODO: find out where the input for this one comes from. Survey? -->
+
+#### Overall Climate Strategy including Credible Climate Stewardship
+<!-- TODO: find out where the input for this one comes from. Survey? -->
+
+\newpage
+
+## Annex (I): Detailed chart explanation
+
+\newpage
+
+## Annex (I): Detailed chart explanation
+
+\newpage
+
+## Annex (II): FAQs
