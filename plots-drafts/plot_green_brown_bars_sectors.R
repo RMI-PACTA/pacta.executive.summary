@@ -12,7 +12,7 @@ data_sec <- readxl::read_excel(here::here("plots-drafts/toy-data/data_tech_green
     ) %>%
   mutate(
     tech_exp = tech_mix_perc * exp_sector,
-    sector = r2dii.plot::to_title(sector),
+    #sector = r2dii.plot::to_title(sector),
     asset_type = factor(asset_type, levels = c("equity", "bonds"))
   )
 
@@ -25,17 +25,22 @@ data_summ <- data_sec %>%
   distinct() %>%
   ungroup() %>%
   mutate(
-    tech_type = r2dii.plot::to_title(tech_type),
-    tech_type = factor(tech_type, levels = c("Green", "Hydro And Nuclear", "Brown", "Other")),
-    sector_reordered = reorder_within(
-      sector, exp_sector, asset_type
-    )
+#    tech_type = r2dii.plot::to_title(tech_type),
+    tech_type = factor(tech_type, levels = c("green", "hydro_and_nuclear", "brown", "other"))
+   # sector_reordered = reorder_within(
+    #  sector, exp_sector, asset_type
+#    )
   ) %>%
   group_by(asset_type) %>%
   mutate(
     perc_tech_exposure = sum_exp/sum(sum_exp),
     perc_sec_exposure = exp_sector/sum(sum_exp)
-  )
+  ) %>%
+  select(-exp_sector, -sum_exp, -entity_name, -entity_type)
+
+toy_data_green_brown_bars <- data_summ
+
+usethis::use_data(toy_data_green_brown_bars)
 
 colours <- c(
   "#7BC17E", "#b9b5b0", "#977447", "#6e819c"
