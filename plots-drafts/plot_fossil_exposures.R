@@ -14,6 +14,11 @@ data <- readxl::read_excel(here::here("plots-drafts/toy-data/data_exposure_fossi
     entity_name_title = factor(entity_name_title, levels = r2dii.plot::to_title(c("MSCI_world", "peers", "portfolio")))
   )
 
+toy_data_fossil_bars <- data %>%
+  select(-sector, entity_name_title)
+
+usethis::use_data(toy_data_fossil_bars)
+
 colours_fossil <- c("#181716", "#c5c4cf")
 names(colours_fossil) <- c("this_portfolio", "benchmark")
 
