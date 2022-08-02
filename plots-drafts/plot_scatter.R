@@ -21,17 +21,29 @@ data_avg <- data %>%
   bind_rows(data) %>%
   filter(entity_type != "all") %>%
   mutate(
-    entity_type = factor(entity_type, levels = c("this_portfolio", "average", "peer"))
+    entity_type = factor(entity_type, levels = c("this_portfolio", "average", "peer", "benchmark"))
   ) 
 
 data_fut <- data_avg %>%
   filter(year == 2027) 
+
+data_fut <- data_fut %>%
+  mutate(asset_type = "equity") %>%
+  bind_rows(data_fut) %>%
+  select(-tech_mix_brown)
+
+toy_data_scatter <- data_fut
+usethis::use_data(toy_data_scatter)
 
 scores <-  readxl::read_excel(here("plots-drafts/toy-data/score_input.xlsx")) %>%
   mutate(
     score_delta = if_else(is.na(lag(score_upper)), score_upper, score_upper - lag(score_upper)),
     score_label = if_else(is.na(lag(score_upper)), 0, lag(score_upper)) + score_delta/2
   )
+
+alignment_scores_values <- scores
+
+usethis::use_data(alignment_scores_values)
 
 colours_scores <- c(
   "#FF0D0D", "#FF4E11", "#FF8E15", "#FAB733", "#ACB334", "#69B34C"
@@ -120,7 +132,10 @@ p <- ggplot(
   guides(shape = "none", size = "none")
 p
 
-tech_mix <- readxl::read_excel(here("plots-drafts/toy-data/tech_mix_input.xlsx"))
+tech_mix <- tibble::tibble(
+  tech_mix_green = seq(from = 0.05, to = 1, by = 0.05),
+  category = "techmix"
+)
 
 tech_mix_bar_fut <- ggplot(
   tech_mix, 

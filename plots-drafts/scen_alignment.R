@@ -32,7 +32,8 @@ data_long <- readxl::read_excel(here::here('plots-drafts/toy-data/data_scen.xlsx
 data <- data_long %>%
   mutate(
     green_brown = if_else(technology %in% c("electric", "renewables"), "Low-carbon", "High-carbon")
-  )
+  ) %>%
+  select(sector, technology, asset_class, entity, aligned_scen_temp, perc_aum, green_brown)
 
 plot_scen_alignment_table_all_sectors(data)
 #ggsave("../../../visualisation/Executive-summary/scenario-alignement-tech3.png")
