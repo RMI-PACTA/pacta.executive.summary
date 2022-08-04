@@ -58,12 +58,14 @@ Text
 
 ```{r exposure}
 # the specific PACTA outputs that we need here are my guesses 
-data_green_brown_bars <- prep_green_brown_bars(results_portfolio)
+data_green_brown_bars <- prep_green_brown_bars(results_portfolio = NULL)
 plot_green_brown_bars(data_green_brown_bars)
+```
 
+```{r exposure_fossil}
 # the specific PACTA outputs that we need here are my guesses 
-data_fossil_bars <- prep_fossil_bars(results_portfolio, peers_results_aggregated, 
-                                     indices_results_portfolio)
+data_fossil_bars <- prep_fossil_bars(results_portfolio = NULL, peers_results_aggregated = NULL, 
+                                     indices_results_portfolio = NULL)
 plot_fossil_bars(data_fossil_bars)
 ```
 
@@ -76,8 +78,8 @@ Text
 ```{r scatter}
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
-data_scatter_power <- prep_scatter(results_portfolio, peers_results_individual, 
-                                     indices_results_portfolio, sector = "power")
+data_scatter_power <- prep_scatter(results_portfolio = NULL, peers_results_individual = NULL, 
+                                     indices_results_portfolio = NULL, sector = "power")
 plot_scatter(data_scatter_power)
 ```
 
@@ -89,7 +91,7 @@ Text
 
 ```{r scores}
 # the specific PACTA outputs that we need here are my guesses 
-data_scores <- prep_scores(results_portfolio, peers_results_portfolio)
+data_scores <- prep_scores(results_portfolio = NULL, peers_results_portfolio = NULL)
 plot_scores(data_scores)
 ```
 
@@ -105,8 +107,8 @@ Text
 
 ```{r alignment_table}
 # the specific PACTA outputs that we need here are my guesses 
-data_alignment_table <- prep_alignment_table(results_portfolio, 
-                                             peers_results_portfolio)
+data_alignment_table <- prep_alignment_table(results_portfolio = NULL, 
+                                             peers_results_portfolio = NULL)
 plot_alignment_table(data_alignment_table)
 ```
 
@@ -161,7 +163,7 @@ Text
 
 ```{r emissions_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
-data_emissions_scorecard <- prep_emissions_scorecard(emissions_data)
+data_emissions_scorecard <- prep_emissions_scorecard(emissions_data = NULL)
 plot_emissions_scorecard(data_emissions_scorecard)
 ```
 
@@ -171,7 +173,7 @@ Text
 
 ```{r exposures_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
-data_exposures_scorecard <- prep_exposures_scorecard(results_portfolio)
+data_exposures_scorecard <- prep_exposures_scorecard(results_portfolio = NULL)
 plot_exposures_scorecard(data_exposures_scorecard)
 ```
 
@@ -183,7 +185,7 @@ Text
 
 ```{r scores_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
-data_scores_scorecard <- prep_scores(results_portfolio, sector = FALSE)
+data_scores_scorecard <- prep_scores(results_portfolio = NULL, sector = FALSE)
 plot_scores_scorecard(data_scores_scorecard)
 ```
 

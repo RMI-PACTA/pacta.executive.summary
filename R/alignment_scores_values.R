@@ -6,5 +6,5 @@
 #' @keywords internal
 #'
 #' @examples
-#' pacta.executive.summary::alignment_scores_values
+#' pacta.executive.summary:::alignment_scores_values
 "alignment_scores_values"
