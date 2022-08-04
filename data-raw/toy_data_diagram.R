@@ -1,6 +1,6 @@
 toy_data_diagram <- tibble::tibble(
-  exposure_portfolio = c(3000000,3000000),
-  asset_class = c("bonds","equity"),
+  exposure_portfolio = c(3000000, 3000000),
+  asset_class = c("bonds", "equity"),
   exposure_asset_class = c(300000, 450000),
   exposure_asset_class_perc = c(0.1, 0.15),
   exposure_pacta = c(60000, 135000),

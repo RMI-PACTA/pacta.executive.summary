@@ -7,4 +7,3 @@
 #' @examples
 #' pacta.executive.summary:::fill_labels_green_brown_bars
 "fill_labels_green_brown_bars"
-
