@@ -26,7 +26,7 @@ test_that("with non-numeric values of `perc_tech_exposure` and `perc_sec_exposur
   data_wrong_perc_tech <- toy_data_green_brown_bars
   data_wrong_perc_tech$perc_tech_exposure <- as.character(data_wrong_perc_tech$perc_tech_exposure)
   expect_snapshot_error(plot_green_brown_bars(data_wrong_perc_tech))
-  
+
   data_wrong_perc_sec <- toy_data_green_brown_bars
   data_wrong_perc_sec$perc_sec_exposure <- as.character(data_wrong_perc_sec$perc_sec_exposure)
   expect_snapshot_error(plot_green_brown_bars(data_wrong_perc_sec))
@@ -36,7 +36,7 @@ test_that("with wrong values of `perc_tech_exposure` and `perc_sec_exposure` err
   data_wrong_perc_tech <- toy_data_green_brown_bars
   data_wrong_perc_tech$perc_tech_exposure <- data_wrong_perc_tech$perc_tech_exposure * 100
   expect_snapshot_error(plot_green_brown_bars(data_wrong_perc_tech))
-  
+
   data_wrong_perc_sec <- toy_data_green_brown_bars
   data_wrong_perc_sec$perc_sec_exposure <- data_wrong_perc_sec$perc_sec_exposure * 100
   expect_snapshot_error(plot_green_brown_bars(data_wrong_perc_sec))

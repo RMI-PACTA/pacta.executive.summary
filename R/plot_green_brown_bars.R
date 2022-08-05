@@ -64,9 +64,9 @@ check_data_green_brown_bars <- function(data, env) {
   stopifnot(is.data.frame(data))
   abort_if_has_zero_rows(data, env = env)
   abort_if_missing_names(
-    data, 
+    data,
     c("asset_class", "tech_type", "sector", "perc_sec_exposure", "perc_tech_exposure")
-    )
+  )
   abort_if_invalid_values(data, "tech_type", c("green", "hydro_and_nuclear", "brown", "other"))
   stopifnot(is.numeric(data$perc_tech_exposure))
   stopifnot(is.numeric(data$perc_sec_exposure))
