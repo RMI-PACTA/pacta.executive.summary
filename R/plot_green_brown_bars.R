@@ -2,7 +2,7 @@
 #'
 #' @param data A data frame. In principle, an output of
 #'   `prep_green_brown_bars()`. Requirements:
-#'   * Must have columns: `asset_type`,`tech_type`, `sector`,
+#'   * Must have columns: `asset_class`,`tech_type`, `sector`,
 #'   `perc_sec_exposure`, `perc_tech_exposure`.
 #'   * `tech_type` column must only have following values: "green",
 #'   "hydro_and_nuclear", "brown", "other".
@@ -15,7 +15,8 @@
 #' @examples
 #' plot_green_brown_bars(toy_data_green_brown_bars)
 plot_green_brown_bars <- function(data) {
-  check_data_green_brown_bars(data)
+  env <- list(data = substitute(data))
+  check_data_green_brown_bars(data, env = env)
 
   data <- data %>%
     mutate(
@@ -25,7 +26,7 @@ plot_green_brown_bars <- function(data) {
         levels = r2dii.plot::to_title(c("green", "hydro_and_nuclear", "brown", "other"))
       ),
       sector = r2dii.plot::to_title(.data$sector),
-      sector_reordered = tidytext::reorder_within(.data$sector, .data$perc_sec_exposure, .data$asset_type)
+      sector_reordered = tidytext::reorder_within(.data$sector, .data$perc_sec_exposure, .data$asset_class)
     )
 
   p <- ggplot(data, aes(x = .data$sector_reordered, y = .data$perc_tech_exposure, fill = .data$tech_type)) +
@@ -55,10 +56,20 @@ plot_green_brown_bars <- function(data) {
       strip.text = element_text(face = "bold"),
       legend.position = "bottom"
     ) +
-    facet_wrap(~asset_type, scales = "free", labeller = as_labeller(r2dii.plot::to_title))
+    facet_wrap(~asset_class, scales = "free", labeller = as_labeller(r2dii.plot::to_title))
   p
 }
 
-check_data_green_brown_bars <- function(data) {
-
+check_data_green_brown_bars <- function(data, env) {
+  stopifnot(is.data.frame(data))
+  abort_if_has_zero_rows(data, env = env)
+  abort_if_missing_names(
+    data, 
+    c("asset_class", "tech_type", "sector", "perc_sec_exposure", "perc_tech_exposure")
+    )
+  abort_if_invalid_values(data, "tech_type", c("green", "hydro_and_nuclear", "brown", "other"))
+  stopifnot(is.numeric(data$perc_tech_exposure))
+  stopifnot(is.numeric(data$perc_sec_exposure))
+  stopifnot((data$perc_tech_exposure <= 1) & (data$perc_tech_exposure >= 0))
+  stopifnot((data$perc_sec_exposure <= 1) & (data$perc_sec_exposure >= 0))
 }
