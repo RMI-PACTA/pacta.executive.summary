@@ -6,6 +6,7 @@
 #' @importFrom glue glue
 #' @importFrom r2dii.plot theme_2dii
 #' @importFrom r2dii.plot to_title
+#' @importFrom rlang abort
 #' @importFrom rlang warn
 #' @importFrom scales percent
 #' @importFrom tidytext reorder_within

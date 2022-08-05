@@ -53,15 +53,12 @@ deparse_1 <- function(expr, collapse = " ", width.cutoff = 500L, ...) {
 }
 
 abort_if_invalid_values <- function(data, column, valid) {
-  .valid <- deparse_1(substitute(valid))
-  .data <- deparse_1(substitute(data))
   .column <- deparse_1(substitute(column))
 
   if (!all(data[[column]] %in% valid)) {
     msg <- c(
       glue("Each value of `{.column}` must be one of these:\n{toString(valid)}."),
-      x = glue("You passed: {toString(setdiff(data[[column]], valid))}."),
-      i = glue("Do you need to see valid values in this dataset?:\n{.data}")
+      x = glue("You passed: {toString(setdiff(data[[column]], valid))}.")
     )
     abort(msg, class = "unknown_value")
   }
