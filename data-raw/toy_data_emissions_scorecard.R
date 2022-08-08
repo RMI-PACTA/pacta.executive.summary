@@ -1,3 +1,4 @@
+# styler: off
 toy_data_emissions_scorecard <- tibble::tribble(
   ~asset_class,     ~entity, ~emissions,
        "bonds", "portfolio",      70000,
@@ -5,5 +6,6 @@ toy_data_emissions_scorecard <- tibble::tribble(
       "equity", "portfolio",      60000,
       "equity", "benchmark",      70000
   )
+# styler: on
 
 usethis::use_data(toy_data_emissions_scorecard, overwrite = TRUE)

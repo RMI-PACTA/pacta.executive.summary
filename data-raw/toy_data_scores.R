@@ -1,3 +1,4 @@
+# styler: off
 toy_data_scores <- tibble::tribble(
   ~asset_class,      ~scope,          ~entity,      ~sector, ~score,
        "bonds", "portfolio", "this_portfolio",           NA,   "A+",
@@ -33,5 +34,6 @@ toy_data_scores <- tibble::tribble(
       "equity",    "sector", "this_portfolio",     "cement",    "B",
       "equity",    "sector",          "peers",     "cement",    "A"
   )
+# styler: on
 
 usethis::use_data(toy_data_scores)

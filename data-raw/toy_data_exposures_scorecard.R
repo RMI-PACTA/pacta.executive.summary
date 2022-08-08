@@ -1,3 +1,4 @@
+# styler: off
 toy_data_exposures_scorecard <- tibble::tribble(
   ~asset_class,      ~sector_or_tech, ~exposure_perc_aum,
       "equity",               "coal",               0.01,
@@ -9,5 +10,6 @@ toy_data_exposures_scorecard <- tibble::tribble(
        "bonds",       "fossil_power",                0.1,
        "bonds",   "renewables_power",                0.2
   )
+# styler: on
 
 usethis::use_data(toy_data_exposures_scorecard, overwrite = TRUE)
