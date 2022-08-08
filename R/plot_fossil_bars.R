@@ -55,5 +55,13 @@ plot_fossil_bars <- function(data) {
 }
 
 check_data_fossil_bars <- function(data, env) {
-  
+  stopifnot(is.data.frame(data))
+  abort_if_has_zero_rows(data, env = env)
+  abort_if_missing_names(
+    data,
+    c("asset_class", "tech", "entity_name", "entity_type", "perc_aum")
+  )
+  abort_if_invalid_values(data, "tech", c("coal", "oil", "gas"))
+  stopifnot(is.numeric(data$perc_aum))
+  stopifnot((data$perc_aum <= 1) & (data$perc_aum >= 0))
 }
