@@ -19,24 +19,24 @@ plot_fossil_bars <- function(data) {
   
   data <- data %>%
     mutate(
-      entity_name_title = r2dii.plot::to_title(entity_name),
+      entity_name_title = r2dii.plot::to_title(.data$entity_name),
       entity_name_title = factor(
-        entity_name_title, 
+        .data$entity_name_title, 
         levels = r2dii.plot::to_title(c("MSCI_world", "peers", "portfolio"))
         )
     )
   
-  p <- ggplot(data, aes(x = entity_name_title, y = perc_aum, fill = entity_type)) +
+  p <- ggplot(data, aes(x = .data$entity_name_title, y = .data$perc_aum, fill = .data$entity_type)) +
     geom_bar(stat = "identity") +
     geom_text(
-      aes(y = perc_aum, 
-          label = scales::percent(round(perc_aum, digits = 4))), 
+      aes(y = .data$perc_aum, 
+          label = scales::percent(round(.data$perc_aum, digits = 4))), 
       hjust = -0.2,
       size = 7
       ) +
     scale_y_continuous(expand = expansion(mult = c(0, .4))) +
     scale_fill_manual(
-      values = fill_fossil_bars, 
+      values = fill_colours_fossil_bars, 
       labels = fill_labels_fossil_bars,
     ) +
     coord_flip() + 
