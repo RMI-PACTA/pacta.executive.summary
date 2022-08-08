@@ -6,9 +6,9 @@ fill_labels_green_brown_bars <- c(
 )
 
 fill_labels_fossil_bars <- c(
-  "this_portfolio" = "Portfolio", 
+  "this_portfolio" = "Portfolio",
   "benchmark" = "Benchmarks"
-  )
+)
 
 usethis::use_data(
   fill_labels_green_brown_bars,

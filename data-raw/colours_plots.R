@@ -6,7 +6,7 @@ fill_colours_green_brown_bars <- c(
 )
 
 fill_colours_fossil_bars <- c(
-  "this_portfolio" = "#181716", 
+  "this_portfolio" = "#181716",
   "benchmark" = "#c5c4cf"
 )
 
