@@ -7,7 +7,7 @@ library(patchwork)
 
 data <- readxl::read_excel(here::here("plots-drafts/toy-data/data_exposure_fossil.xlsx")) %>%
   mutate(
-    asset_type = factor(asset_type, levels = c("equity", "bonds")),
+    asset_class = factor(asset_type, levels = c("equity", "bonds")),
     tech = factor(tech, levels = c("coal", "oil", "gas")),
     entity_type = factor(entity_type, levels = c("this_portfolio", "benchmark")),
     entity_name_title = r2dii.plot::to_title(entity_name),
@@ -15,9 +15,9 @@ data <- readxl::read_excel(here::here("plots-drafts/toy-data/data_exposure_fossi
   )
 
 toy_data_fossil_bars <- data %>%
-  select(-sector, entity_name_title)
+  select(-sector, -entity_name_title, -asset_type)
 
-usethis::use_data(toy_data_fossil_bars)
+usethis::use_data(toy_data_fossil_bars, overwrite = TRUE)
 
 colours_fossil <- c("#181716", "#c5c4cf")
 names(colours_fossil) <- c("this_portfolio", "benchmark")

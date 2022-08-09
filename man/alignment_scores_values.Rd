@@ -15,6 +15,6 @@ Dataset containing numeric values corresponding to alphabetic scores for
 easier plotting.
 }
 \examples{
-pacta.executive.summary::alignment_scores_values
+pacta.executive.summary:::alignment_scores_values
 }
 \keyword{internal}
