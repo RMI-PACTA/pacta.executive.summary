@@ -10,9 +10,16 @@ fill_labels_fossil_bars <- c(
   "benchmark" = "Benchmarks"
 )
 
+axis_labels_scatter <- c(
+  x = "Share of low-carbon\n technologies in Power sector (current)",
+  y = "Alignment score (forward-looking)",
+  legend_title = "Entity type"
+)
+
 usethis::use_data(
   fill_labels_green_brown_bars,
   fill_labels_fossil_bars,
+  axis_labels_scatter,
   internal = TRUE,
   overwrite = TRUE
 )
