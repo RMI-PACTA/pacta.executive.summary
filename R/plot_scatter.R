@@ -1,16 +1,5 @@
 plot_scatter <- function(data) {
-  score_bar <- ggplot(
-    alignment_scores_values, 
-    aes(
-      x = .data$category, 
-      y = .data$score_delta, 
-      fill = factor(
-        .data$score_symbol, 
-        levels = rev(alignment_scores_values$score_symbol)
-        )
-      )
-    ) +
-    geom_bar(stat = "identity") +
+  score_bar <- plot_basic_scorebar() +
     geom_point(
       data = data %>%
         mutate(category = "score"), 
@@ -22,25 +11,13 @@ plot_scatter <- function(data) {
         size = 1.5),
       position = position_dodge(width=0.2)
       ) +
-    scale_y_continuous(
-      breaks = alignment_scores_values$score_label, 
-      labels = alignment_scores_values$score_symbol,
-      expand = expansion(mult = c(0,0.1))
-      ) +
     scale_colour_2dii(colour_groups = data$entity_type) +
-    scale_fill_manual(values = fill_colours_scores) +
     scale_shape_manual(
       values = c(16, 16, 1, 16),
       labels = r2dii.plot::to_title(levels(data$entity_type))
       ) +
-    theme_2dii(
-      base_size = 20
-    ) + 
     theme(
-      axis.title.x = element_blank(),
-      axis.ticks = element_blank(),
-      axis.text.x = element_blank(),
-      legend.position = "none"
+      axis.title.y = element_text()
       ) +
     labs(
       y = axis_labels_scatter["y"]
@@ -122,7 +99,7 @@ plot_scatter <- function(data) {
       ) +
     labs(y = axis_labels_scatter["x"])
   
-  score_bar + p + guide_area() + tech_mix_bar_fut + 
+  p_out <- score_bar + p + guide_area() + tech_mix_bar_fut + 
     plot_layout(ncol = 2, widths = c(0.7, 3.8), heights = c(3.8, 1), guides = "collect") +
     theme(
       legend.position = "left",
@@ -137,4 +114,36 @@ plot_scatter <- function(data) {
         override.aes = list(size = 4, shape = c(16, 16, 1, 16))
         )
       )
+  p_out
+}
+
+plot_basic_scorebar <- function() {
+  score_bar <- ggplot(
+    alignment_scores_values, 
+    aes(
+      x = .data$category, 
+      y = .data$score_delta, 
+      fill = factor(
+        .data$score_symbol, 
+        levels = rev(.data$score_symbol)
+        )
+      )
+    ) +
+    geom_bar(stat = "identity") +
+    scale_y_continuous(
+      breaks = alignment_scores_values$score_label, 
+      labels = alignment_scores_values$score_symbol,
+      expand = expansion(mult = c(0,0.1))
+      ) +
+    scale_fill_manual(values = fill_colours_scores) +
+    theme_2dii(
+      base_size = 20
+    ) + 
+    theme(
+      axis.title = element_blank(),
+      axis.ticks = element_blank(),
+      axis.text.x = element_blank(),
+      legend.position = "none"
+      )
+  score_bar
 }
