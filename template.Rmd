@@ -79,7 +79,7 @@ Text
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
 data_scatter_power <- prep_scatter(results_portfolio = NULL, peers_results_individual = NULL, 
-                                     indices_results_portfolio = NULL, sector = "power")
+                                     indices_results_portfolio = NULL, sector = "power", asset_class = "equity")
 plot_scatter(data_scatter_power)
 ```
 
