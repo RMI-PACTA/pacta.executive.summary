@@ -11,8 +11,8 @@ fill_labels_fossil_bars <- c(
 )
 
 axis_labels_scatter <- c(
-  x = "Share of low-carbon\n technologies in Power sector (current)",
-  y = "Alignment score (forward-looking)",
+  x = "Share of low-carbon\ntechnologies in Power sector (current)",
+  y = "Alignment score\n(forward-looking)",
   legend_title = "Entity type"
 )
 
