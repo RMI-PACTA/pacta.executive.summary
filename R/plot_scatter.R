@@ -1,4 +1,25 @@
+#' Create a scatter plot of exposure to low-carbon technology vs. alignment score
+#'
+#' @param data A data frame. In principle, an output of
+#'   `prep_scatter()`. Requirements:
+#'   * `asset_class` must have a single value.
+#'   * Must have columns: `asset_class`,`tech_mix_green`,`score`, `entity_name`,
+#'    `entity_type`.
+#'   * `entity_type` column must be factor and only have following values: 
+#'   "average", "this_portfolio", "peer", "benchmark".
+#'   * `tech_mix_green` must be a percentage in decimal format, with values 
+#'   between 0 and 1.
+#'   * `score` must be a number between 0 and 100.
+#'
+#' @return an object of class "ggplot".
+#' @export
+#'
+#' @examples
+#' plot_scatter(toy_data_scatter)
 plot_scatter <- function(data) {
+  env <- list(data = substitute(data))
+  check_data_scatter(data, env = env)
+  
   score_bar <- plot_basic_scorebar() +
     geom_point(
       data = data %>%
@@ -115,6 +136,21 @@ plot_scatter <- function(data) {
         )
       )
   p_out
+}
+
+check_data_scatter <- function(data, env) {
+  stopifnot(is.data.frame(data))
+  abort_if_has_zero_rows(data, env = env)
+  abort_if_missing_names(
+    data,
+    c("asset_class", "tech_mix_green", "score", "entity_name", "entity_type")
+  )
+  abort_if_multiple(data, "asset_class", env)
+  abort_if_invalid_values(data, "entity_type", c("average", "this_portfolio", "peer", "benchmark"))
+  stopifnot(is.numeric(data$tech_mix_green))
+  stopifnot(is.numeric(data$score))
+  stopifnot((data$tech_mix_green <= 1) & (data$tech_mix_green >= 0))
+  stopifnot((data$score <= 100) & (data$score >= 0))
 }
 
 plot_basic_scorebar <- function() {
