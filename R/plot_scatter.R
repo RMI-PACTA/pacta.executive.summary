@@ -82,7 +82,7 @@ plot_scatter <- function(data) {
     ) +
     guides(shape = "none", size = "none")
 
-  tech_mix <- tibble::tibble(
+  tech_mix <- tibble(
     tech_mix_green = seq(from = 0.05, to = 1, by = 0.05),
     category = "techmix"
   )

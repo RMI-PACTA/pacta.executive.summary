@@ -22,10 +22,14 @@ Imports:
     ggplot2,
     glue,
     magrittr,
+    patchwork,
+    r2dii.colours,
     r2dii.plot,
     rlang,
     scales,
+    tibble,
     tidytext
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Remotes: 2DegreesInvesting/r2dii.colours
