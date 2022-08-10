@@ -65,3 +65,25 @@ abort_if_invalid_values <- function(data, column, valid) {
 
   invisible(data)
 }
+
+abort_if_multiple <- function(data, x, env = parent.frame()) {
+  .data <- deparse_1(substitute(data, env = env))
+
+  do_it_once <- function(x) {
+    .x <- unique(data[[x]])
+    if (length(.x) > 1L) {
+      abort(c(
+        glue("`{.data}` must have a single value of `{x}`."),
+        i = glue(
+          "Do you need to pick one value? E.g. pick '{first(.x)}' with: \\
+          `subset({.data}, {x} == '{first(.x)}')`."
+        ),
+        x = glue("Provided: {toString(.x)}.")
+      ))
+    }
+    invisible(x)
+  }
+  lapply(x, do_it_once)
+
+  invisible(data)
+}

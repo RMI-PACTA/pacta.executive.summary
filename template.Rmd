@@ -75,12 +75,28 @@ plot_fossil_bars(data_fossil_bars)
 
 Text
 
-```{r scatter}
+```{r scatter_equity}
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
 data_scatter_power <- prep_scatter(results_portfolio = NULL, peers_results_individual = NULL, 
-                                     indices_results_portfolio = NULL, sector = "power")
-plot_scatter(data_scatter_power)
+                                     indices_results_portfolio = NULL, sector = "power", asset_class = "equity")
+plot_scatter(data_scatter_power) +
+  patchwork::plot_annotation(
+    title = "Equity",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
+```
+
+```{r scatter_bonds}
+# REMEMBER: we need an additional data point with average here
+# the specific PACTA outputs that we need here are my guesses 
+data_scatter_power <- prep_scatter(results_portfolio = NULL, peers_results_individual = NULL, 
+                                     indices_results_portfolio = NULL, sector = "power", asset_class = "bonds")
+plot_scatter(data_scatter_power) + 
+  patchwork::plot_annotation(
+    title = "Bonds",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
 ```
 
 ### Future state (PACTA sectors)

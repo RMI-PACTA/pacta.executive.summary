@@ -11,7 +11,7 @@ library(here)
 data <- readxl::read_excel(here("plots-drafts/toy-data/data_score_exp.xlsx"))
 
 data_avg <- data %>%
-  group_by(asset_type, year) %>%
+  group_by(asset_class, year) %>%
   summarise(
     tech_mix_brown = mean(tech_mix_brown, na.rm = TRUE),
     tech_mix_green = mean(tech_mix_green, na.rm = TRUE),
@@ -28,12 +28,12 @@ data_fut <- data_avg %>%
   filter(year == 2027) 
 
 data_fut <- data_fut %>%
-  mutate(asset_type = "equity") %>%
+  mutate(asset_class = "equity") %>%
   bind_rows(data_fut) %>%
   select(-tech_mix_brown)
 
 toy_data_scatter <- data_fut
-usethis::use_data(toy_data_scatter)
+usethis::use_data(toy_data_scatter, overwrite = TRUE)
 
 scores <-  readxl::read_excel(here("plots-drafts/toy-data/score_input.xlsx")) %>%
   mutate(
