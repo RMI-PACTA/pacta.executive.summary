@@ -9,6 +9,7 @@
 #' @importFrom dplyr pull
 #' @importFrom dplyr select
 #' @importFrom glue glue
+#' @importFrom purrr map_df
 #' @importFrom r2dii.colours scale_colour_2dii
 #' @importFrom r2dii.plot theme_2dii
 #' @importFrom r2dii.plot to_title

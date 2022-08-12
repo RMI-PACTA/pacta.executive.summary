@@ -27,5 +27,7 @@ an object of class "ggplot".
 Create a scatter plot of exposure to low-carbon technology vs. alignment score
 }
 \examples{
-plot_scatter(toy_data_scatter)
+library(dplyr)
+
+plot_scatter(toy_data_scatter \%>\% filter(asset_class == "equity"))
 }

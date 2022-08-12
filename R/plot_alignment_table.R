@@ -16,9 +16,9 @@
 #' @export
 #'
 #' @examples
-#' plot_alignment_table(
-#' toy_data_alignment_table %>% filter(asset_class == "equity")
-#' )
+#' library(dplyr)
+#' 
+#' plot_alignment_table(toy_data_alignment_table %>% filter(asset_class == "equity"))
 plot_alignment_table <- function(data) {
   env <- list(data = substitute(data))
   check_data_alignment_table(data, env = env)
@@ -36,7 +36,7 @@ plot_alignment_table <- function(data) {
                                                size_range, ncol = 3)
     
   p_ylabel = ggplot(data.frame(l = "Aligned scenario temperature", x = 1, y = 1)) +
-          geom_text(aes(x, y, label = l), angle = 90, size = 7) + 
+          geom_text(aes(x = .data$x, y = .data$y, label = .data$l), angle = 90, size = 7) + 
           theme_void() +
           coord_cartesian(clip = "off")
   
@@ -90,19 +90,19 @@ plot_alignment_table_tech_cells <- function(data) {
         )
       ) +
     geom_point(
-      aes(shape = entity, size = perc_aum),
+      aes(shape = .data$entity, size = .data$perc_aum),
       position = pj
       ) +
     scale_fill_manual(
       values = c(">3.2C" = r2dii.colours::palette_2dii_scenario %>% 
-                   filter(label == "red") %>% 
-                   pull(hex),
+                   filter(.data$label == "red") %>% 
+                   pull(.data$hex),
                  "2.7-3.2C" = r2dii.colours::palette_2dii_scenario %>% 
-                   filter(label == "dark_yellow") %>% 
-                   pull(hex),
+                   filter(.data$label == "dark_yellow") %>% 
+                   pull(.data$hex),
                  "<2C" = r2dii.colours::palette_2dii_scenario %>% 
-                   filter(label == "dark_green") %>% 
-                   pull(hex)
+                   filter(.data$label == "dark_green") %>% 
+                   pull(.data$hex)
                  )
         ) +
     scale_color_manual(
@@ -174,18 +174,18 @@ make_annotations_df <- function(data) {
     ymax = c(1.5, 2.5, 3.5)
   )
   
-  annotations <- unique(data %>% pull(technology)) %>% 
+  annotations <- unique(data %>% pull(.data$technology)) %>% 
     purrr::map_df(~ annotations_tech %>% mutate(technology = .x))
   
   data_portfolio <- data %>%
     filter(
-      entity == "portfolio"
+      .data$entity == "portfolio"
       ) %>%
     mutate(
-      aligned_portfolio_temp = aligned_scen_temp
+      aligned_portfolio_temp = .data$aligned_scen_temp
     ) %>% 
     select(
-      technology, aligned_scen_temp, entity, aligned_portfolio_temp
+      .data$technology, .data$aligned_scen_temp, .data$entity, .data$aligned_portfolio_temp
     ) %>%
     distinct()
     
