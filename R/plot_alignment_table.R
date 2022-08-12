@@ -115,6 +115,10 @@ plot_alignment_table_tech_cells <- function(data) {
     scale_shape_manual(
       values = c(15, 0), 
       labels = as_function(~ r2dii.colours:::make_pretty_labels(.x))) +
+    scale_x_discrete(
+      limits = levels(data$entity),
+      labels = as_function(~ r2dii.colours:::make_pretty_labels(.x))
+      ) + 
     scale_y_discrete(
       expand = expansion(add = c(0.5, 0.5)),
       limits = c(">3.2C", "2.7-3.2C", "<2C")
