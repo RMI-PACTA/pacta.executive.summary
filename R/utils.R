@@ -96,8 +96,8 @@ abort_if_missing_crucial_value <- function(data, column, value, env = parent.fra
   .data <- deparse_1(substitute(data, env = env))
 
   if (!any(data[column] == value)) {
-    abort(c(
-      "{.column} in {.data} must have at least one record equal to {toString(value)}."
+    abort(glue(
+      "{.column} in {.data} must have at least one record equal to: {toString(value)}."
     ),
     class = "missing_crucial_value"
     )
