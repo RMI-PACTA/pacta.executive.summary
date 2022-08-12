@@ -87,3 +87,21 @@ abort_if_multiple <- function(data, x, env = parent.frame()) {
 
   invisible(data)
 }
+
+abort_if_missing_crucial_value <- function(data, column, value, env = parent.frame()) {
+  stopifnot(rlang::is_named(data))
+  stopifnot(column %in% names(data))
+  
+  .column <- deparse_1(substitute(column))
+  .data <- deparse_1(substitute(data, env = env))
+
+  if (!any(data[column] == value)) {
+    abort(c(
+      "{.column} in {.data} must have at least one record equal to {toString(value)}."
+    ),
+    class = "missing_crucial_value"
+    )
+  }
+
+  invisible(data)
+}

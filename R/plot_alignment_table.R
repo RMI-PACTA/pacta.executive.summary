@@ -1,4 +1,28 @@
+#' Create a scenario alignment table
+#'
+#' @param data A data frame. In principle, an output of
+#'   `prep_alignment_table()`. Requirements:
+#'   * `asset_class` must have a single value.
+#'   * Must have columns: `asset_class`,`sector`,`technology`, `entity`,
+#'    `aligned_scen_temp`, `perc_aum`.
+#'   * `entity` must contain at least one value of "portfolio".
+#'   * `sector` must be one of: "power", "fossil_fuels", "automotive".
+#'   * `aligned_scen_temp` must be one of: ">3.2C", "2.7-3.2C", "<2C".
+#'   * `perc_aum` must be a percentage in decimal format, with values 
+#'   between 0 and 1.
+#'
+#' @return an object of class "ggplot".
+#'
+#' @export
+#'
+#' @examples
+#' plot_alignment_table(
+#' toy_data_alignment_table %>% filter(asset_class == "equity")
+#' )
 plot_alignment_table <- function(data) {
+  env <- list(data = substitute(data))
+  check_data_alignment_table(data, env = env)
+  
   size_lim <- c(min(data$perc_aum, na.rm = TRUE), max(data$perc_aum, na.rm = TRUE))
   size_range <- c(4,12)
   
@@ -21,6 +45,22 @@ plot_alignment_table <- function(data) {
   
   p <- p_ylabel + p_tech + plot_layout(widths = c(1, 15))
   p
+}
+
+check_data_alignment_table <- function(data, env = env) {
+  stopifnot(is.data.frame(data))
+  abort_if_has_zero_rows(data, env = env)
+  abort_if_missing_names(
+    data,
+    c("asset_class", "sector", "technology", "entity", "aligned_scen_temp", 
+      "perc_aum")
+  )
+  abort_if_multiple(data, "asset_class", env)
+  abort_if_missing_crucial_value(data, "entity", "portfolio", env)
+  abort_if_invalid_values(data, "sector", c("power", "fossil_fuels", "automotive"))
+  abort_if_invalid_values(data, "aligned_scen_temp", c(">3.2C", "2.7-3.2C", "<2C"))
+  stopifnot(is.numeric(data$perc_aum))
+  stopifnot((data$perc_aum <= 1) & (data$perc_aum >= 0))
 }
 
 plot_alignment_table_tech_cells <- function(data) {

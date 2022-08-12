@@ -163,6 +163,9 @@ Text
 
 Text
 
+```{r}
+#TODO: add code here for plotting exposure
+```
 ![Coal exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_coal_equity.png")`){width=50%}
 ![Coal exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_coal_bonds.png")`){width=50%}
 ![Oil & gas exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_equity.png")`){width=50%}
