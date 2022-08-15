@@ -105,11 +105,26 @@ plot_scatter(data_scatter_power) +
 
 Text
 
-```{r scores}
+```{r scores_equity}
 # the specific PACTA outputs that we need here are my guesses 
 data_scores <- prep_scores(results_portfolio = NULL, peers_results_aggregated = NULL,
                            asset_class = "equity")
-plot_scores(data_scores)
+plot_scores(data_scores) + 
+  patchwork::plot_annotation(
+    title = "Equity",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
+```
+
+```{r scores_bonds}
+# the specific PACTA outputs that we need here are my guesses 
+data_scores <- prep_scores(results_portfolio = NULL, peers_results_aggregated = NULL,
+                           asset_class = "bonds")
+plot_scores(data_scores) + 
+  patchwork::plot_annotation(
+    title = "Bonds",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
 ```
 
 \newpage
