@@ -35,5 +35,15 @@ data <- data_long %>%
   ) %>%
   select(sector, technology, asset_class, entity, aligned_scen_temp, perc_aum, green_brown)
 
+data <- data %>%
+  mutate(
+    asset_class = "equity"
+  ) %>%
+  rbind(data)
+
+toy_data_alignment_table <- data
+
+usethis::use_data(toy_data_alignment_table, overwrite = TRUE)
+
 plot_scen_alignment_table_all_sectors(data)
 #ggsave("../../../visualisation/Executive-summary/scenario-alignement-tech3.png")

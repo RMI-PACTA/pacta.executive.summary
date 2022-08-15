@@ -23,6 +23,7 @@ Imports:
     glue,
     magrittr,
     patchwork,
+    purrr,
     r2dii.colours,
     r2dii.plot,
     rlang,

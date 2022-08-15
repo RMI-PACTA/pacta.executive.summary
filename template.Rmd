@@ -75,7 +75,7 @@ plot_fossil_bars(data_fossil_bars)
 
 Text
 
-```{r scatter_equity}
+```{r scatter_equity, out.width="50%"}
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
 data_scatter_power <- prep_scatter(results_portfolio = NULL, peers_results_individual = NULL, 
@@ -87,7 +87,7 @@ plot_scatter(data_scatter_power) +
     )
 ```
 
-```{r scatter_bonds}
+```{r scatter_bonds, out.width="50%"}
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
 data_scatter_power <- prep_scatter(results_portfolio = NULL, peers_results_individual = NULL, 
@@ -121,11 +121,22 @@ plot_scores(data_scores)
 
 Text
 
-```{r alignment_table}
+```{r alignment_table_equity, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
 data_alignment_table <- prep_alignment_table(results_portfolio = NULL, 
-                                             peers_results_portfolio = NULL)
+                                             peers_results_aggregated = NULL,
+                                             asset_class = "equity")
 plot_alignment_table(data_alignment_table)
+# TODO: add title
+```
+
+```{r alignment_table_bonds, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+data_alignment_table <- prep_alignment_table(results_portfolio = NULL, 
+                                             peers_results_aggregated = NULL,
+                                             asset_class = "bonds")
+plot_alignment_table(data_alignment_table)
+# TODO: add title
 ```
 
 \newpage
@@ -152,6 +163,9 @@ Text
 
 Text
 
+```{r}
+#TODO: add code here for plotting exposure
+```
 ![Coal exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_coal_equity.png")`){width=50%}
 ![Coal exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_coal_bonds.png")`){width=50%}
 ![Oil & gas exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_equity.png")`){width=50%}

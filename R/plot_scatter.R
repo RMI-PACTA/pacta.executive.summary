@@ -15,7 +15,9 @@
 #' @export
 #'
 #' @examples
-#' plot_scatter(toy_data_scatter)
+#' library(dplyr)
+#' 
+#' plot_scatter(toy_data_scatter %>% filter(asset_class == "equity"))
 plot_scatter <- function(data) {
   env <- list(data = substitute(data))
   check_data_scatter(data, env = env)
