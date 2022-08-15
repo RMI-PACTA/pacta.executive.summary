@@ -107,7 +107,8 @@ Text
 
 ```{r scores}
 # the specific PACTA outputs that we need here are my guesses 
-data_scores <- prep_scores(results_portfolio = NULL, peers_results_portfolio = NULL)
+data_scores <- prep_scores(results_portfolio = NULL, peers_results_aggregated = NULL,
+                           asset_class = "equity")
 plot_scores(data_scores)
 ```
 
