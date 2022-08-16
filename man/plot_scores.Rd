@@ -28,5 +28,5 @@ Create a plot showing aggregated scores for portfolio and peers
 \examples{
 library(dplyr)
 
-plot_scores(toy_data_scatter \%>\% filter(asset_class == "equity"))
+plot_scores(toy_data_scores \%>\% filter(asset_class == "equity"))
 }
