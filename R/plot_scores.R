@@ -6,8 +6,8 @@
 #'   * `asset_class` must have a single value.
 #'   * `scope` must be one of: "portfolio", "sector".
 #'   * `entity` must have following values: "this_portfolio", "peers".
-#'   * `sector` must have following values: "power", "automotive", "coal",
-#'   "oil", "gas", "steel", "cement" or `NA` in case of `scope` == "portfolio".
+#'   * `sector` must be one of: "power", "automotive", "coal", "oil", "gas", 
+#'   "steel", "cement" or `NA` in case of `scope` == "portfolio".
 #'   * `score` must be one of: "A+", "A", "B", "C", "D", "E".
 #'
 #' @return an object of class "ggplot".
@@ -18,6 +18,9 @@
 #' 
 #' plot_scores(toy_data_scores %>% filter(asset_class == "equity"))
 plot_scores <- function(data) {
+  env <- list(data = substitute(data))
+  check_data_scores(data, env = env)
+  
   data <- data %>%
     dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
     select(-.data$category, -.data$score_delta, -.data$score_upper) %>%
@@ -183,4 +186,22 @@ legend_scores <- function() {
       panel.spacing = unit(0, "cm")
     )
   l
+}
+
+check_data_scores <- function(data, env) {
+  stopifnot(is.data.frame(data))
+  abort_if_has_zero_rows(data, env = env)
+  abort_if_missing_names(
+    data, 
+    c("asset_class", "scope", "entity", "sector", "score")
+    )
+  abort_if_multiple(data, "asset_class", env)
+  abort_if_invalid_values(data, "scope", c("portfolio", "sector"))
+  abort_if_missing_crucial_values(data, "entity", c("this_portfolio", "peers"), env)
+  abort_if_invalid_values(
+    data, 
+    "sector", 
+    c(NA, "power", "automotive", "coal", "oil", "gas", "cement", "steel")
+    )
+  abort_if_invalid_values(data, "score", c("A+", "A", "B", "C", "D", "E"))
 }

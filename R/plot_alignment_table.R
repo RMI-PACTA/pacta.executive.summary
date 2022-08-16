@@ -56,7 +56,7 @@ check_data_alignment_table <- function(data, env = env) {
       "perc_aum")
   )
   abort_if_multiple(data, "asset_class", env)
-  abort_if_missing_crucial_value(data, "entity", "portfolio", env)
+  abort_if_missing_crucial_values(data, "entity", c("portfolio"), env)
   abort_if_invalid_values(data, "sector", c("power", "fossil_fuels", "automotive"))
   abort_if_invalid_values(data, "aligned_scen_temp", c(">3.2C", "2.7-3.2C", "<2C"))
   stopifnot(is.numeric(data$perc_aum))
