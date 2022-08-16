@@ -27,11 +27,11 @@ test_that("with wrong values of `scope` errors gracefully", {
 })
 
 test_that("with missing crucial values in `entity` errors gracefully", {
-  data_missing <- toy_data_scores %>% 
+  data_missing <- toy_data_scores %>%
     dplyr::filter(asset_class == "bonds", entity != "this_portfolio")
   expect_snapshot_error(plot_scores(data_missing))
-  
-  data_missing <- toy_data_scores %>% 
+
+  data_missing <- toy_data_scores %>%
     dplyr::filter(asset_class == "bonds", entity != "peers")
   expect_snapshot_error(plot_scores(data_missing))
 })

@@ -91,7 +91,7 @@ abort_if_multiple <- function(data, x, env = parent.frame()) {
 abort_if_missing_crucial_values <- function(data, column, values, env = parent.frame()) {
   stopifnot(rlang::is_named(data))
   stopifnot(column %in% names(data))
-  
+
   .column <- deparse_1(substitute(column))
   .data <- deparse_1(substitute(data, env = env))
 
@@ -102,7 +102,7 @@ abort_if_missing_crucial_values <- function(data, column, values, env = parent.f
       ),
       class = "missing_crucial_value"
       )
-    } 
+    }
   }
 
   invisible(data)
