@@ -11,7 +11,7 @@ fill_colours_fossil_bars <- c(
 )
 
 fill_colours_scores <- c(
-  "E" = "#FF0D0D", "D" = "#FF4E11", "C" = "#FF8E15", "B" = "#FAB733", 
+  "E" = "#FF0D0D", "D" = "#FF4E11", "C" = "#FF8E15", "B" = "#FAB733",
   "A" = "#ACB334", "A+" = "#69B34C"
 )
 

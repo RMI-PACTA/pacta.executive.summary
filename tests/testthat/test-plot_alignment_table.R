@@ -20,7 +20,7 @@ test_that("with multiple values for `asset_class` errors gracefully", {
 })
 
 test_that("with missing crucial values in `entity` errors gracefully", {
-  data_missing <- toy_data_alignment_table %>% 
+  data_missing <- toy_data_alignment_table %>%
     dplyr::filter(asset_class == "bonds", entity != "portfolio")
   expect_snapshot_error(plot_alignment_table(data_missing))
 })

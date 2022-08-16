@@ -14,7 +14,9 @@
 
 # with multiple values for `asset_class` errors gracefully
 
-    could not find function "first"
+    `toy_data_scatter` must have a single value of `asset_class`.
+    i Do you need to pick one value? E.g. pick 'equity' with: `subset(toy_data_scatter, asset_class == 'equity')`.
+    x Provided: equity, bonds.
 
 # with wrong values of `entity_type` errors gracefully
 

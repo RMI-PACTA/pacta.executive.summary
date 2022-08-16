@@ -4,6 +4,7 @@
 ## usethis namespace: start
 #' @importFrom dplyr distinct
 #' @importFrom dplyr filter
+#' @importFrom dplyr first
 #' @importFrom dplyr left_join
 #' @importFrom dplyr mutate
 #' @importFrom dplyr pull
