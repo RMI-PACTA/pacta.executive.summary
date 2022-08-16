@@ -1,3 +1,22 @@
+#' Create a plot showing aggregated scores for portfolio and peers
+#'
+#' @param data A data frame. In principle, an output of `prep_scores()`.
+#'   Requirements:
+#'   * Must have columns: `asset_class`,`scope`,`entity`, `sector`, `score`.
+#'   * `asset_class` must have a single value.
+#'   * `scope` must be one of: "portfolio", "sector".
+#'   * `entity` must have following values: "this_portfolio", "peers".
+#'   * `sector` must have following values: "power", "automotive", "coal",
+#'   "oil", "gas", "steel", "cement" or `NA` in case of `scope` == "portfolio".
+#'   * `score` must be one of: "A+", "A", "B", "C", "D", "E".
+#'
+#' @return an object of class "ggplot".
+#' @export
+#'
+#' @examples
+#' library(dplyr)
+#' 
+#' plot_scores(toy_data_scatter %>% filter(asset_class == "equity"))
 plot_scores <- function(data) {
   data <- data %>%
     dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
@@ -6,7 +25,7 @@ plot_scores <- function(data) {
       score_symbol = .data$score
       )
   
-  p_portfolio <- plot_score_portfolio(data %>% filter(is.na(.data$sector))) +
+  p_portfolio <- plot_score_portfolio(data %>% filter(.data$scope == "portfolio")) +
     labs(subtitle = "Portfolio")
   
   p_power <- plot_score_sector(data, "power")
@@ -47,7 +66,7 @@ plot_score_portfolio <- function(data) {
       aes(y = .data$score_label)
       ) +
     geom_text(
-      data = data %>% filter(.data$entity != "this_portfolio"), 
+      data = data %>% filter(.data$entity == "peers"), 
       x = 1.5, 
       label = "\u25B2", 
       angle = 270 / pi,
@@ -61,7 +80,10 @@ plot_score_portfolio <- function(data) {
 }
 
 plot_score_sector <- function(data, sector) {
-  data <- data %>% filter(.data$sector == .env$sector)
+  data <- data %>% filter(
+    .data$sector == .env$sector,
+    .data$scope == "sector"
+    )
   
   c_position = alignment_scores_values %>%
     filter(.data$score_symbol == "C") %>%
@@ -117,7 +139,7 @@ legend_scores <- function() {
     y = c(3.5, 2.5, 1)
   )
   
-  l <- ggplot(fake_data, aes(x = x, y = y)) +
+  l <- ggplot(fake_data, aes(x = .data$x, y = .data$y)) +
     annotate(
       "text", 
       x = 0,
