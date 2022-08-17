@@ -1,4 +1,27 @@
+#' Create a diagram of asset class coverage
+#'
+#' @param data A data frame. In principle an output of `prep_diagram()`.
+#'   Requirements:
+#'   * Must have columns: `asset_class`, `exposure_portfolio`, 
+#'   `exposure_asset_class`, `exposure_asset_class_perc`, `exposure_pacta`, 
+#'   `exposure_pacta_perc_asset_class_exposure`, `emissions_pacta_perc`, 
+#'   `emissions_pacta`.
+#'   * Must have two rows.
+#'   * `asset_class` must have values: "equity", "bonds".
+#'   * `exposure_portfolio`, `exposure_asset_class`, `exposure_asset_class_perc`, 
+#'   `exposure_pacta`, `exposure_pacta_perc_asset_class_exposure`, 
+#'   `emissions_pacta_perc`, `emissions_pacta` must be numeric.
+#'   * `exposure_asset_class_perc`, `exposure_pacta_perc_asset_class_exposure`, 
+#'   `emissions_pacta_perc` must be a percentage in decimal format, with values 
+#'   between 0 and 1.
+#'
+#' @return An object of class "htmlwidget".
+#' @export
+#'
+#' @examples
+#' plot_diagram(toy_data_diagram)
 plot_diagram <- function(data = NULL) {
+  
   data_bonds <- data %>%
     filter(.data$asset_class == "bonds")
   
