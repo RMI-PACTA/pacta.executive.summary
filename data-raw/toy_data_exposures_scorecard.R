@@ -16,7 +16,7 @@ toy_data_exposures_scorecard <- toy_data_exposures_scorecard %>%
   mutate(
     sector_or_tech = factor(
       sector_or_tech,
-      levels = rev(c("coal", "other_fossil_fuels", "fossil_power", "renewable_power"))
+      levels = rev(c("coal", "other_fossil_fuels", "fossil_power", "renewables_power"))
       )
   )
 
