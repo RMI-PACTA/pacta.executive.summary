@@ -21,6 +21,8 @@
 #' @examples
 #' plot_diagram(toy_data_diagram)
 plot_diagram <- function(data = NULL) {
+  env <- list(data = substitute(data))
+  check_data_diagram(data, env)
   
   data_bonds <- data %>%
     filter(.data$asset_class == "bonds")
@@ -80,4 +82,28 @@ plot_diagram <- function(data = NULL) {
   total_exp -> bonds_exp [label = 'Corporate Bonds']
   bonds_exp -> bonds_pacta_exp -> bonds_emission_exp
   }", .open = "{{", .close = "}}"))
+}
+
+check_data_diagram <- function(data, env) {
+  stopifnot(is.data.frame(data))
+  abort_if_has_zero_rows(data, env = env)
+  stopifnot(nrow(data) == 2)
+  abort_if_missing_names(
+    data,
+    c("exposure_portfolio", "asset_class", "exposure_asset_class", 
+      "exposure_asset_class_perc", "exposure_pacta", 
+      "exposure_pacta_perc_asset_class_exposure", "emissions_pacta_perc", 
+      "emissions_pacta")
+  )
+  abort_if_missing_crucial_values(data, "asset_class", c("equity", "bonds"), env)
+  stopifnot(is.numeric(data$exposure_portfolio))
+  stopifnot(is.numeric(data$exposure_asset_class))
+  stopifnot(is.numeric(data$exposure_asset_class_perc))
+  stopifnot(is.numeric(data$exposure_pacta))
+  stopifnot(is.numeric(data$exposure_pacta_perc_asset_class_exposure))
+  stopifnot(is.numeric(data$emissions_pacta))
+  stopifnot(is.numeric(data$emissions_pacta_perc))
+  stopifnot((data$exposure_asset_class_perc <= 1) & (data$exposure_asset_class_perc >= 0))
+  stopifnot((data$exposure_pacta_perc_asset_class_exposure <= 1) & (data$exposure_pacta_perc_asset_class_exposure >= 0))
+  stopifnot((data$emissions_pacta_perc <= 1) & (data$emissions_pacta_perc >= 0))
 }
