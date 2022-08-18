@@ -27,37 +27,37 @@ test_that("with non-numeric values of numeric columns errors gracefully", {
       exposure_portfolio = as.character(.data$exposure_portfolio)
     )
   expect_snapshot_error(plot_diagram(data_wrong))
-  
+
   data_wrong <- toy_data_diagram %>%
     mutate(
       exposure_asset_class = as.character(.data$exposure_asset_class)
     )
   expect_snapshot_error(plot_diagram(data_wrong))
-  
+
   data_wrong <- toy_data_diagram %>%
     mutate(
       exposure_asset_class_perc = as.character(.data$exposure_asset_class_perc)
     )
   expect_snapshot_error(plot_diagram(data_wrong))
-  
+
   data_wrong <- toy_data_diagram %>%
     mutate(
       exposure_pacta = as.character(.data$exposure_pacta)
     )
   expect_snapshot_error(plot_diagram(data_wrong))
-  
+
   data_wrong <- toy_data_diagram %>%
     mutate(
       exposure_pacta_perc_asset_class_exposure = as.character(.data$exposure_pacta_perc_asset_class_exposure)
     )
   expect_snapshot_error(plot_diagram(data_wrong))
-  
+
   data_wrong <- toy_data_diagram %>%
     mutate(
       emissions_pacta = as.character(.data$emissions_pacta)
     )
   expect_snapshot_error(plot_diagram(data_wrong))
-  
+
   data_wrong <- toy_data_diagram %>%
     mutate(
       emissions_pacta_perc = as.character(.data$emissions_pacta_perc)
@@ -68,19 +68,19 @@ test_that("with non-numeric values of numeric columns errors gracefully", {
 test_that("with wrong values of percentage columns errors gracefully", {
   data_wrong <- toy_data_diagram %>%
     mutate(
-      exposure_asset_class_perc = .data$exposure_asset_class_perc * 1000 
-      )
+      exposure_asset_class_perc = .data$exposure_asset_class_perc * 1000
+    )
   expect_snapshot_error(plot_diagram(data_wrong))
-  
+
   data_wrong <- toy_data_diagram %>%
     mutate(
-      exposure_pacta_perc_asset_class_exposure = .data$exposure_pacta_perc_asset_class_exposure * 1000 
-      )
+      exposure_pacta_perc_asset_class_exposure = .data$exposure_pacta_perc_asset_class_exposure * 1000
+    )
   expect_snapshot_error(plot_diagram(data_wrong))
-  
+
   data_wrong <- toy_data_diagram %>%
     mutate(
-      emissions_pacta_perc = .data$emissions_pacta_perc * 1000 
-      )
+      emissions_pacta_perc = .data$emissions_pacta_perc * 1000
+    )
   expect_snapshot_error(plot_diagram(data_wrong))
 })
