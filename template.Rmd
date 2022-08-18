@@ -43,7 +43,7 @@ Text
 
 ```{r diagram}
 # the specific PACTA outputs that we need here are my guesses 
-data_diagram <- prep_diagram(audit_data, emissions_data)
+data_diagram <- prep_diagram(audit_data = NULL, emissions_data = NULL)
 plot_diagram(data_diagram)
 ```
 \newpage
