@@ -86,7 +86,6 @@ plot_diagram <- function(data = NULL) {
 
 check_data_diagram <- function(data, env) {
   stopifnot(is.data.frame(data))
-  abort_if_has_zero_rows(data, env = env)
   stopifnot(nrow(data) == 2)
   abort_if_missing_names(
     data,
