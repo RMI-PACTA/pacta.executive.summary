@@ -1,9 +1,4 @@
 plot_exposures_scorecard <- function(data) {
-  colours <- c(
-    "#7BC17E", "#181716", "#4e3b37", "#977447"
-  )
-  names(colours) <- c("renewables_power", "other_fossil_fuels", "coal", "fossil_power")
-  
   p <- ggplot(data, aes(x = sector_or_tech, y = exposure_perc_aum, fill = sector_or_tech)) +
     geom_bar(stat = "identity") +
     geom_text(
@@ -14,7 +9,7 @@ plot_exposures_scorecard <- function(data) {
       ) +
     scale_x_discrete(labels = r2dii.plot::to_title) + 
     scale_y_continuous(expand = expansion(mult = c(0, .8)), labels = scales::percent) +
-    scale_fill_manual(values = colours) +
+    scale_fill_manual(values = fill_colours_exposures_scorecard) +
     coord_flip() +
     theme_2dii(base_size = 24) +
     theme(
