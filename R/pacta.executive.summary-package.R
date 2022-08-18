@@ -2,6 +2,7 @@
 "_PACKAGE"
 
 ## usethis namespace: start
+#' @importFrom DiagrammeR grViz
 #' @importFrom dplyr distinct
 #' @importFrom dplyr filter
 #' @importFrom dplyr first
