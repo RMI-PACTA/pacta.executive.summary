@@ -15,6 +15,11 @@ fill_colours_scores <- c(
   "A" = "#ACB334", "A+" = "#69B34C"
 )
 
+fill_colours_entities_scores <- c(
+  "portfolio" = "#1c324f",
+  "benchmark" = "#66696b"
+)
+
 fill_colours_techmix <- c("green" = "#7bc17e", "brown" = "#986B41")
 
 fill_colours_exposures_scorecard <- c(
@@ -46,6 +51,7 @@ usethis::use_data(
   fill_colours_green_brown_bars,
   fill_colours_fossil_bars,
   fill_colours_scores,
+  fill_colours_entities_scores,
   fill_colours_techmix,
   fill_colours_exposures_scorecard,
   fill_labels_green_brown_bars,
