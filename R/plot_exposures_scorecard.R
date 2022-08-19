@@ -1,4 +1,22 @@
+#' Create a plot showing exposure to sectors relevant to scorecard
+#'
+#' @param data A data frame. In principle, an output of
+#'   `prep_exposures_scorecard()`. Requirements:
+#'   * Must have columns: `asset_class`, `sector_or_tech`, `exposure_perc_aum`.
+#'   * `sector_or_tech` must be one of: "coal", "other_fossil_fuels", 
+#'   "fossil_power", "renewables_power".
+#'   * `exposure_perc_aum` must be a percentage in decimal format, with values 
+#'   between 0 and 1.
+#'
+#' @return an object of class "ggplot".
+#' @export
+#'
+#' @examples
+#' plot_exposures_scorecard(toy_data_exposures_scorecard)
 plot_exposures_scorecard <- function(data) {
+  env <- list(data = substitute(data))
+  check_data_exposures_scorecard(data, env = env)
+  
   p <- ggplot(data, aes(x = sector_or_tech, y = exposure_perc_aum, fill = sector_or_tech)) +
     geom_bar(stat = "identity") +
     geom_text(
@@ -21,4 +39,20 @@ plot_exposures_scorecard <- function(data) {
     ) +
     facet_wrap(~asset_class, labeller = as_labeller(r2dii.plot::to_title))
   p
+}
+
+check_data_exposures_scorecard <- function(data, env) {
+  stopifnot(is.data.frame(data))
+  abort_if_has_zero_rows(data, env = env)
+  abort_if_missing_names(
+    data, 
+    c("asset_class", "sector_or_tech", "exposure_perc_aum")
+  )
+  abort_if_invalid_values(
+    data, 
+    "sector_or_tech", 
+    c("coal", "other_fossil_fuels", "fossil_power", "renewables_power")
+    )
+  stopifnot(is.numeric(data$exposure_perc_aum))
+  stopifnot((data$exposure_perc_aum <= 1) & (data$exposure_perc_aum >= 0))
 }
