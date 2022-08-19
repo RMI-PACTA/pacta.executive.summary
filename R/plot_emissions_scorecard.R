@@ -1,3 +1,17 @@
+#' Create a plot showing scorecard emissions
+#'
+#' @param data A data frame. In principle, an output of
+#'   `prep_emissions_scorecard()`. Requirements:
+#'   * Must have columns: `asset_class`, `entity`, `emissions`.
+#'   * `asset_class` must be one of: "equity", "bonds".
+#'   * `entity` must be one of: "portfolio", "benchmark".
+#'   * `emissions` must be numeric.
+#'
+#' @return an object of class "ggplot".
+#' @export
+#'
+#' @examples
+#' plot_emissions_scorecard(toy_data_emissions_scorecard)
 plot_emissions_scorecard <- function(data) {
   data <- data %>%
     mutate(
