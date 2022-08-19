@@ -13,6 +13,9 @@
 #' @examples
 #' plot_emissions_scorecard(toy_data_emissions_scorecard)
 plot_emissions_scorecard <- function(data) {
+  env <- list(data = substitute(data))
+  check_data_emissions_scorecard(data, env = env)
+  
   data <- data %>%
     mutate(
       entity = r2dii.plot::to_title(.data$entity),
@@ -55,4 +58,13 @@ plot_emissions_scorecard <- function(data) {
     ) +
     facet_wrap(~ asset_class, labeller = as_labeller(r2dii.plot::to_title))
   p
+}
+
+check_data_emissions_scorecard <- function(data, env) {
+  stopifnot(is.data.frame(data))
+  abort_if_has_zero_rows(data, env = env)
+  abort_if_missing_names(data, c("asset_class", "entity", "emissions"))
+  abort_if_invalid_values(data, "asset_class", c("bonds", "equity"))
+  abort_if_invalid_values(data, "entity", c("portfolio", "benchmark"))
+  stopifnot(is.numeric(data$emissions))
 }
