@@ -3,6 +3,7 @@
 export("%>%")
 export(plot_alignment_table)
 export(plot_diagram)
+export(plot_exposures_scorecard)
 export(plot_fossil_bars)
 export(plot_green_brown_bars)
 export(plot_scatter)
