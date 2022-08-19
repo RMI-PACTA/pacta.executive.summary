@@ -65,7 +65,7 @@ plot_score_portfolio <- function(data) {
       label = "\u25B2",
       angle = 270 / pi,
       size = 14,
-      color = "#1c324f",
+      color = unname(fill_colours_entities_scores["portfolio"]),
       aes(y = .data$score_label)
     ) +
     geom_text(
@@ -74,7 +74,7 @@ plot_score_portfolio <- function(data) {
       label = "\u25B2",
       angle = 270 / pi,
       size = 11,
-      color = "#66696b",
+      color = unname(fill_colours_entities_scores["benchmark"]),
       aes(y = .data$score_label)
     ) +
     theme(axis.line = element_blank())
@@ -107,7 +107,7 @@ plot_score_sector <- function(data, sector) {
       label = "\u25B2",
       angle = 270 / pi,
       size = 10,
-      color = "#1c324f",
+      color = unname(fill_colours_entities_scores["portfolio"]),
       aes(y = .data$score_label)
     ) +
     geom_text(
@@ -116,7 +116,7 @@ plot_score_sector <- function(data, sector) {
       label = "\u25B2",
       angle = 270 / pi,
       size = 7,
-      color = "#66696b",
+      color = unname(fill_colours_entities_scores["benchmark"]),
       aes(y = .data$score_label)
     ) +
     theme(
@@ -150,7 +150,7 @@ legend_scores <- function() {
       label = "\u25B2",
       angle = 270 / pi,
       size = 7,
-      color = "#1c324f"
+      color = unname(fill_colours_entities_scores["portfolio"])
     ) +
     annotate(
       "text",
@@ -159,7 +159,7 @@ legend_scores <- function() {
       label = "\u25B2",
       angle = 270 / pi,
       size = 5,
-      color = "#66696b"
+      color = unname(fill_colours_entities_scores["benchmark"])
     ) +
     annotate(
       "segment",
