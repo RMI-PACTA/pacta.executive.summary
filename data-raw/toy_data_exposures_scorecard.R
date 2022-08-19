@@ -17,7 +17,7 @@ toy_data_exposures_scorecard <- toy_data_exposures_scorecard %>%
     sector_or_tech = factor(
       sector_or_tech,
       levels = rev(c("coal", "other_fossil_fuels", "fossil_power", "renewables_power"))
-      )
+    )
   )
 
 usethis::use_data(toy_data_exposures_scorecard, overwrite = TRUE)

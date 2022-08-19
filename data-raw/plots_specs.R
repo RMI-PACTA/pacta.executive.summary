@@ -18,10 +18,11 @@ fill_colours_scores <- c(
 fill_colours_techmix <- c("green" = "#7bc17e", "brown" = "#986B41")
 
 fill_colours_exposures_scorecard <- c(
-  "renewables_power" = "#7BC17E",  
-  "other_fossil_fuels" = "#181716", 
-  "coal" = "#4e3b37", 
-  "fossil_power" = "#977447")
+  "renewables_power" = "#7BC17E",
+  "other_fossil_fuels" = "#181716",
+  "coal" = "#4e3b37",
+  "fossil_power" = "#977447"
+)
 
 fill_labels_green_brown_bars <- c(
   "Green" = "Low-carbon",
