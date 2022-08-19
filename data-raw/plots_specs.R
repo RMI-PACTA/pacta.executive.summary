@@ -16,9 +16,9 @@ fill_colours_scores <- c(
 )
 
 fill_colours_entities_scores <- c(
-  "portfolio" = "#1c324f", 
+  "portfolio" = "#1c324f",
   "benchmark" = "#66696b"
-  )
+)
 
 fill_colours_techmix <- c("green" = "#7bc17e", "brown" = "#986B41")
 
