@@ -1,7 +1,9 @@
 plot_scores_scorecard <- function(data) {
   score_upper_min <- min(alignment_scores_values$score_upper)
   score_upper_max <- max(alignment_scores_values$score_upper)
+  
   scores_labels <- c("A+", "A", "B", "C", "D", "E")
+  c_position <- 2
   
   data_scores <- alignment_scores_values %>%
     mutate(
@@ -25,7 +27,24 @@ plot_scores_scorecard <- function(data) {
     ) %>%
     rbind(data_triangles)
   }
+    
+  score_y <- data %>%
+    dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
+    pull(score_upper)
+  idx <- which(scores_labels == data$score[1])
   
+  portfolio_pointer <- tibble::tibble(
+    group = replicate(5, "portfolio"),
+    x = c(idx, idx - 0.3, idx - 0.3, idx + 0.3, idx + 0.3),
+    y = c(
+      score_y + 0.075 * score_upper_max, 
+      score_y + 0.115 * score_upper_max, 
+      score_y + 0.155 * score_upper_max, 
+      score_y + 0.155 * score_upper_max,
+      score_y + 0.115 * score_upper_max
+      )
+  )
+    
   p <- ggplot(
     data_scores,
     aes(x = score_symbol, y = y, fill = score_symbol, colour = score_symbol)
@@ -35,8 +54,21 @@ plot_scores_scorecard <- function(data) {
       data = data_triangles, 
       aes(x = x, y = y, group = group, fill = group, colour = group)
       ) +
-    geom_text(aes(x = score_symbol, y = 5, label = score_symbol), colour = "black", size = 8) +
-    scale_y_continuous(expand = expansion(mult = c(0, 0.2))) +
+    geom_polygon(
+      data = portfolio_pointer, 
+      aes(x = x, y = y, group = group, fill = group, colour = group)
+      ) +
+    geom_text(aes(y = 6, label = score_symbol), colour = "black", size = 8) +
+    annotate(
+      "segment", 
+      x = c_position + 0.5, 
+      y = -1, 
+      xend = c_position + 0.5, 
+      yend = score_upper_max * 1.1, 
+      colour = unname(fill_colours_scores["C"]),
+      size = 1.1
+        ) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0))) +
     scale_fill_manual(values = fill_colours_scores) +
     scale_colour_manual(values = fill_colours_scores) +
     theme_2dii(base_size = 22) +
