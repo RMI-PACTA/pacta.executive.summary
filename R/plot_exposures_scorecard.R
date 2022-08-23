@@ -18,12 +18,13 @@ plot_exposures_scorecard <- function(data) {
   check_data_exposures_scorecard(data, env = env)
 
   p <- ggplot(
-    data, 
+    data,
     aes(
-      x = .data$sector_or_tech, 
-      y = .data$exposure_perc_aum, 
-      fill = .data$sector_or_tech)
-    ) +
+      x = .data$sector_or_tech,
+      y = .data$exposure_perc_aum,
+      fill = .data$sector_or_tech
+    )
+  ) +
     geom_bar(stat = "identity") +
     geom_text(
       aes(
@@ -45,7 +46,7 @@ plot_exposures_scorecard <- function(data) {
       axis.text.x = element_blank(),
       legend.position = "none"
     ) +
-    facet_wrap(~ asset_class, labeller = as_labeller(r2dii.plot::to_title))
+    facet_wrap(~asset_class, labeller = as_labeller(r2dii.plot::to_title))
   p
 }
 
