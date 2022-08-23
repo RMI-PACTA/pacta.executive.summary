@@ -1,6 +1,17 @@
 plot_scores_scorecard <- function(data) {
   p <- plot_scores_scorecard_single(data) +
-    facet_wrap(~ asset_class, labeller = as_labeller(r2dii.plot::to_title))
+    geom_text(
+      data = annotation_df(), 
+      aes(x = 3.65, y = 90, label = .data$text),
+      colour = "black"
+      ) +
+    theme(
+      strip.text = element_text(face = "bold")
+    ) +
+    facet_wrap(
+      ~ factor(asset_class, levels = c("equity", "bonds")), 
+      labeller = as_labeller(r2dii.plot::to_title)
+      )
   p
 }
 
@@ -89,7 +100,8 @@ annotation_df <- function() {
     text = c(
       "", 
       "Science-based\nconsensus on\nneeded global\nambition, i.e.\nScenario [XY]"
-      )
+      ),
+    score_symbol = c(NA, NA)
   )
   df
 }
