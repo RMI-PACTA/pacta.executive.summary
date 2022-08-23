@@ -10,7 +10,12 @@
 #' @export
 #'
 #' @examples
-#' plot_scores_scorecard(prep_scores_scorecard(results_portfolio = NULL))
+#' data <- toy_data_scores %>%
+#' dplyr::filter(
+#'    scope == "portfolio",
+#'    entity == "this_portfolio"
+#'  )
+#' plot_scores_scorecard(data)
 plot_scores_scorecard <- function(data) {
   p <- plot_scores_scorecard_single(data) +
     geom_text(
@@ -22,7 +27,7 @@ plot_scores_scorecard <- function(data) {
       strip.text = element_text(face = "bold")
     ) +
     facet_wrap(
-      ~ factor(asset_class, levels = c("equity", "bonds")), 
+      ~ factor(.data$asset_class, levels = c("equity", "bonds")), 
       labeller = as_labeller(r2dii.plot::to_title)
       )
   p
@@ -40,7 +45,13 @@ plot_scores_scorecard_single <- function(data) {
   p <- plot_scores_pyramide() +
     geom_polygon(
       data = portfolio_pointers, 
-      aes(x = x, y = y, group = group, fill = group, colour = group)
+      aes(
+        x = .data$x, 
+        y = .data$y, 
+        group = .data$group, 
+        fill = .data$group, 
+        colour = .data$group
+        )
       ) +
     scale_fill_manual(values = fill_colours_extended) +
     scale_colour_manual(values = fill_colours_extended)
@@ -52,7 +63,7 @@ plot_scores_pyramide <- function() {
   
   data_scores <- alignment_scores_values %>%
     mutate(
-      score_symbol = factor(score_symbol, levels = rev(scores_labels())),
+      score_symbol = factor(.data$score_symbol, levels = rev(scores_labels())),
       y = calc_y_position(.data$score_upper)
     )
   
@@ -62,7 +73,7 @@ plot_scores_pyramide <- function() {
     idx <- idx + 1
     data_score <- data_scores %>%
       filter(
-        score_symbol == score
+        .data$score_symbol == score
       )
     
     data_triangles <- tibble::tibble(
@@ -75,14 +86,25 @@ plot_scores_pyramide <- function() {
   
   p <- ggplot(
     data_scores,
-    aes(x = score_symbol, y = y, fill = score_symbol, colour = score_symbol)
+    aes(
+      x = .data$score_symbol, 
+      y = .data$y, 
+      fill = .data$score_symbol, 
+      colour = .data$score_symbol
+      )
     ) +
     geom_bar(stat = "identity", width = 0.9) +
     geom_polygon(
       data = data_triangles, 
-      aes(x = x, y = y, group = group, fill = group, colour = group)
+      aes(
+        x = .data$x, 
+        y = .data$y, 
+        group = .data$group, 
+        fill = .data$group, 
+        colour = .data$group
+        )
       ) +
-    geom_text(aes(y = 8, label = score_symbol), colour = "black", size = 8) +
+    geom_text(aes(y = 8, label = .data$score_symbol), colour = "black", size = 8) +
     annotate(
       "segment", 
       x = c_position + 0.5, 
@@ -130,7 +152,7 @@ get_portfolio_pointer_df <- function(data, asset_class) {
   idx <- which(rev(scores_labels()) == data_asset$score[1])
   portfolio_score <- data_asset %>%
     dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
-    pull(score_upper)
+    pull(.data$score_upper)
   
   portfolio_pointer <- tibble::tibble(
     group = replicate(5, "portfolio"),

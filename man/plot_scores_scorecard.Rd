@@ -22,5 +22,10 @@ an object of class "ggplot".
 Create a plot showing aggregated score in scorecard
 }
 \examples{
-plot_scores_scorecard(prep_scores_scorecard(results_portfolio = NULL))
+data <- toy_data_scores \%>\%
+dplyr::filter(
+   scope == "portfolio",
+   entity == "this_portfolio"
+ )
+plot_scores_scorecard(data)
 }
