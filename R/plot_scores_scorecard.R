@@ -1,3 +1,16 @@
+#' Create a plot showing aggregated score in scorecard
+#'
+#' @param data A data frame. In principle, an output of
+#'   `prep_scores_scorecard()`. Requirements: 
+#'   * Must have columns: `asset_class`, `score`. 
+#'   * `asset_class` must be one of: "equity", "bonds.
+#'   * `score` must be one of: "A+", "A", "B", "C", "D", "E".
+#'
+#' @return an object of class "ggplot".
+#' @export
+#'
+#' @examples
+#' plot_scores_scorecard(prep_scores_scorecard(results_portfolio = NULL))
 plot_scores_scorecard <- function(data) {
   p <- plot_scores_scorecard_single(data) +
     geom_text(
