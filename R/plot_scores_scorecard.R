@@ -2,7 +2,7 @@ plot_scores_scorecard <- function(data) {
   p <- plot_scores_scorecard_single(data) +
     geom_text(
       data = annotation_df(), 
-      aes(x = 3.65, y = 90, label = .data$text),
+      aes(x = 3.65, y = 91, label = .data$text),
       colour = "black"
       ) +
     theme(
@@ -90,6 +90,7 @@ plot_scores_pyramide <- function() {
       axis.title = element_blank(),
       legend.position = "none"
       ) +
+    coord_cartesian(clip = "off") +
     coord_flip()
   p
 }
