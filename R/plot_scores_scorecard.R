@@ -17,6 +17,9 @@
 #'  )
 #' plot_scores_scorecard(data)
 plot_scores_scorecard <- function(data) {
+  env <- list(data = substitute(data))
+  check_data_scores_scorecard(data, env)
+  
   p <- plot_scores_scorecard_single(data) +
     geom_text(
       data = annotation_df(), 
@@ -170,10 +173,19 @@ get_portfolio_pointer_df <- function(data, asset_class) {
 score_upper_min <- function() {
   min(alignment_scores_values$score_upper)
 }
+
 score_upper_max <- function() {
   max(alignment_scores_values$score_upper)
 }
 
 calc_y_position <- function(x) {
   abs(100 - x + score_upper_min())
+}
+
+check_data_scores_scorecard <- function(data, env) {
+  stopifnot(is.data.frame(data))
+  abort_if_has_zero_rows(data, env = env)
+  abort_if_missing_names(data, c("asset_class", "score"))
+  abort_if_invalid_values(data, "asset_class", c("equity", "bonds"))
+  abort_if_invalid_values(data, "score", c("A+", "A", "B", "C", "D", "E"))
 }
