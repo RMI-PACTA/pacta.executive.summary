@@ -17,12 +17,19 @@ plot_exposures_scorecard <- function(data) {
   env <- list(data = substitute(data))
   check_data_exposures_scorecard(data, env = env)
 
-  p <- ggplot(data, aes(x = sector_or_tech, y = exposure_perc_aum, fill = sector_or_tech)) +
+  p <- ggplot(
+    data,
+    aes(
+      x = .data$sector_or_tech,
+      y = .data$exposure_perc_aum,
+      fill = .data$sector_or_tech
+    )
+  ) +
     geom_bar(stat = "identity") +
     geom_text(
       aes(
-        y = exposure_perc_aum,
-        label = scales::percent(round(exposure_perc_aum, digits = 2))
+        y = .data$exposure_perc_aum,
+        label = scales::percent(round(.data$exposure_perc_aum, digits = 2))
       ),
       hjust = -0.2,
       size = 7
