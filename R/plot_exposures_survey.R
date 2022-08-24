@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples
-#' data <- toy_data %>%
+#' data <- toy_data_exposures_survey %>%
 #' dplyr::filter(asset_class == "equity", sector == "coal")
 #' 
 #' plot_exposures_survey(data)

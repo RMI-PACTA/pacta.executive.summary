@@ -26,7 +26,7 @@ an object of class "ggplot".
 Create a bar plot showing exposure to a sector
 }
 \examples{
-data <- toy_data \%>\%
+data <- toy_data_exposures_survey \%>\%
 dplyr::filter(asset_class == "equity", sector == "coal")
 
 plot_exposures_survey(data)
