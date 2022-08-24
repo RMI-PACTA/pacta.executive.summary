@@ -23,9 +23,9 @@ Create a plot showing aggregated score in scorecard
 }
 \examples{
 data <- toy_data_scores \%>\%
-dplyr::filter(
-   scope == "portfolio",
-   entity == "this_portfolio"
- )
+  dplyr::filter(
+    scope == "portfolio",
+    entity == "this_portfolio"
+  )
 plot_scores_scorecard(data)
 }

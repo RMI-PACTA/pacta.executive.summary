@@ -23,6 +23,7 @@ Other datasets:
 \code{\link{toy_data_diagram}},
 \code{\link{toy_data_emissions_scorecard}},
 \code{\link{toy_data_exposures_scorecard}},
+\code{\link{toy_data_exposures_survey}},
 \code{\link{toy_data_green_brown_bars}},
 \code{\link{toy_data_scatter}},
 \code{\link{toy_data_scores}}
