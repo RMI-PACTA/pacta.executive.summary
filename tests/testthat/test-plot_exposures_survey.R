@@ -52,4 +52,3 @@ test_that("with wrong values of `exposure_perc_aum` errors gracefully", {
   data_wrong$exposure_perc_aum <- data_wrong$exposure_perc_aum * 10000
   expect_snapshot_error(plot_exposures_survey(data_wrong))
 })
-
