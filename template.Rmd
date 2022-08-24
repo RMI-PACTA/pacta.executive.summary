@@ -188,11 +188,11 @@ data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL,
 plot_exposures_survey(data_exposures_survey)
 ```
 ![Coal exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_coal_bonds.png")`){width=25%}
-```{r exposure_survey_body}
+```{r exposure_survey_bonds}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL, 
                                              sector = "coal",
-                                             asset_class = "body")
+                                             asset_class = "bonds")
 plot_exposures_survey(data_exposures_survey)
 ```
 ![Oil & gas exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_equity.png")`){width=25%}
