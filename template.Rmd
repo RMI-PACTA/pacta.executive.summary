@@ -185,7 +185,8 @@ Text
 data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL, 
                                              sector = "coal",
                                              asset_class = "equity")
-plot_exposures_survey(data_exposures_survey)
+plot_exposures_survey(data_exposures_survey) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 ```
 ![Coal exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_coal_bonds.png")`){width=25%}
 ```{r exposure_survey_bonds}
@@ -193,7 +194,8 @@ plot_exposures_survey(data_exposures_survey)
 data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL, 
                                              sector = "coal",
                                              asset_class = "bonds")
-plot_exposures_survey(data_exposures_survey)
+plot_exposures_survey(data_exposures_survey) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 ```
 ![Oil & gas exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_equity.png")`){width=25%}
 ```{r exposure_survey_equity}
@@ -201,7 +203,8 @@ plot_exposures_survey(data_exposures_survey)
 data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL, 
                                              sector = "oil_and_gas",
                                              asset_class = "equity")
-plot_exposures_survey(data_exposures_survey)
+plot_exposures_survey(data_exposures_survey) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 ```
 ![Oil & gas exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_bonds.png")`){width=25%}
 ```{r exposure_survey_bonds}
@@ -209,7 +212,8 @@ plot_exposures_survey(data_exposures_survey)
 data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL, 
                                              sector = "oil_and_gas",
                                              asset_class = "bonds")
-plot_exposures_survey(data_exposures_survey)
+plot_exposures_survey(data_exposures_survey) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 ```
 
 \newpage
