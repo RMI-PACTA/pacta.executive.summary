@@ -76,7 +76,7 @@ prep_scores <- function(equity_results_portfolio,
     dplyr::select(-.data$sector_exposure)
 
   # get scenario thresholds and apply scenario based grades
-  scenario_thresholds <- get(scenario_thresholds)
+  scenario_thresholds <- get("scenario_thresholds")
 
   data_out <- output_scores %>%
     calculate_aggregate_scores_with_scenarios(
