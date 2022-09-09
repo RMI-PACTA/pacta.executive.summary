@@ -31,7 +31,7 @@ prep_calculate_sector_aggregate_scores <- function(data,
     dplyr::select(-.data$scen_alloc_wt_tech_prod) %>%
     dplyr::filter(.data$year == .env$start_year + .env$time_horizon) %>%
     dplyr::mutate(
-      requested_buildout = .data$scen_alloc_wt_tech_prod_t5 - .data$scen_alloc_wt_tech_prod_t0
+      requested_buildout = abs(.data$scen_alloc_wt_tech_prod_t5 - .data$scen_alloc_wt_tech_prod_t0)
     ) %>%
     dplyr::mutate(
       trajectory_alignment = dplyr::if_else(
