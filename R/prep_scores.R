@@ -65,14 +65,15 @@ prep_scores <- function(equity_results_portfolio,
       time_horizon = time_horizon
     )
 
-  # sectors aggregate score
+  # calculate sectors aggregate score
   sector_aggregate_scores <- data_aggregate_scores %>%
     prep_calculate_sector_aggregate_scores()
 
-  # portfolio aggregate score
+  # calculate portfolio aggregate score
   portfolio_aggregate_scores <- sector_aggregate_scores %>%
     prep_calculate_portfolio_aggregate_scores(remaining_carbon_budgets = remaining_carbon_budgets)
 
+  # combine scores in single data frame
   output_scores <- sector_aggregate_scores %>%
     dplyr::bind_rows(portfolio_aggregate_scores) %>%
     dplyr::select(-.data$sector_exposure)
