@@ -17,29 +17,25 @@ prep_scores <- function(equity_results_portfolio,
     dplyr::mutate(
       asset_class = "equity",
       entity = "this_portfolio"
-    ) %>%
-    dplyr::filter(.data$allocation == .env$portfolio_allocation_method_equity)
+    )
 
   data_bonds_results_portfolio <- bonds_results_portfolio %>%
     dplyr::mutate(
       asset_class = "bonds",
       entity = "this_portfolio"
-    ) %>%
-    dplyr::filter(.data$allocation == .env$portfolio_allocation_method_bonds)
+    )
 
   data_equity_results_peers <- peers_equity_results_aggregated %>%
     dplyr::mutate(
       asset_class = "equity",
       entity = "peers"
-    ) %>%
-    dplyr::filter(.data$allocation == .env$portfolio_allocation_method_equity)
+    )
 
   data_bonds_results_peers <- peers_bonds_results_aggregated %>%
     dplyr::mutate(
       asset_class = "bonds",
       entity = "peers"
-    ) %>%
-    dplyr::filter(.data$allocation == .env$portfolio_allocation_method_bonds)
+    )
 
   # combine all data frames
   data_inputs <- data_equity_results_portfolio %>%
@@ -53,6 +49,8 @@ prep_scores <- function(equity_results_portfolio,
       scenario_source = scenario_source,
       scenarios = scenarios,
       scenario_geography = scenario_geography,
+      portfolio_allocation_method_bonds = portfolio_allocation_method_bonds,
+      portfolio_allocation_method_equity = portfolio_allocation_method_equity,
       equity_market = equity_market,
       start_year = start_year,
       time_horizon = time_horizon,

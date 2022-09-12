@@ -2,6 +2,8 @@ prep_input_data_aggregate_scores <- function(data,
                                              scenario_source,
                                              scenarios,
                                              scenario_geography,
+                                             portfolio_allocation_method_bonds,
+                                             portfolio_allocation_method_equity,
                                              equity_market,
                                              start_year,
                                              time_horizon,
@@ -15,7 +17,9 @@ prep_input_data_aggregate_scores <- function(data,
       .data$scenario %in% .env$scenarios,
       .data$scenario_geography == .env$scenario_geography,
       .data$equity_market == .env$equity_market,
-      dplyr::between(.data$year, .env$start_year, .env$start_year + .env$time_horizon)
+      dplyr::between(.data$year, .env$start_year, .env$start_year + .env$time_horizon),
+      .data$asset_class == "bonds" & .data$allocation == .env$portfolio_allocation_method_bonds |
+        .data$asset_class == "equity" & .data$allocation == .env$portfolio_allocation_method_equity
     )
 
   # Oil & Gas are treated as separate sectors in the aggregate score.
