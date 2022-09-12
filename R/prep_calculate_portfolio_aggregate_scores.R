@@ -6,8 +6,8 @@ prep_calculate_portfolio_aggregate_scores <- function(data,
       by = c("scenario_source", "ald_sector")
     ) %>%
     dplyr::group_by(
-      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$entity,
-      .data$scenario_source, .data$scenario, .data$allocation,
+      .data$investor_name, .data$portfolio_name, .data$asset_class,
+      .data$entity, .data$scenario_source, .data$scenario, .data$allocation,
       .data$equity_market, .data$scenario_geography
     ) %>%
     dplyr::summarise(
