@@ -18,15 +18,9 @@ prep_input_data_aggregate_scores <- function(data,
       dplyr::between(.data$year, .env$start_year, .env$start_year + .env$time_horizon)
     )
 
-  # Oil & Gas are treated as separate sectors in the aggregate score. This means
-  # the technology share must be 1 for each of them and the sector name is changed.
+  # Oil & Gas are treated as separate sectors in the aggregate score.
 
   data <- data %>%
-    dplyr::mutate(
-      scen_tech_share = dplyr::if_else(
-        .data$ald_sector == "Oil&Gas", 1, .data$scen_tech_share
-      )
-    ) %>%
     dplyr::mutate(
       ald_sector = dplyr::case_when(
         .data$technology == "Oil" ~ "Oil",
