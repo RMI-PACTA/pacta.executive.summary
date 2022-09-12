@@ -59,13 +59,17 @@ prep_scores <- function(equity_results_portfolio,
       green_techs = green_techs
     )
 
-  # sectors aggregate score
-  sector_aggregate_scores <- data_aggregate_scores %>%
-    prep_calculate_sector_aggregate_scores(
+  # calculate technology level alignment
+  data_aggregate_scores <- data_aggregate_scores %>%
+    prep_calculate_technology_alignment(
       green_techs = green_techs,
       start_year = start_year,
       time_horizon = time_horizon
     )
+
+  # sectors aggregate score
+  sector_aggregate_scores <- data_aggregate_scores %>%
+    prep_calculate_sector_aggregate_scores()
 
   # portfolio aggregate score
   portfolio_aggregate_scores <- sector_aggregate_scores %>%

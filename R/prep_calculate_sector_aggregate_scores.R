@@ -1,22 +1,7 @@
-prep_calculate_sector_aggregate_scores <- function(data,
-                                                   green_techs,
-                                                   start_year,
-                                                   time_horizon) {
+prep_calculate_sector_aggregate_scores <- function(data) {
+  # create helper variables for the weighting factors
+  # account for special handling of CoalCap, RenewablesCap, ICE and Electric
   data <- data %>%
-    dplyr::mutate(
-      green_or_brown = dplyr::if_else(
-        # TODO: be more explicit here?
-        .data$technology %in% .env$green_techs, "green", "brown"
-      )
-    ) %>%
-    dplyr::select(
-      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$entity,
-      .data$scenario_source, .data$scenario, .data$allocation,
-      .data$equity_market, .data$scenario_geography, .data$ald_sector,
-      .data$technology, .data$year, .data$plan_alloc_wt_tech_prod,
-      .data$plan_carsten, .data$scen_alloc_wt_tech_prod, .data$scen_tech_share,
-      .data$green_or_brown
-    ) %>%
     dplyr::group_by(
       .data$investor_name, .data$portfolio_name, .data$asset_class, .data$entity,
       .data$scenario_source, .data$scenario, .data$allocation,
@@ -24,26 +9,30 @@ prep_calculate_sector_aggregate_scores <- function(data,
       .data$technology
     ) %>%
     dplyr::mutate(
-      scen_alloc_wt_tech_prod_t0 = dplyr::first(.data$scen_alloc_wt_tech_prod),
-      scen_alloc_wt_tech_prod_t5 = dplyr::last(.data$scen_alloc_wt_tech_prod),
-      exposure_t0 = dplyr::first(.data$plan_carsten)
-    ) %>%
-    dplyr::select(-.data$scen_alloc_wt_tech_prod) %>%
-    dplyr::filter(.data$year == .env$start_year + .env$time_horizon) %>%
-    dplyr::mutate(
-      requested_buildout = abs(.data$scen_alloc_wt_tech_prod_t5 - .data$scen_alloc_wt_tech_prod_t0)
-    ) %>%
-    dplyr::mutate(
-      trajectory_alignment = dplyr::if_else(
-        .data$green_or_brown == "green",
-        (.data$plan_alloc_wt_tech_prod - .data$scen_alloc_wt_tech_prod_t5) /
-          .data$scen_alloc_wt_tech_prod_t5,
-        (.data$scen_alloc_wt_tech_prod_t5 - .data$plan_alloc_wt_tech_prod) /
-          .data$scen_alloc_wt_tech_prod_t5
+      tech_allocation_weight = dplyr::if_else(
+        # TODO: add an input that defines these technologies
+        .data$technology %in% c("CoalCap", "RenewablesCap", "ICE", "Electric") &
+          .data$plan_alloc_wt_tech_prod_t5 > .data$scen_alloc_wt_tech_prod_t5,
+        .data$plan_alloc_wt_tech_prod_t5,
+        .data$scen_alloc_wt_tech_prod_t5
       )
     ) %>%
-    dplyr::ungroup()
+    dplyr::mutate(
+      scenario_change = abs(.data$scen_alloc_wt_tech_prod_t5 - .data$scen_alloc_wt_tech_prod_t0),
+      production_change = abs(.data$plan_alloc_wt_tech_prod_t5 - .data$scen_alloc_wt_tech_prod_t0)
+    ) %>%
+    dplyr::mutate(
+      scenario_change = dplyr::if_else(
+        .data$technology %in% c("CoalCap", "RenewablesCap", "ICE", "Electric") &
+          .data$production_change > .data$scenario_change,
+        .data$production_change,
+        .data$scenario_change
+      )
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::select(-.data$production_change)
 
+  # calculate sector score & sector exposure
   data <- data %>%
     dplyr::group_by(
       .data$investor_name, .data$portfolio_name, .data$asset_class, .data$entity,
@@ -52,9 +41,9 @@ prep_calculate_sector_aggregate_scores <- function(data,
     ) %>%
     dplyr::summarise(
       score = stats::weighted.mean(
-        x = .data$trajectory_alignment,
-        w = .data$requested_buildout * .data$scen_tech_share
-      ),
+         x = .data$tech_trajectory_alignment,
+         w = .data$tech_allocation_weight * .data$scenario_change
+       ),
       sector_exposure = sum(.data$exposure_t0, na.rm = TRUE),
       .groups = "drop"
     ) %>%
