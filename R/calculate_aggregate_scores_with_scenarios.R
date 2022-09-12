@@ -15,8 +15,7 @@ calculate_aggregate_scores_with_scenarios <- function(data,
   data <- data %>%
     tidyr::pivot_wider(
       id_cols = c(
-        .data$asset_class, .data$scope, .data$entity, .data$ald_sector,
-
+        .data$asset_class, .data$scope, .data$entity, .data$ald_sector
       ),
       names_from = .data$threshold,
       values_from = .data$score
