@@ -40,5 +40,6 @@ prep_calculate_technology_alignment <- function(data,
       )
     ) %>%
     dplyr::ungroup()
-  #
+
+  return(data)
 }

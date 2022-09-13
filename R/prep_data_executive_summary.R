@@ -12,8 +12,6 @@ prep_data_executive_summary <- function(investor_name,
                                         portfolio_allocation_method_bonds,
                                         pacta_sectors,
                                         tech_roadmap_sectors,
-                                        green_techs,
-                                        brown_techs,
                                         equity_results_portfolio,
                                         bonds_results_portfolio,
                                         peers_equity_results_aggregated,
@@ -28,6 +26,17 @@ prep_data_executive_summary <- function(investor_name,
   # method, scenario, equity market, scenario geography, peer group, index)
   # TODO: merge bonds and equity data in one table
   # TODO: translate data
+
+  # TODO: use r2dii.data instead?
+  green_techs <- c(
+    "renewablescap", "hydrocap", "nuclearcap", "hybrid", "electric", "fuelcell",
+    "hybrid_hdv", "electric_hdv", "fuelcell_hdv", "dc-electric arc furnace",
+    "ac-electric arc furnace"
+  )
+  brown_techs <- c(
+    "coalcap", "gascap", "oilcap", "ice", "oil", "gas", "coal", "ice_hdv"
+    # TODO: add hard-to-abate techs
+  )
 
   # ----- prepare data for aggregate score
   remaining_carbon_budgets <- get("remaining_carbon_budgets")
