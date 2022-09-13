@@ -26,12 +26,12 @@ calculate_aggregate_scores_with_scenarios <- function(data,
   data <- data %>%
     dplyr::mutate(
       score = dplyr::case_when(
-        .data$`1.5C` > 0.15 ~ "A+",
-        .data$`1.5C` >= 0 ~ "A",
-        .data$`1.5C` < 0 & .data$`1.5C` >= -0.15 & .data$`2.0C` >= 0 ~ "B",
-        .data$`2.0C` >= 0 ~ "C",
-        .data$ref >= 0 ~ "D",
-        .data$ref < 0 ~ "E",
+        .data$high > 0.15 ~ "A+",
+        .data$high >= 0 ~ "A",
+        .data$high < 0 & .data$high >= -0.15 & .data$mid >= 0 ~ "B",
+        .data$mid >= 0 ~ "C",
+        .data$low >= 0 ~ "D",
+        .data$low < 0 ~ "E",
         TRUE ~ NA_character_,
       )
     )
