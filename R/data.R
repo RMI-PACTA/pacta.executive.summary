@@ -8,3 +8,9 @@
 #' A data set containing the names of scenarios mapped to thresholds of likely
 #' climate outcomes.
 "scenario_thresholds"
+
+#' Sector and technology names mapped from P4I to P4B style
+#'
+#' A data set containing the names of sectors and technologies according to
+#' P4I and P4B conventions.
+"p4i_p4b_sector_technology_mapper"
