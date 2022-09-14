@@ -1,24 +1,8 @@
 prep_input_data_aggregate_scores <- function(data,
-                                             scenario_source,
-                                             scenarios,
-                                             scenario_geography,
-                                             portfolio_allocation_method_bonds,
-                                             portfolio_allocation_method_equity,
-                                             equity_market,
-                                             start_year,
-                                             time_horizon,
-                                             green_techs) {
+                                             scenarios) {
   # filter data
   data <- data %>%
-    dplyr::filter(
-      .data$scenario_source == .env$scenario_source,
-      .data$scenario %in% .env$scenarios,
-      .data$scenario_geography == .env$scenario_geography,
-      .data$equity_market == .env$equity_market,
-      dplyr::between(.data$year, .env$start_year, .env$start_year + .env$time_horizon),
-      .data$asset_class == "bonds" & .data$allocation == .env$portfolio_allocation_method_bonds |
-        .data$asset_class == "equity" & .data$allocation == .env$portfolio_allocation_method_equity
-    )
+    dplyr::filter(.data$scenario %in% .env$scenarios)
 
   # map sectors to p4b style
   data <- data %>%

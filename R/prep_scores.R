@@ -1,46 +1,31 @@
 prep_scores <- function(results_portfolio,
                         peers_results_aggregated,
-                        portfolio_allocation_method_equity,
-                        portfolio_allocation_method_bonds,
-                        scenario_source,
                         scenarios,
-                        scenario_geography,
-                        equity_market,
                         start_year,
-                        time_horizon,
-                        green_techs,
-                        remaining_carbon_budgets) {
+                        green_techs) {
 
   data <- results_portfolio %>%
     dplyr::bind_rows(peers_results_aggregated)
 
   # prepare data for sector aggregation
   data_aggregate_scores <- data %>%
-    prep_input_data_aggregate_scores(
-      scenario_source = scenario_source,
-      scenarios = scenarios,
-      scenario_geography = scenario_geography,
-      portfolio_allocation_method_bonds = portfolio_allocation_method_bonds,
-      portfolio_allocation_method_equity = portfolio_allocation_method_equity,
-      equity_market = equity_market,
-      start_year = start_year,
-      time_horizon = time_horizon,
-      green_techs = green_techs
-    )
+    prep_input_data_aggregate_scores(scenarios = scenarios)
 
   # calculate technology level alignment
   data_aggregate_scores <- data_aggregate_scores %>%
     prep_calculate_technology_alignment(
       green_techs = green_techs,
       start_year = start_year,
-      time_horizon = time_horizon
+      time_horizon = time_horizon_lookup
     )
 
   # calculate sectors aggregate score
   sector_aggregate_scores <- data_aggregate_scores %>%
     prep_calculate_sector_aggregate_scores()
 
-  # calculate portfolio aggregate score
+  # get remaining carbon budgets and calculate portfolio aggregate score
+  remaining_carbon_budgets <- get("remaining_carbon_budgets")
+
   portfolio_aggregate_scores <- sector_aggregate_scores %>%
     prep_calculate_portfolio_aggregate_scores(remaining_carbon_budgets = remaining_carbon_budgets)
 

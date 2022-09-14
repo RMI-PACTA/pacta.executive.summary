@@ -2,9 +2,7 @@ prep_data_executive_summary <- function(investor_name,
                                         portfolio_name,
                                         peer_group,
                                         start_year,
-                                        time_horizon,
                                         scenario_source,
-                                        scenarios,
                                         scenario_selected,
                                         scenario_geography,
                                         equity_market,
@@ -24,8 +22,104 @@ prep_data_executive_summary <- function(investor_name,
                                         emissions = emissions) {
   # TODO: apply filters to data (investor name, portfolio name, allocation
   # method, scenario, equity market, scenario geography, peer group, index)
+
+  equity_results_portfolio <- equity_results_portfolio %>%
+    apply_general_filters(
+      scenario_source = scenario_source,
+      scenario_geography = scenario_geography,
+      equity_market = equity_market,
+      start_year = start_year,
+      allocation_type = portfolio_allocation_method_equity
+    ) %>%
+    dplyr::filter(
+      .data$investor_name == .env$investor_name,
+      .data$portfolio_name == .env$portfolio_name,
+    )
+
+  bonds_results_portfolio <- bonds_results_portfolio %>%
+    apply_general_filters(
+      scenario_source = scenario_source,
+      scenario_geography = scenario_geography,
+      equity_market = equity_market,
+      start_year = start_year,
+      allocation_type = portfolio_allocation_method_bonds
+    ) %>%
+    dplyr::filter(
+      .data$investor_name == .env$investor_name,
+      .data$portfolio_name == .env$portfolio_name,
+    )
+
+  peers_equity_results_aggregated <- peers_equity_results_aggregated %>%
+    apply_general_filters(
+      scenario_source = scenario_source,
+      scenario_geography = scenario_geography,
+      equity_market = equity_market,
+      start_year = start_year,
+      allocation_type = portfolio_allocation_method_equity
+    ) %>%
+    dplyr::filter(
+      .data$investor_name == .env$peer_group,
+      .data$portfolio_name == .env$peer_group,
+    )
+
+  peers_bonds_results_aggregated <- peers_bonds_results_aggregated %>%
+    apply_general_filters(
+      scenario_source = scenario_source,
+      scenario_geography = scenario_geography,
+      equity_market = equity_market,
+      start_year = start_year,
+      allocation_type = portfolio_allocation_method_bonds
+    ) %>%
+    dplyr::filter(
+      .data$investor_name == .env$peer_group,
+      .data$portfolio_name == .env$peer_group,
+    )
+
+  peers_equity_results_individual <- peers_equity_results_individual %>%
+    apply_general_filters(
+      scenario_source = scenario_source,
+      scenario_geography = scenario_geography,
+      equity_market = equity_market,
+      start_year = start_year,
+      allocation_type = portfolio_allocation_method_equity
+    ) %>%
+    dplyr::filter(
+      .data$investor_name == .env$peer_group,
+      .data$portfolio_name == .env$peer_group,
+    )
+
+  peers_bonds_results_individual <- peers_bonds_results_individual %>%
+    apply_general_filters(
+      scenario_source = scenario_source,
+      scenario_geography = scenario_geography,
+      equity_market = equity_market,
+      start_year = start_year,
+      allocation_type = portfolio_allocation_method_bonds
+    ) %>%
+    dplyr::filter(
+      .data$investor_name == .env$peer_group,
+      .data$portfolio_name == .env$peer_group,
+    )
+
+  indices_equity_results_portfolio <- indices_equity_results_portfolio %>%
+    apply_general_filters(
+      scenario_source = scenario_source,
+      scenario_geography = scenario_geography,
+      equity_market = equity_market,
+      start_year = start_year,
+      allocation_type = portfolio_allocation_method_equity
+    )
+
+  indices_bonds_results_portfolio <- indices_bonds_results_portfolio %>%
+    apply_general_filters(
+      scenario_source = scenario_source,
+      scenario_geography = scenario_geography,
+      equity_market = equity_market,
+      start_year = start_year,
+      allocation_type = portfolio_allocation_method_bonds
+    )
+
   # TODO: merge bonds and equity data in one table
-  # TODO: translate data
 
   # add asset class and entity type, combine data sets
   # ... portfolios
@@ -92,26 +186,13 @@ prep_data_executive_summary <- function(investor_name,
   indices_results_portfolio <- indices_equity_results_portfolio %>%
     dplyr::bind_rows(indices_bonds_results_portfolio)
 
-  # ----- prepare data for aggregate score
-  remaining_carbon_budgets <- get("remaining_carbon_budgets")
-
-  data_aggregate_scores <- prep_scores(
-    results_portfolio = results_portfolio,
-    peers_results_aggregated = peers_results_aggregated,
-    portfolio_allocation_method_equity = portfolio_allocation_method_equity,
-    portfolio_allocation_method_bonds = portfolio_allocation_method_bonds,
-    scenario_source = scenario_source,
-    scenarios = scenarios,
-    scenario_geography = scenario_geography,
-    equity_market = equity_market,
-    start_year = start_year,
-    time_horizon = time_horizon_lookup,
-    green_techs = green_techs_lookup,
-    remaining_carbon_budgets = remaining_carbon_budgets
-  )
+  # TODO: translate data
 
   data_out <- list(
-    data_aggregate_scores = data_aggregate_scores
+    results_portfolio = results_portfolio,
+    peers_results_aggregated = peers_results_aggregated,
+    peers_results_individual = peers_results_individual,
+    indices_results_portfolio = indices_results_portfolio
   )
 
   return(data_out)
