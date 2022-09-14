@@ -1,7 +1,5 @@
-prep_scores <- function(equity_results_portfolio,
-                        bonds_results_portfolio,
-                        peers_equity_results_aggregated,
-                        peers_bonds_results_aggregated,
+prep_scores <- function(results_portfolio,
+                        peers_results_aggregated,
                         portfolio_allocation_method_equity,
                         portfolio_allocation_method_bonds,
                         scenario_source,
@@ -12,39 +10,12 @@ prep_scores <- function(equity_results_portfolio,
                         time_horizon,
                         green_techs,
                         remaining_carbon_budgets) {
-  # add asset class and entity type
-  data_equity_results_portfolio <- equity_results_portfolio %>%
-    dplyr::mutate(
-      asset_class = "equity",
-      entity = "this_portfolio"
-    )
 
-  data_bonds_results_portfolio <- bonds_results_portfolio %>%
-    dplyr::mutate(
-      asset_class = "bonds",
-      entity = "this_portfolio"
-    )
-
-  data_equity_results_peers <- peers_equity_results_aggregated %>%
-    dplyr::mutate(
-      asset_class = "equity",
-      entity = "peers"
-    )
-
-  data_bonds_results_peers <- peers_bonds_results_aggregated %>%
-    dplyr::mutate(
-      asset_class = "bonds",
-      entity = "peers"
-    )
-
-  # combine all data frames
-  data_inputs <- data_equity_results_portfolio %>%
-    dplyr::bind_rows(data_bonds_results_portfolio) %>%
-    dplyr::bind_rows(data_equity_results_peers) %>%
-    dplyr::bind_rows(data_bonds_results_peers)
+  data <- results_portfolio %>%
+    dplyr::bind_rows(peers_results_aggregated)
 
   # prepare data for sector aggregation
-  data_aggregate_scores <- data_inputs %>%
+  data_aggregate_scores <- data %>%
     prep_input_data_aggregate_scores(
       scenario_source = scenario_source,
       scenarios = scenarios,

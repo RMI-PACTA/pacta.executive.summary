@@ -27,15 +27,77 @@ prep_data_executive_summary <- function(investor_name,
   # TODO: merge bonds and equity data in one table
   # TODO: translate data
 
+  # add asset class and entity type, combine data sets
+  # ... portfolios
+  equity_results_portfolio <- equity_results_portfolio %>%
+    dplyr::mutate(
+      asset_class = "equity",
+      entity = "this_portfolio"
+    )
+
+  bonds_results_portfolio <- bonds_results_portfolio %>%
+    dplyr::mutate(
+      asset_class = "bonds",
+      entity = "this_portfolio"
+    )
+
+  results_portfolio <- equity_results_portfolio %>%
+    dplyr::bind_rows(bonds_results_portfolio)
+
+  # ... aggregated peer group results
+  peers_equity_results_aggregated <- peers_equity_results_aggregated %>%
+    dplyr::mutate(
+      asset_class = "equity",
+      entity = "peers"
+    )
+
+  peers_bonds_results_aggregated <- peers_bonds_results_aggregated %>%
+    dplyr::mutate(
+      asset_class = "bonds",
+      entity = "peers"
+    )
+
+  peers_results_aggregated <- peers_equity_results_aggregated %>%
+    dplyr::bind_rows(peers_bonds_results_aggregated)
+
+  # ... individual peer group results
+  peers_equity_results_individual <- peers_equity_results_individual %>%
+    dplyr::mutate(
+      asset_class = "equity",
+      entity = "peers"
+    )
+
+  peers_bonds_results_individual <- peers_bonds_results_individual %>%
+    dplyr::mutate(
+      asset_class = "bonds",
+      entity = "peers"
+    )
+
+  peers_results_individual <- peers_equity_results_individual %>%
+    dplyr::bind_rows(peers_bonds_results_individual)
+
+  # ... indices
+  indices_equity_results_portfolio <- indices_equity_results_portfolio %>%
+    dplyr::mutate(
+      asset_class = "equity",
+      entity = "index"
+    )
+
+  indices_bonds_results_portfolio <- indices_bonds_results_portfolio %>%
+    dplyr::mutate(
+      asset_class = "bonds",
+      entity = "index"
+    )
+
+  indices_results_portfolio <- indices_equity_results_portfolio %>%
+    dplyr::bind_rows(indices_bonds_results_portfolio)
 
   # ----- prepare data for aggregate score
   remaining_carbon_budgets <- get("remaining_carbon_budgets")
 
   data_aggregate_scores <- prep_scores(
-    equity_results_portfolio = equity_results_portfolio,
-    bonds_results_portfolio = bonds_results_portfolio,
-    peers_equity_results_aggregated = peers_equity_results_aggregated,
-    peers_bonds_results_aggregated = peers_bonds_results_aggregated,
+    results_portfolio = results_portfolio,
+    peers_results_aggregated = peers_results_aggregated,
     portfolio_allocation_method_equity = portfolio_allocation_method_equity,
     portfolio_allocation_method_bonds = portfolio_allocation_method_bonds,
     scenario_source = scenario_source,
