@@ -1,14 +1,14 @@
 prep_calculate_technology_alignment <- function(data,
-                                                green_techs,
+                                                # green_techs,
                                                 start_year,
                                                 time_horizon) {
   data <- data %>%
-    dplyr::mutate(
-      green_or_brown = dplyr::if_else(
-        # TODO: be more explicit here?
-        .data$technology %in% .env$green_techs, "green", "brown"
-      )
-    ) %>%
+    # dplyr::mutate(
+    #   green_or_brown = dplyr::if_else(
+    #     # TODO: be more explicit here?
+    #     .data$technology %in% .env$green_techs, "green", "brown"
+    #   )
+    # ) %>%
     dplyr::select(
       .data$investor_name, .data$portfolio_name, .data$asset_class, .data$entity,
       .data$scenario_source, .data$scenario, .data$allocation,

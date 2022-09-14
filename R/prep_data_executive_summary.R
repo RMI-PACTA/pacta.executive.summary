@@ -10,6 +10,8 @@ prep_data_executive_summary <- function(investor_name,
                                         portfolio_allocation_method_bonds,
                                         pacta_sectors,
                                         tech_roadmap_sectors,
+                                        green_techs,
+                                        brown_techs,
                                         equity_results_portfolio,
                                         bonds_results_portfolio,
                                         peers_equity_results_aggregated,
@@ -35,6 +37,7 @@ prep_data_executive_summary <- function(investor_name,
       .data$investor_name == .env$investor_name,
       .data$portfolio_name == .env$portfolio_name,
     )
+
 
   bonds_results_portfolio <- bonds_results_portfolio %>%
     apply_general_filters(
@@ -121,7 +124,7 @@ prep_data_executive_summary <- function(investor_name,
 
   # TODO: merge bonds and equity data in one table
 
-  # add asset class and entity type, combine data sets
+  # add asset class, entity type and grenn/brown, combine data sets
   # ... portfolios
   equity_results_portfolio <- equity_results_portfolio %>%
     dplyr::mutate(
@@ -136,7 +139,12 @@ prep_data_executive_summary <- function(investor_name,
     )
 
   results_portfolio <- equity_results_portfolio %>%
-    dplyr::bind_rows(bonds_results_portfolio)
+    dplyr::bind_rows(bonds_results_portfolio) %>%
+    dplyr::mutate(
+      green_or_brown = dplyr::if_else(
+        .data$technology %in% .env$green_techs, "green", "brown"
+      )
+    )
 
   # ... aggregated peer group results
   peers_equity_results_aggregated <- peers_equity_results_aggregated %>%
@@ -152,7 +160,12 @@ prep_data_executive_summary <- function(investor_name,
     )
 
   peers_results_aggregated <- peers_equity_results_aggregated %>%
-    dplyr::bind_rows(peers_bonds_results_aggregated)
+    dplyr::bind_rows(peers_bonds_results_aggregated) %>%
+    dplyr::mutate(
+      green_or_brown = dplyr::if_else(
+        .data$technology %in% .env$green_techs, "green", "brown"
+      )
+    )
 
   # ... individual peer group results
   peers_equity_results_individual <- peers_equity_results_individual %>%
@@ -168,7 +181,12 @@ prep_data_executive_summary <- function(investor_name,
     )
 
   peers_results_individual <- peers_equity_results_individual %>%
-    dplyr::bind_rows(peers_bonds_results_individual)
+    dplyr::bind_rows(peers_bonds_results_individual) %>%
+    dplyr::mutate(
+      green_or_brown = dplyr::if_else(
+        .data$technology %in% .env$green_techs, "green", "brown"
+      )
+    )
 
   # ... indices
   indices_equity_results_portfolio <- indices_equity_results_portfolio %>%
@@ -184,7 +202,12 @@ prep_data_executive_summary <- function(investor_name,
     )
 
   indices_results_portfolio <- indices_equity_results_portfolio %>%
-    dplyr::bind_rows(indices_bonds_results_portfolio)
+    dplyr::bind_rows(indices_bonds_results_portfolio) %>%
+    dplyr::mutate(
+      green_or_brown = dplyr::if_else(
+        .data$technology %in% .env$green_techs, "green", "brown"
+      )
+    )
 
   # TODO: translate data
 
