@@ -1,10 +1,38 @@
+#' Prepare data input for plotting aggregate climate scores
+#'
+#' @description Prepare data input for plotting aggregate climate scores based
+#' on PACTA for investors output files. These files must have been wrangled with
+#' `prep_data_executive_summary()` before they can be passed to this function.
+#'
+#' @param results_portfolio Data frame that contains pre-wrangled portfolio
+#'   level PACTA results from a PACTA for investors analysis.
+#' @param peers_results_aggregated Data frame that contains pre-wrangled
+#'   aggregate peer group level PACTA results from a PACTA for investors
+#'   analysis.
+#' @param asset_class Character vector of length 1. Must be either `equity` or
+#'   `bonds`.
+#' @param scenario_source Character vector of length 1. Must be a
+#'   `scenario_source` featured in the `scenario_thresholds` data set.
+#'
+#' @return data.frame
 prep_scores <- function(results_portfolio,
                         peers_results_aggregated,
                         asset_class,
                         scenario_source = "GECO2021") {
 
+  # validate inputs
+  if (!asset_class %in% c("bonds", "equity")) {
+    stop("Argument asset_class does not hold an accepted value.")
+  }
+
+  if (!scenario_source %in% unique(get("scenario_thresholds")$scenario_source)) {
+    stop("Argument scenario_source does not hold an accepted value.")
+  }
+
+  # infer start_year
   start_year <- min(results_portfolio$year, na.rm = TRUE)
 
+  # filter selected asset_class
   data <- results_portfolio %>%
     dplyr::bind_rows(peers_results_aggregated) %>%
     dplyr::filter(.data$asset_class == .env$asset_class)
