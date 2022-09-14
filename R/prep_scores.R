@@ -24,9 +24,14 @@ prep_scores <- function(results_portfolio,
   if (!asset_class %in% c("bonds", "equity")) {
     stop("Argument asset_class does not hold an accepted value.")
   }
-
   if (!scenario_source %in% unique(get("scenario_thresholds")$scenario_source)) {
     stop("Argument scenario_source does not hold an accepted value.")
+  }
+  if (length(asset_class) != 1) {
+    stop("Argument asset_class must be of length 1. Please check your input.")
+  }
+  if (length(scenario_source) != 1) {
+    stop("Argument scenario_source must be of length 1. Please check your input.")
   }
 
   # infer start_year
