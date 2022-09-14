@@ -1,11 +1,13 @@
 prep_scores <- function(results_portfolio,
                         peers_results_aggregated,
+                        asset_class,
                         scenarios,
                         start_year,
                         green_techs) {
 
   data <- results_portfolio %>%
-    dplyr::bind_rows(peers_results_aggregated)
+    dplyr::bind_rows(peers_results_aggregated) %>%
+    dplyr::filter(.data$asset_class == .env$asset_class)
 
   # prepare data for sector aggregation
   data_aggregate_scores <- data %>%
