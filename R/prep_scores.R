@@ -1,8 +1,9 @@
 prep_scores <- function(results_portfolio,
                         peers_results_aggregated,
                         asset_class,
-                        scenario_source,
-                        start_year) {
+                        scenario_source = "GECO2021") {
+
+  start_year <- min(results_portfolio$year, na.rm = TRUE)
 
   data <- results_portfolio %>%
     dplyr::bind_rows(peers_results_aggregated) %>%
