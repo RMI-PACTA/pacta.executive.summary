@@ -17,13 +17,10 @@
 #' @return data.frame
 prep_scores <- function(results_portfolio,
                         peers_results_aggregated,
-                        asset_class,
+                        asset_class = c("equity", "bonds"),
                         scenario_source = "GECO2021") {
-
   # validate inputs
-  if (!asset_class %in% c("bonds", "equity")) {
-    stop("Argument asset_class does not hold an accepted value.")
-  }
+  asset_class <- match.arg(asset_class)
   if (!scenario_source %in% unique(get("scenario_thresholds")$scenario_source)) {
     stop("Argument scenario_source does not hold an accepted value.")
   }
