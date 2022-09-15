@@ -1,4 +1,4 @@
-prep_calculate_sector_aggregate_scores <- function(data) {
+calculate_sector_aggregate_scores <- function(data) {
   # create helper variables for the weighting factors
   # account for special handling of CoalCap, RenewablesCap, ICE and Electric
   data <- data %>%

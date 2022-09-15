@@ -48,24 +48,24 @@ prep_scores <- function(results_portfolio,
 
   # prepare data for sector aggregation
   data_aggregate_scores <- data %>%
-    prep_input_data_aggregate_scores(scenarios = scenarios)
+    wrangle_input_data_aggregate_scores(scenarios = scenarios)
 
   # calculate technology level alignment
   data_aggregate_scores <- data_aggregate_scores %>%
-    prep_calculate_technology_alignment(
+    calculate_technology_alignment(
       start_year = start_year,
       time_horizon = time_horizon_lookup
     )
 
   # calculate sectors aggregate score
   sector_aggregate_scores <- data_aggregate_scores %>%
-    prep_calculate_sector_aggregate_scores()
+    calculate_sector_aggregate_scores()
 
   # get remaining carbon budgets and calculate portfolio aggregate score
   remaining_carbon_budgets <- get("remaining_carbon_budgets")
 
   portfolio_aggregate_scores <- sector_aggregate_scores %>%
-    prep_calculate_portfolio_aggregate_scores(
+    calculate_portfolio_aggregate_scores(
       remaining_carbon_budgets = remaining_carbon_budgets
     )
 

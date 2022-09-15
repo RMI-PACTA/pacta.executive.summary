@@ -1,5 +1,5 @@
-prep_input_data_aggregate_scores <- function(data,
-                                             scenarios) {
+wrangle_input_data_aggregate_scores <- function(data,
+                                                scenarios) {
   # filter data
   data <- data %>%
     dplyr::filter(.data$scenario %in% .env$scenarios)

@@ -1,7 +1,7 @@
-prep_calculate_technology_alignment <- function(data,
-                                                # green_techs,
-                                                start_year,
-                                                time_horizon) {
+calculate_technology_alignment <- function(data,
+                                           # green_techs,
+                                           start_year,
+                                           time_horizon) {
   data <- data %>%
     # dplyr::mutate(
     #   green_or_brown = dplyr::if_else(

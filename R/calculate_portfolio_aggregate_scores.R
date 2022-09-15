@@ -1,5 +1,5 @@
-prep_calculate_portfolio_aggregate_scores <- function(data,
-                                                      remaining_carbon_budgets) {
+calculate_portfolio_aggregate_scores <- function(data,
+                                                 remaining_carbon_budgets) {
   data <- data %>%
     dplyr::inner_join(
       remaining_carbon_budgets,
