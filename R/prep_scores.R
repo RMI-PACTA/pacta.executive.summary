@@ -21,15 +21,11 @@ prep_scores <- function(results_portfolio,
                         scenario_source = "GECO2021") {
   # validate inputs
   asset_class <- match.arg(asset_class)
-  if (!scenario_source %in% unique(get("scenario_thresholds")$scenario_source)) {
-    stop("Argument scenario_source does not hold an accepted value.")
-  }
-  if (length(asset_class) != 1) {
-    stop("Argument asset_class must be of length 1. Please check your input.")
-  }
-  if (length(scenario_source) != 1) {
-    stop("Argument scenario_source must be of length 1. Please check your input.")
-  }
+
+  check_data_prep_scores(
+    asset_class = asset_class,
+    scenario_source = scenario_source
+  )
 
   # infer start_year
   start_year <- min(results_portfolio$year, na.rm = TRUE)
@@ -81,6 +77,19 @@ prep_scores <- function(results_portfolio,
     )
 
   return(data_out)
+}
+
+check_data_prep_scores <- function(scenario_source,
+                                   asset_class) {
+  if (!scenario_source %in% unique(get("scenario_thresholds")$scenario_source)) {
+    stop("Argument scenario_source does not hold an accepted value.")
+  }
+  if (length(asset_class) != 1) {
+    stop("Argument asset_class must be of length 1. Please check your input.")
+  }
+  if (length(scenario_source) != 1) {
+    stop("Argument scenario_source must be of length 1. Please check your input.")
+  }
 }
 
 wrangle_input_data_aggregate_scores <- function(data,
