@@ -216,3 +216,22 @@ prep_data_executive_summary <- function(investor_name,
 
   return(data_out)
 }
+
+apply_general_filters <- function(data,
+                                  scenario_source,
+                                  scenario_geography,
+                                  equity_market,
+                                  start_year,
+                                  allocation_type) {
+  data <- data %>%
+    dplyr::filter(
+      .data$scenario_source == .env$scenario_source,
+      .data$scenario_geography == .env$scenario_geography,
+      .data$equity_market == .env$equity_market,
+      dplyr::between(.data$year, .env$start_year, .env$start_year + .env$time_horizon_lookup),
+      .data$allocation == .env$allocation_type
+    )
+
+  return(data)
+}
+
