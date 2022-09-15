@@ -11,7 +11,7 @@ calculate_sector_aggregate_scores <- function(data) {
     dplyr::mutate(
       tech_allocation_weight = dplyr::if_else(
         # TODO: add an input that defines these technologies
-        .data$technology %in% c("coalcap", "renewablescap", "ice", "electric", "ice_hdv", "electric_hdv") &
+        .data$technology %in% techs_edge_case_aggregate_score_lookup &
           .data$plan_alloc_wt_tech_prod_t5 > .data$scen_alloc_wt_tech_prod_t5,
         .data$plan_alloc_wt_tech_prod_t5,
         .data$scen_alloc_wt_tech_prod_t5
@@ -23,7 +23,7 @@ calculate_sector_aggregate_scores <- function(data) {
     ) %>%
     dplyr::mutate(
       scenario_change = dplyr::if_else(
-        .data$technology %in% c("coalcap", "renewablescap", "ice", "electric", "ice_hdv", "electric_hdv") &
+        .data$technology %in% techs_edge_case_aggregate_score_lookup &
           .data$production_change > .data$scenario_change,
         .data$production_change,
         .data$scenario_change
