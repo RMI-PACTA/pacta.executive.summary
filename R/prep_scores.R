@@ -1,6 +1,6 @@
 #' Prepare data input for plotting aggregate climate scores
 #'
-#' @description Prepare data input for plotting aggregate climate scores based
+#' Prepare data input for plotting aggregate climate scores based
 #' on PACTA for investors output files. These files must have been wrangled with
 #' `prep_data_executive_summary()` before they can be passed to this function.
 #'
@@ -9,9 +9,9 @@
 #' @param peers_results_aggregated Data frame that contains pre-wrangled
 #'   aggregate peer group level PACTA results from a PACTA for investors
 #'   analysis.
-#' @param asset_class Character vector of length 1. Must be either `equity` or
+#' @param asset_class Character. Must be either `equity` or
 #'   `bonds`.
-#' @param scenario_source Character vector of length 1. Must be a
+#' @param scenario_source Character. Must be a
 #'   `scenario_source` featured in the `scenario_thresholds` data set.
 #'
 #' @return data.frame

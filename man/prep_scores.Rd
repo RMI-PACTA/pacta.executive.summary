@@ -7,7 +7,7 @@
 prep_scores(
   results_portfolio,
   peers_results_aggregated,
-  asset_class,
+  asset_class = c("equity", "bonds"),
   scenario_source = "GECO2021"
 )
 }
@@ -19,10 +19,10 @@ level PACTA results from a PACTA for investors analysis.}
 aggregate peer group level PACTA results from a PACTA for investors
 analysis.}
 
-\item{asset_class}{Character vector of length 1. Must be either \code{equity} or
+\item{asset_class}{Character. Must be either \code{equity} or
 \code{bonds}.}
 
-\item{scenario_source}{Character vector of length 1. Must be a
+\item{scenario_source}{Character. Must be a
 \code{scenario_source} featured in the \code{scenario_thresholds} data set.}
 }
 \value{
