@@ -22,8 +22,6 @@ prep_data_executive_summary <- function(investor_name,
                                         indices_bonds_results_portfolio,
                                         audit_file = audit_file,
                                         emissions = emissions) {
-  # TODO: apply filters to data (investor name, portfolio name, allocation
-  # method, scenario, equity market, scenario geography, peer group, index)
 
   equity_results_portfolio <- equity_results_portfolio %>%
     apply_general_filters(
