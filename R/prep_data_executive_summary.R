@@ -122,8 +122,6 @@ prep_data_executive_summary <- function(investor_name,
       allocation_type = portfolio_allocation_method_bonds
     )
 
-  # TODO: merge bonds and equity data in one table
-
   # add asset class, entity type and grenn/brown, combine data sets
   # ... portfolios
   equity_results_portfolio <- equity_results_portfolio %>%
