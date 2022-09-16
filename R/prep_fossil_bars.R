@@ -1,3 +1,20 @@
+#' Prepare data input for plotting upstream fossil fuel exposure
+#'
+#' Prepare data input for plotting upstream fossil fuel exposure based
+#' on PACTA for investors output files. These files must have been wrangled with
+#' `prep_data_executive_summary()` before they can be passed to this function.
+#'
+#' @param results_portfolio Data frame that contains pre-wrangled portfolio
+#'   level PACTA results from a PACTA for investors analysis.
+#' @param peers_results_aggregated Data frame that contains pre-wrangled
+#'   aggregate peer group level PACTA results from a PACTA for investors
+#'   analysis.
+#' @param indices_results_portfolio Data frame that contains pre-wrangled
+#'   PACTA results for indices from a PACTA for investors analysis.
+#' @param scenario_source Character. Must be a
+#'   `scenario_source` featured in the `scenario_thresholds` data set.
+#'
+#' @return data.frame
 prep_fossil_bars <- function(results_portfolio,
                              peers_results_aggregated,
                              indices_results_portfolio,
