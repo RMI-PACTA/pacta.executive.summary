@@ -28,9 +28,29 @@ prep_green_brown_bars <- function(results_portfolio,
       .data$scenario == .env$scenario_selected
     )
 
-  # TODO: use input args to define groupings?
   # map sectors to p4b style
   # map tech_type and fossil_fuels
+  data <- data %>%
+    # TODO: use input args to define groupings?
+    map_sectors_and_tech_type()
+
+  # calculate tech_type and sector exposures
+  data_out <- data %>%
+    calculate_exposures()
+
+  return(data_out)
+}
+
+check_data_prep_green_brown_bars <- function(scenario_selected) {
+  if (!scenario_selected %in% unique(get("scenario_thresholds")$scenario)) {
+    stop("Argument scenario_selected does not hold an accepted value.")
+  }
+  if (length(scenario_selected) != 1) {
+    stop("Argument scenario_source must be of length 1. Please check your input.")
+  }
+}
+
+map_sectors_and_tech_type <- function(data) {
   data <- data %>%
     dplyr::inner_join(
       get("p4i_p4b_sector_technology_mapper"),
@@ -56,8 +76,11 @@ prep_green_brown_bars <- function(results_portfolio,
       )
     )
 
-  # calculate technology and sector exposures
-  data_out <- data %>%
+  return(data)
+}
+
+calculate_exposures <- function(data) {
+  data <- data %>%
     dplyr::select(
       .data$asset_class, .data$year, .data$tech_type, .data$ald_sector,
       .data$plan_carsten
@@ -73,14 +96,5 @@ prep_green_brown_bars <- function(results_portfolio,
     dplyr::rename(sector = .data$ald_sector) %>%
     dplyr::arrange(.data$sector, .data$asset_class, .data$tech_type)
 
-  return(data_out)
-}
-
-check_data_prep_green_brown_bars <- function(scenario_selected) {
-  if (!scenario_selected %in% unique(get("scenario_thresholds")$scenario)) {
-    stop("Argument scenario_selected does not hold an accepted value.")
-  }
-  if (length(scenario_selected) != 1) {
-    stop("Argument scenario_source must be of length 1. Please check your input.")
-  }
+  return(data)
 }
