@@ -44,10 +44,9 @@ prep_green_brown_bars <- function(results_portfolio,
   # calculate technology and sector exposures
   data_out <- data %>%
     dplyr::select(
-      .data$asset_class, .data$year, .data$tech_type,# .data$technology,
-      .data$ald_sector, .data$plan_carsten
+      .data$asset_class, .data$year, .data$tech_type,n.data$ald_sector,
+      .data$plan_carsten
     ) %>%
-    # dplyr::rename(perc_tech_exposure = .data$plan_carsten) %>%
     dplyr::group_by(
       .data$asset_class, .data$year, .data$tech_type, .data$ald_sector
     ) %>%
