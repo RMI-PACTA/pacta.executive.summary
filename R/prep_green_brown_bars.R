@@ -1,5 +1,8 @@
 prep_green_brown_bars <- function(results_portfolio,
                                   scenario_selected) {
+  # check input
+  check_data_prep_green_brown_bars(scenario_selected = scenario_selected)
+
   # input data
   data <- results_portfolio
 
@@ -44,7 +47,7 @@ prep_green_brown_bars <- function(results_portfolio,
   # calculate technology and sector exposures
   data_out <- data %>%
     dplyr::select(
-      .data$asset_class, .data$year, .data$tech_type, n.data$ald_sector,
+      .data$asset_class, .data$year, .data$tech_type, .data$ald_sector,
       .data$plan_carsten
     ) %>%
     dplyr::group_by(
@@ -59,4 +62,13 @@ prep_green_brown_bars <- function(results_portfolio,
     dplyr::arrange(.data$sector, .data$asset_class, .data$tech_type)
 
   return(data_out)
+}
+
+check_data_prep_green_brown_bars <- function(scenario_selected) {
+  if (!scenario_selected %in% unique(get("scenario_thresholds")$scenario)) {
+    stop("Argument scenario_selected does not hold an accepted value.")
+  }
+  if (length(scenario_selected) != 1) {
+    stop("Argument scenario_source must be of length 1. Please check your input.")
+  }
 }
