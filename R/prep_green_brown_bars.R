@@ -3,6 +3,7 @@ prep_green_brown_bars <- function(results_portfolio,
   # input data
   data <- results_portfolio
 
+  # infer relevant years
   min_year <- min(data$year, na.rm = TRUE)
   max_year <- max(data$year, na.rm = TRUE)
 
@@ -10,24 +11,33 @@ prep_green_brown_bars <- function(results_portfolio,
   data <- data %>%
     dplyr::filter(
       year %in% c(.env$min_year, .env$max_year),
-      .data$scenario == .env$scenario_selected,
+      .data$scenario == .env$scenario_selected
     )
 
-  # map technologies and sectors
   # TODO: use input args to define groupings?
-  # TODO: snake_case?
+  # map sectors to p4b style
+  # map tech_type and fossil_fuels
   data <- data %>%
+    dplyr::inner_join(
+      get("p4i_p4b_sector_technology_mapper"),
+      by = c("ald_sector" = "sector_p4i", "technology" = "technology_p4i")
+    ) %>%
+    dplyr::mutate(
+      ald_sector = .data$sector_p4b,
+      technology = .data$technology_p4b
+    ) %>%
+    dplyr::select(-c(.data$sector_p4b, .data$technology_p4b)) %>%
     dplyr::mutate(
       ald_sector = dplyr::case_when(
-        .data$ald_sector == "Coal" ~ "fossil_fuels",
-        .data$ald_sector == "Oil&Gas" ~ "fossil_fuels",
+        .data$ald_sector == "coal" ~ "fossil_fuels",
+        .data$ald_sector == "oil and gas" ~ "fossil_fuels",
         TRUE ~ .data$ald_sector
       )
     ) %>%
     dplyr::mutate(
       tech_type = dplyr::case_when(
-        .data$ald_sector == "Power" & .data$technology == "NuclearCap" ~ "nuclear",
-        .data$ald_sector %in% c("Aviation", "Cement", "Steel") ~ "other",
+        .data$ald_sector == "power" & .data$technology == "nuclearcap" ~ "nuclear",
+        .data$ald_sector %in% c("aviation", "cement", "steel") ~ "other",
         TRUE ~ .data$green_or_brown
       )
     )
@@ -40,13 +50,14 @@ prep_green_brown_bars <- function(results_portfolio,
     ) %>%
     # dplyr::rename(perc_tech_exposure = .data$plan_carsten) %>%
     dplyr::group_by(
-      .data$asset_class, .data$year, .data$ald_sector, .data$tech_type
+      .data$asset_class, .data$year, .data$tech_type, .data$ald_sector
     ) %>%
     dplyr::summarise(perc_tech_exposure = sum(.data$plan_carsten, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
     dplyr::group_by(.data$asset_class, .data$year, .data$ald_sector) %>%
     dplyr::mutate(perc_sec_exposure = sum(.data$perc_tech_exposure, na.rm = TRUE)) %>%
-    dplyr::ungroup()
+    dplyr::ungroup() %>%
+    dplyr::rename(sector = .data$ald_sector)
 
   return(data_out)
 }
