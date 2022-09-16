@@ -3,14 +3,13 @@ prep_green_brown_bars <- function(results_portfolio,
   # input data
   data <- results_portfolio
 
-  # infer relevant years
-  min_year <- min(data$year, na.rm = TRUE)
-  max_year <- max(data$year, na.rm = TRUE)
+  # infer start year
+  start_year <- min(data$year, na.rm = TRUE)
 
   # filter data
   data <- data %>%
     dplyr::filter(
-      year %in% c(.env$min_year, .env$max_year),
+      year == .env$start_year,
       .data$scenario == .env$scenario_selected
     )
 
@@ -57,7 +56,8 @@ prep_green_brown_bars <- function(results_portfolio,
     dplyr::group_by(.data$asset_class, .data$year, .data$ald_sector) %>%
     dplyr::mutate(perc_sec_exposure = sum(.data$perc_tech_exposure, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::rename(sector = .data$ald_sector)
+    dplyr::rename(sector = .data$ald_sector) %>%
+    dplyr::arrange(.data$sector, .data$asset_class, .data$tech_type)
 
   return(data_out)
 }
