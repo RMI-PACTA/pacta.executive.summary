@@ -1,43 +1,16 @@
-prep_green_brown_bars <- function(equity_results_portfolio,
-                                  bonds_results_portfolio,
-                                  start_year,
-                                  time_horizon,
-                                  scenario_source,
-                                  scenario_selected,
-                                  scenario_geography,
-                                  equity_market,
-                                  portfolio_allocation_method_bonds,
-                                  portfolio_allocation_method_equity) {
-  # add asset class and entity information
-  data_equity_results_portfolio <- equity_results_portfolio %>%
-    dplyr::mutate(
-      entity_name = "portfolio",
-      entity_type = "this_portfolio",
-      asset_class = "equity"
-    )
+prep_green_brown_bars <- function(results_portfolio,
+                                  scenario_selected) {
+  # input data
+  data <- results_portfolio
 
-  data_bonds_results_portfolio <- bonds_results_portfolio %>%
-    dplyr::mutate(
-      entity_name = "portfolio",
-      entity_type = "this_portfolio",
-      asset_class = "bonds"
-    )
-
-  # combine input data
-  data_inputs <- data_equity_results_portfolio %>%
-    dplyr::bind_rows(data_bonds_results_portfolio)
+  min_year <- min(data$year, na.rm = TRUE)
+  max_year <- max(data$year, na.rm = TRUE)
 
   # filter data
-  data <- data_inputs %>%
+  data <- data %>%
     dplyr::filter(
-      year %in% c(.env$start_year, .env$start_year + .env$time_horizon),
-      .data$scenario_source == .env$scenario_source,
+      year %in% c(.env$min_year, .env$max_year),
       .data$scenario == .env$scenario_selected,
-      .data$scenario_geography == .env$scenario_geography,
-      .data$equity_market == .env$equity_market,
-      dplyr::between(.data$year, .env$start_year, .env$start_year + .env$time_horizon),
-      .data$asset_class == "bonds" & .data$allocation == .env$portfolio_allocation_method_bonds |
-        .data$asset_class == "equity" & .data$allocation == .env$portfolio_allocation_method_equity
     )
 
   # map technologies and sectors
@@ -53,51 +26,26 @@ prep_green_brown_bars <- function(equity_results_portfolio,
     ) %>%
     dplyr::mutate(
       tech_type = dplyr::case_when(
-        .data$ald_sector == "fossil_fuels" ~ "brown",
-        .data$ald_sector == "Automotive" &
-          .data$technology %in% c(
-            "Electric", "Hybrid", "FuelCell",
-            "Electric_HDV", "Hybrid_HDV", "FuelCell_HDV"
-          ) ~ "green",
-        .data$ald_sector == "Automotive" &
-          .data$technology %in% c("ICE", "ICE_HDV") ~ "brown",
-        .data$ald_sector == "Power" & .data$technology %in% c("CoalCap", "GasCap", "OilCap") ~ "brown",
-        .data$ald_sector == "Power" & .data$technology %in% c("HydroCap", "NuclearCap") ~ "hydro_and_nuclear",
-        .data$ald_sector == "Power" & .data$technology == "RenewablesCap" ~ "green",
-        TRUE ~ "other"
-      )
-    ) %>%
-    dplyr::mutate(
-      technology = dplyr::case_when(
-        .data$ald_sector == "Automotive" & .data$tech_type == "green" ~ "green",
-        .data$ald_sector == "Automotive" & .data$tech_type == "brown" ~ "brown",
+        .data$ald_sector == "Power" & .data$technology == "NuclearCap" ~ "nuclear",
         .data$ald_sector %in% c("Aviation", "Cement", "Steel") ~ "other",
-        TRUE ~ .data$technology
+        TRUE ~ .data$green_or_brown
       )
     )
 
-  # calculate technology exposures
-  # calculate sector exposures
+  # calculate technology and sector exposures
   data_out <- data %>%
     dplyr::select(
-      .data$entity_name, .data$entity_type, .data$asset_class, .data$year,
-      .data$tech_type, .data$technology, .data$ald_sector, .data$plan_carsten
+      .data$asset_class, .data$year, .data$tech_type,# .data$technology,
+      .data$ald_sector, .data$plan_carsten
     ) %>%
+    # dplyr::rename(perc_tech_exposure = .data$plan_carsten) %>%
     dplyr::group_by(
-      .data$entity_name, .data$entity_type, .data$asset_class, .data$year,
-      .data$technology, .data$ald_sector
+      .data$asset_class, .data$year, .data$ald_sector, .data$tech_type
     ) %>%
-    dplyr::mutate(
-      technology_exposure = sum(.data$plan_carsten, na.rm = TRUE)
-    ) %>%
+    dplyr::summarise(perc_tech_exposure = sum(.data$plan_carsten, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::group_by(
-      .data$entity_name, .data$entity_type, .data$asset_class, .data$year,
-      .data$ald_sector
-    ) %>%
-    dplyr::mutate(
-      sector_exposure = sum(.data$plan_carsten, na.rm = TRUE)
-    ) %>%
+    dplyr::group_by(.data$asset_class, .data$year, .data$ald_sector) %>%
+    dplyr::mutate(perc_sec_exposure = sum(.data$perc_tech_exposure, na.rm = TRUE)) %>%
     dplyr::ungroup()
 
   return(data_out)
