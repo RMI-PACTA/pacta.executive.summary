@@ -1,3 +1,15 @@
+#' Prepare data input for plotting green brown bar chart
+#'
+#' Prepare data input for plotting green brown bar chart based on PACTA for
+#' investors output files. These files must have been wrangled with
+#' `prep_data_executive_summary()` before they can be passed to this function.
+#'
+#' @param results_portfolio Data frame that contains pre-wrangled portfolio
+#'   level PACTA results from a PACTA for investors analysis.
+#' @param scenario_selected Character. Must be a `scenario` featured in the
+#'   `scenario_thresholds` data set.
+#'
+#' @return data.frame
 prep_green_brown_bars <- function(results_portfolio,
                                   scenario_selected) {
   # check input
