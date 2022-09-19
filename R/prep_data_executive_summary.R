@@ -36,7 +36,6 @@ prep_data_executive_summary <- function(investor_name,
       .data$portfolio_name == .env$portfolio_name,
     )
 
-
   bonds_results_portfolio <- bonds_results_portfolio %>%
     apply_general_filters(
       scenario_source = scenario_source,
@@ -234,4 +233,3 @@ apply_general_filters <- function(data,
 
   return(data)
 }
-
