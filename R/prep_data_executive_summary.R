@@ -33,7 +33,7 @@ prep_data_executive_summary <- function(investor_name,
     ) %>%
     dplyr::filter(
       .data$investor_name == .env$investor_name,
-      .data$portfolio_name == .env$portfolio_name,
+      .data$portfolio_name == .env$portfolio_name
     )
 
 
@@ -47,7 +47,7 @@ prep_data_executive_summary <- function(investor_name,
     ) %>%
     dplyr::filter(
       .data$investor_name == .env$investor_name,
-      .data$portfolio_name == .env$portfolio_name,
+      .data$portfolio_name == .env$portfolio_name
     )
 
   peers_equity_results_aggregated <- peers_equity_results_aggregated %>%
@@ -60,7 +60,7 @@ prep_data_executive_summary <- function(investor_name,
     ) %>%
     dplyr::filter(
       .data$investor_name == .env$peer_group,
-      .data$portfolio_name == .env$peer_group,
+      .data$portfolio_name == .env$peer_group
     )
 
   peers_bonds_results_aggregated <- peers_bonds_results_aggregated %>%
@@ -73,7 +73,7 @@ prep_data_executive_summary <- function(investor_name,
     ) %>%
     dplyr::filter(
       .data$investor_name == .env$peer_group,
-      .data$portfolio_name == .env$peer_group,
+      .data$portfolio_name == .env$peer_group
     )
 
   peers_equity_results_individual <- peers_equity_results_individual %>%
@@ -86,7 +86,7 @@ prep_data_executive_summary <- function(investor_name,
     ) %>%
     dplyr::filter(
       .data$investor_name == .env$peer_group,
-      .data$portfolio_name == .env$peer_group,
+      .data$portfolio_name == .env$peer_group
     )
 
   peers_bonds_results_individual <- peers_bonds_results_individual %>%
@@ -99,7 +99,7 @@ prep_data_executive_summary <- function(investor_name,
     ) %>%
     dplyr::filter(
       .data$investor_name == .env$peer_group,
-      .data$portfolio_name == .env$peer_group,
+      .data$portfolio_name == .env$peer_group
     )
 
   indices_equity_results_portfolio <- indices_equity_results_portfolio %>%
