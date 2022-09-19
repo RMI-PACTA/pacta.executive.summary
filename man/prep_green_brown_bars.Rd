@@ -4,14 +4,15 @@
 \alias{prep_green_brown_bars}
 \title{Prepare data input for plotting green brown bar chart}
 \usage{
-prep_green_brown_bars(results_portfolio, scenario_selected)
+prep_green_brown_bars(results_portfolio, scenario_selected = "1.5C-Unif")
 }
 \arguments{
 \item{results_portfolio}{Data frame that contains pre-wrangled portfolio
 level PACTA results from a PACTA for investors analysis.}
 
 \item{scenario_selected}{Character. Must be a \code{scenario} featured in the
-\code{scenario_thresholds} data set.}
+\code{scenario_thresholds} data set. Default is "1.5C-Unif", which is the 1.5°C
+scenario from GECO2021.}
 }
 \value{
 data.frame

@@ -7,11 +7,12 @@
 #' @param results_portfolio Data frame that contains pre-wrangled portfolio
 #'   level PACTA results from a PACTA for investors analysis.
 #' @param scenario_selected Character. Must be a `scenario` featured in the
-#'   `scenario_thresholds` data set.
+#'   `scenario_thresholds` data set. Default is "1.5C-Unif", which is the 1.5°C
+#'   scenario from GECO2021.
 #'
 #' @return data.frame
 prep_green_brown_bars <- function(results_portfolio,
-                                  scenario_selected) {
+                                  scenario_selected = "1.5C-Unif") {
   # check input
   check_data_prep_green_brown_bars(scenario_selected = scenario_selected)
 
