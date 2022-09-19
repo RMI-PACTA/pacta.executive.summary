@@ -3,7 +3,7 @@ prep_scatter <- function(results_portfolio,
                          peers_results_individual,
                          indices_results_portfolio,
                          scenario_source = "GECO2021",
-                         scenario_selected,
+                         scenario_selected = "1.5C-Unif",
                          asset_class = c("equity", "bonds")) {
   # validate inputs
   asset_class <- match.arg(asset_class)
@@ -51,9 +51,9 @@ prep_scatter <- function(results_portfolio,
     map_sectors_and_tech_type()
 
   # calculate tech_type and sector exposures
-  # TODO: change function to group by portfolio etc. then select
   data_exposure <- data_exposure %>%
-    calculate_exposures()
+    calculate_exposures() %>%
+    dplyr::filter(tech_type == "green")
 
   # calculate future alignment scores
 
@@ -72,8 +72,28 @@ prep_scatter <- function(results_portfolio,
   sector_aggregate_scores <- data_aggregate_scores %>%
     calculate_sector_aggregate_scores()
 
-  # TODO: combine outputs and wrangle
+  sector_aggregate_scores <- sector_aggregate_scores %>%
+    calculate_aggregate_scores_with_scenarios(
+      scenario_thresholds = scenario_thresholds
+    )
 
+  # combine outputs and wrangle
+  data_out <- data_exposure %>%
+    dplyr::inner_join(
+      sector_aggregate_scores,
+      by = c(
+        "investor_name", "portfolio_name", "asset_class", "sector",
+        "entity_name", "entity_type", "entity"
+      )
+    ) %>%
+    dplyr::select(
+      .data$asset_class, .data$year, .data$perc_tech_exposure, .data$score,
+      .data$entity_name, .data$entity_type
+    ) %>%
+    dplyr::rename(
+      tech_mix_green = .data$perc_tech_exposure,
+
+    )
 
   return(data_out)
 }

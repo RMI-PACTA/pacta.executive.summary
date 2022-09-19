@@ -74,6 +74,9 @@ prep_scores <- function(results_portfolio,
   data_out <- output_scores %>%
     calculate_aggregate_scores_with_scenarios(
       scenario_thresholds = scenario_thresholds
+    ) %>%
+    dplyr::select(
+      .data$asset_class, .data$scope, .data$entity, .data$sector, .data$score
     )
 
   return(data_out)
@@ -127,18 +130,11 @@ calculate_technology_alignment <- function(data,
                                            start_year,
                                            time_horizon) {
   data <- data %>%
-    dplyr::select(
-      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$entity,
-      .data$scenario_source, .data$scenario, .data$allocation,
-      .data$equity_market, .data$scenario_geography, .data$ald_sector,
-      .data$technology, .data$year, .data$plan_alloc_wt_tech_prod,
-      .data$plan_carsten, .data$scen_alloc_wt_tech_prod, .data$green_or_brown
-    ) %>%
     dplyr::group_by(
-      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$entity,
-      .data$scenario_source, .data$scenario, .data$allocation,
-      .data$equity_market, .data$scenario_geography, .data$ald_sector,
-      .data$technology
+      .data$investor_name, .data$portfolio_name, .data$asset_class,
+      .data$entity_name, .data$entity_type, .data$entity, .data$scenario_source,
+      .data$scenario, .data$allocation, .data$equity_market,
+      .data$scenario_geography, .data$ald_sector, .data$technology
     ) %>%
     dplyr::mutate(
       scen_alloc_wt_tech_prod_t0 = dplyr::first(.data$scen_alloc_wt_tech_prod),
@@ -167,10 +163,10 @@ calculate_sector_aggregate_scores <- function(data) {
   # account for special handling of CoalCap, RenewablesCap, ICE and Electric
   data <- data %>%
     dplyr::group_by(
-      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$entity,
-      .data$scenario_source, .data$scenario, .data$allocation,
-      .data$equity_market, .data$scenario_geography, .data$ald_sector,
-      .data$technology
+      .data$investor_name, .data$portfolio_name, .data$asset_class,
+      .data$entity_name, .data$entity_type, .data$entity, .data$scenario_source,
+      .data$scenario, .data$allocation, .data$equity_market,
+      .data$scenario_geography, .data$ald_sector, .data$technology
     ) %>%
     dplyr::mutate(
       tech_allocation_weight = dplyr::if_else(
@@ -199,9 +195,10 @@ calculate_sector_aggregate_scores <- function(data) {
   # calculate sector score & sector exposure
   data <- data %>%
     dplyr::group_by(
-      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$entity,
-      .data$scenario_source, .data$scenario, .data$allocation,
-      .data$equity_market, .data$scenario_geography, .data$ald_sector
+      .data$investor_name, .data$portfolio_name, .data$asset_class,
+      .data$entity_name, .data$entity_type, .data$entity, .data$scenario_source,
+      .data$scenario, .data$allocation, .data$equity_market,
+      .data$scenario_geography, .data$ald_sector
     ) %>%
     dplyr::summarise(
       score = stats::weighted.mean(
@@ -226,8 +223,9 @@ calculate_portfolio_aggregate_scores <- function(data,
     ) %>%
     dplyr::group_by(
       .data$investor_name, .data$portfolio_name, .data$asset_class,
-      .data$entity, .data$scenario_source, .data$scenario, .data$allocation,
-      .data$equity_market, .data$scenario_geography
+      .data$entity_name, .data$entity_type, .data$entity, .data$scenario_source,
+      .data$scenario, .data$allocation, .data$equity_market,
+      .data$scenario_geography
     ) %>%
     dplyr::summarise(
       score = stats::weighted.mean(
@@ -250,7 +248,8 @@ calculate_aggregate_scores_with_scenarios <- function(data,
   # add threshold scenarios
   data <- data %>%
     dplyr::select(
-      .data$asset_class, .data$scope, .data$entity, .data$ald_sector,
+      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$scope,
+      .data$entity_name, .data$entity_type, .data$entity, .data$ald_sector,
       .data$scenario_source, .data$scenario, .data$score
     ) %>%
     dplyr::inner_join(
@@ -262,7 +261,9 @@ calculate_aggregate_scores_with_scenarios <- function(data,
   data <- data %>%
     tidyr::pivot_wider(
       id_cols = c(
-        .data$asset_class, .data$scope, .data$entity, .data$ald_sector
+        .data$investor_name, .data$portfolio_name, .data$asset_class,
+        .data$scope, .data$entity_name, .data$entity_type, .data$entity,
+        .data$ald_sector
       ),
       names_from = .data$threshold,
       values_from = .data$score
@@ -285,9 +286,14 @@ calculate_aggregate_scores_with_scenarios <- function(data,
 
   data <- data %>%
     dplyr::select(
-      .data$asset_class, .data$scope, .data$entity, .data$sector, .data$score
+      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$scope,
+      .data$entity_name, .data$entity_type, .data$entity, .data$sector,
+      .data$score
     ) %>%
-    dplyr::arrange(.data$asset_class, .data$scope, .data$sector, .data$entity)
+    dplyr::arrange(
+      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$scope,
+      .data$sector, .data$entity_name, .data$entity_type, .data$entity
+    )
 
   return(data)
 }
