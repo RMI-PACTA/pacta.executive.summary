@@ -24,7 +24,9 @@ prep_fossil_bars <- function(results_portfolio,
 
   # combine input data sets
   indices_results_portfolio <- indices_results_portfolio %>%
-    dplyr::filter(.data$portfolio_name == .env$index_selected_lookup)
+    dplyr::filter(
+      .data$portfolio_name %in% c(.env$index_cb_selected_lookup, .env$index_eq_selected_lookup)
+    )
 
   data <- results_portfolio %>%
     dplyr::bind_rows(peers_results_aggregated) %>%
@@ -64,7 +66,8 @@ wrangle_data_fossil_bars <- function(data) {
       entity_name = dplyr::case_when(
         .data$entity_type == "this_portfolio" ~ "portfolio",
         .data$entity_type == "peers" ~ "peers",
-        .data$entity_type == "index" ~ .env$index_short_lookup,
+        .data$entity_type == "index" & .data$asset_class == "equity" ~ .env$index_eq_short_lookup,
+        .data$entity_type == "index" & .data$asset_class == "bonds" ~ .env$index_cb_short_lookup,
         TRUE ~ .data$entity_type
       )
     ) %>%
