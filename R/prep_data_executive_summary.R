@@ -85,8 +85,7 @@ prep_data_executive_summary <- function(investor_name,
       allocation_type = portfolio_allocation_method_equity
     ) %>%
     dplyr::filter(
-      .data$investor_name == .env$peer_group,
-      .data$portfolio_name == .env$peer_group
+      .data$investor_name == .env$peer_group
     )
 
   peers_bonds_results_individual <- peers_bonds_results_individual %>%
@@ -98,8 +97,7 @@ prep_data_executive_summary <- function(investor_name,
       allocation_type = portfolio_allocation_method_bonds
     ) %>%
     dplyr::filter(
-      .data$investor_name == .env$peer_group,
-      .data$portfolio_name == .env$peer_group
+      .data$investor_name == .env$peer_group
     )
 
   indices_equity_results_portfolio <- indices_equity_results_portfolio %>%
