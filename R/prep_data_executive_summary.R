@@ -121,14 +121,12 @@ prep_data_executive_summary <- function(investor_name,
   # ... portfolios
   equity_results_portfolio <- equity_results_portfolio %>%
     dplyr::mutate(
-      asset_class = "equity",
-      entity = "this_portfolio"
+      asset_class = "equity"
     )
 
   bonds_results_portfolio <- bonds_results_portfolio %>%
     dplyr::mutate(
-      asset_class = "bonds",
-      entity = "this_portfolio"
+      asset_class = "bonds"
     )
 
   results_portfolio <- equity_results_portfolio %>%
@@ -136,20 +134,21 @@ prep_data_executive_summary <- function(investor_name,
     dplyr::mutate(
       green_or_brown = dplyr::if_else(
         .data$technology %in% .env$green_techs, "green", "brown"
-      )
+      ),
+      entity_name = "portfolio",
+      entity_type = "this_portfolio",
+      entity = "this_portfolio"
     )
 
   # ... aggregated peer group results
   peers_equity_results_aggregated <- peers_equity_results_aggregated %>%
     dplyr::mutate(
-      asset_class = "equity",
-      entity = "peers"
+      asset_class = "equity"
     )
 
   peers_bonds_results_aggregated <- peers_bonds_results_aggregated %>%
     dplyr::mutate(
-      asset_class = "bonds",
-      entity = "peers"
+      asset_class = "bonds"
     )
 
   peers_results_aggregated <- peers_equity_results_aggregated %>%
@@ -157,29 +156,35 @@ prep_data_executive_summary <- function(investor_name,
     dplyr::mutate(
       green_or_brown = dplyr::if_else(
         .data$technology %in% .env$green_techs, "green", "brown"
-      )
+      ),
+        entity_name = "average",
+        entity_type = "average",
+        entity = "peers"
     )
 
   # ... individual peer group results
   peers_equity_results_individual <- peers_equity_results_individual %>%
     dplyr::mutate(
-      asset_class = "equity",
-      entity = "peers"
+      asset_class = "equity"
     )
 
   peers_bonds_results_individual <- peers_bonds_results_individual %>%
     dplyr::mutate(
-      asset_class = "bonds",
-      entity = "peers"
+      asset_class = "bonds"
     )
 
   peers_results_individual <- peers_equity_results_individual %>%
     dplyr::bind_rows(peers_bonds_results_individual) %>%
-    dplyr::mutate(
+    dplyr::group_by(investor_name, portfolio_name) %>%
+    mutate(
       green_or_brown = dplyr::if_else(
         .data$technology %in% .env$green_techs, "green", "brown"
-      )
-    )
+      ),
+      entity_name = glue::glue("peer{dplyr::cur_group_id()}"),
+      entity_type = "peer",
+      entity = "peers"
+    ) %>%
+    dplyr::ungroup()
 
   # ... indices
   indices_equity_results_portfolio <- indices_equity_results_portfolio %>%
@@ -199,7 +204,13 @@ prep_data_executive_summary <- function(investor_name,
     dplyr::mutate(
       green_or_brown = dplyr::if_else(
         .data$technology %in% .env$green_techs, "green", "brown"
-      )
+      ),
+      entity_name = dplyr::case_when(
+        asset_class == "equity" ~ index_eq_short_lookup,
+        asset_class == "bonds" ~ index_cb_short_lookup,
+        TRUE ~ NA_character_
+      ),
+      entity_type = "benchmark"
     )
 
   # TODO: translate data
