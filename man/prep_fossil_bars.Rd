@@ -8,7 +8,7 @@ prep_fossil_bars(
   results_portfolio,
   peers_results_aggregated,
   indices_results_portfolio,
-  scenario_selected
+  scenario_selected = "1.5C-Unif"
 )
 }
 \arguments{
@@ -22,8 +22,9 @@ analysis.}
 \item{indices_results_portfolio}{Data frame that contains pre-wrangled
 PACTA results for indices from a PACTA for investors analysis.}
 
-\item{scenario_source}{Character. Must be a
-\code{scenario_source} featured in the \code{scenario_thresholds} data set.}
+\item{scenario_selected}{Character. Must be a \code{scenario} featured in the
+\code{scenario_thresholds} data set. Defaults to \code{"1.5C-Unif"} from the GECO2021
+scenario source.}
 }
 \value{
 data.frame

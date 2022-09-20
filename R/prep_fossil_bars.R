@@ -11,14 +11,15 @@
 #'   analysis.
 #' @param indices_results_portfolio Data frame that contains pre-wrangled
 #'   PACTA results for indices from a PACTA for investors analysis.
-#' @param scenario_source Character. Must be a
-#'   `scenario_source` featured in the `scenario_thresholds` data set.
+#' @param scenario_selected Character. Must be a `scenario` featured in the
+#'   `scenario_thresholds` data set. Defaults to `"1.5C-Unif"` from the GECO2021
+#'   scenario source.
 #'
 #' @return data.frame
 prep_fossil_bars <- function(results_portfolio,
                              peers_results_aggregated,
                              indices_results_portfolio,
-                             scenario_selected) {
+                             scenario_selected = "1.5C-Unif") {
   # check input
   check_data_prep_fossil_bars(scenario_selected = scenario_selected)
 
