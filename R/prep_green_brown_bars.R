@@ -37,7 +37,11 @@ prep_green_brown_bars <- function(results_portfolio,
 
   # calculate tech_type and sector exposures
   data_out <- data %>%
-    calculate_exposures()
+    calculate_exposures() %>%
+    dplyr::select(
+      .data$asset_class, .data$year, .data$tech_type, .data$sector,
+      .data$perc_tech_exposure, .data$perc_sec_exposure
+    )
 
   return(data_out)
 }
@@ -83,19 +87,29 @@ map_sectors_and_tech_type <- function(data) {
 calculate_exposures <- function(data) {
   data <- data %>%
     dplyr::select(
-      .data$asset_class, .data$year, .data$tech_type, .data$ald_sector,
-      .data$plan_carsten
+      .data$investor_name, .data$portfolio_name, .data$entity_name,
+      .data$entity_type, .data$entity, .data$asset_class, .data$year,
+      .data$tech_type, .data$ald_sector, .data$plan_carsten
     ) %>%
     dplyr::group_by(
-      .data$asset_class, .data$year, .data$tech_type, .data$ald_sector
+      .data$investor_name, .data$portfolio_name,.data$entity_name,
+      .data$entity_type, .data$entity, .data$asset_class, .data$year,
+      .data$tech_type, .data$ald_sector
     ) %>%
     dplyr::summarise(perc_tech_exposure = sum(.data$plan_carsten, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::group_by(.data$asset_class, .data$year, .data$ald_sector) %>%
+    dplyr::group_by(
+      .data$investor_name, .data$portfolio_name, .data$entity_name,
+      .data$entity_type, .data$entity, .data$asset_class, .data$year,
+      .data$ald_sector
+    ) %>%
     dplyr::mutate(perc_sec_exposure = sum(.data$perc_tech_exposure, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
     dplyr::rename(sector = .data$ald_sector) %>%
-    dplyr::arrange(.data$sector, .data$asset_class, .data$tech_type)
+    dplyr::arrange(
+      .data$investor_name, .data$portfolio_name, .data$sector, .data$asset_class,
+      .data$tech_type
+    )
 
   return(data)
 }
