@@ -23,12 +23,13 @@ prep_fossil_bars <- function(results_portfolio,
   # check input
   check_data_prep_fossil_bars(scenario_selected = scenario_selected)
 
-  # combine input data sets
+  # filter indices input data set
   indices_results_portfolio <- indices_results_portfolio %>%
     dplyr::filter(
       .data$portfolio_name %in% c(.env$index_cb_selected_lookup, .env$index_eq_selected_lookup)
     )
 
+  # combine input data sets
   data <- results_portfolio %>%
     dplyr::bind_rows(peers_results_aggregated) %>%
     dplyr::bind_rows(indices_results_portfolio)
@@ -62,20 +63,19 @@ check_data_prep_fossil_bars <- function(scenario_selected) {
 
 wrangle_data_fossil_bars <- function(data) {
   data <- data %>%
-    dplyr::rename(entity_type = .data$entity) %>%
     dplyr::mutate(
-      entity_name = dplyr::case_when(
-        .data$entity_type == "this_portfolio" ~ "portfolio",
-        .data$entity_type == "peers" ~ "peers",
-        .data$entity_type == "index" & .data$asset_class == "equity" ~ .env$index_eq_short_lookup,
-        .data$entity_type == "index" & .data$asset_class == "bonds" ~ .env$index_cb_short_lookup,
+      entity_type = dplyr::case_when(
+        .data$entity %in% c("peers", "index") ~ "benchmark",
         TRUE ~ .data$entity_type
       )
     ) %>%
     dplyr::mutate(
-      entity_type = dplyr::case_when(
-        .data$entity_type %in% c("peers", "index") ~ "benchmark",
-        TRUE ~ .data$entity_type
+      entity_name = dplyr::case_when(
+        .data$entity == "this_portfolio" ~ "portfolio",
+        .data$entity == "peers" ~ "peers",
+        .data$entity_type == "index" & .data$asset_class == "equity" ~ .env$index_eq_short_lookup,
+        .data$entity_type == "index" & .data$asset_class == "bonds" ~ .env$index_cb_short_lookup,
+        TRUE ~ .data$entity
       )
     ) %>%
     dplyr::inner_join(
