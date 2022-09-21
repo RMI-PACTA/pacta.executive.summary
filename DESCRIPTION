@@ -34,4 +34,4 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Remotes: 2DegreesInvesting/r2dii.colours
+Remotes: RMI-PACTA/r2dii.colours
