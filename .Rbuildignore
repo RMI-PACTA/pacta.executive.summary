@@ -6,3 +6,4 @@
 ^survey-example-plots/.*$
 ^real-estate-example-plots/.*$
 ^template.*$
+^README\.Rmd$
