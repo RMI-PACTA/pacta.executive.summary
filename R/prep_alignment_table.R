@@ -17,7 +17,7 @@ prep_alignment_table <- function(results_portfolio,
                                  peers_results_aggregated,
                                  scenario_source = "GECO2021") {
   # validate inputs
-  # TODO add more checks
+  check_data_prep_alignment_table(scenario_source = scenario_source)
 
   # infer start_year
   start_year <- min(results_portfolio$year, na.rm = TRUE)
@@ -83,6 +83,15 @@ prep_alignment_table <- function(results_portfolio,
     )
 
   return(data_out)
+}
+
+check_data_prep_alignment_table <- function(scenario_source) {
+  if (!scenario_source %in% unique(get("scenario_thresholds")$scenario_source)) {
+    stop("Argument scenario_source does not hold an accepted value.")
+  }
+  if (length(scenario_source) != 1) {
+    stop("Argument scenario_source must be of length 1. Please check your input.")
+  }
 }
 
 wrangle_input_data_alignment_table <- function(data,
