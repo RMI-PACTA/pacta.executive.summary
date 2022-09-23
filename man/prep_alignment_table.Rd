@@ -5,8 +5,8 @@
 \title{Prepare data input for plotting technology alignment table}
 \usage{
 prep_alignment_table(
-  results_portfolio = NULL,
-  peers_results_aggregated = NULL,
+  results_portfolio,
+  peers_results_aggregated,
   scenario_source = "GECO2021"
 )
 }

@@ -13,8 +13,8 @@
 #'   `scenario_source` featured in the `scenario_thresholds` data set.
 #'
 #' @return data.frame
-prep_alignment_table <- function(results_portfolio = NULL,
-                                 peers_results_aggregated = NULL,
+prep_alignment_table <- function(results_portfolio,
+                                 peers_results_aggregated,
                                  scenario_source = "GECO2021") {
   # validate inputs
   # TODO add more checks
