@@ -1,3 +1,18 @@
+#' Prepare data input for plotting technology alignment table
+#'
+#' Prepare data input for plotting technology alignment table based
+#' on PACTA for investors output files. These files must have been wrangled with
+#' `prep_data_executive_summary()` before they can be passed to this function.
+#'
+#' @param results_portfolio Data frame that contains pre-wrangled portfolio
+#'   level PACTA results from a PACTA for investors analysis.
+#' @param peers_results_aggregated Data frame that contains pre-wrangled
+#'   aggregate peer group level PACTA results from a PACTA for investors
+#'   analysis.
+#' @param scenario_source Character. Must be a
+#'   `scenario_source` featured in the `scenario_thresholds` data set.
+#'
+#' @return data.frame
 prep_alignment_table <- function(results_portfolio = NULL,
                                  peers_results_aggregated = NULL,
                                  scenario_source = "GECO2021") {
