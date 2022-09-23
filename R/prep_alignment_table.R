@@ -1,8 +1,150 @@
 prep_alignment_table <- function(results_portfolio = NULL,
                                  peers_results_aggregated = NULL,
-                                 asset_class = "equity") {
-  if (is.null(results_portfolio)) {
-    data_out <- use_toy_data("alignment_table") %>% filter(asset_class == .env$asset_class)
-  }
-  data_out
+                                 scenario_source = "GECO2021") {
+  # validate inputs
+  # TODO add more checks
+
+  # infer start_year
+  start_year <- min(results_portfolio$year, na.rm = TRUE)
+
+  # filter selected asset_class
+  data <- results_portfolio %>%
+    dplyr::bind_rows(peers_results_aggregated)
+
+  # get scenarios
+  scenario_thresholds <- get("scenario_thresholds")
+
+  scenarios <- scenario_thresholds %>%
+    dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
+    dplyr::pull(.data$scenario)
+
+  # get scenarios for relevant thresholds
+  scenario_high_ambition <- scenario_thresholds %>%
+    dplyr::filter(.data$threshold == "high") %>%
+    dplyr::pull(.data$scenario)
+
+  scenario_medium_ambition <- scenario_thresholds %>%
+    dplyr::filter(.data$threshold == "mid") %>%
+    dplyr::pull(.data$scenario)
+
+  # prepare data for technology alignment calculation
+  data_tech_alignment <- data %>%
+    wrangle_input_data_alignment_table(scenarios = scenarios)
+
+  # calculate technology level alignment
+  data_tech_alignment <- data_tech_alignment %>%
+    calculate_technology_alignment(
+      start_year = start_year,
+      time_horizon = time_horizon_lookup
+    )
+
+  # calculate the traffic light for each technology
+  data_tech_alignment_color <- data_tech_alignment %>%
+    calculate_tech_traffic_light(
+      scenario_high_ambition = scenario_high_ambition,
+      scenario_medium_ambition = scenario_medium_ambition
+    )
+
+  # map green/brown categories
+  data_tech_alignment_color <- data_tech_alignment_color %>%
+    dplyr::mutate(
+      green_or_brown = dplyr::case_when(
+        .data$green_or_brown == "green" ~ "Low-carbon",
+        .data$green_or_brown == "brown" ~ "High-carbon",
+        TRUE ~ .data$green_or_brown
+      )
+    )
+
+  # select the relevant variables
+  data_out <- data_tech_alignment_color %>%
+    dplyr::select(
+      .data$ald_sector, .data$technology, .data$asset_class, .data$entity,
+      .data$aligned_scen_temp, .data$plan_carsten, .data$green_or_brown
+    ) %>%
+    dplyr::rename(
+      sector = .data$ald_sector,
+      perc_aum = .data$plan_carsten,
+      green_brown = .data$green_or_brown
+    )
+
+  return(data_out)
+}
+
+wrangle_input_data_alignment_table <- function(data,
+                                               scenarios) {
+  # filter data
+  data <- data %>%
+    dplyr::filter(.data$scenario %in% .env$scenarios)
+
+  # map sectors to p4b style
+  data <- data %>%
+    dplyr::inner_join(
+      get("p4i_p4b_sector_technology_mapper"),
+      by = c("ald_sector" = "sector_p4i", "technology" = "technology_p4i")
+    ) %>%
+    dplyr::mutate(
+      ald_sector = .data$sector_p4b,
+      technology = .data$technology_p4b
+    ) %>%
+    dplyr::select(-c(.data$sector_p4b, .data$technology_p4b))
+
+  # Coal, Oil & Gas are mapped to Fossil Fuels sector
+  data <- data %>%
+    dplyr::mutate(
+      ald_sector = dplyr::if_else(
+        .data$ald_sector %in% c("coal", "oil and gas"),
+        "fossil_fuels",
+        .data$ald_sector
+      )
+    )
+
+  # Keep only sectors and technologies as defined in the template
+  data <- data %>%
+    dplyr::filter(
+      ald_sector %in% c("automotive", "fossil_fuels", "power"),
+      !(ald_sector == "automotive" & stringr::str_detect(technology, "_hdv")),
+      !(ald_sector == "power" & technology %in% c("hydrocap", "nuclearcap"))
+    )
+
+  return(data)
+}
+
+calculate_tech_traffic_light <- function(data,
+                                         scenario_high_ambition,
+                                         scenario_medium_ambition) {
+  data <- data %>%
+    dplyr::filter(
+      .data$scenario %in% c(.env$scenario_high_ambition, .env$scenario_medium_ambition)
+    ) %>%
+    dplyr::group_by(
+      .data$investor_name, .data$portfolio_name, .data$asset_class,
+      .data$entity_name, .data$entity_type, .data$entity, .data$scenario_source,
+      .data$scenario, .data$allocation, .data$equity_market,
+      .data$scenario_geography, .data$ald_sector, .data$technology
+    ) %>%
+    dplyr::mutate(
+      tech_score = dplyr::case_when(
+        .data$scenario == .env$scenario_high_ambition & .data$tech_trajectory_alignment > 0 ~ 10,
+        .data$scenario == .env$scenario_medium_ambition & .data$tech_trajectory_alignment > 0 ~ 1,
+        TRUE ~ 0
+      )
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::group_by(
+      .data$investor_name, .data$portfolio_name, .data$asset_class,
+      .data$entity_name, .data$entity_type, .data$entity, .data$scenario_source,
+      .data$allocation, .data$equity_market,
+      .data$scenario_geography, .data$ald_sector, .data$technology
+    ) %>%
+    dplyr::mutate(
+      aligned_scen_temp = dplyr::case_when(
+        sum(.data$tech_score) >= 10 ~ "<1.5C",
+        sum(.data$tech_score) == 1 ~ "1.5-1.8C",
+        TRUE ~ ">1.8C"
+      )
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::filter(.data$scenario == .env$scenario_high_ambition)
+
+  return(data)
 }
