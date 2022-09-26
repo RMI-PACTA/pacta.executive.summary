@@ -1,3 +1,21 @@
+#' Prepare data input for plotting exposure to fossil fuels in survey section
+#'
+#' Prepare data input for plotting exposure to fossil fuels in survey section
+#' based on PACTA for investors output files. These files must have been
+#' wrangled with `prep_data_executive_summary()` before they can be passed to
+#' this function.
+#'
+#' @param results_portfolio Data frame that contains pre-wrangled portfolio
+#'   level PACTA results from a PACTA for investors analysis.
+#' @param peers_results_aggregated Data frame that contains pre-wrangled
+#'   aggregate peer group level PACTA results from a PACTA for investors
+#'   analysis.
+#' @param sector Character. Must be of length 1 and either `coal` or
+#'   `oil and gas`.
+#' @param asset_class Character. Must be of length 1 and either `equity` or
+#'   `bonds`.
+#'
+#' @return data.frame
 prep_exposures_survey <- function(results_portfolio,
                                   peers_results_aggregated,
                                   sector = c("coal", "oil and gas"),
