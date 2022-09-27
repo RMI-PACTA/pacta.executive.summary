@@ -69,15 +69,15 @@ wrangle_data_fossil_bars <- function(data) {
         TRUE ~ .data$entity_type
       )
     ) %>%
-    dplyr::mutate(
-      entity_name = dplyr::case_when(
-        .data$entity == "this_portfolio" ~ "portfolio",
-        .data$entity == "peers" ~ "peers",
-        .data$entity_type == "index" & .data$asset_class == "equity" ~ .env$index_eq_short_lookup,
-        .data$entity_type == "index" & .data$asset_class == "bonds" ~ .env$index_cb_short_lookup,
-        TRUE ~ .data$entity
-      )
-    ) %>%
+    # dplyr::mutate(
+    #   entity_name = dplyr::case_when(
+    #     .data$entity == "this_portfolio" ~ "portfolio",
+    #     .data$entity == "peers" ~ "peers",
+    #     .data$entity_type == "index" & .data$asset_class == "equity" ~ .env$index_eq_short_lookup,
+    #     .data$entity_type == "index" & .data$asset_class == "bonds" ~ .env$index_cb_short_lookup,
+    #     TRUE ~ .data$entity
+    #   )
+    # ) %>%
     dplyr::inner_join(
       get("p4i_p4b_sector_technology_mapper"),
       by = c("ald_sector" = "sector_p4i", "technology" = "technology_p4i")
