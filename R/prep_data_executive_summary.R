@@ -157,8 +157,8 @@ prep_data_executive_summary <- function(investor_name,
       green_or_brown = dplyr::if_else(
         .data$technology %in% .env$green_techs, "green", "brown"
       ),
-        entity_name = "average",
-        entity_type = "average",
+        entity_name = "peers_average",
+        entity_type = "peers",
         entity = "peers"
     )
 
@@ -180,8 +180,8 @@ prep_data_executive_summary <- function(investor_name,
       green_or_brown = dplyr::if_else(
         .data$technology %in% .env$green_techs, "green", "brown"
       ),
-      entity_name = glue::glue("peer{dplyr::cur_group_id()}"),
-      entity_type = "peer",
+      entity_name = glue::glue("peer_{dplyr::cur_group_id()}"),
+      entity_type = "peers",
       entity = "peers"
     ) %>%
     dplyr::ungroup()
