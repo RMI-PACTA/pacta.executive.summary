@@ -4,7 +4,11 @@
 \alias{prep_net_zero_commitments}
 \title{Prepare data input for share of net zero committed companies in scorecard}
 \usage{
-prep_net_zero_commitments(total_portfolio, peer_group, net_zero_targets)
+prep_net_zero_commitments(
+  total_portfolio,
+  peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
+  net_zero_targets
+)
 }
 \arguments{
 \item{total_portfolio}{Data frame. Contains processed input of the PACTA for

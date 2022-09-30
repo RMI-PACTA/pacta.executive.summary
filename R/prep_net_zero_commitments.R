@@ -11,9 +11,10 @@
 #'
 #' @return data.frame
 prep_net_zero_commitments <- function(total_portfolio,
-                                      peer_group,
+                                      peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
                                       net_zero_targets) {
   # TODO: add allowed values for peer_group arg
+  peer_group <- match.arg(peer_group)
 
   net_zero_targets <- net_zero_targets %>%
     dplyr::mutate(has_net_zero_commitment = TRUE)
