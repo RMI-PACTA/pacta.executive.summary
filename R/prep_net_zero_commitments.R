@@ -23,6 +23,10 @@ prep_net_zero_commitments <- function(total_portfolio,
     dplyr::mutate(has_net_zero_commitment = TRUE)
 
   portfolio_share_net_zero <- total_portfolio %>%
+    dplyr::mutate(
+      investor_name = "this_portfolio",
+      portfolio_name = "this_portfolio"
+    ) %>%
     dplyr::left_join(
       net_zero_targets,
       by = c("isin", "factset_entity_id")
