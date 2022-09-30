@@ -8,11 +8,14 @@
 #' @param peer_group Character. Peer group of the analysed portfolio.
 #' @param net_zero_targets Data frame. Contains information on which ISINs
 #'   belong to companies that have committed to SBTI net zero targets.
+#' @param peer_group_share_net_zero Data frame. Contains precalculated shares of
+#'   companies in the peer group portfolios that have SBTI net zero commitments.
 #'
 #' @return data.frame
 prep_net_zero_commitments <- function(total_portfolio,
                                       peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
-                                      net_zero_targets) {
+                                      net_zero_targets,
+                                      peer_group_share_net_zero) {
   # TODO: add allowed values for peer_group arg
   peer_group <- match.arg(peer_group)
 
@@ -32,14 +35,11 @@ prep_net_zero_commitments <- function(total_portfolio,
     ) %>%
     dplyr::ungroup()
 
-  # TODO: load result for peer group, row_bind and return
-  peer_group
+  peer_group_share_net_zero <- peer_group_share_net_zero %>%
+    dplyr::filter(.data$investor_name == .env$peer_group)
 
-  share_net_zero <- portfolio_share_net_zero #%>%
-    # dplyr::bind_rows(peer_group_share_net_zero)
+  share_net_zero <- portfolio_share_net_zero %>%
+    dplyr::bind_rows(peer_group_share_net_zero)
 
-
-
-  # TODO: this requires isins on the peer group level. open to discuss how to best get them here
   return(share_net_zero)
 }

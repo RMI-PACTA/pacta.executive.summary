@@ -7,7 +7,8 @@
 prep_net_zero_commitments(
   total_portfolio,
   peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
-  net_zero_targets
+  net_zero_targets,
+  peer_group_share_net_zero
 )
 }
 \arguments{
@@ -18,6 +19,9 @@ Investors calculation.}
 
 \item{net_zero_targets}{Data frame. Contains information on which ISINs
 belong to companies that have committed to SBTI net zero targets.}
+
+\item{peer_group_share_net_zero}{Data frame. Contains precalculated shares of
+companies in the peer group portfolios that have SBTI net zero commitments.}
 }
 \value{
 data.frame
