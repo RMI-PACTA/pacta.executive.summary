@@ -16,12 +16,32 @@ prep_net_zero_commitments <- function(total_portfolio,
                                       peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
                                       net_zero_targets,
                                       peer_group_share_net_zero) {
+  # match input arg
   peer_group <- match.arg(peer_group)
 
+  # calculate portfolio level share of sbti commitments
+  portfolio_share_net_zero <- prep_portfolio_sbti_commitments(
+    total_portfolio = total_portfolio,
+    net_zero_targets = net_zero_targets
+  )
+
+  # get peers sbti commitment for appropriate peer group
+  peer_group_share_net_zero <- peer_group_share_net_zero %>%
+    dplyr::filter(.data$investor_name == .env$peer_group)
+
+  # combin portfolio and peer level results
+  data_out <- portfolio_share_net_zero %>%
+    dplyr::bind_rows(peer_group_share_net_zero)
+
+  return(data_out)
+}
+
+prep_portfolio_sbti_commitments <- function(total_portfolio,
+                                            net_zero_targets) {
   net_zero_targets <- net_zero_targets %>%
     dplyr::mutate(has_net_zero_commitment = TRUE)
 
-  portfolio_share_net_zero <- total_portfolio %>%
+  portfolio_sbti_commitments <- total_portfolio %>%
     dplyr::mutate(
       investor_name = "this_portfolio",
       portfolio_name = "this_portfolio"
@@ -38,11 +58,5 @@ prep_net_zero_commitments <- function(total_portfolio,
     ) %>%
     dplyr::ungroup()
 
-  peer_group_share_net_zero <- peer_group_share_net_zero %>%
-    dplyr::filter(.data$investor_name == .env$peer_group)
-
-  share_net_zero <- portfolio_share_net_zero %>%
-    dplyr::bind_rows(peer_group_share_net_zero)
-
-  return(share_net_zero)
+  return(portfolio_sbti_commitments)
 }
