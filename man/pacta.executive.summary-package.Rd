@@ -6,6 +6,8 @@
 \alias{pacta.executive.summary-package}
 \title{pacta.executive.summary: Creates Plots for the PACTA COP Executive Summary}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 This package contains plotting functions and a template for generating the executive summary that displays aggregated results of a PACTA COP exercise.
 }
 \author{
