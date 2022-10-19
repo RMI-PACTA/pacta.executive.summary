@@ -46,16 +46,35 @@ prep_scores <- function(results_portfolio,
   data_aggregate_scores <- data %>%
     wrangle_input_data_aggregate_scores(scenarios = scenarios)
 
+  # roadmap sectors
+  data_aggregate_scores_tech <- data_aggregate_scores %>%
+    dplyr::filter(.data$ald_sector %in% c("automotive", "coal", "oil", "gas", "power"))
+
   # calculate technology level alignment
-  data_aggregate_scores <- data_aggregate_scores %>%
+  data_aggregate_scores_tech <- data_aggregate_scores_tech %>%
     calculate_technology_alignment(
       start_year = start_year,
       time_horizon = time_horizon_lookup
     )
 
-  # calculate sectors aggregate score
-  sector_aggregate_scores <- data_aggregate_scores %>%
+  # calculate roadmap sectors aggregate score
+  sector_aggregate_scores_tech <- data_aggregate_scores_tech %>%
     calculate_sector_aggregate_scores()
+
+  # emission intensity sectors
+  data_aggregate_scores_emissions <- data_aggregate_scores %>%
+    dplyr::filter(.data$ald_sector %in% c("aviation", "cement", "steel", "shipping"))
+
+  # calculate emission intensity sectors aggregate score
+  sector_aggregate_scores_emissions <- data_aggregate_scores_emissions %>%
+    calculate_emissions_sectors_aggregate_scores(
+      start_year = start_year,
+      time_horizon = time_horizon_lookup
+    )
+
+  # combine scores of roadmap and emission intensity sectors
+  sector_aggregate_scores <- sector_aggregate_scores_tech %>%
+    dplyr::bind_rows(sector_aggregate_scores_emissions)
 
   # get remaining carbon budgets and calculate portfolio aggregate score
   remaining_carbon_budgets <- get("remaining_carbon_budgets")
@@ -212,6 +231,35 @@ calculate_sector_aggregate_scores <- function(data) {
     dplyr::mutate(scope = "sector")
 
   return(data)
+}
+
+calculate_emissions_sectors_aggregate_scores <- function(data,
+                                                         start_year,
+                                                         time_horizon) {
+  data_out <- data %>%
+    dplyr::group_by(
+      .data$investor_name, .data$portfolio_name, .data$asset_class,
+      .data$entity_name, .data$entity_type, .data$entity, .data$scenario_source,
+      .data$scenario, .data$allocation, .data$equity_market,
+      .data$scenario_geography, .data$ald_sector
+    ) %>%
+    dplyr::arrange(.data$year) %>%
+    dplyr::mutate(sector_exposure = dplyr::first(.data$plan_sec_carsten)) %>%
+    dplyr::filter(.data$year == .env$start_year + .env$time_horizon) %>%
+    dplyr::mutate(
+      score = (.data$scen_sec_emissions_factor - .data$plan_sec_emissions_factor) /
+        .data$scen_sec_emissions_factor
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::distinct(
+      .data$investor_name, .data$portfolio_name, .data$asset_class,
+      .data$entity_name, .data$entity_type, .data$entity, .data$scenario_source,
+      .data$scenario, .data$allocation, .data$equity_market,
+      .data$scenario_geography, .data$ald_sector, .data$score, .data$sector_exposure
+    ) %>%
+    dplyr::mutate(scope = "sector")
+
+  return(data_out)
 }
 
 calculate_portfolio_aggregate_scores <- function(data,
