@@ -8,8 +8,22 @@ devtools::load_all()
 
 survey_dir <- here::here("survey-example-plots")
 real_estate_dir <- here::here("real-estate-example-plots")
-investor_name <- "XYZ"
-portfolio_name <- "Test"
+investor_name <- "Test"
+portfolio_name <- "TestPortfolio_Input"
+if (exists("data_aggregated_filtered")) {
+  results_portfolio <- data_aggregated_filtered$results_portfolio 
+  peers_results_individual <- data_aggregated_filtered$peers_results_individual
+  peers_results_aggregated <- data_aggregated_filtered$peers_results_aggregated
+  indices_results_portfolio <- data_aggregated_filtered$indices_results_portfolio
+} else {
+  results_portfolio <- NULL
+  peers_results_individual <- NULL
+  peers_results_aggregated <- NULL
+  indices_results_portfolio <- NULL
+}
+
+audit_data <- NULL
+emissions_data <- NULL
 ```
 
 ---
@@ -43,7 +57,7 @@ Text
 
 ```{r diagram}
 # the specific PACTA outputs that we need here are my guesses 
-data_diagram <- prep_diagram(audit_data = NULL, emissions_data = NULL)
+data_diagram <- prep_diagram(audit_data, emissions_data)
 plot_diagram(data_diagram)
 ```
 \newpage
@@ -58,14 +72,14 @@ Text
 
 ```{r exposure}
 # the specific PACTA outputs that we need here are my guesses 
-data_green_brown_bars <- prep_green_brown_bars(results_portfolio = NULL)
+data_green_brown_bars <- prep_green_brown_bars(results_portfolio)
 plot_green_brown_bars(data_green_brown_bars)
 ```
 
 ```{r exposure_fossil}
 # the specific PACTA outputs that we need here are my guesses 
-data_fossil_bars <- prep_fossil_bars(results_portfolio = NULL, peers_results_aggregated = NULL, 
-                                     indices_results_portfolio = NULL)
+data_fossil_bars <- prep_fossil_bars(results_portfolio, peers_results_aggregated, 
+  indices_results_portfolio)
 plot_fossil_bars(data_fossil_bars)
 ```
 
@@ -78,8 +92,8 @@ Text
 ```{r scatter_equity, out.width="50%"}
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
-data_scatter_power <- prep_scatter(results_portfolio = NULL, peers_results_individual = NULL, 
-                                     indices_results_portfolio = NULL, sector = "power", asset_class = "equity")
+data_scatter_power <- prep_scatter(results_portfolio, peers_results_individual, 
+                                     indices_results_portfolio, sector = "power", asset_class = "equity")
 plot_scatter(data_scatter_power) +
   patchwork::plot_annotation(
     title = "Equity",
@@ -90,8 +104,8 @@ plot_scatter(data_scatter_power) +
 ```{r scatter_bonds, out.width="50%"}
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
-data_scatter_power <- prep_scatter(results_portfolio = NULL, peers_results_individual = NULL, 
-                                     indices_results_portfolio = NULL, sector = "power", asset_class = "bonds")
+data_scatter_power <- prep_scatter(results_portfolio, peers_results_individual, 
+                                     indices_results_portfolio, sector = "power", asset_class = "bonds")
 plot_scatter(data_scatter_power) + 
   patchwork::plot_annotation(
     title = "Bonds",
@@ -107,7 +121,7 @@ Text
 
 ```{r scores_equity}
 # the specific PACTA outputs that we need here are my guesses 
-data_scores <- prep_scores(results_portfolio = NULL, peers_results_aggregated = NULL,
+data_scores <- prep_scores(results_portfolio, peers_results_aggregated,
                            asset_class = "equity")
 plot_scores(data_scores) + 
   patchwork::plot_annotation(
@@ -118,7 +132,7 @@ plot_scores(data_scores) +
 
 ```{r scores_bonds}
 # the specific PACTA outputs that we need here are my guesses 
-data_scores <- prep_scores(results_portfolio = NULL, peers_results_aggregated = NULL,
+data_scores <- prep_scores(results_portfolio, peers_results_aggregated,
                            asset_class = "bonds")
 plot_scores(data_scores) + 
   patchwork::plot_annotation(
@@ -139,8 +153,8 @@ Text
 
 ```{r alignment_table_equity, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
-data_alignment_table <- prep_alignment_table(results_portfolio = NULL, 
-                                             peers_results_aggregated = NULL,
+data_alignment_table <- prep_alignment_table(results_portfolio, 
+                                             peers_results_aggregated,
                                              asset_class = "equity")
 plot_alignment_table(data_alignment_table)
 # TODO: add title
@@ -148,8 +162,8 @@ plot_alignment_table(data_alignment_table)
 
 ```{r alignment_table_bonds, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
-data_alignment_table <- prep_alignment_table(results_portfolio = NULL, 
-                                             peers_results_aggregated = NULL,
+data_alignment_table <- prep_alignment_table(results_portfolio, 
+                                             peers_results_aggregated,
                                              asset_class = "bonds")
 plot_alignment_table(data_alignment_table)
 # TODO: add title
@@ -182,7 +196,7 @@ Text
 ![Coal exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_coal_equity.png")`){width=25%}
 ```{r exposure_survey_equity, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL, 
+data_exposures_survey <- prep_exposures_survey(results_portfolio, 
                                              sector = "coal",
                                              asset_class = "equity")
 plot_exposures_survey(data_exposures_survey) +
@@ -191,7 +205,7 @@ plot_exposures_survey(data_exposures_survey) +
 ![Coal exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_coal_bonds.png")`){width=25%}
 ```{r exposure_survey_bonds, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL, 
+data_exposures_survey <- prep_exposures_survey(results_portfolio , 
                                              sector = "coal",
                                              asset_class = "bonds")
 plot_exposures_survey(data_exposures_survey) +
@@ -200,7 +214,7 @@ plot_exposures_survey(data_exposures_survey) +
 ![Oil & gas exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_equity.png")`){width=25%}
 ```{r exposure_survey_equity, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL, 
+data_exposures_survey <- prep_exposures_survey(results_portfolio, 
                                              sector = "oil_and_gas",
                                              asset_class = "equity")
 plot_exposures_survey(data_exposures_survey) +
@@ -209,7 +223,7 @@ plot_exposures_survey(data_exposures_survey) +
 ![Oil & gas exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_bonds.png")`){width=25%}
 ```{r exposure_survey_bonds, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio = NULL, 
+data_exposures_survey <- prep_exposures_survey(results_portfolio, 
                                              sector = "oil_and_gas",
                                              asset_class = "bonds")
 plot_exposures_survey(data_exposures_survey) +
@@ -238,7 +252,7 @@ Text
 
 ```{r emissions_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
-data_emissions_scorecard <- prep_emissions_scorecard(emissions_data = NULL)
+data_emissions_scorecard <- prep_emissions_scorecard(emissions_data)
 plot_emissions_scorecard(data_emissions_scorecard)
 ```
 
@@ -248,7 +262,7 @@ Text
 
 ```{r exposures_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
-data_exposures_scorecard <- prep_exposures_scorecard(results_portfolio = NULL)
+data_exposures_scorecard <- prep_exposures_scorecard(results_portfolio)
 plot_exposures_scorecard(data_exposures_scorecard)
 ```
 
@@ -260,7 +274,7 @@ Text
 
 ```{r scores_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
-data_scores_scorecard <- prep_scores_scorecard(results_portfolio = NULL)
+data_scores_scorecard <- prep_scores_scorecard(results_portfolio)
 plot_scores_scorecard(data_scores_scorecard)
 ```
 
