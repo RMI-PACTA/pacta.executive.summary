@@ -5,7 +5,7 @@
 \alias{p4i_p4b_sector_technology_mapper}
 \title{Sector and technology names mapped from P4I to P4B style}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 25 rows and 4 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 28 rows and 4 columns.
 }
 \usage{
 p4i_p4b_sector_technology_mapper
