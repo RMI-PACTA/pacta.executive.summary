@@ -27,7 +27,10 @@ p4i_p4b_sector_technology_mapper <- tibble::tribble(
   "steel",       "ac-electric arc furnace",  "Steel",        "Ac-Electric Arc Furnace",
   "steel",       "bof shop",                 "Steel",        "Bof Shop",
   "steel",       "dc-electric arc furnace",  "Steel",        "Dc-Electric Arc Furnace",
-  "steel",       "open hearth meltshop",     "Steel",        "Open Hearth Meltshop"
+  "steel",       "open hearth meltshop",     "Steel",        "Open Hearth Meltshop",
+  "steel",       "basic oxygen furnace",     "Steel",        "Basic Oxygen Furnace",
+  "steel",       "electric arc furnace",     "Steel",        "Electric Arc Furnace",
+  "steel",       "open hearth furnace",      "Steel",        "Open Hearth Furnace"
 )
 
 # styler: on
