@@ -13,7 +13,7 @@ plot_green_brown_bars(data)
 \item Must have columns: \code{asset_class},\code{tech_type}, \code{sector},
 \code{perc_sec_exposure}, \code{perc_tech_exposure}.
 \item \code{tech_type} column must only have following values: "green",
-"hydro_and_nuclear", "brown", "other".
+"nuclear", "brown", "other".
 \item \code{perc_tech_exposure} and \code{perc_sec_exposure} must be percentages in
 decimal format, with values between 0 and 1.
 }}
