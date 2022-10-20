@@ -70,4 +70,27 @@ check_data_fossil_bars <- function(data, env) {
   abort_if_invalid_values(data, "tech", c("coal", "oil", "gas"))
   stopifnot(is.numeric(data$perc_aum))
   stopifnot((data$perc_aum <= 1) & (data$perc_aum >= 0))
+  check_single_index_per_asset_class(data, "entity_name", env = env)
 }
+
+check_single_index_per_asset_class <- function(data, column, env) {
+  .data <- deparse_1(substitute(data, env = env))
+  data <- data %>%
+    filter(entity == "index")
+  if (nrow(data) > 0)
+    asset_classes <- unique(data$asset_class)
+    
+    for (asset in asset_classes) {
+        data_subset <- data %>%
+          filter(.data$asset_class == asset)
+        if (nrow(data_subset) > 0) {
+        .column <- unique(data_subset[[column]])
+        if (length(.column) > 1L) {
+          abort(c(
+            glue("`{.data}` must have a single value of `{column}` per asset class for `entity == 'index'`."),
+            x = glue("Provided: {toString(.column)} for asset_class == {asset}.")
+          ))
+        }
+      }
+    }
+  }
