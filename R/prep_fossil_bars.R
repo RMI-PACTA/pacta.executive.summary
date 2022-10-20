@@ -20,36 +20,39 @@ prep_fossil_bars <- function(results_portfolio,
                              peers_results_aggregated,
                              indices_results_portfolio,
                              scenario_selected = "1.5C-Unif") {
-  # check input
-  check_data_prep_fossil_bars(scenario_selected = scenario_selected)
+  if (is.null(results_portfolio)) {
+    data_out <- use_toy_data("fossil_bars")
+  } else {
+    # check input
+    check_data_prep_fossil_bars(scenario_selected = scenario_selected)
 
-  # filter indices input data set
-  indices_results_portfolio <- indices_results_portfolio %>%
-    dplyr::filter(
-      .data$portfolio_name %in% c(.env$index_cb_selected_lookup, .env$index_eq_selected_lookup)
-    )
-
-  # combine input data sets
-  data <- results_portfolio %>%
-    dplyr::bind_rows(peers_results_aggregated) %>%
-    dplyr::bind_rows(indices_results_portfolio)
-
-  # infer start year
-  start_year <- min(data$year, na.rm = TRUE)
-
-  # filter combined input data
-  data <- data %>%
-    dplyr::filter(
-      year == .env$start_year,
-      .data$scenario == .env$scenario_selected,
-      .data$ald_sector %in% c("Coal", "Oil&Gas")
-    )
-
-  # wrangle data into output format
-  data_out <- data %>%
-    wrangle_data_fossil_bars()
-
-  return(data_out)
+    # filter indices input data set
+    indices_results_portfolio <- indices_results_portfolio %>%
+      dplyr::filter(
+        .data$portfolio_name %in% c(.env$index_cb_selected_lookup, .env$index_eq_selected_lookup)
+      )
+  
+    # combine input data sets
+    data <- results_portfolio %>%
+      dplyr::bind_rows(peers_results_aggregated) %>%
+      dplyr::bind_rows(indices_results_portfolio)
+  
+    # infer start year
+    start_year <- min(data$year, na.rm = TRUE)
+  
+    # filter combined input data
+    data <- data %>%
+      dplyr::filter(
+        year == .env$start_year,
+        .data$scenario == .env$scenario_selected,
+        .data$ald_sector %in% c("Coal", "Oil&Gas")
+      )
+  
+    # wrangle data into output format
+    data_out <- data %>%
+      wrangle_data_fossil_bars()
+  }
+  data_out
 }
 
 check_data_prep_fossil_bars <- function(scenario_selected) {
