@@ -21,6 +21,14 @@
 plot_scatter <- function(data) {
   env <- list(data = substitute(data))
   check_data_scatter(data, env = env)
+  
+  data <- data %>%
+    dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
+    select(-.data$category, -.data$score_upper) %>%
+    mutate(
+      score_symbol = .data$score,
+      score = .data$score_label
+    )
 
   score_bar <- plot_basic_scorebar() +
     geom_point(
@@ -150,7 +158,7 @@ check_data_scatter <- function(data, env) {
     c("asset_class", "tech_mix_green", "score", "entity_name", "entity_type")
   )
   abort_if_multiple(data, "asset_class", env)
-  abort_if_invalid_values(data, "entity_type", c("average", "this_portfolio", "peer", "benchmark"))
+  abort_if_invalid_values(data, "entity_type", c("average", "this_portfolio", "peers", "benchmark"))
   stopifnot(is.numeric(data$tech_mix_green))
   stopifnot(is.numeric(data$score))
   stopifnot((data$tech_mix_green <= 1) & (data$tech_mix_green >= 0))
