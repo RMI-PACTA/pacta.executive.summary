@@ -18,7 +18,7 @@
 #' @return data.frame
 prep_exposures_survey <- function(results_portfolio,
                                   peers_results_aggregated,
-                                  sector = c("coal", "oil and gas"),
+                                  sector = c("coal", "oil_and_gas"),
                                   asset_class = c("equity", "bonds")) {
   # validate inputs
   sector <- match.arg(sector)
@@ -77,7 +77,8 @@ wrangle_data_exposures_survey <- function(data) {
     ) %>%
     dplyr::mutate(
       ald_sector = .data$sector_p4b,
-      technology = .data$technology_p4b
+      technology = .data$technology_p4b,
+      entity = replace(.data$entity, .data$entity == "this_portfolio", "portfolio")
     ) %>%
     dplyr::select(asset_class, entity, ald_sector, plan_carsten) %>%
     dplyr::rename(
