@@ -99,6 +99,11 @@ plot_alignment_table_tech_cells <- function(data) {
   names(fill_values) <- alignment_table_temperatures_lookup
   colour_values <- c(unname(fill_colours_scores["A+"]), unname(fill_colours_scores["C"]), unname(fill_colours_scores["E"]))
   names(colour_values) <- alignment_table_temperatures_lookup
+  
+  data <- data %>%
+    mutate(
+      entity = factor(.data$entity, levels = c("portfolio", "peers") )
+    )
 
   p <- ggplot(
     data,
