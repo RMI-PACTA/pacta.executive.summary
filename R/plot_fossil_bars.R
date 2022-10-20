@@ -55,7 +55,10 @@ plot_fossil_bars <- function(data) {
     ) +
     facet_grid(tech ~ asset_class, labeller = as_labeller(r2dii.plot::to_title), switch = "y") +
     labs(
-      caption = glue()
+      caption = make_caption_indices(data)
+    ) +
+    theme(
+      plot.caption = element_text(size = 16)
     )
   p
 }
@@ -93,4 +96,26 @@ check_single_index_per_asset_class <- function(data, column, env) {
         }
       }
     }
+}
+
+make_caption_indices <- function(data) {
+  caption <- "Indices used per asset class:\n"
+  asset_classes <- unique(data$asset_class)
+  last_asset <- asset_classes[length(asset_classes)]
+  for (asset in asset_classes) {
+    index_name <- data %>%
+      filter(
+        .data$asset_class == asset,
+        .data$entity == "index"
+      ) %>%
+      pull(.data$entity_name) %>%
+      unique()
+    caption <- glue::glue(caption, "{r2dii.plot::to_title(asset)}: {r2dii.plot::to_title(index_name)}")
+    if (asset != last_asset) {
+      caption <- glue::glue(caption, ", ")
+    } else {
+      caption <- glue::glue(caption, ".")
+    }
   }
+  caption
+}
