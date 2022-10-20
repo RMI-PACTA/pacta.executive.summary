@@ -20,13 +20,14 @@ plot_fossil_bars <- function(data) {
   data <- data %>%
     mutate(
       entity_name_title = r2dii.plot::to_title(.data$entity_name),
-      entity_name_title = factor(
-        .data$entity_name_title,
-        levels = r2dii.plot::to_title(c("MSCI_world", "peers", "portfolio"))
+      entity_title = r2dii.plot::to_title(.data$entity),
+      entity_title = factor(
+        .data$entity_title,
+        levels = r2dii.plot::to_title(c("index", "peers", "portfolio"))
       )
     )
 
-  p <- ggplot(data, aes(x = .data$entity_name_title, y = .data$perc_aum, fill = .data$entity_type)) +
+  p <- ggplot(data, aes(x = .data$entity_title, y = .data$perc_aum, fill = .data$entity_type)) +
     geom_bar(stat = "identity") +
     geom_text(
       aes(
@@ -52,7 +53,10 @@ plot_fossil_bars <- function(data) {
       legend.position = "bottom",
       strip.placement = "outside"
     ) +
-    facet_grid(tech ~ asset_class, labeller = as_labeller(r2dii.plot::to_title), switch = "y")
+    facet_grid(tech ~ asset_class, labeller = as_labeller(r2dii.plot::to_title), switch = "y") +
+    labs(
+      caption = glue()
+    )
   p
 }
 
@@ -61,7 +65,7 @@ check_data_fossil_bars <- function(data, env) {
   abort_if_has_zero_rows(data, env = env)
   abort_if_missing_names(
     data,
-    c("asset_class", "tech", "entity_name", "entity_type", "perc_aum")
+    c("asset_class", "tech", "entity_name", "entity_type", "perc_aum", "entity")
   )
   abort_if_invalid_values(data, "tech", c("coal", "oil", "gas"))
   stopifnot(is.numeric(data$perc_aum))

@@ -69,6 +69,16 @@ wrangle_data_fossil_bars <- function(data) {
         TRUE ~ .data$entity_type
       )
     ) %>%
+    dplyr::mutate(
+      entity_name = dplyr::case_when(
+        .data$entity_name == "peers_average" ~ "peers",
+        TRUE ~ .data$entity_name
+      ),
+      entity = dplyr::case_when(
+        .data$entity == "this_portfolio" ~ "portfolio",
+        TRUE ~ .data$entity
+      )
+    ) %>%
     dplyr::inner_join(
       get("p4i_p4b_sector_technology_mapper"),
       by = c("ald_sector" = "sector_p4i", "technology" = "technology_p4i")
@@ -79,7 +89,7 @@ wrangle_data_fossil_bars <- function(data) {
     ) %>%
     dplyr::select(-c(.data$sector_p4b, .data$technology_p4b)) %>%
     dplyr::select(
-      .data$entity_name, .data$entity_type, .data$year, tech = .data$technology,
+      .data$entity, .data$entity_name, .data$entity_type, .data$year, tech = .data$technology,
       perc_aum = .data$plan_carsten, .data$asset_class
     ) %>%
     dplyr::arrange(.data$asset_class, dplyr::desc(.data$entity_name), .data$tech)
