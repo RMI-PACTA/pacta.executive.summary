@@ -20,13 +20,14 @@ plot_fossil_bars <- function(data) {
   data <- data %>%
     mutate(
       entity_name_title = r2dii.plot::to_title(.data$entity_name),
-      entity_name_title = factor(
-        .data$entity_name_title,
-        levels = r2dii.plot::to_title(c("MSCI_world", "peers", "portfolio"))
+      entity_title = r2dii.plot::to_title(.data$entity),
+      entity_title = factor(
+        .data$entity_title,
+        levels = r2dii.plot::to_title(c("index", "peers", "portfolio"))
       )
     )
 
-  p <- ggplot(data, aes(x = .data$entity_name_title, y = .data$perc_aum, fill = .data$entity_type)) +
+  p <- ggplot(data, aes(x = .data$entity_title, y = .data$perc_aum, fill = .data$entity_type)) +
     geom_bar(stat = "identity") +
     geom_text(
       aes(
@@ -52,7 +53,13 @@ plot_fossil_bars <- function(data) {
       legend.position = "bottom",
       strip.placement = "outside"
     ) +
-    facet_grid(tech ~ asset_class, labeller = as_labeller(r2dii.plot::to_title), switch = "y")
+    facet_grid(tech ~ asset_class, labeller = as_labeller(r2dii.plot::to_title), switch = "y") +
+    labs(
+      caption = make_caption_indices(data)
+    ) +
+    theme(
+      plot.caption = element_text(size = 16)
+    )
   p
 }
 
@@ -61,9 +68,54 @@ check_data_fossil_bars <- function(data, env) {
   abort_if_has_zero_rows(data, env = env)
   abort_if_missing_names(
     data,
-    c("asset_class", "tech", "entity_name", "entity_type", "perc_aum")
+    c("asset_class", "tech", "entity_name", "entity_type", "perc_aum", "entity")
   )
   abort_if_invalid_values(data, "tech", c("coal", "oil", "gas"))
   stopifnot(is.numeric(data$perc_aum))
   stopifnot((data$perc_aum <= 1) & (data$perc_aum >= 0))
+  check_single_index_per_asset_class(data, "entity_name", env = env)
+}
+
+check_single_index_per_asset_class <- function(data, column, env) {
+  .data <- deparse_1(substitute(data, env = env))
+  data <- data %>%
+    filter(entity == "index")
+  if (nrow(data) > 0)
+    asset_classes <- unique(data$asset_class)
+    
+    for (asset in asset_classes) {
+        data_subset <- data %>%
+          filter(.data$asset_class == asset)
+        if (nrow(data_subset) > 0) {
+        .column <- unique(data_subset[[column]])
+        if (length(.column) > 1L) {
+          abort(c(
+            glue("`{.data}` must have a single value of `{column}` per asset class for `entity == 'index'`."),
+            x = glue("Provided: {toString(.column)} for asset_class == {asset}.")
+          ))
+        }
+      }
+    }
+}
+
+make_caption_indices <- function(data) {
+  caption <- "Indices used per asset class:\n"
+  asset_classes <- unique(data$asset_class)
+  last_asset <- asset_classes[length(asset_classes)]
+  for (asset in asset_classes) {
+    index_name <- data %>%
+      filter(
+        .data$asset_class == asset,
+        .data$entity == "index"
+      ) %>%
+      pull(.data$entity_name) %>%
+      unique()
+    caption <- glue::glue(caption, "{r2dii.plot::to_title(asset)}: {r2dii.plot::to_title(index_name)}")
+    if (asset != last_asset) {
+      caption <- glue::glue(caption, ", ")
+    } else {
+      caption <- glue::glue(caption, ".")
+    }
+  }
+  caption
 }

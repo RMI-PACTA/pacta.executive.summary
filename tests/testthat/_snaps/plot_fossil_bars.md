@@ -10,7 +10,7 @@
 # with missing crucial columns errors gracefully
 
     `data` must have all the expected names.
-    x Missing names: asset_class, entity_name, entity_type, perc_aum, tech.
+    x Missing names: asset_class, entity, entity_name, entity_type, perc_aum, tech.
 
 # with wrong values of `tech` errors gracefully
 
@@ -25,4 +25,9 @@
 # with wrong values of `perc_aum` errors gracefully
 
     (data$perc_aum <= 1) & (data$perc_aum >= 0) are not all TRUE
+
+# with multiple indices per `asset_class` errors gracefully
+
+    `data_wrong` must have a single value of `entity_name` per asset class for `entity == 'index'`.
+    x Provided: MSCI_world, iShares_Global_Corp_Bond for asset_class == equity.
 

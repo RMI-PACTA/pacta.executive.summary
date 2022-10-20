@@ -11,7 +11,7 @@ test_that("if `data` has zero rows errors gracefully", {
 
 test_that("with missing crucial columns errors gracefully", {
   data_wrong_names <- toy_data_fossil_bars
-  colnames(data_wrong_names) <- c("bad1", "bad2", "bad3", "bad4", "bad5", "bad6")
+  colnames(data_wrong_names) <- c("bad1", "bad2", "bad3", "bad4", "bad5", "bad6", "bad7")
   expect_snapshot_error(plot_fossil_bars(data_wrong_names))
 })
 
@@ -32,4 +32,12 @@ test_that("with wrong values of `perc_aum` errors gracefully", {
   data_wrong_perc_aum <- toy_data_fossil_bars
   data_wrong_perc_aum$perc_aum <- data_wrong_perc_aum$perc_aum * 1000
   expect_snapshot_error(plot_fossil_bars(data_wrong_perc_aum))
+})
+
+test_that("with multiple indices per `asset_class` errors gracefully", {
+  data_wrong <- toy_data_fossil_bars %>%
+    filter(asset_class == "equity") %>%
+    rbind(toy_data_fossil_bars %>% filter(asset_class == "bonds", entity == "index")) %>%
+    mutate(asset_class = "equity")
+  expect_snapshot_error(plot_fossil_bars(data_wrong))
 })
