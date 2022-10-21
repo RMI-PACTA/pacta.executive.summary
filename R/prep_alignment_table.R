@@ -17,75 +17,78 @@ prep_alignment_table <- function(results_portfolio,
                                  peers_results_aggregated,
                                  asset_class = c("equity", "bonds"),
                                  scenario_source = "GECO2021") {
-  # validate inputs
-  match.arg(asset_class)
-  check_data_prep_alignment_table(scenario_source = scenario_source)
-
-  # infer start_year
-  start_year <- min(results_portfolio$year, na.rm = TRUE)
-
-  # filter selected asset_class
-  data <- results_portfolio %>%
-    dplyr::bind_rows(peers_results_aggregated)
-
-  # get scenarios
-  scenario_thresholds <- get("scenario_thresholds")
-
-  scenarios <- scenario_thresholds %>%
-    dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
-    dplyr::pull(.data$scenario)
-
-  # get scenarios for relevant thresholds
-  scenario_high_ambition <- scenario_thresholds %>%
-    dplyr::filter(.data$threshold == "high") %>%
-    dplyr::pull(.data$scenario)
-
-  scenario_medium_ambition <- scenario_thresholds %>%
-    dplyr::filter(.data$threshold == "mid") %>%
-    dplyr::pull(.data$scenario)
-
-  # prepare data for technology alignment calculation
-  data_tech_alignment <- data %>%
-    wrangle_input_data_alignment_table(scenarios = scenarios)
-
-  # calculate technology level alignment
-  data_tech_alignment <- data_tech_alignment %>%
-    calculate_technology_alignment(
-      start_year = start_year,
-      time_horizon = time_horizon_lookup
-    )
-
-  # calculate the traffic light for each technology
-  data_tech_alignment_color <- data_tech_alignment %>%
-    calculate_tech_traffic_light(
-      scenario_high_ambition = scenario_high_ambition,
-      scenario_medium_ambition = scenario_medium_ambition
-    )
-
-  # map green/brown categories
-  data_tech_alignment_color <- data_tech_alignment_color %>%
-    dplyr::mutate(
-      green_or_brown = dplyr::case_when(
-        .data$green_or_brown == "green" ~ "Low-carbon",
-        .data$green_or_brown == "brown" ~ "High-carbon",
-        TRUE ~ .data$green_or_brown
+  if (is.null(results_portfolio)) {
+    data_out <- use_toy_data("alignment_table") %>% filter(asset_class == .env$asset_class)
+  } else {
+    # validate inputs
+    match.arg(asset_class)
+    check_data_prep_alignment_table(scenario_source = scenario_source)
+  
+    # infer start_year
+    start_year <- min(results_portfolio$year, na.rm = TRUE)
+  
+    # filter selected asset_class
+    data <- results_portfolio %>%
+      dplyr::bind_rows(peers_results_aggregated)
+  
+    # get scenarios
+    scenario_thresholds <- get("scenario_thresholds")
+  
+    scenarios <- scenario_thresholds %>%
+      dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
+      dplyr::pull(.data$scenario)
+  
+    # get scenarios for relevant thresholds
+    scenario_high_ambition <- scenario_thresholds %>%
+      dplyr::filter(.data$threshold == "high") %>%
+      dplyr::pull(.data$scenario)
+  
+    scenario_medium_ambition <- scenario_thresholds %>%
+      dplyr::filter(.data$threshold == "mid") %>%
+      dplyr::pull(.data$scenario)
+  
+    # prepare data for technology alignment calculation
+    data_tech_alignment <- data %>%
+      wrangle_input_data_alignment_table(scenarios = scenarios)
+  
+    # calculate technology level alignment
+    data_tech_alignment <- data_tech_alignment %>%
+      calculate_technology_alignment(
+        start_year = start_year,
+        time_horizon = time_horizon_lookup
       )
-    )
-
-  # select the relevant variables
-  data_out <- data_tech_alignment_color %>%
-    dplyr::select(
-      .data$ald_sector, .data$technology, .data$asset_class, .data$entity,
-      .data$aligned_scen_temp, .data$plan_carsten, .data$green_or_brown
-    ) %>%
-    dplyr::rename(
-      sector = .data$ald_sector,
-      perc_aum = .data$plan_carsten,
-      green_brown = .data$green_or_brown
-    ) %>%
-    filter(.data$asset_class == .env$asset_class)
-
-  return(data_out)
+  
+    # calculate the traffic light for each technology
+    data_tech_alignment_color <- data_tech_alignment %>%
+      calculate_tech_traffic_light(
+        scenario_high_ambition = scenario_high_ambition,
+        scenario_medium_ambition = scenario_medium_ambition
+      )
+  
+    # map green/brown categories
+    data_tech_alignment_color <- data_tech_alignment_color %>%
+      dplyr::mutate(
+        green_or_brown = dplyr::case_when(
+          .data$green_or_brown == "green" ~ "Low-carbon",
+          .data$green_or_brown == "brown" ~ "High-carbon",
+          TRUE ~ .data$green_or_brown
+        )
+      )
+  
+    # select the relevant variables
+    data_out <- data_tech_alignment_color %>%
+      dplyr::select(
+        .data$ald_sector, .data$technology, .data$asset_class, .data$entity,
+        .data$aligned_scen_temp, .data$plan_carsten, .data$green_or_brown
+      ) %>%
+      dplyr::rename(
+        sector = .data$ald_sector,
+        perc_aum = .data$plan_carsten,
+        green_brown = .data$green_or_brown
+      ) %>%
+      filter(.data$asset_class == .env$asset_class)
+  }
+  data_out
 }
 
 check_data_prep_alignment_table <- function(scenario_source) {
