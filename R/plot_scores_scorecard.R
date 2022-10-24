@@ -30,7 +30,7 @@ plot_scores_scorecard <- function(data) {
       strip.text = element_text(face = "bold")
     ) +
     facet_wrap(
-      ~ factor(.data$asset_class, levels = c("equity", "bonds")),
+      ~ factor(.data$asset_class, levels = c("bonds", "equity")),
       labeller = as_labeller(r2dii.plot::to_title)
     )
   p
@@ -135,7 +135,7 @@ plot_scores_pyramide <- function() {
 
 annotation_df <- function() {
   df <- tibble::tibble(
-    asset_class = c("equity", "bonds"),
+    asset_class = c("bonds", "equity"),
     text = c(
       "",
       "Science-based\nconsensus on\nneeded global\nambition, i.e.\nScenario [XY]"

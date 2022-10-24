@@ -149,6 +149,15 @@ plot_scores(data_scores) +
 
 #### Scenario alignment per technology
 
+```{r alignment_table_bonds, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+data_alignment_table <- prep_alignment_table(results_portfolio, 
+                                             peers_results_aggregated,
+                                             asset_class = "bonds")
+plot_alignment_table(data_alignment_table)
+# TODO: add title
+```
+
 Text
 
 ```{r alignment_table_equity, fig.height = 6}
@@ -156,15 +165,6 @@ Text
 data_alignment_table <- prep_alignment_table(results_portfolio, 
                                              peers_results_aggregated,
                                              asset_class = "equity")
-plot_alignment_table(data_alignment_table)
-# TODO: add title
-```
-
-```{r alignment_table_bonds, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-data_alignment_table <- prep_alignment_table(results_portfolio, 
-                                             peers_results_aggregated,
-                                             asset_class = "bonds")
 plot_alignment_table(data_alignment_table)
 # TODO: add title
 ```

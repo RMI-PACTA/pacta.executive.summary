@@ -5,7 +5,7 @@
 #'   * Must have columns: `asset_class`,`tech_type`, `sector`,
 #'   `perc_sec_exposure`, `perc_tech_exposure`.
 #'   * `tech_type` column must only have following values: "green",
-#'   "hydro_and_nuclear", "brown", "other".
+#'   "nuclear", "brown", "other".
 #'   * `perc_tech_exposure` and `perc_sec_exposure` must be percentages in
 #'   decimal format, with values between 0 and 1.
 #'
@@ -23,7 +23,7 @@ plot_green_brown_bars <- function(data) {
       tech_type = r2dii.plot::to_title(.data$tech_type),
       tech_type = factor(
         .data$tech_type,
-        levels = r2dii.plot::to_title(c("green", "hydro_and_nuclear", "brown", "other"))
+        levels = r2dii.plot::to_title(c("green", "nuclear", "brown", "other"))
       ),
       sector = r2dii.plot::to_title(.data$sector),
       sector_reordered = tidytext::reorder_within(.data$sector, .data$perc_sec_exposure, .data$asset_class)
@@ -67,7 +67,7 @@ check_data_green_brown_bars <- function(data, env) {
     data,
     c("asset_class", "tech_type", "sector", "perc_sec_exposure", "perc_tech_exposure")
   )
-  abort_if_invalid_values(data, "tech_type", c("green", "hydro_and_nuclear", "brown", "other"))
+  abort_if_invalid_values(data, "tech_type", c("green", "nuclear", "brown", "other"))
   stopifnot(is.numeric(data$perc_tech_exposure))
   stopifnot(is.numeric(data$perc_sec_exposure))
   stopifnot((data$perc_tech_exposure <= 1) & (data$perc_tech_exposure >= 0))

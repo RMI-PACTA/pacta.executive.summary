@@ -13,37 +13,40 @@
 #' @return data.frame
 prep_green_brown_bars <- function(results_portfolio,
                                   scenario_selected = "1.5C-Unif") {
-  # check input
-  check_data_prep_green_brown_bars(scenario_selected = scenario_selected)
+  if (is.null(results_portfolio)) {
+    data_out <- use_toy_data("green_brown_bars")
+  } else {
+    # check input
+    check_data_prep_green_brown_bars(scenario_selected = scenario_selected)
 
-  # input data
-  data <- results_portfolio
+    # input data
+    data <- results_portfolio
 
-  # infer start year
-  start_year <- min(data$year, na.rm = TRUE)
+    # infer start year
+    start_year <- min(data$year, na.rm = TRUE)
 
-  # filter data
-  data <- data %>%
-    dplyr::filter(
-      year == .env$start_year,
-      .data$scenario == .env$scenario_selected
-    )
+    # filter data
+    data <- data %>%
+      dplyr::filter(
+        year == .env$start_year,
+        .data$scenario == .env$scenario_selected
+      )
 
-  # map sectors to p4b style
-  # map tech_type and fossil_fuels
-  data <- data %>%
-    # TODO: use input args to define groupings?
-    map_sectors_and_tech_type()
+    # map sectors to p4b style
+    # map tech_type and fossil_fuels
+    data <- data %>%
+      # TODO: use input args to define groupings?
+      map_sectors_and_tech_type()
 
-  # calculate tech_type and sector exposures
-  data_out <- data %>%
-    calculate_exposures() %>%
-    dplyr::select(
-      c(asset_class, year, tech_type, sector, perc_tech_exposure,
-        perc_sec_exposure)
-    )
-
-  return(data_out)
+    # calculate tech_type and sector exposures
+    data_out <- data %>%
+      calculate_exposures() %>%
+      dplyr::select(
+        c(asset_class, year, tech_type, sector, perc_tech_exposure,
+          perc_sec_exposure)
+      )
+  }
+  data_out
 }
 
 check_data_prep_green_brown_bars <- function(scenario_selected) {

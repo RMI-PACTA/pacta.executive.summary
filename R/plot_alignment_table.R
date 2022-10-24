@@ -26,20 +26,33 @@ plot_alignment_table <- function(data) {
   size_lim <- c(min(data$perc_aum, na.rm = TRUE), max(data$perc_aum, na.rm = TRUE))
   size_range <- c(4, 12)
 
-  p_power <- plot_alignment_table_sector_stripe(data, "power", size_lim,
-    size_range,
-    ncol = 4
-  )
+  if (nrow(data %>% filter(.data$sector == "power")) > 0) {
+    p_power <- plot_alignment_table_sector_stripe(data, "power", size_lim,
+      size_range,
+      ncol = 4
+    )
+  } else {
+    p_power <- patchwork::plot_spacer()
+  }
 
-  p_fossil <- plot_alignment_table_sector_stripe(data, "fossil_fuels", size_lim,
-    size_range,
-    ncol = 3
-  )
+  if (nrow(data %>% filter(.data$sector == "fossil_fuels")) > 0) {
+    p_fossil <- plot_alignment_table_sector_stripe(data, "fossil_fuels", size_lim,
+      size_range,
+      ncol = 3
+    )
+  } else {
+    p_fossil <- patchwork::plot_spacer()
+  }
 
-  p_auto <- plot_alignment_table_sector_stripe(data, "automotive", size_lim,
-    size_range,
-    ncol = 3
-  )
+  if (nrow(data %>% filter(.data$sector == "automotive")) > 0) {
+    p_auto <- plot_alignment_table_sector_stripe(data, "automotive", size_lim,
+      size_range,
+      ncol = 3
+    )
+  } else {
+    p_auto <- patchwork::plot_spacer()
+  }
+
 
   p_ylabel <- ggplot(data.frame(l = "Aligned scenario temperature", x = 1, y = 1)) +
     geom_text(aes(x = .data$x, y = .data$y, label = .data$l), angle = 90, size = 7) +
@@ -66,7 +79,7 @@ check_data_alignment_table <- function(data, env = env) {
   abort_if_multiple(data, "asset_class", env)
   abort_if_missing_crucial_values(data, "entity", c("portfolio"), env)
   abort_if_invalid_values(data, "sector", c("power", "fossil_fuels", "automotive"))
-  abort_if_invalid_values(data, "aligned_scen_temp", c(">3.2C", "2.7-3.2C", "<2C"))
+  abort_if_invalid_values(data, "aligned_scen_temp", alignment_table_temperatures_lookup)
   stopifnot(is.numeric(data$perc_aum))
   stopifnot((data$perc_aum <= 1) & (data$perc_aum >= 0))
 }
@@ -75,6 +88,22 @@ plot_alignment_table_tech_cells <- function(data) {
   pj <- position_jitter(width = 0, height = 0.1, seed = 0)
 
   annotations <- make_annotations_df(data)
+
+  fill_values <- c(r2dii.colours::palette_2dii_scenario %>%
+          filter(.data$label == "dark_green") %>%
+          pull(.data$hex), r2dii.colours::palette_2dii_scenario %>%
+          filter(.data$label == "dark_yellow") %>%
+          pull(.data$hex), r2dii.colours::palette_2dii_scenario %>%
+          filter(.data$label == "red") %>%
+          pull(.data$hex))
+  names(fill_values) <- alignment_table_temperatures_lookup
+  colour_values <- c(unname(fill_colours_scores["A+"]), unname(fill_colours_scores["C"]), unname(fill_colours_scores["E"]))
+  names(colour_values) <- alignment_table_temperatures_lookup
+
+  data <- data %>%
+    mutate(
+      entity = factor(.data$entity, levels = c("portfolio", "peers") )
+    )
 
   p <- ggplot(
     data,
@@ -102,24 +131,10 @@ plot_alignment_table_tech_cells <- function(data) {
       position = pj
     ) +
     scale_fill_manual(
-      values = c(
-        ">3.2C" = r2dii.colours::palette_2dii_scenario %>%
-          filter(.data$label == "red") %>%
-          pull(hex),
-        "2.7-3.2C" = r2dii.colours::palette_2dii_scenario %>%
-          filter(.data$label == "dark_yellow") %>%
-          pull(hex),
-        "<2C" = r2dii.colours::palette_2dii_scenario %>%
-          filter(.data$label == "dark_green") %>%
-          pull(hex)
-      )
+      values = fill_values
     ) +
     scale_color_manual(
-      values = c(
-        ">3.2C" = unname(fill_colours_scores["E"]),
-        "2.7-3.2C" = unname(fill_colours_scores["C"]),
-        "<2C" = unname(fill_colours_scores["A+"])
-      ),
+      values = colour_values,
       na.value = NA
     ) +
     scale_shape_manual(
@@ -132,7 +147,7 @@ plot_alignment_table_tech_cells <- function(data) {
     ) +
     scale_y_discrete(
       expand = expansion(add = c(0.5, 0.5)),
-      limits = c(">3.2C", "2.7-3.2C", "<2C")
+      limits = rev(alignment_table_temperatures_lookup)
     ) +
     theme_2dii(base_size = 20) +
     theme(
@@ -182,7 +197,7 @@ plot_alignment_table_sector_stripe <- function(data,
 
 make_annotations_df <- function(data) {
   annotations_tech <- tibble::tibble(
-    aligned_scen_temp = c(">3.2C", "2.7-3.2C", "<2C"),
+    aligned_scen_temp = rev(alignment_table_temperatures_lookup),
     ymin = c(.5, 1.5, 2.5),
     ymax = c(1.5, 2.5, 3.5)
   )

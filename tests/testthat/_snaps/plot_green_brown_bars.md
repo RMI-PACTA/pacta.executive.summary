@@ -15,7 +15,7 @@
 # with wrong values of `tech_type` errors gracefully
 
     Each value of `"tech_type"` must be one of these:
-    green, hydro_and_nuclear, brown, other.
+    green, nuclear, brown, other.
     x You passed: bad.
 
 # with non-numeric values of `perc_tech_exposure` and `perc_sec_exposure` errors gracefully

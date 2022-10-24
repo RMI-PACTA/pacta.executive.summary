@@ -15,8 +15,10 @@
 #' @return data.frame
 prep_alignment_table <- function(results_portfolio,
                                  peers_results_aggregated,
+                                 asset_class = c("equity", "bonds"),
                                  scenario_source = "GECO2021") {
   # validate inputs
+  match.arg(asset_class)
   check_data_prep_alignment_table(scenario_source = scenario_source)
 
   # infer start_year
@@ -80,7 +82,8 @@ prep_alignment_table <- function(results_portfolio,
       sector = ald_sector,
       perc_aum = plan_carsten,
       green_brown = green_or_brown
-    )
+    ) %>%
+    filter(.data$asset_class == .env$asset_class)
 
   return(data_out)
 }
@@ -165,7 +168,8 @@ calculate_tech_traffic_light <- function(data,
         sum(.data$tech_score) >= 10 ~ "<1.5C",
         sum(.data$tech_score) == 1 ~ "1.5-1.8C",
         TRUE ~ ">1.8C"
-      )
+      ),
+      entity = replace(.data$entity, entity == "this_portfolio", "portfolio")
     ) %>%
     dplyr::ungroup() %>%
     dplyr::filter(.data$scenario == .env$scenario_high_ambition)
