@@ -5,18 +5,11 @@
 \title{Prepare data input for plotting aggregate climate scores in the scorecard
 section}
 \usage{
-prep_scores_scorecard(
-  results_portfolio,
-  asset_class = c("equity", "bonds"),
-  scenario_source = "GECO2021"
-)
+prep_scores_scorecard(results_portfolio, scenario_source = "GECO2021")
 }
 \arguments{
 \item{results_portfolio}{Data frame that contains pre-wrangled portfolio
 level PACTA results from a PACTA for investors analysis.}
-
-\item{asset_class}{Character. Must be either \code{equity} or
-\code{bonds}.}
 
 \item{scenario_source}{Character. Must be a
 \code{scenario_source} featured in the \code{scenario_thresholds} data set.}
