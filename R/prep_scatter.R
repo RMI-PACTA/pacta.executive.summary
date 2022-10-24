@@ -22,7 +22,7 @@ prep_scatter <- function(results_portfolio,
 
   scenarios <- scenario_thresholds %>%
     dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
-    dplyr::pull(.data$scenario)
+    dplyr::pull(scenario)
 
   # combine input data
   data <- results_portfolio %>%
@@ -87,11 +87,10 @@ prep_scatter <- function(results_portfolio,
       )
     ) %>%
     dplyr::select(
-      .data$asset_class, .data$year, .data$perc_tech_exposure, .data$score,
-      .data$entity_name, .data$entity_type
+      c(asset_class, year, perc_tech_exposure, score, entity_name, entity_type)
     ) %>%
     dplyr::rename(
-      tech_mix_green = .data$perc_tech_exposure,
+      tech_mix_green = perc_tech_exposure,
 
     )
 

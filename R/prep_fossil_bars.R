@@ -77,10 +77,10 @@ wrangle_data_fossil_bars <- function(data) {
       ald_sector = .data$sector_p4b,
       technology = .data$technology_p4b
     ) %>%
-    dplyr::select(-c(.data$sector_p4b, .data$technology_p4b)) %>%
+    dplyr::select(-c(sector_p4b, technology_p4b)) %>%
     dplyr::select(
-      .data$entity_name, .data$entity_type, .data$year, tech = .data$technology,
-      perc_aum = .data$plan_carsten, .data$asset_class
+      c(entity_name, entity_type, year, tech = technology,
+      perc_aum = plan_carsten, asset_class)
     ) %>%
     dplyr::arrange(.data$asset_class, dplyr::desc(.data$entity_name), .data$tech)
 

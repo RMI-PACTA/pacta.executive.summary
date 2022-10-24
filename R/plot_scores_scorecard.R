@@ -155,7 +155,7 @@ get_portfolio_pointer_df <- function(data, asset_class) {
   idx <- which(rev(scores_labels()) == data_asset$score[1])
   portfolio_score <- data_asset %>%
     dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
-    pull(.data$score_upper)
+    pull(score_upper)
 
   portfolio_pointer <- tibble::tibble(
     group = replicate(5, "portfolio"),

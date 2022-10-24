@@ -105,13 +105,13 @@ plot_alignment_table_tech_cells <- function(data) {
       values = c(
         ">3.2C" = r2dii.colours::palette_2dii_scenario %>%
           filter(.data$label == "red") %>%
-          pull(.data$hex),
+          pull(hex),
         "2.7-3.2C" = r2dii.colours::palette_2dii_scenario %>%
           filter(.data$label == "dark_yellow") %>%
-          pull(.data$hex),
+          pull(hex),
         "<2C" = r2dii.colours::palette_2dii_scenario %>%
           filter(.data$label == "dark_green") %>%
-          pull(.data$hex)
+          pull(hex)
       )
     ) +
     scale_color_manual(
@@ -187,7 +187,7 @@ make_annotations_df <- function(data) {
     ymax = c(1.5, 2.5, 3.5)
   )
 
-  annotations <- unique(data %>% pull(.data$technology)) %>%
+  annotations <- unique(data %>% pull(technology)) %>%
     purrr::map_df(~ annotations_tech %>% mutate(technology = .x))
 
   data_portfolio <- data %>%
@@ -198,7 +198,7 @@ make_annotations_df <- function(data) {
       aligned_portfolio_temp = .data$aligned_scen_temp
     ) %>%
     select(
-      .data$technology, .data$aligned_scen_temp, .data$entity, .data$aligned_portfolio_temp
+      c(technology, aligned_scen_temp, entity, aligned_portfolio_temp)
     ) %>%
     distinct()
 

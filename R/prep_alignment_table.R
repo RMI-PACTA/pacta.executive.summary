@@ -31,16 +31,16 @@ prep_alignment_table <- function(results_portfolio,
 
   scenarios <- scenario_thresholds %>%
     dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
-    dplyr::pull(.data$scenario)
+    dplyr::pull(scenario)
 
   # get scenarios for relevant thresholds
   scenario_high_ambition <- scenario_thresholds %>%
     dplyr::filter(.data$threshold == "high") %>%
-    dplyr::pull(.data$scenario)
+    dplyr::pull(scenario)
 
   scenario_medium_ambition <- scenario_thresholds %>%
     dplyr::filter(.data$threshold == "mid") %>%
-    dplyr::pull(.data$scenario)
+    dplyr::pull(scenario)
 
   # prepare data for technology alignment calculation
   data_tech_alignment <- data %>%
@@ -73,13 +73,13 @@ prep_alignment_table <- function(results_portfolio,
   # select the relevant variables
   data_out <- data_tech_alignment_color %>%
     dplyr::select(
-      .data$ald_sector, .data$technology, .data$asset_class, .data$entity,
-      .data$aligned_scen_temp, .data$plan_carsten, .data$green_or_brown
+      c(ald_sector, technology, asset_class, entity, aligned_scen_temp,
+        plan_carsten, green_or_brown)
     ) %>%
     dplyr::rename(
-      sector = .data$ald_sector,
-      perc_aum = .data$plan_carsten,
-      green_brown = .data$green_or_brown
+      sector = ald_sector,
+      perc_aum = plan_carsten,
+      green_brown = green_or_brown
     )
 
   return(data_out)
@@ -110,7 +110,7 @@ wrangle_input_data_alignment_table <- function(data,
       ald_sector = .data$sector_p4b,
       technology = .data$technology_p4b
     ) %>%
-    dplyr::select(-c(.data$sector_p4b, .data$technology_p4b))
+    dplyr::select(-c(sector_p4b, technology_p4b))
 
   # Coal, Oil & Gas are mapped to Fossil Fuels sector
   data <- data %>%

@@ -40,7 +40,7 @@ prep_scores <- function(results_portfolio,
 
   scenarios <- scenario_thresholds %>%
     dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
-    dplyr::pull(.data$scenario)
+    dplyr::pull(scenario)
 
   # prepare data for sector aggregation
   data_aggregate_scores <- data %>%
@@ -87,7 +87,7 @@ prep_scores <- function(results_portfolio,
   # combine scores in single data frame
   output_scores <- sector_aggregate_scores %>%
     dplyr::bind_rows(portfolio_aggregate_scores) %>%
-    dplyr::select(-.data$sector_exposure)
+    dplyr::select(-c(sector_exposure))
 
   # apply scenario based grades
   data_out <- output_scores %>%
@@ -95,7 +95,7 @@ prep_scores <- function(results_portfolio,
       scenario_thresholds = scenario_thresholds
     ) %>%
     dplyr::select(
-      .data$asset_class, .data$scope, .data$entity, .data$sector, .data$score
+      c(asset_class, scope, entity, sector, score)
     )
 
   return(data_out)
@@ -130,7 +130,7 @@ wrangle_input_data_aggregate_scores <- function(data,
       ald_sector = .data$sector_p4b,
       technology = .data$technology_p4b
     ) %>%
-    dplyr::select(-c(.data$sector_p4b, .data$technology_p4b))
+    dplyr::select(-c(sector_p4b, technology_p4b))
 
   # Oil & Gas are treated as separate sectors in the aggregate score.
   data <- data %>%
@@ -161,7 +161,7 @@ calculate_technology_alignment <- function(data,
       plan_alloc_wt_tech_prod_t5 = dplyr::last(.data$plan_alloc_wt_tech_prod),
       exposure_t0 = dplyr::first(.data$plan_carsten)
     ) %>%
-    dplyr::select(-.data$scen_alloc_wt_tech_prod) %>%
+    dplyr::select(-c(scen_alloc_wt_tech_prod)) %>%
     dplyr::filter(.data$year == .env$start_year + .env$time_horizon) %>%
     dplyr::mutate(
       tech_trajectory_alignment = dplyr::if_else(
@@ -209,7 +209,7 @@ calculate_sector_aggregate_scores <- function(data) {
       )
     ) %>%
     dplyr::ungroup() %>%
-    dplyr::select(-.data$production_change)
+    dplyr::select(-c(production_change))
 
   # calculate sector score & sector exposure
   data <- data %>%
@@ -296,15 +296,14 @@ calculate_aggregate_scores_with_scenarios <- function(data,
   # add threshold scenarios
   data <- data %>%
     dplyr::select(
-      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$scope,
-      .data$entity_name, .data$entity_type, .data$entity, .data$ald_sector,
-      .data$scenario_source, .data$scenario, .data$score
+      c(investor_name, portfolio_name, asset_class, scope, entity_name,
+        entity_type, entity, ald_sector, scenario_source, scenario, score)
     ) %>%
     dplyr::inner_join(
       scenario_thresholds,
       by = c("scenario_source", "scenario")
     ) %>%
-    dplyr::select(-c(.data$scenario, .data$scenario_source))
+    dplyr::select(-c(scenario, scenario_source))
 
   data <- data %>%
     tidyr::pivot_wider(
@@ -316,7 +315,7 @@ calculate_aggregate_scores_with_scenarios <- function(data,
       names_from = .data$threshold,
       values_from = .data$score
     ) %>%
-    dplyr::rename(sector = .data$ald_sector)
+    dplyr::rename(sector = ald_sector)
 
   # calculate grades based on scores and scenario thresholds
   data <- data %>%
@@ -334,9 +333,8 @@ calculate_aggregate_scores_with_scenarios <- function(data,
 
   data <- data %>%
     dplyr::select(
-      .data$investor_name, .data$portfolio_name, .data$asset_class, .data$scope,
-      .data$entity_name, .data$entity_type, .data$entity, .data$sector,
-      .data$score
+      c(investor_name, portfolio_name, asset_class, scope, entity_name,
+        entity_type, entity, sector, score)
     ) %>%
     dplyr::arrange(
       .data$investor_name, .data$portfolio_name, .data$asset_class, .data$scope,

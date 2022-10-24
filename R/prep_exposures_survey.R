@@ -79,7 +79,7 @@ wrangle_data_exposures_survey <- function(data) {
       ald_sector = .data$sector_p4b,
       technology = .data$technology_p4b
     ) %>%
-    dplyr::select(asset_class, entity, ald_sector, plan_carsten) %>%
+    dplyr::select(c(asset_class, entity, ald_sector, plan_carsten)) %>%
     dplyr::rename(
       sector = ald_sector,
       exposure_perc_aum = plan_carsten

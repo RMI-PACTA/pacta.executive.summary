@@ -39,8 +39,8 @@ prep_green_brown_bars <- function(results_portfolio,
   data_out <- data %>%
     calculate_exposures() %>%
     dplyr::select(
-      .data$asset_class, .data$year, .data$tech_type, .data$sector,
-      .data$perc_tech_exposure, .data$perc_sec_exposure
+      c(asset_class, year, tech_type, sector, perc_tech_exposure,
+        perc_sec_exposure)
     )
 
   return(data_out)
@@ -65,7 +65,7 @@ map_sectors_and_tech_type <- function(data) {
       ald_sector = .data$sector_p4b,
       technology = .data$technology_p4b
     ) %>%
-    dplyr::select(-c(.data$sector_p4b, .data$technology_p4b)) %>%
+    dplyr::select(-c(sector_p4b, technology_p4b)) %>%
     dplyr::mutate(
       ald_sector = dplyr::case_when(
         .data$ald_sector == "coal" ~ "fossil_fuels",
@@ -87,9 +87,8 @@ map_sectors_and_tech_type <- function(data) {
 calculate_exposures <- function(data) {
   data <- data %>%
     dplyr::select(
-      .data$investor_name, .data$portfolio_name, .data$entity_name,
-      .data$entity_type, .data$entity, .data$asset_class, .data$year,
-      .data$tech_type, .data$ald_sector, .data$plan_carsten
+      c(investor_name, portfolio_name, entity_name, entity_type, entity,
+        asset_class, year, tech_type, ald_sector, plan_carsten)
     ) %>%
     dplyr::group_by(
       .data$investor_name, .data$portfolio_name,.data$entity_name,
@@ -105,7 +104,7 @@ calculate_exposures <- function(data) {
     ) %>%
     dplyr::mutate(perc_sec_exposure = sum(.data$perc_tech_exposure, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::rename(sector = .data$ald_sector) %>%
+    dplyr::rename(sector = ald_sector) %>%
     dplyr::arrange(
       .data$investor_name, .data$portfolio_name, .data$sector, .data$asset_class,
       .data$tech_type
