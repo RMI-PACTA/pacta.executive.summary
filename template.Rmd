@@ -101,8 +101,8 @@ Text
 ```{r scatter_equity, out.width="50%"}
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
-data_scatter_power <- prep_scatter(results_portfolio, peers_results_individual, 
-                                     indices_results_portfolio, sector = "power", asset_class = "equity")
+data_scatter_power <- prep_scatter(results_portfolio, peers_results_aggregated, peers_results_individual, 
+                                     indices_results_portfolio, asset_class = "equity")
 plot_scatter(data_scatter_power) +
   patchwork::plot_annotation(
     title = "Equity",
