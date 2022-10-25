@@ -36,4 +36,4 @@ toy_data_scores <- tibble::tribble(
   )
 # styler: on
 
-usethis::use_data(toy_data_scores)
+usethis::use_data(toy_data_scores, overwrite = TRUE)
