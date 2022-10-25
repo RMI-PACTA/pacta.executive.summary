@@ -94,7 +94,7 @@ prep_scatter <- function(results_portfolio,
       tech_mix_green = .data$perc_tech_exposure
     ) %>%
     dplyr::mutate(
-      entity_type = dplyr::if_else(.data$entity_name == "peers_average", "peers_average", .data$entity_type)
+      entity_type = dplyr::if_else(.data$entity_name == "peers_average", "peers_mean", .data$entity_type)
     )
 
   return(data_out)

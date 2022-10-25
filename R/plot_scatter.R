@@ -28,7 +28,7 @@ plot_scatter <- function(data) {
     mutate(
       score_symbol = .data$score,
       score = .data$score_label,
-      entity_type = factor(.data$entity_type, levels = c("this_portfolio", "peers", "peers_average", "benchmark"))
+      entity_type = factor(.data$entity_type, levels = c("this_portfolio", "peers", "peers_mean", "benchmark"))
     ) 
 
   score_bar <- plot_basic_scorebar() +
@@ -46,7 +46,7 @@ plot_scatter <- function(data) {
     ) +
     scale_colour_2dii(colour_groups = data$entity_type) +
     scale_shape_manual(
-      values = c("peers_average" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
+      values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
       labels = r2dii.plot::to_title(levels(data$entity_type))
     ) +
     theme(
@@ -81,7 +81,7 @@ plot_scatter <- function(data) {
       expand = expansion(mult = c(0, 0.1))
     ) +
     scale_shape_manual(
-      values = c("peers_average" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
+      values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
       labels = r2dii.plot::to_title(levels(data$entity_type))
     ) +
     scale_colour_2dii(colour_groups = data$entity_type) +
@@ -119,7 +119,7 @@ plot_scatter <- function(data) {
     scale_fill_gradient(low = fill_colours_techmix["brown"], high = fill_colours_techmix["green"]) +
     scale_colour_2dii(colour_groups = data$entity_type) +
     scale_shape_manual(
-      values = c("peers_average" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
+      values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
       labels = r2dii.plot::to_title(levels(data$entity_type))
     ) +
     theme_2dii(
@@ -159,7 +159,7 @@ check_data_scatter <- function(data, env) {
     c("asset_class", "tech_mix_green", "score", "entity_name", "entity_type")
   )
   abort_if_multiple(data, "asset_class", env)
-  abort_if_invalid_values(data, "entity_type", c("peers_average", "this_portfolio", "peers", "benchmark"))
+  abort_if_invalid_values(data, "entity_type", c("peers_mean", "this_portfolio", "peers", "benchmark"))
   abort_if_invalid_values(data, "score", c("A+", "A", "B", "C", "D", "E"))
   stopifnot(is.numeric(data$tech_mix_green))
   stopifnot((data$tech_mix_green <= 1) & (data$tech_mix_green >= 0))
