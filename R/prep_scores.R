@@ -19,12 +19,12 @@ prep_scores <- function(results_portfolio,
                         peers_results_aggregated,
                         asset_class = c("equity", "bonds"),
                         scenario_source = "GECO2021") {
+  # validate inputs
+  asset_class <- match.arg(asset_class)
+    
   if (is.null(results_portfolio)) {
     data_out <- use_toy_data("scores") %>% filter(asset_class == .env$asset_class)
   } else {
-    # validate inputs
-    asset_class <- match.arg(asset_class)
-  
     check_data_prep_scores(
       asset_class = asset_class,
       scenario_source = scenario_source
