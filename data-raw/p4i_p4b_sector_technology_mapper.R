@@ -14,8 +14,6 @@ p4i_p4b_sector_technology_mapper <- tibble::tribble(
   "coal",        "coal",                     "Coal",         "Coal",
   "oil_and_gas", "gas",                      "Oil&Gas",      "Gas",
   "oil_and_gas", "oil",                      "Oil&Gas",      "Oil",
-  "oil and gas", "gas",                      "Oil&Gas",      "Gas",
-  "oil and gas", "oil",                      "Oil&Gas",      "Oil",
   "power",       "coalcap",                  "Power",        "CoalCap",
   "power",       "gascap",                   "Power",        "GasCap",
   "power",       "hydrocap",                 "Power",        "HydroCap",

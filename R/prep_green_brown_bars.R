@@ -72,7 +72,7 @@ map_sectors_and_tech_type <- function(data) {
     dplyr::mutate(
       ald_sector = dplyr::case_when(
         .data$ald_sector == "coal" ~ "fossil_fuels",
-        .data$ald_sector == "oil and gas" ~ "fossil_fuels",
+        .data$ald_sector == "oil_and_gas" ~ "fossil_fuels",
         TRUE ~ .data$ald_sector
       )
     ) %>%
