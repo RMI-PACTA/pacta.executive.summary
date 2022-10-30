@@ -21,6 +21,15 @@
 plot_scatter <- function(data) {
   env <- list(data = substitute(data))
   check_data_scatter(data, env = env)
+  
+  data <- data %>%
+    dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
+    select(-.data$category, -.data$score_upper) %>%
+    mutate(
+      score_symbol = .data$score,
+      score = .data$score_label,
+      entity_type = factor(.data$entity_type, levels = c("this_portfolio", "peers", "peers_mean", "benchmark"))
+    ) 
 
   score_bar <- plot_basic_scorebar() +
     geom_point(
@@ -37,7 +46,7 @@ plot_scatter <- function(data) {
     ) +
     scale_colour_2dii(colour_groups = data$entity_type) +
     scale_shape_manual(
-      values = c(16, 16, 1, 16),
+      values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
       labels = r2dii.plot::to_title(levels(data$entity_type))
     ) +
     theme(
@@ -72,7 +81,7 @@ plot_scatter <- function(data) {
       expand = expansion(mult = c(0, 0.1))
     ) +
     scale_shape_manual(
-      values = c(16, 16, 1, 16),
+      values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
       labels = r2dii.plot::to_title(levels(data$entity_type))
     ) +
     scale_colour_2dii(colour_groups = data$entity_type) +
@@ -110,7 +119,7 @@ plot_scatter <- function(data) {
     scale_fill_gradient(low = fill_colours_techmix["brown"], high = fill_colours_techmix["green"]) +
     scale_colour_2dii(colour_groups = data$entity_type) +
     scale_shape_manual(
-      values = c(16, 16, 1, 16),
+      values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
       labels = r2dii.plot::to_title(levels(data$entity_type))
     ) +
     theme_2dii(
@@ -136,7 +145,7 @@ plot_scatter <- function(data) {
       fill = "none",
       colour = guide_legend(
         title = axis_labels_scatter["legend_title"],
-        override.aes = list(size = 4, shape = c(16, 16, 1, 16))
+       override.aes = list(size = 4, shape = c(16, 1, 16, 16))
       )
     )
   p_out
@@ -150,11 +159,10 @@ check_data_scatter <- function(data, env) {
     c("asset_class", "tech_mix_green", "score", "entity_name", "entity_type")
   )
   abort_if_multiple(data, "asset_class", env)
-  abort_if_invalid_values(data, "entity_type", c("average", "this_portfolio", "peer", "benchmark"))
+  abort_if_invalid_values(data, "entity_type", c("peers_mean", "this_portfolio", "peers", "benchmark"))
+  abort_if_invalid_values(data, "score", c("A+", "A", "B", "C", "D", "E"))
   stopifnot(is.numeric(data$tech_mix_green))
-  stopifnot(is.numeric(data$score))
   stopifnot((data$tech_mix_green <= 1) & (data$tech_mix_green >= 0))
-  stopifnot((data$score <= 100) & (data$score >= 0))
 }
 
 plot_basic_scorebar <- function() {

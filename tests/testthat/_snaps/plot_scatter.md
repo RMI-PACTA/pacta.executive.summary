@@ -21,22 +21,20 @@
 # with wrong values of `entity_type` errors gracefully
 
     Each value of `"entity_type"` must be one of these:
-    average, this_portfolio, peer, benchmark.
+    peers_mean, this_portfolio, peers, benchmark.
     x You passed: bad.
 
-# with non-numeric values of `tech_mix_green` and `score` errors gracefully
+# with wrong values of `score` errors gracefully
+
+    Each value of `"score"` must be one of these:
+    A+, A, B, C, D, E.
+    x You passed: bad.
+
+# with non-numeric values of `tech_mix_green` errors gracefully
 
     is.numeric(data$tech_mix_green) is not TRUE
-
----
-
-    is.numeric(data$score) is not TRUE
 
 # with wrong values of `tech_mix_green` and `score` errors gracefully
 
     (data$tech_mix_green <= 1) & (data$tech_mix_green >= 0) are not all TRUE
-
----
-
-    (data$score <= 100) & (data$score >= 0) are not all TRUE
 
