@@ -52,7 +52,7 @@ plot_alignment_table <- function(data) {
   } else {
     p_auto <- patchwork::plot_spacer()
   }
-  
+
 
   p_ylabel <- ggplot(data.frame(l = "Aligned scenario temperature", x = 1, y = 1)) +
     geom_text(aes(x = .data$x, y = .data$y, label = .data$l), angle = 90, size = 7) +
@@ -88,7 +88,7 @@ plot_alignment_table_tech_cells <- function(data) {
   pj <- position_jitter(width = 0, height = 0.1, seed = 0)
 
   annotations <- make_annotations_df(data)
-  
+
   fill_values <- c(r2dii.colours::palette_2dii_scenario %>%
           filter(.data$label == "dark_green") %>%
           pull(.data$hex), r2dii.colours::palette_2dii_scenario %>%
@@ -99,7 +99,7 @@ plot_alignment_table_tech_cells <- function(data) {
   names(fill_values) <- alignment_table_temperatures_lookup
   colour_values <- c(unname(fill_colours_scores["A+"]), unname(fill_colours_scores["C"]), unname(fill_colours_scores["E"]))
   names(colour_values) <- alignment_table_temperatures_lookup
-  
+
   data <- data %>%
     mutate(
       entity = factor(.data$entity, levels = c("portfolio", "peers") )
@@ -202,7 +202,7 @@ make_annotations_df <- function(data) {
     ymax = c(1.5, 2.5, 3.5)
   )
 
-  annotations <- unique(data %>% pull(.data$technology)) %>%
+  annotations <- unique(data %>% pull(technology)) %>%
     purrr::map_df(~ annotations_tech %>% mutate(technology = .x))
 
   data_portfolio <- data %>%
@@ -213,7 +213,7 @@ make_annotations_df <- function(data) {
       aligned_portfolio_temp = .data$aligned_scen_temp
     ) %>%
     select(
-      .data$technology, .data$aligned_scen_temp, .data$entity, .data$aligned_portfolio_temp
+      c(technology, aligned_scen_temp, entity, aligned_portfolio_temp)
     ) %>%
     distinct()
 

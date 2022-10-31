@@ -31,15 +31,15 @@ prep_fossil_bars <- function(results_portfolio,
       dplyr::filter(
         .data$portfolio_name %in% c(.env$index_cb_selected_lookup, .env$index_eq_selected_lookup)
       )
-  
+
     # combine input data sets
     data <- results_portfolio %>%
       dplyr::bind_rows(peers_results_aggregated) %>%
       dplyr::bind_rows(indices_results_portfolio)
-  
+
     # infer start year
     start_year <- min(data$year, na.rm = TRUE)
-  
+
     # filter combined input data
     data <- data %>%
       dplyr::filter(
@@ -47,7 +47,7 @@ prep_fossil_bars <- function(results_portfolio,
         .data$scenario == .env$scenario_selected,
         .data$ald_sector %in% c("Coal", "Oil&Gas")
       )
-  
+
     # wrangle data into output format
     data_out <- data %>%
       wrangle_data_fossil_bars()
@@ -90,10 +90,10 @@ wrangle_data_fossil_bars <- function(data) {
       ald_sector = .data$sector_p4b,
       technology = .data$technology_p4b
     ) %>%
-    dplyr::select(-c(.data$sector_p4b, .data$technology_p4b)) %>%
+    dplyr::select(-c(sector_p4b, technology_p4b)) %>%
     dplyr::select(
-      .data$entity, .data$entity_name, .data$entity_type, .data$year, tech = .data$technology,
-      perc_aum = .data$plan_carsten, .data$asset_class
+      c(entity, entity_name, entity_type, year, tech = technology,
+      perc_aum = plan_carsten, asset_class)
     ) %>%
     dplyr::arrange(.data$asset_class, dplyr::desc(.data$entity_name), .data$tech)
 

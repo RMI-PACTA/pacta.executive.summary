@@ -69,7 +69,7 @@ wrangle_data_exposures_scorecard <- function(data) {
       )
     ) %>%
     dplyr::filter(!is.na(.data$sector_or_tech)) %>%
-    dplyr::select(asset_class, sector_or_tech, plan_carsten) %>%
+    dplyr::select(c(asset_class, sector_or_tech, plan_carsten)) %>%
     dplyr::rename(exposure_perc_aum = plan_carsten) %>%
     dplyr::group_by(asset_class, sector_or_tech) %>%
     dplyr::summarise(
