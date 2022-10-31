@@ -87,28 +87,25 @@ plot_fossil_bars(data_fossil_bars)
 
 #### Current exposure vs. future alignment for Power sector
 
+```{r scatter_bonds, out.width="50%"}
+data_scatter_power <- prep_scatter(results_portfolio, peers_results_aggregated, peers_results_individual, 
+                                     indices_results_portfolio, asset_class = "bonds")
+plot_scatter(data_scatter_power) + 
+  patchwork::plot_annotation(
+    title = "Bonds",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
+```
 Text
 
 ```{r scatter_equity, out.width="50%"}
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
-data_scatter_power <- prep_scatter(results_portfolio, peers_results_individual, 
-                                     indices_results_portfolio, sector = "power", asset_class = "equity")
+data_scatter_power <- prep_scatter(results_portfolio, peers_results_aggregated, peers_results_individual, 
+                                     indices_results_portfolio, asset_class = "equity")
 plot_scatter(data_scatter_power) +
   patchwork::plot_annotation(
     title = "Equity",
-    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-    )
-```
-
-```{r scatter_bonds, out.width="50%"}
-# REMEMBER: we need an additional data point with average here
-# the specific PACTA outputs that we need here are my guesses 
-data_scatter_power <- prep_scatter(results_portfolio, peers_results_individual, 
-                                     indices_results_portfolio, sector = "power", asset_class = "bonds")
-plot_scatter(data_scatter_power) + 
-  patchwork::plot_annotation(
-    title = "Bonds",
     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
     )
 ```
@@ -193,20 +190,33 @@ Text
 
 Text
 
+![Coal exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_coal_bonds.png")`){width=25%}
+```{r exposure_survey_bonds, out.width="25%"}
+# the specific PACTA outputs that we need here are my guesses 
+data_exposures_survey <- prep_exposures_survey(results_portfolio,
+                                               peers_results_aggregated,
+                                             sector = "coal",
+                                             asset_class = "bonds")
+plot_exposures_survey(data_exposures_survey) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
+```
 ![Coal exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_coal_equity.png")`){width=25%}
 ```{r exposure_survey_equity, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
                                              sector = "coal",
                                              asset_class = "equity")
 plot_exposures_survey(data_exposures_survey) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 ```
-![Coal exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_coal_bonds.png")`){width=25%}
+
+![Oil & gas exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_bonds.png")`){width=25%}
 ```{r exposure_survey_bonds, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio , 
-                                             sector = "coal",
+data_exposures_survey <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
+                                             sector = "oil_and_gas",
                                              asset_class = "bonds")
 plot_exposures_survey(data_exposures_survey) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
@@ -215,17 +225,9 @@ plot_exposures_survey(data_exposures_survey) +
 ```{r exposure_survey_equity, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
                                              sector = "oil_and_gas",
                                              asset_class = "equity")
-plot_exposures_survey(data_exposures_survey) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
-```
-![Oil & gas exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_bonds.png")`){width=25%}
-```{r exposure_survey_bonds, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio, 
-                                             sector = "oil_and_gas",
-                                             asset_class = "bonds")
 plot_exposures_survey(data_exposures_survey) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 ```

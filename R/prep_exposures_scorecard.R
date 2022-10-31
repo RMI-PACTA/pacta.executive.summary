@@ -14,27 +14,30 @@
 #' @return data.frame
 prep_exposures_scorecard <- function(results_portfolio,
                                      scenario_selected = "1.5C-Unif") {
-  # check input
-  check_data_prep_exposures_scorecard(scenario_selected = scenario_selected)
-
-  # input data
-  data <- results_portfolio
-
-  # infer start year
-  start_year <- min(data$year, na.rm = TRUE)
-
-  # filter data
-  data <- data %>%
-    dplyr::filter(
-      year == .env$start_year,
-      .data$scenario == .env$scenario_selected
-    )
-
-  # calculate current exposures and wrangle for score card
-  data_out <- data %>%
-    wrangle_data_exposures_scorecard()
-
-  return(data_out)
+  if (is.null(results_portfolio)) {
+    data_out <- use_toy_data("exposures_scorecard")
+  } else {
+    # check input
+    check_data_prep_exposures_scorecard(scenario_selected = scenario_selected)
+  
+    # input data
+    data <- results_portfolio
+  
+    # infer start year
+    start_year <- min(data$year, na.rm = TRUE)
+  
+    # filter data
+    data <- data %>%
+      dplyr::filter(
+        year == .env$start_year,
+        .data$scenario == .env$scenario_selected
+      )
+  
+    # calculate current exposures and wrangle for score card
+    data_out <- data %>%
+      wrangle_data_exposures_scorecard()
+  }
+  data_out
 }
 
 check_data_prep_exposures_scorecard <- function(scenario_selected) {
@@ -73,6 +76,12 @@ wrangle_data_exposures_scorecard <- function(data) {
       exposure_perc_aum = sum(exposure_perc_aum, na.rm = TRUE),
       .groups = "drop"
     ) %>%
-    dplyr::ungroup()
+    dplyr::ungroup() %>%
+    mutate(
+      sector_or_tech = factor(
+        sector_or_tech,
+        levels = rev(c("coal", "other_fossil_fuels", "fossil_power", "renewables_power"))
+      )
+    )
 }
 

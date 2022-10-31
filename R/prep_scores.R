@@ -22,83 +22,86 @@ prep_scores <- function(results_portfolio,
   # validate inputs
   asset_class <- match.arg(asset_class)
 
-  check_data_prep_scores(
-    asset_class = asset_class,
-    scenario_source = scenario_source
-  )
-
-  # infer start_year
-  start_year <- min(results_portfolio$year, na.rm = TRUE)
-
-  # filter selected asset_class
-  data <- results_portfolio %>%
-    dplyr::bind_rows(peers_results_aggregated) %>%
-    dplyr::filter(.data$asset_class == .env$asset_class)
-
-  # get scenarios
-  scenario_thresholds <- get("scenario_thresholds")
-
-  scenarios <- scenario_thresholds %>%
-    dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
-    dplyr::pull(scenario)
-
-  # prepare data for sector aggregation
-  data_aggregate_scores <- data %>%
-    wrangle_input_data_aggregate_scores(scenarios = scenarios)
-
-  # roadmap sectors
-  data_aggregate_scores_tech <- data_aggregate_scores %>%
-    dplyr::filter(.data$ald_sector %in% c("automotive", "coal", "oil", "gas", "power"))
-
-  # calculate technology level alignment
-  data_aggregate_scores_tech <- data_aggregate_scores_tech %>%
-    calculate_technology_alignment(
-      start_year = start_year,
-      time_horizon = time_horizon_lookup
+  if (is.null(results_portfolio)) {
+    data_out <- use_toy_data("scores") %>% filter(asset_class == .env$asset_class)
+  } else {
+    check_data_prep_scores(
+      asset_class = asset_class,
+      scenario_source = scenario_source
     )
 
-  # calculate roadmap sectors aggregate score
-  sector_aggregate_scores_tech <- data_aggregate_scores_tech %>%
-    calculate_sector_aggregate_scores()
+    # infer start_year
+    start_year <- min(results_portfolio$year, na.rm = TRUE)
 
-  # emission intensity sectors
-  data_aggregate_scores_emissions <- data_aggregate_scores %>%
-    dplyr::filter(.data$ald_sector %in% c("aviation", "cement", "steel", "shipping"))
+    # filter selected asset_class
+    data <- results_portfolio %>%
+      dplyr::bind_rows(peers_results_aggregated) %>%
+      dplyr::filter(.data$asset_class == .env$asset_class)
 
-  # calculate emission intensity sectors aggregate score
-  sector_aggregate_scores_emissions <- data_aggregate_scores_emissions %>%
-    calculate_emissions_sectors_aggregate_scores(
-      start_year = start_year,
-      time_horizon = time_horizon_lookup
-    )
+    # get scenarios
+    scenario_thresholds <- get("scenario_thresholds")
 
-  # combine scores of roadmap and emission intensity sectors
-  sector_aggregate_scores <- sector_aggregate_scores_tech %>%
-    dplyr::bind_rows(sector_aggregate_scores_emissions)
+    scenarios <- scenario_thresholds %>%
+      dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
+      dplyr::pull(scenario)
 
-  # get remaining carbon budgets and calculate portfolio aggregate score
-  remaining_carbon_budgets <- get("remaining_carbon_budgets")
+    # prepare data for sector aggregation
+    data_aggregate_scores <- data %>%
+      wrangle_input_data_aggregate_scores(scenarios = scenarios)
 
-  portfolio_aggregate_scores <- sector_aggregate_scores %>%
-    calculate_portfolio_aggregate_scores(
-      remaining_carbon_budgets = remaining_carbon_budgets
-    )
+    # roadmap sectors
+    data_aggregate_scores_tech <- data_aggregate_scores %>%
+      dplyr::filter(.data$ald_sector %in% c("automotive", "coal", "oil", "gas", "power"))
 
-  # combine scores in single data frame
-  output_scores <- sector_aggregate_scores %>%
-    dplyr::bind_rows(portfolio_aggregate_scores) %>%
-    dplyr::select(-c(sector_exposure))
+    # calculate technology level alignment
+    data_aggregate_scores_tech <- data_aggregate_scores_tech %>%
+      calculate_technology_alignment(
+        start_year = start_year,
+        time_horizon = time_horizon_lookup
+      )
 
-  # apply scenario based grades
-  data_out <- output_scores %>%
-    calculate_aggregate_scores_with_scenarios(
-      scenario_thresholds = scenario_thresholds
-    ) %>%
-    dplyr::select(
-      c(asset_class, scope, entity, sector, score)
-    )
+    # calculate roadmap sectors aggregate score
+    sector_aggregate_scores_tech <- data_aggregate_scores_tech %>%
+      calculate_sector_aggregate_scores()
 
-  return(data_out)
+    # emission intensity sectors
+    data_aggregate_scores_emissions <- data_aggregate_scores %>%
+      dplyr::filter(.data$ald_sector %in% c("aviation", "cement", "steel", "shipping"))
+
+    # calculate emission intensity sectors aggregate score
+    sector_aggregate_scores_emissions <- data_aggregate_scores_emissions %>%
+      calculate_emissions_sectors_aggregate_scores(
+        start_year = start_year,
+        time_horizon = time_horizon_lookup
+      )
+
+    # combine scores of roadmap and emission intensity sectors
+    sector_aggregate_scores <- sector_aggregate_scores_tech %>%
+      dplyr::bind_rows(sector_aggregate_scores_emissions)
+
+    # get remaining carbon budgets and calculate portfolio aggregate score
+    remaining_carbon_budgets <- get("remaining_carbon_budgets")
+
+    portfolio_aggregate_scores <- sector_aggregate_scores %>%
+      calculate_portfolio_aggregate_scores(
+        remaining_carbon_budgets = remaining_carbon_budgets
+      )
+
+    # combine scores in single data frame
+    output_scores <- sector_aggregate_scores %>%
+      dplyr::bind_rows(portfolio_aggregate_scores) %>%
+      dplyr::select(-sector_exposure)
+
+    # apply scenario based grades
+    data_out <- output_scores %>%
+      calculate_aggregate_scores_with_scenarios(
+        scenario_thresholds = scenario_thresholds
+      ) %>%
+      dplyr::select(
+        c(asset_class, scope, entity, sector, score)
+      )
+  }
+  data_out
 }
 
 check_data_prep_scores <- function(scenario_source,
