@@ -6,16 +6,23 @@ output: pdf_document
 knitr::opts_chunk$set(echo = FALSE)
 devtools::load_all()
 
-survey_dir <- here::here("survey-example-plots")
+# survey_dir <- here::here("survey-example-plots")
+survey_dir <- survey_dir
 real_estate_dir <- here::here("real-estate-example-plots")
-investor_name <- "Test"
-portfolio_name <- "TestPortfolio_Input"
-if (exists("data_aggregated_filtered")) {
-  results_portfolio <- data_aggregated_filtered$results_portfolio 
-  peers_results_individual <- data_aggregated_filtered$peers_results_individual
-  peers_results_aggregated <- data_aggregated_filtered$peers_results_aggregated
-  indices_results_portfolio <- data_aggregated_filtered$indices_results_portfolio
+# investor_name <- "Test"
+# portfolio_name <- "TestPortfolio_Input"
+if (exists("params")) {
+  results_portfolio <- params$results_portfolio 
+  peers_results_individual <- params$peers_results_individual
+  peers_results_aggregated <- params$peers_results_aggregated
+  indices_results_portfolio <- params$indices_results_portfolio
 } else {
+# if (exists("data_aggregated_filtered")) {
+#   results_portfolio <- data_aggregated_filtered$results_portfolio 
+#   peers_results_individual <- data_aggregated_filtered$peers_results_individual
+#   peers_results_aggregated <- data_aggregated_filtered$peers_results_aggregated
+#   indices_results_portfolio <- data_aggregated_filtered$indices_results_portfolio
+# } else {
   results_portfolio <- NULL
   peers_results_individual <- NULL
   peers_results_aggregated <- NULL
@@ -172,8 +179,18 @@ plot_alignment_table(data_alignment_table)
 
 Text
 Text in a box
-![Initiatives you are a part of.](`r file.path(survey_dir, "wordcloud_initiatives.png")`){width=50%}
-![Climate strategy badge.](`r file.path(survey_dir, "climate_strategy_layerchart.png")`){width=50%}
+```{r plot_wordcloud, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(survey_dir, language, "plot_wordcloud.png"))
+# TODO: add title
+```
+
+```{r plot_layer_with_peer_info_climate_goals, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_climate_goals.png"))
+# TODO: add title
+```
+
 ### Overview
 
 Text
@@ -182,15 +199,48 @@ Text
 
 Text
 
-![Power engagement badge.](`r file.path(survey_dir, "engagement_layerchart_power.png")`){width=33%}
-![Automotive engagement badge.](`r file.path(survey_dir, "engagement_layerchart_automotive.png")`){width=33%}
-![Fossil fuels engagement badge.](`r file.path(survey_dir, "engagement_layerchart_fossil-fuels.png")`){width=33%}
+```{r plot_layer_with_peer_info_engagement_Fossil_Fuels, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Fossil_Fuels.png"))
+# TODO: add title - Power engagement badge.
+```
+```{r plot_layer_with_peer_info_engagement_Automotive, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Automotive.png"))
+# TODO: add title - Automotive engagement badge.
+```
+```{r plot_layer_with_peer_info_engagement_Power, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png"))
+# TODO: add title - Fossil fuels engagement badge.
+```
 
 ### Climate-aligned strategies and PACTA fossil fuel exposure
 
 Text
 
-![Coal exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_coal_bonds.png")`){width=25%}
+```{r plot_layer_asset_exclusion_coal_Listed_equities, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Listed_equities.png"))
+# TODO: add title - Coal exclusion badge - equity.
+```
+
+```{r exposure_survey_equity, out.width="25%"}
+# the specific PACTA outputs that we need here are my guesses 
+data_exposures_survey <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
+                                             sector = "coal",
+                                             asset_class = "equity")
+plot_exposures_survey(data_exposures_survey) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
+```
+
+```{r plot_layer_asset_exclusion_coal_Corporate_bonds, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Corporate_bonds.png"))
+# TODO: add title - Coal exclusion badge - bonds.
+```
+
 ```{r exposure_survey_bonds, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio,
@@ -200,34 +250,35 @@ data_exposures_survey <- prep_exposures_survey(results_portfolio,
 plot_exposures_survey(data_exposures_survey) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 ```
-![Coal exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_coal_equity.png")`){width=25%}
+
+```{r plot_layer_asset_exclusion_oil_Listed_equities, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_oil_Listed_equities.png"))
+# TODO: add title - Oil exclusion badge - equity.
+```
+
 ```{r exposure_survey_equity, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
-                                             sector = "coal",
+                                             sector = "oil_and_gas",
                                              asset_class = "equity")
 plot_exposures_survey(data_exposures_survey) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 ```
 
-![Oil & gas exclusion badge - bonds.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_bonds.png")`){width=25%}
+```{r plot_layer_asset_exclusion_oil_Corporate_bonds, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_oil_Corporate_bonds.png"))
+# TODO: add title - Oil exclusion badge - bonds.
+```
+
 ```{r exposure_survey_bonds, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
                                              sector = "oil_and_gas",
                                              asset_class = "bonds")
-plot_exposures_survey(data_exposures_survey) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
-```
-![Oil & gas exclusion badge - equity.](`r file.path(survey_dir, "exclusion_layerchart_oil-and-gas_equity.png")`){width=25%}
-```{r exposure_survey_equity, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio, 
-                                               peers_results_aggregated,
-                                             sector = "oil_and_gas",
-                                             asset_class = "equity")
 plot_exposures_survey(data_exposures_survey) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 ```
@@ -258,6 +309,14 @@ data_emissions_scorecard <- prep_emissions_scorecard(emissions_data)
 plot_emissions_scorecard(data_emissions_scorecard)
 ```
 
+```{r emissions_scorecard_info}
+# the specific PACTA outputs that we need here are my guesses 
+
+# TODO: benchmark name
+# TODO: percent assets covered
+
+```
+
 #### Exposure to Fossil-fuel and other climate-relevant activities
 
 Text
@@ -278,13 +337,87 @@ Text
 # the specific PACTA outputs that we need here are my guesses 
 data_scores_scorecard <- prep_scores_scorecard(results_portfolio)
 plot_scores_scorecard(data_scores_scorecard)
+
+# TODO: needs to return actual scenario name
 ```
 
 #### Verified Commitments to Net-Zero
-<!-- TODO: find out where the input for this one comes from. Survey? -->
+```{r sbti_net_zero_commitments, fig.height = 6}
+fin_data_net_zero_targets <- readr::read_csv(file.path(survey_dir, language, "fin_data_net_zero_targets.csv"))
+
+peer_group_share_net_zero <- readr::read_csv(file.path(survey_dir, language, "peer_group_share_net_zero.csv"))
+
+data_prep_net_zero_commitments <- prep_net_zero_commitments(
+  total_portfolio = total_portfolio,
+  peer_group = peer_group,
+  net_zero_targets = fin_data_net_zero_targets,
+  peer_group_share_net_zero = peer_group_share_net_zero
+)
+
+knitr::kable(data_prep_net_zero_commitments)
+# TODO: add title - SBTI net zero commitments.
+```
+
+#### General Info
+
+```{r general_info, fig.height = 6}
+# TODO: add % emissions covered by assessment
+
+# TODO: add % portfolio assets covered by assessment
+
+# TODO: add name of scenario used
+
+```
+
+
 
 #### Overall Climate Strategy including Credible Climate Stewardship
-<!-- TODO: find out where the input for this one comes from. Survey? -->
+
+```{r climate_strategy_initiatives, fig.height = 6}
+user_climate_strategy_scorecard_initiatives <- readr::read_csv(file.path(survey_dir, language, "climate_scorecard_survey_initiatives.csv"))
+
+peers_climate_strategy_scorecard_initiatives <- readr::read_csv(file.path(survey_dir, language, "peers_climate_scorecard_survey_initiatives.csv"))
+
+data_prep_climate_strategy_scorecard_initiatives <- prep_climate_strategy_scorecard_initiatives(
+  data = user_climate_strategy_scorecard_initiatives,
+  data_peers = peers_climate_strategy_scorecard_initiatives,
+  peer_group = peer_group
+)
+
+knitr::kable(data_prep_climate_strategy_scorecard_initiatives)
+# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
+```
+
+```{r climate_strategy_voting_rights, fig.height = 6}
+user_climate_strategy_scorecard_voting <- readr::read_csv(file.path(survey_dir, language, "climate_scorecard_survey_voting.csv"))
+
+peers_climate_strategy_scorecard_voting <- readr::read_csv(file.path(survey_dir, language, "peers_climate_scorecard_survey_voting.csv"))
+
+data_prep_climate_strategy_scorecard_voting <- prep_climate_strategy_scorecard_voting(
+  data = user_climate_strategy_scorecard_voting,
+  data_peers = peers_climate_strategy_scorecard_voting,
+  peer_group = peer_group
+)
+
+knitr::kable(data_prep_climate_strategy_scorecard_voting)
+# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
+```
+
+```{r climate_strategy_engagement, fig.height = 6}
+user_climate_strategy_scorecard_engagement <- readr::read_csv(file.path(survey_dir, language, "climate_scorecard_survey_engagement.csv"))
+
+peers_climate_strategy_scorecard_engagement <- readr::read_csv(file.path(survey_dir, language, "peers_climate_scorecard_survey_engagement.csv"))
+
+data_prep_climate_strategy_scorecard_engagement <- prep_climate_strategy_scorecard_engagement(
+  data = user_climate_strategy_scorecard_engagement,
+  data_peers = peers_climate_strategy_scorecard_engagement,
+  peer_group = peer_group
+)
+
+knitr::kable(data_prep_climate_strategy_scorecard_engagement)
+# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
+```
+
 
 \newpage
 
