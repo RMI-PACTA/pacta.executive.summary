@@ -17,22 +17,22 @@ render_executive_summary <- function(data,
                                      file_name = "template.Rmd",
                                      investor_name,
                                      portfolio_name) {
-  render(path(exec_summary_dir, file_name),
+  render(file.path(exec_summary_dir, file_name),
     output_dir = output_dir,
-    survey_dir = survey_dir,
-    real_estate_dir = real_estate_dir,
     clean = TRUE,
     quiet = TRUE,
     params = list(
+      survey_dir = survey_dir,
+      real_estate_dir = real_estate_dir,
       language = language,
       investor_name = investor_name,
       portfolio_name = portfolio_name,
-      audit_data = data$audit_data_filtered,
-      emissions_data = data$emissions_data_filtered,
-      results_portfolio = data$results_portfolio_filtered,
-      peers_results_aggregated = data$peers_results_aggregated_filtered,
-      peers_results_individual = data$peers_results_individual_filtered,
-      indices_results_portfolio = data$indices_results_portfolio_filtered
+      audit_data = data$audit_data,
+      emissions_data = data$emissions_data,
+      results_portfolio = data$results_portfolio,
+      peers_results_aggregated = data$peers_results_aggregated,
+      peers_results_individual = data$peers_results_individual,
+      indices_results_portfolio = data$indices_results_portfolio
     )
   )
 }
