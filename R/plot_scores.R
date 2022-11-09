@@ -7,7 +7,7 @@
 #'   * `scope` must be one of: "portfolio", "sector".
 #'   * `entity` must have following values: "this_portfolio", "peers".
 #'   * `sector` must be one of: "power", "automotive", "coal", "oil", "gas",
-#'   "steel", "cement" or `NA` in case of `scope` == "portfolio".
+#'   "steel", "aviation" or `NA` in case of `scope` == "portfolio".
 #'   * `score` must be one of: "A+", "A", "B", "C", "D", "E".
 #'
 #' @return an object of class "ggplot".
@@ -41,12 +41,12 @@ plot_scores <- function(data) {
 
   p_steel <- plot_score_sector(data, "steel")
 
-  p_cement <- plot_score_sector(data, "cement")
+  p_aviation <- plot_score_sector(data, "aviation")
 
   p_oil <- plot_score_sector(data, "oil")
 
   p_sector_up <- p_power + p_auto + p_coal + p_gas + plot_layout(ncol = 4)
-  p_sector_down <- p_steel + p_cement + p_oil + legend_scores() + plot_layout(ncol = 4)
+  p_sector_down <- p_steel + p_aviation + p_oil + legend_scores() + plot_layout(ncol = 4)
 
   p <- p_portfolio + (p_sector_up / p_sector_down) + plot_layout(widths = c(1, 6))
   p
@@ -201,7 +201,7 @@ check_data_scores <- function(data, env) {
   abort_if_invalid_values(
     data,
     "sector",
-    c(NA, "power", "automotive", "coal", "oil", "gas", "cement", "steel")
+    c(NA, "power", "automotive", "coal", "oil", "gas", "aviation", "steel")
   )
   abort_if_invalid_values(data, "score", c("A+", "A", "B", "C", "D", "E"))
 }
