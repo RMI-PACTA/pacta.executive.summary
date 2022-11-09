@@ -1,13 +1,8 @@
 #' Renders executive summary
 #'
-#' ?This one lives in create_interactive_report repo
-#'
-#' @return
+#' @return a pdf document written to output_dir
 #' @export
 #'
-#' @examples
-#'
-# make sure that all the data needed for this to run are in the parameters list
 render_executive_summary <- function(data,
                                      language,
                                      output_dir,
@@ -22,7 +17,6 @@ render_executive_summary <- function(data,
                                      scenario_selected) {
   render(
     input = file.path(exec_summary_dir, file_name),
-    # input = file_name,
     output_dir = output_dir,
     clean = TRUE,
     quiet = TRUE,
