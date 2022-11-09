@@ -7,7 +7,10 @@ params:
   language: EN
   investor_name: investor
   portfolio_name: portfolio
+  peer_group: pensionfund
   audit_data: NULL
+  total_portfolio: NULL
+  scenario_selected: NULL
   emissions_data: NULL
   results_portfolio: NULL
   peers_results_aggregated: NULL
@@ -22,11 +25,14 @@ survey_dir <- params$survey_dir
 real_estate_dir <- here::here("real-estate-example-plots")
 investor_name <- params$investor_name
 portfolio_name <- params$portfolio_name
+peer_group <- params$peer_group
 
 results_portfolio <- params$results_portfolio
 peers_results_individual <- params$peers_results_individual
 peers_results_aggregated <- params$peers_results_aggregated
 indices_results_portfolio <- params$indices_results_portfolio
+total_portfolio <- params$total_portfolio
+scenario_selected <- params$scenario_selected
 
 audit_data <- NULL
 emissions_data <- NULL
@@ -63,7 +69,10 @@ Text
 
 ```{r diagram}
 # the specific PACTA outputs that we need here are my guesses 
-data_diagram <- prep_diagram(audit_data, emissions_data)
+data_diagram <- prep_diagram(
+  audit_data = audit_data,
+  emissions_data = emissions_data
+)
 plot_diagram(data_diagram)
 ```
 \newpage
@@ -78,14 +87,21 @@ Text
 
 ```{r exposure}
 # the specific PACTA outputs that we need here are my guesses 
-data_green_brown_bars <- prep_green_brown_bars(results_portfolio)
+data_green_brown_bars <- prep_green_brown_bars(
+  results_portfolio = results_portfolio,
+  scenario_selected = scenario_selected
+)
 plot_green_brown_bars(data_green_brown_bars)
 ```
 
 ```{r exposure_fossil}
 # the specific PACTA outputs that we need here are my guesses 
-data_fossil_bars <- prep_fossil_bars(results_portfolio, peers_results_aggregated,
-  indices_results_portfolio)
+data_fossil_bars <- prep_fossil_bars(
+  results_portfolio = results_portfolio,
+  peers_results_aggregated = peers_results_aggregated,
+  indices_results_portfolio = indices_results_portfolio,
+  scenario_selected = scenario_selected
+)
 # plot_fossil_bars(data_fossil_bars)
 ```
 
@@ -94,8 +110,14 @@ data_fossil_bars <- prep_fossil_bars(results_portfolio, peers_results_aggregated
 #### Current exposure vs. future alignment for Power sector
 
 ```{r scatter_bonds, out.width="50%"}
-data_scatter_power <- prep_scatter(results_portfolio, peers_results_aggregated, peers_results_individual, 
-                                     indices_results_portfolio, asset_class = "bonds")
+data_scatter_power <- prep_scatter(
+  results_portfolio = results_portfolio,
+  peers_results_aggregated = peers_results_aggregated,
+  peers_results_individual = peers_results_individual,
+  indices_results_portfolio = indices_results_portfolio,
+  scenario_selected = scenario_selected,
+  asset_class = "bonds"
+)
 # plot_scatter(data_scatter_power) + 
 #   patchwork::plot_annotation(
 #     title = "Bonds",
@@ -107,8 +129,14 @@ Text
 ```{r scatter_equity, out.width="50%"}
 # REMEMBER: we need an additional data point with average here
 # the specific PACTA outputs that we need here are my guesses 
-data_scatter_power <- prep_scatter(results_portfolio, peers_results_aggregated, peers_results_individual, 
-                                     indices_results_portfolio, asset_class = "equity")
+data_scatter_power <- prep_scatter(
+  results_portfolio = results_portfolio,
+  peers_results_aggregated = peers_results_aggregated,
+  peers_results_individual = peers_results_individual,
+  indices_results_portfolio = indices_results_portfolio,
+  scenario_selected = scenario_selected,
+  asset_class = "equity"
+)
 # plot_scatter(data_scatter_power) +
 #   patchwork::plot_annotation(
 #     title = "Equity",
@@ -124,8 +152,11 @@ Text
 
 ```{r scores_equity}
 # the specific PACTA outputs that we need here are my guesses 
-data_scores <- prep_scores(results_portfolio, peers_results_aggregated,
-                           asset_class = "equity")
+data_scores <- prep_scores(
+  results_portfolio = results_portfolio,
+  peers_results_aggregated = peers_results_aggregated,
+  asset_class = "equity"
+)
 # plot_scores(data_scores) + 
 #   patchwork::plot_annotation(
 #     title = "Equity",
@@ -135,8 +166,11 @@ data_scores <- prep_scores(results_portfolio, peers_results_aggregated,
 
 ```{r scores_bonds}
 # the specific PACTA outputs that we need here are my guesses 
-data_scores <- prep_scores(results_portfolio, peers_results_aggregated,
-                           asset_class = "bonds")
+data_scores <- prep_scores(
+  results_portfolio = results_portfolio,
+  peers_results_aggregated = peers_results_aggregated,
+  asset_class = "bonds"
+)
 # plot_scores(data_scores) + 
 #   patchwork::plot_annotation(
 #     title = "Bonds",
@@ -154,9 +188,11 @@ data_scores <- prep_scores(results_portfolio, peers_results_aggregated,
 
 ```{r alignment_table_bonds, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
-data_alignment_table <- prep_alignment_table(results_portfolio, 
-                                             peers_results_aggregated,
-                                             asset_class = "bonds")
+data_alignment_table <- prep_alignment_table(
+  results_portfolio = results_portfolio, 
+  peers_results_aggregated = peers_results_aggregated,
+  asset_class = "bonds"
+)
 plot_alignment_table(data_alignment_table)
 # TODO: add title
 ```
@@ -165,9 +201,11 @@ Text
 
 ```{r alignment_table_equity, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
-data_alignment_table <- prep_alignment_table(results_portfolio, 
-                                             peers_results_aggregated,
-                                             asset_class = "equity")
+data_alignment_table <- prep_alignment_table(
+  results_portfolio = results_portfolio, 
+  peers_results_aggregated = peers_results_aggregated,
+  asset_class = "equity"
+)
 plot_alignment_table(data_alignment_table)
 # TODO: add title
 ```
