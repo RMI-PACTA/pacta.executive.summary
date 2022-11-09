@@ -22,7 +22,7 @@ params:
 knitr::opts_chunk$set(echo = TRUE)
 
 survey_dir <- params$survey_dir
-real_estate_dir <- here::here("real-estate-example-plots")
+real_estate_dir <- params$real_estate_dir
 investor_name <- params$investor_name
 portfolio_name <- params$portfolio_name
 peer_group <- params$peer_group
@@ -118,7 +118,7 @@ data_scatter_power <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "bonds"
 )
-# plot_scatter(data_scatter_power) + 
+# plot_scatter(data_scatter_power) +
 #   patchwork::plot_annotation(
 #     title = "Bonds",
 #     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
@@ -157,7 +157,7 @@ data_scores <- prep_scores(
   peers_results_aggregated = peers_results_aggregated,
   asset_class = "equity"
 )
-# plot_scores(data_scores) + 
+# plot_scores(data_scores) +
 #   patchwork::plot_annotation(
 #     title = "Equity",
 #     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
@@ -325,6 +325,12 @@ plot_exposures_survey(data_exposures_survey) +
 ## Real Estate & Mortgage Module
 
 Text
+
+```{r example_real_estate_chart, fig.height = 6}
+# the specific PACTA outputs that we need here are my guesses 
+# knitr::include_graphics(file.path(real_estate_dir, language, "example_real_estate_chart.png"))
+# TODO: add title - Oil exclusion badge - bonds.
+```
 
 ![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`)
 
