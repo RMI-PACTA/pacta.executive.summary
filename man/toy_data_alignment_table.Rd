@@ -5,7 +5,7 @@
 \alias{toy_data_alignment_table}
 \title{An example output data of \code{prep_alignment_table()}}
 \format{
-An object of class \code{grouped_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 40 rows and 7 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 40 rows and 7 columns.
 }
 \usage{
 toy_data_alignment_table

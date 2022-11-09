@@ -7,7 +7,7 @@
 prep_exposures_survey(
   results_portfolio,
   peers_results_aggregated,
-  sector = c("coal", "oil and gas"),
+  sector = c("coal", "oil_and_gas"),
   asset_class = c("equity", "bonds")
 )
 }
