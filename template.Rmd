@@ -17,51 +17,16 @@ params:
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-# devtools::load_all()
 
-  # survey_dir <- survey_dir
-  # real_estate_dir <- here::here("real-estate-example-plots")
-  # investor_name <- investor_name
-  # portfolio_name <- portfolio_name
-  # 
-  # results_portfolio <- results_portfolio 
-  # peers_results_individual <- peers_results_individual
-  # peers_results_aggregated <- peers_results_aggregated
-  # indices_results_portfolio <- indices_results_portfolio
+survey_dir <- params$survey_dir
+real_estate_dir <- here::here("real-estate-example-plots")
+investor_name <- params$investor_name
+portfolio_name <- params$portfolio_name
 
-  survey_dir <- params$survey_dir
-  real_estate_dir <- here::here("real-estate-example-plots")
-  investor_name <- params$investor_name
-  portfolio_name <- params$portfolio_name
-
-  results_portfolio <- params$results_portfolio
-  peers_results_individual <- params$peers_results_individual
-  peers_results_aggregated <- params$peers_results_aggregated
-  indices_results_portfolio <- params$indices_results_portfolio
-
-  
-  # survey_dir <- here::here("survey-example-plots")
-# real_estate_dir <- here::here("real-estate-example-plots")
-# if (exists("params")) {
-#   survey_dir <- params$survey_dir
-#   real_estate_dir <- here::here("real-estate-example-plots")
-#   investor_name <- params$investor_name
-#   portfolio_name <- params$portfolio_name
-# 
-#   results_portfolio <- params$results_portfolio 
-#   peers_results_individual <- params$peers_results_individual
-#   peers_results_aggregated <- params$peers_results_aggregated
-#   indices_results_portfolio <- params$indices_results_portfolio
-# } else {
-#   survey_dir <- here::here("survey-example-plots")
-#   real_estate_dir <- here::here("real-estate-example-plots")
-#   investor_name <- "Test"
-#   portfolio_name <- "TestPortfolio_Input"
-#   results_portfolio <- NULL
-#   peers_results_individual <- NULL
-#   peers_results_aggregated <- NULL
-#   indices_results_portfolio <- NULL
-# }
+results_portfolio <- params$results_portfolio
+peers_results_individual <- params$peers_results_individual
+peers_results_aggregated <- params$peers_results_aggregated
+indices_results_portfolio <- params$indices_results_portfolio
 
 audit_data <- NULL
 emissions_data <- NULL
