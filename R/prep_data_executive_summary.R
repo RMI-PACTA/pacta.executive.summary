@@ -1,17 +1,41 @@
+#' Prepares data inputs needed for rendering the executive summary
+#'
+#' @param investor_name Some description
+#' @param portfolio_name Some description
+#' @param peer_group Some description
+#' @param start_year Some description
+#' @param scenario_source Some description
+#' @param scenario_selected Some description
+#' @param scenario_geography Some description
+#' @param equity_market Some description
+#' @param portfolio_allocation_method_equity Some description
+#' @param portfolio_allocation_method_bonds Some description
+#' @param green_techs Some description
+#' @param equity_results_portfolio Some description
+#' @param bonds_results_portfolio Some description
+#' @param peers_equity_results_aggregated Some description
+#' @param peers_bonds_results_aggregated Some description
+#' @param peers_equity_results_individual Some description
+#' @param peers_bonds_results_individual Some description
+#' @param indices_equity_results_portfolio Some description
+#' @param indices_bonds_results_portfolio Some description
+#' @param audit_file Some description
+#' @param emissions Some description
+#'
+#' @return data.frame
+#' @export
+#'
 prep_data_executive_summary <- function(investor_name,
                                         portfolio_name,
                                         peer_group,
                                         start_year,
                                         scenario_source,
-                                        scenario_selected,
+                                        scenario_selected, # might not need this
                                         scenario_geography,
                                         equity_market,
                                         portfolio_allocation_method_equity,
                                         portfolio_allocation_method_bonds,
-                                        pacta_sectors,
-                                        tech_roadmap_sectors,
                                         green_techs,
-                                        brown_techs,
                                         equity_results_portfolio,
                                         bonds_results_portfolio,
                                         peers_equity_results_aggregated,
@@ -20,8 +44,8 @@ prep_data_executive_summary <- function(investor_name,
                                         peers_bonds_results_individual,
                                         indices_equity_results_portfolio,
                                         indices_bonds_results_portfolio,
-                                        audit_file = audit_file,
-                                        emissions = emissions) {
+                                        audit_file,
+                                        emissions) {
 
   equity_results_portfolio <- equity_results_portfolio %>%
     apply_general_filters(
