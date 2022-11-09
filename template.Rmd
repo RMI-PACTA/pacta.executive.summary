@@ -1,33 +1,67 @@
 ---
 output: pdf_document
+always_allow_html: true
+params:
+  survey_dir: NULL
+  real_estate_dir: NULL
+  language: EN
+  investor_name: investor
+  portfolio_name: portfolio
+  audit_data: NULL
+  emissions_data: NULL
+  results_portfolio: NULL
+  peers_results_aggregated: NULL
+  peers_results_individual: NULL
+  indices_results_portfolio: NULL
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-devtools::load_all()
+knitr::opts_chunk$set(echo = TRUE)
+# devtools::load_all()
 
-# survey_dir <- here::here("survey-example-plots")
-survey_dir <- survey_dir
-real_estate_dir <- here::here("real-estate-example-plots")
-# investor_name <- "Test"
-# portfolio_name <- "TestPortfolio_Input"
-if (exists("params")) {
-  results_portfolio <- params$results_portfolio 
+  # survey_dir <- survey_dir
+  # real_estate_dir <- here::here("real-estate-example-plots")
+  # investor_name <- investor_name
+  # portfolio_name <- portfolio_name
+  # 
+  # results_portfolio <- results_portfolio 
+  # peers_results_individual <- peers_results_individual
+  # peers_results_aggregated <- peers_results_aggregated
+  # indices_results_portfolio <- indices_results_portfolio
+
+  survey_dir <- params$survey_dir
+  real_estate_dir <- here::here("real-estate-example-plots")
+  investor_name <- params$investor_name
+  portfolio_name <- params$portfolio_name
+
+  results_portfolio <- params$results_portfolio
   peers_results_individual <- params$peers_results_individual
   peers_results_aggregated <- params$peers_results_aggregated
   indices_results_portfolio <- params$indices_results_portfolio
-} else {
-# if (exists("data_aggregated_filtered")) {
-#   results_portfolio <- data_aggregated_filtered$results_portfolio 
-#   peers_results_individual <- data_aggregated_filtered$peers_results_individual
-#   peers_results_aggregated <- data_aggregated_filtered$peers_results_aggregated
-#   indices_results_portfolio <- data_aggregated_filtered$indices_results_portfolio
+
+  
+  # survey_dir <- here::here("survey-example-plots")
+# real_estate_dir <- here::here("real-estate-example-plots")
+# if (exists("params")) {
+#   survey_dir <- params$survey_dir
+#   real_estate_dir <- here::here("real-estate-example-plots")
+#   investor_name <- params$investor_name
+#   portfolio_name <- params$portfolio_name
+# 
+#   results_portfolio <- params$results_portfolio 
+#   peers_results_individual <- params$peers_results_individual
+#   peers_results_aggregated <- params$peers_results_aggregated
+#   indices_results_portfolio <- params$indices_results_portfolio
 # } else {
-  results_portfolio <- NULL
-  peers_results_individual <- NULL
-  peers_results_aggregated <- NULL
-  indices_results_portfolio <- NULL
-}
+#   survey_dir <- here::here("survey-example-plots")
+#   real_estate_dir <- here::here("real-estate-example-plots")
+#   investor_name <- "Test"
+#   portfolio_name <- "TestPortfolio_Input"
+#   results_portfolio <- NULL
+#   peers_results_individual <- NULL
+#   peers_results_aggregated <- NULL
+#   indices_results_portfolio <- NULL
+# }
 
 audit_data <- NULL
 emissions_data <- NULL
@@ -85,9 +119,9 @@ plot_green_brown_bars(data_green_brown_bars)
 
 ```{r exposure_fossil}
 # the specific PACTA outputs that we need here are my guesses 
-data_fossil_bars <- prep_fossil_bars(results_portfolio, peers_results_aggregated, 
+data_fossil_bars <- prep_fossil_bars(results_portfolio, peers_results_aggregated,
   indices_results_portfolio)
-plot_fossil_bars(data_fossil_bars)
+# plot_fossil_bars(data_fossil_bars)
 ```
 
 ### Current & future state (Power sector)
@@ -97,11 +131,11 @@ plot_fossil_bars(data_fossil_bars)
 ```{r scatter_bonds, out.width="50%"}
 data_scatter_power <- prep_scatter(results_portfolio, peers_results_aggregated, peers_results_individual, 
                                      indices_results_portfolio, asset_class = "bonds")
-plot_scatter(data_scatter_power) + 
-  patchwork::plot_annotation(
-    title = "Bonds",
-    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-    )
+# plot_scatter(data_scatter_power) + 
+#   patchwork::plot_annotation(
+#     title = "Bonds",
+#     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+#     )
 ```
 Text
 
@@ -110,11 +144,11 @@ Text
 # the specific PACTA outputs that we need here are my guesses 
 data_scatter_power <- prep_scatter(results_portfolio, peers_results_aggregated, peers_results_individual, 
                                      indices_results_portfolio, asset_class = "equity")
-plot_scatter(data_scatter_power) +
-  patchwork::plot_annotation(
-    title = "Equity",
-    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-    )
+# plot_scatter(data_scatter_power) +
+#   patchwork::plot_annotation(
+#     title = "Equity",
+#     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+#     )
 ```
 
 ### Future state (PACTA sectors)
@@ -127,22 +161,22 @@ Text
 # the specific PACTA outputs that we need here are my guesses 
 data_scores <- prep_scores(results_portfolio, peers_results_aggregated,
                            asset_class = "equity")
-plot_scores(data_scores) + 
-  patchwork::plot_annotation(
-    title = "Equity",
-    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-    )
+# plot_scores(data_scores) + 
+#   patchwork::plot_annotation(
+#     title = "Equity",
+#     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+#     )
 ```
 
 ```{r scores_bonds}
 # the specific PACTA outputs that we need here are my guesses 
 data_scores <- prep_scores(results_portfolio, peers_results_aggregated,
                            asset_class = "bonds")
-plot_scores(data_scores) + 
-  patchwork::plot_annotation(
-    title = "Bonds",
-    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-    )
+# plot_scores(data_scores) + 
+#   patchwork::plot_annotation(
+#     title = "Bonds",
+#     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+#     )
 ```
 
 \newpage
@@ -225,7 +259,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclus
 # TODO: add title - Coal exclusion badge - equity.
 ```
 
-```{r exposure_survey_equity, out.width="25%"}
+```{r exposure_survey_equity_coal, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
@@ -241,7 +275,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclus
 # TODO: add title - Coal exclusion badge - bonds.
 ```
 
-```{r exposure_survey_bonds, out.width="25%"}
+```{r exposure_survey_bonds_coal, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio,
                                                peers_results_aggregated,
@@ -257,7 +291,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclus
 # TODO: add title - Oil exclusion badge - equity.
 ```
 
-```{r exposure_survey_equity, out.width="25%"}
+```{r exposure_survey_equity_oil_and_gas, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
@@ -273,7 +307,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclus
 # TODO: add title - Oil exclusion badge - bonds.
 ```
 
-```{r exposure_survey_bonds, out.width="25%"}
+```{r exposure_survey_bonds_oil_and_gas, out.width="25%"}
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_survey <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
