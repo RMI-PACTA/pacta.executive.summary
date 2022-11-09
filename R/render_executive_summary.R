@@ -17,7 +17,9 @@ render_executive_summary <- function(data,
                                      file_name = "template.Rmd",
                                      investor_name,
                                      portfolio_name) {
-  render(file.path(exec_summary_dir, file_name),
+  render(
+    # input = file.path(exec_summary_dir, file_name),
+    input = file_name,
     output_dir = output_dir,
     clean = TRUE,
     quiet = TRUE,
