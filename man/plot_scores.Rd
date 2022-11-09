@@ -15,7 +15,7 @@ Requirements:
 \item \code{scope} must be one of: "portfolio", "sector".
 \item \code{entity} must have following values: "this_portfolio", "peers".
 \item \code{sector} must be one of: "power", "automotive", "coal", "oil", "gas",
-"steel", "cement" or \code{NA} in case of \code{scope} == "portfolio".
+"steel", "aviation" or \code{NA} in case of \code{scope} == "portfolio".
 \item \code{score} must be one of: "A+", "A", "B", "C", "D", "E".
 }}
 }
