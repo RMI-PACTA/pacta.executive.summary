@@ -13,7 +13,10 @@ render_executive_summary(
   real_estate_dir,
   file_name = "template.Rmd",
   investor_name,
-  portfolio_name
+  portfolio_name,
+  peer_group,
+  total_portfolio,
+  scenario_selected
 )
 }
 \description{
