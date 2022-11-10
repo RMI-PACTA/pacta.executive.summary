@@ -433,12 +433,11 @@ knitr::kable(data_prep_net_zero_commitments)
 ```{r general_info, fig.height = 6}
 # TODO: add % emissions covered by assessment
 
-# TODO: add % portfolio assets covered by assessment
-
 # TODO: add name of scenario used
 
 ```
 
+Portfolio assets covered by assessment: **`r total_portfolio_percentage_coverage * 100` %**
 
 
 #### Overall Climate Strategy including Credible Climate Stewardship
