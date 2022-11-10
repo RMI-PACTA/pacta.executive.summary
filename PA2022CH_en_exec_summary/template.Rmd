@@ -1,5 +1,7 @@
 ---
-output: pdf_document
+output:
+  pdf_document:
+    latex_engine: xelatex
 always_allow_html: true
 params:
   survey_dir: NULL
@@ -102,7 +104,7 @@ data_fossil_bars <- prep_fossil_bars(
   indices_results_portfolio = indices_results_portfolio,
   scenario_selected = scenario_selected
 )
-# plot_fossil_bars(data_fossil_bars)
+plot_fossil_bars(data_fossil_bars)
 ```
 
 ### Current & future state (Power sector)
@@ -157,11 +159,11 @@ data_scores <- prep_scores(
   peers_results_aggregated = peers_results_aggregated,
   asset_class = "equity"
 )
-# plot_scores(data_scores) +
-#   patchwork::plot_annotation(
-#     title = "Equity",
-#     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-#     )
+plot_scores(data_scores) +
+  patchwork::plot_annotation(
+    title = "Equity",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
 ```
 
 ```{r scores_bonds}
@@ -171,11 +173,11 @@ data_scores <- prep_scores(
   peers_results_aggregated = peers_results_aggregated,
   asset_class = "bonds"
 )
-# plot_scores(data_scores) + 
-#   patchwork::plot_annotation(
-#     title = "Bonds",
-#     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-#     )
+plot_scores(data_scores) +
+  patchwork::plot_annotation(
+    title = "Bonds",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
 ```
 
 \newpage
@@ -328,11 +330,11 @@ Text
 
 ```{r example_real_estate_chart, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
-# knitr::include_graphics(file.path(real_estate_dir, language, "example_real_estate_chart.png"))
+knitr::include_graphics(file.path(real_estate_dir, language, "example_real_estate_chart.png"))
 # TODO: add title - Oil exclusion badge - bonds.
 ```
 
-![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`)
+<!-- ![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`) -->
 
  <!-- TODO: the formatting in this one will most probably be different than the rest of the document - investigate -->
  
