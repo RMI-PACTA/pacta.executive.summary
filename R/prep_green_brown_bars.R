@@ -50,7 +50,7 @@ prep_green_brown_bars <- function(results_portfolio,
 }
 
 check_data_prep_green_brown_bars <- function(scenario_selected) {
-  if (!scenario_selected %in% unique(get("scenario_thresholds")$scenario)) {
+  if (!scenario_selected %in% unique(scenario_thresholds$scenario)) {
     stop("Argument scenario_selected does not hold an accepted value.")
   }
   if (length(scenario_selected) != 1) {

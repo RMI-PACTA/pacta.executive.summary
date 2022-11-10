@@ -56,7 +56,7 @@ prep_fossil_bars <- function(results_portfolio,
 }
 
 check_data_prep_fossil_bars <- function(scenario_selected) {
-  if (!scenario_selected %in% unique(get("scenario_thresholds")$scenario)) {
+  if (!scenario_selected %in% unique(scenario_thresholds$scenario)) {
     stop("Argument scenario_selected does not hold an accepted value.")
   }
   if (length(scenario_selected) != 1) {
@@ -83,7 +83,7 @@ wrangle_data_fossil_bars <- function(data) {
       )
     ) %>%
     dplyr::inner_join(
-      get("p4i_p4b_sector_technology_mapper"),
+      p4i_p4b_sector_technology_mapper,
       by = c("ald_sector" = "sector_p4i", "technology" = "technology_p4i")
     ) %>%
     dplyr::mutate(
