@@ -357,10 +357,13 @@ plot_emissions_scorecard(data_emissions_scorecard)
 ```{r emissions_scorecard_info}
 # the specific PACTA outputs that we need here are my guesses 
 
-# TODO: benchmark name
 # TODO: percent assets covered
 
 ```
+|Listed Equity |Corporate Bonds |
+|:-------------|:---------------|
+|iShares MSCI World ETF | iShares Global Corp Bond UCITS ETF |
+
 
 #### Exposure to Fossil-fuel and other climate-relevant activities
 
@@ -410,10 +413,10 @@ knitr::kable(data_prep_net_zero_commitments)
 
 # TODO: add % portfolio assets covered by assessment
 
-# TODO: add name of scenario used
 
 ```
 
+Climate scenario used: **GECO 2021**
 
 
 #### Overall Climate Strategy including Credible Climate Stewardship
