@@ -14,7 +14,8 @@ render_executive_summary <- function(data,
                                      portfolio_name,
                                      peer_group,
                                      total_portfolio,
-                                     scenario_selected) {
+                                     scenario_selected,
+                                     currency_exchange_value) {
   render(
     input = file.path(exec_summary_dir, file_name),
     output_dir = output_dir,
@@ -34,7 +35,8 @@ render_executive_summary <- function(data,
       results_portfolio = data$results_portfolio,
       peers_results_aggregated = data$peers_results_aggregated,
       peers_results_individual = data$peers_results_individual,
-      indices_results_portfolio = data$indices_results_portfolio
+      indices_results_portfolio = data$indices_results_portfolio,
+      currency_exchange_value = currency_exchange_value
     )
   )
 }

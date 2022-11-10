@@ -243,7 +243,8 @@ prep_data_executive_summary <- function(investor_name,
     results_portfolio = results_portfolio,
     peers_results_aggregated = peers_results_aggregated,
     peers_results_individual = peers_results_individual,
-    indices_results_portfolio = indices_results_portfolio
+    indices_results_portfolio = indices_results_portfolio,
+    audit_data = audit_file
   )
 
   return(data_out)
