@@ -385,7 +385,7 @@ total_portfolio_percentage_coverage <- (total_portfolio_percentage_equity + tota
   
 ```
 
-Portfolio assets cvered by assessment: **`r total_portfolio_percentage_coverage * 100` %**
+Portfolio assets covered by assessment: **`r total_portfolio_percentage_coverage * 100` %**
 
 #### Exposure to Fossil-fuel and other climate-relevant activities
 
