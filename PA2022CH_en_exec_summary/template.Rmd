@@ -357,10 +357,6 @@ plot_emissions_scorecard(data_emissions_scorecard)
 ```
 
 ```{r emissions_scorecard_info}
-# the specific PACTA outputs that we need here are my guesses 
-
-# TODO: benchmark name
-
 total_portfolio_value_curr <- audit_data %>%
   dplyr::mutate(value_usd = dplyr::if_else(value_usd < 0, 0, value_usd)) %>%
   dplyr::mutate(value_curr = value_usd / currency_exchange_value) %>%
@@ -384,6 +380,10 @@ total_portfolio_percentage_bonds <- (audit_data %>%
 total_portfolio_percentage_coverage <- (total_portfolio_percentage_equity + total_portfolio_percentage_bonds)
   
 ```
+|Listed Equity |Corporate Bonds |
+|:-------------|:---------------|
+|iShares MSCI World ETF | iShares Global Corp Bond UCITS ETF |
+
 
 Portfolio assets covered by assessment: **`r total_portfolio_percentage_coverage * 100` %**
 
@@ -433,11 +433,11 @@ knitr::kable(data_prep_net_zero_commitments)
 ```{r general_info, fig.height = 6}
 # TODO: add % emissions covered by assessment
 
-# TODO: add name of scenario used
-
 ```
 
 Portfolio assets covered by assessment: **`r total_portfolio_percentage_coverage * 100` %**
+
+Climate scenario used: **GECO 2021**
 
 
 #### Overall Climate Strategy including Credible Climate Stewardship
