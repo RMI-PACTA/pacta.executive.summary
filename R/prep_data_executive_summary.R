@@ -21,7 +21,7 @@
 #' @param indices_bonds_results_portfolio Some description
 #' @param audit_file Some description
 #' @param emissions_portfolio Some description
-#' @param emissions_indices Some description
+#' @param survey_dir Some description
 #'
 #' @return data.frame
 #' @export
@@ -47,7 +47,7 @@ prep_data_executive_summary <- function(investor_name,
                                         indices_bonds_results_portfolio,
                                         audit_file,
                                         emissions_portfolio,
-                                        emissions_indices) {
+                                        survey_dir) {
 
   equity_results_portfolio <- equity_results_portfolio %>%
     apply_general_filters(
@@ -242,11 +242,16 @@ prep_data_executive_summary <- function(investor_name,
   emissions_portfolio <- emissions_portfolio %>%
     dplyr::mutate(entity = "portfolio")
 
-  emissions_indices <- emissions_indices %>%
+  emissions_indices_eq <- readr::read_rds(file.path(survey_dir, "Indices_equity_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark")
 
+  emissions_indices_cb <- readr::read_rds(file.path(survey_dir, "Indices_bonds_emissions.rds")) %>%
+    dplyr::mutate(entity = "benchmark")
+
+
   emissions <- emissions_portfolio %>%
-    dplyr::bind_rows(emissions_indices)
+    dplyr::bind_rows(emissions_indices_eq) %>%
+    dplyr::bind_rows(emissions_indices_cb)
 
   # TODO: translate data
 
