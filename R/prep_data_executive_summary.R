@@ -20,7 +20,8 @@
 #' @param indices_equity_results_portfolio Some description
 #' @param indices_bonds_results_portfolio Some description
 #' @param audit_file Some description
-#' @param emissions Some description
+#' @param emissions_portfolio Some description
+#' @param emissions_indices Some description
 #'
 #' @return data.frame
 #' @export
@@ -45,7 +46,8 @@ prep_data_executive_summary <- function(investor_name,
                                         indices_equity_results_portfolio,
                                         indices_bonds_results_portfolio,
                                         audit_file,
-                                        emissions) {
+                                        emissions_portfolio,
+                                        emissions_indices) {
 
   equity_results_portfolio <- equity_results_portfolio %>%
     apply_general_filters(
@@ -237,6 +239,15 @@ prep_data_executive_summary <- function(investor_name,
       entity_type = "benchmark"
     )
 
+  emissions_portfolio <- emissions_portfolio %>%
+    dplyr::mutate(entity = "portfolio")
+
+  emissions_indices <- emissions_indices %>%
+    dplyr::mutate(entity = "benchmark")
+
+  emissions <- emissions_portfolio %>%
+    dplyr::bind_rows(emissions_indices)
+
   # TODO: translate data
 
   data_out <- list(
@@ -244,7 +255,8 @@ prep_data_executive_summary <- function(investor_name,
     peers_results_aggregated = peers_results_aggregated,
     peers_results_individual = peers_results_individual,
     indices_results_portfolio = indices_results_portfolio,
-    audit_data = audit_file
+    audit_data = audit_file,
+    emissions_data = emissions
   )
 
   return(data_out)
