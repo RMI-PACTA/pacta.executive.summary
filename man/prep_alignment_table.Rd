@@ -19,6 +19,9 @@ level PACTA results from a PACTA for investors analysis.}
 aggregate peer group level PACTA results from a PACTA for investors
 analysis.}
 
+\item{asset_class}{Character defining the asset class of the data. Must be
+either "equity" or "bonds"}
+
 \item{scenario_source}{Character. Must be a
 \code{scenario_source} featured in the \code{scenario_thresholds} data set.}
 }
