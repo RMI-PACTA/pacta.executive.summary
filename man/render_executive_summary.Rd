@@ -16,7 +16,8 @@ render_executive_summary(
   portfolio_name,
   peer_group,
   total_portfolio,
-  scenario_selected
+  scenario_selected,
+  currency_exchange_value
 )
 }
 \value{
