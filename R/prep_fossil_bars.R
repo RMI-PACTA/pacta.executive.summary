@@ -43,7 +43,7 @@ prep_fossil_bars <- function(results_portfolio,
     # filter combined input data
     data <- data %>%
       dplyr::filter(
-        year == .env$start_year,
+        .data$year == .env$start_year,
         .data$scenario == .env$scenario_selected,
         .data$ald_sector %in% c("Coal", "Oil&Gas")
       )
@@ -56,7 +56,7 @@ prep_fossil_bars <- function(results_portfolio,
 }
 
 check_data_prep_fossil_bars <- function(scenario_selected) {
-  if (!scenario_selected %in% unique(scenario_thresholds$scenario)) {
+  if (!scenario_selected %in% unique(get("scenario_thresholds")$scenario)) {
     stop("Argument scenario_selected does not hold an accepted value.")
   }
   if (length(scenario_selected) != 1) {
@@ -83,17 +83,17 @@ wrangle_data_fossil_bars <- function(data) {
       )
     ) %>%
     dplyr::inner_join(
-      p4i_p4b_sector_technology_mapper,
+      get("p4i_p4b_sector_technology_mapper"),
       by = c("ald_sector" = "sector_p4i", "technology" = "technology_p4i")
     ) %>%
     dplyr::mutate(
       ald_sector = .data$sector_p4b,
       technology = .data$technology_p4b
     ) %>%
-    dplyr::select(-c(sector_p4b, technology_p4b)) %>%
+    dplyr::select(-c("sector_p4b", "technology_p4b")) %>%
     dplyr::select(
-      c(entity, entity_name, entity_type, year, tech = technology,
-      perc_aum = plan_carsten, asset_class)
+      c("entity", "entity_name", "entity_type", "year", tech = "technology",
+      perc_aum = "plan_carsten", "asset_class")
     ) %>%
     dplyr::arrange(.data$asset_class, dplyr::desc(.data$entity_name), .data$tech)
 

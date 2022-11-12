@@ -29,9 +29,9 @@ prep_climate_strategy_scorecard_initiatives <- function(data,
   # prepare data sets
   data <- data %>%
     dplyr::mutate(entity_type = "this_portfolio") %>%
-    dplyr::mutate(yes = sum(climate_initiative, na.rm = TRUE)) %>%
+    dplyr::mutate(yes = sum(.data$climate_initiative, na.rm = TRUE)) %>%
     dplyr::filter(.data$peer_group == .env$peer_group) %>%
-    dplyr::select(c(entity_type, peer_group, yes, name_climate_initiative))
+    dplyr::select(c("entity_type", "peer_group", "yes", "name_climate_initiative"))
 
   data_peers <- data_peers %>%
     dplyr::mutate(
@@ -39,7 +39,7 @@ prep_climate_strategy_scorecard_initiatives <- function(data,
       name_climate_initiative = NA_character_
     ) %>%
     dplyr::filter(.data$peer_group == .env$peer_group) %>%
-    dplyr::select(c(entity_type, peer_group, yes = peers_yes, name_climate_initiative))
+    dplyr::select(c("entity_type", "peer_group", yes = "peers_yes", "name_climate_initiative"))
 
   # combine data sets
   climate_strategy_scorecard_initiatives <- data %>%
@@ -79,18 +79,18 @@ prep_climate_strategy_scorecard_engagement <- function(data,
   data <- data %>%
     dplyr::mutate(entity_type = "this_portfolio") %>%
     dplyr::mutate(
-      yes = dplyr::if_else(engagement == "yes", 1, 0),
-      no = dplyr::if_else(engagement == "no", 1, 0),
-      not_answered = dplyr::if_else(engagement == "not_answered", 1, 0)
+      yes = dplyr::if_else(.data$engagement == "yes", 1, 0),
+      no = dplyr::if_else(.data$engagement == "no", 1, 0),
+      not_answered = dplyr::if_else(.data$engagement == "not_answered", 1, 0)
     ) %>%
     dplyr::filter(.data$peer_group == .env$peer_group) %>%
-    dplyr::select(c(entity_type, peer_group, asset_type, yes, no, not_answered))
+    dplyr::select(c("entity_type", "peer_group", "asset_type", "yes", "no", "not_answered"))
 
   data_peers <- data_peers %>%
     dplyr::mutate(entity_type = "peers") %>%
     dplyr::filter(.data$peer_group == .env$peer_group) %>%
     dplyr::rename_with(~ gsub("peers_", "", .x, fixed = TRUE)) %>%
-    dplyr::select(c(entity_type, peer_group, yes, no, not_answered))
+    dplyr::select(c("entity_type", "peer_group", "yes", "no", "not_answered"))
 
   # combine data sets
   climate_strategy_scorecard_engagement <- data %>%
@@ -130,18 +130,18 @@ prep_climate_strategy_scorecard_voting <- function(data,
   data <- data %>%
     dplyr::mutate(entity_type = "this_portfolio") %>%
     dplyr::mutate(
-      yes = dplyr::if_else(voting_rights == "yes", 1, 0),
-      no = dplyr::if_else(voting_rights == "no", 1, 0),
-      not_answered = dplyr::if_else(voting_rights == "not_answered", 1, 0)
+      yes = dplyr::if_else(.data$voting_rights == "yes", 1, 0),
+      no = dplyr::if_else(.data$voting_rights == "no", 1, 0),
+      not_answered = dplyr::if_else(.data$voting_rights == "not_answered", 1, 0)
     ) %>%
     dplyr::filter(.data$peer_group == .env$peer_group) %>%
-    dplyr::select(c(entity_type, peer_group, asset_type, yes, no, not_answered))
+    dplyr::select(c("entity_type", "peer_group", "asset_type", "yes", "no", "not_answered"))
 
   data_peers <- data_peers %>%
     dplyr::mutate(entity_type = "peers") %>%
     dplyr::filter(.data$peer_group == .env$peer_group) %>%
     dplyr::rename_with(~ gsub("peers_", "", .x, fixed = TRUE)) %>%
-    dplyr::select(c(entity_type, peer_group, yes, no, not_answered))
+    dplyr::select(c("entity_type", "peer_group", "yes", "no", "not_answered"))
 
   # combine data sets
   climate_strategy_scorecard_voting <- data %>%

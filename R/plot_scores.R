@@ -23,7 +23,7 @@ plot_scores <- function(data) {
 
   data <- data %>%
     dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
-    select(-c(category, score_delta, score_upper)) %>%
+    select(-c("category", "score_delta", "score_upper")) %>%
     mutate(
       score_symbol = .data$score
     )
@@ -55,7 +55,7 @@ plot_scores <- function(data) {
 plot_score_portfolio <- function(data) {
   c_position <- alignment_scores_values %>%
     filter(.data$score_symbol == "C") %>%
-    pull(score_label)
+    pull("score_label")
 
   portfolio_label_y <- data %>% filter(.data$entity == "this_portfolio") %>% pull("score_label")
   peer_label_y <- data %>% filter(.data$entity == "peers") %>% pull("score_label")
@@ -95,7 +95,7 @@ plot_score_sector <- function(data, sector) {
 
   c_position <- alignment_scores_values %>%
     filter(.data$score_symbol == "C") %>%
-    pull(score_label)
+    pull("score_label")
 
   portfolio_label_y <- data %>% filter(.data$entity == "this_portfolio") %>% pull("score_label")
   peer_label_y <- data %>% filter(.data$entity == "peers") %>% pull("score_label")
