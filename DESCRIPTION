@@ -30,7 +30,9 @@ Imports:
     rlang,
     rmarkdown,
     scales,
+    stringr,
     tibble,
+    tidyr,
     tidytext
 Suggests: 
     testthat (>= 3.0.0)
