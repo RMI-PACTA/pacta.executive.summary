@@ -79,10 +79,10 @@ check_data_fossil_bars <- function(data, env) {
 check_single_index_per_asset_class <- function(data, column, env) {
   .data <- deparse_1(substitute(data, env = env))
   data <- data %>%
-    filter(entity == "index")
+    filter(.data$entity == "index")
   if (nrow(data) > 0)
     asset_classes <- unique(data$asset_class)
-    
+
     for (asset in asset_classes) {
         data_subset <- data %>%
           filter(.data$asset_class == asset)

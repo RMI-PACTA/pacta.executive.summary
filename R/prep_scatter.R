@@ -26,7 +26,7 @@ prep_scatter <- function(results_portfolio,
 
     scenarios <- scenario_thresholds %>%
       dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
-      dplyr::pull(scenario)
+      dplyr::pull("scenario")
 
     # combine input data
     data <- results_portfolio %>%
@@ -44,7 +44,7 @@ prep_scatter <- function(results_portfolio,
     # calculate current exposures
     data_exposure <- data %>%
       dplyr::filter(
-        year == .env$start_year,
+        .data$year == .env$start_year,
         .data$scenario == .env$scenario_selected
       )
 
@@ -57,7 +57,7 @@ prep_scatter <- function(results_portfolio,
     # calculate tech_type and sector exposures
     data_exposure <- data_exposure %>%
       calculate_exposures() %>%
-      dplyr::filter(tech_type == "green")
+      dplyr::filter(.data$tech_type == "green")
 
     # calculate future alignment scores
 
@@ -91,9 +91,9 @@ prep_scatter <- function(results_portfolio,
         )
       ) %>%
       dplyr::select(
-        c(asset_class, year, perc_tech_exposure, score, entity_name, entity_type)
+        c("asset_class", "year", "perc_tech_exposure", "score", "entity_name", "entity_type")
       ) %>%
-      dplyr::rename(tech_mix_green = perc_tech_exposure) %>%
+      dplyr::rename(tech_mix_green = "perc_tech_exposure") %>%
       dplyr::mutate(
         entity_type = dplyr::if_else(.data$entity_name == "peers_average", "peers_mean", .data$entity_type)
       )
