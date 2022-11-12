@@ -5,7 +5,7 @@
 \alias{toy_data_scores}
 \title{An example output data of \code{prep_scores()}}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 32 rows and 5 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 28 rows and 5 columns.
 }
 \usage{
 toy_data_scores
