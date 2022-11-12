@@ -15,8 +15,6 @@ toy_data_scores <- tibble::tribble(
        "bonds",    "sector",          "peers",        "gas",    "B",
        "bonds",    "sector", "this_portfolio",      "steel",    "B",
        "bonds",    "sector",          "peers",      "steel",    "C",
-       "bonds",    "sector", "this_portfolio",     "cement",    "B",
-       "bonds",    "sector",          "peers",     "cement",   "A+",
       "equity", "portfolio", "this_portfolio",           NA,    "B",
       "equity", "portfolio",          "peers",           NA,    "A",
       "equity",    "sector", "this_portfolio",      "power",    "D",
@@ -30,9 +28,7 @@ toy_data_scores <- tibble::tribble(
       "equity",    "sector", "this_portfolio",        "gas",    "B",
       "equity",    "sector",          "peers",        "gas",    "B",
       "equity",    "sector", "this_portfolio",      "steel",    "A",
-      "equity",    "sector",          "peers",      "steel",    "C",
-      "equity",    "sector", "this_portfolio",     "cement",    "B",
-      "equity",    "sector",          "peers",     "cement",    "A"
+      "equity",    "sector",          "peers",      "steel",    "C"
   )
 # styler: on
 
