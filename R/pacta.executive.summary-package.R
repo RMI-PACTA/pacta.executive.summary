@@ -19,6 +19,7 @@
 #' @importFrom rlang abort
 #' @importFrom rlang as_function
 #' @importFrom rlang warn
+#' @importFrom rmarkdown render
 #' @importFrom scales percent
 #' @importFrom tibble tibble
 #' @importFrom tidytext reorder_within

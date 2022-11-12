@@ -28,6 +28,7 @@ Imports:
     r2dii.colours,
     r2dii.plot,
     rlang,
+    rmarkdown,
     scales,
     tibble,
     tidytext
