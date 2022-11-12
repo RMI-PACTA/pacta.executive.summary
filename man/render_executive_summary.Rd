@@ -16,8 +16,36 @@ render_executive_summary(
   portfolio_name,
   peer_group,
   total_portfolio,
-  scenario_selected
+  scenario_selected,
+  currency_exchange_value
 )
+}
+\arguments{
+\item{data}{List of data frames in the format returned by \code{prep_data_executive_summary()}}
+
+\item{language}{Character single, valid two letter language identifier in uppercase e.g. "EN"}
+
+\item{output_dir}{Character single, valid filepath to a directory where the output will be saved}
+
+\item{exec_summary_dir}{Character single, valid filepath to a directory that contains the template, e.g. \code{system.file("extdata", "PA2022CH_en_exec_summary", package = "pacta.executive.summary")}}
+
+\item{survey_dir}{Character single, valid filepath to a directory that contains the survey files for the user}
+
+\item{real_estate_dir}{Character single, valid filepath to a directory that contains real estate files for the user}
+
+\item{file_name}{Character single, valid filename of the Rmd template file, e.g. "template.Rmd"}
+
+\item{investor_name}{Character single string specifying the investor name}
+
+\item{portfolio_name}{Character single string specifying the portfolio name}
+
+\item{peer_group}{Character single string specifying the peer group}
+
+\item{total_portfolio}{Data frame that contains the total portfolio as found in the standard PACTA processed inputs file "total_portfolio.rds"}
+
+\item{scenario_selected}{Character single string specifying the selected scenario, e.g. "1.5C-Unif"}
+
+\item{currency_exchange_value}{Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. \code{1.03}}
 }
 \value{
 a pdf document written to output_dir

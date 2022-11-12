@@ -1,5 +1,19 @@
 #' Renders executive summary
 #'
+#' @param data List of data frames in the format returned by `prep_data_executive_summary()`
+#' @param language Character single, valid two letter language identifier in uppercase e.g. "EN"
+#' @param output_dir Character single, valid filepath to a directory where the output will be saved
+#' @param exec_summary_dir Character single, valid filepath to a directory that contains the template, e.g. `system.file("extdata", "PA2022CH_en_exec_summary", package = "pacta.executive.summary")`
+#' @param survey_dir Character single, valid filepath to a directory that contains the survey files for the user
+#' @param real_estate_dir Character single, valid filepath to a directory that contains real estate files for the user
+#' @param file_name Character single, valid filename of the Rmd template file, e.g. "template.Rmd"
+#' @param investor_name Character single string specifying the investor name
+#' @param portfolio_name Character single string specifying the portfolio name
+#' @param peer_group Character single string specifying the peer group
+#' @param total_portfolio Data frame that contains the total portfolio as found in the standard PACTA processed inputs file "total_portfolio.rds"
+#' @param scenario_selected Character single string specifying the selected scenario, e.g. "1.5C-Unif"
+#' @param currency_exchange_value Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. `1.03`
+#'
 #' @return a pdf document written to output_dir
 #' @export
 #'
