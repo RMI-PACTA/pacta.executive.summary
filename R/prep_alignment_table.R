@@ -9,6 +9,8 @@
 #' @param peers_results_aggregated Data frame that contains pre-wrangled
 #'   aggregate peer group level PACTA results from a PACTA for investors
 #'   analysis.
+#' @param asset_class Character defining the asset class of the data. Must be
+#'   either "equity" or "bonds"
 #' @param scenario_source Character. Must be a
 #'   `scenario_source` featured in the `scenario_thresholds` data set.
 #'
