@@ -390,13 +390,13 @@ Link für Hinweise auf mögliche physische Klimarisiken:
 
 Natural Hazards [https://map.geo.admin.ch/?topic=bafu&lang=en&bgLayer=ch.swisstopo.pixelkarte-grau&catalogNodes=825,826,843,849,851,1505]
 
-Distribution of the average CO2 intensity of your real estate portfolio (directly held buildings) compared to peers. 
+Distribution of the average CO_{2} intensity of your real estate portfolio (directly held buildings) compared to peers. 
 
 ```{r real_estate_distribution, fig.height = 6}
 knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
 ```
 
-Distribution of the mean CO2 intensity of your mortgage portfolio compared to peers. 
+Distribution of the mean CO_{2} intensity of your mortgage portfolio compared to peers. 
 
 ```{r mortgage_distribution, fig.height = 6}
 knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
@@ -571,6 +571,36 @@ knitr::kable(data_prep_climate_strategy_scorecard_engagement)
 \newpage
 
 ## Annex (I): Detailed chart explanation
+
+```{r explanation_real_estate_map, fig.height = 6}
+knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
+```
+
+Geographical location of all directly held buildings in Switzerland. The colour represents the main use of the respective building. 
+
+```{r explanation_real_estate_bar_chart, fig.height = 6}
+knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
+```
+
+Proportion of energy sources in the directly held buildings and mortgages. The values submitted or taken from the GWR are shown. If neither of the two figures is available, "oil" is used in accordance with FOEN specifications. 
+
+```{r explanation_real_estate_distribution, fig.height = 6}
+knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
+```
+
+Mean CO_{2} intensity of all directly held buildings or mortgages per participant. The red column represents the mean value of the own respective portfolio. The horizontal line represents the value 15.7 kg/m^{2} of the reduction path "Switzerland's Long-Term Climate Strategy" for the year 2021. 
+
+```{r explanation_real_estate_reduction_path, fig.height = 6}
+knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
+```
+
+Development over time of the average CO_{2} intensity of all directly held buildings per participant in comparison with the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy". 
+
+```{r explanation_real_estate_reduction_proportion, fig.height = 6}
+knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
+```
+
+Proportions of mortgages above or below the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy " in relation to their mortgages at the respective time. In light green, those mortgages that are below the reduction path at the respective time due to renovation measures. 
 
 \newpage
 
