@@ -38,8 +38,7 @@ peers_results_aggregated <- params$peers_results_aggregated
 indices_results_portfolio <- params$indices_results_portfolio
 total_portfolio <- params$total_portfolio
 audit_data <- params$audit_data
-
-emissions_data <- NULL
+emissions_data <- params$emissions_data
 ```
 
 ---

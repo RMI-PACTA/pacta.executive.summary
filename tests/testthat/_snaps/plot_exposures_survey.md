@@ -27,7 +27,7 @@
 # with wrong values of `sector` errors gracefully
 
     Each value of `"sector"` must be one of these:
-    blue, automotive, hybrid, blue1, hybrid_hdv, blue2, ice, blue3, ice_hdv, blue01, fuelcell, blue02, electric_hdv, blue03, electric, green, aviation, dark_yellow, cement, brown, coal, almost_black, oil_and_gas, fossil_fuels, oil, grey, gas, orange, power, oilcap, oil_cap, oil_capacity, orange1, coalcap, coal_cap, coal_capacity, orange01, gascap, gas_cap, gas_capacity, orange02, nuclearcap, nuclear_cap, nuclear_capacity, orange03, hydrocap, hydro_cap, hydro_capacity, orange04, renewablescap, renewables_cap, renewables_capacity, dark_purple, shipping, ruby_red, steel, steel_grey, na, , , , , , , , , .
+    coal, oil_and_gas.
     x You passed: bad.
 
 # with non-numeric values of `exposure_perc_aum` errors gracefully
