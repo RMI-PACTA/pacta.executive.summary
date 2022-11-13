@@ -35,7 +35,7 @@
 # with wrong values of `sector` errors gracefully
 
     Each value of `"sector"` must be one of these:
-    NA, power, automotive, coal, oil, gas, cement, steel.
+    NA, power, automotive, coal, oil, gas, aviation, steel.
     x You passed: bad.
 
 # with wrong values of `score` errors gracefully
