@@ -22,8 +22,8 @@ prep_emissions_scorecard <- function(emissions_data = NULL) {
     ) %>%
     dplyr::ungroup() %>%
     dplyr::filter(.data$covered_pacta) %>%
-    dplyr::select(c(asset_type, .data$entity, emissions)) %>%
-    dplyr::rename(asset_class = asset_type) %>%
+    dplyr::select(c("asset_type", "entity", "emissions")) %>%
+    dplyr::rename(asset_class = "asset_type") %>%
     dplyr::mutate(asset_class = tolower(.data$asset_class))
 
   return(data_out)

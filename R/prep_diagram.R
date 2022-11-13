@@ -57,11 +57,11 @@ prep_diagram <- function(audit_data = NULL, emissions_data = NULL) {
     dplyr::ungroup() %>%
     dplyr::mutate(emissions_pacta_perc = .data$emissions_pacta / .data$emissions_asset) %>%
     dplyr::filter(.data$covered_pacta) %>%
-    dplyr::select(c(asset_type, emissions_pacta_perc, emissions_pacta))
+    dplyr::select(c("asset_type", "emissions_pacta_perc", "emissions_pacta"))
 
   data_out <- audit_data %>%
     dplyr::inner_join(emissions_data, by = "asset_type") %>%
-    dplyr::rename(asset_class = asset_type) %>%
+    dplyr::rename(asset_class = "asset_type") %>%
     dplyr::mutate(asset_class = tolower(.data$asset_class))
 
   return(data_out)
