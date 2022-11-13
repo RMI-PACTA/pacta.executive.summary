@@ -63,7 +63,7 @@ check_data_exposures_survey <- function(data, env) {
   abort_if_invalid_values(
     data,
     "sector",
-    names(r2dii.colours::colour_aliases_pacta)
+    c("coal", "oil_and_gas")
   )
   stopifnot(is.numeric(data$exposure_perc_aum))
   stopifnot((data$exposure_perc_aum <= 1) & (data$exposure_perc_aum >= 0))
