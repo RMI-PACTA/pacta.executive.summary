@@ -25,7 +25,8 @@ prep_data_executive_summary(
   indices_equity_results_portfolio,
   indices_bonds_results_portfolio,
   audit_file,
-  emissions
+  emissions_portfolio,
+  survey_dir
 )
 }
 \arguments{
@@ -69,7 +70,9 @@ prep_data_executive_summary(
 
 \item{audit_file}{Some description}
 
-\item{emissions}{Some description}
+\item{emissions_portfolio}{Some description}
+
+\item{survey_dir}{Some description}
 }
 \value{
 data.frame
