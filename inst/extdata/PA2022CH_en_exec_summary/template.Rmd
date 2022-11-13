@@ -504,6 +504,25 @@ knitr::kable(data_prep_net_zero_commitments)
 # TODO: add title - SBTI net zero commitments.
 ```
 
+#### Real Estate Score
+
+```{r real_estate_scores_scorecard}
+# the specific PACTA outputs that we need here are my guesses 
+re_data_scores_scorecard <- tibble(
+  asset_class = c("directly held", "mortgages"),
+  score = c(
+    real_estate_data[["real_estate"]][["co2eq_emissions_grade"]],
+    real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]
+  )
+) %>%
+  dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
+
+plot_scores_scorecard(
+  data = re_data_scores_scorecard,
+  facet = c("directly held", "mortgages")
+)
+```
+
 #### General Info
 
 ```{r general_info, fig.height = 6}
