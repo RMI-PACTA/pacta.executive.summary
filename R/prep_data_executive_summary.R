@@ -242,10 +242,10 @@ prep_data_executive_summary <- function(investor_name,
   emissions_portfolio <- emissions_portfolio %>%
     dplyr::mutate(entity = "portfolio")
 
-  emissions_indices_eq <- readr::read_rds(file.path(survey_dir, "Indices_equity_emissions.rds")) %>%
+  emissions_indices_eq <- readRDS(file.path(survey_dir, "Indices_equity_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark")
 
-  emissions_indices_cb <- readr::read_rds(file.path(survey_dir, "Indices_bonds_emissions.rds")) %>%
+  emissions_indices_cb <- readRDS(file.path(survey_dir, "Indices_bonds_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark")
 
 
