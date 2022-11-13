@@ -30,33 +30,33 @@ prep_exposures_survey <- function(results_portfolio,
     # validate inputs
     sector <- match.arg(sector)
     asset_class <- match.arg(asset_class)
-  
+
     check_data_prep_exposures_survey(
       asset_class = asset_class,
       sector = sector
     )
-  
+
     # infer start year
     start_year <- min(results_portfolio$year, na.rm = TRUE)
-  
+
     # pick scenario for filtering (no impact on current exposure)
     scenario_filter <- "1.5C-Unif"
-  
+
     # combine input data
     data <- results_portfolio %>%
       dplyr::bind_rows(peers_results_aggregated)
-  
+
     # calculate current exposures
     data <- data %>%
       dplyr::filter(
-        year == .env$start_year,
+        .data$year == .env$start_year,
         .data$scenario == .env$scenario_filter
       )
-  
+
     # wrangle to expected format
     data <- data %>%
       wrangle_data_exposures_survey()
-  
+
     data_out <- data %>%
       dplyr::filter(
         .data$asset_class == .env$asset_class,
@@ -87,14 +87,14 @@ wrangle_data_exposures_survey <- function(data) {
       technology = .data$technology_p4b,
       entity = replace(.data$entity, .data$entity == "this_portfolio", "portfolio")
     ) %>%
-    dplyr::select(c(asset_class, entity, ald_sector, plan_carsten)) %>%
+    dplyr::select(c("asset_class", "entity", "ald_sector", "plan_carsten")) %>%
     dplyr::rename(
-      sector = ald_sector,
-      exposure_perc_aum = plan_carsten
+      sector = "ald_sector",
+      exposure_perc_aum = "plan_carsten"
     ) %>%
-    dplyr::group_by(asset_class, entity, sector) %>%
+    dplyr::group_by(.data$asset_class, .data$entity, .data$sector) %>%
     dplyr::summarise(
-      exposure_perc_aum = sum(exposure_perc_aum, na.rm = TRUE),
+      exposure_perc_aum = sum(.data$exposure_perc_aum, na.rm = TRUE),
       .groups = "drop"
     ) %>%
     dplyr::ungroup()

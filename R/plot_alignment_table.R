@@ -202,7 +202,7 @@ make_annotations_df <- function(data) {
     ymax = c(1.5, 2.5, 3.5)
   )
 
-  annotations <- unique(data %>% pull(technology)) %>%
+  annotations <- unique(data %>% pull("technology")) %>%
     purrr::map_df(~ annotations_tech %>% mutate(technology = .x))
 
   data_portfolio <- data %>%
@@ -213,7 +213,7 @@ make_annotations_df <- function(data) {
       aligned_portfolio_temp = .data$aligned_scen_temp
     ) %>%
     select(
-      c(technology, aligned_scen_temp, entity, aligned_portfolio_temp)
+      c("technology", "aligned_scen_temp", "entity", "aligned_portfolio_temp")
     ) %>%
     distinct()
 

@@ -9,6 +9,8 @@
 #' @param peers_results_aggregated Data frame that contains pre-wrangled
 #'   aggregate peer group level PACTA results from a PACTA for investors
 #'   analysis.
+#' @param asset_class Character defining the asset class of the data. Must be
+#'   either "equity" or "bonds"
 #' @param scenario_source Character. Must be a
 #'   `scenario_source` featured in the `scenario_thresholds` data set.
 #'
@@ -36,16 +38,16 @@ prep_alignment_table <- function(results_portfolio,
 
     scenarios <- scenario_thresholds %>%
       dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
-      dplyr::pull(scenario)
+      dplyr::pull("scenario")
 
     # get scenarios for relevant thresholds
     scenario_high_ambition <- scenario_thresholds %>%
       dplyr::filter(.data$threshold == "high") %>%
-      dplyr::pull(scenario)
+      dplyr::pull("scenario")
 
     scenario_medium_ambition <- scenario_thresholds %>%
       dplyr::filter(.data$threshold == "mid") %>%
-      dplyr::pull(scenario)
+      dplyr::pull("scenario")
 
     # prepare data for technology alignment calculation
     data_tech_alignment <- data %>%
@@ -78,13 +80,13 @@ prep_alignment_table <- function(results_portfolio,
     # select the relevant variables
     data_out <- data_tech_alignment_color %>%
       dplyr::select(
-        c(ald_sector, technology, asset_class, entity, aligned_scen_temp,
-          plan_carsten, green_or_brown)
+        c("ald_sector", "technology", "asset_class", "entity", "aligned_scen_temp",
+          "plan_carsten", "green_or_brown")
       ) %>%
       dplyr::rename(
-        sector = ald_sector,
-        perc_aum = plan_carsten,
-        green_brown = green_or_brown
+        sector = "ald_sector",
+        perc_aum = "plan_carsten",
+        green_brown = "green_or_brown"
       ) %>%
       filter(.data$asset_class == .env$asset_class)
   }
@@ -116,7 +118,7 @@ wrangle_input_data_alignment_table <- function(data,
       ald_sector = .data$sector_p4b,
       technology = .data$technology_p4b
     ) %>%
-    dplyr::select(-c(sector_p4b, technology_p4b))
+    dplyr::select(-c("sector_p4b", "technology_p4b"))
 
   # Coal, Oil & Gas are mapped to Fossil Fuels sector
   data <- data %>%
@@ -131,9 +133,9 @@ wrangle_input_data_alignment_table <- function(data,
   # Keep only sectors and technologies as defined in the template
   data <- data %>%
     dplyr::filter(
-      ald_sector %in% c("automotive", "fossil_fuels", "power"),
-      !(ald_sector == "automotive" & stringr::str_detect(technology, "_hdv")),
-      !(ald_sector == "power" & technology %in% c("hydrocap", "nuclearcap"))
+      .data$ald_sector %in% c("automotive", "fossil_fuels", "power"),
+      !(.data$ald_sector == "automotive" & stringr::str_detect(.data$technology, "_hdv")),
+      !(.data$ald_sector == "power" & .data$technology %in% c("hydrocap", "nuclearcap"))
     )
 
   return(data)
@@ -172,7 +174,7 @@ calculate_tech_traffic_light <- function(data,
         sum(.data$tech_score) == 1 ~ "1.5-1.8C",
         TRUE ~ ">1.8C"
       ),
-      entity = replace(.data$entity, entity == "this_portfolio", "portfolio")
+      entity = replace(.data$entity, .data$entity == "this_portfolio", "portfolio")
     ) %>%
     dplyr::ungroup() %>%
     dplyr::filter(.data$scenario == .env$scenario_high_ambition)

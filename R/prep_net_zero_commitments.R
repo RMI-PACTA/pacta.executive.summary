@@ -50,7 +50,7 @@ prep_portfolio_sbti_commitments <- function(total_portfolio,
       net_zero_targets,
       by = c("isin", "factset_entity_id")
     ) %>%
-    dplyr::distinct(investor_name, portfolio_name, factset_entity_id, has_net_zero_commitment) %>%
+    dplyr::distinct("investor_name", "portfolio_name", "factset_entity_id", "has_net_zero_commitment") %>%
     dplyr::group_by(.data$investor_name, .data$portfolio_name) %>%
     dplyr::summarise(
       share_net_zero = sum(.data$has_net_zero_commitment, na.rm = TRUE) / dplyr::n(),
