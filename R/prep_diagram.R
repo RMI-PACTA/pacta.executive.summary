@@ -32,8 +32,8 @@ prep_diagram <- function(audit_data = NULL, emissions_data = NULL) {
     dplyr::ungroup() %>%
     dplyr::filter(.data$covered_pacta) %>%
     dplyr::select(
-      c(exposure_portfolio, asset_type, exposure_asset_class,
-        exposure_asset_class_perc, exposure_pacta, exposure_pacta_perc_asset_class_exposure)
+      c("exposure_portfolio", "asset_type", "exposure_asset_class",
+        "exposure_asset_class_perc", "exposure_pacta", "exposure_pacta_perc_asset_class_exposure")
     )
 
   emissions_data <- emissions_data %>%
