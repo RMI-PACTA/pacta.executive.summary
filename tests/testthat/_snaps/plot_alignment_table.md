@@ -32,17 +32,13 @@
 
     Each value of `"aligned_scen_temp"` must be one of these:
     <1.5C, 1.5-1.8C, >1.8C.
-    x You passed: bad, >3.2C, 2.7-3.2C, <2C.
+    x You passed: bad.
 
 # with non-numeric values of `perc_aum` errors gracefully
 
-    Each value of `"aligned_scen_temp"` must be one of these:
-    <1.5C, 1.5-1.8C, >1.8C.
-    x You passed: >3.2C, 2.7-3.2C, <2C.
+    is.numeric(data$perc_aum) is not TRUE
 
 # with wrong values of `perc_aum` errors gracefully
 
-    Each value of `"aligned_scen_temp"` must be one of these:
-    <1.5C, 1.5-1.8C, >1.8C.
-    x You passed: >3.2C, 2.7-3.2C, <2C.
+    (data$perc_aum <= 1) & (data$perc_aum >= 0) are not all TRUE
 
