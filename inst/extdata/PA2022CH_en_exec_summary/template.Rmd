@@ -532,8 +532,6 @@ member_initiatives_peers <- data_prep_climate_strategy_scorecard_initiatives %>%
   dplyr::filter(.data$entity_type == "peers") %>% 
   dplyr::pull("yes")
 
-# knitr::kable(data_prep_climate_strategy_scorecard_initiatives)
-# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
 ```
 
 * Is the financial institution member of a climate initiative?
@@ -570,9 +568,6 @@ data_prep_climate_strategy_scorecard_voting <- prep_climate_strategy_scorecard_v
   data_peers = peers_climate_strategy_scorecard_voting,
   peer_group = peer_group
 )
-
-# knitr::kable(data_prep_climate_strategy_scorecard_voting)
-# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
 
 voting_rights_portfolio <- data_prep_climate_strategy_scorecard_voting %>%
   filter(entity_type == "this_portfolio") %>%
@@ -626,9 +621,6 @@ data_prep_climate_strategy_scorecard_engagement <- prep_climate_strategy_scoreca
   data_peers = peers_climate_strategy_scorecard_engagement,
   peer_group = peer_group
 )
-
-# knitr::kable(data_prep_climate_strategy_scorecard_engagement)
-# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
 
 engagement_portfolio <- data_prep_climate_strategy_scorecard_engagement %>%
   filter(entity_type == "this_portfolio") %>%
