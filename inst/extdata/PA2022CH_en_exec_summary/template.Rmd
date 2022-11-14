@@ -645,9 +645,9 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 ```
 
-* Share of companies in portfolio with verified commitments to net-zero and credible near term targets: `r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` %
+* Share of companies in portfolio with verified commitments to net-zero and credible near term targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` %**
 
-* Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: `r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` %
+* Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` %**
 
 #### Real Estate Score
 
