@@ -136,6 +136,10 @@ data_fossil_bars <- prep_fossil_bars(
 plot_fossil_bars(data_fossil_bars)
 ```
 
+\* exposure to companies with main activity in PACTA sectors
+
+\*\* ‘Low-carbon’ technologies: renewables for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
+
 ### Current & future state (power sector)
 
 #### Current exposure vs. future alignment for Power sector
@@ -247,6 +251,7 @@ plot_alignment_table(data_alignment_table)
 ```
 
 \* Renewables: include solar and wind power, exclude hydro and nuclear
+
 \*\* Automotive: includes light-duty vehicles (LDV)
 
 \newpage
