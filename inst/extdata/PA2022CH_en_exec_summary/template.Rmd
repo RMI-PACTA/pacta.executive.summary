@@ -22,7 +22,7 @@ params:
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 
 survey_dir <- params$survey_dir
 real_estate_dir <- params$real_estate_dir
@@ -500,9 +500,24 @@ Text and Graph
 Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
 
 ```{r climate_strategy_initiatives, fig.height = 6}
-user_climate_strategy_scorecard_initiatives <- readr::read_csv(file.path(survey_dir, language, "climate_scorecard_survey_initiatives.csv"))
+user_climate_strategy_scorecard_initiatives <- readr::read_csv(
+  file.path(survey_dir, language, "climate_scorecard_survey_initiatives.csv"),
+  col_types = readr::cols_only(
+    user_id = "n",
+    peer_group = "c",
+    name_climate_initiative = "c",
+    climate_initiative = "n"
+  )
+)
 
-peers_climate_strategy_scorecard_initiatives <- readr::read_csv(file.path(survey_dir, language, "peers_climate_scorecard_survey_initiatives.csv"))
+peers_climate_strategy_scorecard_initiatives <- readr::read_csv(
+  file.path(survey_dir, language, "peers_climate_scorecard_survey_initiatives.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    n = "n",
+    peers_yes = "n"
+  )
+)
 
 data_prep_climate_strategy_scorecard_initiatives <- prep_climate_strategy_scorecard_initiatives(
   data = user_climate_strategy_scorecard_initiatives,
@@ -510,20 +525,44 @@ data_prep_climate_strategy_scorecard_initiatives <- prep_climate_strategy_scorec
   peer_group = peer_group
 )
 
-knitr::kable(data_prep_climate_strategy_scorecard_initiatives)
-# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
+member_initiatives_portfolio <- data_prep_climate_strategy_scorecard_initiatives %>% 
+  dplyr::filter(.data$entity_type == "this_portfolio") %>% 
+  dplyr::select(c("yes", "name_climate_initiative"))
+
+member_initiatives_peers <- data_prep_climate_strategy_scorecard_initiatives %>% 
+  dplyr::filter(.data$entity_type == "peers") %>% 
+  dplyr::pull("yes")
+
 ```
 
 * Is the financial institution member of a climate initiative?
 
-  **YES / NO  (Peers: [XY] %)**
-  [if YES:] Name: Name
+  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else {"NO"}`  (Peers: `r round(member_initiatives_peers * 100)` %)**
+  `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}`
 
 
 ```{r climate_strategy_voting_rights, fig.height = 6}
-user_climate_strategy_scorecard_voting <- readr::read_csv(file.path(survey_dir, language, "climate_scorecard_survey_voting.csv"))
+user_climate_strategy_scorecard_voting <- readr::read_csv(
+  file.path(survey_dir, language, "climate_scorecard_survey_voting.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    user_id = "n",
+    asset_type = "c",
+    voting_rights = "c"
+  )
+)
 
-peers_climate_strategy_scorecard_voting <- readr::read_csv(file.path(survey_dir, language, "peers_climate_scorecard_survey_voting.csv"))
+peers_climate_strategy_scorecard_voting <- readr::read_csv(
+  file.path(survey_dir, language, "peers_climate_scorecard_survey_voting.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    asset_type = "c",
+    n = "n",
+    peers_yes = "n",
+    peers_no = "n",
+    peers_not_answered = "n"
+  )
+)
 
 data_prep_climate_strategy_scorecard_voting <- prep_climate_strategy_scorecard_voting(
   data = user_climate_strategy_scorecard_voting,
@@ -531,19 +570,52 @@ data_prep_climate_strategy_scorecard_voting <- prep_climate_strategy_scorecard_v
   peer_group = peer_group
 )
 
-knitr::kable(data_prep_climate_strategy_scorecard_voting)
-# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
+voting_rights_portfolio <- data_prep_climate_strategy_scorecard_voting %>%
+  filter(entity_type == "this_portfolio") %>%
+  mutate(
+    answer = dplyr::case_when(
+      yes == 1 ~ "YES",
+      no == 1 ~ "NO",
+      TRUE ~ "Not Answered"
+    )
+  ) %>% 
+  dplyr::select(c("asset_type", "answer"))
+
+voting_rights_peers <- data_prep_climate_strategy_scorecard_voting %>%
+  filter(entity_type == "peers") %>%
+  dplyr::select(c("asset_type", "yes"))
 ```
 
 * Does the financial institution support climate strategies through voting rights?
-
-  **YES/NO LE (Peers LE [XY] %), YES/NO PE (Peers PE [XY] %), YES/NO INF (Peers [XY] %) YES/NO Other assets (Peers other assers [XY] %)**
-
+  
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` %)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` %)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` %)**
+  
 
 ```{r climate_strategy_engagement, fig.height = 6}
-user_climate_strategy_scorecard_engagement <- readr::read_csv(file.path(survey_dir, language, "climate_scorecard_survey_engagement.csv"))
+user_climate_strategy_scorecard_engagement <- readr::read_csv(
+  file.path(survey_dir, language, "climate_scorecard_survey_engagement.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    user_id = "n",
+    asset_type = "c",
+    engagement = "c"
+  )
+)
 
-peers_climate_strategy_scorecard_engagement <- readr::read_csv(file.path(survey_dir, language, "peers_climate_scorecard_survey_engagement.csv"))
+peers_climate_strategy_scorecard_engagement <- readr::read_csv(
+  file.path(survey_dir, language, "peers_climate_scorecard_survey_engagement.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    asset_type = "c",
+    n = "n",
+    peers_yes = "n",
+    peers_no = "n",
+    peers_not_answered = "n"
+  )
+)
 
 data_prep_climate_strategy_scorecard_engagement <- prep_climate_strategy_scorecard_engagement(
   data = user_climate_strategy_scorecard_engagement,
@@ -551,13 +623,28 @@ data_prep_climate_strategy_scorecard_engagement <- prep_climate_strategy_scoreca
   peer_group = peer_group
 )
 
-knitr::kable(data_prep_climate_strategy_scorecard_engagement)
-# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
+engagement_portfolio <- data_prep_climate_strategy_scorecard_engagement %>%
+  filter(entity_type == "this_portfolio") %>%
+  mutate(
+    answer = dplyr::case_when(
+      yes == 1 ~ "YES",
+      no == 1 ~ "NO",
+      TRUE ~ "Not Answered"
+    )
+  ) %>% 
+  dplyr::select(c("asset_type", "answer"))
+
+engagement_peers <- data_prep_climate_strategy_scorecard_engagement %>%
+  filter(entity_type == "peers") %>%
+  dplyr::select(c("asset_type", "yes"))
 ```
 
 * Does the financial institution support climate strategies through engagement measures?
 
-  **YES/NO LE (Peers LE [XY] %), YES/NO CB (Peers CB [XY] %), YES/NO RE (Peers RE [XY] %), YES/NO Other assets (Peers other assers [XY] %)**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` %);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` %);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` %)**
 
 \newpage
 
