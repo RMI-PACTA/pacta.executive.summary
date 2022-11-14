@@ -472,9 +472,23 @@ Climate scenario used: **GECO 2021**
 Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from [SBTi](https://sciencebasedtargets.org/companies-taking-action).
 
 ```{r sbti_net_zero_commitments, fig.height = 6}
-fin_data_net_zero_targets <- readr::read_csv(file.path(survey_dir, language, "fin_data_net_zero_targets.csv"))
+fin_data_net_zero_targets <- readr::read_csv(
+  file.path(survey_dir, language, "fin_data_net_zero_targets.csv"),
+  col_types = readr::cols_only(
+    isin = "c",
+    asset_type = "c",
+    factset_entity_id = "c"
+  )
+)
 
-peer_group_share_net_zero <- readr::read_csv(file.path(survey_dir, language, "peer_group_share_net_zero.csv"))
+peer_group_share_net_zero <- readr::read_csv(
+  file.path(survey_dir, language, "peer_group_share_net_zero.csv"),
+  col_types = readr::cols_only(
+    investor_name = "c",
+    portfolio_name = "c",
+    share_net_zero = "n"
+  )
+)
 
 data_prep_net_zero_commitments <- prep_net_zero_commitments(
   total_portfolio = total_portfolio,
@@ -483,13 +497,11 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
   peer_group_share_net_zero = peer_group_share_net_zero
 )
 
-knitr::kable(data_prep_net_zero_commitments)
-# TODO: add title - SBTI net zero commitments.
 ```
 
-* Share of companies in portfolio with verified commitments to net-zero and credible near term targets: X%
+* Share of companies in portfolio with verified commitments to net-zero and credible near term targets: `r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` %
 
-* Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: Y%
+* Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: `r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` %
 
 #### Real Estate Score
 
