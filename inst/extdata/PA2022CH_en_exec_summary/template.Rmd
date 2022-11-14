@@ -247,6 +247,7 @@ plot_alignment_table(data_alignment_table)
 ```
 
 \* Renewables: include solar and wind power, exclude hydro and nuclear
+
 \*\* Automotive: includes light-duty vehicles (LDV)
 
 \newpage
