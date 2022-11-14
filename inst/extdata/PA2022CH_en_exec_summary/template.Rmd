@@ -467,6 +467,7 @@ This score represents the estimated aggregate alignment of the PACTA sectors (ex
 # TODO: add % emissions covered by assessment
 
 ```
+Portfolio emissions covered by assessment: **X %**
 
 Portfolio assets covered by assessment: **`r total_portfolio_percentage_coverage * 100` %**
 
