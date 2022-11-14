@@ -124,7 +124,7 @@ wrangle_input_data_alignment_table <- function(data,
   data <- data %>%
     dplyr::mutate(
       ald_sector = dplyr::if_else(
-        .data$ald_sector %in% c("coal", "oil and gas"),
+        .data$ald_sector %in% c("coal", "oil_and_gas"),
         "fossil_fuels",
         .data$ald_sector
       )
