@@ -70,7 +70,9 @@ Text in 3 columns
 
 Text
 
-```{r diagram}
+```{r diagram, eval = FALSE}
+#FIXME: make sure we evaluate this plot, once fixed. 
+
 # the specific PACTA outputs that we need here are my guesses 
 data_diagram <- prep_diagram(
   audit_data = audit_data,
