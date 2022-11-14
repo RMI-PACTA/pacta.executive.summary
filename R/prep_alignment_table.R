@@ -135,6 +135,7 @@ wrangle_input_data_alignment_table <- function(data,
     dplyr::filter(
       .data$ald_sector %in% c("automotive", "fossil_fuels", "power"),
       !(.data$ald_sector == "automotive" & stringr::str_detect(.data$technology, "_hdv")),
+      .data$technology != "fuelcell",
       !(.data$ald_sector == "power" & .data$technology %in% c("hydrocap", "nuclearcap"))
     )
 
