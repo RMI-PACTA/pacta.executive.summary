@@ -90,7 +90,7 @@ prep_climate_strategy_scorecard_engagement <- function(data,
     dplyr::mutate(entity_type = "peers") %>%
     dplyr::filter(.data$peer_group == .env$peer_group) %>%
     dplyr::rename_with(~ gsub("peers_", "", .x, fixed = TRUE)) %>%
-    dplyr::select(c("entity_type", "peer_group", "yes", "no", "not_answered"))
+    dplyr::select(c("entity_type", "peer_group", "asset_type", "yes", "no", "not_answered"))
 
   # combine data sets
   climate_strategy_scorecard_engagement <- data %>%
@@ -141,7 +141,7 @@ prep_climate_strategy_scorecard_voting <- function(data,
     dplyr::mutate(entity_type = "peers") %>%
     dplyr::filter(.data$peer_group == .env$peer_group) %>%
     dplyr::rename_with(~ gsub("peers_", "", .x, fixed = TRUE)) %>%
-    dplyr::select(c("entity_type", "peer_group", "yes", "no", "not_answered"))
+    dplyr::select(c("entity_type", "peer_group", "asset_type", "yes", "no", "not_answered"))
 
   # combine data sets
   climate_strategy_scorecard_voting <- data %>%
