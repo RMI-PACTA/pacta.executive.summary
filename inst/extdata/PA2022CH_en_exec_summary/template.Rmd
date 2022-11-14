@@ -786,3 +786,136 @@ engagement_peers <- data_prep_climate_strategy_scorecard_engagement %>%
 
 \newpage
 
+## Climate Score Indicators
+
+### PACTA Executive Summary 2022
+
+MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
+
+
+### Carbon Footprint
+
+_The Carbon footprint indicator includes the carbon footprint (CO2e/CHF M invested) but not the carbon intensity (emissions per revenue) as in the Swiss Scores proposal. Hard requirements are met._
+
+Hard Requirements:
+
+* Inclusion of scope 1, 2, and relevant scope 3.
+* Inclusion of scope 3 emissions must at a minimum be aligned to the schedule described in the EU benchmark regulation 2019/2089.
+
+### Exposure to companies that have at least some fossil fuel and low-carbon activities
+
+**Exposure score in this Executive Summary:** varies from the requirements in the Swiss proposal (see below)
+
+The exposure score in this document deviates from the Swiss Scores proposal, as the Swiss Scores were launched while the PACTA Climate Test Switzerland 2022 was already in its development phase. While the Swiss Scores proposal measure the share of companies with fossil fuel activities, he PACTA exposure indicator measures the financial exposure as AUM in % of this portfolio to the respective technologies. The PACTA exposure is not based on revenue data, but on asset-based company level data representing real-world physical activities. These activities are then attributed to financial securities and afterwards allocated to the portfolio. The portfolio allocation is done with the Portfolio Weight Approach (PA) that calculates the portfolio’s technology exposures based on the weighting of each position within the portfolio. 
+
+Specifications:
+
+* The indicator shows the financial exposure to each technology based on each company’s main sector technology split
+* The indicator is based on physical asset data instead of revenue data
+* The indicator only shows exposure to the core sector of a company (in this case: coal, oil & gas, power production); i.e., Apple’s power assets are not included as Apple’s core business is not power
+* Thereby, the indicator can show how exposed a portfolio is to different technologies within the same sector (e.g. fossil fuel-based power production vs. renewable power production)
+* The emission scope of activities differ between the sectors and include “mining” for coal, “upstream” for oil and gas, “production” for power. For more information, please refer to the documentation on the aggregated score on the next page
+
+To foster the transition, investments in climate solutions are key and can not be captured by CO2-Emission based metrics. Therefore, the exposure chart also includes exposure to renewable power
+
+**Hard requirements for Swiss Scores:**
+
+* The threshold of 5% of revenues applies both to activities directly linked with the exploration and production of fossil fuels and, if data is readily available, activities financing such production (for coal, according to the global coal exit list or similar).
+* The scope of activities includes the whole value chain, ranging from exploration, extraction, and production (upstream) to transportation and storage (midstream) and refining, marketing, and electrification (downstream).
+
+
+### Real Estate and Mortgages – additional PACTA indicator
+
+By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. **The graph show…**
+
+### Verified Commitments to Net-Zero 
+
+_Hard requirements are met._
+
+Hard requirements:
+
+* Companies must have publically communicated a pledge to reach net-zero and have near-term targets be certified by one of the following providers: Science based targets initiative (SBTi).
+
+### Management to Net-Zero 
+
+_The information for this indicator was not collected in the PACTA Climate Test 2022 and is therefore not shown._
+
+### Overall Climate Strategy inclucing Credible Climate Stewardship
+
+**Implementation:** deviates from hard requirements for Swiss Climate Scores (see below)
+
+* Climate initiatives should be consistent with the ambition of reaching net-zero by 2050
+  * Implementation:  "Yes" means that at least one initiative is ticked for the user. "No" means that the user has not ticked any initiative. "Name": returns names of all ticked initiatives, but summarises the free field as "Other“
+* Votes should be considered as climate-relevant measure
+  * Implementation: "YES (asset type)" means that the user has investment in the asset type AND ticked that they exercise voting rights. "NO" means that the user has investment in the asset type AND NOT ticked that they exercise voting rights. "NOT ANSWERED": means that the user has not indicated that they have investments in the asset type.  Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type
+* Engagement strategies should be considered as climate-relevant measure
+  * Implementation: conditions for "YES (asset type)“, “NO”, “NOT ANSWERED” defined as above but for engagement strategies. For “other assets”, the above conditions must apply in at least one of the other assets. --> Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type. Number of users with YES for other assets out of the number of users that have invested in at least one other asset type.
+
+**Hard requirements:**
+
+* Votes/proxy votes should be consistent with the ambition of reaching net-zero by 2050.
+* Any linked climate engagement strategy should be consistent with the ambition of reaching net-zero by 2050.
+* The escalation procedure is clearly defined and made transparent.
+* An example for a climate engagement initiative is Climate Action 100+
+
+\newpage
+
+## Climate Score Indicators
+
+### PACTA Executive Summary 2022
+
+MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
+
+
+### PACTA Aggregated Climate Alignment Score
+
+**Implementation:**
+
+* PACTA measures what firms plan to do over the next 5 years instead of what they promise
+* Sectoral score, aggregated to one score
+* Most climate relevant sectors including contributions
+* Use case: 
+  * Financial Institutions can communicate internally and externally about climate performance easily and understandably.
+  * Investors can understand portfolio priorities and get insights into potential long-term transition risks.
+  * Supervisors will be able to understand the FI's position relative to its peers regarding climate change.
+
+**Hard requirements:**
+
+* Be guided by the goal to achieve net zero emissions by 2050, consistent with the 1.5°C warming limit of the Paris Agreement and in line with the latest IPCC findings.
+* Comply with the technical considerations of the TCFD 2021 PAT report “Measuring Portfolio Alignment – technical considerations”. In particular, comply with:
+  * Select a 1.5°C scenario that complies, at a minimum, with the scenario selection criteria set out by the Science Based Targets initiative (SBTi) in their document Foundations of Science-Based Target Setting (consideration 7).
+  * Prioritize granular benchmarks where they meaningfully capture material differences in decarbonization feasibility across industries or regions (Consideration 8).
+  * Include Scope 3 emissions for the sectors for which they are most material and for which benchmarks can be easily extracted from existing scenarios (fossil fuels, mining, automotive) (Consideration 11). 
+  * _Addition:_ Note that the PACTA methodology is not based on emissions but on production plans of companies. The production-based analysis however proxies for the following scopes: 
+    * Scope 1 and 2 for steel production
+    * Scope 3 for fossil fuel extraction, automotive manufacturing
+    * Scope 1 for power production, and aviation
+* Allow the Swiss government to disclose aggregate implied temperature scores based on your methodology on the following indices, to compare them with other providers: SMI, MSCI World, MSCI World Materials, MSCI World Industrials, MSCI World Utilities, MSCI World Real Estate.
+
+**Important, but not hard requirements:**
+
+Benchmark used:
+
+* At a minimum, a sub-industry level approach based on external, replicable, scientific sources to benchmarking should be used for high-emitting sectors, with companies allocated a ‘fair share’ of the global carbon budget based on their mix of activities.
+* Climate solutions, especially for the electricity sector should also be covered and compared with the respective scenario, as the scale up of renewable power is a key factor to transition according to the IEA. 
+
+Company long-term targets, near-term action and data sources:
+
+* Include near-term CapEx plans 
+* Use third-party validated data on asset level base where possible. Be as transparent as possible on data sources.
+* Do not allow for avoided emissions data at corporate level, given the lack of standards around corporate level avoided emissions reporting and the technical challenges and issues related to such calculation. Account instead for climate solutions, at minimum for renewable power.
+* _Requirements not met:_
+  * Assess the credibility of companies’ emission reduction plans and take into account whether they are externally validated (such as by SBTi) to be science-based, in line with the goal of achieving net zero by 2050. 
+  * Validate, if the long-term commitments match with the short term action
+  * Inclusion of scope 3 emissions must at a minimum be aligned to the schedule described in the EU benchmark regulation 2019/2089.
+
+To calculate portfolio alignment
+
+* _Addition:_ The PACTA Aggregated Climate Alignment Score is not an Implied Temperature Rise (ITR) score. Therefore, PACTA cannot provide a confidence level for the score itself. Instead, confidence scenarios for the selected scenarios exist and are: 
+  * 50% probability to not exceed 1.5°C warming for the 1.5°C Uniform scenario (GECO 2021)
+  * 50% probability to not exceed 1.8°C warming for the 1.8°C NDC-LTS scenario (GECO 2021)
+  * 50% probability to not exceed 3.0°C warming for the 3.0°C Current Policies Scenario (GECO 2021)
+* _Requirements not met_ as Aggregate score is no ITR.
+  * Implied temperature scores should be calculated using a confidence level of 66%, rather than 50%.
+  * Calculate warming scores on a cumulative-emissions basis until 2050, in order to accommodate appropriately the physical relationship between cumulative emissions and warming outcomes.
+
