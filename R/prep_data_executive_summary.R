@@ -243,10 +243,12 @@ prep_data_executive_summary <- function(investor_name,
     dplyr::mutate(entity = "portfolio")
 
   emissions_indices_eq <- readRDS(file.path(survey_dir, "Indices_equity_emissions.rds")) %>%
-    dplyr::mutate(entity = "benchmark")
+    dplyr::mutate(entity = "benchmark") %>%
+    dplyr::filter(.data$portfolio_name == "iShares MSCI World ETF")
 
   emissions_indices_cb <- readRDS(file.path(survey_dir, "Indices_bonds_emissions.rds")) %>%
-    dplyr::mutate(entity = "benchmark")
+    dplyr::mutate(entity = "benchmark") %>%
+    dplyr::filter(.data$portfolio_name == "iShares Global Corp Bond UCITS ETF")
 
 
   emissions <- emissions_portfolio %>%
