@@ -13,7 +13,7 @@
 #'   the COP survey.
 #' @param peer_group Character. Peer group of the analysed portfolio.
 #'
-#' @return data.frame
+#' @return list of data.frames
 prep_climate_strategy_scorecard_initiatives <- function(data,
                                                         data_peers,
                                                         peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other")) {
@@ -45,6 +45,19 @@ prep_climate_strategy_scorecard_initiatives <- function(data,
   climate_strategy_scorecard_initiatives <- data %>%
     dplyr::bind_rows(data_peers)
 
+  member_initiatives_portfolio <- climate_strategy_scorecard_initiatives %>%
+    dplyr::filter(.data$entity_type == "this_portfolio") %>%
+    dplyr::select(c("yes", "name_climate_initiative"))
+
+  member_initiatives_peers <- climate_strategy_scorecard_initiatives %>%
+    dplyr::filter(.data$entity_type == "peers") %>%
+    dplyr::pull("yes")
+
+  climate_strategy_scorecard_initiatives <- list(
+    member_initiatives_portfolio = member_initiatives_portfolio,
+    member_initiatives_peers = member_initiatives_peers
+  )
+
   return(climate_strategy_scorecard_initiatives)
 }
 
@@ -62,7 +75,7 @@ prep_climate_strategy_scorecard_initiatives <- function(data,
 #'   the COP survey.
 #' @param peer_group Character. Peer group of the analysed portfolio.
 #'
-#' @return data.frame
+#' @return list of data.frames
 prep_climate_strategy_scorecard_engagement <- function(data,
                                                        data_peers,
                                                        peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other")) {
@@ -96,6 +109,26 @@ prep_climate_strategy_scorecard_engagement <- function(data,
   climate_strategy_scorecard_engagement <- data %>%
     dplyr::bind_rows(data_peers)
 
+  engagement_portfolio <- climate_strategy_scorecard_engagement %>%
+    filter(entity_type == "this_portfolio") %>%
+    mutate(
+      answer = dplyr::case_when(
+        yes == 1 ~ "YES",
+        no == 1 ~ "NO",
+        TRUE ~ "Not Answered"
+      )
+    ) %>%
+    dplyr::select(c("asset_type", "answer"))
+
+  engagement_peers <- climate_strategy_scorecard_engagement %>%
+    filter(entity_type == "peers") %>%
+    dplyr::select(c("asset_type", "yes"))
+
+  climate_strategy_scorecard_engagement <- list(
+    engagement_portfolio = engagement_portfolio,
+    engagement_peers = engagement_peers
+  )
+
   return(climate_strategy_scorecard_engagement)
 }
 
@@ -113,7 +146,7 @@ prep_climate_strategy_scorecard_engagement <- function(data,
 #'   the COP survey.
 #' @param peer_group Character. Peer group of the analysed portfolio.
 #'
-#' @return data.frame
+#' @return list of data.frames
 prep_climate_strategy_scorecard_voting <- function(data,
                                                    data_peers,
                                                    peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other")) {
@@ -146,6 +179,26 @@ prep_climate_strategy_scorecard_voting <- function(data,
   # combine data sets
   climate_strategy_scorecard_voting <- data %>%
     dplyr::bind_rows(data_peers)
+
+  voting_rights_portfolio <- climate_strategy_scorecard_voting %>%
+    filter(entity_type == "this_portfolio") %>%
+    mutate(
+      answer = dplyr::case_when(
+        yes == 1 ~ "YES",
+        no == 1 ~ "NO",
+        TRUE ~ "Not Answered"
+      )
+    ) %>%
+    dplyr::select(c("asset_type", "answer"))
+
+  voting_rights_peers <- climate_strategy_scorecard_voting %>%
+    filter(entity_type == "peers") %>%
+    dplyr::select(c("asset_type", "yes"))
+
+  climate_strategy_scorecard_voting <- list(
+    voting_rights_portfolio = voting_rights_portfolio,
+    voting_rights_peers = voting_rights_peers
+  )
 
   return(climate_strategy_scorecard_voting)
 }
