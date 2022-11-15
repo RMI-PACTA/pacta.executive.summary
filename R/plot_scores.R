@@ -57,25 +57,28 @@ plot_score_portfolio <- function(data) {
     filter(.data$score_symbol == "C") %>%
     pull("score_label")
 
+  portfolio_label_y <- data %>% filter(.data$entity == "this_portfolio") %>% pull("score_label")
+  peer_label_y <- data %>% filter(.data$entity == "peers") %>% pull("score_label")
+
   p <- plot_basic_scorebar() +
-    annotate("segment", x = 0.5, xend = 1.5, y = c_position, yend = c_position, size = 1.3) +
-    geom_text(
-      data = data %>% filter(.data$entity == "this_portfolio"),
-      x = 1.5,
-      label = "\u25B2",
-      angle = 270 / pi,
-      size = 14,
-      color = unname(fill_colours_entities_scores["portfolio"]),
-      aes(y = .data$score_label)
+    annotate("segment", x = 0.5, xend = 1.5, y = c_position, yend = c_position, linewidth = 1.3) +
+    annotate(
+      "segment",
+      x = 1.9,
+      xend = 1.5,
+      y = portfolio_label_y,
+      yend = portfolio_label_y,
+      arrow = arrow(type = "closed", length = unit(0.4, "npc")),
+      color = unname(fill_colours_entities_scores["portfolio"])
     ) +
-    geom_text(
-      data = data %>% filter(.data$entity == "peers"),
-      x = 1.5,
-      label = "\u25B2",
-      angle = 270 / pi,
-      size = 11,
-      color = unname(fill_colours_entities_scores["benchmark"]),
-      aes(y = .data$score_label)
+    annotate(
+      "segment",
+      x = 1.7,
+      xend = 1.5,
+      y = peer_label_y,
+      yend = peer_label_y,
+      arrow = arrow(type = "closed", length = unit(0.2, "npc")),
+      color = unname(fill_colours_entities_scores["benchmark"])
     ) +
     theme(axis.line = element_blank())
 
@@ -92,6 +95,9 @@ plot_score_sector <- function(data, sector) {
     filter(.data$score_symbol == "C") %>%
     pull("score_label")
 
+  portfolio_label_y <- data %>% filter(.data$entity == "this_portfolio") %>% pull("score_label")
+  peer_label_y <- data %>% filter(.data$entity == "peers") %>% pull("score_label")
+
   p <- plot_basic_scorebar() +
     annotate(
       "segment",
@@ -101,23 +107,23 @@ plot_score_sector <- function(data, sector) {
       yend = c_position,
       size = 1
     ) +
-    geom_text(
-      data = data %>% filter(.data$entity == "this_portfolio"),
-      x = 1.5,
-      label = "\u25B2",
-      angle = 270 / pi,
-      size = 10,
-      color = unname(fill_colours_entities_scores["portfolio"]),
-      aes(y = .data$score_label)
+    annotate(
+      "segment",
+      x = 1.8,
+      xend = 1.5,
+      y = portfolio_label_y,
+      yend = portfolio_label_y,
+      arrow = arrow(type = "closed", length = unit(0.3, "npc")),
+      color = unname(fill_colours_entities_scores["portfolio"])
     ) +
-    geom_text(
-      data = data %>% filter(.data$entity != "this_portfolio"),
-      x = 1.5,
-      label = "\u25B2",
-      angle = 270 / pi,
-      size = 7,
-      color = unname(fill_colours_entities_scores["benchmark"]),
-      aes(y = .data$score_label)
+    annotate(
+      "segment",
+      x = 1.65,
+      xend = 1.5,
+      y = peer_label_y,
+      yend = peer_label_y,
+      arrow = arrow(type = "closed", length = unit(0.15, "npc")),
+      color = unname(fill_colours_entities_scores["benchmark"])
     ) +
     theme(
       axis.line = element_blank(),
@@ -144,21 +150,21 @@ legend_scores <- function() {
 
   l <- ggplot(fake_data, aes(x = .data$x, y = .data$y)) +
     annotate(
-      "text",
-      x = 0,
+      "segment",
+      x = 0.1,
+      xend = -0.5,
       y = 3.5,
-      label = "\u25B2",
-      angle = 270 / pi,
-      size = 7,
+      yend = 3.5,
+      arrow = arrow(type = "closed", length = unit(0.2, "npc")),
       color = unname(fill_colours_entities_scores["portfolio"])
     ) +
     annotate(
-      "text",
-      x = 0,
+      "segment",
+      x = 0.1,
+      xend = -0.2,
       y = 2.5,
-      label = "\u25B2",
-      angle = 270 / pi,
-      size = 5,
+      yend = 2.5,
+      arrow = arrow(type = "closed", length = unit(0.15, "npc")),
       color = unname(fill_colours_entities_scores["benchmark"])
     ) +
     annotate(
