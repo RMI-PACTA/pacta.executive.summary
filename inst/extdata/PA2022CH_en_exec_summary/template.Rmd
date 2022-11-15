@@ -6,6 +6,7 @@ always_allow_html: true
 params:
   survey_dir: NULL
   real_estate_dir: NULL
+  score_card_dir: NULL
   language: EN
   investor_name: investor
   portfolio_name: portfolio
@@ -26,6 +27,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 survey_dir <- params$survey_dir
 real_estate_dir <- params$real_estate_dir
+score_card_dir <- params$score_card_dir
 investor_name <- params$investor_name
 portfolio_name <- params$portfolio_name
 peer_group <- params$peer_group
@@ -476,9 +478,13 @@ Climate scenario used: **GECO 2021**
 Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from [SBTi](https://sciencebasedtargets.org/companies-taking-action).
 
 ```{r sbti_net_zero_commitments, fig.height = 6}
-fin_data_net_zero_targets <- readr::read_csv(file.path(survey_dir, language, "fin_data_net_zero_targets.csv"))
+fin_data_net_zero_targets <- readr::read_csv(
+  file.path(score_card_dir, "fin_data_net_zero_targets.csv")
+)
 
-peer_group_share_net_zero <- readr::read_csv(file.path(survey_dir, language, "peer_group_share_net_zero.csv"))
+peer_group_share_net_zero <- readr::read_csv(
+  file.path(score_card_dir, "peer_group_share_net_zero.csv")
+)
 
 data_prep_net_zero_commitments <- prep_net_zero_commitments(
   total_portfolio = total_portfolio,
@@ -505,7 +511,7 @@ Financial institutions can contribute to the transition to net-zero, by engaging
 
 ```{r climate_strategy_initiatives, fig.height = 6}
 user_climate_strategy_scorecard_initiatives <- readr::read_csv(
-  file.path(survey_dir, language, "climate_scorecard_survey_initiatives.csv"),
+  file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"),
   col_types = readr::cols_only(
     user_id = "n",
     peer_group = "c",
@@ -515,7 +521,7 @@ user_climate_strategy_scorecard_initiatives <- readr::read_csv(
 )
 
 peers_climate_strategy_scorecard_initiatives <- readr::read_csv(
-  file.path(survey_dir, language, "peers_climate_scorecard_survey_initiatives.csv"),
+  file.path(score_card_dir, "peers_climate_scorecard_survey_initiatives.csv"),
   col_types = readr::cols_only(
     peer_group = "c",
     n = "n",
@@ -547,7 +553,7 @@ member_initiatives_peers <- data_prep_climate_strategy_scorecard_initiatives %>%
 
 ```{r climate_strategy_voting_rights, fig.height = 6}
 user_climate_strategy_scorecard_voting <- readr::read_csv(
-  file.path(survey_dir, language, "climate_scorecard_survey_voting.csv"),
+  file.path(score_card_dir, "climate_scorecard_survey_voting.csv"),
   col_types = readr::cols_only(
     peer_group = "c",
     user_id = "n",
@@ -557,7 +563,7 @@ user_climate_strategy_scorecard_voting <- readr::read_csv(
 )
 
 peers_climate_strategy_scorecard_voting <- readr::read_csv(
-  file.path(survey_dir, language, "peers_climate_scorecard_survey_voting.csv"),
+  file.path(score_card_dir, "peers_climate_scorecard_survey_voting.csv"),
   col_types = readr::cols_only(
     peer_group = "c",
     asset_type = "c",
@@ -600,7 +606,7 @@ voting_rights_peers <- data_prep_climate_strategy_scorecard_voting %>%
 
 ```{r climate_strategy_engagement, fig.height = 6}
 user_climate_strategy_scorecard_engagement <- readr::read_csv(
-  file.path(survey_dir, language, "climate_scorecard_survey_engagement.csv"),
+  file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"),
   col_types = readr::cols_only(
     peer_group = "c",
     user_id = "n",
@@ -610,7 +616,7 @@ user_climate_strategy_scorecard_engagement <- readr::read_csv(
 )
 
 peers_climate_strategy_scorecard_engagement <- readr::read_csv(
-  file.path(survey_dir, language, "peers_climate_scorecard_survey_engagement.csv"),
+  file.path(score_card_dir, "peers_climate_scorecard_survey_engagement.csv"),
   col_types = readr::cols_only(
     peer_group = "c",
     asset_type = "c",
