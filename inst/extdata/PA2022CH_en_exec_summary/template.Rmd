@@ -158,11 +158,11 @@ data_scatter_power_b <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "bonds"
 )
- plot_scatter(data_scatter_power_b) +
-   patchwork::plot_annotation(
-     title = "Bonds",
-     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-     )
+ # plot_scatter(data_scatter_power_b) +
+ #   patchwork::plot_annotation(
+ #     title = "Bonds",
+ #     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+ #     )
 
 data_scatter_power_e <- prep_scatter(
   results_portfolio = results_portfolio,
@@ -172,11 +172,11 @@ data_scatter_power_e <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "equity"
 )
-plot_scatter(data_scatter_power_e) +
-   patchwork::plot_annotation(
-     title = "Equity",
-     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-     )
+# plot_scatter(data_scatter_power_e) +
+#    patchwork::plot_annotation(
+#      title = "Equity",
+#      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+#      )
 ```
 
 ### Future (Other PACTA sectors)
@@ -254,7 +254,7 @@ plot_alignment_table(data_alignment_table)
 
 \newpage
 
-```{r conditional_print, child='survey-chapter.Rmd', eval = dir.exists(survey_dir)}
+```{r conditional_print, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
 
 ## Real Estate & Mortgage Results
@@ -548,15 +548,24 @@ Text and Graph
 Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
 
 ```{r climate_strategy_initiatives, fig.height = 6}
-user_climate_strategy_scorecard_initiatives <- readr::read_csv(
-  file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"),
-  col_types = readr::cols_only(
-    user_id = "n",
-    peer_group = "c",
-    name_climate_initiative = "c",
-    climate_initiative = "n"
+if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {
+  user_climate_strategy_scorecard_initiatives <- readr::read_csv(
+    file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"),
+    col_types = readr::cols_only(
+      user_id = "n",
+      peer_group = "c",
+      name_climate_initiative = "c",
+      climate_initiative = "n"
+    )
   )
-)
+} else {
+  user_climate_strategy_scorecard_initiatives <- tibble::tibble(
+    user_id = 0,
+    peer_group = peer_group,
+    name_climate_initiative = NA_character_,
+    climate_initiative = NA_real_
+  )
+}
 
 peers_climate_strategy_scorecard_initiatives <- readr::read_csv(
   file.path(score_card_dir, "peers_climate_scorecard_survey_initiatives.csv"),
@@ -583,20 +592,29 @@ member_initiatives_peers <-
 
 * Is the financial institution member of a climate initiative?
 
-  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else {"NO"}`  (Peers: `r round(member_initiatives_peers * 100)` %)**
+  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers: `r round(member_initiatives_peers * 100)` %)**
   `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}`
 
 
 ```{r climate_strategy_voting_rights, fig.height = 6}
-user_climate_strategy_scorecard_voting <- readr::read_csv(
-  file.path(score_card_dir, "climate_scorecard_survey_voting.csv"),
-  col_types = readr::cols_only(
-    peer_group = "c",
-    user_id = "n",
-    asset_type = "c",
-    voting_rights = "c"
+if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_voting.csv"))) {
+  user_climate_strategy_scorecard_voting <- readr::read_csv(
+    file.path(score_card_dir, "climate_scorecard_survey_voting.csv"),
+    col_types = readr::cols_only(
+      peer_group = "c",
+      user_id = "n",
+      asset_type = "c",
+      voting_rights = "c"
+    )
   )
-)
+} else {
+  user_climate_strategy_scorecard_voting <- tibble::tibble(
+    peer_group = peer_group,
+    user_id = 0,
+    asset_type = c("INF", "LE", "Other", "PE"),
+    voting_rights = "not_answered"
+  )
+}
 
 peers_climate_strategy_scorecard_voting <- readr::read_csv(
   file.path(score_card_dir, "peers_climate_scorecard_survey_voting.csv"),
@@ -626,22 +644,32 @@ voting_rights_peers <-
 
 * Does the financial institution support climate strategies through voting rights?
   
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %)**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` %)**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` %)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` %);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` %);**
   **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` %)**
   
 
 ```{r climate_strategy_engagement, fig.height = 6}
-user_climate_strategy_scorecard_engagement <- readr::read_csv(
-  file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"),
-  col_types = readr::cols_only(
-    peer_group = "c",
-    user_id = "n",
-    asset_type = "c",
-    engagement = "c"
+if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"))) {
+  user_climate_strategy_scorecard_engagement <- readr::read_csv(
+    file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"),
+    col_types = readr::cols_only(
+      peer_group = "c",
+      user_id = "n",
+      asset_type = "c",
+      engagement = "c"
+    )
   )
-)
+} else {
+  user_climate_strategy_scorecard_engagement <- tibble::tibble(
+    peer_group = peer_group,
+    user_id = 0,
+    asset_type = c("CB", "LE", "Other", "RE"),
+    engagement = "not_answered"
+  )
+}
+
 
 peers_climate_strategy_scorecard_engagement <- readr::read_csv(
   file.path(score_card_dir, "peers_climate_scorecard_survey_engagement.csv"),
