@@ -6,7 +6,7 @@ prep_emissions_scorecard <- function(emissions_data = NULL,
   }
 
   portfolio_value_currency_asset_type <- audit_data %>%
-    dplyr::filter(asset_type %in% c("Equity", "Bonds")) %>%
+    dplyr::filter(.data$asset_type %in% c("Equity", "Bonds")) %>%
     dplyr::group_by(.data$asset_type, .data$entity) %>%
     dplyr::summarise(
       value_curr_mio = sum(.data$value_usd / .env$currency_exchange_value, na.rm = TRUE) / 1000000,
