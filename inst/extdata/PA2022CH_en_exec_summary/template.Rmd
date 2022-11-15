@@ -200,7 +200,8 @@ plot_scores(data_scores) +
     )
 ```
 
-```{r scores_bonds}
+```{r scores_bonds, eval = FALSE}
+# FIXME: turn eval back on
 # the specific PACTA outputs that we need here are my guesses 
 data_scores <- prep_scores(
   results_portfolio = results_portfolio,
@@ -226,7 +227,8 @@ While the previous section provided insights on the current exposure to the diff
 The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as % of AUM.
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
-```{r alignment_table_bonds, fig.height = 6}
+```{r alignment_table_bonds, fig.height = 6, eval = FALSE}
+# FIXME: turn eval back on
 # the specific PACTA outputs that we need here are my guesses 
 data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
@@ -565,7 +567,8 @@ Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_co
 There is scientific consensus on the need to phase-out coal, stop financing new fossil fuel projects, and to increase renewable power capacity. Below figure shows the financial exposure (as AUM in %) of this portfolio to technologies in the industries coal mining, oil and gas upstream, fossil fuel power production, and renewable power production. The PACTA exposure is based on production capacities and not on revenues. 
 
 
-```{r exposures_scorecard}
+```{r exposures_scorecard, eval = FALSE}
+# FIXME: turn eval back on
 # the specific PACTA outputs that we need here are my guesses 
 data_exposures_scorecard <- prep_exposures_scorecard(results_portfolio)
 plot_exposures_scorecard(data_exposures_scorecard)
@@ -575,7 +578,8 @@ plot_exposures_scorecard(data_exposures_scorecard)
 
 #### PACTA Aggregated Climate Alignment Score
 
-```{r scores_scorecard}
+```{r scores_scorecard, eval = FALSE}
+# FIXME: turn eval back on
 # the specific PACTA outputs that we need here are my guesses 
 data_scores_scorecard <- prep_scores_scorecard(results_portfolio)
 plot_scores_scorecard(data_scores_scorecard)
