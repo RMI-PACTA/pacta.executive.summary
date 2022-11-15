@@ -6,6 +6,7 @@
 #' @param exec_summary_dir Character single, valid filepath to a directory that contains the template, e.g. `system.file("extdata", "PA2022CH_en_exec_summary", package = "pacta.executive.summary")`
 #' @param survey_dir Character single, valid filepath to a directory that contains the survey files for the user
 #' @param real_estate_dir Character single, valid filepath to a directory that contains real estate files for the user
+#' @param real_estate_flag Logical single, whether or not to render the real estate section
 #' @param score_card_dir Character single, valid filepath to a directory that contains score card files for the user
 #' @param file_name Character single, valid filename of the Rmd template file, e.g. "template.Rmd"
 #' @param investor_name Character single string specifying the investor name
