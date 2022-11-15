@@ -61,25 +61,23 @@ plot_score_portfolio <- function(data) {
   peer_label_y <- data %>% filter(.data$entity == "peers") %>% pull("score_label")
 
   p <- plot_basic_scorebar() +
-    annotate("segment", x = 0.5, xend = 1.5, y = c_position, yend = c_position, size = 1.3) +
+    annotate("segment", x = 0.5, xend = 1.5, y = c_position, yend = c_position, linewidth = 1.3) +
     annotate(
       "segment",
-      x = 1.55,
+      x = 1.9,
       xend = 1.5,
       y = portfolio_label_y,
       yend = portfolio_label_y,
-      size = 2,
-      arrow = arrow(type = "closed"),
+      arrow = arrow(type = "closed", length = unit(0.4, "npc")),
       color = unname(fill_colours_entities_scores["portfolio"])
     ) +
     annotate(
       "segment",
-      x = 1.55,
+      x = 1.7,
       xend = 1.5,
       y = peer_label_y,
       yend = peer_label_y,
-      size = 0.5,
-      arrow = arrow(type = "closed"),
+      arrow = arrow(type = "closed", length = unit(0.2, "npc")),
       color = unname(fill_colours_entities_scores["benchmark"])
     ) +
     theme(axis.line = element_blank())
@@ -111,22 +109,20 @@ plot_score_sector <- function(data, sector) {
     ) +
     annotate(
       "segment",
-      x = 1.55,
+      x = 1.8,
       xend = 1.5,
       y = portfolio_label_y,
       yend = portfolio_label_y,
-      size = 2,
-      arrow = arrow(type = "closed"),
+      arrow = arrow(type = "closed", length = unit(0.3, "npc")),
       color = unname(fill_colours_entities_scores["portfolio"])
     ) +
     annotate(
       "segment",
-      x = 1.55,
+      x = 1.65,
       xend = 1.5,
       y = peer_label_y,
       yend = peer_label_y,
-      size = 0.5,
-      arrow = arrow(type = "closed"),
+      arrow = arrow(type = "closed", length = unit(0.15, "npc")),
       color = unname(fill_colours_entities_scores["benchmark"])
     ) +
     theme(
@@ -155,22 +151,20 @@ legend_scores <- function() {
   l <- ggplot(fake_data, aes(x = .data$x, y = .data$y)) +
     annotate(
       "segment",
-      x = 0,
+      x = 0.1,
       xend = -0.5,
       y = 3.5,
       yend = 3.5,
-      size = 1,
-      arrow = arrow(type = "closed"),
+      arrow = arrow(type = "closed", length = unit(0.2, "npc")),
       color = unname(fill_colours_entities_scores["portfolio"])
     ) +
     annotate(
       "segment",
-      x = 0,
-      xend = -0.5,
+      x = 0.1,
+      xend = -0.2,
       y = 2.5,
       yend = 2.5,
-      size = 0,
-      arrow = arrow(type = "closed"),
+      arrow = arrow(type = "closed", length = unit(0.15, "npc")),
       color = unname(fill_colours_entities_scores["benchmark"])
     ) +
     annotate(
