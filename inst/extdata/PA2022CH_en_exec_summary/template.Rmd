@@ -2,6 +2,7 @@
 output:
   pdf_document:
     latex_engine: xelatex
+fontsize: 10pt
 always_allow_html: true
 params:
   survey_dir: NULL
