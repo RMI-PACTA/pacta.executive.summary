@@ -149,7 +149,8 @@ plot_fossil_bars(data_fossil_bars)
 
 The chart below shows the current low-carbon exposure and the forward-looking climate scenario alignment in the power sector for you and your peers. The current exposure to low-carbon technologies in the power sector increases right-wards, while the alignment improves upwards. A significant increase in renewable energy capacity will be required to achieve a 1.5°C climate scenario, so even companies with a high current share of low-carbon technologies will need to build new capacity in order to be aligned in the future. A current high low-carbon share and a low future alignment would therefore indicate a lack of planned renewables investment.
 
-```{r scatter, fig.show="hold", out.width="50%"}
+```{r scatter, fig.show="hold", out.width="50%", eval = FALSE}
+# FIXME: turn eval back on
 data_scatter_power_b <- prep_scatter(
   results_portfolio = results_portfolio,
   peers_results_aggregated = peers_results_aggregated,
