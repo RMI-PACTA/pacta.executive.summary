@@ -250,10 +250,25 @@ prep_data_executive_summary <- function(investor_name,
     dplyr::mutate(entity = "benchmark") %>%
     dplyr::filter(.data$portfolio_name == "iShares Global Corp Bond UCITS ETF")
 
-
   emissions <- emissions_portfolio %>%
     dplyr::bind_rows(emissions_indices_eq) %>%
     dplyr::bind_rows(emissions_indices_cb)
+
+
+  audit_portfolio <- audit_file %>%
+    dplyr::mutate(entity = "portfolio")
+
+  audit_indices_eq <- readRDS(file.path(score_card_dir, "Indices_equity_audit.rds")) %>%
+    dplyr::mutate(entity = "benchmark") %>%
+    dplyr::filter(.data$portfolio_name == "iShares MSCI World ETF")
+
+  audit_indices_cb <- readRDS(file.path(score_card_dir, "Indices_bonds_audit.rds")) %>%
+    dplyr::mutate(entity = "benchmark") %>%
+    dplyr::filter(.data$portfolio_name == "iShares Global Corp Bond UCITS ETF")
+
+  audit_data <- audit_portfolio %>%
+    dplyr::bind_rows(audit_indices_eq) %>%
+    dplyr::bind_rows(audit_indices_cb)
 
   # TODO: translate data
 
@@ -262,7 +277,7 @@ prep_data_executive_summary <- function(investor_name,
     peers_results_aggregated = peers_results_aggregated,
     peers_results_individual = peers_results_individual,
     indices_results_portfolio = indices_results_portfolio,
-    audit_data = audit_file,
+    audit_data = audit_data,
     emissions_data = emissions
   )
 

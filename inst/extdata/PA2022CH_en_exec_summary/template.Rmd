@@ -524,7 +524,6 @@ All sources of carbon emissions from invested companies (scope 1-3) are included
 # the specific PACTA outputs that we need here are my guesses 
 data_emissions_scorecard <- prep_emissions_scorecard(
   emissions_data = emissions_data,
-  # TODO: needs the audit files of the benchmarks!!!
   audit_data = audit_data,
   currency_exchange_value = currency_exchange_value
 )
@@ -540,16 +539,16 @@ total_portfolio_value_curr <- audit_data %>%
 
 total_portfolio_percentage_equity <- (audit_data %>%
   filter(asset_type == "Equity") %>%
-  mutate(value_curr = value_usd/currency_exchange_value) %>%
+  mutate(value_curr = value_usd / currency_exchange_value) %>%
   dplyr::pull(value_curr) %>%
-  sum(na.rm =T)) /
+  sum(na.rm = TRUE)) /
   total_portfolio_value_curr
 
 total_portfolio_percentage_bonds <- (audit_data %>%
   filter(asset_type == "Bonds") %>%
-  mutate(value_curr = value_usd/currency_exchange_value) %>%
+  mutate(value_curr = value_usd / currency_exchange_value) %>%
   dplyr::pull(value_curr) %>%
-  sum(na.rm =T)) /
+  sum(na.rm = TRUE)) /
   total_portfolio_value_curr
 
 total_portfolio_percentage_coverage <- (total_portfolio_percentage_equity + total_portfolio_percentage_bonds)
@@ -562,7 +561,7 @@ Benchmark:
 |iShares MSCI World ETF | iShares Global Corp Bond UCITS ETF |
 
 
-Portfolio assets covered by assessment: **`r total_portfolio_percentage_coverage * 100` %**
+Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100, 1)` %**
 
 #### Exposure to fossil fuels and renewable power, based on PACTA methodology
 

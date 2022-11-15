@@ -19,7 +19,6 @@ prep_emissions_scorecard <- function(emissions_data = NULL,
 
   emissions_asset_entity <- emissions_data %>%
     dplyr::group_by(.data$asset_type, .data$entity) %>%
-    # TODO: check if this what we need or if it needs to be divivded by the asset value covered
     dplyr::mutate(emissions_asset = sum(.data$weighted_sector_emissions, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
     dplyr::mutate(
@@ -45,8 +44,8 @@ prep_emissions_scorecard <- function(emissions_data = NULL,
       portfolio_value_currency_asset_type,
       by = c("asset_class", "entity")
     ) %>%
-    dplyr::mutate(carbon_footprint = .data$emissions / .data$value_curr_mio) %>%
-    dplyr::select(c("asset_class", "entity", "carbon_footprint"))
+    dplyr::mutate(emissions = round(.data$emissions / .data$value_curr_mio, 1)) %>%
+    dplyr::select(c("asset_class", "entity", "emissions"))
 
   return(data_out)
 }
