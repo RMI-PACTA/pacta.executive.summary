@@ -6,6 +6,7 @@ always_allow_html: true
 params:
   survey_dir: NULL
   real_estate_dir: NULL
+  real_estate_flag: TRUE
   score_card_dir: NULL
   language: EN
   investor_name: investor
@@ -377,7 +378,7 @@ plot_exposures_survey(data_exposures_survey) +
 
 Text
 
-```{r example_real_estate_chart, fig.height = 6}
+```{r example_real_estate_chart, fig.height = 6, eval = params$real_estate_flag}
 # the specific PACTA outputs that we need here are my guesses 
 knitr::include_graphics(file.path(real_estate_dir, language, "example_real_estate_chart.png"))
 # TODO: add title - Oil exclusion badge - bonds.

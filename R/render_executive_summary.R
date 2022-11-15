@@ -40,6 +40,7 @@ render_executive_summary <- function(data,
     params = list(
       survey_dir = survey_dir,
       real_estate_dir = real_estate_dir,
+      real_estate_flag = real_estate_flag,
       score_card_dir = score_card_dir,
       language = language,
       investor_name = investor_name,
