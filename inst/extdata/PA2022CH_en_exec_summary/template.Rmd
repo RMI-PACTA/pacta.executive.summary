@@ -7,6 +7,7 @@ params:
   survey_dir: NULL
   real_estate_dir: NULL
   real_estate_flag: TRUE
+  score_card_dir: NULL
   language: EN
   investor_name: investor
   portfolio_name: portfolio
@@ -23,10 +24,11 @@ params:
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 
 survey_dir <- params$survey_dir
 real_estate_dir <- params$real_estate_dir
+score_card_dir <- params$score_card_dir
 investor_name <- params$investor_name
 portfolio_name <- params$portfolio_name
 peer_group <- params$peer_group
@@ -43,7 +45,7 @@ emissions_data <- params$emissions_data
 ```
 
 ---
-title: Executive summary
+title: Executive Summary
 subtitle:  |  
   | PACTA Climate Test Switzerland 2022
   | Results of `r investor_name`, portfolio: `r portfolio_name`
@@ -59,19 +61,47 @@ subtitle:  |
 
 ### Table of contents
 
-### About PACTA Climate Test 2022
+1. Equity & Bonds (overview)
+2. Equity & Bonds (current & future)
+3. Survey
+4. Real estate & mortgages
+5. PACTA-based scorecard informed by Swiss Climate Scores
+6. Annex (Detailed chart explanations; FAQs)
 
-Text
+### About the PACTA Climate Test 2022
+
+Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C.  The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals. `r investor_name` was invited to the test by the FOEN ([link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html)) and SIF ([link](https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html)) with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 **CHECK** financial institutions participated, of which **[xx]** were peers (i.e., participants from same financial sector as pension funds; insurances; banks; asset managers).
+
+This executive summary is a short   of the individual results of your uploaded portfolio `r investor_name`. [XY] received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed by [XY] via personalized access at platform.transitionmonitor.com ) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website [LINK] and is available for download.
 
 ### Measuring climate alignment
 
+In the view of PACTA and FOEN, there are three main components that are useful to measure alignment with climate goals which are shown below. The icons are used throughout this document to indicate the category for each chart.
+
 Text in 3 columns
+
+col 1
+
+**Exposure:** provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings, and therefore offers a risk-perspective to climate alignment.
+
+col2
+
+**Trajectory alignment:** Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
+
+col 3
+
+**Engagement & other qualitative indicators:** complementing analysis with information on climate actions that can have real-world climate impact.
+
+
 
 ### Equity & bonds module overview
 
-Text
+The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. 
+The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to [link with new documentation].
 
-```{r diagram}
+```{r diagram, eval = FALSE}
+#FIXME: make sure we evaluate this plot, once fixed. 
+
 # the specific PACTA outputs that we need here are my guesses 
 data_diagram <- prep_diagram(
   audit_data = audit_data,
@@ -81,13 +111,13 @@ plot_diagram(data_diagram)
 ```
 \newpage
 
-## Equity & Bonds Module
+## Equity & Bonds Results
 
 ### Current state (PACTA sectors)
 
-#### Exposure to climate-relevant sectors & technologies as % of AUM
+#### Exposure* to climate-relevant sectors & technologies as % of AUM
 
-Text
+The chart provides information on the exposure to the PACTA sectors. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
 
 ```{r exposure}
 # the specific PACTA outputs that we need here are my guesses 
@@ -109,9 +139,15 @@ data_fossil_bars <- prep_fossil_bars(
 plot_fossil_bars(data_fossil_bars)
 ```
 
-### Current & future state (Power sector)
+\* exposure to companies with main activity in PACTA sectors
+
+\*\* ‘Low-carbon’ technologies: renewables for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
+
+### Current & future state (power sector)
 
 #### Current exposure vs. future alignment for Power sector
+
+The chart below shows the current low-carbon exposure and the forward-looking climate scenario alignment in the power sector for you and your peers. The current exposure to low-carbon technologies in the power sector increases right-wards, while the alignment improves upwards. A significant increase in renewable energy capacity will be required to achieve a 1.5°C climate scenario, so even companies with a high current share of low-carbon technologies will need to build new capacity in order to be aligned in the future. A current high low-carbon share and a low future alignment would therefore indicate a lack of planned renewables investment.
 
 ```{r scatter_bonds, out.width="50%"}
 data_scatter_power <- prep_scatter(
@@ -128,7 +164,7 @@ data_scatter_power <- prep_scatter(
 #     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
 #     )
 ```
-Text
+
 
 ```{r scatter_equity, out.width="50%"}
 # REMEMBER: we need an additional data point with average here
@@ -148,11 +184,11 @@ data_scatter_power <- prep_scatter(
 #     )
 ```
 
-### Future state (PACTA sectors)
+### Future (Other PACTA sectors)
 
-#### Aggregated alignment scores
+#### PACTA Aggregated Climate Alignment Score
 
-Text
+The aggregated score compares the alignment of all assets until 2026 to the [XYZ] Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores page 10) and per PACTA sector (except for cement).
 
 ```{r scores_equity}
 # the specific PACTA outputs that we need here are my guesses 
@@ -184,11 +220,15 @@ plot_scores(data_scores) +
 
 \newpage
 
-## Equity & Bonds Module
+## Equity & Bonds Results
 
-### Future state (PACTA sectors)
+### Transition
 
 #### Scenario alignment per technology
+
+While the previous section provided insights on the current exposure to the different PACTA sectors as well as an overview of the alignment on an aggregated level and sector level, this section provides complementary insights into alignment on a technology level. 
+The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as % of AUM.
+To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
 ```{r alignment_table_bonds, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
@@ -201,7 +241,6 @@ plot_alignment_table(data_alignment_table)
 # TODO: add title
 ```
 
-Text
 
 ```{r alignment_table_equity, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
@@ -214,12 +253,23 @@ plot_alignment_table(data_alignment_table)
 # TODO: add title
 ```
 
+\* Renewables: include solar and wind power, exclude hydro and nuclear
+
+\*\* Automotive: includes light-duty vehicles (LDV)
+
 \newpage
 
-## Survey
+## Climate Action Survey
 
-Text
-Text in a box
+This section provides insights in the effectiveness of climate actions on an institutional level. The results base on the complementary qualitative climate action survey. The survey results are compared to peers and the quantitative results of this portfolio. Please note that survey answers were self-reported and not verified by 2DII, RMI, and WP.
+
+Text in a box:
+**Explanation on dart charts below:** The dart charts are a newly developed chart type that depicts your climate-relevant measures. Each circle represents one climate relevant measure and is colored in case the measure is in place. The level of effectiveness of the measures increases from the outer to the inner ring and with colour intensity. The more circles are filled from the outer to the inner circle, the more ambitious are your institution’s climate actions. For more information on the specific measures shown in the layers, please refer to page 7. 
+
+### Overview
+
+On the left hand side, you find the initiatives you are part of. The larger the font size, the more peers are part of it. In the middle, you see a dart chart indicating your climate. On the right, you can see how many of your peers have all three climate strategies in place, which is considered as best practice.
+
 ```{r plot_wordcloud, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
 knitr::include_graphics(file.path(survey_dir, language, "plot_wordcloud.png"))
@@ -232,13 +282,11 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_in
 # TODO: add title
 ```
 
-### Overview
-
-Text
 
 ### Investee engagement per sector
 
-Text
+Research shows that engagement is one of the most effective ways to improve climate goal alignment of companies invested through equity and bonds. Therefore, the engagement dart charts below show your engagement measures for three climate crucial sectors and thereby complement the previous alignment section. The text besides provides a comparison to the share of peers with best practice, i.e., the ones that have all layers covered.
+
 
 ```{r plot_layer_with_peer_info_engagement_Fossil_Fuels, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
@@ -256,9 +304,9 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_in
 # TODO: add title - Fossil fuels engagement badge.
 ```
 
-### Climate-aligned strategies and PACTA fossil fuel exposure
+### Negative screening vs. fossil fuel PACTA exposure
 
-Text
+These charts compare the reported climate-aligned strategies to the exposure to coal mining and oil & gas extraction. If exclusion strategies are applied at an institutional level, it is expected that exposure in these technologies will be zero or very low compared to the total portfolios peers.
 
 ```{r plot_layer_asset_exclusion_coal_Listed_equities, fig.height = 6}
 # the specific PACTA outputs that we need here are my guesses 
@@ -326,7 +374,7 @@ plot_exposures_survey(data_exposures_survey) +
 
 \newpage
 
-## Real Estate & Mortgage Module
+## Real Estate & Mortgage Results
 
 Text
 
@@ -340,19 +388,146 @@ knitr::include_graphics(file.path(real_estate_dir, language, "example_real_estat
 
  <!-- TODO: the formatting in this one will most probably be different than the rest of the document - investigate -->
  
+
 \newpage
 
-## Climate Score Card
+## Annex (I): additional chart explanation
+
+### Exposure to climate-relevant sectors & technologies as % of AUM
+
+Chart_sample 1
+
+Chart_sample 2
+
+The bar chart on the left shows the portfolio's exposure to each of the eight PACTA sectors as a percentage of assets under management. The bars are arranged by the amount of exposure in descending order. In addition, a breakdown of technologies (low-carbon, carbon-intensive, unspecified) is provided for those sectors for which such a breakdown is defined. The graph on the right shows the exposure to the fossil fuel extraction sector as a breakdown between the different fossil fuels coal, oil and gas. In addition, a comparison with peers (pension funds, insurance companies, banks or asset managers) as well as with an ETF for the MSCI World Index can be seen.
+
+### Current exposure vs. future alignment for power sector
+
+Chart_sample 3
+
+This chart shows current low-carbon technology exposure (percentage of sectoral exposure, x-axis) plotted against the sector-level alignment metric (alignment score, y-axis). Coloured dots represent different entities (portfolio, average of all participants, average of peers). It investigates the relation between the two values as well as provides context for the alignment score. Ideally, an insitution would like to be positioned in the upper right corner (high exposure to low-carbon and high alignment). The bottom left corner is the least desired position (low exposure to low-carbon and low alignment).
+
+
+\newpage
+
+## Annex (I): additional chart explanation
+
+### Aggregated alignment scores
+
+Chart_sample 4
+
+This chart displays the alignment scores both on the aggreagte level (left-most bar) and on sector level. The bigger, dark-blue triangle indicates the score obtained by this portfolio and the smaller grey triangle indicates the average peer result. The horizontal line delineates the scores aligned with the 1.8°C pathway (or higher) from those that are not aligned. The 1.8°C pathway matches with the target in the Paris Agreement of limiting global warming to “well below 2°C”. The scores indicate the scenario with which the production plans of the invested companies align. Please refer to the two visualizations below for more information. 
+
+### Scenario choice and grading
+
+This table shows the technical specifications in regard to the scenarios to define the score. For each score, one can see the requirements in regard to each scenario in the same row.
+
+table_scenario_grading
+
+### Example of production plans for a green technology according to the scores. 
+
+The chart below visualizes the specifications of the aggregated alignment score for an examplary production plan of a green technology. To derive the aggregated score, the sector-level scores are aggregated to one score. 
+
+chart_scenario_grading
+
+\newpage
+
+## Annex (II): additional chart explanation
+
+### Dart chart: overall climate strategy
+
+Chart_sample 5
+
+This dart chart shows whether your institution as a whole, according to your answers, practices reporting, has a climate strategy in place, and has concrete climate targets. An increasing efficacy from the first (outer layer) to the third (inner layer) is assumed. Best practice is defined as having all three layers covered.
+Transparency through reporting is a first step in the right direction, but ultimately a concrete climate goal needs to be set and backed by a trustworthy climate strategy to make a change. 
+
+### Dart chart: investee engagement in fossil fuel, automotive, and power sector
+
+Chart_sample 6
+
+This dart charts shows which engagement actions your institution is practicing, accoding to your answers. It starts with a general engagement policy, which can be improved in effectiveness through a dedicated engagement team and finally through joint engagement with other institutions. Best practice is when all three levels are covered.
+The chart is shown separately for fossil fuels, automotive, and power sector as these (i) are considered as the most climate relevant sectors and (ii) have low-carbon substitutes which allows investors to support the shift to existing technologies. 
+Considering joint engagement as a way to increase the efficacy of engagement practices is echoed by literature on the topic and supported by, for example, the NZAOA **(Link to report here)**. 
+
+
+### Dart chart: negative screening in oil and gas as well as coal sector
+
+Chart_sample 7
+
+This dart chart shows whether your institution as a whole, according to your answers, has exclusion criteria defined, practices underweighting in the respective sectors as well as excludes companies if your action is not successful. Best practice is defined as having all three layers covered. 
+This layer chart is shown for coal on the one hand and oil and gas on the other hand separately, and compared to the exposure in the respective sectors. The comparison to the PACTA exposure aims to provide insights in the effectiveness of the negative screening actions.
+
+\newpage
+
+## Annex (III): Explanation of Charts
+
+Explanation Real Estate
+
+
+\newpage
+
+## Annex (IV): FAQs
+
+### Which are the PACTA sectors?
+
+The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil & gas production, power generation (fossil and renewable); automotive production (ICE , hybrid, electric), aviation, cement, and steel.
+Usually, 5-15% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of emissions. Please see the graphs of a sample portfolio below:
+
+#### Financial Exposure
+
+Chart_sample 7
+
+#### Emission Exposure
+
+Chart_sample 8
+
+### Which asset classes does PACTA cover? 
+
+The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2022 also includes Swiss real estate and mortgages. 
+
+Placeholder: Information on coverage of equity, bonds, and Swiss buildings to be added (once we know).
+
+
+### How can I use my results for disclosure?
+
+To what extent you use your results is up to you. However, the results are suitable for a variety of reporting opportunities, such as:
+
+* Internal reporting and communication
+* Reporting in the environment of the participating financial institution (clients, insured parties etc.)
+* External disclosure: Implementing the federal council’s recommendations ([Link](https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html)) to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores ([Link](https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html)).
+* Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report: [The Disclosure Puzzle – the role of PACTA](https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf).
+
+### Where can I find the full results of this test (interactive report)?
+
+This Executive Summary serves as a supplement to the comprehensive and interactive presentation of your results in the so-called interactive test report. You can view this on the Transition Monitor Platform under "Results" after logging in with your password: [https://platform.transitionmonitor.com/](https://platform.transitionmonitor.com/).
+
+### Where can I learn more about the PACTA Methodology?
+
+If you want to learn more about the open-source methodology behind PACTA, you can do so on our "PACTA Knowledge Hub“ ([Link](https://rmi.gitbook.io/pacta-knowledge-hub/)).
+
+
+\newpage
+
+
+## Climate Score Indicators
+
+### PACTA Executive Summary 2022
+
+The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the [Swiss Climate Scores](https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html) were defined during the PACTA Climate Test 2022, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
 
 ### Current State
 
-#### Carbon Emissions
+#### Carbon Footprint
 
-Text
+All sources of carbon emissions from invested companies (scope 1-3) are included in the estimation.
 
 ```{r emissions_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
-data_emissions_scorecard <- prep_emissions_scorecard(emissions_data)
+data_emissions_scorecard <- prep_emissions_scorecard(
+  emissions_data = emissions_data,
+  audit_data = audit_data,
+  currency_exchange_value = currency_exchange_value
+)
 plot_emissions_scorecard(data_emissions_scorecard)
 ```
 
@@ -365,31 +540,34 @@ total_portfolio_value_curr <- audit_data %>%
 
 total_portfolio_percentage_equity <- (audit_data %>%
   filter(asset_type == "Equity") %>%
-  mutate(value_curr = value_usd/currency_exchange_value) %>%
+  mutate(value_curr = value_usd / currency_exchange_value) %>%
   dplyr::pull(value_curr) %>%
-  sum(na.rm =T)) /
+  sum(na.rm = TRUE)) /
   total_portfolio_value_curr
 
 total_portfolio_percentage_bonds <- (audit_data %>%
   filter(asset_type == "Bonds") %>%
-  mutate(value_curr = value_usd/currency_exchange_value) %>%
+  mutate(value_curr = value_usd / currency_exchange_value) %>%
   dplyr::pull(value_curr) %>%
-  sum(na.rm =T)) /
+  sum(na.rm = TRUE)) /
   total_portfolio_value_curr
 
 total_portfolio_percentage_coverage <- (total_portfolio_percentage_equity + total_portfolio_percentage_bonds)
   
 ```
+Benchmark:
+
 |Listed Equity |Corporate Bonds |
 |:-------------|:---------------|
 |iShares MSCI World ETF | iShares Global Corp Bond UCITS ETF |
 
 
-Portfolio assets covered by assessment: **`r total_portfolio_percentage_coverage * 100` %**
+Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100, 1)` %**
 
-#### Exposure to Fossil-fuel and other climate-relevant activities
+#### Exposure to fossil fuels and renewable power, based on PACTA methodology
 
-Text
+There is scientific consensus on the need to phase-out coal, stop financing new fossil fuel projects, and to increase renewable power capacity. Below figure shows the financial exposure (as AUM in %) of this portfolio to technologies in the industries coal mining, oil and gas upstream, fossil fuel power production, and renewable power production. The PACTA exposure is based on production capacities and not on revenues. 
+
 
 ```{r exposures_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
@@ -399,9 +577,7 @@ plot_exposures_scorecard(data_exposures_scorecard)
 
 ### Transition to Net zero
 
-#### Global Warming Alignment
-
-Text
+#### PACTA Aggregated Climate Alignment Score
 
 ```{r scores_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
@@ -411,11 +587,61 @@ plot_scores_scorecard(data_scores_scorecard)
 # TODO: needs to return actual scenario name
 ```
 
-#### Verified Commitments to Net-Zero
-```{r sbti_net_zero_commitments, fig.height = 6}
-fin_data_net_zero_targets <- readr::read_csv(file.path(survey_dir, language, "fin_data_net_zero_targets.csv"))
+This score represents the estimated aggregate alignment of the PACTA sectors (except for cement) in the portfolio with respect to the GECO 2021 scenarios. Please bear in mind that the interpretation of this score should be accompanied by an analysis of the underlying results and investment strategy used in each one of the analysed sectors, given the assumptions that an aggregated metric is based on. Some portfolios with climate objectives may intentionally include investments in companies that are not yet on track to achieve 1.5°C alignment, seeking instead to contribute actively to climate goals by improving the alignment of investee companies to bring a larger share of the economy into alignment over time. The combined set of indicators above and their display are considered by the Swiss government to represent the current best-practice in providing science-based transparency on the alignment of portfolio assets with global climate goals.
 
-peer_group_share_net_zero <- readr::read_csv(file.path(survey_dir, language, "peer_group_share_net_zero.csv"))
+```{r general_info, fig.height = 6}
+
+portfolio_emissions_covered <- emissions %>%
+  dplyr::mutate(
+    covered_pacta = dplyr::if_else(
+      .data$sector %in% c("Automotive", "Coal", "Oil&Gas", "Power", "Aviation", "Cement", "Steel"),
+      TRUE,
+      FALSE
+    )
+  ) %>%
+  dplyr::group_by(covered_pacta) %>%
+  dplyr::summarise(
+    emissions_pacta = sum(.data$weighted_sector_emissions, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::mutate(
+    emissions_portfolio = sum(.data$emissions_pacta, na.rm = TRUE),
+    emissions_pacta_percent = emissions_pacta / emissions_portfolio
+  ) %>%
+  dplyr::filter(.data$covered_pacta) %>% 
+  dplyr::pull("emissions_pacta_percent")
+
+
+```
+Portfolio emissions covered by assessment: **`r round(portfolio_emissions_covered * 100)` %**
+
+Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100)` %**
+
+Climate scenario used: **GECO 2021**
+
+#### Verified Commitments to Net-Zero
+
+Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from [SBTi](https://sciencebasedtargets.org/companies-taking-action).
+
+```{r sbti_net_zero_commitments, fig.height = 6}
+fin_data_net_zero_targets <- readr::read_csv(
+  file.path(score_card_dir, "fin_data_net_zero_targets.csv"),
+  col_types = readr::cols_only(
+    isin = "c",
+    asset_type = "c",
+    factset_entity_id = "c"
+  )
+)
+
+peer_group_share_net_zero <- readr::read_csv(
+  file.path(score_card_dir, "peer_group_share_net_zero.csv"),
+  col_types = readr::cols_only(
+    investor_name = "c",
+    portfolio_name = "c",
+    share_net_zero = "n"
+  )
+)
 
 data_prep_net_zero_commitments <- prep_net_zero_commitments(
   total_portfolio = total_portfolio,
@@ -424,28 +650,39 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
   peer_group_share_net_zero = peer_group_share_net_zero
 )
 
-knitr::kable(data_prep_net_zero_commitments)
-# TODO: add title - SBTI net zero commitments.
 ```
 
-#### General Info
+* Share of companies in portfolio with verified commitments to net-zero and credible near term targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` %**
 
-```{r general_info, fig.height = 6}
-# TODO: add % emissions covered by assessment
+* Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` %**
 
-```
+#### Real Estate Score
 
-Portfolio assets covered by assessment: **`r total_portfolio_percentage_coverage * 100` %**
-
-Climate scenario used: **GECO 2021**
-
+Text and Graph
 
 #### Overall Climate Strategy including Credible Climate Stewardship
 
-```{r climate_strategy_initiatives, fig.height = 6}
-user_climate_strategy_scorecard_initiatives <- readr::read_csv(file.path(survey_dir, language, "climate_scorecard_survey_initiatives.csv"))
+Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
 
-peers_climate_strategy_scorecard_initiatives <- readr::read_csv(file.path(survey_dir, language, "peers_climate_scorecard_survey_initiatives.csv"))
+```{r climate_strategy_initiatives, fig.height = 6}
+user_climate_strategy_scorecard_initiatives <- readr::read_csv(
+  file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"),
+  col_types = readr::cols_only(
+    user_id = "n",
+    peer_group = "c",
+    name_climate_initiative = "c",
+    climate_initiative = "n"
+  )
+)
+
+peers_climate_strategy_scorecard_initiatives <- readr::read_csv(
+  file.path(score_card_dir, "peers_climate_scorecard_survey_initiatives.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    n = "n",
+    peers_yes = "n"
+  )
+)
 
 data_prep_climate_strategy_scorecard_initiatives <- prep_climate_strategy_scorecard_initiatives(
   data = user_climate_strategy_scorecard_initiatives,
@@ -453,14 +690,42 @@ data_prep_climate_strategy_scorecard_initiatives <- prep_climate_strategy_scorec
   peer_group = peer_group
 )
 
-knitr::kable(data_prep_climate_strategy_scorecard_initiatives)
-# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
+member_initiatives_portfolio <-
+  data_prep_climate_strategy_scorecard_initiatives$member_initiatives_portfolio
+
+member_initiatives_peers <-
+  data_prep_climate_strategy_scorecard_initiatives$member_initiatives_peers
+
 ```
 
-```{r climate_strategy_voting_rights, fig.height = 6}
-user_climate_strategy_scorecard_voting <- readr::read_csv(file.path(survey_dir, language, "climate_scorecard_survey_voting.csv"))
+* Is the financial institution member of a climate initiative?
 
-peers_climate_strategy_scorecard_voting <- readr::read_csv(file.path(survey_dir, language, "peers_climate_scorecard_survey_voting.csv"))
+  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else {"NO"}`  (Peers: `r round(member_initiatives_peers * 100)` %)**
+  `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}`
+
+
+```{r climate_strategy_voting_rights, fig.height = 6}
+user_climate_strategy_scorecard_voting <- readr::read_csv(
+  file.path(score_card_dir, "climate_scorecard_survey_voting.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    user_id = "n",
+    asset_type = "c",
+    voting_rights = "c"
+  )
+)
+
+peers_climate_strategy_scorecard_voting <- readr::read_csv(
+  file.path(score_card_dir, "peers_climate_scorecard_survey_voting.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    asset_type = "c",
+    n = "n",
+    peers_yes = "n",
+    peers_no = "n",
+    peers_not_answered = "n"
+  )
+)
 
 data_prep_climate_strategy_scorecard_voting <- prep_climate_strategy_scorecard_voting(
   data = user_climate_strategy_scorecard_voting,
@@ -468,14 +733,44 @@ data_prep_climate_strategy_scorecard_voting <- prep_climate_strategy_scorecard_v
   peer_group = peer_group
 )
 
-knitr::kable(data_prep_climate_strategy_scorecard_voting)
-# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
+voting_rights_portfolio <-
+  data_prep_climate_strategy_scorecard_voting$voting_rights_portfolio
+
+voting_rights_peers <-
+  data_prep_climate_strategy_scorecard_voting$voting_rights_peers
+
 ```
 
-```{r climate_strategy_engagement, fig.height = 6}
-user_climate_strategy_scorecard_engagement <- readr::read_csv(file.path(survey_dir, language, "climate_scorecard_survey_engagement.csv"))
+* Does the financial institution support climate strategies through voting rights?
+  
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` %)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` %)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` %)**
+  
 
-peers_climate_strategy_scorecard_engagement <- readr::read_csv(file.path(survey_dir, language, "peers_climate_scorecard_survey_engagement.csv"))
+```{r climate_strategy_engagement, fig.height = 6}
+user_climate_strategy_scorecard_engagement <- readr::read_csv(
+  file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    user_id = "n",
+    asset_type = "c",
+    engagement = "c"
+  )
+)
+
+peers_climate_strategy_scorecard_engagement <- readr::read_csv(
+  file.path(score_card_dir, "peers_climate_scorecard_survey_engagement.csv"),
+  col_types = readr::cols_only(
+    peer_group = "c",
+    asset_type = "c",
+    n = "n",
+    peers_yes = "n",
+    peers_no = "n",
+    peers_not_answered = "n"
+  )
+)
 
 data_prep_climate_strategy_scorecard_engagement <- prep_climate_strategy_scorecard_engagement(
   data = user_climate_strategy_scorecard_engagement,
@@ -483,19 +778,154 @@ data_prep_climate_strategy_scorecard_engagement <- prep_climate_strategy_scoreca
   peer_group = peer_group
 )
 
-knitr::kable(data_prep_climate_strategy_scorecard_engagement)
-# TODO: add title - data_prep_climate_strategy_scorecard_initiatives.
+engagement_portfolio <-
+  data_prep_climate_strategy_scorecard_engagement$engagement_portfolio
+
+engagement_peers <-
+  data_prep_climate_strategy_scorecard_engagement$engagement_peers
+
 ```
 
+* Does the financial institution support climate strategies through engagement measures?
+
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` %);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` %);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` %)**
+
 
 \newpage
 
-## Annex (I): Detailed chart explanation
+## Climate Score Indicators
+
+### PACTA Executive Summary 2022
+
+MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
+
+
+### Carbon Footprint
+
+_The Carbon footprint indicator includes the carbon footprint (CO2e/CHF M invested) but not the carbon intensity (emissions per revenue) as in the Swiss Scores proposal. Hard requirements are met._
+
+Hard Requirements:
+
+* Inclusion of scope 1, 2, and relevant scope 3.
+* Inclusion of scope 3 emissions must at a minimum be aligned to the schedule described in the EU benchmark regulation 2019/2089.
+
+### Exposure to companies that have at least some fossil fuel and low-carbon activities
+
+**Exposure score in this Executive Summary:** varies from the requirements in the Swiss proposal (see below)
+
+The exposure score in this document deviates from the Swiss Scores proposal, as the Swiss Scores were launched while the PACTA Climate Test Switzerland 2022 was already in its development phase. While the Swiss Scores proposal measure the share of companies with fossil fuel activities, he PACTA exposure indicator measures the financial exposure as AUM in % of this portfolio to the respective technologies. The PACTA exposure is not based on revenue data, but on asset-based company level data representing real-world physical activities. These activities are then attributed to financial securities and afterwards allocated to the portfolio. The portfolio allocation is done with the Portfolio Weight Approach (PA) that calculates the portfolio’s technology exposures based on the weighting of each position within the portfolio. 
+
+Specifications:
+
+* The indicator shows the financial exposure to each technology based on each company’s main sector technology split
+* The indicator is based on physical asset data instead of revenue data
+* The indicator only shows exposure to the core sector of a company (in this case: coal, oil & gas, power production); i.e., Apple’s power assets are not included as Apple’s core business is not power
+* Thereby, the indicator can show how exposed a portfolio is to different technologies within the same sector (e.g. fossil fuel-based power production vs. renewable power production)
+* The emission scope of activities differ between the sectors and include “mining” for coal, “upstream” for oil and gas, “production” for power. For more information, please refer to the documentation on the aggregated score on the next page
+
+To foster the transition, investments in climate solutions are key and can not be captured by CO2-Emission based metrics. Therefore, the exposure chart also includes exposure to renewable power
+
+**Hard requirements for Swiss Scores:**
+
+* The threshold of 5% of revenues applies both to activities directly linked with the exploration and production of fossil fuels and, if data is readily available, activities financing such production (for coal, according to the global coal exit list or similar).
+* The scope of activities includes the whole value chain, ranging from exploration, extraction, and production (upstream) to transportation and storage (midstream) and refining, marketing, and electrification (downstream).
+
+
+### Real Estate and Mortgages – additional PACTA indicator
+
+By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. **The graph show…**
+
+### Verified Commitments to Net-Zero 
+
+_Hard requirements are met._
+
+Hard requirements:
+
+* Companies must have publically communicated a pledge to reach net-zero and have near-term targets be certified by one of the following providers: Science based targets initiative (SBTi).
+
+### Management to Net-Zero 
+
+_The information for this indicator was not collected in the PACTA Climate Test 2022 and is therefore not shown._
+
+### Overall Climate Strategy inclucing Credible Climate Stewardship
+
+**Implementation:** deviates from hard requirements for Swiss Climate Scores (see below)
+
+* Climate initiatives should be consistent with the ambition of reaching net-zero by 2050
+  * Implementation:  "Yes" means that at least one initiative is ticked for the user. "No" means that the user has not ticked any initiative. "Name": returns names of all ticked initiatives, but summarises the free field as "Other“
+* Votes should be considered as climate-relevant measure
+  * Implementation: "YES (asset type)" means that the user has investment in the asset type AND ticked that they exercise voting rights. "NO" means that the user has investment in the asset type AND NOT ticked that they exercise voting rights. "NOT ANSWERED": means that the user has not indicated that they have investments in the asset type.  Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type
+* Engagement strategies should be considered as climate-relevant measure
+  * Implementation: conditions for "YES (asset type)“, “NO”, “NOT ANSWERED” defined as above but for engagement strategies. For “other assets”, the above conditions must apply in at least one of the other assets. --> Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type. Number of users with YES for other assets out of the number of users that have invested in at least one other asset type.
+
+**Hard requirements:**
+
+* Votes/proxy votes should be consistent with the ambition of reaching net-zero by 2050.
+* Any linked climate engagement strategy should be consistent with the ambition of reaching net-zero by 2050.
+* The escalation procedure is clearly defined and made transparent.
+* An example for a climate engagement initiative is Climate Action 100+
 
 \newpage
 
-## Annex (I): Detailed chart explanation
+## Climate Score Indicators
 
-\newpage
+### PACTA Executive Summary 2022
 
-## Annex (II): FAQs
+MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
+
+
+### PACTA Aggregated Climate Alignment Score
+
+**Implementation:**
+
+* PACTA measures what firms plan to do over the next 5 years instead of what they promise
+* Sectoral score, aggregated to one score
+* Most climate relevant sectors including contributions
+* Use case: 
+  * Financial Institutions can communicate internally and externally about climate performance easily and understandably.
+  * Investors can understand portfolio priorities and get insights into potential long-term transition risks.
+  * Supervisors will be able to understand the FI's position relative to its peers regarding climate change.
+
+**Hard requirements:**
+
+* Be guided by the goal to achieve net zero emissions by 2050, consistent with the 1.5°C warming limit of the Paris Agreement and in line with the latest IPCC findings.
+* Comply with the technical considerations of the TCFD 2021 PAT report “Measuring Portfolio Alignment – technical considerations”. In particular, comply with:
+  * Select a 1.5°C scenario that complies, at a minimum, with the scenario selection criteria set out by the Science Based Targets initiative (SBTi) in their document Foundations of Science-Based Target Setting (consideration 7).
+  * Prioritize granular benchmarks where they meaningfully capture material differences in decarbonization feasibility across industries or regions (Consideration 8).
+  * Include Scope 3 emissions for the sectors for which they are most material and for which benchmarks can be easily extracted from existing scenarios (fossil fuels, mining, automotive) (Consideration 11). 
+  * _Addition:_ Note that the PACTA methodology is not based on emissions but on production plans of companies. The production-based analysis however proxies for the following scopes: 
+    * Scope 1 and 2 for steel production
+    * Scope 3 for fossil fuel extraction, automotive manufacturing
+    * Scope 1 for power production, and aviation
+* Allow the Swiss government to disclose aggregate implied temperature scores based on your methodology on the following indices, to compare them with other providers: SMI, MSCI World, MSCI World Materials, MSCI World Industrials, MSCI World Utilities, MSCI World Real Estate.
+
+**Important, but not hard requirements:**
+
+Benchmark used:
+
+* At a minimum, a sub-industry level approach based on external, replicable, scientific sources to benchmarking should be used for high-emitting sectors, with companies allocated a ‘fair share’ of the global carbon budget based on their mix of activities.
+* Climate solutions, especially for the electricity sector should also be covered and compared with the respective scenario, as the scale up of renewable power is a key factor to transition according to the IEA. 
+
+Company long-term targets, near-term action and data sources:
+
+* Include near-term CapEx plans 
+* Use third-party validated data on asset level base where possible. Be as transparent as possible on data sources.
+* Do not allow for avoided emissions data at corporate level, given the lack of standards around corporate level avoided emissions reporting and the technical challenges and issues related to such calculation. Account instead for climate solutions, at minimum for renewable power.
+* _Requirements not met:_
+  * Assess the credibility of companies’ emission reduction plans and take into account whether they are externally validated (such as by SBTi) to be science-based, in line with the goal of achieving net zero by 2050. 
+  * Validate, if the long-term commitments match with the short term action
+  * Inclusion of scope 3 emissions must at a minimum be aligned to the schedule described in the EU benchmark regulation 2019/2089.
+
+To calculate portfolio alignment
+
+* _Addition:_ The PACTA Aggregated Climate Alignment Score is not an Implied Temperature Rise (ITR) score. Therefore, PACTA cannot provide a confidence level for the score itself. Instead, confidence scenarios for the selected scenarios exist and are: 
+  * 50% probability to not exceed 1.5°C warming for the 1.5°C Uniform scenario (GECO 2021)
+  * 50% probability to not exceed 1.8°C warming for the 1.8°C NDC-LTS scenario (GECO 2021)
+  * 50% probability to not exceed 3.0°C warming for the 3.0°C Current Policies Scenario (GECO 2021)
+* _Requirements not met_ as Aggregate score is no ITR.
+  * Implied temperature scores should be calculated using a confidence level of 66%, rather than 50%.
+  * Calculate warming scores on a cumulative-emissions basis until 2050, in order to accommodate appropriately the physical relationship between cumulative emissions and warming outcomes.
+

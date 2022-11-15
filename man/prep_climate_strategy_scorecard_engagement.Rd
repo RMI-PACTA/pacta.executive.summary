@@ -22,7 +22,7 @@ the COP survey.}
 \item{peer_group}{Character. Peer group of the analysed portfolio.}
 }
 \value{
-data.frame
+list of data.frames
 }
 \description{
 Prepare data input for climate strategy metrics (engagement) in the scorecard

@@ -1,11 +1,24 @@
-prep_emissions_scorecard <- function(emissions_data = NULL) {
+prep_emissions_scorecard <- function(emissions_data = NULL,
+                                     audit_data,
+                                     currency_exchange_value) {
   if (is.null(emissions_data)) {
     data_out <- use_toy_data("emissions_scorecard")
   }
 
-  data_out <- emissions_data %>%
+  portfolio_value_currency_asset_type <- audit_data %>%
+    dplyr::filter(asset_type %in% c("Equity", "Bonds")) %>%
     dplyr::group_by(.data$asset_type, .data$entity) %>%
-    # TODO: check if this what we need or if it needs to be divivded by the asset value covered
+    dplyr::summarise(
+      value_curr_mio = sum(.data$value_usd / .env$currency_exchange_value, na.rm = TRUE) / 1000000,
+      .groups = "drop"
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(asset_class = tolower(.data$asset_type)) %>%
+    dplyr::select(-"asset_type")
+
+
+  emissions_asset_entity <- emissions_data %>%
+    dplyr::group_by(.data$asset_type, .data$entity) %>%
     dplyr::mutate(emissions_asset = sum(.data$weighted_sector_emissions, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
     dplyr::mutate(
@@ -25,6 +38,14 @@ prep_emissions_scorecard <- function(emissions_data = NULL) {
     dplyr::select(c("asset_type", "entity", "emissions")) %>%
     dplyr::rename(asset_class = "asset_type") %>%
     dplyr::mutate(asset_class = tolower(.data$asset_class))
+
+  data_out <- emissions_asset_entity %>%
+    dplyr::inner_join(
+      portfolio_value_currency_asset_type,
+      by = c("asset_class", "entity")
+    ) %>%
+    dplyr::mutate(emissions = round(.data$emissions / .data$value_curr_mio, 1)) %>%
+    dplyr::select(c("asset_class", "entity", "emissions"))
 
   return(data_out)
 }

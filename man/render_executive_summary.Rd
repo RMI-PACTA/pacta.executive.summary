@@ -11,6 +11,7 @@ render_executive_summary(
   exec_summary_dir,
   survey_dir,
   real_estate_dir,
+  score_card_dir,
   file_name = "template.Rmd",
   investor_name,
   portfolio_name,
@@ -32,6 +33,8 @@ render_executive_summary(
 \item{survey_dir}{Character single, valid filepath to a directory that contains the survey files for the user}
 
 \item{real_estate_dir}{Character single, valid filepath to a directory that contains real estate files for the user}
+
+\item{score_card_dir}{Character single, valid filepath to a directory that contains score card files for the user}
 
 \item{file_name}{Character single, valid filename of the Rmd template file, e.g. "template.Rmd"}
 
