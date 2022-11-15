@@ -520,7 +520,12 @@ All sources of carbon emissions from invested companies (scope 1-3) are included
 
 ```{r emissions_scorecard}
 # the specific PACTA outputs that we need here are my guesses 
-data_emissions_scorecard <- prep_emissions_scorecard(emissions_data)
+data_emissions_scorecard <- prep_emissions_scorecard(
+  emissions_data = emissions_data,
+  # TODO: needs the audit files of the benchmarks!!!
+  audit_data = audit_data,
+  currency_exchange_value = currency_exchange_value
+)
 plot_emissions_scorecard(data_emissions_scorecard)
 ```
 
