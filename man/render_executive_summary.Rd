@@ -35,6 +35,8 @@ render_executive_summary(
 
 \item{real_estate_dir}{Character single, valid filepath to a directory that contains real estate files for the user}
 
+\item{real_estate_flag}{Logical single, whether or not to render the real estate section}
+
 \item{score_card_dir}{Character single, valid filepath to a directory that contains score card files for the user}
 
 \item{file_name}{Character single, valid filename of the Rmd template file, e.g. "template.Rmd"}
