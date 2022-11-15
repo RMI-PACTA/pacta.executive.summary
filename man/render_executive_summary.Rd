@@ -11,6 +11,7 @@ render_executive_summary(
   exec_summary_dir,
   survey_dir,
   real_estate_dir,
+  score_card_dir,
   file_name = "template.Rmd",
   investor_name,
   portfolio_name,

@@ -21,7 +21,7 @@
 #' @param indices_bonds_results_portfolio Some description
 #' @param audit_file Some description
 #' @param emissions_portfolio Some description
-#' @param survey_dir Some description
+#' @param score_card_dir Some description
 #'
 #' @return data.frame
 #' @export
@@ -47,7 +47,7 @@ prep_data_executive_summary <- function(investor_name,
                                         indices_bonds_results_portfolio,
                                         audit_file,
                                         emissions_portfolio,
-                                        survey_dir) {
+                                        score_card_dir) {
 
   equity_results_portfolio <- equity_results_portfolio %>%
     apply_general_filters(
@@ -242,11 +242,11 @@ prep_data_executive_summary <- function(investor_name,
   emissions_portfolio <- emissions_portfolio %>%
     dplyr::mutate(entity = "portfolio")
 
-  emissions_indices_eq <- readRDS(file.path(survey_dir, "Indices_equity_emissions.rds")) %>%
+  emissions_indices_eq <- readRDS(file.path(score_card_dir, "Indices_equity_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
     dplyr::filter(.data$portfolio_name == "iShares MSCI World ETF")
 
-  emissions_indices_cb <- readRDS(file.path(survey_dir, "Indices_bonds_emissions.rds")) %>%
+  emissions_indices_cb <- readRDS(file.path(score_card_dir, "Indices_bonds_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
     dplyr::filter(.data$portfolio_name == "iShares Global Corp Bond UCITS ETF")
 
