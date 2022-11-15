@@ -110,7 +110,7 @@ prep_climate_strategy_scorecard_engagement <- function(data,
     dplyr::bind_rows(data_peers)
 
   engagement_portfolio <- climate_strategy_scorecard_engagement %>%
-    filter(entity_type == "this_portfolio") %>%
+    filter(.data$entity_type == "this_portfolio") %>%
     mutate(
       answer = dplyr::case_when(
         yes == 1 ~ "YES",
@@ -121,7 +121,7 @@ prep_climate_strategy_scorecard_engagement <- function(data,
     dplyr::select(c("asset_type", "answer"))
 
   engagement_peers <- climate_strategy_scorecard_engagement %>%
-    filter(entity_type == "peers") %>%
+    filter(.data$entity_type == "peers") %>%
     dplyr::select(c("asset_type", "yes"))
 
   climate_strategy_scorecard_engagement <- list(
@@ -181,7 +181,7 @@ prep_climate_strategy_scorecard_voting <- function(data,
     dplyr::bind_rows(data_peers)
 
   voting_rights_portfolio <- climate_strategy_scorecard_voting %>%
-    filter(entity_type == "this_portfolio") %>%
+    filter(.data$entity_type == "this_portfolio") %>%
     mutate(
       answer = dplyr::case_when(
         yes == 1 ~ "YES",
@@ -192,7 +192,7 @@ prep_climate_strategy_scorecard_voting <- function(data,
     dplyr::select(c("asset_type", "answer"))
 
   voting_rights_peers <- climate_strategy_scorecard_voting %>%
-    filter(entity_type == "peers") %>%
+    filter(.data$entity_type == "peers") %>%
     dplyr::select(c("asset_type", "yes"))
 
   climate_strategy_scorecard_voting <- list(
