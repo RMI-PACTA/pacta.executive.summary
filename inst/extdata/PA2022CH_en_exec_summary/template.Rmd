@@ -184,8 +184,8 @@ data_scatter_power_e <- prep_scatter(
 
 The aggregated score compares the alignment of all assets until 2026 to the [XYZ] Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores page 10) and per PACTA sector (except for cement).
 
-```{r scores, fig.show='hold', out.width='50%', eval = FALSE}
-# FIXME: turn eval back on
+```{r scores, fig.show='hold', out.width='50%'}
+
 data_scores_b <- prep_scores(
   results_portfolio = results_portfolio,
   peers_results_aggregated = peers_results_aggregated,
