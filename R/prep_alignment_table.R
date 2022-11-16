@@ -27,7 +27,9 @@ prep_alignment_table <- function(results_portfolio,
     match.arg(asset_class)
     check_data_prep_alignment_table(scenario_source = scenario_source)
 
-    if (nrow(results_portfolio %>% filter(asset_class == .env$asset_class)) > 0) {
+    portfolio_data_asset <- results_portfolio %>% 
+      filter(asset_class == .env$asset_class)
+    if (nrow(portfolio_data_asset) > 0) {
       # infer start_year
     start_year <- min(results_portfolio$year, na.rm = TRUE)
 

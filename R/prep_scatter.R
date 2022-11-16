@@ -29,8 +29,10 @@ prep_scatter <- function(results_portfolio,
       scenario_source = scenario_source,
       scenario_selected = scenario_selected
     )
-
-    if (nrow(results_portfolio %>% filter(asset_class == .env$asset_class)) > 0) {
+    
+    portfolio_data_asset <- results_portfolio %>% 
+      filter(asset_class == .env$asset_class)
+    if (nrow(portfolio_data_asset) > 0) {
       # infer start year
       start_year <- min(results_portfolio$year, na.rm = TRUE)
 
