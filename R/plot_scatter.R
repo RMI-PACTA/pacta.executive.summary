@@ -19,6 +19,8 @@
 #'
 #' plot_scatter(toy_data_scatter %>% filter(asset_class == "equity"))
 plot_scatter <- function(data) {
+  stopifnot(is.data.frame(data))
+  
   if (nrow(data) > 0) {
     env <- list(data = substitute(data))
     check_data_scatter(data, env = env)
@@ -156,7 +158,6 @@ plot_scatter <- function(data) {
 }
 
 check_data_scatter <- function(data, env) {
-  stopifnot(is.data.frame(data))
   abort_if_has_zero_rows(data, env = env)
   abort_if_missing_names(
     data,

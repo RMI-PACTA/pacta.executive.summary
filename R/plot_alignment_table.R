@@ -20,8 +20,9 @@
 #'
 #' plot_alignment_table(toy_data_alignment_table %>% filter(asset_class == "equity"))
 plot_alignment_table <- function(data) {
-  env <- list(data = substitute(data))
+  stopifnot(is.data.frame(data))
   if (nrow(data) > 0) {
+    env <- list(data = substitute(data))
     check_data_alignment_table(data, env = env)
 
     size_lim <- c(min(data$perc_aum, na.rm = TRUE), max(data$perc_aum, na.rm = TRUE))
@@ -71,7 +72,6 @@ plot_alignment_table <- function(data) {
 }
 
 check_data_alignment_table <- function(data, env = env) {
-  stopifnot(is.data.frame(data))
   abort_if_has_zero_rows(data, env = env)
   abort_if_missing_names(
     data,

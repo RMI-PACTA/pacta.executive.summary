@@ -18,6 +18,7 @@
 #'
 #' plot_scores(toy_data_scores %>% filter(asset_class == "equity"))
 plot_scores <- function(data) {
+  stopifnot(is.data.frame(data))
   if (nrow(data) > 0) {
     env <- list(data = substitute(data))
     check_data_scores(data, env = env)
@@ -199,7 +200,6 @@ legend_scores <- function() {
 }
 
 check_data_scores <- function(data, env) {
-  stopifnot(is.data.frame(data))
   abort_if_has_zero_rows(data, env = env)
   abort_if_missing_names(
     data,
