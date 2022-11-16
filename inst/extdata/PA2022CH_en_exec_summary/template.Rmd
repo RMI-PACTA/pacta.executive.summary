@@ -50,7 +50,7 @@ emissions_data <- params$emissions_data
 title: Executive Summary
 subtitle:  |  
   | PACTA Climate Test Switzerland 2022
-  | Results of `r investor_name`, portfolio: `r portfolio_name`
+  | Results of `r investor_name`
 ---
 
 <!-- This lives in create_interactive_report as template but an example template could also live in the executive-summary package if we have example data to run it -->
@@ -72,34 +72,37 @@ subtitle:  |
 
 ### About the PACTA Climate Test 2022
 
-Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C.  The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals. `r investor_name` was invited to the test by the FOEN ([link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html)) and SIF ([link](https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html)) with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 **CHECK** financial institutions participated, of which **[xx]** were peers (i.e., participants from same financial sector as pension funds; insurances; banks; asset managers).
+```{r number_peer, fig.height = 6}
+number_peers <- readr::read_csv(
+  file.path(score_card_dir, "number_peers.csv"),
+  col_types = readr::cols_only(
+    organization_type = "c",
+    n = "n"
+  )
+) %>% 
+  dplyr::filter(.data$organization_type == .env$peer_group) %>% 
+  dplyr::pull("n")
 
-This executive summary is a short   of the individual results of your uploaded portfolio `r investor_name`. [XY] received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed by [XY] via personalized access at platform.transitionmonitor.com ) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website [LINK] and is available for download.
+```
+Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C.  The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals. `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` was invited to the test by the FOEN ([link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html)) and SIF ([link](https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html)) with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which `r number_peers` were peers (i.e., participants from same financial sector as pension funds; insurances; banks; asset managers).
+
+This executive summary is a short version of the individual results of your uploaded portfolio `r portfolio_name`. `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access at platform.transitionmonitor.com) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website [[LINK](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html)] and is available for download.
 
 ### Measuring climate alignment
 
 In the view of PACTA and FOEN, there are three main components that are useful to measure alignment with climate goals which are shown below. The icons are used throughout this document to indicate the category for each chart.
 
-Text in 3 columns
-
-col 1
-
 **Exposure:** provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings, and therefore offers a risk-perspective to climate alignment.
-
-col2
 
 **Trajectory alignment:** Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
 
-col 3
-
 **Engagement & other qualitative indicators:** complementing analysis with information on climate actions that can have real-world climate impact.
-
 
 
 ### Equity & bonds module overview
 
 The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. 
-The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to [link with new documentation].
+The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to [https://rmi.gitbook.io/pacta-knowledge-hub/](https://rmi.gitbook.io/pacta-knowledge-hub/).
 
 ```{r diagram, fig.width=8, fig.height=2}
 data_diagram <- prep_diagram(
@@ -108,6 +111,9 @@ data_diagram <- prep_diagram(
 )
 plot_diagram(data_diagram)
 ```
+
+\* coal mining, oil & gas extraction, power, auto, cement, steel and aviation
+
 \newpage
 
 ## Equity & Bonds Results
@@ -178,7 +184,7 @@ plot_scatter(data_scatter_power_e) +
 
 #### PACTA Aggregated Climate Alignment Score
 
-The aggregated score compares the alignment of all assets until 2026 to the [XYZ] Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores page 10) and per PACTA sector (except for cement).
+The aggregated score compares the alignment of all assets until 2026 to the GECO 2021 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector (except for cement which is not covered in GECO2021).
 
 ```{r scores, fig.show='hold', out.width='50%'}
 data_scores_b <- prep_scores(
@@ -212,8 +218,8 @@ plot_scores(data_scores_e) +
 
 #### Scenario alignment per technology
 
-While the previous section provided insights on the current exposure to the different PACTA sectors as well as an overview of the alignment on an aggregated level and sector level, this section provides complementary insights into alignment on a technology level. 
-The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as % of AUM.
+While the previous section provided insights on the current exposure to the different PACTA sectors as well as an overview of the alignment on an aggregated level and sector level, this section provides complementary insights into alignment with the GECO 2021 scenario on a technology level for the PACTA sectors with technology roadmaps.<br/>
+The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as % of AUM.<br/>
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
 
@@ -249,12 +255,54 @@ plot_alignment_table(data_alignment_table)
 
 ## Real Estate & Mortgage Results
 
-Text
+The Real Estate and Mortgage section allows financial institutions to measure the alignment of their Swiss real estate and mortgage portfolio with the climate target of the Swiss building sector to reach net-zero emissions in 2050. Therefore, the PACTA test assesses the CO2 emissions of your real estate and mortgage investments.<br/>
+Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO2 emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO2 emissions from buildings as a whole should have fallen by at least 40% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO2 emissions more rapidly in the future, in particular by renovating existing buildings. ([Link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html))
 
-```{r example_real_estate_chart, fig.height = 6, eval = params$real_estate_flag}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(real_estate_dir, language, "example_real_estate_chart.png"))
-# TODO: add title - Oil exclusion badge - bonds.
+
+### Current status
+
+Shares of energy sources compared to all participants
+
+```{r energy_carrier_real_estate, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_energy_carrier_de.png"))
+```
+
+Geographical distribution of directly held buildings by use
+
+```{r map_real_estate, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_map_de.png"))
+```
+
+Natural hazards map FOEN: [Link](https://map.geo.admin.ch/?topic=bafu&lang=de&bgLayer=ch.swisstopo.pixelkarte-grau)
+
+
+Distribution of the average CO2 intensity of your real estate portfolio (directly held buildings) compared to peers.
+
+```{r co2_intensity_real_estate_portfolio_peers, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_distribtion_de.png"))
+# TODO: check if this is the correct placement (d or h)
+```
+
+Distribution of the mean CO2 intensity of your mortgage portfolio compared to peers.
+
+```{r co2_intensity_mortgage_portfolio_peers, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_h_distribtion_de.png"))
+# TODO: check if this is the correct placement (d or h)
+```
+
+### Future status
+
+**Reduction path** of all directly held buildings with the submitted refurbishment plans.
+
+```{r emission_reduction_path_real_estate, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_emissions_de.png"))
+```
+
+
+**Proportion** of their mortgages that are above or below the reduction path for net zero by 2050
+
+```{r stranded_assets_real_estate, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_stranded_asset_de.png"))
 ```
 
 <!-- ![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`) -->
@@ -334,7 +382,38 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 
 ## Annex (III): Explanation of Charts
 
-Explanation Real Estate
+```{r sample_map_real_estate, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_map_de.png"))
+```
+
+Geographical location of all directly held buildings in Switzerland. The colour represents the main use of the respective building.
+
+
+```{r sample_energy_carrier_real_estate, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_energy_carrier_de.png"))
+```
+
+Proportion of energy sources in the directly held buildings and mortgages. The values submitted or taken from the GWR are shown. If neither of the two figures is available, "oil" is used in accordance with FOEN specifications.
+
+
+```{r sample_co2_intensity_real_estate_portfolio_peers, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_distribtion_de.png"))
+```
+
+Mean CO~2~ intensity of all directly held buildings or mortgages per participant. The red column represents the mean value of the own respective portfolio. The horizontal line represents the value 15.7 kg/m^2^ of the reduction path "Switzerland's Long-Term Climate Strategy" for the year 2021.
+
+```{r sample_emission_reduction_path_real_estate, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_emissions_de.png"))
+```
+
+Development over time of the average CO~2~ intensity of all directly held buildings per participant in comparison with the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy".
+
+```{r sample_stranded_assets_real_estate, fig.height = 6, eval = params$real_estate_flag}
+knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_stranded_asset_de.png"))
+```
+
+Proportions of mortgages above or below the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy" in relation to their mortgages at the respective time. In light green, those mortgages that are below the reduction path at the respective time due to renovation measures.
+
 
 
 \newpage
@@ -357,8 +436,6 @@ Chart_sample 8
 ### Which asset classes does PACTA cover? 
 
 The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2022 also includes Swiss real estate and mortgages. 
-
-Placeholder: Information on coverage of equity, bonds, and Swiss buildings to be added (once we know).
 
 
 ### How can I use my results for disclosure?
@@ -531,9 +608,13 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 * Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` %**
 
-#### Real Estate Score
+### Swiss real estate and mortgages
 
-Text and Graph
+CO₂ intensity according to GEAK classes (Means of the participant)
+Directly held buildings: 12.5 kg/m2 -> D 
+Mortgages: 25.1 kg/m2 -> G
+
+**ADD REAL ESTATE SCORE CHART**
 
 #### Overall Climate Strategy including Credible Climate Stewardship
 
@@ -715,7 +796,7 @@ Hard Requirements:
 * Inclusion of scope 1, 2, and relevant scope 3.
 * Inclusion of scope 3 emissions must at a minimum be aligned to the schedule described in the EU benchmark regulation 2019/2089.
 
-### Exposure to companies that have at least some fossil fuel and low-carbon activities
+### Exposure to fossil fuels and renewable energy
 
 **Exposure score in this Executive Summary:** varies from the requirements in the Swiss proposal (see below)
 
@@ -739,7 +820,7 @@ To foster the transition, investments in climate solutions are key and can not b
 
 ### Real Estate and Mortgages – additional PACTA indicator
 
-By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. **The graph show…**
+By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. The figure shows the mean CO₂ intensity of the participant in the GEAK classes calculated using the PACTA methodology.
 
 ### Verified Commitments to Net-Zero 
 
@@ -784,8 +865,8 @@ MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINA
 
 **Implementation:**
 
-* PACTA measures what firms plan to do over the next 5 years instead of what they promise
-* Sectoral score, aggregated to one score
+* PACTA measures alignment of firms’ 5-year forward-looking production plans with the GECO 2021 scenario
+* Sectoral score, aggregated to one score; cement is excluded as it is not covered in GECO 2021
 * Most climate relevant sectors including contributions
 * Use case: 
   * Financial Institutions can communicate internally and externally about climate performance easily and understandably.
