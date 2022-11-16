@@ -107,3 +107,16 @@ abort_if_missing_crucial_values <- function(data, column, values, env = parent.f
 
   invisible(data)
 }
+
+empty_plot_no_data_message <- function() {
+  p <- ggplot() +
+    annotate(
+      "text",
+      label = "No data were found\nto create this plot",
+      x = 1,
+      y = 1,
+      size = 10
+    ) +
+    theme_void()
+  p
+}
