@@ -7,7 +7,7 @@ test_that("if `data` is not a data frame errors gracefully", {
 test_that("if `data` has zero rows returns empty plot", {
   zero_row <- toy_data_scores[0L, ]
   p <- plot_alignment_table(zero_row)
-  expect_true(length(p$data) == 0)
+  expect_equal(p, empty_plot_no_data_message())
 })
 
 test_that("with missing crucial columns errors gracefully", {
