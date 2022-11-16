@@ -1,3 +1,11 @@
+#' Title
+#'
+#' @param emissions_data Some arg
+#' @param audit_data Some arg
+#' @param currency_exchange_value Some arg
+#'
+#' @return Some output data
+#' @export
 prep_emissions_scorecard <- function(emissions_data = NULL,
                                      audit_data,
                                      currency_exchange_value) {

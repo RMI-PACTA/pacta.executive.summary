@@ -11,6 +11,7 @@
 #'   scenario from GECO2021.
 #'
 #' @return data.frame
+#' @export
 prep_green_brown_bars <- function(results_portfolio,
                                   scenario_selected = "1.5C-Unif") {
   if (is.null(results_portfolio)) {
