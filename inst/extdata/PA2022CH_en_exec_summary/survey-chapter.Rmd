@@ -55,7 +55,7 @@ data_exposures_survey_e <- prep_exposures_survey(results_portfolio,
 plot_eq_c_exp <- plot_exposures_survey(data_exposures_survey_e) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 
-gridExtra::grid.arrange(grid::rasterGrob(plot_bo_c_survey), plot_bo_c_exp, grid::rasterGrob(plot_eq_c_survey), plot_eq_c_exp, ncol=4)
+gridExtra::grid.arrange(pacta.executive.summary::rasterGrob(plot_bo_c_survey), plot_bo_c_exp, pacta.executive.summary::rasterGrob(plot_eq_c_survey), plot_eq_c_exp, ncol=4)
 ```
 
 ```{r plot_exclusion_oil_gas, fig.width=12, fig.cap='Oil and gas exclusion badges compared to PACTA exposure for Corporate bonds (Left) and Listed equity (Right).'}
@@ -77,7 +77,7 @@ data_exposures_survey_e <- prep_exposures_survey(results_portfolio,
 plot_eq_og_exp <- plot_exposures_survey(data_exposures_survey_e) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 
-gridExtra::grid.arrange(grid::rasterGrob(plot_bo_og_survey), plot_bo_og_exp, grid::rasterGrob(plot_eq_og_survey), plot_eq_og_exp, ncol = 4)
+gridExtra::grid.arrange(pacta.executive.summary::rasterGrob(plot_bo_og_survey), plot_bo_og_exp, pacta.executive.summary::rasterGrob(plot_eq_og_survey), plot_eq_og_exp, ncol = 4)
 ```
 
 \newpage
