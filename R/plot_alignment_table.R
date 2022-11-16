@@ -218,7 +218,7 @@ make_annotations_df <- function(data) {
     distinct()
 
   annotations <- annotations %>%
-    left_join(data_portfolio)
+    left_join(data_portfolio, by = c("aligned_scen_temp", "technology"))
 
   annotations
 }

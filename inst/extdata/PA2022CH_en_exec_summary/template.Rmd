@@ -101,10 +101,7 @@ col 3
 The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. 
 The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to [link with new documentation].
 
-```{r diagram, eval = FALSE}
-#FIXME: make sure we evaluate this plot, once fixed. 
-
-# the specific PACTA outputs that we need here are my guesses 
+```{r diagram, fig.width=8, fig.height=2}
 data_diagram <- prep_diagram(
   audit_data = audit_data,
   emissions_data = emissions_data
