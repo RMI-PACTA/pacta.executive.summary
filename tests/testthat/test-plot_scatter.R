@@ -26,6 +26,15 @@ test_that("with wrong values of `entity_type` errors gracefully", {
   expect_snapshot_error(plot_scatter(data_wrong_entity_type))
 })
 
+test_that("with missing values of `entity_type` errors gracefully", {
+  data_wrong <- toy_data_scatter %>% 
+    dplyr::filter(
+      asset_class == "bonds",
+      entity_type != "peers"
+      )
+  expect_snapshot_error(plot_scatter(data_wrong))
+})
+
 test_that("with wrong values of `score` errors gracefully", {
   data_wrong <- toy_data_scatter %>% dplyr::filter(asset_class == "bonds")
   data_wrong$score <- as.character(data_wrong$score)
