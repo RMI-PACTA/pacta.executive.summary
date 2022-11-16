@@ -2,6 +2,7 @@
 output:
   pdf_document:
     latex_engine: xelatex
+fontsize: 10pt
 always_allow_html: true
 params:
   survey_dir: NULL
@@ -23,8 +24,9 @@ params:
   currency_exchange_value: NULL
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, 
+                      error=FALSE, fig.keep='all')
 
 survey_dir <- params$survey_dir
 real_estate_dir <- params$real_estate_dir
@@ -119,17 +121,13 @@ plot_diagram(data_diagram)
 
 The chart provides information on the exposure to the PACTA sectors. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
 
-```{r exposure}
-# the specific PACTA outputs that we need here are my guesses 
+```{r exposure, fig.show='hold', out.width='50%'}
 data_green_brown_bars <- prep_green_brown_bars(
   results_portfolio = results_portfolio,
   scenario_selected = scenario_selected
 )
 plot_green_brown_bars(data_green_brown_bars)
-```
 
-```{r exposure_fossil}
-# the specific PACTA outputs that we need here are my guesses 
 data_fossil_bars <- prep_fossil_bars(
   results_portfolio = results_portfolio,
   peers_results_aggregated = peers_results_aggregated,
@@ -186,31 +184,27 @@ data_scatter_power_e <- prep_scatter(
 
 The aggregated score compares the alignment of all assets until 2026 to the [XYZ] Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores page 10) and per PACTA sector (except for cement).
 
-```{r scores_equity}
-# the specific PACTA outputs that we need here are my guesses 
-data_scores <- prep_scores(
-  results_portfolio = results_portfolio,
-  peers_results_aggregated = peers_results_aggregated,
-  asset_class = "equity"
-)
-plot_scores(data_scores) +
-  patchwork::plot_annotation(
-    title = "Equity",
-    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-    )
-```
-
-```{r scores_bonds, eval = FALSE}
+```{r scores, fig.show='hold', out.width='50%', eval = FALSE}
 # FIXME: turn eval back on
-# the specific PACTA outputs that we need here are my guesses 
-data_scores <- prep_scores(
+data_scores_b <- prep_scores(
   results_portfolio = results_portfolio,
   peers_results_aggregated = peers_results_aggregated,
   asset_class = "bonds"
 )
-plot_scores(data_scores) +
+plot_scores(data_scores_b) +
   patchwork::plot_annotation(
     title = "Bonds",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
+
+data_scores_e <- prep_scores(
+  results_portfolio = results_portfolio,
+  peers_results_aggregated = peers_results_aggregated,
+  asset_class = "equity"
+)
+plot_scores(data_scores_e) +
+  patchwork::plot_annotation(
+    title = "Equity",
     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
     )
 ```
@@ -227,7 +221,8 @@ While the previous section provided insights on the current exposure to the diff
 The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as % of AUM.
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
-```{r alignment_table_bonds, fig.height = 6, eval = FALSE}
+
+```{r alignment_table_bonds, out.height='33%', eval = FALSE}
 # FIXME: turn eval back on
 # the specific PACTA outputs that we need here are my guesses 
 data_alignment_table <- prep_alignment_table(
@@ -240,8 +235,8 @@ plot_alignment_table(data_alignment_table)
 ```
 
 
-```{r alignment_table_equity, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
+```{r alignment_table_equity, out.height='33%', eval = FALSE}
+# FIXME: turn eval back on
 data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
   peers_results_aggregated = peers_results_aggregated,

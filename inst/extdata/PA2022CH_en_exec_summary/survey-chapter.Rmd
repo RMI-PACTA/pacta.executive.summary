@@ -9,16 +9,9 @@ Text in a box:
 
 On the left hand side, you find the initiatives you are part of. The larger the font size, the more peers are part of it. In the middle, you see a dart chart indicating your climate. On the right, you can see how many of your peers have all three climate strategies in place, which is considered as best practice.
 
-```{r plot_wordcloud, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_wordcloud.png"))
-# TODO: add title
-```
-
-```{r plot_layer_with_peer_info_climate_goals, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_climate_goals.png"))
-# TODO: add title
+```{r plots_overview, out.height='20%', out.width='50%', fig.show='hold', fig.cap='(Left) Initiatives you (dark blue) and your peers (light blue) are part of. (Right) Your cliamte strategy badge compared and peer comparison.'}
+knitr::include_graphics(c(file.path(survey_dir, language, "plot_wordcloud.png"),
+file.path(survey_dir, language, "plot_layer_with_peer_info_climate_goals.png")))
 ```
 
 
@@ -27,88 +20,64 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_in
 Research shows that engagement is one of the most effective ways to improve climate goal alignment of companies invested through equity and bonds. Therefore, the engagement dart charts below show your engagement measures for three climate crucial sectors and thereby complement the previous alignment section. The text besides provides a comparison to the share of peers with best practice, i.e., the ones that have all layers covered.
 
 
-```{r plot_layer_with_peer_info_engagement_Fossil_Fuels, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Fossil_Fuels.png"))
-# TODO: add title - Power engagement badge.
-```
-```{r plot_layer_with_peer_info_engagement_Automotive, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Automotive.png"))
-# TODO: add title - Automotive engagement badge.
-```
-```{r plot_layer_with_peer_info_engagement_Power, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png"))
-# TODO: add title - Fossil fuels engagement badge.
+```{r plot_layer_with_peer_info_engagement, out.height='30%', out.width='33%', fig.show='hold', fig.cap = 'Engagement badges and peer comparison per sector. Left: Fossil Fuels, Middle: Automotive, Right: Power.'}
+knitr::include_graphics(c(
+file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Fossil_Fuels.png"),
+file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Automotive.png"),
+file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png")
+))
 ```
 
 ### Negative screening vs. fossil fuel PACTA exposure
 
 These charts compare the reported climate-aligned strategies to the exposure to coal mining and oil & gas extraction. If exclusion strategies are applied at an institutional level, it is expected that exposure in these technologies will be zero or very low compared to the total portfolios peers.
 
-```{r plot_layer_asset_exclusion_coal_Listed_equities, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Listed_equities.png"))
-# TODO: add title - Coal exclusion badge - equity.
-```
+```{r plot_exclusion_coal, fig.width=12, fig.cap='Coal exclusion badges compared to PACTA exposure for Corporate bonds (Left) and Listed equity (Right).'}
+plot_bo_c_survey <- png::readPNG(
+  file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Corporate_bonds.png")
+  )
 
-```{r exposure_survey_equity_coal, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio, 
-                                               peers_results_aggregated,
-                                             sector = "coal",
-                                             asset_class = "equity")
-plot_exposures_survey(data_exposures_survey) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
-```
-
-```{r plot_layer_asset_exclusion_coal_Corporate_bonds, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Corporate_bonds.png"))
-# TODO: add title - Coal exclusion badge - bonds.
-```
-
-```{r exposure_survey_bonds_coal, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio,
+data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
                                                peers_results_aggregated,
                                              sector = "coal",
                                              asset_class = "bonds")
-plot_exposures_survey(data_exposures_survey) +
+
+plot_bo_c_exp <- plot_exposures_survey(data_exposures_survey_b) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
-```
 
-```{r plot_layer_asset_exclusion_oil_Listed_equities, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_oil_Listed_equities.png"))
-# TODO: add title - Oil exclusion badge - equity.
-```
+plot_eq_c_survey <- png::readPNG(file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Listed_equities.png"))
 
-```{r exposure_survey_equity_oil_and_gas, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio, 
+data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
-                                             sector = "oil_and_gas",
+                                             sector = "coal",
                                              asset_class = "equity")
-plot_exposures_survey(data_exposures_survey) +
+
+plot_eq_c_exp <- plot_exposures_survey(data_exposures_survey_e) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
+
+gridExtra::grid.arrange(grid::rasterGrob(plot_bo_c_survey), plot_bo_c_exp, grid::rasterGrob(plot_eq_c_survey), plot_eq_c_exp, ncol=4)
 ```
 
-```{r plot_layer_asset_exclusion_oil_Corporate_bonds, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_oil_Corporate_bonds.png"))
-# TODO: add title - Oil exclusion badge - bonds.
-```
+```{r plot_exclusion_oil_gas, fig.width=12, fig.cap='Oil and gas exclusion badges compared to PACTA exposure for Corporate bonds (Left) and Listed equity (Right).'}
+plot_bo_og_survey <- png::readPNG(file.path(survey_dir, language, "plot_layer_asset_exclusion_oil_Corporate_bonds.png"))
 
-```{r exposure_survey_bonds_oil_and_gas, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio, 
+data_exposures_survey_b <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
                                              sector = "oil_and_gas",
                                              asset_class = "bonds")
-plot_exposures_survey(data_exposures_survey) +
+plot_bo_og_exp <- plot_exposures_survey(data_exposures_survey_b) +
   labs(subtitle = "Sectoral exposure\n(as % of AUM)")
+
+plot_eq_og_survey <- png::readPNG(file.path(survey_dir, language, "plot_layer_asset_exclusion_oil_Listed_equities.png"))
+
+data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
+                                             sector = "oil_and_gas",
+                                             asset_class = "equity")
+plot_eq_og_exp <- plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
+
+gridExtra::grid.arrange(grid::rasterGrob(plot_bo_og_survey), plot_bo_og_exp, grid::rasterGrob(plot_eq_og_survey), plot_eq_og_exp, ncol = 4)
 ```
 
 \newpage
