@@ -222,28 +222,29 @@ The charts below indicate with which scenario the technologies in your portfolio
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
 
-```{r alignment_table_bonds, out.height='33%', eval = FALSE}
-# FIXME: turn eval back on
-# the specific PACTA outputs that we need here are my guesses 
-data_alignment_table <- prep_alignment_table(
+```{r alignment_table_bonds, out.height='33%'}
+if ("bonds" %in% results_portfolio$asset_class) {
+  data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
   peers_results_aggregated = peers_results_aggregated,
   asset_class = "bonds"
 )
 plot_alignment_table(data_alignment_table)
 # TODO: add title
+}
 ```
 
 
-```{r alignment_table_equity, out.height='33%', eval = FALSE}
-# FIXME: turn eval back on
-data_alignment_table <- prep_alignment_table(
-  results_portfolio = results_portfolio, 
-  peers_results_aggregated = peers_results_aggregated,
-  asset_class = "equity"
-)
-plot_alignment_table(data_alignment_table)
-# TODO: add title
+```{r alignment_table_equity, out.height='33%'}
+if ("equity" %in% results_portfolio$asset_class) {
+  data_alignment_table <- prep_alignment_table(
+    results_portfolio = results_portfolio, 
+    peers_results_aggregated = peers_results_aggregated,
+    asset_class = "equity"
+  )
+  plot_alignment_table(data_alignment_table)
+  # TODO: add title
+}
 ```
 
 \* Renewables: include solar and wind power, exclude hydro and nuclear
