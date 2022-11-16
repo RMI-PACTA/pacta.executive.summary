@@ -263,52 +263,37 @@ Emissions from the Swiss building stock currently account for just over a quarte
 
 Shares of energy sources compared to all participants
 
-```{r energy_carrier_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_energy_carrier_de.png"))
+```{r example_real_estate_chart, fig.height = 6, eval = params$real_estate_flag}
+# the specific PACTA outputs that we need here are my guesses 
+knitr::include_graphics(file.path(real_estate_dir, language, "example_real_estate_chart.png"))
+# TODO: add title - Oil exclusion badge - bonds.
 ```
+
+<!-- ![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`) -->
+
+ <!-- TODO: the formatting in this one will most probably be different than the rest of the document - investigate -->
 
 Geographical distribution of directly held buildings by use
 
-```{r map_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_map_de.png"))
-```
 
 Natural hazards map FOEN: [Link](https://map.geo.admin.ch/?topic=bafu&lang=de&bgLayer=ch.swisstopo.pixelkarte-grau)
 
 
 Distribution of the average CO2 intensity of your real estate portfolio (directly held buildings) compared to peers.
 
-```{r co2_intensity_real_estate_portfolio_peers, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_distribtion_de.png"))
-# TODO: check if this is the correct placement (d or h)
-```
 
 Distribution of the mean CO2 intensity of your mortgage portfolio compared to peers.
 
-```{r co2_intensity_mortgage_portfolio_peers, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_h_distribtion_de.png"))
-# TODO: check if this is the correct placement (d or h)
-```
 
 ### Future status
 
 **Reduction path** of all directly held buildings with the submitted refurbishment plans.
 
-```{r emission_reduction_path_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_emissions_de.png"))
-```
 
 
 **Proportion** of their mortgages that are above or below the reduction path for net zero by 2050
 
-```{r stranded_assets_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_stranded_asset_de.png"))
-```
 
-<!-- ![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`) -->
-
- <!-- TODO: the formatting in this one will most probably be different than the rest of the document - investigate -->
- 
 
 \newpage
 
