@@ -103,7 +103,7 @@ prep_scores <- function(results_portfolio,
           c("asset_class", "scope", "entity", "sector", "score")
         )
     } else {
-      data_out <- tibble::tibble()
+      data_out <- toy_data_scores[0L, ]
     }
   }
   data_out

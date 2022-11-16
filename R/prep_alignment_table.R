@@ -92,7 +92,7 @@ prep_alignment_table <- function(results_portfolio,
       ) %>%
       filter(.data$asset_class == .env$asset_class)
     } else {
-      data_out <- tibble::tibble()
+      data_out <- toy_data_alignment_table[0L, ]
     }
   } 
   data_out

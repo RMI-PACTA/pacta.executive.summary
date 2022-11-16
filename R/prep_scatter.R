@@ -111,7 +111,7 @@ prep_scatter <- function(results_portfolio,
           entity_type = dplyr::if_else(.data$entity_name == "peers_average", "peers_mean", .data$entity_type)
         )
     } else {
-      data_out <- tibble::tibble()
+      data_out <- toy_data_scatter[0L, ]
     }
   }
   data_out
