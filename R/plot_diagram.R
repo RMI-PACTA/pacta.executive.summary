@@ -16,10 +16,12 @@
 #'   between 0 and 1.
 #'
 #' @return An object of class "htmlwidget".
+#'
 #' @export
 #'
 #' @examples
 #' plot_diagram(toy_data_diagram)
+
 plot_diagram <- function(data = NULL) {
   env <- list(data = substitute(data))
   check_data_diagram(data, env)
@@ -110,7 +112,7 @@ plot_diagram <- function(data = NULL) {
   arrow_label_offset_y <- row_top_y - row_mid_y + (box_height / 2) - 3
   arrow_label_angle <- 36
 
-  ggplot(tibble(x = 0:100, y = 0:100), aes(x, y)) +
+  ggplot(tibble(x = 0:100, y = 0:100), aes(x = .data$x, y = .data$y)) +
     theme_void() +
     scale_y_continuous(limits = c(0, 50)) +
     # total exposure
