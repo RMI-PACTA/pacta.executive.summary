@@ -147,6 +147,7 @@ prep_climate_strategy_scorecard_engagement <- function(data,
 #' @param peer_group Character. Peer group of the analysed portfolio.
 #'
 #' @return list of data.frames
+#' @export
 prep_climate_strategy_scorecard_voting <- function(data,
                                                    data_peers,
                                                    peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other")) {

@@ -16,6 +16,7 @@
 #'   `bonds`.
 #'
 #' @return data.frame
+#' @export
 prep_exposures_survey <- function(results_portfolio,
                                   peers_results_aggregated,
                                   sector = c("coal", "oil_and_gas"),

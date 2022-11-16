@@ -16,6 +16,7 @@
 #'   scenario source.
 #'
 #' @return data.frame
+#' @export
 prep_fossil_bars <- function(results_portfolio,
                              peers_results_aggregated,
                              indices_results_portfolio,

@@ -1,3 +1,10 @@
+#' Title
+#'
+#' @param audit_data Some arg
+#' @param emissions_data Some arg
+#'
+#' @return Some output
+#' @export
 prep_diagram <- function(audit_data = NULL, emissions_data = NULL) {
   if (is.null(audit_data) | is.null(emissions_data)) {
     data_out <- use_toy_data("diagram")

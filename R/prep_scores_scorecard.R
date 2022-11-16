@@ -13,6 +13,7 @@
 #'   `scenario_source` featured in the `scenario_thresholds` data set.
 #'
 #' @return data.frame
+#' @export
 prep_scores_scorecard <- function(results_portfolio,
                                   scenario_source = "GECO2021") {
   if (is.null(results_portfolio)) {
@@ -29,14 +30,14 @@ prep_scores_scorecard <- function(results_portfolio,
         peers_results_aggregated = empty_peers_results_aggregated,
         asset_class = "equity",
         scenario_source = scenario_source
-      ) 
+      )
     data_bonds <- results_portfolio %>%
       prep_scores(
         peers_results_aggregated = empty_peers_results_aggregated,
         asset_class = "bonds",
         scenario_source = scenario_source
       )
-    
+
     data_out <- data_equity %>%
       rbind(data_bonds) %>%
       dplyr::filter(

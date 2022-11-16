@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param results_portfolio Some arg
+#' @param peers_results_aggregated Some arg
+#' @param peers_results_individual Some arg
+#' @param indices_results_portfolio Some arg
+#' @param scenario_source Some arg
+#' @param scenario_selected Some arg
+#' @param asset_class Some arg
+#'
+#' @return Some output
+#' @export
 prep_scatter <- function(results_portfolio,
                          peers_results_aggregated,
                          peers_results_individual,
