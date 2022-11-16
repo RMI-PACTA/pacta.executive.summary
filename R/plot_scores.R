@@ -95,51 +95,48 @@ plot_score_sector <- function(data, sector) {
     .data$scope == "sector"
   )
 
-  if (nrow(data) > 0) {
-   c_position <- alignment_scores_values %>%
+  c_position <- alignment_scores_values %>%
     filter(.data$score_symbol == "C") %>%
     pull("score_label")
 
-    portfolio_label_y <- data %>% filter(.data$entity == "this_portfolio") %>% pull("score_label")
-    peer_label_y <- data %>% filter(.data$entity == "peers") %>% pull("score_label")
-  
-    p <- plot_basic_scorebar() +
-      annotate(
-        "segment",
-        x = 0.5,
-        xend = 1.5,
-        y = c_position,
-        yend = c_position,
-        size = 1
-      ) +
-      annotate(
-        "segment",
-        x = 1.8,
-        xend = 1.5,
-        y = portfolio_label_y,
-        yend = portfolio_label_y,
-        arrow = arrow(type = "closed", length = unit(0.3, "npc")),
-        color = unname(fill_colours_entities_scores["portfolio"])
-      ) +
-      annotate(
-        "segment",
-        x = 1.65,
-        xend = 1.5,
-        y = peer_label_y,
-        yend = peer_label_y,
-        arrow = arrow(type = "closed", length = unit(0.15, "npc")),
-        color = unname(fill_colours_entities_scores["benchmark"])
-      ) +
-      theme(
-        axis.line = element_blank(),
-        axis.text = element_blank()
-      ) +
-      labs(
-        subtitle = r2dii.plot::to_title(sector)
-      )
-  } else {
-    p <- patchwork::plot_spacer()
-  }
+  portfolio_label_y <- data %>% filter(.data$entity == "this_portfolio") %>% pull("score_label")
+  peer_label_y <- data %>% filter(.data$entity == "peers") %>% pull("score_label")
+
+  p <- plot_basic_scorebar() +
+    annotate(
+      "segment",
+      x = 0.5,
+      xend = 1.5,
+      y = c_position,
+      yend = c_position,
+      size = 1
+    ) +
+    annotate(
+      "segment",
+      x = 1.8,
+      xend = 1.5,
+      y = portfolio_label_y,
+      yend = portfolio_label_y,
+      arrow = arrow(type = "closed", length = unit(0.3, "npc")),
+      color = unname(fill_colours_entities_scores["portfolio"])
+    ) +
+    annotate(
+      "segment",
+      x = 1.65,
+      xend = 1.5,
+      y = peer_label_y,
+      yend = peer_label_y,
+      arrow = arrow(type = "closed", length = unit(0.15, "npc")),
+      color = unname(fill_colours_entities_scores["benchmark"])
+    ) +
+    theme(
+      axis.line = element_blank(),
+      axis.text = element_blank()
+    ) +
+    labs(
+      subtitle = r2dii.plot::to_title(sector)
+    )
+
   p
 }
 
