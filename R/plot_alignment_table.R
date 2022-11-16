@@ -21,48 +21,52 @@
 #' plot_alignment_table(toy_data_alignment_table %>% filter(asset_class == "equity"))
 plot_alignment_table <- function(data) {
   env <- list(data = substitute(data))
-  check_data_alignment_table(data, env = env)
+  if (nrow(data) > 0) {
+    check_data_alignment_table(data, env = env)
 
-  size_lim <- c(min(data$perc_aum, na.rm = TRUE), max(data$perc_aum, na.rm = TRUE))
-  size_range <- c(4, 12)
-
-  if (nrow(data %>% filter(.data$sector == "power")) > 0) {
-    p_power <- plot_alignment_table_sector_stripe(data, "power", size_lim,
-      size_range,
-      ncol = 4
-    )
+    size_lim <- c(min(data$perc_aum, na.rm = TRUE), max(data$perc_aum, na.rm = TRUE))
+    size_range <- c(4, 12)
+  
+    if (nrow(data %>% filter(.data$sector == "power")) > 0) {
+      p_power <- plot_alignment_table_sector_stripe(data, "power", size_lim,
+        size_range,
+        ncol = 4
+      )
+    } else {
+      p_power <- patchwork::plot_spacer()
+    }
+  
+    if (nrow(data %>% filter(.data$sector == "fossil_fuels")) > 0) {
+      p_fossil <- plot_alignment_table_sector_stripe(data, "fossil_fuels", size_lim,
+        size_range,
+        ncol = 3
+      )
+    } else {
+      p_fossil <- patchwork::plot_spacer()
+    }
+  
+    if (nrow(data %>% filter(.data$sector == "automotive")) > 0) {
+      p_auto <- plot_alignment_table_sector_stripe(data, "automotive", size_lim,
+        size_range,
+        ncol = 3
+      )
+    } else {
+      p_auto <- patchwork::plot_spacer()
+    }
+  
+  
+    p_ylabel <- ggplot(data.frame(l = "Aligned scenario temperature", x = 1, y = 1)) +
+      geom_text(aes(x = .data$x, y = .data$y, label = .data$l), angle = 90, size = 7) +
+      theme_void() +
+      coord_cartesian(clip = "off")
+  
+    p_tech <- (p_power / p_fossil / p_auto) +
+      plot_layout(guides = "collect")
+  
+    p <- p_ylabel + p_tech + plot_layout(widths = c(1, 15))
   } else {
-    p_power <- patchwork::plot_spacer()
+    p <- empty_plot_no_data_message()
   }
-
-  if (nrow(data %>% filter(.data$sector == "fossil_fuels")) > 0) {
-    p_fossil <- plot_alignment_table_sector_stripe(data, "fossil_fuels", size_lim,
-      size_range,
-      ncol = 3
-    )
-  } else {
-    p_fossil <- patchwork::plot_spacer()
-  }
-
-  if (nrow(data %>% filter(.data$sector == "automotive")) > 0) {
-    p_auto <- plot_alignment_table_sector_stripe(data, "automotive", size_lim,
-      size_range,
-      ncol = 3
-    )
-  } else {
-    p_auto <- patchwork::plot_spacer()
-  }
-
-
-  p_ylabel <- ggplot(data.frame(l = "Aligned scenario temperature", x = 1, y = 1)) +
-    geom_text(aes(x = .data$x, y = .data$y, label = .data$l), angle = 90, size = 7) +
-    theme_void() +
-    coord_cartesian(clip = "off")
-
-  p_tech <- (p_power / p_fossil / p_auto) +
-    plot_layout(guides = "collect")
-
-  p <- p_ylabel + p_tech + plot_layout(widths = c(1, 15))
   p
 }
 
