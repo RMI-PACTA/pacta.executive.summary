@@ -160,6 +160,7 @@ check_data_scatter <- function(data, env) {
   )
   abort_if_multiple(data, "asset_class", env)
   abort_if_invalid_values(data, "entity_type", c("peers_mean", "this_portfolio", "peers", "benchmark"))
+  abort_if_missing_crucial_values(data, "entity_type", c("this_portfolio", "peers", "peers_mean", "benchmark"))
   abort_if_invalid_values(data, "score", c("A+", "A", "B", "C", "D", "E"))
   stopifnot(is.numeric(data$tech_mix_green))
   stopifnot((data$tech_mix_green <= 1) & (data$tech_mix_green >= 0))
