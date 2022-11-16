@@ -21,9 +21,11 @@ Research shows that engagement is one of the most effective ways to improve clim
 
 
 ```{r plot_layer_with_peer_info_engagement, out.height='30%', out.width='33%', fig.show='hold', fig.cap = 'Engagement badges and peer comparison per sector. Left: Fossil Fuels, Middle: Automotive, Right: Power.'}
-knitr::include_graphics(c(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Fossil_Fuels.png"),
+knitr::include_graphics(c(
+file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Fossil_Fuels.png"),
 file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Automotive.png"),
-file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png")))
+file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png")
+))
 ```
 
 ### Negative screening vs. fossil fuel PACTA exposure
@@ -31,7 +33,9 @@ file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png"
 These charts compare the reported climate-aligned strategies to the exposure to coal mining and oil & gas extraction. If exclusion strategies are applied at an institutional level, it is expected that exposure in these technologies will be zero or very low compared to the total portfolios peers.
 
 ```{r plot_exclusion_coal, fig.width=12, fig.cap='Coal exclusion badges compared to PACTA exposure for Corporate bonds (Left) and Listed equity (Right).'}
-plot_bo_c_survey <- png::readPNG(file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Corporate_bonds.png"))
+plot_bo_c_survey <- png::readPNG(
+  file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Corporate_bonds.png")
+  )
 
 data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
                                                peers_results_aggregated,
