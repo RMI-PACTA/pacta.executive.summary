@@ -147,8 +147,8 @@ plot_fossil_bars(data_fossil_bars)
 
 The chart below shows the current low-carbon exposure and the forward-looking climate scenario alignment in the power sector for you and your peers. The current exposure to low-carbon technologies in the power sector increases right-wards, while the alignment improves upwards. A significant increase in renewable energy capacity will be required to achieve a 1.5°C climate scenario, so even companies with a high current share of low-carbon technologies will need to build new capacity in order to be aligned in the future. A current high low-carbon share and a low future alignment would therefore indicate a lack of planned renewables investment.
 
-```{r scatter, fig.show="hold", out.width="50%", eval = FALSE}
-# FIXME: turn eval back on
+```{r scatter, fig.show="hold", out.width="50%"}
+
 data_scatter_power_b <- prep_scatter(
   results_portfolio = results_portfolio,
   peers_results_aggregated = peers_results_aggregated,
@@ -157,11 +157,12 @@ data_scatter_power_b <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "bonds"
 )
- # plot_scatter(data_scatter_power_b) +
- #   patchwork::plot_annotation(
- #     title = "Bonds",
- #     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
- #     )
+
+plot_scatter(data_scatter_power_b) +
+  patchwork::plot_annotation(
+    title = "Bonds",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+  )
 
 data_scatter_power_e <- prep_scatter(
   results_portfolio = results_portfolio,
@@ -171,11 +172,12 @@ data_scatter_power_e <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "equity"
 )
-# plot_scatter(data_scatter_power_e) +
-#    patchwork::plot_annotation(
-#      title = "Equity",
-#      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-#      )
+
+plot_scatter(data_scatter_power_e) +
+  patchwork::plot_annotation(
+    title = "Equity",
+    theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+  )
 ```
 
 ### Future (Other PACTA sectors)
@@ -184,7 +186,7 @@ data_scatter_power_e <- prep_scatter(
 
 The aggregated score compares the alignment of all assets until 2026 to the [XYZ] Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores page 10) and per PACTA sector (except for cement).
 
-```{r scores, fig.show='hold', out.width='50%'}
+```{r scores, fig.show='hold', out.width='50%', eval = FALSE}
 
 data_scores_b <- prep_scores(
   results_portfolio = results_portfolio,
