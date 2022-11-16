@@ -222,7 +222,7 @@ The charts below indicate with which scenario the technologies in your portfolio
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
 
-```{r alignment_table_bonds, out.height='33%', eval = FALSE}
+```{r alignment_table_bonds, fig.height=5, fig.width=6}
 # FIXME: turn eval back on
 # the specific PACTA outputs that we need here are my guesses 
 data_alignment_table <- prep_alignment_table(
@@ -235,7 +235,7 @@ plot_alignment_table(data_alignment_table)
 ```
 
 
-```{r alignment_table_equity, out.height='33%', eval = FALSE}
+```{r alignment_table_equity, fig.height=5, fig.width=6}
 # FIXME: turn eval back on
 data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
