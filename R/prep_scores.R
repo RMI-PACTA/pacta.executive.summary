@@ -15,6 +15,7 @@
 #'   `scenario_source` featured in the `scenario_thresholds` data set.
 #'
 #' @return data.frame
+#' @export
 prep_scores <- function(results_portfolio,
                         peers_results_aggregated,
                         asset_class = c("equity", "bonds"),

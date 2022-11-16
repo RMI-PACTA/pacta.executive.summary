@@ -15,6 +15,7 @@
 #'   `scenario_source` featured in the `scenario_thresholds` data set.
 #'
 #' @return data.frame
+#' @export
 prep_alignment_table <- function(results_portfolio,
                                  peers_results_aggregated,
                                  asset_class = c("equity", "bonds"),
@@ -124,7 +125,7 @@ wrangle_input_data_alignment_table <- function(data,
   data <- data %>%
     dplyr::mutate(
       ald_sector = dplyr::if_else(
-        .data$ald_sector %in% c("coal", "oil and gas"),
+        .data$ald_sector %in% c("coal", "oil_and_gas"),
         "fossil_fuels",
         .data$ald_sector
       )
@@ -135,6 +136,7 @@ wrangle_input_data_alignment_table <- function(data,
     dplyr::filter(
       .data$ald_sector %in% c("automotive", "fossil_fuels", "power"),
       !(.data$ald_sector == "automotive" & stringr::str_detect(.data$technology, "_hdv")),
+      .data$technology != "fuelcell",
       !(.data$ald_sector == "power" & .data$technology %in% c("hydrocap", "nuclearcap"))
     )
 

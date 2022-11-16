@@ -12,6 +12,7 @@
 #'   companies in the peer group portfolios that have SBTI net zero commitments.
 #'
 #' @return data.frame
+#' @export
 prep_net_zero_commitments <- function(total_portfolio,
                                       peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
                                       net_zero_targets,

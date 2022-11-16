@@ -1,9 +1,17 @@
+#' Title
+#'
+#' @param audit_data Some arg
+#' @param emissions_data Some arg
+#'
+#' @return Some output
+#' @export
 prep_diagram <- function(audit_data = NULL, emissions_data = NULL) {
   if (is.null(audit_data) | is.null(emissions_data)) {
     data_out <- use_toy_data("diagram")
   }
 
   audit_data <- audit_data %>%
+    dplyr::filter(.data$entity == "portfolio") %>%
     dplyr::mutate(exposure_portfolio = sum(.data$value_usd, na.rm = TRUE)) %>%
     dplyr::group_by(.data$asset_type) %>%
     dplyr::mutate(
@@ -63,6 +71,23 @@ prep_diagram <- function(audit_data = NULL, emissions_data = NULL) {
     dplyr::inner_join(emissions_data, by = "asset_type") %>%
     dplyr::rename(asset_class = "asset_type") %>%
     dplyr::mutate(asset_class = tolower(.data$asset_class))
+
+  missing_asset_types <- setdiff(c("equity", "bonds"), unique(data_out$asset_class))
+
+  if (any(c("equity", "bonds") %in% missing_asset_types)) {
+    missing_assets <- tibble::tibble(
+      exposure_portfolio = unique(data_out$exposure_portfolio),
+      asset_class = missing_asset_types,
+      exposure_asset_class = 0,
+      exposure_asset_class_perc = 0,
+      exposure_pacta = 0,
+      exposure_pacta_perc_asset_class_exposure = 0,
+      emissions_pacta_perc = 0,
+      emissions_pacta = 0
+    )
+
+    data_out <- rbind(data_out, missing_assets)
+  }
 
   return(data_out)
 }
