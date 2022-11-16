@@ -30,58 +30,178 @@ plot_diagram <- function(data = NULL) {
   data_equity <- data %>%
     filter(.data$asset_class == "equity")
 
-  DiagrammeR::grViz(glue("digraph {
-  graph [rankdir = LR]
+  currency_id <- "CHF"
+  emissions_unit <- "tonnes"
 
-  node [shape = rectangle]
+  ttl_exp_lbl <- paste0(scales::label_comma()(data_equity$exposure_portfolio), " CHF")
 
-  subgraph cluster_total_exposure {
-    peripheries = 0
+  eq_exp_lbl <-
+    paste0(
+      scales::percent(data_equity$exposure_asset_class_perc),
+      "\n(",
+      scales::label_comma()(data_equity$exposure_asset_class),
+      " ", currency_id, ")"
+    )
 
-    label = 'Total Portfolio Exposure'
+  cb_exp_lbl <-
+    paste0(
+      scales::percent(data_bonds$exposure_asset_class_perc),
+      "\n(",
+      scales::label_comma()(data_bonds$exposure_asset_class),
+      " ", currency_id, ")"
+    )
 
-    total_exp [label = '{{formatC(data_equity$exposure_portfolio[1], format='f', big.mark=',', digits=0)}} CHF']
-  }
+  eq_pacta_exp_lbl <-
+    paste0(
+      scales::percent(data_equity$exposure_pacta_perc_asset_class_exposure),
+      "\n(",
+      scales::label_comma()(data_equity$exposure_pacta),
+      " ", currency_id, ")"
+    )
 
-  subgraph cluster_asset_class_exposure {
-    peripheries = 0
+  cb_pacta_exp_lbl <-
+    paste0(
+      scales::percent(data_bonds$exposure_pacta_perc_asset_class_exposure),
+      "\n(",
+      scales::label_comma()(data_bonds$exposure_pacta),
+      " ", currency_id, ")"
+    )
 
-    label = 'Exposure per asset class'
+  eq_emiss_exp_lbl <-
+    paste0(
+      scales::percent(data_equity$emissions_pacta_perc),
+      "\n(",
+      scales::label_comma()(data_equity$emissions_pacta),
+      " ", emissions_unit, ")"
+    )
 
-    equity_exp [label = '{{scales::percent(data_equity$exposure_asset_class_perc[1])}}
-  ({{formatC(data_equity$exposure_asset_class[1], format='f', big.mark=',', digits=0)}} CHF)']
-    bonds_exp [label = '{{scales::percent(data_bonds$exposure_asset_class_perc[1])}}
-  ({{formatC(data_bonds$exposure_asset_class[1], format='f', big.mark=',', digits=0)}} CHF)']
-  }
+  cb_emiss_exp_lbl <-
+    paste0(
+      scales::percent(data_bonds$emissions_pacta_perc),
+      "\n(",
+      scales::label_comma()(data_bonds$emissions_pacta),
+      " ", emissions_unit, ")"
+    )
 
-  subgraph cluster_pacta_exposure {
-    peripheries = 0
+  box_width <- 15
+  box_height <- 10
+  arrow_x_length <- 10
 
-    label = 'Exposure covered by PACTA sectors*\n(as % of asset class exposure)'
+  row_mid_y <- 20
+  row_top_y <- 30
+  row_bottom_y <- 10
 
-    equity_pacta_exp [label =  '{{scales::percent(data_equity$exposure_pacta_perc_asset_class_exposure[1])}}
-  ({{formatC(data_equity$exposure_pacta[1], format='f', big.mark=',', digits=0)}} CHF)']
-    bonds_pacta_exp [label = '{{scales::percent(data_bonds$exposure_pacta_perc_asset_class_exposure[1])}}
-  ({{formatC(data_bonds$exposure_pacta[1], format='f', big.mark=',', digits=0)}} CHF)']
-  }
+  col_1_x <- 0
 
-  subgraph cluster_emissions {
-    peripheries = 0
+  box_linewidth <- 0.25
+  arrow_linewidth <- 0.15
+  arrow_length_mm <- 2
 
-    label = 'Emissions covered by PACTA sectors*\n(as % os asset class emissions)'
+  box_text_offset_x <- box_width / 2
+  box_text_offset_y <- box_height / 2
+  box_label_offset_x <- box_width / 2
+  box_label_offset_y <- box_height + 5
 
-    equity_emission_exp [label =  '{{scales::percent(data_equity$emissions_pacta_perc[1])}}
-  ({{formatC(data_equity$emissions_pacta[1], format='f', big.mark=',', digits=0)}} tonnes)']
-    bonds_emission_exp [label = '{{scales::percent(data_bonds$emissions_pacta_perc[1])}}
-  ({{formatC(data_bonds$emissions_pacta[1], format='f', big.mark=',', digits=0)}} tonnes)']
-  }
+  col_2_x <- col_1_x + box_width + arrow_x_length
+  col_3_x <- col_2_x + box_width + arrow_x_length
+  col_4_x <- col_3_x + box_width + arrow_x_length
 
-  # edge definitions with the node IDs
-  total_exp -> equity_exp [label = 'Listed Equity']
-  equity_exp -> equity_pacta_exp -> equity_emission_exp
-  total_exp -> bonds_exp [label = 'Corporate Bonds']
-  bonds_exp -> bonds_pacta_exp -> bonds_emission_exp
-  }", .open = "{{", .close = "}}"))
+  arrow_label_offset_x <- box_width + (arrow_x_length / 2)
+  arrow_label_offset_y <- row_top_y - row_mid_y + (box_height / 2) - 3
+  arrow_label_angle <- 36
+
+  ggplot(tibble(x = 0:100, y = 0:100), aes(x, y)) +
+    theme_void() +
+    scale_y_continuous(limits = c(0, 50)) +
+    # total exposure
+    annotate("text", x = col_1_x + box_label_offset_x, y = row_mid_y + box_label_offset_y, label = "Total Portfolio Exposure", size = 2.5) +
+    geom_rect(xmin = col_1_x, xmax = col_1_x + box_width,
+              ymin = row_mid_y, ymax = row_mid_y + box_height,
+              color = "black", fill = "white", linewidth = box_linewidth) +
+    annotate("text", x = col_1_x + box_text_offset_x, y = row_mid_y + box_text_offset_y, label = ttl_exp_lbl, size = 2.5) +
+    # first segments
+    annotate("text", x = col_1_x + arrow_label_offset_x,
+             y = row_mid_y + arrow_label_offset_y,
+             label = "Listed Equity",
+             size = 2.5, angle = arrow_label_angle) +
+    geom_segment(
+      x = col_1_x + box_width, xend = col_2_x,
+      y = row_mid_y + box_text_offset_y, yend = row_top_y + box_text_offset_y,
+      linewidth = arrow_linewidth, linejoin = "mitre", lineend = "butt",
+      arrow = arrow(length = unit(arrow_length_mm, "mm"), type= "closed")
+    ) +
+    annotate("text", x = col_1_x + arrow_label_offset_x,
+             y = row_mid_y - arrow_label_offset_y + box_height,
+             label = "Corporate Bonds",
+             size = 2.5, angle = -arrow_label_angle) +
+    geom_segment(
+      x = col_1_x + box_width, xend = col_2_x,
+      y = row_mid_y + box_text_offset_y, yend = row_bottom_y + box_text_offset_y,
+      linewidth = arrow_linewidth, linejoin = "mitre", lineend = "butt",
+      arrow = arrow(length = unit(arrow_length_mm, "mm"), type= "closed")
+    ) +
+    # exposure per asset class
+    annotate("text", x = col_2_x + box_label_offset_x, y = row_top_y + box_label_offset_y, label = "Exposure per asset class", size = 2.5) +
+    # equity exposure
+    geom_rect(xmin = col_2_x, xmax = col_2_x + box_width,
+              ymin = row_top_y, ymax = row_top_y + box_height,
+              color = "black", fill = "white", linewidth = box_linewidth) +
+    annotate("text", x = col_2_x + box_text_offset_x, y = row_top_y + box_text_offset_y, label = eq_exp_lbl, size = 2.5) +
+    # bond exposure
+    geom_rect(xmin = col_2_x, xmax = col_2_x + box_width,
+              ymin = row_bottom_y, ymax = row_bottom_y + box_height,
+              color = "black", fill = "white", linewidth = box_linewidth) +
+    annotate("text", x = col_2_x + box_text_offset_x, y = row_bottom_y + box_text_offset_y, label = cb_exp_lbl, size = 2.5) +
+    # second segments
+    geom_segment(
+      x = col_2_x + box_width, xend = col_3_x,
+      y = row_top_y + box_text_offset_y, yend = row_top_y + box_text_offset_y,
+      linewidth = arrow_linewidth, linejoin = "mitre", lineend = "butt",
+      arrow = arrow(length = unit(arrow_length_mm, "mm"), type= "closed")
+    ) +
+    geom_segment(
+      x = col_2_x + box_width, xend = col_3_x,
+      y = row_bottom_y + box_text_offset_y, yend = row_bottom_y + box_text_offset_y,
+      linewidth = arrow_linewidth, linejoin = "mitre", lineend = "butt",
+      arrow = arrow(length = unit(arrow_length_mm, "mm"), type= "closed")
+    ) +
+    # exposure to PACTA sectors per asset class
+    annotate("text", x = col_3_x + box_label_offset_x, y = row_top_y + box_label_offset_y, label = "Exposure covered by PACTA sectors*\n(as % of asset class exposure", size = 2.5) +
+    # equity PACTA exposure
+    geom_rect(xmin = col_3_x, xmax = col_3_x + box_width,
+              ymin = row_top_y, ymax = row_top_y + box_height,
+              color = "black", fill = "white", linewidth = box_linewidth) +
+    annotate("text", x = col_3_x + box_text_offset_x, y = row_top_y + box_text_offset_y, label = eq_pacta_exp_lbl, size = 2.5) +
+    # bond PACTA exposure
+    geom_rect(xmin = col_3_x, xmax = col_3_x + box_width,
+              ymin = row_bottom_y, ymax = row_bottom_y + box_height,
+              color = "black", fill = "white", linewidth = box_linewidth) +
+    annotate("text", x = col_3_x + box_text_offset_x, y = row_bottom_y + box_text_offset_y, label = cb_pacta_exp_lbl, size = 2.5) +
+    # third segments
+    geom_segment(
+      x = col_3_x + box_width, xend = col_4_x,
+      y = row_top_y + box_text_offset_y, yend = row_top_y + box_text_offset_y,
+      linewidth = arrow_linewidth, linejoin = "mitre", lineend = "butt",
+      arrow = arrow(length = unit(arrow_length_mm, "mm"), type= "closed")
+    ) +
+    geom_segment(
+      x = col_3_x + box_width, xend = col_4_x,
+      y = row_bottom_y + box_text_offset_y, yend = row_bottom_y + box_text_offset_y,
+      linewidth = arrow_linewidth, linejoin = "mitre", lineend = "butt",
+      arrow = arrow(length = unit(arrow_length_mm, "mm"), type= "closed")
+    ) +
+    # emissions per asset class
+    annotate("text", x = col_4_x + box_label_offset_x, y = row_top_y + box_label_offset_y, label = "Emissions covered by PACTA sectors*\n(as % of asset class emissions", size = 2.5) +
+    # equity emissions
+    geom_rect(xmin = col_4_x, xmax = col_4_x + box_width,
+              ymin = row_top_y, ymax = row_top_y + box_height,
+              color = "black", fill = "white", linewidth = box_linewidth) +
+    annotate("text", x = col_4_x + box_text_offset_x, y = row_top_y + box_text_offset_y, label = eq_emiss_exp_lbl, size = 2.5) +
+    # bond PACTA exposure
+    geom_rect(xmin = col_4_x, xmax = col_4_x + box_width,
+              ymin = row_bottom_y, ymax = row_bottom_y + box_height,
+              color = "black", fill = "white", linewidth = box_linewidth) +
+    annotate("text", x = col_4_x + box_text_offset_x, y = row_bottom_y + box_text_offset_y, label = cb_emiss_exp_lbl, size = 2.5)
 }
 
 check_data_diagram <- function(data, env) {
