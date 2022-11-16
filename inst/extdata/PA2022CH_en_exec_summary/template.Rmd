@@ -158,9 +158,6 @@ data_scatter_power_b <- prep_scatter(
   asset_class = "bonds"
 )
 
-print(data_scatter_power_b)
-print(unique(data_scatter_power_b$entity_type))
-
 plot_scatter(data_scatter_power_b) +
   patchwork::plot_annotation(
     title = "Bonds",
@@ -176,9 +173,6 @@ data_scatter_power_e <- prep_scatter(
   asset_class = "equity"
 )
 
-print(data_scatter_power_e)
-print(unique(data_scatter_power_e$entity_type))
-
 plot_scatter(data_scatter_power_e) +
   patchwork::plot_annotation(
     title = "Equity",
@@ -192,7 +186,7 @@ plot_scatter(data_scatter_power_e) +
 
 The aggregated score compares the alignment of all assets until 2026 to the [XYZ] Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores page 10) and per PACTA sector (except for cement).
 
-```{r scores, fig.show='hold', out.width='50%', eval = }
+```{r scores, fig.show='hold', out.width='50%', eval = FALSE}
 
 data_scores_b <- prep_scores(
   results_portfolio = results_portfolio,
