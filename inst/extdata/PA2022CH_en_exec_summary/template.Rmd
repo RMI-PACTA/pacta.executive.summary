@@ -144,7 +144,8 @@ plot_fossil_bars(data_fossil_bars)
 
 The chart below shows the current low-carbon exposure and the forward-looking climate scenario alignment in the power sector for you and your peers. The current exposure to low-carbon technologies in the power sector increases right-wards, while the alignment improves upwards. A significant increase in renewable energy capacity will be required to achieve a 1.5°C climate scenario, so even companies with a high current share of low-carbon technologies will need to build new capacity in order to be aligned in the future. A current high low-carbon share and a low future alignment would therefore indicate a lack of planned renewables investment.
 
-```{r scatter, fig.show="hold", out.width="50%"}
+```{r scatter, fig.show="hold", out.width="50%", eval = FALSE}
+# FIXME: turn eval back on
 data_scatter_power_b <- prep_scatter(
   results_portfolio = results_portfolio,
   peers_results_aggregated = peers_results_aggregated,
@@ -153,11 +154,11 @@ data_scatter_power_b <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "bonds"
 )
- plot_scatter(data_scatter_power_b) +
-   patchwork::plot_annotation(
-     title = "Bonds",
-     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-     )
+ # plot_scatter(data_scatter_power_b) +
+ #   patchwork::plot_annotation(
+ #     title = "Bonds",
+ #     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+ #     )
 
 data_scatter_power_e <- prep_scatter(
   results_portfolio = results_portfolio,
@@ -167,11 +168,11 @@ data_scatter_power_e <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "equity"
 )
-plot_scatter(data_scatter_power_e) +
-   patchwork::plot_annotation(
-     title = "Equity",
-     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-     )
+# plot_scatter(data_scatter_power_e) +
+#    patchwork::plot_annotation(
+#      title = "Equity",
+#      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+#      )
 ```
 
 ### Future (Other PACTA sectors)
@@ -180,7 +181,8 @@ plot_scatter(data_scatter_power_e) +
 
 The aggregated score compares the alignment of all assets until 2026 to the [XYZ] Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores page 10) and per PACTA sector (except for cement).
 
-```{r scores, fig.show='hold', out.width='50%'}
+```{r scores, fig.show='hold', out.width='50%', eval = FALSE}
+# FIXME: turn eval back on
 data_scores_b <- prep_scores(
   results_portfolio = results_portfolio,
   peers_results_aggregated = peers_results_aggregated,
@@ -217,7 +219,9 @@ The charts below indicate with which scenario the technologies in your portfolio
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
 
-```{r alignment_table_bonds, fig.height=5, fig.width=6}
+```{r alignment_table_bonds, out.height='33%', eval = FALSE}
+# FIXME: turn eval back on
+# the specific PACTA outputs that we need here are my guesses 
 data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
   peers_results_aggregated = peers_results_aggregated,
@@ -228,7 +232,8 @@ plot_alignment_table(data_alignment_table)
 ```
 
 
-```{r alignment_table_equity, fig.height=5, fig.width=6}
+```{r alignment_table_equity, out.height='33%', eval = FALSE}
+# FIXME: turn eval back on
 data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
   peers_results_aggregated = peers_results_aggregated,
@@ -244,18 +249,10 @@ plot_alignment_table(data_alignment_table)
 
 \newpage
 
-```{r conditional_print, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
+```{r survey_chapter, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
 
-## Real Estate & Mortgage Results
-
-Text
-
-```{r example_real_estate_chart, fig.height = 6, eval = params$real_estate_flag}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(real_estate_dir, language, "example_real_estate_chart.png"))
-# TODO: add title - Oil exclusion badge - bonds.
-```
+```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
 
 <!-- ![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`) -->
 
@@ -334,93 +331,9 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 
 ## Annex (III): Explanation of Charts
 
-```{r real_estate_load_data}
-real_estate_data <- jsonlite::read_json(
-  path = file.path(real_estate_dir, "data", "data.json")
-)[["exec_sum"]]
+Explanation Real Estate
 
-remove_list_null <- function(x){
-  nulls <- which(sapply(x, is.null))
-  if (length(nulls) > 0){
-    x <- x[-nulls]
-  }
-  return(x)
-}
-
-convert_re_user_path <- function(
-  wp_path,
-  parent_dir = file.path(real_estate_dir, "img")
-  ){
-  filename <- basename(wp_path)
-  return(file.path(parent_dir, filename))
-}
-
-real_estate_paths <- real_estate_data[["real_estate"]][[tolower(language)]]
-cleaned_real_estate_paths <- real_estate_paths %>%
-  remove_list_null %>%
-  lapply(X = ., FUN = convert_re_user_path)
-stopifnot(all(sapply(X = cleaned_real_estate_paths, FUN = file.exists)))
-
-mortgage_paths <- real_estate_data[["mortgage"]][[tolower(language)]]
-cleaned_mortgage_paths <- mortgage_paths %>%
-  remove_list_null %>%
-  lapply(X = ., FUN = convert_re_user_path)
-stopifnot(all(sapply(X = cleaned_mortgage_paths, FUN = file.exists)))
-
-```
-
-
-### Current Status
-
-Shares of energy sources compared to all participants 
-
-Directly held buildings
-
-```{r real_estate_bar_chart, fig.height = 6}
-knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
-```
-
-Geographical distribution of directly held buildings by use 
-
-```{r real_estate_map, fig.height = 6}
-knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
-```
-
-Mortgages 
-
-```{r real_estate_mortgages_bar_chart, fig.height = 6}
-knitr::include_graphics(cleaned_mortgage_paths[["png_energy_carrier"]])
-```
-
-Link für Hinweise auf mögliche physische Klimarisiken: 
-
-Natural Hazards [https://map.geo.admin.ch/?topic=bafu&lang=en&bgLayer=ch.swisstopo.pixelkarte-grau&catalogNodes=825,826,843,849,851,1505]
-
-Distribution of the average CO_{2} intensity of your real estate portfolio (directly held buildings) compared to peers. 
-
-```{r real_estate_distribution, fig.height = 6}
-knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
-```
-
-Distribution of the mean CO_{2} intensity of your mortgage portfolio compared to peers. 
-
-```{r mortgage_distribution, fig.height = 6}
-knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
-```
-
-### Future Status
-
-Reduction path of all directly held buildings with the submitted refurbishment plans. 
-
-```{r real_estate_reduction_path, fig.height = 6}
-knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
-```
-
-Proportion of their mortgages that are above or below the reduction path for net zero by 2050
-
-```{r real_estate_reduction_proportion, fig.height = 6}
-knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
-```
+```{r real_estate_explanations, child="real-estate-explanations.Rmd", eval = real_estate_flag}
 
 \newpage
 
@@ -549,7 +462,7 @@ plot_scores_scorecard(data_scores_scorecard)
 
 This score represents the estimated aggregate alignment of the PACTA sectors (except for cement) in the portfolio with respect to the GECO 2021 scenarios. Please bear in mind that the interpretation of this score should be accompanied by an analysis of the underlying results and investment strategy used in each one of the analysed sectors, given the assumptions that an aggregated metric is based on. Some portfolios with climate objectives may intentionally include investments in companies that are not yet on track to achieve 1.5°C alignment, seeking instead to contribute actively to climate goals by improving the alignment of investee companies to bring a larger share of the economy into alignment over time. The combined set of indicators above and their display are considered by the Swiss government to represent the current best-practice in providing science-based transparency on the alignment of portfolio assets with global climate goals.
 
-```{r general_info, fig.height = 6}
+```{r emissions_covered, fig.height = 6}
 
 portfolio_emissions_covered <- emissions %>%
   dplyr::mutate(
@@ -615,20 +528,28 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 #### Real Estate Score
 
 ```{r real_estate_scores_scorecard}
-# the specific PACTA outputs that we need here are my guesses 
-re_data_scores_scorecard <- tibble(
-  asset_class = c("directly held", "mortgages"),
-  score = c(
-    real_estate_data[["real_estate"]][["co2eq_emissions_grade"]],
-    real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]
-  )
-) %>%
+if (real_estate_flag){
+
+  real_estate_data <- jsonlite::read_json(
+    path = file.path(real_estate_dir, "data", "data.json")
+    )[["exec_sum"]]
+
+  re_data_scores_scorecard <- tibble(
+    asset_class = c("directly held", "mortgages"),
+    score = c(
+      real_estate_data[["real_estate"]][["co2eq_emissions_grade"]],
+      real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]
+    )
+    ) %>%
   dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
 
-plot_scores_scorecard(
-  data = re_data_scores_scorecard,
-  facet = c("directly held", "mortgages")
-)
+  plot_scores_scorecard(
+    data = re_data_scores_scorecard,
+    facet = c("directly held", "mortgages")
+  )
+} else {
+  empty_plot_no_data_message()
+}
 ```
 
 #### General Info
@@ -639,7 +560,6 @@ plot_scores_scorecard(
 ```
 
 * Share of companies in portfolio with verified commitments to net-zero and credible near term targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` %**
-
 
 * Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` %**
 
@@ -882,36 +802,6 @@ _The information for this indicator was not collected in the PACTA Climate Test 
 * Any linked climate engagement strategy should be consistent with the ambition of reaching net-zero by 2050.
 * The escalation procedure is clearly defined and made transparent.
 * An example for a climate engagement initiative is Climate Action 100+
-
-```{r explanation_real_estate_map, fig.height = 6}
-knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
-```
-
-Geographical location of all directly held buildings in Switzerland. The colour represents the main use of the respective building. 
-
-```{r explanation_real_estate_bar_chart, fig.height = 6}
-knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
-```
-
-Proportion of energy sources in the directly held buildings and mortgages. The values submitted or taken from the GWR are shown. If neither of the two figures is available, "oil" is used in accordance with FOEN specifications. 
-
-```{r explanation_real_estate_distribution, fig.height = 6}
-knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
-```
-
-Mean CO_{2} intensity of all directly held buildings or mortgages per participant. The red column represents the mean value of the own respective portfolio. The horizontal line represents the value 15.7 kg/m^{2} of the reduction path "Switzerland's Long-Term Climate Strategy" for the year 2021. 
-
-```{r explanation_real_estate_reduction_path, fig.height = 6}
-knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
-```
-
-Development over time of the average CO_{2} intensity of all directly held buildings per participant in comparison with the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy". 
-
-```{r explanation_real_estate_reduction_proportion, fig.height = 6}
-knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
-```
-
-Proportions of mortgages above or below the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy " in relation to their mortgages at the respective time. In light green, those mortgages that are below the reduction path at the respective time due to renovation measures. 
 
 \newpage
 
