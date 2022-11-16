@@ -35,7 +35,7 @@ plot_diagram <- function(data = NULL) {
   currency_id <- "CHF"
   emissions_unit <- "tonnes"
 
-  ttl_exp_lbl <- paste0(scales::label_comma()(data_equity$exposure_portfolio), " CHF")
+  ttl_exp_lbl <- paste0(scales::label_comma()(data_equity$exposure_portfolio), " ", currency_id)
 
   eq_exp_lbl <-
     paste0(
