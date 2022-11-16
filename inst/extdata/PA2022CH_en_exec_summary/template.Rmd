@@ -159,11 +159,11 @@ data_scatter_power_b <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "bonds"
 )
- plot_scatter(data_scatter_power_b) +
-   patchwork::plot_annotation(
-     title = "Bonds",
-     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-     )
+ # plot_scatter(data_scatter_power_b) +
+ #   patchwork::plot_annotation(
+ #     title = "Bonds",
+ #     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+ #     )
 
 data_scatter_power_e <- prep_scatter(
   results_portfolio = results_portfolio,
@@ -173,11 +173,11 @@ data_scatter_power_e <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "equity"
 )
-plot_scatter(data_scatter_power_e) +
-   patchwork::plot_annotation(
-     title = "Equity",
-     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-     )
+# plot_scatter(data_scatter_power_e) +
+#    patchwork::plot_annotation(
+#      title = "Equity",
+#      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+#      )
 ```
 
 ### Future (Other PACTA sectors)
@@ -257,120 +257,8 @@ plot_alignment_table(data_alignment_table)
 
 \newpage
 
-## Climate Action Survey
-
-This section provides insights in the effectiveness of climate actions on an institutional level. The results base on the complementary qualitative climate action survey. The survey results are compared to peers and the quantitative results of this portfolio. Please note that survey answers were self-reported and not verified by 2DII, RMI, and WP.
-
-Text in a box:
-**Explanation on dart charts below:** The dart charts are a newly developed chart type that depicts your climate-relevant measures. Each circle represents one climate relevant measure and is colored in case the measure is in place. The level of effectiveness of the measures increases from the outer to the inner ring and with colour intensity. The more circles are filled from the outer to the inner circle, the more ambitious are your institution’s climate actions. For more information on the specific measures shown in the layers, please refer to page 7. 
-
-### Overview
-
-On the left hand side, you find the initiatives you are part of. The larger the font size, the more peers are part of it. In the middle, you see a dart chart indicating your climate. On the right, you can see how many of your peers have all three climate strategies in place, which is considered as best practice.
-
-```{r plot_wordcloud, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_wordcloud.png"))
-# TODO: add title
+```{r conditional_print, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
-
-```{r plot_layer_with_peer_info_climate_goals, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_climate_goals.png"))
-# TODO: add title
-```
-
-
-### Investee engagement per sector
-
-Research shows that engagement is one of the most effective ways to improve climate goal alignment of companies invested through equity and bonds. Therefore, the engagement dart charts below show your engagement measures for three climate crucial sectors and thereby complement the previous alignment section. The text besides provides a comparison to the share of peers with best practice, i.e., the ones that have all layers covered.
-
-
-```{r plot_layer_with_peer_info_engagement_Fossil_Fuels, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Fossil_Fuels.png"))
-# TODO: add title - Power engagement badge.
-```
-```{r plot_layer_with_peer_info_engagement_Automotive, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Automotive.png"))
-# TODO: add title - Automotive engagement badge.
-```
-```{r plot_layer_with_peer_info_engagement_Power, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png"))
-# TODO: add title - Fossil fuels engagement badge.
-```
-
-### Negative screening vs. fossil fuel PACTA exposure
-
-These charts compare the reported climate-aligned strategies to the exposure to coal mining and oil & gas extraction. If exclusion strategies are applied at an institutional level, it is expected that exposure in these technologies will be zero or very low compared to the total portfolios peers.
-
-```{r plot_layer_asset_exclusion_coal_Listed_equities, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Listed_equities.png"))
-# TODO: add title - Coal exclusion badge - equity.
-```
-
-```{r exposure_survey_equity_coal, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio, 
-                                               peers_results_aggregated,
-                                             sector = "coal",
-                                             asset_class = "equity")
-plot_exposures_survey(data_exposures_survey) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
-```
-
-```{r plot_layer_asset_exclusion_coal_Corporate_bonds, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_coal_Corporate_bonds.png"))
-# TODO: add title - Coal exclusion badge - bonds.
-```
-
-```{r exposure_survey_bonds_coal, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio,
-                                               peers_results_aggregated,
-                                             sector = "coal",
-                                             asset_class = "bonds")
-plot_exposures_survey(data_exposures_survey) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
-```
-
-```{r plot_layer_asset_exclusion_oil_Listed_equities, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_oil_Listed_equities.png"))
-# TODO: add title - Oil exclusion badge - equity.
-```
-
-```{r exposure_survey_equity_oil_and_gas, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio, 
-                                               peers_results_aggregated,
-                                             sector = "oil_and_gas",
-                                             asset_class = "equity")
-plot_exposures_survey(data_exposures_survey) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
-```
-
-```{r plot_layer_asset_exclusion_oil_Corporate_bonds, fig.height = 6}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_asset_exclusion_oil_Corporate_bonds.png"))
-# TODO: add title - Oil exclusion badge - bonds.
-```
-
-```{r exposure_survey_bonds_oil_and_gas, out.width="25%"}
-# the specific PACTA outputs that we need here are my guesses 
-data_exposures_survey <- prep_exposures_survey(results_portfolio, 
-                                               peers_results_aggregated,
-                                             sector = "oil_and_gas",
-                                             asset_class = "bonds")
-plot_exposures_survey(data_exposures_survey) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
-```
-
-\newpage
 
 ## Real Estate & Mortgage Results
 
@@ -665,15 +553,24 @@ Text and Graph
 Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
 
 ```{r climate_strategy_initiatives, fig.height = 6}
-user_climate_strategy_scorecard_initiatives <- readr::read_csv(
-  file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"),
-  col_types = readr::cols_only(
-    user_id = "n",
-    peer_group = "c",
-    name_climate_initiative = "c",
-    climate_initiative = "n"
+if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {
+  user_climate_strategy_scorecard_initiatives <- readr::read_csv(
+    file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"),
+    col_types = readr::cols_only(
+      user_id = "n",
+      peer_group = "c",
+      name_climate_initiative = "c",
+      climate_initiative = "n"
+    )
   )
-)
+} else {
+  user_climate_strategy_scorecard_initiatives <- tibble::tibble(
+    user_id = 0,
+    peer_group = peer_group,
+    name_climate_initiative = NA_character_,
+    climate_initiative = NA_real_
+  )
+}
 
 peers_climate_strategy_scorecard_initiatives <- readr::read_csv(
   file.path(score_card_dir, "peers_climate_scorecard_survey_initiatives.csv"),
@@ -700,20 +597,29 @@ member_initiatives_peers <-
 
 * Is the financial institution member of a climate initiative?
 
-  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else {"NO"}`  (Peers: `r round(member_initiatives_peers * 100)` %)**
+  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers: `r round(member_initiatives_peers * 100)` %)**
   `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}`
 
 
 ```{r climate_strategy_voting_rights, fig.height = 6}
-user_climate_strategy_scorecard_voting <- readr::read_csv(
-  file.path(score_card_dir, "climate_scorecard_survey_voting.csv"),
-  col_types = readr::cols_only(
-    peer_group = "c",
-    user_id = "n",
-    asset_type = "c",
-    voting_rights = "c"
+if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_voting.csv"))) {
+  user_climate_strategy_scorecard_voting <- readr::read_csv(
+    file.path(score_card_dir, "climate_scorecard_survey_voting.csv"),
+    col_types = readr::cols_only(
+      peer_group = "c",
+      user_id = "n",
+      asset_type = "c",
+      voting_rights = "c"
+    )
   )
-)
+} else {
+  user_climate_strategy_scorecard_voting <- tibble::tibble(
+    peer_group = peer_group,
+    user_id = 0,
+    asset_type = c("INF", "LE", "Other", "PE"),
+    voting_rights = "not_answered"
+  )
+}
 
 peers_climate_strategy_scorecard_voting <- readr::read_csv(
   file.path(score_card_dir, "peers_climate_scorecard_survey_voting.csv"),
@@ -743,22 +649,32 @@ voting_rights_peers <-
 
 * Does the financial institution support climate strategies through voting rights?
   
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %)**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` %)**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` %)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` %);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` %);**
   **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` %)**
   
 
 ```{r climate_strategy_engagement, fig.height = 6}
-user_climate_strategy_scorecard_engagement <- readr::read_csv(
-  file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"),
-  col_types = readr::cols_only(
-    peer_group = "c",
-    user_id = "n",
-    asset_type = "c",
-    engagement = "c"
+if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"))) {
+  user_climate_strategy_scorecard_engagement <- readr::read_csv(
+    file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"),
+    col_types = readr::cols_only(
+      peer_group = "c",
+      user_id = "n",
+      asset_type = "c",
+      engagement = "c"
+    )
   )
-)
+} else {
+  user_climate_strategy_scorecard_engagement <- tibble::tibble(
+    peer_group = peer_group,
+    user_id = 0,
+    asset_type = c("CB", "LE", "Other", "RE"),
+    engagement = "not_answered"
+  )
+}
+
 
 peers_climate_strategy_scorecard_engagement <- readr::read_csv(
   file.path(score_card_dir, "peers_climate_scorecard_survey_engagement.csv"),
