@@ -27,7 +27,8 @@ prep_alignment_table <- function(results_portfolio,
     match.arg(asset_class)
     check_data_prep_alignment_table(scenario_source = scenario_source)
 
-    # infer start_year
+    if (nrow(results_portfolio %>% filter(asset_class == .env$asset_class)) > 0) {
+      # infer start_year
     start_year <- min(results_portfolio$year, na.rm = TRUE)
 
     # filter selected asset_class
@@ -90,7 +91,10 @@ prep_alignment_table <- function(results_portfolio,
         green_brown = "green_or_brown"
       ) %>%
       filter(.data$asset_class == .env$asset_class)
-  }
+    } else {
+      data_out <- tibble::tibble()
+    }
+  } 
   data_out
 }
 
