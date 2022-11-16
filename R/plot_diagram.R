@@ -110,7 +110,7 @@ plot_diagram <- function(data = NULL) {
 
   arrow_label_offset_x <- box_width + (arrow_x_length / 2)
   arrow_label_offset_y <- row_top_y - row_mid_y + (box_height / 2) - 3
-  arrow_label_angle <- 36
+  arrow_label_angle <- 27
 
   ggplot(tibble(x = 0:100, y = 0:100), aes(x = .data$x, y = .data$y)) +
     theme_void() +
