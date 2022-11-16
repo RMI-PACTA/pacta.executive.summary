@@ -4,10 +4,47 @@
 \alias{rasterGrob}
 \title{Render a raster object}
 \usage{
-rasterGrob(image)
+rasterGrob(image, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
+  width = NULL, height = NULL, just = "centre", hjust = NULL, vjust = NULL,
+  interpolate = TRUE, default.units= "npc", name = NULL, gp = gpar(),
+  vp = NULL)
 }
 \arguments{
 \item{image}{Any R object that can be coerced to a raster object.}
+
+\item{x}{A numeric vector or unit object specifying x-location.}
+
+\item{y}{A numeric vector or unit object specifying y-location.}
+
+\item{width}{A numeric vector or unit object specifying width.}
+
+\item{height}{A numeric vector or unit object specifying height.}
+
+\item{just}{The justification of the rectangle relative to its (x, y)
+location. If there are two values, the first value specifies horizontal
+justification and the second value specifies vertical justification.
+Possible string values are: "left", "right", "centre", "center", "bottom",
+and "top". For numeric values, 0 means left alignment and 1 means right
+alignment.}
+
+\item{hjust}{A numeric vector specifying horizontal justification. If
+specified, overrides the just setting.}
+
+\item{vjust}{A numeric vector specifying vertical justification. If
+specified, overrides the just setting.}
+
+\item{default.units}{A string indicating the default units to use if x, y,
+width, or height are only given as numeric vectors.}
+
+\item{name}{A character identifier.}
+
+\item{gp}{An object of class "gpar", typically the output from a call to the
+function gpar. This is basically a list of graphical parameter settings.}
+
+\item{vp}{A Grid viewport object (or NULL).}
+
+\item{interpolate}{A string indicating the default units to use if x, y,
+width, or height are only given as numeric vectors.}
 }
 \value{
 A rastergrob grob.

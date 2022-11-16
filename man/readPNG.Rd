@@ -4,11 +4,20 @@
 \alias{readPNG}
 \title{Read a bitmap image stored in the PNG format}
 \usage{
-readPNG(source)
+readPNG(source, native = FALSE, info = FALSE)
 }
 \arguments{
 \item{source}{Either name of the file to read from or a raw vector
 representing the PNG file content.}
+
+\item{native}{determines the image representation - if FALSE (the default)
+then the result is an array, if TRUE then the result is a native raster
+representation.}
+
+\item{info}{logical, if TRUE additional "info" attribute is attached to the
+result containing information from optional tags in the file (such as bit
+depth, resolution, gamma, text etc.). If the PNG file contains R metadata,
+it will also contain a "metadata" attribute with the unserialized R object.}
 }
 \value{
 If native is FALSE then an array of the dimensions height x width x

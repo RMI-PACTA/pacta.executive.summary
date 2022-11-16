@@ -4,12 +4,12 @@
 \alias{grid.arrange}
 \title{Arrange multiple grobs on a page}
 \usage{
-grid.arrange(..., ncol)
+grid.arrange(..., newpage = TRUE)
 }
 \arguments{
 \item{...}{grobs, gtables, ggplot or trellis objects.}
 
-\item{ncol}{argument of gtable.}
+\item{newpage}{open a new page.}
 }
 \value{
 draw on the current device.
