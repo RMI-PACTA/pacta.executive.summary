@@ -166,7 +166,7 @@ if (all_entity_types | nrow(data_scatter_power_b) == 0) {
   plot_scatter(data_scatter_power_b) +
     patchwork::plot_annotation(
       title = "Bonds",
-      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 18))
     )
 }
 
@@ -185,7 +185,7 @@ if (all_entity_types | nrow(data_scatter_power_e) == 0) {
   plot_scatter(data_scatter_power_e) +
     patchwork::plot_annotation(
       title = "Equity",
-      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 18))
     )
 }
 ```
