@@ -19,10 +19,10 @@
 #'
 #' plot_exposures_survey(data)
 plot_exposures_survey <- function(data) {
-  if (nrow(data) > 0) {
-    env <- list(data = substitute(data))
-    check_data_exposures_survey(data, env = env)
+  env <- list(data = substitute(data))
+  check_data_exposures_survey(data, env = env)
 
+  if (nrow(data) > 0) {
     data <- data %>%
       mutate(
         entity = factor(.data$entity, levels = c("portfolio", "peers"))
@@ -57,7 +57,6 @@ plot_exposures_survey <- function(data) {
 
 check_data_exposures_survey <- function(data, env) {
   stopifnot(is.data.frame(data))
-  abort_if_has_zero_rows(data, env = env)
   abort_if_missing_names(
     data,
     c("asset_class", "entity", "sector", "exposure_perc_aum")
