@@ -2,8 +2,9 @@
 
 This section provides insights in the effectiveness of climate actions on an institutional level. The results base on the complementary qualitative climate action survey. The survey results are compared to peers and the quantitative results of this portfolio. Please note that survey answers were self-reported and not verified by 2DII, RMI, and WP.
 
-Text in a box:
-**Explanation on dart charts below:** The dart charts are a newly developed chart type that depicts your climate-relevant measures. Each circle represents one climate relevant measure and is colored in case the measure is in place. The level of effectiveness of the measures increases from the outer to the inner ring and with colour intensity. The more circles are filled from the outer to the inner circle, the more ambitious are your institution’s climate actions. For more information on the specific measures shown in the layers, please refer to page 7. 
+:::
+**Explanation on dart charts below:** The dart charts are a newly developed chart type that depicts your climate-relevant measures. Each circle represents one climate relevant measure and is colored in case the measure is in place. The level of effectiveness of the measures increases from the outer to the inner ring and with colour intensity. The more circles are filled from the outer to the inner circle, the more ambitious are your institution’s climate actions. For more information on the specific measures shown in the layers, please refer to the Annex. 
+:::
 
 ### Overview
 
