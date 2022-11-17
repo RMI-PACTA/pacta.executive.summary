@@ -259,37 +259,12 @@ plot_alignment_table(data_alignment_table)
 ```{r conditional_print, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
 
-## Real Estate & Mortgage Results
-
-The Real Estate and Mortgage section allows financial institutions to measure the alignment of their Swiss real estate and mortgage portfolio with the climate target of the Swiss building sector to reach net-zero emissions in 2050. Therefore, the PACTA test assesses the CO2 emissions of your real estate and mortgage investments.<br/>
-Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO2 emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO2 emissions from buildings as a whole should have fallen by at least 40% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO2 emissions more rapidly in the future, in particular by renovating existing buildings. ([Link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html))
-
-
-### Current status
-
-Shares of energy sources compared to all participants
-
-```{r example_real_estate_chart, fig.height = 6, eval = params$real_estate_flag}
-# the specific PACTA outputs that we need here are my guesses 
-knitr::include_graphics(file.path(real_estate_dir, language, "example_real_estate_chart.png"))
-# TODO: add title - Oil exclusion badge - bonds.
+```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
 ```
 
-<!-- ![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`) -->
-
- <!-- TODO: the formatting in this one will most probably be different than the rest of the document - investigate -->
-
-Geographical distribution of directly held buildings by use
-
-
-Natural hazards map FOEN: [Link](https://map.geo.admin.ch/?topic=bafu&lang=de&bgLayer=ch.swisstopo.pixelkarte-grau)
-
-
-Distribution of the average CO2 intensity of your real estate portfolio (directly held buildings) compared to peers.
-
-
-Distribution of the mean CO2 intensity of your mortgage portfolio compared to peers.
-
+ <!-- FIXME: Find a more elegant way to make this switch. -->
+```{r real_estate_chapter, child="real-estate-chapter-alternate.Rmd", eval = !real_estate_flag}
+```
 
 ### Future status
 
@@ -373,39 +348,7 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 
 ## Annex (III): Explanation of Charts
 
-```{r sample_map_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_map_de.png"))
-```
-
-Geographical location of all directly held buildings in Switzerland. The colour represents the main use of the respective building.
-
-
-```{r sample_energy_carrier_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_energy_carrier_de.png"))
-```
-
-Proportion of energy sources in the directly held buildings and mortgages. The values submitted or taken from the GWR are shown. If neither of the two figures is available, "oil" is used in accordance with FOEN specifications.
-
-
-```{r sample_co2_intensity_real_estate_portfolio_peers, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_distribtion_de.png"))
-```
-
-Mean CO~2~ intensity of all directly held buildings or mortgages per participant. The red column represents the mean value of the own respective portfolio. The horizontal line represents the value 15.7 kg/m^2^ of the reduction path "Switzerland's Long-Term Climate Strategy" for the year 2021.
-
-```{r sample_emission_reduction_path_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_emissions_de.png"))
-```
-
-Development over time of the average CO~2~ intensity of all directly held buildings per participant in comparison with the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy".
-
-```{r sample_stranded_assets_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_stranded_asset_de.png"))
-```
-
-Proportions of mortgages above or below the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy" in relation to their mortgages at the respective time. In light green, those mortgages that are below the reduction path at the respective time due to renovation measures.
-
-
+```{r real_estate_explanations, child="real-estate-explanations.Rmd", eval = real_estate_flag}
 
 \newpage
 
@@ -532,7 +475,7 @@ plot_scores_scorecard(data_scores_scorecard)
 
 This score represents the estimated aggregate alignment of the PACTA sectors (except for cement) in the portfolio with respect to the GECO 2021 scenarios. Please bear in mind that the interpretation of this score should be accompanied by an analysis of the underlying results and investment strategy used in each one of the analysed sectors, given the assumptions that an aggregated metric is based on. Some portfolios with climate objectives may intentionally include investments in companies that are not yet on track to achieve 1.5°C alignment, seeking instead to contribute actively to climate goals by improving the alignment of investee companies to bring a larger share of the economy into alignment over time. The combined set of indicators above and their display are considered by the Swiss government to represent the current best-practice in providing science-based transparency on the alignment of portfolio assets with global climate goals.
 
-```{r general_info, fig.height = 6}
+```{r emissions_covered, fig.height = 6}
 
 portfolio_emissions_covered <- emissions %>%
   dplyr::mutate(
@@ -595,15 +538,55 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 ```
 
+#### Real Estate Score
+
+```{r real_estate_scores_scorecard, eval = FALSE}
+# FIXME: Enable
+if (real_estate_flag){
+
+  real_estate_data <- jsonlite::read_json(
+    path = file.path(real_estate_dir, "data", "data.json")
+    )[["exec_sum"]]
+
+  re_data_scores_scorecard <- tibble(
+    asset_class = c("directly held", "mortgages"),
+    score = c(
+      real_estate_data[["real_estate"]][["co2eq_emissions_grade"]],
+      real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]
+    )
+    ) %>%
+  dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
+
+  # FIXME: make a plot_scores_scorecards that allows ratings through "G"
+  plot_scores_scorecard(
+    data = re_data_scores_scorecard,
+    facet = c("directly held", "mortgages")
+  )
+} else {
+  empty_plot_no_data_message()
+}
+```
+
+#### General Info
+
+```{r general_info, fig.height = 6}
+# TODO: add % emissions covered by assessment
+
+```
+
 * Share of companies in portfolio with verified commitments to net-zero and credible near term targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` %**
 
 * Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` %**
 
 ### Swiss real estate and mortgages
 
-CO₂ intensity according to GEAK classes (Means of the participant)
-Directly held buildings: 12.5 kg/m2 -> D 
-Mortgages: 25.1 kg/m2 -> G
+CO_2_ intensity according to GEAK classes (Means of the participant)
+
+```{r real_estate_score_text, eval = real_estate_flag}
+cat("Directly held buildings: 12.5 kg/m2 -> D ")
+cat(Mortgages: 25.1 kg/m2 -> G"
+```
+
 
 **ADD REAL ESTATE SCORE CHART**
 
@@ -801,7 +784,7 @@ Specifications:
 * Thereby, the indicator can show how exposed a portfolio is to different technologies within the same sector (e.g. fossil fuel-based power production vs. renewable power production)
 * The emission scope of activities differ between the sectors and include “mining” for coal, “upstream” for oil and gas, “production” for power. For more information, please refer to the documentation on the aggregated score on the next page
 
-To foster the transition, investments in climate solutions are key and can not be captured by CO2-Emission based metrics. Therefore, the exposure chart also includes exposure to renewable power
+To foster the transition, investments in climate solutions are key and can not be captured by CO_2_-Emission based metrics. Therefore, the exposure chart also includes exposure to renewable power
 
 **Hard requirements for Swiss Scores:**
 
@@ -811,7 +794,7 @@ To foster the transition, investments in climate solutions are key and can not b
 
 ### Real Estate and Mortgages – additional PACTA indicator
 
-By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. The figure shows the mean CO₂ intensity of the participant in the GEAK classes calculated using the PACTA methodology.
+By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. The figure shows the mean CO_2_ intensity of the participant in the GEAK classes calculated using the PACTA methodology.
 
 ### Verified Commitments to Net-Zero 
 
