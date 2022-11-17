@@ -30,9 +30,9 @@ fill_colours_exposures_scorecard <- c(
 )
 
 fill_labels_green_brown_bars <- c(
-  "Green" = "Low-carbon",
+  "Green" = "Low-carbon**",
   "Nuclear" = "Nuclear",
-  "Brown" = "High-carbon",
+  "Brown" = "High-carbon**",
   "Other" = "Sectors without tech. roadmap"
 )
 
