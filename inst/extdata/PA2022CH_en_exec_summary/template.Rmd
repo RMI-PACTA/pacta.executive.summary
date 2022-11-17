@@ -160,7 +160,9 @@ data_scatter_power_b <- prep_scatter(
   asset_class = "bonds"
 )
 
-if (length(unique(data_scatter_power_b$entity_type)) == 4) {
+all_entity_types <- length(unique(data_scatter_power_b$entity_type)) == 4
+
+if (all_entity_types | nrow(data_scatter_power_b) == 0) {
   plot_scatter(data_scatter_power_b) +
     patchwork::plot_annotation(
       title = "Bonds",
@@ -177,7 +179,9 @@ data_scatter_power_e <- prep_scatter(
   asset_class = "equity"
 )
 
-if (length(unique(data_scatter_power_e$entity_type)) == 4) {
+all_entity_types <- length(unique(data_scatter_power_e$entity_type)) == 4
+
+if (all_entity_types | nrow(data_scatter_power_e) == 0) {
   plot_scatter(data_scatter_power_e) +
     patchwork::plot_annotation(
       title = "Equity",
