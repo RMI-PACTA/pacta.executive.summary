@@ -35,7 +35,7 @@ plot_fossil_bars <- function(data) {
         label = scales::percent(round(.data$perc_aum, digits = 4))
       ),
       hjust = -0.2,
-      size = 7
+      size = 4
     ) +
     scale_y_continuous(expand = expansion(mult = c(0, .4))) +
     scale_fill_manual(
@@ -43,7 +43,7 @@ plot_fossil_bars <- function(data) {
       labels = fill_labels_fossil_bars,
     ) +
     coord_flip() +
-    theme_2dii(base_size = 28) +
+    theme_2dii(base_size = 18) +
     theme(
       axis.title = element_blank(),
       axis.line.x = element_blank(),
@@ -58,7 +58,7 @@ plot_fossil_bars <- function(data) {
       caption = make_caption_indices(data)
     ) +
     theme(
-      plot.caption = element_text(size = 16)
+      plot.caption = element_text(size = 10)
     )
   p
 }

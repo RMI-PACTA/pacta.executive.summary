@@ -33,7 +33,7 @@ fill_labels_green_brown_bars <- c(
   "Green" = "Low-carbon",
   "Nuclear" = "Nuclear",
   "Brown" = "High-carbon",
-  "Other" = "Sectors without\ntech. roadmap"
+  "Other" = "Sectors without tech. roadmap"
 )
 
 fill_labels_fossil_bars <- c(
