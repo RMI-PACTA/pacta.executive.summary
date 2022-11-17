@@ -682,27 +682,41 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 # FIXME: Enable
 if (real_estate_flag){
 
-  real_estate_data <- jsonlite::read_json(
-    path = file.path(real_estate_dir, "data", "data.json")
-    )[["exec_sum"]]
-
-  re_data_scores_scorecard <- tibble(
-    asset_class = c("directly held", "mortgages"),
-    score = c(
-      real_estate_data[["real_estate"]][["co2eq_emissions_grade"]],
-      real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]
-    )
-    ) %>%
-  dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
-
-  # FIXME: make a plot_scores_scorecards that allows ratings through "G"
-  plot_scores_scorecard(
-    data = re_data_scores_scorecard,
-    facet = c("directly held", "mortgages")
+  tryCatch(
+   {
+      real_estate_data <- jsonlite::read_json(
+        path = file.path(real_estate_dir, "data", "data.json")
+        )[["exec_sum"]]
+    
+      re_data_scores_scorecard <- tibble(
+        asset_class = c("directly held", "mortgages"),
+        score = c(
+          real_estate_data[["real_estate"]][["co2eq_emissions_grade"]],
+          real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]
+        )
+        ) %>%
+      dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
+      
+      # FIXME: make a plot_scores_scorecards that allows ratings through "G"
+      plot_scores_scorecard(
+        data = re_data_scores_scorecard,
+        facet = c("directly held", "mortgages")
+      )
+    },
+    error = function(e) {
+      pacta.portfolio.analysis:::write_log(
+        "ES: There was an error in prep/plot_scores_scorecard(). Returning empty plot object.\n",
+        file_path = log_dir
+      )
+      empty_plot_error_message()
+    }
   )
 } else {
   empty_plot_no_data_message()
 }
+
+  
+  
 ```
 
 #### General Info
