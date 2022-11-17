@@ -168,7 +168,7 @@ plot_diagram <- function(data = NULL) {
       arrow = arrow(length = unit(arrow_length_mm, "mm"), type= "closed")
     ) +
     # exposure to PACTA sectors per asset class
-    annotate("text", x = col_3_x + box_label_offset_x, y = row_top_y + box_label_offset_y, label = "Exposure covered by PACTA sectors*\n(as % of asset class exposure", size = 2.5) +
+    annotate("text", x = col_3_x + box_label_offset_x, y = row_top_y + box_label_offset_y, label = "Exposure covered by PACTA sectors*\n(as % of asset class exposure)", size = 2.5) +
     # equity PACTA exposure
     geom_rect(xmin = col_3_x, xmax = col_3_x + box_width,
               ymin = row_top_y, ymax = row_top_y + box_height,
@@ -193,7 +193,7 @@ plot_diagram <- function(data = NULL) {
       arrow = arrow(length = unit(arrow_length_mm, "mm"), type= "closed")
     ) +
     # emissions per asset class
-    annotate("text", x = col_4_x + box_label_offset_x, y = row_top_y + box_label_offset_y, label = "Emissions covered by PACTA sectors*\n(as % of asset class emissions", size = 2.5) +
+    annotate("text", x = col_4_x + box_label_offset_x, y = row_top_y + box_label_offset_y, label = "Emissions covered by PACTA sectors*\n(as % of asset class emissions)", size = 2.5) +
     # equity emissions
     geom_rect(xmin = col_4_x, xmax = col_4_x + box_width,
               ymin = row_top_y, ymax = row_top_y + box_height,
