@@ -722,7 +722,7 @@ CO_2_ intensity according to GEAK classes (Means of the participant)
 
 ```{r real_estate_score_text, eval = real_estate_flag}
 cat("Directly held buildings: 12.5 kg/m2 -> D ")
-cat(Mortgages: 25.1 kg/m2 -> G")
+cat("Mortgages: 25.1 kg/m2 -> G")
 ```
 
 
