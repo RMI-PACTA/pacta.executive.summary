@@ -20,20 +20,29 @@
 #' plot_scatter(toy_data_scatter %>% filter(asset_class == "equity"))
 plot_scatter <- function(data) {
   stopifnot(is.data.frame(data))
-  
+
   if (nrow(data) > 0) {
     env <- list(data = substitute(data))
     check_data_scatter(data, env = env)
-    
+
+    entity_type_levels <- c("this_portfolio", "peers", "peers_mean", "benchmark")
+    colour_assignment_entities <- c(
+      r2dii.colours::colour_aliases_2dii[["green"]],
+      r2dii.colours::colour_aliases_2dii[["orange"]],
+      r2dii.colours::colour_aliases_2dii[["dark_blue"]],
+      r2dii.colours::colour_aliases_2dii[["ruby_red"]]
+      )
+    names(colour_assignment_entities) <- entity_type_levels
+
     data <- data %>%
       dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
       select(-.data$category, -.data$score_upper) %>%
       mutate(
         score_symbol = .data$score,
         score = .data$score_label,
-        entity_type = factor(.data$entity_type, levels = c("this_portfolio", "peers", "peers_mean", "benchmark"))
-      ) 
-  
+        entity_type = factor(.data$entity_type, levels = entity_type_levels)
+      )
+
     score_bar <- plot_basic_scorebar() +
       geom_point(
         data = data %>%
@@ -47,9 +56,12 @@ plot_scatter <- function(data) {
         ),
         position = position_dodge(width = 0.2)
       ) +
-      scale_colour_2dii(colour_groups = data$entity_type) +
+      scale_colour_manual(
+        values = colour_assignment_entities,
+        labels = r2dii.plot::to_title(levels(data$entity_type))
+        ) +
       scale_shape_manual(
-        values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
+        values = c("this_portfolio" = 16, "peers" = 1, "peers_mean" = 16, "benchmark" = 16),
         labels = r2dii.plot::to_title(levels(data$entity_type))
       ) +
       theme(
@@ -58,7 +70,7 @@ plot_scatter <- function(data) {
       labs(
         y = axis_labels_scatter["y"]
       )
-  
+
     p <- ggplot(
       data,
       aes(
@@ -84,10 +96,13 @@ plot_scatter <- function(data) {
         expand = expansion(mult = c(0, 0.1))
       ) +
       scale_shape_manual(
-        values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
+        values = c("this_portfolio" = 16, "peers" = 1, "peers_mean" = 16, "benchmark" = 16),
         labels = r2dii.plot::to_title(levels(data$entity_type))
       ) +
-      scale_colour_2dii(colour_groups = data$entity_type) +
+      scale_colour_manual(
+        values = colour_assignment_entities,
+        labels = r2dii.plot::to_title(levels(data$entity_type))
+        ) +
       theme_2dii(
         base_size = 20
       ) +
@@ -97,12 +112,12 @@ plot_scatter <- function(data) {
         legend.position = "none"
       ) +
       guides(shape = "none", size = "none")
-  
+
     tech_mix <- tibble(
       tech_mix_green = seq(from = 0.05, to = 1, by = 0.05),
       category = "techmix"
     )
-  
+
     tech_mix_bar_fut <- ggplot(
       tech_mix,
       aes(x = .data$category, y = .data$tech_mix_green, fill = .data$tech_mix_green)
@@ -120,9 +135,12 @@ plot_scatter <- function(data) {
         expand = expansion(mult = c(0, 0.1))
       ) +
       scale_fill_gradient(low = fill_colours_techmix["brown"], high = fill_colours_techmix["green"]) +
-      scale_colour_2dii(colour_groups = data$entity_type) +
+      scale_colour_manual(
+        values = colour_assignment_entities,
+        labels = r2dii.plot::to_title(levels(data$entity_type))
+        ) +
       scale_shape_manual(
-        values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
+        values = c("this_portfolio" = 16, "peers" = 1, "peers_mean" = 16, "benchmark" = 16),
         labels = r2dii.plot::to_title(levels(data$entity_type))
       ) +
       theme_2dii(
@@ -135,7 +153,7 @@ plot_scatter <- function(data) {
         legend.position = "none"
       ) +
       labs(y = axis_labels_scatter["x"])
-  
+
     p_out <- score_bar + p + guide_area() + tech_mix_bar_fut +
       plot_layout(ncol = 2, widths = c(0.7, 3.8), heights = c(3.8, 1), guides = "collect") +
       theme(
