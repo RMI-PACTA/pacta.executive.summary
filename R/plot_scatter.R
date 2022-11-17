@@ -165,7 +165,7 @@ plot_scatter <- function(data) {
         shape = "none",
         fill = "none",
         colour = guide_legend(
-          title = axis_labels_scatter["legend_title"],
+         title = axis_labels_scatter["legend_title"],
          override.aes = list(size = 4, shape = c(16, 1, 16, 16))
         )
       )
