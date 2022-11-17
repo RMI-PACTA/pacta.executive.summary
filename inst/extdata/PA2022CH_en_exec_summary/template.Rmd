@@ -382,8 +382,10 @@ tryCatch(
 
 ### Exposure to climate-relevant sectors & technologies as % of AUM
 
+**All PACTA sectors**
 Chart_sample 1
 
+**Fossil Fuels**
 Chart_sample 2
 
 The bar chart on the left shows the portfolio's exposure to each of the eight PACTA sectors as a percentage of assets under management. The bars are arranged by the amount of exposure in descending order. In addition, a breakdown of technologies (low-carbon, carbon-intensive, unspecified) is provided for those sectors for which such a breakdown is defined. The graph on the right shows the exposure to the fossil fuel extraction sector as a breakdown between the different fossil fuels coal, oil and gas. In addition, a comparison with peers (pension funds, insurance companies, banks or asset managers) as well as with an ETF for the MSCI World Index can be seen.
