@@ -27,12 +27,6 @@ prep_fossil_bars <- function(results_portfolio,
     # check input
     check_data_prep_fossil_bars(scenario_selected = scenario_selected)
 
-    # filter indices input data set
-    indices_results_portfolio <- indices_results_portfolio %>%
-      dplyr::filter(
-        .data$portfolio_name %in% c(.env$index_cb_selected_lookup, .env$index_eq_selected_lookup)
-      )
-
     # combine input data sets
     data <- results_portfolio %>%
       dplyr::bind_rows(peers_results_aggregated) %>%
