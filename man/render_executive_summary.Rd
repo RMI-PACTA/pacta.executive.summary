@@ -19,7 +19,8 @@ render_executive_summary(
   peer_group,
   total_portfolio,
   scenario_selected,
-  currency_exchange_value
+  currency_exchange_value,
+  log_dir
 )
 }
 \arguments{
@@ -52,6 +53,8 @@ render_executive_summary(
 \item{scenario_selected}{Character single string specifying the selected scenario, e.g. "1.5C-Unif"}
 
 \item{currency_exchange_value}{Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. \code{1.03}}
+
+\item{log_dir}{Character single, valid filepath to a directory that will contain the log file}
 }
 \value{
 a pdf document written to output_dir
