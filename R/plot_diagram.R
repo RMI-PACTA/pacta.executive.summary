@@ -114,7 +114,7 @@ plot_diagram <- function(data = NULL) {
       arrow_label_offset_y <- row_top_y - row_mid_y + (box_height / 2) - 3
       arrow_label_angle <- 27
 
-      ggplot(tibble(x = 0:100, y = 0:100), aes(x = .data$x, y = .data$y)) +
+      p <- ggplot(tibble(x = 0:100, y = 0:100), aes(x = .data$x, y = .data$y)) +
         theme_void() +
         scale_y_continuous(limits = c(0, 50)) +
         # total exposure
@@ -209,9 +209,10 @@ plot_diagram <- function(data = NULL) {
     },
     error = function (e) {
       cat("There was an error in plot_diagram().\nReturning empty plot object.\n")
-      empty_plot_error_message()
+      p <- empty_plot_error_message()
     }
   )
+  p
 }
 
 check_data_diagram <- function(data, env) {
