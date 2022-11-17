@@ -80,13 +80,13 @@ knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
 
 ### Future Status
 
-Reduction path of all directly held buildings with the submitted refurbishment plans. 
+**Reduction path** of all directly held buildings with the submitted refurbishment plans. 
 
 ```{r real_estate_reduction_path, out.width = '50%'}
 knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
 ```
 
-Proportion of their mortgages that are above or below the reduction path for net zero by 2050
+**Proportion** of their mortgages that are above or below the reduction path for net zero by 2050
 
 ```{r real_estate_reduction_proportion, out.width = '50%'}
 knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
