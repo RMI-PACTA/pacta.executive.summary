@@ -253,11 +253,12 @@ plot_alignment_table(data_alignment_table)
 ```
 
 ```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
+```
 
-<!-- ![Example real estate chart.](`r file.path(real_estate_dir, "example_real_estate_chart.png")`) -->
+ <!-- FIXME: Find a more elegant way to make this switch. -->
+```{r real_estate_chapter, child="real-estate-chapter-alternate.Rmd", eval = !real_estate_flag}
+```
 
- <!-- TODO: the formatting in this one will most probably be different than the rest of the document - investigate -->
- 
 
 \newpage
 
