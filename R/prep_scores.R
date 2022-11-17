@@ -31,7 +31,7 @@ prep_scores <- function(results_portfolio,
       scenario_source = scenario_source
     )
 
-    portfolio_data_asset <- results_portfolio %>% 
+    portfolio_data_asset <- results_portfolio %>%
       filter(asset_class == .env$asset_class)
     if (nrow(portfolio_data_asset) > 0) {
       # infer start_year
@@ -105,7 +105,7 @@ prep_scores <- function(results_portfolio,
           c("asset_class", "scope", "entity", "sector", "score")
         )
     } else {
-      data_out <- toy_data_scores[0L, ]
+      data_out <- use_toy_data("scores")[0L, ]
     }
   }
   data_out
