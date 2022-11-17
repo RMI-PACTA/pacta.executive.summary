@@ -568,7 +568,7 @@ Benchmark:
 |iShares MSCI World ETF | iShares Global Corp Bond UCITS ETF |
 
 
-Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100, 1)` %**
+Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100)` %**
 
 #### Exposure to fossil fuels and renewable power, based on PACTA methodology
 
