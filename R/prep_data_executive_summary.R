@@ -132,7 +132,8 @@ prep_data_executive_summary <- function(investor_name,
       equity_market = equity_market,
       start_year = start_year,
       allocation_type = portfolio_allocation_method_equity
-    )
+    ) %>%
+    dplyr::filter(.data$portfolio_name == .env$index_eq_selected_lookup)
 
   indices_bonds_results_portfolio <- indices_bonds_results_portfolio %>%
     apply_general_filters(
@@ -141,7 +142,8 @@ prep_data_executive_summary <- function(investor_name,
       equity_market = equity_market,
       start_year = start_year,
       allocation_type = portfolio_allocation_method_bonds
-    )
+    ) %>%
+    dplyr::filter(.data$portfolio_name == .env$index_cb_selected_lookup)
 
   # add asset class, entity type and grenn/brown, combine data sets
   # ... portfolios
