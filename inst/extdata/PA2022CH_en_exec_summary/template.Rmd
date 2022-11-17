@@ -260,8 +260,12 @@ plot_alignment_table(data_alignment_table)
 
 \newpage
 
-```{r conditional_print, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
+```{r survey_chapter, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
+
+```{r survey_chapter, child='survey-chapter-alternate.Rmd', eval = !(dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
+```
+
 
 ```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
 ```
