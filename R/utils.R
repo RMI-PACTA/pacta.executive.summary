@@ -120,3 +120,16 @@ empty_plot_no_data_message <- function() {
     theme_void()
   p
 }
+
+empty_plot_error_message <- function() {
+  p <- ggplot() +
+    annotate(
+      "text",
+      label = "An error occured\ncreating this plot",
+      x = 1,
+      y = 1,
+      size = 10
+    ) +
+    theme_void()
+  p
+}
