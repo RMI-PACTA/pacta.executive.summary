@@ -17,22 +17,30 @@
 #'   )
 #' plot_scores_scorecard(data)
 plot_scores_scorecard <- function(data) {
-  env <- list(data = substitute(data))
-  check_data_scores_scorecard(data, env)
+  tryCatch(
+    {
+      env <- list(data = substitute(data))
+      check_data_scores_scorecard(data, env)
 
-  p <- plot_scores_scorecard_single(data) +
-    geom_text(
-      data = annotation_df(),
-      aes(x = 3.65, y = 91, label = .data$text),
-      colour = "black"
-    ) +
-    theme(
-      strip.text = element_text(face = "bold")
-    ) +
-    facet_wrap(
-      ~ factor(.data$asset_class, levels = c("bonds", "equity")),
-      labeller = as_labeller(r2dii.plot::to_title)
-    )
+      p <- plot_scores_scorecard_single(data) +
+        geom_text(
+          data = annotation_df(),
+          aes(x = 3.65, y = 91, label = .data$text),
+          colour = "black"
+        ) +
+        theme(
+          strip.text = element_text(face = "bold")
+        ) +
+        facet_wrap(
+          ~ factor(.data$asset_class, levels = c("bonds", "equity")),
+          labeller = as_labeller(r2dii.plot::to_title)
+        )
+    },
+    error = function (e) {
+      cat("There was an error in plot_scores_scorecard().\nReturning empty plot object.\n")
+      p <- empty_plot_error_message()
+    }
+  )
   p
 }
 

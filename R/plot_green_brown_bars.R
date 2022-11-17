@@ -15,48 +15,56 @@
 #' @examples
 #' plot_green_brown_bars(toy_data_green_brown_bars)
 plot_green_brown_bars <- function(data) {
-  env <- list(data = substitute(data))
-  check_data_green_brown_bars(data, env = env)
+  tryCatch(
+    {
+      env <- list(data = substitute(data))
+      check_data_green_brown_bars(data, env = env)
 
-  data <- data %>%
-    mutate(
-      tech_type = r2dii.plot::to_title(.data$tech_type),
-      tech_type = factor(
-        .data$tech_type,
-        levels = r2dii.plot::to_title(c("green", "nuclear", "brown", "other"))
-      ),
-      sector = r2dii.plot::to_title(.data$sector),
-      sector_reordered = tidytext::reorder_within(.data$sector, .data$perc_sec_exposure, .data$asset_class)
-    )
+      data <- data %>%
+        mutate(
+          tech_type = r2dii.plot::to_title(.data$tech_type),
+          tech_type = factor(
+            .data$tech_type,
+            levels = r2dii.plot::to_title(c("green", "nuclear", "brown", "other"))
+          ),
+          sector = r2dii.plot::to_title(.data$sector),
+          sector_reordered = tidytext::reorder_within(.data$sector, .data$perc_sec_exposure, .data$asset_class)
+        )
 
-  p <- ggplot(data, aes(x = .data$sector_reordered, y = .data$perc_tech_exposure, fill = .data$tech_type)) +
-    geom_bar(stat = "identity") +
-    geom_text(
-      aes(
-        y = .data$perc_sec_exposure,
-        # TODO: refine percentages
-        label = scales::percent(round(.data$perc_sec_exposure, digits = 3))
-      ),
-      hjust = -0.2,
-      size = 7
-    ) +
-    tidytext::scale_x_reordered() +
-    scale_y_continuous(expand = expansion(mult = c(0, .4)), labels = scales::percent) +
-    scale_fill_manual(
-      values = fill_colours_green_brown_bars,
-      labels = fill_labels_green_brown_bars,
-    ) +
-    coord_flip() +
-    theme_2dii(base_size = 28) +
-    theme(
-      axis.title = element_blank(),
-      axis.line.x = element_blank(),
-      axis.ticks = element_blank(),
-      axis.text.x = element_blank(),
-      strip.text = element_text(face = "bold"),
-      legend.position = "bottom"
-    ) +
-    facet_wrap(~asset_class, scales = "free", labeller = as_labeller(r2dii.plot::to_title))
+      p <- ggplot(data, aes(x = .data$sector_reordered, y = .data$perc_tech_exposure, fill = .data$tech_type)) +
+        geom_bar(stat = "identity") +
+        geom_text(
+          aes(
+            y = .data$perc_sec_exposure,
+            # TODO: refine percentages
+            label = scales::percent(round(.data$perc_sec_exposure, digits = 3))
+          ),
+          hjust = -0.2,
+          size = 7
+        ) +
+        tidytext::scale_x_reordered() +
+        scale_y_continuous(expand = expansion(mult = c(0, .4)), labels = scales::percent) +
+        scale_fill_manual(
+          values = fill_colours_green_brown_bars,
+          labels = fill_labels_green_brown_bars,
+        ) +
+        coord_flip() +
+        theme_2dii(base_size = 28) +
+        theme(
+          axis.title = element_blank(),
+          axis.line.x = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          strip.text = element_text(face = "bold"),
+          legend.position = "bottom"
+        ) +
+        facet_wrap(~asset_class, scales = "free", labeller = as_labeller(r2dii.plot::to_title))
+    },
+    error = function (e) {
+      cat("There was an error in plot_green_brown_bars().\nReturning empty plot object.\n")
+      p <- empty_plot_error_message()
+    }
+  )
   p
 }
 

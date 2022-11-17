@@ -18,42 +18,50 @@
 #'
 #' plot_scores(toy_data_scores %>% filter(asset_class == "equity"))
 plot_scores <- function(data) {
-  stopifnot(is.data.frame(data))
-  if (nrow(data) > 0) {
-    env <- list(data = substitute(data))
-    check_data_scores(data, env = env)
-  
-    data <- data %>%
-      dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
-      select(-c("category", "score_delta", "score_upper")) %>%
-      mutate(
-        score_symbol = .data$score
-      )
-  
-    p_portfolio <- plot_score_portfolio(data %>% filter(.data$scope == "portfolio")) +
-      labs(subtitle = "Portfolio")
+  tryCatch(
+    {
+      stopifnot(is.data.frame(data))
+      if (nrow(data) > 0) {
+        env <- list(data = substitute(data))
+        check_data_scores(data, env = env)
 
-    p_power <- plot_score_sector(data, "power")
-  
-    p_auto <- plot_score_sector(data, "automotive")
-  
-    p_coal <- plot_score_sector(data, "coal")
-  
-    p_gas <- plot_score_sector(data, "gas")
-  
-    p_steel <- plot_score_sector(data, "steel")
-  
-    p_aviation <- plot_score_sector(data, "aviation")
-  
-    p_oil <- plot_score_sector(data, "oil")
-  
-    p_sector_up <- p_power + p_auto + p_coal + p_gas + plot_layout(ncol = 4)
-    p_sector_down <- p_steel + p_aviation + p_oil + legend_scores() + plot_layout(ncol = 4)
-  
-    p <- p_portfolio + (p_sector_up / p_sector_down) + plot_layout(widths = c(1, 6))
-  } else {
-    p <- empty_plot_no_data_message()
-  }
+        data <- data %>%
+          dplyr::inner_join(alignment_scores_values, by = c("score" = "score_symbol")) %>%
+          select(-c("category", "score_delta", "score_upper")) %>%
+          mutate(
+            score_symbol = .data$score
+          )
+
+        p_portfolio <- plot_score_portfolio(data %>% filter(.data$scope == "portfolio")) +
+          labs(subtitle = "Portfolio")
+
+        p_power <- plot_score_sector(data, "power")
+
+        p_auto <- plot_score_sector(data, "automotive")
+
+        p_coal <- plot_score_sector(data, "coal")
+
+        p_gas <- plot_score_sector(data, "gas")
+
+        p_steel <- plot_score_sector(data, "steel")
+
+        p_aviation <- plot_score_sector(data, "aviation")
+
+        p_oil <- plot_score_sector(data, "oil")
+
+        p_sector_up <- p_power + p_auto + p_coal + p_gas + plot_layout(ncol = 4)
+        p_sector_down <- p_steel + p_aviation + p_oil + legend_scores() + plot_layout(ncol = 4)
+
+        p <- p_portfolio + (p_sector_up / p_sector_down) + plot_layout(widths = c(1, 6))
+      } else {
+        p <- empty_plot_no_data_message()
+      }
+    },
+    error = function (e) {
+      cat("There was an error in plot_scores().\nReturning empty plot object.\n")
+      p <- empty_plot_error_message()
+    }
+  )
   p
 }
 
