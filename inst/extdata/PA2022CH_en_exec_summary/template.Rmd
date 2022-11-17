@@ -260,10 +260,6 @@ plot_alignment_table(data_alignment_table)
 
 ## Real Estate & Mortgage Results
 
-The Real Estate and Mortgage section allows financial institutions to measure the alignment of their Swiss real estate and mortgage portfolio with the climate target of the Swiss building sector to reach net-zero emissions in 2050. Therefore, the PACTA test assesses the CO2 emissions of your real estate and mortgage investments.<br/>
-Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO2 emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO2 emissions from buildings as a whole should have fallen by at least 40% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO2 emissions more rapidly in the future, in particular by renovating existing buildings. ([Link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html))
-
-
 ### Current status
 
 Shares of energy sources compared to all participants
@@ -370,39 +366,6 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 \newpage
 
 ## Annex (III): Explanation of Charts
-
-```{r sample_map_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_map_de.png"))
-```
-
-Geographical location of all directly held buildings in Switzerland. The colour represents the main use of the respective building.
-
-
-```{r sample_energy_carrier_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_energy_carrier_de.png"))
-```
-
-Proportion of energy sources in the directly held buildings and mortgages. The values submitted or taken from the GWR are shown. If neither of the two figures is available, "oil" is used in accordance with FOEN specifications.
-
-
-```{r sample_co2_intensity_real_estate_portfolio_peers, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_distribtion_de.png"))
-```
-
-Mean CO~2~ intensity of all directly held buildings or mortgages per participant. The red column represents the mean value of the own respective portfolio. The horizontal line represents the value 15.7 kg/m^2^ of the reduction path "Switzerland's Long-Term Climate Strategy" for the year 2021.
-
-```{r sample_emission_reduction_path_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_emissions_de.png"))
-```
-
-Development over time of the average CO~2~ intensity of all directly held buildings per participant in comparison with the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy".
-
-```{r sample_stranded_assets_real_estate, fig.height = 6, eval = params$real_estate_flag}
-knitr::include_graphics(file.path(real_estate_dir, "img", "pa_d_stranded_asset_de.png"))
-```
-
-Proportions of mortgages above or below the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy" in relation to their mortgages at the respective time. In light green, those mortgages that are below the reduction path at the respective time due to renovation measures.
-
 
 ```{r real_estate_explanations, child="real-estate-explanations.Rmd", eval = real_estate_flag}
 
@@ -612,6 +575,7 @@ if (real_estate_flag){
     ) %>%
   dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
 
+  # FIXME: make a plot_scores_scorecards that allows ratings through "G"
   plot_scores_scorecard(
     data = re_data_scores_scorecard,
     facet = c("directly held", "mortgages")
@@ -635,8 +599,12 @@ if (real_estate_flag){
 ### Swiss real estate and mortgages
 
 CO₂ intensity according to GEAK classes (Means of the participant)
-Directly held buildings: 12.5 kg/m2 -> D 
-Mortgages: 25.1 kg/m2 -> G
+
+```{r real_estate_score_text, eval = real_estate_flag}
+cat("Directly held buildings: 12.5 kg/m2 -> D ")
+cat(Mortgages: 25.1 kg/m2 -> G"
+```
+
 
 **ADD REAL ESTATE SCORE CHART**
 
