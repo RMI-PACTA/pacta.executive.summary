@@ -29,8 +29,8 @@ prep_scatter <- function(results_portfolio,
       scenario_source = scenario_source,
       scenario_selected = scenario_selected
     )
-    
-    portfolio_data_asset <- results_portfolio %>% 
+
+    portfolio_data_asset <- results_portfolio %>%
       filter(asset_class == .env$asset_class)
     if (nrow(portfolio_data_asset) > 0) {
       # infer start year
@@ -113,7 +113,7 @@ prep_scatter <- function(results_portfolio,
           entity_type = dplyr::if_else(.data$entity_name == "peers_average", "peers_mean", .data$entity_type)
         )
     } else {
-      data_out <- toy_data_scatter[0L, ]
+      data_out <- use_toy_data("scatter")[0L, ]
     }
   }
   data_out
