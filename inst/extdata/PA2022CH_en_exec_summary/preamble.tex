@@ -1,0 +1,24 @@
+\usepackage{geometry}
+\usepackage{xparse}
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+\definecolor{watermelon}{HTML}{B4Da55}
+\definecolor{candy}{HTML}{f42069}
+
+\mdfdefinestyle{esstyle}{
+  frametitlebackgroundcolor = watermelon,
+  linecolor = candy,
+  linewidth = 2pt
+}
+
+\newenvironment{esbox}[2][\textwidth]
+{% begin code
+  \begin{minipage}{#1}
+  % #2 \\
+  \begin{mdframed}[style=esstyle, frametitle={#2}]
+}
+{ % enddef
+  \end{mdframed}
+  \end{minipage}%
+}%
