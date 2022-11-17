@@ -47,7 +47,7 @@ plot_scatter <- function(data) {
         ),
         position = position_dodge(width = 0.2)
       ) +
-      scale_colour_2dii(colour_groups = data$entity_type) +
+      # scale_colour_2dii(colour_groups = data$entity_type) +
       scale_shape_manual(
         values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
         labels = r2dii.plot::to_title(levels(data$entity_type))
@@ -87,7 +87,7 @@ plot_scatter <- function(data) {
         values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
         labels = r2dii.plot::to_title(levels(data$entity_type))
       ) +
-      scale_colour_2dii(colour_groups = data$entity_type) +
+      # scale_colour_2dii(colour_groups = data$entity_type) +
       theme_2dii(
         base_size = 20
       ) +
@@ -120,7 +120,7 @@ plot_scatter <- function(data) {
         expand = expansion(mult = c(0, 0.1))
       ) +
       scale_fill_gradient(low = fill_colours_techmix["brown"], high = fill_colours_techmix["green"]) +
-      scale_colour_2dii(colour_groups = data$entity_type) +
+      # scale_colour_2dii(colour_groups = data$entity_type) +
       scale_shape_manual(
         values = c("peers_mean" = 16, "peers" = 1, "this_portfolio" = 16, "benchmark" = 16),
         labels = r2dii.plot::to_title(levels(data$entity_type))
@@ -147,7 +147,7 @@ plot_scatter <- function(data) {
         shape = "none",
         fill = "none",
         colour = guide_legend(
-          title = axis_labels_scatter["legend_title"],
+         title = axis_labels_scatter["legend_title"],
          override.aes = list(size = 4, shape = c(16, 1, 16, 16))
         )
       )
