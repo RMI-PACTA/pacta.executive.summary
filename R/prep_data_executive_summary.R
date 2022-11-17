@@ -133,7 +133,7 @@ prep_data_executive_summary <- function(investor_name,
       start_year = start_year,
       allocation_type = portfolio_allocation_method_equity
     ) %>%
-    dplyr::filter(.data$portfolio_name == .env$index_eq_selected_lookup)
+    dplyr::filter(grepl("MSCI World", .data$portfolio_name))
 
   indices_bonds_results_portfolio <- indices_bonds_results_portfolio %>%
     apply_general_filters(
@@ -143,7 +143,7 @@ prep_data_executive_summary <- function(investor_name,
       start_year = start_year,
       allocation_type = portfolio_allocation_method_bonds
     ) %>%
-    dplyr::filter(.data$portfolio_name == .env$index_cb_selected_lookup)
+    dplyr::filter(grepl("Global Corp Bond", .data$portfolio_name))
 
   # add asset class, entity type and grenn/brown, combine data sets
   # ... portfolios
@@ -246,11 +246,11 @@ prep_data_executive_summary <- function(investor_name,
 
   emissions_indices_eq <- readRDS(file.path(score_card_dir, "Indices_equity_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(.data$portfolio_name == .env$index_eq_selected_lookup)
+    dplyr::filter(grepl("MSCI World", .data$portfolio_name))
 
   emissions_indices_cb <- readRDS(file.path(score_card_dir, "Indices_bonds_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(.data$portfolio_name == .env$index_cb_selected_lookup)
+    dplyr::filter(grepl("Global Corp Bond", .data$portfolio_name))
 
   emissions <- emissions_portfolio %>%
     dplyr::bind_rows(emissions_indices_eq) %>%
@@ -262,11 +262,11 @@ prep_data_executive_summary <- function(investor_name,
 
   audit_indices_eq <- readRDS(file.path(score_card_dir, "Indices_equity_audit.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(.data$portfolio_name == .env$index_eq_selected_lookup)
+    dplyr::filter(grepl("MSCI World", .data$portfolio_name))
 
   audit_indices_cb <- readRDS(file.path(score_card_dir, "Indices_bonds_audit.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(.data$portfolio_name == .env$index_cb_selected_lookup)
+    dplyr::filter(grepl("Global Corp Bond", .data$portfolio_name))
 
   audit_data <- audit_portfolio %>%
     dplyr::bind_rows(audit_indices_eq) %>%
