@@ -285,10 +285,10 @@ Geographical distribution of directly held buildings by use
 Natural hazards map FOEN: [Link](https://map.geo.admin.ch/?topic=bafu&lang=de&bgLayer=ch.swisstopo.pixelkarte-grau)
 
 
-Distribution of the average CO2 intensity of your real estate portfolio (directly held buildings) compared to peers.
+Distribution of the average CO_2_ intensity of your real estate portfolio (directly held buildings) compared to peers.
 
 
-Distribution of the mean CO2 intensity of your mortgage portfolio compared to peers.
+Distribution of the mean CO_2_ intensity of your mortgage portfolio compared to peers.
 
 
 ### Future status
@@ -604,7 +604,7 @@ if (real_estate_flag){
 
 ### Swiss real estate and mortgages
 
-CO₂ intensity according to GEAK classes (Means of the participant)
+CO_2_ intensity according to GEAK classes (Means of the participant)
 
 ```{r real_estate_score_text, eval = real_estate_flag}
 cat("Directly held buildings: 12.5 kg/m2 -> D ")
@@ -808,7 +808,7 @@ Specifications:
 * Thereby, the indicator can show how exposed a portfolio is to different technologies within the same sector (e.g. fossil fuel-based power production vs. renewable power production)
 * The emission scope of activities differ between the sectors and include “mining” for coal, “upstream” for oil and gas, “production” for power. For more information, please refer to the documentation on the aggregated score on the next page
 
-To foster the transition, investments in climate solutions are key and can not be captured by CO2-Emission based metrics. Therefore, the exposure chart also includes exposure to renewable power
+To foster the transition, investments in climate solutions are key and can not be captured by CO_2_-Emission based metrics. Therefore, the exposure chart also includes exposure to renewable power
 
 **Hard requirements for Swiss Scores:**
 
@@ -818,7 +818,7 @@ To foster the transition, investments in climate solutions are key and can not b
 
 ### Real Estate and Mortgages – additional PACTA indicator
 
-By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. The figure shows the mean CO₂ intensity of the participant in the GEAK classes calculated using the PACTA methodology.
+By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. The figure shows the mean CO_2_ intensity of the participant in the GEAK classes calculated using the PACTA methodology.
 
 ### Verified Commitments to Net-Zero 
 
