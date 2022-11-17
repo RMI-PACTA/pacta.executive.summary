@@ -150,8 +150,7 @@ plot_fossil_bars(data_fossil_bars)
 
 The chart below shows the current low-carbon exposure and the forward-looking climate scenario alignment in the power sector for you and your peers. The current exposure to low-carbon technologies in the power sector increases right-wards, while the alignment improves upwards. A significant increase in renewable energy capacity will be required to achieve a 1.5°C climate scenario, so even companies with a high current share of low-carbon technologies will need to build new capacity in order to be aligned in the future. A current high low-carbon share and a low future alignment would therefore indicate a lack of planned renewables investment.
 
-```{r scatter, fig.show="hold", out.width="50%", eval = FALSE}
-# FIXME: turn eval back on
+```{r scatter, fig.show="hold", out.width="50%"}
 data_scatter_power_b <- prep_scatter(
   results_portfolio = results_portfolio,
   peers_results_aggregated = peers_results_aggregated,
@@ -197,8 +196,7 @@ if (all_entity_types | nrow(data_scatter_power_e) == 0) {
 
 The aggregated score compares the alignment of all assets until 2026 to the GECO 2021 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector (except for cement which is not covered in GECO2021).
 
-```{r scores, fig.show='hold', out.width='50%', eval = FALSE}
-# FIXME: turn eval back on
+```{r scores, fig.show='hold', out.width='50%'}
 data_scores_b <- prep_scores(
   results_portfolio = results_portfolio,
   peers_results_aggregated = peers_results_aggregated,
@@ -235,9 +233,7 @@ The charts below indicate with which scenario the technologies in your portfolio
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
 
-```{r alignment_table_bonds, out.height='33%', eval = FALSE}
-# FIXME: turn eval back on
-# the specific PACTA outputs that we need here are my guesses 
+```{r alignment_table_bonds, fig.height=5, fig.width=6}
 data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
   peers_results_aggregated = peers_results_aggregated,
@@ -248,8 +244,7 @@ plot_alignment_table(data_alignment_table)
 ```
 
 
-```{r alignment_table_equity, out.height='33%', eval = FALSE}
-# FIXME: turn eval back on
+```{r alignment_table_equity, fig.height=5, fig.width=6}
 data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
   peers_results_aggregated = peers_results_aggregated,
@@ -265,14 +260,8 @@ plot_alignment_table(data_alignment_table)
 
 \newpage
 
-```{r survey_chapter, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
+```{r conditional_print, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
-
-## Real Estate & Mortgage Results
-
-### Current status
-
-Shares of energy sources compared to all participants
 
 ```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
 ```
@@ -280,20 +269,6 @@ Shares of energy sources compared to all participants
  <!-- FIXME: Find a more elegant way to make this switch. -->
 ```{r real_estate_chapter, child="real-estate-chapter-alternate.Rmd", eval = !real_estate_flag}
 ```
-
- <!-- TODO: the formatting in this one will most probably be different than the rest of the document - investigate -->
-
-Geographical distribution of directly held buildings by use
-
-
-Natural hazards map FOEN: [Link](https://map.geo.admin.ch/?topic=bafu&lang=de&bgLayer=ch.swisstopo.pixelkarte-grau)
-
-
-Distribution of the average CO_2_ intensity of your real estate portfolio (directly held buildings) compared to peers.
-
-
-Distribution of the mean CO_2_ intensity of your mortgage portfolio compared to peers.
-
 
 ### Future status
 
