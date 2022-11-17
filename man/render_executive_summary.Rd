@@ -19,7 +19,8 @@ render_executive_summary(
   peer_group,
   total_portfolio,
   scenario_selected,
-  currency_exchange_value
+  currency_exchange_value,
+  log_dir
 )
 }
 \arguments{
