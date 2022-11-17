@@ -234,7 +234,7 @@ prep_data_executive_summary <- function(investor_name,
         .data$technology %in% .env$green_techs, "green", "brown"
       ),
       entity_name = dplyr::if_else(
-        asset_class == "equity",
+        .data$asset_class == "equity",
         index_eq_short_lookup,
         index_cb_short_lookup
       ),
