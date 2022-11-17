@@ -15,30 +15,38 @@
 #' @export
 prep_exposures_scorecard <- function(results_portfolio,
                                      scenario_selected = "1.5C-Unif") {
-  if (is.null(results_portfolio)) {
-    data_out <- use_toy_data("exposures_scorecard")
-  } else {
-    # check input
-    check_data_prep_exposures_scorecard(scenario_selected = scenario_selected)
+  tryCatch(
+    {
+      if (is.null(results_portfolio)) {
+        data_out <- use_toy_data("exposures_scorecard")
+      } else {
+        # check input
+        check_data_prep_exposures_scorecard(scenario_selected = scenario_selected)
 
-    # input data
-    data <- results_portfolio
+        # input data
+        data <- results_portfolio
 
-    # infer start year
-    start_year <- min(data$year, na.rm = TRUE)
+        # infer start year
+        start_year <- min(data$year, na.rm = TRUE)
 
-    # filter data
-    data <- data %>%
-      dplyr::filter(
-        .data$year == .env$start_year,
-        .data$scenario == .env$scenario_selected
-      )
+        # filter data
+        data <- data %>%
+          dplyr::filter(
+            .data$year == .env$start_year,
+            .data$scenario == .env$scenario_selected
+          )
 
-    # calculate current exposures and wrangle for score card
-    data_out <- data %>%
-      wrangle_data_exposures_scorecard()
-  }
-  data_out
+        # calculate current exposures and wrangle for score card
+        data_out <- data %>%
+          wrangle_data_exposures_scorecard()
+      }
+      data_out
+    },
+    error = function (e) {
+      cat("There was an error in prep_exposures_scorecard().\nReturning empty plot object.\n")
+      data_out <- empty_plot_error_message()
+    }
+  )
 }
 
 check_data_prep_exposures_scorecard <- function(scenario_selected) {

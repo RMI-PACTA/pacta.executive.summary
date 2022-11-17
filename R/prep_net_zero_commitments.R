@@ -17,24 +17,32 @@ prep_net_zero_commitments <- function(total_portfolio,
                                       peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
                                       net_zero_targets,
                                       peer_group_share_net_zero) {
-  # match input arg
-  peer_group <- match.arg(peer_group)
+  tryCatch(
+    {
+      # match input arg
+      peer_group <- match.arg(peer_group)
 
-  # calculate portfolio level share of sbti commitments
-  portfolio_share_net_zero <- prep_portfolio_sbti_commitments(
-    total_portfolio = total_portfolio,
-    net_zero_targets = net_zero_targets
+      # calculate portfolio level share of sbti commitments
+      portfolio_share_net_zero <- prep_portfolio_sbti_commitments(
+        total_portfolio = total_portfolio,
+        net_zero_targets = net_zero_targets
+      )
+
+      # get peers sbti commitment for appropriate peer group
+      peer_group_share_net_zero <- peer_group_share_net_zero %>%
+        dplyr::filter(.data$investor_name == .env$peer_group)
+
+      # combin portfolio and peer level results
+      data_out <- portfolio_share_net_zero %>%
+        dplyr::bind_rows(peer_group_share_net_zero)
+
+      return(data_out)
+    },
+    error = function (e) {
+      cat("There was an error in\nprep_net_zero_commitments().\nReturning empty plot object.\n")
+      data_out <- empty_plot_error_message()
+    }
   )
-
-  # get peers sbti commitment for appropriate peer group
-  peer_group_share_net_zero <- peer_group_share_net_zero %>%
-    dplyr::filter(.data$investor_name == .env$peer_group)
-
-  # combin portfolio and peer level results
-  data_out <- portfolio_share_net_zero %>%
-    dplyr::bind_rows(peer_group_share_net_zero)
-
-  return(data_out)
 }
 
 prep_portfolio_sbti_commitments <- function(total_portfolio,

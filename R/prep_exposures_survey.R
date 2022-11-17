@@ -21,50 +21,58 @@ prep_exposures_survey <- function(results_portfolio,
                                   peers_results_aggregated,
                                   sector = c("coal", "oil_and_gas"),
                                   asset_class = c("equity", "bonds")) {
-  if (is.null(results_portfolio)) {
-    data_out <- use_toy_data("exposures_survey") %>%
-      filter(
-        .data$asset_class == .env$asset_class,
-        .data$sector == .env$sector
-      )
-  } else {
-    # validate inputs
-    sector <- match.arg(sector)
-    asset_class <- match.arg(asset_class)
+  tryCatch(
+    {
+      if (is.null(results_portfolio)) {
+        data_out <- use_toy_data("exposures_survey") %>%
+          filter(
+            .data$asset_class == .env$asset_class,
+            .data$sector == .env$sector
+          )
+      } else {
+        # validate inputs
+        sector <- match.arg(sector)
+        asset_class <- match.arg(asset_class)
 
-    check_data_prep_exposures_survey(
-      asset_class = asset_class,
-      sector = sector
-    )
+        check_data_prep_exposures_survey(
+          asset_class = asset_class,
+          sector = sector
+        )
 
-    # infer start year
-    start_year <- min(results_portfolio$year, na.rm = TRUE)
+        # infer start year
+        start_year <- min(results_portfolio$year, na.rm = TRUE)
 
-    # pick scenario for filtering (no impact on current exposure)
-    scenario_filter <- "1.5C-Unif"
+        # pick scenario for filtering (no impact on current exposure)
+        scenario_filter <- "1.5C-Unif"
 
-    # combine input data
-    data <- results_portfolio %>%
-      dplyr::bind_rows(peers_results_aggregated)
+        # combine input data
+        data <- results_portfolio %>%
+          dplyr::bind_rows(peers_results_aggregated)
 
-    # calculate current exposures
-    data <- data %>%
-      dplyr::filter(
-        .data$year == .env$start_year,
-        .data$scenario == .env$scenario_filter
-      )
+        # calculate current exposures
+        data <- data %>%
+          dplyr::filter(
+            .data$year == .env$start_year,
+            .data$scenario == .env$scenario_filter
+          )
 
-    # wrangle to expected format
-    data <- data %>%
-      wrangle_data_exposures_survey()
+        # wrangle to expected format
+        data <- data %>%
+          wrangle_data_exposures_survey()
 
-    data_out <- data %>%
-      dplyr::filter(
-        .data$asset_class == .env$asset_class,
-        .data$sector == .env$sector
-      )
-  }
-  data_out
+        data_out <- data %>%
+          dplyr::filter(
+            .data$asset_class == .env$asset_class,
+            .data$sector == .env$sector
+          )
+      }
+      data_out
+    },
+    error = function (e) {
+      cat("There was an error in prep_exposures_survey().\nReturning empty plot object.\n")
+      data_out <- empty_plot_error_message()
+    }
+  )
 }
 
 check_data_prep_exposures_survey <- function(asset_class,
