@@ -53,6 +53,7 @@ plot_fossil_bars <- function(data) {
       legend.position = "bottom",
       strip.placement = "outside"
     ) +
+    guides(fill = guide_legend(reverse = TRUE)) +
     facet_grid(tech ~ asset_class, labeller = as_labeller(r2dii.plot::to_title), switch = "y") +
     labs(
       caption = make_caption_indices(data)
