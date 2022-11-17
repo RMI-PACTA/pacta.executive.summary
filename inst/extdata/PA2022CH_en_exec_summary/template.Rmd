@@ -160,11 +160,14 @@ data_scatter_power_b <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "bonds"
 )
- # plot_scatter(data_scatter_power_b) +
- #   patchwork::plot_annotation(
- #     title = "Bonds",
- #     theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
- #     )
+
+if (length(unique(data_scatter_power_b$entity_type)) == 4) {
+  plot_scatter(data_scatter_power_b) +
+    patchwork::plot_annotation(
+      title = "Bonds",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
+}
 
 data_scatter_power_e <- prep_scatter(
   results_portfolio = results_portfolio,
@@ -174,11 +177,14 @@ data_scatter_power_e <- prep_scatter(
   scenario_selected = scenario_selected,
   asset_class = "equity"
 )
-# plot_scatter(data_scatter_power_e) +
-#    patchwork::plot_annotation(
-#      title = "Equity",
-#      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
-#      )
+
+if (length(unique(data_scatter_power_e$entity_type)) == 4) {
+  plot_scatter(data_scatter_power_e) +
+    patchwork::plot_annotation(
+      title = "Equity",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+    )
+}
 ```
 
 ### Future (Other PACTA sectors)

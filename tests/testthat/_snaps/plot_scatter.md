@@ -19,6 +19,10 @@
     peers_mean, this_portfolio, peers, benchmark.
     x You passed: bad.
 
+# with missing values of `entity_type` errors gracefully
+
+    "entity_type" in data must have at least one record equal to: peers.
+
 # with wrong values of `score` errors gracefully
 
     Each value of `"score"` must be one of these:

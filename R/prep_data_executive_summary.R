@@ -132,7 +132,8 @@ prep_data_executive_summary <- function(investor_name,
       equity_market = equity_market,
       start_year = start_year,
       allocation_type = portfolio_allocation_method_equity
-    )
+    ) %>%
+    dplyr::filter(grepl("MSCI World", .data$portfolio_name))
 
   indices_bonds_results_portfolio <- indices_bonds_results_portfolio %>%
     apply_general_filters(
@@ -141,7 +142,8 @@ prep_data_executive_summary <- function(investor_name,
       equity_market = equity_market,
       start_year = start_year,
       allocation_type = portfolio_allocation_method_bonds
-    )
+    ) %>%
+    dplyr::filter(grepl("Global Corp Bond", .data$portfolio_name))
 
   # add asset class, entity type and grenn/brown, combine data sets
   # ... portfolios
@@ -231,10 +233,10 @@ prep_data_executive_summary <- function(investor_name,
       green_or_brown = dplyr::if_else(
         .data$technology %in% .env$green_techs, "green", "brown"
       ),
-      entity_name = dplyr::case_when(
-        asset_class == "equity" ~ index_eq_short_lookup,
-        asset_class == "bonds" ~ index_cb_short_lookup,
-        TRUE ~ NA_character_
+      entity_name = dplyr::if_else(
+        .data$asset_class == "equity",
+        index_eq_short_lookup,
+        index_cb_short_lookup
       ),
       entity_type = "benchmark"
     )
@@ -244,11 +246,11 @@ prep_data_executive_summary <- function(investor_name,
 
   emissions_indices_eq <- readRDS(file.path(score_card_dir, "Indices_equity_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(.data$portfolio_name == "iShares MSCI World ETF")
+    dplyr::filter(grepl("MSCI World", .data$portfolio_name))
 
   emissions_indices_cb <- readRDS(file.path(score_card_dir, "Indices_bonds_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(.data$portfolio_name == "iShares Global Corp Bond UCITS ETF")
+    dplyr::filter(grepl("Global Corp Bond", .data$portfolio_name))
 
   emissions <- emissions_portfolio %>%
     dplyr::bind_rows(emissions_indices_eq) %>%
@@ -260,11 +262,11 @@ prep_data_executive_summary <- function(investor_name,
 
   audit_indices_eq <- readRDS(file.path(score_card_dir, "Indices_equity_audit.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(.data$portfolio_name == "iShares MSCI World ETF")
+    dplyr::filter(grepl("MSCI World", .data$portfolio_name))
 
   audit_indices_cb <- readRDS(file.path(score_card_dir, "Indices_bonds_audit.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(.data$portfolio_name == "iShares Global Corp Bond UCITS ETF")
+    dplyr::filter(grepl("Global Corp Bond", .data$portfolio_name))
 
   audit_data <- audit_portfolio %>%
     dplyr::bind_rows(audit_indices_eq) %>%
