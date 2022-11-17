@@ -15,6 +15,7 @@
 #' @param total_portfolio Data frame that contains the total portfolio as found in the standard PACTA processed inputs file "total_portfolio.rds"
 #' @param scenario_selected Character single string specifying the selected scenario, e.g. "1.5C-Unif"
 #' @param currency_exchange_value Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. `1.03`
+#' @param log_dir Character single, valid filepath to a directory that will contain the log file
 #'
 #' @return a pdf document written to output_dir
 #' @export
@@ -33,7 +34,8 @@ render_executive_summary <- function(data,
                                      peer_group,
                                      total_portfolio,
                                      scenario_selected,
-                                     currency_exchange_value) {
+                                     currency_exchange_value,
+                                     log_dir) {
   render(
     input = file.path(exec_summary_dir, file_name),
     output_dir = output_dir,
@@ -56,7 +58,8 @@ render_executive_summary <- function(data,
       peers_results_aggregated = data$peers_results_aggregated,
       peers_results_individual = data$peers_results_individual,
       indices_results_portfolio = data$indices_results_portfolio,
-      currency_exchange_value = currency_exchange_value
+      currency_exchange_value = currency_exchange_value,
+      log_dir = log_dir
     )
   )
 }
