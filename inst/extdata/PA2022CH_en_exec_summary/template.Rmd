@@ -233,25 +233,31 @@ The charts below indicate with which scenario the technologies in your portfolio
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
 
-```{r alignment_table_bonds, fig.height=5, fig.width=6}
+```{r alignment_table_bonds, fig.height=4, fig.width=6, fig.align='center'}
 data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
   peers_results_aggregated = peers_results_aggregated,
   asset_class = "bonds"
 )
-plot_alignment_table(data_alignment_table)
-# TODO: add title
+plot_alignment_table(data_alignment_table) +
+    patchwork::plot_annotation(
+      title = "Bonds",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 16))
+    )
 ```
 
 
-```{r alignment_table_equity, fig.height=5, fig.width=6}
+```{r alignment_table_equity, fig.height=4, fig.width=6, fig.align='center'}
 data_alignment_table <- prep_alignment_table(
   results_portfolio = results_portfolio, 
   peers_results_aggregated = peers_results_aggregated,
   asset_class = "equity"
 )
-plot_alignment_table(data_alignment_table)
-# TODO: add title
+plot_alignment_table(data_alignment_table) +
+    patchwork::plot_annotation(
+      title = "Equity",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 16))
+    )
 ```
 
 \* Renewables: include solar and wind power, exclude hydro and nuclear

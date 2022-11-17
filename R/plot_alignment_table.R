@@ -26,8 +26,8 @@ plot_alignment_table <- function(data) {
     check_data_alignment_table(data, env = env)
 
     size_lim <- c(min(data$perc_aum, na.rm = TRUE), max(data$perc_aum, na.rm = TRUE))
-    size_range <- c(4, 12)
-  
+    size_range <- c(1, 5)
+
     if (nrow(data %>% filter(.data$sector == "power")) > 0) {
       p_power <- plot_alignment_table_sector_stripe(data, "power", size_lim,
         size_range,
@@ -36,7 +36,7 @@ plot_alignment_table <- function(data) {
     } else {
       p_power <- patchwork::plot_spacer()
     }
-  
+
     if (nrow(data %>% filter(.data$sector == "fossil_fuels")) > 0) {
       p_fossil <- plot_alignment_table_sector_stripe(data, "fossil_fuels", size_lim,
         size_range,
@@ -45,7 +45,7 @@ plot_alignment_table <- function(data) {
     } else {
       p_fossil <- patchwork::plot_spacer()
     }
-  
+
     if (nrow(data %>% filter(.data$sector == "automotive")) > 0) {
       p_auto <- plot_alignment_table_sector_stripe(data, "automotive", size_lim,
         size_range,
@@ -54,16 +54,16 @@ plot_alignment_table <- function(data) {
     } else {
       p_auto <- patchwork::plot_spacer()
     }
-  
-  
+
+
     p_ylabel <- ggplot(data.frame(l = "Aligned scenario temperature", x = 1, y = 1)) +
-      geom_text(aes(x = .data$x, y = .data$y, label = .data$l), angle = 90, size = 7) +
+      geom_text(aes(x = .data$x, y = .data$y, label = .data$l), angle = 90, size = 4) +
       theme_void() +
       coord_cartesian(clip = "off")
-  
+
     p_tech <- (p_power / p_fossil / p_auto) +
       plot_layout(guides = "collect")
-  
+
     p <- p_ylabel + p_tech + plot_layout(widths = c(1, 15))
   } else {
     p <- empty_plot_no_data_message()
@@ -153,19 +153,20 @@ plot_alignment_table_tech_cells <- function(data) {
       expand = expansion(add = c(0.5, 0.5)),
       limits = rev(alignment_table_temperatures_lookup)
     ) +
-    theme_2dii(base_size = 20) +
+    theme_2dii(base_size = 10) +
     theme(
-      legend.title = element_text(size = 16),
+      legend.title = element_text(size = 8),
       axis.title.x = element_blank(),
       strip.text = element_text(face = "bold"),
       axis.ticks = element_blank(),
-      axis.text.x = element_blank()
+      axis.text.x = element_blank(),
+      plot.margin = margin(0, 0, 0, 0, "in"),
     ) +
     guides(
       color = "none",
       fill = "none",
       size = guide_legend(order = 2, override.aes = list(shape = 15)),
-      shape = guide_legend(order = 1, override.aes = list(size = 5))
+      shape = guide_legend(order = 1, override.aes = list(size = 3))
     )
 
   p
