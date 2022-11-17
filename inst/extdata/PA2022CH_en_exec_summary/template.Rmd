@@ -263,7 +263,7 @@ plot_alignment_table(data_alignment_table)
 ```{r survey_chapter, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
 
-```{r survey_chapter, child='survey-chapter-alternate.Rmd', eval = !(dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
+```{r survey_chapter_alternate, child='survey-chapter-alternate.Rmd', eval = !(dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
 
 
