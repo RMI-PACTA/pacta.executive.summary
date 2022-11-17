@@ -565,7 +565,8 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 #### Real Estate Score
 
-```{r real_estate_scores_scorecard}
+```{r real_estate_scores_scorecard, eval = FALS}
+# FIXME: Enable
 if (real_estate_flag){
 
   real_estate_data <- jsonlite::read_json(

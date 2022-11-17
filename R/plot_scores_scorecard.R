@@ -16,13 +16,13 @@
 #'     entity == "this_portfolio"
 #'   )
 #' plot_scores_scorecard(data)
-plot_scores_scorecard <- function(data, facet = c("bonds, equity")) {
+plot_scores_scorecard <- function(data) {
   env <- list(data = substitute(data))
   check_data_scores_scorecard(data, env)
 
   p <- plot_scores_scorecard_single(data) +
     geom_text(
-      data = annotation_df(facet),
+      data = annotation_df(),
       aes(x = 3.65, y = 91, label = .data$text),
       colour = "black"
     ) +
@@ -30,7 +30,7 @@ plot_scores_scorecard <- function(data, facet = c("bonds, equity")) {
       strip.text = element_text(face = "bold")
     ) +
     facet_wrap(
-      ~ factor(.data$asset_class, levels = facet),
+      ~ factor(.data$asset_class, levels = c("bonds", "equity")),
       labeller = as_labeller(r2dii.plot::to_title)
     )
   p
@@ -133,9 +133,9 @@ plot_scores_pyramide <- function() {
   p
 }
 
-annotation_df <- function(facet) {
+annotation_df <- function() {
   df <- tibble::tibble(
-    asset_class = facet,
+    asset_class = c("bonds", "equity"),
     text = c(
       "",
       "Science-based\nconsensus on\nneeded global\nambition, i.e.\nScenario [XY]"
@@ -186,6 +186,6 @@ check_data_scores_scorecard <- function(data, env) {
   stopifnot(is.data.frame(data))
   abort_if_has_zero_rows(data, env = env)
   abort_if_missing_names(data, c("asset_class", "score"))
-  abort_if_invalid_values(data, "asset_class", c("equity", "bonds", "directly held", "mortgages"))
+  abort_if_invalid_values(data, "asset_class", c("equity", "bonds"))
   abort_if_invalid_values(data, "score", c("A+", "A", "B", "C", "D", "E"))
 }
