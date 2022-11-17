@@ -111,7 +111,8 @@ tryCatch(
   {
     data_diagram <- prep_diagram(
       audit_data = audit_data,
-      emissions_data = emissions_data
+      emissions_data = emissions_data,
+      currency_exchange_value = currency_exchange_value
     )
     plot_diagram(data_diagram)
   },
