@@ -565,7 +565,7 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 #### Real Estate Score
 
-```{r real_estate_scores_scorecard, eval = FALS}
+```{r real_estate_scores_scorecard, eval = FALSE}
 # FIXME: Enable
 if (real_estate_flag){
 
