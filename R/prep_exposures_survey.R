@@ -37,6 +37,9 @@ prep_exposures_survey <- function(results_portfolio,
       sector = sector
     )
 
+    # available portfolio asset classes
+    available_asset_classes <- unique(results_portfolio$asset_class)
+
     # infer start year
     start_year <- min(results_portfolio$year, na.rm = TRUE)
 
@@ -46,6 +49,10 @@ prep_exposures_survey <- function(results_portfolio,
     # combine input data
     data <- results_portfolio %>%
       dplyr::bind_rows(peers_results_aggregated)
+
+    # keep only asset_class avilable in portfolio
+    data <- data %>%
+      dplyr::filter(.data$asset_class %in% available_asset_classes)
 
     # calculate current exposures
     data <- data %>%
