@@ -374,14 +374,6 @@ tryCatch(
 ```{r real_estate_chapter, child="real-estate-chapter-alternate.Rmd", eval = !real_estate_flag}
 ```
 
-### Future status
-
-**Reduction path** of all directly held buildings with the submitted refurbishment plans.
-
-
-
-**Proportion** of their mortgages that are above or below the reduction path for net zero by 2050
-
 
 
 \newpage
