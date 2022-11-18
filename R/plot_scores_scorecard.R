@@ -20,9 +20,11 @@ plot_scores_scorecard <- function(data) {
   env <- list(data = substitute(data))
   check_data_scores_scorecard(data, env)
 
+  facets <- intersect(c("bonds", "equity"), unique(data$asset_class))
+
   p <- plot_scores_scorecard_single(data) +
     geom_text(
-      data = annotation_df(),
+      data = annotation_df(data),
       aes(x = 3.65, y = 91, label = .data$text),
       colour = "black"
     ) +
@@ -30,7 +32,7 @@ plot_scores_scorecard <- function(data) {
       strip.text = element_text(face = "bold")
     ) +
     facet_wrap(
-      ~ factor(.data$asset_class, levels = c("bonds", "equity")),
+      ~ factor(.data$asset_class, levels = facets),
       labeller = as_labeller(r2dii.plot::to_title)
     )
   p
@@ -133,15 +135,28 @@ plot_scores_pyramide <- function() {
   p
 }
 
-annotation_df <- function() {
-  df <- tibble::tibble(
-    asset_class = c("bonds", "equity"),
-    text = c(
-      "",
-      "Science-based\nconsensus on\nneeded global\nambition, i.e.\nScenario [XY]"
-    ),
-    score_symbol = c(NA, NA)
-  )
+annotation_df <- function(data) {
+  nr_assets <- length(unique(data$asset_class))
+  if ( nr_assets == 2) {
+    df <- tibble::tibble(
+      asset_class = c("bonds", "equity"),
+      text = c(
+        "",
+        "Science-based\nconsensus on\nneeded global\nambition, i.e.\nScenario [XY]"
+      ),
+      score_symbol = c(NA, NA)
+    )
+  } else if (nr_assets == 1) {
+    df <- tibble::tibble(
+      asset_class = unique(data$asset_class),
+      text = c(
+        "Science-based\nconsensus on\nneeded global\nambition, i.e.\nScenario [XY]"
+      ),
+      score_symbol = c(NA)
+    )
+  } else {
+    error("More than two asset classes encountered in data. Only 'equity' or 'bonds' expected.")
+  }
   df
 }
 
