@@ -12,13 +12,18 @@
   linewidth = 2pt
 }
 
-% \newenvironment{esbox}[2][\textwidth]
-\NewDocumentEnvironment{esbox}{ O{\textwidth} m }
+\NewDocumentCommand \esboxTitleString{ m o }{
+  % FIXME: load in images
+  #1%
+  \IfValueT{#2}{\hfill \textbf{#2}}
+}
+
+\NewDocumentEnvironment{esbox}{ O{\textwidth} m o }
 {% begin code
-  \begin{minipage}[t]{#1}
-  \begin{mdframed}[style=debugstyle, frametitle={#2}]
+  \begin{minipage}[t]{#1}%
+  \begin{mdframed}[style=debugstyle, frametitle={\esboxTitleString{#2}[#3]}]%
 }
 { % enddef
-  \end{mdframed}
+  \end{mdframed}%
   \end{minipage}%
 }%
