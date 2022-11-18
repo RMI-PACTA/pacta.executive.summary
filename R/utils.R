@@ -113,10 +113,11 @@ empty_plot_no_data_message <- function() {
     annotate(
       "text",
       label = "No data were found\nto create this plot",
-      x = 1,
-      y = 1,
-      size = 10
+      x = 0.5,
+      y = 0.5,
+      size = 6
     ) +
+    coord_fixed(xlim = c(0, 1), ylim = c(0, 1)) +
     theme_void()
   p
 }
