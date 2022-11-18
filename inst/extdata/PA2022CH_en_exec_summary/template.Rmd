@@ -27,32 +27,13 @@ params:
   log_dir: NULL
 ---
 
-\begin{esbox}{Only One Param}
-This is a textwidth sample.
-\end{esbox}
-
-\begin{esbox}[0.5\textwidth]{Cool box title}
-This is a 0.5 textwidth sample.
-\end{esbox}
-\begin{esbox}[0.5\textwidth]{Another neat box}
-This is another 0.5 textwidth sample. \\
-This is another line \\
-This is the next line \\
-Okay. \\
-This seems like enough lines \\
-\end{esbox}
-
-\begin{esbox}[0.25\textwidth]{itty bity box}
-This is a 0.25 textwidth sample.
-\end{esbox}
-\begin{esbox}[0.5\textwidth]{wider box}
-This is a 0.5 textwidth sample.
-\end{esbox}
-\begin{esbox}[0.25\textwidth]{another bitty box}
-This is a 0.25 textwidth sample.
-\end{esbox}
+```{=latex}
+% please note that LaTeX has semantic whitespace, espescially line
+% breaks. Adjust or add carefully.
+% There are also spots where a comment character (%) is used
+% semantically, to suppress whitespace from being inserted (generally at
+% the end of an environment)
 ```
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, 
@@ -91,17 +72,21 @@ subtitle:  |
 <!--  'create_interactive_report' like for the report? Or in the standalone  -->
 <!--  executive-summary package?   -->
 <!--  2. Where will ES-specific calculations be performed (eg. alignment scores)? Inside of prep functions or as a  part of PACTA analysis?  -->
+```{=latex}
+\begin{esbox}[0.25\textwidth]{Table of contents}
 
-### Table of contents
+\begin{enumerate}
+\item Equity \& Bonds (overview)
+\item Equity \& Bonds (current \& future)
+\item Survey
+\item Real estate \& mortgages
+\item PACTA-based scorecard informed by Swiss Climate Scores
+\item Annex (Detailed chart explanations; FAQs)
+\end{enumerate}
 
-1. Equity & Bonds (overview)
-2. Equity & Bonds (current & future)
-3. Survey
-4. Real estate & mortgages
-5. PACTA-based scorecard informed by Swiss Climate Scores
-6. Annex (Detailed chart explanations; FAQs)
-
-### About the PACTA Climate Test 2022
+\end{esbox}
+\begin{esbox}[0.75\textwidth]{About the PACTA Climate Test 2022}
+```
 
 ```{r number_peer, fig.height = 6}
 number_peers <- readr::read_csv(
@@ -113,24 +98,32 @@ number_peers <- readr::read_csv(
 ) %>% 
   dplyr::filter(.data$organization_type == .env$peer_group) %>% 
   dplyr::pull("n")
-
 ```
 Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C.  The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals. `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` was invited to the test by the FOEN ([link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html)) and SIF ([link](https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html)) with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which `r number_peers` were peers (i.e., participants from same financial sector as pension funds; insurances; banks; asset managers).
 
 This executive summary is a short version of the individual results of your uploaded portfolio `r portfolio_name`. `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access at platform.transitionmonitor.com) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website [[LINK](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html)] and is available for download.
 
-### Measuring climate alignment
+```{=latex}
+\end{esbox}
+
+\begin{esbox}{Measuring climate alignment}
 
 In the view of PACTA and FOEN, there are three main components that are useful to measure alignment with climate goals which are shown below. The icons are used throughout this document to indicate the category for each chart.
 
-**Exposure:** provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings, and therefore offers a risk-perspective to climate alignment.
+\begin{minipage}{0.3333\linewidth}%
+\textbf{Exposure:} provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings, and therefore offers a risk-perspective to climate alignment.
+\end{minipage}% % note the semantic % after end
+\begin{minipage}{0.3333\linewidth}%
+\textbf{Trajectory alignment:} Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
+\end{minipage}% % note the semantic % after end
+\begin{minipage}{0.3333\linewidth}%
+\textbf{Engagement \& other qualitative indicators:} complementing analysis with information on climate actions that can have real-world climate impact.
+\end{minipage}% % note the semantic % after end
 
-**Trajectory alignment:** Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
+\end{esbox}
+```
 
-**Engagement & other qualitative indicators:** complementing analysis with information on climate actions that can have real-world climate impact.
-
-
-### Equity & bonds module overview
+### Equity \& bonds module overview
 
 The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. 
 The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to [https://rmi.gitbook.io/pacta-knowledge-hub/](https://rmi.gitbook.io/pacta-knowledge-hub/).
@@ -155,15 +148,15 @@ tryCatch(
 
 ```
 
-\* coal mining, oil & gas extraction, power, auto, cement, steel and aviation
+\* coal mining, oil \& gas extraction, power, auto, cement, steel and aviation
 
 \newpage
 
-## Equity & Bonds Results
+## Equity \& Bonds Results
 
 ### Current state (PACTA sectors)
 
-#### Exposure* to climate-relevant sectors & technologies as % of AUM
+#### Exposure* to climate-relevant sectors \& technologies as % of AUM
 
 The chart provides information on the exposure to the PACTA sectors. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
 
@@ -210,7 +203,7 @@ tryCatch(
 
 \*\* ‘Low-carbon’ technologies: renewables for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
 
-### Current & future state (power sector)
+### Current \& future state (power sector)
 
 #### Current exposure vs. future alignment for Power sector
 
@@ -333,7 +326,7 @@ tryCatch(
 
 \newpage
 
-## Equity & Bonds Results
+## Equity \& Bonds Results
 
 ### Transition
 
@@ -413,7 +406,7 @@ tryCatch(
 
 ## Annex (I): additional chart explanation
 
-### Exposure to climate-relevant sectors & technologies as % of AUM
+### Exposure to climate-relevant sectors \& technologies as % of AUM
 
 **All PACTA sectors**
 Chart_sample 1
@@ -491,7 +484,7 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 
 ### Which are the PACTA sectors?
 
-The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil & gas production, power generation (fossil and renewable); automotive production (ICE , hybrid, electric), aviation, cement, and steel.
+The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil \& gas production, power generation (fossil and renewable); automotive production (ICE , hybrid, electric), aviation, cement, and steel.
 Usually, 5-15% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of emissions. Please see the graphs of a sample portfolio below:
 
 #### Financial Exposure
@@ -955,7 +948,7 @@ Specifications:
 
 * The indicator shows the financial exposure to each technology based on each company’s main sector technology split
 * The indicator is based on physical asset data instead of revenue data
-* The indicator only shows exposure to the core sector of a company (in this case: coal, oil & gas, power production); i.e., Apple’s power assets are not included as Apple’s core business is not power
+* The indicator only shows exposure to the core sector of a company (in this case: coal, oil \& gas, power production); i.e., Apple’s power assets are not included as Apple’s core business is not power
 * Thereby, the indicator can show how exposed a portfolio is to different technologies within the same sector (e.g. fossil fuel-based power production vs. renewable power production)
 * The emission scope of activities differ between the sectors and include “mining” for coal, “upstream” for oil and gas, “production” for power. For more information, please refer to the documentation on the aggregated score on the next page
 
