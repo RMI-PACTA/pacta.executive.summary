@@ -760,16 +760,14 @@ if (real_estate_flag){
         )
         ) %>%
       dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
-      
-      # FIXME: make a plot_scores_scorecards that allows ratings through "G"
-      plot_scores_scorecard(
-        data = re_data_scores_scorecard,
-        facet = c("directly held", "mortgages")
+
+      plot_scores_scorecard_real_estate(
+        data = re_data_scores_scorecard
       )
     },
     error = function(e) {
       pacta.portfolio.analysis:::write_log(
-        "ES: There was an error in prep/plot_scores_scorecard(). Returning empty plot object.\n",
+        "ES: There was an error in prep/plot_scores_scorecard_real_estate(). Returning empty plot object.\n",
         file_path = log_dir
       )
       empty_plot_error_message()

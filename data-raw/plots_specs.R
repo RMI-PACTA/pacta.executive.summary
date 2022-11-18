@@ -47,6 +47,11 @@ axis_labels_scatter <- c(
   legend_title = "Entity type"
 )
 
+fill_colours_scores_re <- c(
+  "G" = "#eb1c25", "F" = "#f3701c", "E" = "#fdb912", "D" = "#fef200",
+  "C" = "#bdd532", "B" = "#51b747", "A" = "#05a551"
+)
+
 usethis::use_data(
   fill_colours_green_brown_bars,
   fill_colours_fossil_bars,
@@ -57,6 +62,7 @@ usethis::use_data(
   fill_labels_green_brown_bars,
   fill_labels_fossil_bars,
   axis_labels_scatter,
+  fill_colours_scores_re,
   internal = TRUE,
   overwrite = TRUE
 )
