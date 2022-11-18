@@ -2,11 +2,6 @@
 
     is.data.frame(data) is not TRUE
 
-# if `data` has zero rows errors gracefully
-
-    `zero_row` must have some rows.
-    x `zero_row` has zero rows.
-
 # with missing crucial columns errors gracefully
 
     `data` must have all the expected names.

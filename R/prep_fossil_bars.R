@@ -27,6 +27,9 @@ prep_fossil_bars <- function(results_portfolio,
     # check input
     check_data_prep_fossil_bars(scenario_selected = scenario_selected)
 
+    # available portfolio asset classes
+    available_asset_classes <- unique(results_portfolio$asset_class)
+
     # combine input data sets
     data <- results_portfolio %>%
       dplyr::bind_rows(peers_results_aggregated) %>%
@@ -40,7 +43,8 @@ prep_fossil_bars <- function(results_portfolio,
       dplyr::filter(
         .data$year == .env$start_year,
         .data$scenario == .env$scenario_selected,
-        .data$ald_sector %in% c("Coal", "Oil&Gas")
+        .data$ald_sector %in% c("Coal", "Oil&Gas"),
+        .data$asset_class %in% .env$available_asset_classes
       )
 
     # wrangle data into output format
