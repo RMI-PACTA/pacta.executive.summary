@@ -168,7 +168,7 @@ annotation_df <- function(data) {
       score_symbol = c(NA)
     )
   } else {
-    error("More than two asset classes encountered in data. Only 'equity' or 'bonds' expected.")
+    stop("More than two asset classes encountered in data. Only 'equity' or 'bonds' expected.")
   }
   df
 }
