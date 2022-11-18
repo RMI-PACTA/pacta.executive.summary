@@ -12,7 +12,8 @@
   linewidth = 2pt
 }
 
-\newenvironment{esbox}[2][\textwidth]
+% \newenvironment{esbox}[2][\textwidth]
+\NewDocumentEnvironment{esbox}{ O{\textwidth} m }
 {% begin code
   \begin{minipage}[t]{#1}
   \begin{mdframed}[style=debugstyle, frametitle={#2}]
