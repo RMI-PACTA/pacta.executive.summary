@@ -49,6 +49,9 @@ plot_exposures_survey <- function(data) {
         axis.title = element_blank(),
         axis.ticks.x = element_blank()
       )
+  } else {
+    p <- empty_plot_no_data_message()
+  }
   p
 }
 
