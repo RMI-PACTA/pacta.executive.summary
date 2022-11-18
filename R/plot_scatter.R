@@ -104,7 +104,7 @@ plot_scatter <- function(data) {
         labels = r2dii.plot::to_title(levels(data$entity_type))
         ) +
       theme_2dii(
-        base_size = 20
+        base_size = 14
       ) +
       theme(
         axis.ticks.y = element_blank(),
@@ -144,7 +144,7 @@ plot_scatter <- function(data) {
         labels = r2dii.plot::to_title(levels(data$entity_type))
       ) +
       theme_2dii(
-        base_size = 20
+        base_size = 14
       ) +
       theme(
         axis.title.y = element_blank(),
@@ -209,7 +209,7 @@ plot_basic_scorebar <- function() {
     ) +
     scale_fill_manual(values = fill_colours_scores) +
     theme_2dii(
-      base_size = 20
+      base_size = 14
     ) +
     theme(
       axis.title = element_blank(),

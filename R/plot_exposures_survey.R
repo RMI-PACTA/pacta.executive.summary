@@ -43,15 +43,12 @@ plot_exposures_survey <- function(data) {
       scale_y_continuous(expand = expansion(mult = c(0, .1)), labels = scales::percent) +
       r2dii.colours::scale_fill_2dii(palette = "pacta", colour_groups = data$sector) +
       scale_alpha_discrete(range = c(1, 0.7)) +
-      theme_2dii(base_size = 24) +
+      theme_2dii(base_size = 14) +
       theme(
         legend.position = "none",
         axis.title = element_blank(),
         axis.ticks.x = element_blank()
       )
-  } else {
-    p <- empty_plot_no_data_message()
-  }
   p
 }
 
