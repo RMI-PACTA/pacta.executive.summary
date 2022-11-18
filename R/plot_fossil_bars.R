@@ -32,18 +32,18 @@ plot_fossil_bars <- function(data) {
     geom_text(
       aes(
         y = .data$perc_aum,
-        label = scales::percent(round(.data$perc_aum, digits = 4))
+        label = scales::percent(round(.data$perc_aum, digits = 3))
       ),
       hjust = -0.2,
-      size = 4
+      size = 3.5
     ) +
-    scale_y_continuous(expand = expansion(mult = c(0, .4))) +
+    scale_y_continuous(expand = expansion(mult = c(0, .55))) +
     scale_fill_manual(
       values = fill_colours_fossil_bars,
       labels = fill_labels_fossil_bars,
     ) +
     coord_flip() +
-    theme_2dii(base_size = 18) +
+    theme_2dii(base_size = 14) +
     theme(
       axis.title = element_blank(),
       axis.line.x = element_blank(),
