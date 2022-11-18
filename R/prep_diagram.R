@@ -49,7 +49,6 @@ prep_diagram <- function(audit_data = NULL, emissions_data = NULL, currency_exch
   emissions_data <- emissions_data %>%
     dplyr::filter(.data$entity == "portfolio") %>%
     dplyr::group_by(.data$asset_type) %>%
-    # TODO: check if this what we need or if it needs to be divivded by the asset value covered
     dplyr::mutate(emissions_asset = sum(.data$weighted_sector_emissions, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
     dplyr::mutate(
