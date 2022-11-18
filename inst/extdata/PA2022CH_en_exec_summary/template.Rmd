@@ -163,7 +163,7 @@ tryCatch(
 \begin{esbox}{Current state (PACTA sectors)}[exposure]
 
 %FIXME: make footnote
-\textbf{Exposure* to climate-relevant sectors \& technologies as % of AUM}
+\textbf{Exposure* to climate-relevant sectors \& technologies as \% of AUM}
 
 The chart provides information on the exposure to the PACTA sectors. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
 ```
@@ -355,7 +355,7 @@ tryCatch(
 \textbf{Scenario alignment per technology}
 
 While the previous section provided insights on the current exposure to the different PACTA sectors as well as an overview of the alignment on an aggregated level and sector level, this section provides complementary insights into alignment with the GECO 2021 scenario on a technology level for the PACTA sectors with technology roadmaps.<br/>
-The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as % of AUM.<br/>
+The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as \% of AUM.<br/>
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 ```
 
@@ -434,7 +434,7 @@ tryCatch(
 
 ## Annex (I): additional chart explanation
 
-### Exposure to climate-relevant sectors \& technologies as % of AUM
+### Exposure to climate-relevant sectors \& technologies as \% of AUM
 
 **All PACTA sectors**
 Chart_sample 1
@@ -513,7 +513,7 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 ### Which are the PACTA sectors?
 
 The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil \& gas production, power generation (fossil and renewable); automotive production (ICE , hybrid, electric), aviation, cement, and steel.
-Usually, 5-15% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of emissions. Please see the graphs of a sample portfolio below:
+Usually, 5-15\% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of emissions. Please see the graphs of a sample portfolio below:
 
 #### Financial Exposure
 
@@ -614,11 +614,11 @@ Benchmark:
 |iShares MSCI World ETF | iShares Global Corp Bond UCITS ETF |
 
 
-Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100, 1)` %**
+Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100, 1)` \%**
 
 #### Exposure to fossil fuels and renewable power, based on PACTA methodology
 
-There is scientific consensus on the need to phase-out coal, stop financing new fossil fuel projects, and to increase renewable power capacity. Below figure shows the financial exposure (as AUM in %) of this portfolio to technologies in the industries coal mining, oil and gas upstream, fossil fuel power production, and renewable power production. The PACTA exposure is based on production capacities and not on revenues. 
+There is scientific consensus on the need to phase-out coal, stop financing new fossil fuel projects, and to increase renewable power capacity. Below figure shows the financial exposure (as AUM in \%) of this portfolio to technologies in the industries coal mining, oil and gas upstream, fossil fuel power production, and renewable power production. The PACTA exposure is based on production capacities and not on revenues. 
 
 
 ```{r exposures_scorecard}
@@ -686,9 +686,9 @@ portfolio_emissions_covered <- emissions %>%
 
 
 ```
-Portfolio emissions covered by assessment: **`r round(portfolio_emissions_covered * 100)` %**
+Portfolio emissions covered by assessment: **`r round(portfolio_emissions_covered * 100)` \%**
 
-Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100)` %**
+Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100)` \%**
 
 Climate scenario used: **GECO 2021**
 
@@ -724,9 +724,9 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 ```
 
-* Share of companies in portfolio with verified commitments to net-zero and credible near term targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` %**
+* Share of companies in portfolio with verified commitments to net-zero and credible near term targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%**
 
-* Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` %**
+* Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%**
 
 
 #### Real Estate Score
@@ -835,7 +835,7 @@ member_initiatives_peers <-
 
 * Is the financial institution member of a climate initiative?
 
-  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers: `r round(member_initiatives_peers * 100)` %)**
+  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers: `r round(member_initiatives_peers * 100)` \%)**
   `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}`
 
 
@@ -887,10 +887,10 @@ voting_rights_peers <-
 
 * Does the financial institution support climate strategies through voting rights?
   
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` %);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` %);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` %)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \%);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` \%);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` \%);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \%)**
   
 
 ```{r climate_strategy_engagement, fig.height = 6}
@@ -942,10 +942,10 @@ engagement_peers <-
 
 * Does the financial institution support climate strategies through engagement measures?
 
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` %);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` %);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` %);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` %)**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \%);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` \%);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` \%);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \%)**
 
 
 \newpage
@@ -970,7 +970,7 @@ Hard Requirements:
 
 **Exposure score in this Executive Summary:** varies from the requirements in the Swiss proposal (see below)
 
-The exposure score in this document deviates from the Swiss Scores proposal, as the Swiss Scores were launched while the PACTA Climate Test Switzerland 2022 was already in its development phase. While the Swiss Scores proposal measure the share of companies with fossil fuel activities, he PACTA exposure indicator measures the financial exposure as AUM in % of this portfolio to the respective technologies. The PACTA exposure is not based on revenue data, but on asset-based company level data representing real-world physical activities. These activities are then attributed to financial securities and afterwards allocated to the portfolio. The portfolio allocation is done with the Portfolio Weight Approach (PA) that calculates the portfolio’s technology exposures based on the weighting of each position within the portfolio. 
+The exposure score in this document deviates from the Swiss Scores proposal, as the Swiss Scores were launched while the PACTA Climate Test Switzerland 2022 was already in its development phase. While the Swiss Scores proposal measure the share of companies with fossil fuel activities, he PACTA exposure indicator measures the financial exposure as AUM in \% of this portfolio to the respective technologies. The PACTA exposure is not based on revenue data, but on asset-based company level data representing real-world physical activities. These activities are then attributed to financial securities and afterwards allocated to the portfolio. The portfolio allocation is done with the Portfolio Weight Approach (PA) that calculates the portfolio’s technology exposures based on the weighting of each position within the portfolio. 
 
 Specifications:
 
@@ -984,7 +984,7 @@ To foster the transition, investments in climate solutions are key and can not b
 
 **Hard requirements for Swiss Scores:**
 
-* The threshold of 5% of revenues applies both to activities directly linked with the exploration and production of fossil fuels and, if data is readily available, activities financing such production (for coal, according to the global coal exit list or similar).
+* The threshold of 5\% of revenues applies both to activities directly linked with the exploration and production of fossil fuels and, if data is readily available, activities financing such production (for coal, according to the global coal exit list or similar).
 * The scope of activities includes the whole value chain, ranging from exploration, extraction, and production (upstream) to transportation and storage (midstream) and refining, marketing, and electrification (downstream).
 
 
@@ -1076,10 +1076,10 @@ Company long-term targets, near-term action and data sources:
 To calculate portfolio alignment
 
 * _Addition:_ The PACTA Aggregated Climate Alignment Score is not an Implied Temperature Rise (ITR) score. Therefore, PACTA cannot provide a confidence level for the score itself. Instead, confidence scenarios for the selected scenarios exist and are: 
-  * 50% probability to not exceed 1.5°C warming for the 1.5°C Uniform scenario (GECO 2021)
-  * 50% probability to not exceed 1.8°C warming for the 1.8°C NDC-LTS scenario (GECO 2021)
-  * 50% probability to not exceed 3.0°C warming for the 3.0°C Current Policies Scenario (GECO 2021)
+  * 50\% probability to not exceed 1.5°C warming for the 1.5°C Uniform scenario (GECO 2021)
+  * 50\% probability to not exceed 1.8°C warming for the 1.8°C NDC-LTS scenario (GECO 2021)
+  * 50\% probability to not exceed 3.0°C warming for the 3.0°C Current Policies Scenario (GECO 2021)
 * _Requirements not met_ as Aggregate score is no ITR.
-  * Implied temperature scores should be calculated using a confidence level of 66%, rather than 50%.
+  * Implied temperature scores should be calculated using a confidence level of 66\%, rather than 50\%.
   * Calculate warming scores on a cumulative-emissions basis until 2050, in order to accommodate appropriately the physical relationship between cumulative emissions and warming outcomes.
 
