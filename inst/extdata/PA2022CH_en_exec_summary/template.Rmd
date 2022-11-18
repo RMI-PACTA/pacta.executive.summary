@@ -158,14 +158,15 @@ tryCatch(
 
 \newpage
 
-```
-## Equity \& Bonds Results
+\section Equity \& Bonds Results
 
-### Current state (PACTA sectors)
+\begin{esbox}{Current state (PACTA sectors)}[exposure]
 
-#### Exposure* to climate-relevant sectors \& technologies as % of AUM
+%FIXME: make footnote
+\textbf{Exposure* to climate-relevant sectors \& technologies as % of AUM}
 
 The chart provides information on the exposure to the PACTA sectors. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
+```
 
 ```{r exposure, fig.show='hold', out.width='50%'}
 tryCatch(
@@ -206,15 +207,21 @@ tryCatch(
 
 ```
 
+```{=latex}
+
 \* exposure to companies with main activity in PACTA sectors
 
 \*\* ‘Low-carbon’ technologies: renewables for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
 
-### Current \& future state (power sector)
+\end{esbox}
 
-#### Current exposure vs. future alignment for Power sector
+\begin{esbox}{Current \& future state (power sector)}[exposure, alignment]
+
+\textbf{Current exposure vs. future alignment for Power sector}
 
 The chart below shows the current low-carbon exposure and the forward-looking climate scenario alignment in the power sector for you and your peers. The current exposure to low-carbon technologies in the power sector increases right-wards, while the alignment improves upwards. A significant increase in renewable energy capacity will be required to achieve a 1.5°C climate scenario, so even companies with a high current share of low-carbon technologies will need to build new capacity in order to be aligned in the future. A current high low-carbon share and a low future alignment would therefore indicate a lack of planned renewables investment.
+
+```
 
 ```{r scatter, fig.show="hold", out.width="50%"}
 
@@ -279,11 +286,16 @@ tryCatch(
 )
 ```
 
-### Future (Other PACTA sectors)
+```{=latex}
+\end{esbox}
 
-#### PACTA Aggregated Climate Alignment Score
+\begin{esbox}{Future (Other PACTA sectors)}[alignment]
+
+\textbf{PACTA Aggregated Climate Alignment Score}
 
 The aggregated score compares the alignment of all assets until 2026 to the GECO 2021 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector (except for cement which is not covered in GECO2021).
+
+```
 
 ```{r scores, fig.show='hold', out.width='50%'}
 tryCatch(
@@ -331,17 +343,21 @@ tryCatch(
 )
 ```
 
+```{=latex}
+\end{esbox}
+
 \newpage
 
-## Equity \& Bonds Results
+\section Equity \& Bonds Results
 
-### Transition
+\begin{esbox}{Transition}[alignment, exposure]
 
-#### Scenario alignment per technology
+\textbf{Scenario alignment per technology}
 
 While the previous section provided insights on the current exposure to the different PACTA sectors as well as an overview of the alignment on an aggregated level and sector level, this section provides complementary insights into alignment with the GECO 2021 scenario on a technology level for the PACTA sectors with technology roadmaps.<br/>
 The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as % of AUM.<br/>
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
+```
 
 
 ```{r alignment_table_bonds, fig.height=5, fig.width=6}
@@ -387,11 +403,16 @@ tryCatch(
 # TODO: add title
 ```
 
+```{=latex}
+%FIXME: footnote
 \* Renewables: include solar and wind power, exclude hydro and nuclear
 
 \*\* Automotive: includes light-duty vehicles (LDV)
 
+\end{esbox}
+
 \newpage
+```
 
 ```{r survey_chapter, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
