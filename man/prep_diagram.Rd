@@ -4,12 +4,14 @@
 \alias{prep_diagram}
 \title{Title}
 \usage{
-prep_diagram(audit_data = NULL, emissions_data = NULL)
+prep_diagram(audit_data = NULL, emissions_data = NULL, currency_exchange_value)
 }
 \arguments{
 \item{audit_data}{Some arg}
 
 \item{emissions_data}{Some arg}
+
+\item{currency_exchange_value}{currency exchange rate (USD / currency)}
 }
 \value{
 Some output
