@@ -26,6 +26,7 @@ Other datasets:
 \code{\link{toy_data_exposures_survey}},
 \code{\link{toy_data_fossil_bars}},
 \code{\link{toy_data_green_brown_bars}},
+\code{\link{toy_data_scores_scorecard_re}},
 \code{\link{toy_data_scores}}
 }
 \concept{datasets}
