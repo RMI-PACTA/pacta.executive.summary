@@ -159,7 +159,7 @@ tryCatch(
 
 \newpage
 
-\section Equity \& Bonds Results
+\section{Equity \& Bonds Results}
 
 \begin{esbox}{Current state (PACTA sectors)}[exposure]
 
