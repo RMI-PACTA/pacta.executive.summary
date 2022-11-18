@@ -9,7 +9,7 @@ real_estate_data <- jsonlite::read_json(
 knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
 ```
 
-Geographical location of all directly held buildings in Switzerland. The colour represents the main use of the respective building. 
+Geographical location of all directly held buildings in Switzerland. The color represents the main use of the respective building. 
 
 ```{r explanation_real_estate_bar_chart, fig.height = 6}
 knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
