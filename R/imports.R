@@ -10,5 +10,8 @@ utils::globalVariables(c(
   "fill_colours_scores",
   "axis_labels_scatter",
   "fill_colours_techmix",
-  "alignment_scores_values"
+  "alignment_scores_values",
+  "toy_data_alignment_table",
+  "toy_data_scatter",
+  "toy_data_scores"
 ))

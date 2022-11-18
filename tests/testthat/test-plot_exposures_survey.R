@@ -12,11 +12,6 @@ test_that("if `data` is not a data frame errors gracefully", {
   expect_snapshot_error(plot_exposures_survey(1))
 })
 
-test_that("if `data` has zero rows errors gracefully", {
-  zero_row <- toy_data_exposures_survey_ex()[0L, ]
-  expect_snapshot_error(plot_exposures_survey(zero_row))
-})
-
 test_that("with missing crucial columns errors gracefully", {
   data_wrong_names <- toy_data_exposures_survey_ex()
   colnames(data_wrong_names) <- c("bad1", "bad2", "bad3", "bad4")

@@ -48,7 +48,7 @@ plot_emissions_scorecard <- function(data) {
         unname(fill_colours_entities_scores["benchmark"])
       )
     ) +
-    theme_2dii(base_size = 22) +
+    theme_2dii(base_size = 14) +
     theme(
       axis.title.x = element_blank(),
       axis.line = element_blank(),

@@ -2,20 +2,22 @@
 #'
 #' @param audit_data Some arg
 #' @param emissions_data Some arg
+#' @param currency_exchange_value currency exchange rate (USD / currency)
 #'
 #' @return Some output
 #' @export
-prep_diagram <- function(audit_data = NULL, emissions_data = NULL) {
+prep_diagram <- function(audit_data = NULL, emissions_data = NULL, currency_exchange_value) {
   if (is.null(audit_data) | is.null(emissions_data)) {
     data_out <- use_toy_data("diagram")
   }
 
   audit_data <- audit_data %>%
     dplyr::filter(.data$entity == "portfolio") %>%
-    dplyr::mutate(exposure_portfolio = sum(.data$value_usd, na.rm = TRUE)) %>%
+    dplyr::mutate(value_currency = .data$value_usd / .env$currency_exchange_value) %>%
+    dplyr::mutate(exposure_portfolio = sum(.data$value_currency, na.rm = TRUE)) %>%
     dplyr::group_by(.data$asset_type) %>%
     dplyr::mutate(
-      exposure_asset_class = sum(.data$value_usd, na.rm = TRUE),
+      exposure_asset_class = sum(.data$value_currency, na.rm = TRUE),
       exposure_asset_class_perc = .data$exposure_asset_class / .data$exposure_portfolio
     ) %>%
     dplyr::ungroup() %>%
@@ -31,7 +33,7 @@ prep_diagram <- function(audit_data = NULL, emissions_data = NULL) {
       .data$exposure_asset_class, .data$exposure_asset_class_perc
     ) %>%
     dplyr::summarise(
-      exposure_pacta = sum(.data$value_usd, na.rm = TRUE),
+      exposure_pacta = sum(.data$value_currency, na.rm = TRUE),
       .groups = "drop"
     ) %>%
     dplyr::mutate(
@@ -47,7 +49,6 @@ prep_diagram <- function(audit_data = NULL, emissions_data = NULL) {
   emissions_data <- emissions_data %>%
     dplyr::filter(.data$entity == "portfolio") %>%
     dplyr::group_by(.data$asset_type) %>%
-    # TODO: check if this what we need or if it needs to be divivded by the asset value covered
     dplyr::mutate(emissions_asset = sum(.data$weighted_sector_emissions, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
     dplyr::mutate(
