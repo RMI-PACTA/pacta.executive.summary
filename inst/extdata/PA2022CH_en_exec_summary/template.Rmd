@@ -139,7 +139,7 @@ tryCatch(
 
 The chart provides information on the exposure to the PACTA sectors. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
 
-```{r exposure, fig.show='hold', out.width='50%'}
+```{r exposure, fig.height=4.5, fig.width=6, fig.show='hold', out.width='50%'}
 tryCatch(
   {
     data_green_brown_bars <- prep_green_brown_bars(
@@ -207,7 +207,7 @@ tryCatch(
       plot_scatter(data_scatter_power_b) +
         patchwork::plot_annotation(
           title = "Bonds",
-          theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+          theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 18))
         )
     }
   },
@@ -237,7 +237,7 @@ tryCatch(
       plot_scatter(data_scatter_power_e) +
         patchwork::plot_annotation(
           title = "Equity",
-          theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+          theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 18))
         )
     }
   },
@@ -315,8 +315,7 @@ While the previous section provided insights on the current exposure to the diff
 The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as % of AUM.<br/>
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 
-
-```{r alignment_table_bonds, fig.height=5, fig.width=6}
+```{r alignment_table_bonds, fig.height=4, fig.width=6, fig.align='center'}
 tryCatch(
   {
     data_alignment_table <- prep_alignment_table(
@@ -324,7 +323,11 @@ tryCatch(
       peers_results_aggregated = peers_results_aggregated,
       asset_class = "bonds"
     )
-    plot_alignment_table(data_alignment_table)
+    plot_alignment_table(data_alignment_table) +
+    patchwork::plot_annotation(
+      title = "Bonds",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 16))
+    )
   },
   error = function(e) {
     pacta.portfolio.analysis:::write_log(
@@ -334,11 +337,10 @@ tryCatch(
     empty_plot_error_message()
   }
 )
-# TODO: add title
 ```
 
 
-```{r alignment_table_equity, fig.height=5, fig.width=6}
+```{r alignment_table_equity, fig.height=4, fig.width=6, align='center'}
 tryCatch(
   {
     data_alignment_table <- prep_alignment_table(
@@ -346,7 +348,11 @@ tryCatch(
       peers_results_aggregated = peers_results_aggregated,
       asset_class = "equity"
     )
-    plot_alignment_table(data_alignment_table)
+    plot_alignment_table(data_alignment_table) +
+    patchwork::plot_annotation(
+      title = "Equity",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 16))
+    )
   },
   error = function(e) {
     pacta.portfolio.analysis:::write_log(
@@ -356,7 +362,6 @@ tryCatch(
     empty_plot_error_message()
   }
 )
-# TODO: add title
 ```
 
 \* Renewables: include solar and wind power, exclude hydro and nuclear
@@ -615,7 +620,7 @@ tryCatch(
 
 This score represents the estimated aggregate alignment of the PACTA sectors (except for cement) in the portfolio with respect to the GECO 2021 scenarios. Please bear in mind that the interpretation of this score should be accompanied by an analysis of the underlying results and investment strategy used in each one of the analysed sectors, given the assumptions that an aggregated metric is based on. Some portfolios with climate objectives may intentionally include investments in companies that are not yet on track to achieve 1.5°C alignment, seeking instead to contribute actively to climate goals by improving the alignment of investee companies to bring a larger share of the economy into alignment over time. The combined set of indicators above and their display are considered by the Swiss government to represent the current best-practice in providing science-based transparency on the alignment of portfolio assets with global climate goals.
 
-```{r emissions_covered, fig.height = 6}
+```{r emissions_covered}
 
 portfolio_emissions_covered <- emissions %>%
   dplyr::mutate(
@@ -650,7 +655,7 @@ Climate scenario used: **GECO 2021**
 
 Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from [SBTi](https://sciencebasedtargets.org/companies-taking-action).
 
-```{r sbti_net_zero_commitments, fig.height = 6}
+```{r sbti_net_zero_commitments}
 fin_data_net_zero_targets <- readr::read_csv(
   file.path(score_card_dir, "fin_data_net_zero_targets.csv"),
   col_types = readr::cols_only(
@@ -744,7 +749,7 @@ cat("Mortgages: 25.1 kg/m2 -> G")
 
 Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
 
-```{r climate_strategy_initiatives, fig.height = 6}
+```{r climate_strategy_initiatives}
 if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {
   user_climate_strategy_scorecard_initiatives <- readr::read_csv(
     file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"),
@@ -793,7 +798,7 @@ member_initiatives_peers <-
   `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}`
 
 
-```{r climate_strategy_voting_rights, fig.height = 6}
+```{r climate_strategy_voting_rights}
 if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_voting.csv"))) {
   user_climate_strategy_scorecard_voting <- readr::read_csv(
     file.path(score_card_dir, "climate_scorecard_survey_voting.csv"),
@@ -847,7 +852,7 @@ voting_rights_peers <-
   **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` %)**
   
 
-```{r climate_strategy_engagement, fig.height = 6}
+```{r climate_strategy_engagement}
 if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"))) {
   user_climate_strategy_scorecard_engagement <- readr::read_csv(
     file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"),

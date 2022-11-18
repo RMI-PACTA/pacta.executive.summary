@@ -38,7 +38,7 @@ plot_green_brown_bars <- function(data) {
         label = scales::percent(round(.data$perc_sec_exposure, digits = 3))
       ),
       hjust = -0.2,
-      size = 7
+      size = 4
     ) +
     tidytext::scale_x_reordered() +
     scale_y_continuous(expand = expansion(mult = c(0, .4)), labels = scales::percent) +
@@ -47,7 +47,7 @@ plot_green_brown_bars <- function(data) {
       labels = fill_labels_green_brown_bars,
     ) +
     coord_flip() +
-    theme_2dii(base_size = 28) +
+    theme_2dii(base_size = 18) +
     theme(
       axis.title = element_blank(),
       axis.line.x = element_blank(),
@@ -56,6 +56,7 @@ plot_green_brown_bars <- function(data) {
       strip.text = element_text(face = "bold"),
       legend.position = "bottom"
     ) +
+    guides(fill = guide_legend(nrow = 2)) +
     facet_wrap(~asset_class, scales = "free", labeller = as_labeller(r2dii.plot::to_title))
   p
 }
