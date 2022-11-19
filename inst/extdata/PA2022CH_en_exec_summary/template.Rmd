@@ -59,7 +59,7 @@ emissions_data <- params$emissions_data
 ```
 
 ---
-title: "Executive Summary `r Sys.time()`"
+title: "Executive Summary `r format.POSIXct(Sys.time(), tz = "CET")` CET"
 subtitle:  |  
   | PACTA Climate Test Switzerland 2022
   | Results of `r investor_name`
@@ -442,19 +442,42 @@ tryCatch(
 \subsection{Exposure to climate-relevant sectors \& technologies as \% of AUM} 
 
 **All PACTA sectors**
-$Chart_sample$ 1
+\begin{minipage}[t]{0.3\linewidth}
+
+\includegraphics{chart_sample_1}
+
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
 
 **Fossil Fuels**
-$Chart_sample$ 2
+
+
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.4\textwidth}
+
+\includegraphics[width=\textwidth]{chart_sample_2}
+
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
 
 The bar chart on the left shows the portfolio's exposure to each of the eight PACTA sectors as a percentage of assets under management. The bars are arranged by the amount of exposure in descending order. In addition, a breakdown of technologies (low-carbon, carbon-intensive, unspecified) is provided for those sectors for which such a breakdown is defined. The graph on the right shows the exposure to the fossil fuel extraction sector as a breakdown between the different fossil fuels coal, oil and gas. In addition, a comparison with peers (pension funds, insurance companies, banks or asset managers) as well as with an ETF for the MSCI World Index can be seen.
 
+\end{minipage}%
+
 \subsection{Current exposure vs. future alignment for power sector}
 
-$Chart_sample$ 3
+\begin{minipage}[t]{0.4\textwidth}
+
+\includegraphics{chart_sample_3}
+
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
 
 This chart shows current low-carbon technology exposure (percentage of sectoral exposure, x-axis) plotted against the sector-level alignment metric (alignment score, y-axis). Colored dots represent different entities (portfolio, average of all participants, average of peers). It investigates the relation between the two values as well as provides context for the alignment score. Ideally, an insitution would like to be positioned in the upper right corner (high exposure to low-carbon and high alignment). The bottom left corner is the least desired position (low exposure to low-carbon and low alignment).
 
+\end{minipage}%
 
 \newpage
 
@@ -462,7 +485,7 @@ This chart shows current low-carbon technology exposure (percentage of sectoral 
 
 \subsection{Aggregated alignment scores}
 
-$Chart_sample$ 4
+\includegraphics{chart_sample_4}
 
 This chart displays the alignment scores both on the aggregate level (left-most bar) and on sector level. The bigger, dark-blue triangle indicates the score obtained by this portfolio and the smaller grey triangle indicates the average peer result. The horizontal line delineates the scores aligned with the 1.8°C pathway (or higher) from those that are not aligned. The 1.8°C pathway matches with the target in the Paris Agreement of limiting global warming to “well below 2°C”. The scores indicate the scenario with which the production plans of the invested companies align. Please refer to the two visualizations below for more information. 
 
@@ -470,13 +493,13 @@ This chart displays the alignment scores both on the aggregate level (left-most 
 
 This table shows the technical specifications in regard to the scenarios to define the score. For each score, one can see the requirements in regard to each scenario in the same row.
 
-$table_scenario_grading$
+\includegraphics{table_scenario_grading}
 
 \subsection{Example of production plans for a green technology according to the scores.}
 
 The chart below visualizes the specifications of the aggregated alignment score for an examplary production plan of a green technology. To derive the aggregated score, the sector-level scores are aggregated to one score. 
 
-$chart_scenario_grading$
+\includegraphics{chart_scenario_grading}
 
 \newpage
 
@@ -484,14 +507,14 @@ $chart_scenario_grading$
 
 \subsection{Dart chart: overall climate strategy}
 
-$Chart_sample$ 5
+\includegraphics{chart_sample_5}
 
 This dart chart shows whether your institution as a whole, according to your answers, practices reporting, has a climate strategy in place, and has concrete climate targets. An increasing efficacy from the first (outer layer) to the third (inner layer) is assumed. Best practice is defined as having all three layers covered.<br/>
 Transparency through reporting is a first step in the right direction, but ultimately a concrete climate goal needs to be set and backed by a trustworthy climate strategy to make a change. 
 
 \subsection{Dart chart: investee engagement in fossil fuel, automotive, and power sector}
 
-$Chart_sample$ 6
+\includegraphics{chart_sample_6}
 
 This dart charts shows which engagement actions your institution is practicing, accoding to your answers. It starts with a general engagement policy, which can be improved in effectiveness through a dedicated engagement team and finally through joint engagement with other institutions. Best practice is when all three levels are covered.<br/>
 The chart is shown separately for fossil fuels, automotive, and power sector as these (i) are considered as the most climate relevant sectors and (ii) have low-carbon substitutes which allows investors to support the shift to existing technologies. 
@@ -502,7 +525,7 @@ Considering joint engagement as a way to increase the efficacy of engagement pra
 
 \subsection{Dart chart: negative screening in oil and gas as well as coal sector}
 
-$Chart_sample$ 7
+\includegraphics{chart_sample_7}
 
 This dart chart shows whether your institution as a whole, according to your answers, has exclusion criteria defined, practices underweighting in the respective sectors as well as excludes companies if your action is not successful. Best practice is defined as having all three layers covered.<br/>
 This layer chart is shown for coal on the one hand and oil and gas on the other hand separately, and compared to the exposure in the respective sectors. The comparison to the PACTA exposure aims to provide insights in the effectiveness of the negative screening actions.
@@ -519,28 +542,27 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 
 ```{=latex}
 \newpage
-```
 
-## Annex (IV): FAQs
+\section{Annex (IV): FAQs}
 
-### Which are the PACTA sectors?
+\subsection{Which are the PACTA sectors?}
 
 The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil \& gas production, power generation (fossil and renewable); automotive production (ICE , hybrid, electric), aviation, cement, and steel. Usually, 5-15\% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of portfolio emissions. Please see the graphs of a sample portfolio below:
 
-#### Financial Exposure
+\subsection{Financial Exposure}
 
-$Chart_sample$ 7
+\includegraphics{chart_sample_8}
 
-#### Emission Exposure
+\subsection{Emission Exposure}
 
-$Chart_sample$ 8
+\includegraphics{chart_sample_9}
 
-### Which asset classes does PACTA cover? 
+\subsection{Which asset classes does PACTA cover?}
 
 The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2022 also includes Swiss real estate and mortgages. 
 
 
-### How can I use my results for disclosure?
+\subsection{How can I use my results for disclosure?}
 
 To what extent you use your results is up to you. However, the results are suitable for a variety of reporting opportunities, such as:
 
@@ -549,18 +571,16 @@ To what extent you use your results is up to you. However, the results are suita
 * External disclosure: Implementing the federal council’s recommendations **([link](https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html))** to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores **([link](https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html))**.
 * Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" **([link](https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf))**.
 
-### Where can I find the full results of this test (interactive report)?
+\subsection{Where can I find the full results of this test (interactive report)?}
 
 This Executive Summary serves as a supplement to the comprehensive and interactive presentation of your results in the so-called interactive report. You can view this on the Transition Monitor Platform under "Results" after logging in with your password **([link](https://platform.transitionmonitor.com/))**.
 
-### Where can I learn more about the PACTA Methodology?
+\subsection{Where can I learn more about the PACTA Methodology?}
 
 If you want to learn more about the open-source methodology behind PACTA, you can do so on our "PACTA Knowledge Hub" **([link](https://rmi.gitbook.io/pacta-knowledge-hub/))**.
 
 
 \newpage
-
-```{=latex}
 
 \section{Climate Score Indicators}
 
@@ -979,8 +999,6 @@ engagement_peers <-
 
 ```{=latex}
 \end{multicols}
-```
-
 
 \newpage
 

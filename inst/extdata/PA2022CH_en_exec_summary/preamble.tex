@@ -3,6 +3,9 @@
 \usepackage{xcolor}
 \usepackage{mdframed}
 \usepackage{multicol}
+% \usepackage{showframe}
+
+\graphicspath{ {img/} }
 
 \geometry{
 a4paper,
@@ -24,6 +27,7 @@ headheight=0.0in
   }
 }
 
+\definecolor{esLightGray}{HTML}{F2F2F2}
 \definecolor{watermelon}{HTML}{B4Da55}
 \definecolor{candy}{HTML}{f42069}
 
@@ -39,6 +43,10 @@ headheight=0.0in
 
 \NewDocumentCommand \engagementImage{}{
   \fbox{\textbf{engagement}}
+}
+
+\mdfdefinestyle{esstyle}{
+  frametitlebackgroundcolor = esLightGray
 }
 
 
@@ -57,7 +65,7 @@ headheight=0.0in
 \NewDocumentEnvironment{esbox}{ O{\textwidth} m o }
 {% begin code
   \begin{minipage}[t]{#1}%
-  \begin{mdframed}[style=debugstyle, frametitle={\esboxTitleString{#2}[#3]}]%
+  \begin{mdframed}[style=esstyle, frametitle={\esboxTitleString{#2}[#3]}]%
 }
 { % enddef
   \end{mdframed}%
