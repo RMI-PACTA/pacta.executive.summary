@@ -151,7 +151,7 @@ plot_scores_pyramide <- function(
 
 annotation_df <- function(data) {
   nr_assets <- length(unique(data$asset_class))
-  annotation_text <-  "Minimum\nParis\nAgreement\ntemperature\ngoal (1.8°C\nscenario)"
+  annotation_text <-  "Minimum\nParis\nAgreement\ntemperature\ngoal (1.8\u00B0C\nscenario)"
   if ( nr_assets == 2) {
     df <- tibble::tibble(
       asset_class = c("bonds", "equity"),
