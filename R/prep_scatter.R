@@ -29,8 +29,8 @@ prep_scatter <- function(results_portfolio,
       scenario_source = scenario_source,
       scenario_selected = scenario_selected
     )
-    
-    portfolio_data_asset <- results_portfolio %>% 
+
+    portfolio_data_asset <- results_portfolio %>%
       filter(asset_class == .env$asset_class)
     if (nrow(portfolio_data_asset) > 0) {
       # infer start year
@@ -71,7 +71,7 @@ prep_scatter <- function(results_portfolio,
 
       # calculate tech_type and sector exposures
       data_exposure <- data_exposure %>%
-        calculate_exposures() %>%
+        calculate_exposures_scatter() %>%
         dplyr::filter(.data$tech_type == "green")
 
       # calculate future alignment scores
@@ -137,5 +137,35 @@ check_data_prep_scatter <- function(asset_class,
   if (length(scenario_selected) != 1) {
     stop("Argument scenario_source must be of length 1. Please check your input.")
   }
+}
+
+calculate_exposures_scatter <- function(data) {
+  data <- data %>%
+    dplyr::select(
+      c("investor_name", "portfolio_name", "entity_name", "entity_type", "entity",
+        "asset_class", "year", "tech_type", "ald_sector", "plan_carsten")
+    ) %>%
+    dplyr::group_by(
+      .data$investor_name, .data$portfolio_name,.data$entity_name,
+      .data$entity_type, .data$entity, .data$asset_class, .data$year,
+      .data$tech_type, .data$ald_sector
+    ) %>%
+    dplyr::summarise(tech_plan_carsten = sum(.data$plan_carsten, na.rm = TRUE)) %>%
+    dplyr::ungroup() %>%
+    dplyr::group_by(
+      .data$investor_name, .data$portfolio_name, .data$entity_name,
+      .data$entity_type, .data$entity, .data$asset_class, .data$year,
+      .data$ald_sector
+    ) %>%
+    dplyr::mutate(sec_plan_carsten = sum(.data$tech_plan_carsten, na.rm = TRUE)) %>%
+    dplyr::mutate(perc_tech_exposure = .data$tech_plan_carsten/.data$sec_plan_carsten) %>%
+    dplyr::ungroup() %>%
+    dplyr::rename(sector = "ald_sector") %>%
+    dplyr::arrange(
+      .data$investor_name, .data$portfolio_name, .data$sector, .data$asset_class,
+      .data$tech_type
+    )
+
+  return(data)
 }
 
