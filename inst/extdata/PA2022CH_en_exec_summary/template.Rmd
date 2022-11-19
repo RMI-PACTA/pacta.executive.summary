@@ -578,7 +578,7 @@ All sources of carbon emissions from invested companies (scope 1-3) are included
 
 ```
 
-```{r emissions_scorecard}
+```{r emissions_scorecard, fig.height=2.5}
 tryCatch(
   {
     data_emissions_scorecard <- prep_emissions_scorecard(
@@ -647,7 +647,7 @@ There is scientific consensus on the need to phase-out coal, stop financing new 
 
 ```
 
-```{r exposures_scorecard}
+```{r exposures_scorecard, fig.height=2.5}
 tryCatch(
   {
     data_exposures_scorecard <- prep_exposures_scorecard(results_portfolio)
@@ -674,7 +674,7 @@ tryCatch(
 
 ```
 
-```{r scores_scorecard}
+```{r scores_scorecard, fig.height=3}
 tryCatch(
   {
     data_scores_scorecard <- prep_scores_scorecard(results_portfolio)
@@ -762,7 +762,7 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 #### Real Estate Score
 
-```{r real_estate_scores_scorecard}
+```{r real_estate_scores_scorecard, fig.height=3}
 if (real_estate_flag){
 
   tryCatch(
