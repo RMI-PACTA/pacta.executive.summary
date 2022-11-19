@@ -25,7 +25,7 @@ plot_scores_scorecard <- function(data) {
   p <- plot_scores_scorecard_single(data) +
     geom_text(
       data = annotation_df(data),
-      aes(x = 4, y = 110, label = .data$text),
+      aes(x = 4.5, y = 130, label = .data$text),
       colour = "black",
       hjust = 1
     ) +
@@ -118,11 +118,11 @@ plot_scores_pyramide <- function(
         colour = .data$group
       )
     ) +
-    geom_text(aes(y = 8, label = .data$score_symbol), colour = "black", size = 8) +
+    geom_text(aes(y = 8, label = .data$score_symbol), colour = "black", size = 4) +
     scale_y_continuous(expand = expansion(mult = c(0, 0))) +
     scale_fill_manual(values = fill_colours_scores) +
     scale_colour_manual(values = fill_colours_scores) +
-    theme_2dii(base_size = 22) +
+    theme_2dii(base_size = 14) +
     theme(
       axis.line = element_blank(),
       axis.ticks = element_blank(),
@@ -141,7 +141,7 @@ plot_scores_pyramide <- function(
       x = line_position + 0.5,
       y = -1,
       xend = line_position + 0.5,
-      yend = score_upper_max(data_scores) * 1.1,
+      yend = score_upper_max(data_scores) * 1.2,
       colour = fill_colours_scores[[line_label]],
       size = 1.1
     )

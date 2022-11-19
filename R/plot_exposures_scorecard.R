@@ -32,18 +32,19 @@ plot_exposures_scorecard <- function(data) {
         label = scales::percent(round(.data$exposure_perc_aum, digits = 2))
       ),
       hjust = -0.2,
-      size = 7
+      size = 4
     ) +
     scale_x_discrete(labels = r2dii.plot::to_title) +
     scale_y_continuous(expand = expansion(mult = c(0, .8)), labels = scales::percent) +
     scale_fill_manual(values = fill_colours_exposures_scorecard) +
     coord_flip() +
-    theme_2dii(base_size = 24) +
+    theme_2dii(base_size = 14) +
     theme(
       axis.title = element_blank(),
       axis.line.x = element_blank(),
       axis.ticks = element_blank(),
       axis.text.x = element_blank(),
+      strip.text = element_text(face = "bold"),
       legend.position = "none"
     ) +
     facet_wrap(~asset_class, labeller = as_labeller(r2dii.plot::to_title))
