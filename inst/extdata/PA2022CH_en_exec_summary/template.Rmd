@@ -674,7 +674,7 @@ tryCatch(
 
 ```
 
-```{r scores_scorecard}
+```{r scores_scorecard, fig.height=3}
 tryCatch(
   {
     data_scores_scorecard <- prep_scores_scorecard(results_portfolio)
