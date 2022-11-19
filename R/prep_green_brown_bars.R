@@ -99,14 +99,15 @@ calculate_exposures <- function(data) {
       .data$entity_type, .data$entity, .data$asset_class, .data$year,
       .data$tech_type, .data$ald_sector
     ) %>%
-    dplyr::summarise(perc_tech_exposure = sum(.data$plan_carsten, na.rm = TRUE)) %>%
+    dplyr::summarise(tech_plan_carsten = sum(.data$plan_carsten, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
     dplyr::group_by(
       .data$investor_name, .data$portfolio_name, .data$entity_name,
       .data$entity_type, .data$entity, .data$asset_class, .data$year,
       .data$ald_sector
     ) %>%
-    dplyr::mutate(perc_sec_exposure = sum(.data$perc_tech_exposure, na.rm = TRUE)) %>%
+    dplyr::mutate(sec_plan_carsten = sum(.data$tech_plan_carsten, na.rm = TRUE)) %>%
+    dplyr::mutate(perc_tech_exposure = .data$tech_plan_carsten/.data$sec_plan_carsten) %>%
     dplyr::ungroup() %>%
     dplyr::rename(sector = "ald_sector") %>%
     dplyr::arrange(
