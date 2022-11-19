@@ -1,7 +1,7 @@
 ## Real Estate & Mortgage Results
 
-The Real Estate and Mortgage section allows financial institutions to measure the alignment of their Swiss real estate and mortgage portfolio with the climate target of the Swiss building sector to reach net-zero emissions in 2050. Therefore, the PACTA test assesses the CO2 emissions of your real estate and mortgage investments.<br/>
-Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO2 emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO2 emissions from buildings as a whole should have fallen by at least 40% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO2 emissions more rapidly in the future, in particular by renovating existing buildings. ([Link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html))
+The Real Estate and Mortgage section allows financial institutions to measure the alignment of their Swiss real estate and mortgage portfolio with the climate target of the Swiss building sector to reach net-zero emissions in 2050. Therefore, the PACTA test assesses the CO~2~ emissions of your real estate and mortgage investments.<br/>
+Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO~2~ emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO~2~ emissions from buildings as a whole should have fallen by at least 40% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO~2~ emissions more rapidly in the future, in particular by renovating existing buildings. ([Link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html))
 
 
 ```{r real_estate_load_data}
@@ -50,29 +50,28 @@ cat(Sys.time())
 knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
 ```
 
-Geographical distribution of directly held buildings by use 
-
-```{r real_estate_map, out.width = '50%'}
-knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
-```
-
 Mortgages 
 
 ```{r real_estate_mortgages_bar_chart, out.width = '50%'}
 knitr::include_graphics(cleaned_mortgage_paths[["png_energy_carrier"]])
 ```
 
-Link für Hinweise auf mögliche physische Klimarisiken: 
+Geographical distribution of directly held buildings by use 
 
-Natural Hazards [https://map.geo.admin.ch/?topic=bafu&lang=en&bgLayer=ch.swisstopo.pixelkarte-grau&catalogNodes=825,826,843,849,851,1505]
+```{r real_estate_map, out.width = '50%'}
+knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
+```
 
-Distribution of the average CO_{2} intensity of your real estate portfolio (directly held buildings) compared to peers. 
+Natural hazards map FOEN **([link](https://map.geo.admin.ch/?topic=bafu&lang=de&bgLayer=ch.swisstopo.pixelkarte-grau))**
+
+
+Distribution of the average CO_{2} intensity of your real estate portfolio (directly held buildings) compared to peers
 
 ```{r real_estate_distribution, out.width = '50%'}
 knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
 ```
 
-Distribution of the mean CO_{2} intensity of your mortgage portfolio compared to peers. 
+Distribution of the mean CO_{2} intensity of your mortgage portfolio compared to peers
 
 ```{r mortgage_distribution, out.width = '50%'}
 knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
@@ -80,7 +79,7 @@ knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
 
 ### Future Status
 
-**Reduction path** of all directly held buildings with the submitted refurbishment plans. 
+**Reduction path** of all directly held buildings with the submitted refurbishment plans
 
 ```{r real_estate_reduction_path, out.width = '50%'}
 knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
