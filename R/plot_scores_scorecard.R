@@ -25,8 +25,9 @@ plot_scores_scorecard <- function(data) {
   p <- plot_scores_scorecard_single(data) +
     geom_text(
       data = annotation_df(data),
-      aes(x = 3.65, y = 91, label = .data$text),
-      colour = "black"
+      aes(x = 4, y = 110, label = .data$text),
+      colour = "black",
+      hjust = 1
     ) +
     theme(
       strip.text = element_text(face = "bold")
@@ -150,12 +151,13 @@ plot_scores_pyramide <- function(
 
 annotation_df <- function(data) {
   nr_assets <- length(unique(data$asset_class))
+  annotation_text <-  "Science-based\nconsensus on\nneeded glo-\nbal ambition,\ni.e. Scenario\nNDC-LTS"
   if ( nr_assets == 2) {
     df <- tibble::tibble(
       asset_class = c("bonds", "equity"),
       text = c(
         "",
-        "Science-based\nconsensus on\nneeded global\nambition, i.e.\nScenario [XY]"
+        annotation_text
       ),
       score_symbol = c(NA, NA)
     )
@@ -163,7 +165,7 @@ annotation_df <- function(data) {
     df <- tibble::tibble(
       asset_class = unique(data$asset_class),
       text = c(
-        "Science-based\nconsensus on\nneeded global\nambition, i.e.\nScenario [XY]"
+        annotation_text
       ),
       score_symbol = c(NA)
     )
