@@ -169,7 +169,7 @@ tryCatch(
 The chart provides information on the exposure to the PACTA sectors. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
 ```
 
-```{r exposure, fig.height=4.5, fig.width=6, fig.show='hold', out.width='50%'}
+```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
 tryCatch(
   {
     data_green_brown_bars <- prep_green_brown_bars(
@@ -224,7 +224,7 @@ The chart below shows the current low-carbon exposure and the forward-looking cl
 
 ```
 
-```{r scatter, fig.show="hold", out.width="50%"}
+```{r scatter, fig.show="hold", out.width="45%", fig.align='center'}
 
 tryCatch(
   {
@@ -298,7 +298,7 @@ The aggregated score compares the alignment of all assets until 2026 to the GECO
 
 ```
 
-```{r scores, fig.show='hold', out.width='50%'}
+```{r scores, fig.show='hold', out.width='45%', fig.align='center'}
 tryCatch(
   {
     data_scores_b <- prep_scores(
@@ -385,7 +385,7 @@ tryCatch(
 ```
 
 
-```{r alignment_table_equity, fig.height=4, fig.width=6, align='center'}
+```{r alignment_table_equity, fig.height=4, fig.width=6, fig.align='center'}
 tryCatch(
   {
     data_alignment_table <- prep_alignment_table(

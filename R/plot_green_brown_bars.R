@@ -38,16 +38,16 @@ plot_green_brown_bars <- function(data) {
         label = scales::percent(round(.data$perc_sec_exposure, digits = 3))
       ),
       hjust = -0.2,
-      size = 4
+      size = 3.5
     ) +
     tidytext::scale_x_reordered() +
-    scale_y_continuous(expand = expansion(mult = c(0, .4)), labels = scales::percent) +
+    scale_y_continuous(expand = expansion(mult = c(0, .55)), labels = scales::percent) +
     scale_fill_manual(
       values = fill_colours_green_brown_bars,
       labels = fill_labels_green_brown_bars,
     ) +
     coord_flip() +
-    theme_2dii(base_size = 18) +
+    theme_2dii(base_size = 14) +
     theme(
       axis.title = element_blank(),
       axis.line.x = element_blank(),
