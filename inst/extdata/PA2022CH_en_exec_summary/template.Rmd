@@ -690,11 +690,6 @@ tryCatch(
 )
 ```
 
-```{=latex}
-
-This score represents the estimated aggregate alignment of the PACTA sectors (except for cement) in the portfolio with respect to the GECO 2021 scenarios. Please bear in mind that the interpretation of this score should be accompanied by an analysis of the underlying results and investment strategy used in each one of the analysed sectors, given the assumptions that an aggregated metric is based on. Some portfolios with climate objectives may intentionally include investments in companies that are not yet on track to achieve 1.5°C alignment, seeking instead to contribute actively to climate goals by improving the alignment of investee companies to bring a larger share of the economy into alignment over time. The combined set of indicators above and their display are considered by the Swiss government to represent the current best-practice in providing science-based transparency on the alignment of portfolio assets with global climate goals.
-
-```
 
 ```{r emissions_covered}
 
@@ -767,8 +762,6 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 #### Real Estate Score
 
-</br>
-
 ```{r real_estate_scores_scorecard}
 if (real_estate_flag){
 
@@ -803,8 +796,6 @@ if (real_estate_flag){
   empty_plot_no_data_message()
 }
 
-  
-  
 ```
 
 
@@ -818,8 +809,13 @@ cat("Mortgages: 25.1 kg/m2 -> G")
 ```
 
 
-**ADD REAL ESTATE SCORE CHART**
+```{=latex}
+\vfill\null
+\columnbreak
 
+This score represents the estimated aggregate alignment of the PACTA sectors (except for cement) in the portfolio with respect to the GECO 2021 scenarios. Please bear in mind that the interpretation of this score should be accompanied by an analysis of the underlying results and investment strategy used in each one of the analysed sectors, given the assumptions that an aggregated metric is based on. Some portfolios with climate objectives may intentionally include investments in companies that are not yet on track to achieve 1.5°C alignment, seeking instead to contribute actively to climate goals by improving the alignment of investee companies to bring a larger share of the economy into alignment over time. The combined set of indicators above and their display are considered by the Swiss government to represent the current best-practice in providing science-based transparency on the alignment of portfolio assets with global climate goals.
+
+```
 #### Overall Climate Strategy including Credible Climate Stewardship
 
 Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
