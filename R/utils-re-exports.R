@@ -63,18 +63,3 @@ NULL
 #'   nativeRaster is returned instead. The latter cannot be easily computed on
 #'   but is the most efficient way to draw using rasterImage.
 NULL
-
-#' Arrange multiple grobs on a page
-#'
-#' See \code{gridExtra::\link[gridExtra:grid.arrange]{grid.arrange}} for details.
-#'
-#' @name grid.arrange
-#' @rdname grid.arrange
-#' @keywords internal
-#' @export
-#' @importFrom gridExtra grid.arrange
-#' @usage grid.arrange(..., newpage = TRUE)
-#' @param ... grobs, gtables, ggplot or trellis objects.
-#' @param newpage open a new page.
-#' @return draw on the current device.
-NULL
