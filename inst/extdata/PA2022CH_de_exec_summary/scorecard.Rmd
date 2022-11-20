@@ -1,22 +1,21 @@
 ```{=latex}
 
-\section{Climate Score Indicators}
+\section{Climate Scores Indikatoren}
 
 
-\subsection{PACTA Executive Summary 2022}
+\subsection{PACTA-Kurzfassung 2022}
 
-The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the \href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{Swiss Climate Scores} were defined during the PACTA Climate Test 2022, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
+Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Kurzfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren. Da die Swiss Climate Scores \href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{Swiss Climate Scores} während des PACTA-Klimatests 2022 definiert wurden, gibt es einige Abweichungen, die auf den Folgeseiten mit den Erläuterungen angegeben sind. Bitte beachten Sie, dass die Indikatoren für die Exposition gegenüber fossilen Brennstoffen und zum ‘globalen Erwärmungspotenzial’ auf der PACTA-Methodik und den PACTA-Sektoren basieren.
 
-\subsection{Current State}
+\subsection{IST-ZUSTAND}
 
 \begin{multicols}{2}
 
-\textbf{Carbon Footprint}
+\textbf{CO\textsubscript{2}-Fussabdruck}
 
-All sources of carbon emissions from invested companies (scope 1-3) are included in the estimation.
+Erfasst werden alle Quellen von Treibhausgasemissionen der investierten Unternehmen (Scope 1-3), einschliesslich der relevanten Emissionen ihrer Lieferanten und Produkte.
 
 ```
-
 
 ```{r emissions_scorecard, fig.height=2.7}
 
@@ -37,8 +36,6 @@ tryCatch(
     empty_plot_error_message()
   }
 )
-
-
 ```
 
 ```{r emissions_scorecard_info}
@@ -73,18 +70,24 @@ total_portfolio_percentage_coverage <- (total_portfolio_percentage_equity + tota
 
 Benchmark:
 
-|Listed Equity |Corporate Bonds |
-|:-------------|:---------------|
-|iShares MSCI World ETF | iShares Global Corp Bond UCITS ETF |
+\begin{center}
+\begin{tabular}{ p{0.5\linewidth} p{0.5\linewidth} } 
+ \hline
+ Aktien & Unternehmensanleihen \\ 
+ \hline
+ iShares MSCI World ETF & iShares Global Corp Bond UCITS ETF \\ 
+ \hline
+\end{tabular}
+\end{center}
 
+Im Rahmen der Bewertung abgedeckte Portfolio-Vermögenswerte: \textbf{`r round(total_portfolio_percentage_coverage * 100)` \%}
 
+\vfill\null
+\columnbreak
 
-Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100)` \%**
+\textbf{Exposition gegenüber fossilen Brennstoffen und erneuerbaren Energien gemäss der PACTA-Methodik}
 
-\textbf{Exposure to fossil fuels and renewable power, based on PACTA methodology}
-
-There is scientific consensus on the need to phase-out coal, stop financing new fossil fuel projects, and to increase renewable power capacity. Below figure shows the financial exposure (as AUM in \%) of this portfolio to technologies in the industries coal mining, oil and gas upstream, fossil fuel power production, and renewable power production. The PACTA exposure is based on production capacities and not on revenues. 
-
+Es besteht ein wissenschaftlicher Konsens über die Notwendigkeit, aus Kohle auszusteigen, die Finanzierung neuer Projekte für fossile Brennstoffe einzustellen und die Kapazitäten für erneuerbare Energien auszubauen. Die nachstehende Abbildung zeigt das finanzielle Engagement (AUM in \%) dieses Portfolios in Technologien der Sektoren Kohlebergbau, Öl- und Gasgewinnung (Upstream), Stromerzeugung aus fossilen Brennstoffen (inkl. Kohleverstromung) und Stromerzeugung aus erneuerbaren Energien. Die PACTA-Exposition basiert auf den Produktionskapazitäten und nicht dem Umsatz. 
 
 ```
 
@@ -104,13 +107,14 @@ tryCatch(
   }
 )
 ```
+
 ```{=latex}
 \end{multicols}
 
-\subsection{Transition to Net zero}
+\subsection{TRANSITION ZU NETTO-NULL}
 
 \begin{multicols}{2}
-\textbf{PACTA Aggregated Climate Alignment Score}
+\textbf{PACTA Aggregierter Score zur Klimaausrichtung}
 
 ```
 
@@ -153,21 +157,32 @@ portfolio_emissions_covered <- emissions %>%
   dplyr::filter(.data$covered_pacta) %>% 
   dplyr::pull("emissions_pacta_percent")
 
-
 ```
 
 ```{=latex}
 
-Portfolio emissions covered by assessment: \textbf{`r round(portfolio_emissions_covered * 100)` \%}
+Abgedeckte Portfolio-Emissionen: \textbf{`r round(portfolio_emissions_covered * 100)` \%}
 
-Portfolio assets covered by assessment: \textbf{`r round(total_portfolio_percentage_coverage * 100)` \%}
+Portfolio-Vermögenswerte: \textbf{`r round(total_portfolio_percentage_coverage * 100)` \%}
 
-Climate scenario used: **GECO 2021**
+Verwendetes Klimaszenario: \textbf{GECO 2021}
 
-\subsection{Verified Commitments to Net-Zero}
+\vfill\null
+\columnbreak
 
-Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from \href{https://sciencebasedtargets.org/companies-taking-action}{SBTi}.
+Dieser Score zeigt die geschätzte Gesamtausrichtung der PACTA-Sektoren (ohne Zement) im Portfolio auf die GECO 2021-Szenarien hin. Bitte beachten Sie, dass bei der Interpretation dieses Scores die Analyse der zugrundeliegenden Ergebnisse und die in jedem der analysierten Sektoren angewandte Anlagestrategie berücksichtigt werden muss, da ein aggregiertes Ergebnis immer auf bestimmten Annahmen beruht. Manche Portfolios, die sich Klimaziele setzen, enthalten absichtlich Unternehmen, die noch nicht auf dem Weg zur Erreichung des 1,5°C-Ziels sind, und versuchen stattdessen, die Ausrichtung der investierten Unternehmen zu verbessern, um auf diese Weise im Laufe der Zeit einen wachsenden Anteil der Wirtschaft klimafreundlich zu machen und so aktiv zur Erreichung der Klimaziele beizutragen. Die oben genannte Kombination von Indikatoren und ihre Darstellung werden vom Schweizer Bundesrat als aktuelle Best Practice angesehen, um wissenschaftsbasierte Transparenz über die Ausrichtung der Portfolioanlagen auf die globalen Klimaziele hin zu schaffen.
 
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+\subsection{Verifizierte Bekenntnisse zu Netto-Null}
+
+Immer mehr Unternehmen bekennen sich freiwillig zu Netto-Null Emissionszielen und formulieren Zwischenziele. Die Wirksamkeit solcher Bekenntnisse hängt davon ab, ob die Zwischenziele glaubwürdig, wissenschaftlich fundiert und transparent sind. Die folgenden Informationen beruhen auf Angaben der SBTi \href{https://sciencebasedtargets.org/companies-taking-action}{(link)}.
+
+\vfill\null
+\columnbreak
 
 ```
 
@@ -201,13 +216,19 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 ```{=latex}
 
-* Share of companies in portfolio with verified commitments to net-zero and credible near term targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%**
+\begin{itemize}
+\item Anteil Portfolio-Unternehmen mit verifizierten Bekenntnissen zu Netto-Null und glaubwürdigen Zwischenzielen: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
 
-* Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%**
+\item Durchschnittlicher Anteil der Unternehmen in Peer-Portfolios mit verifizierten Bekenntnissen zu Netto-Null und glaubwürdigen Zwischenzielen: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
+\end{itemize}
+
+\vfill
+
+\newpage
+
+\subsection{Real Estate Score}
 
 ```
-
-#### Real Estate Score
 
 ```{r real_estate_scores_scorecard, fig.height=3}
 
@@ -246,27 +267,33 @@ if (real_estate_flag){
 
 ```
 
-
-### Swiss real estate and mortgages
-
-CO~2~ intensity according to GEAK classes (Means of the participant)
-
-```{r real_estate_score_text, eval = real_estate_flag}
-cat("Directly held buildings: 12.5 kg/m2 -> D ")
-cat("Mortgages: 25.1 kg/m2 -> G")
-```
-
-
 ```{=latex}
+
+\subsection{Schweizer Immobilien und Hypothekarportfolios}
+
+CO\textsubscript{2}-Intensität nach GEAK-Klassen (Portfoliodurchschnitt)
+
+\begin{itemize}
+\item Direkt gehaltene Gebäude:
+`r real_estate_data[["real_estate"]][["co2eq_emissions"]]`
+\(\rightarrow\)
+`r real_estate_data[["real_estate"]][["co2eq_emissions_grade"]]`
+
+\item Hypotheken:
+`r real_estate_data[["mortgage"]][["co2eq_emissions"]]`
+\(\rightarrow\)
+`r real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]`
+
+\end{itemize}
+
 \vfill\null
 \columnbreak
 
-This score represents the estimated aggregate alignment of the PACTA sectors (except for cement) in the portfolio with respect to the GECO 2021 scenarios. Please bear in mind that the interpretation of this score should be accompanied by an analysis of the underlying results and investment strategy used in each one of the analysed sectors, given the assumptions that an aggregated metric is based on. Some portfolios with climate objectives may intentionally include investments in companies that are not yet on track to achieve 1.5°C alignment, seeking instead to contribute actively to climate goals by improving the alignment of investee companies to bring a larger share of the economy into alignment over time. The combined set of indicators above and their display are considered by the Swiss government to represent the current best-practice in providing science-based transparency on the alignment of portfolio assets with global climate goals.
+\subsection{Gesamtklimastrategie einschliesslich eines glaubwürdigen Klimadialogs}
+
+Finanzinstitute können zur Transition zu Netto-Null beitragen, indem sie sich bei investierten Unternehmen für wissenschaftsbasierte und extern verifizierte Transitionspläne hin zu 2050 einsetzen.
 
 ```
-#### Overall Climate Strategy including Credible Climate Stewardship
-
-Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
 
 ```{r climate_strategy_initiatives}
 if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {
@@ -311,15 +338,17 @@ member_initiatives_peers <-
 
 ```
 
-* Is the financial institution member of a climate initiative?
+```{=latex}
 
-  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers:
-\startunderscoreletter `r round(member_initiatives_peers * 100)`
-\stopunderscoreletter
-\%)**
+\begin{itemize}
+\item Ist das Finanzinstitut Mitglied einer klimarelevanten Initiative?
+  \textbf{`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers:
+   `r round(member_initiatives_peers * 100)` 
+  \%)}
  
-\startunderscoreletter `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}` \stopunderscoreletter
+ `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}` 
 
+```
 
 
 ```{r climate_strategy_voting_rights}
@@ -368,21 +397,27 @@ voting_rights_peers <-
 
 ```
 
-* Does the financial institution support climate strategies through voting rights?
+```{=latex}
+
+\item Unterstützt das Finanzinstitut Klimastrategien durch die Ausübung von Stimmrechten?
   
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE
-\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
-\%);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE
-\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
-\%);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF
-\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
-\%);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets
-\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
-\%)**
+  \textbf{`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE
+ `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` 
+\%);}
+
+  \textbf{`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE
+ `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` 
+\%);}
+
+  \textbf{`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF
+ `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` 
+\%);}
+
+  \textbf{`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets
+ `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` 
+\%)}
   
+```
 
 ```{r climate_strategy_engagement}
 if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_engagement.csv"))) {
@@ -431,22 +466,27 @@ engagement_peers <-
 
 ```
 
-* Does the financial institution support climate strategies through engagement measures?
-
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE
-\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
-\%);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB
-\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
-\%);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE
-\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
-\%);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets
-\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
-\%)**
-
 ```{=latex}
+
+\item Unterstützt das Finanzinstitut Klimastrategien durch Engagement-Massnahmen?
+
+  \textbf{`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE
+ `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` 
+\%);}
+
+  \textbf{`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB
+ `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` 
+\%);}
+
+  \textbf{`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE
+ `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` 
+\%);}
+
+  \textbf{`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets
+ `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` 
+\%)}
+
+\end{itemize}
 \end{multicols}
 
 \newpage
@@ -454,138 +494,126 @@ engagement_peers <-
 ```
 
 
-## Climate Score Indicators
+## Klimaverträglichkeitsindikatoren
 
-### PACTA Executive Summary 2022
+### PACTA-Kurzfassung 2022
 
-MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
-
-
-### Carbon Footprint
-
-The Carbon footprint indicator includes the carbon footprint (CO~2~e/CHF M invested) but not the carbon intensity (emissions per revenue) as in the Swiss Scores proposal. Hard requirements are met.
-
-Hard Requirements:
-
-* Inclusion of scope 1, 2, and relevant scope 3.
-* Inclusion of scope 3 emissions must at a minimum be aligned to the schedule described in the EU benchmark regulation 2019/2089.
-
-### Exposure to fossil fuels and renewable energy
-
-**Exposure score in this Executive Summary:** varies from the requirements in the Swiss proposal (see below)
-
-The exposure score in this document deviates from the Swiss Scores proposal, as the Swiss Scores were launched while the PACTA Climate Test Switzerland 2022 was already in its development phase. While the Swiss Scores proposal measure the share of companies with fossil fuel activities, the PACTA exposure indicator measures the financial exposure as AUM in \% of this portfolio to the respective technologies. The PACTA exposure is not based on revenue data, but on asset-based company level data representing real-world physical activities. These activities are then attributed to financial securities and afterwards allocated to the portfolio. The portfolio allocation is done with the Portfolio Weight Approach (PA) that calculates the portfolio’s technology exposures based on the weighting of each position within the portfolio. 
-
-Specifications:
-
-* The indicator shows the financial exposure to each technology based on each company’s main sector technology split
-* The indicator is based on physical asset data instead of revenue data
-* The indicator only shows exposure to the core sector of a company (in this case: coal, oil \& gas, power production); i.e., Apple’s power assets are not included as Apple’s core business is not power
-* Thereby, the indicator can show how exposed a portfolio is to different technologies within the same sector (e.g. fossil fuel-based power production vs. renewable power production)
-* The emission scope of activities differ between the sectors and include “mining” for coal, “upstream” for oil and gas, “production” for power. For more information, please refer to the documentation on the aggregated score on the next page
-
-To foster the transition, investments in climate solutions are key and can not be captured by CO~2~-Emission based metrics. Therefore, the exposure chart also includes exposure to renewable power
-
-**Hard requirements for Swiss Scores:**
-
-* The threshold of 5\% of revenues applies both to activities directly linked with the exploration and production of fossil fuels and, if data is readily available, activities financing such production (for coal, according to the global coal exit list or similar).
-* The scope of activities includes the whole value chain, ranging from exploration, extraction, and production (upstream) to transportation and storage (midstream) and refining, marketing, and electrification (downstream).
+MINDESTKRITERIEN FÜR DIE SWISS CLIMATE SCORES UND DEREN UMSETZUNG IM PACTA-KIMATEST
 
 
-### Real Estate and Mortgages – additional PACTA indicator
+### CO~2~-Fussabdruck
 
-By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. The figure shows the mean CO~2~ intensity of the participant in the GEAK classes calculated using the PACTA methodology.
+Der Indikator „CO~2~-Fussabdruck“ umfasst den CO~2~-Fussabdruck (CO~2~e/CHF Mio. investiert), nicht aber die CO~2~-Intensität (Emissionen pro Umsatz), wie dies bei den «Swiss Climate Scores» der Fall ist. Die zwingenden Anforderungen werden erfüllt.
 
-### Verified Commitments to Net-Zero 
+Zwingende Anforderungen: 
 
-_Hard requirements are met._
+* Einbezug von Scope 1, 2 und relevanten Scope 3 Emissionen.
+* Der Einbezug von Scope 3 Emissionen muss sich mindestens am Zeitplan der EU-Referenzwerte-Verordnung 2019/2089 orientieren.
 
-Hard requirements:
+### Exposition gegenüber fossilen Brennstoffen und erneuerbaren Energien
 
-* Companies must have publically communicated a pledge to reach net-zero and have near-term targets be certified by one of the following providers: Science based targets initiative (SBTi).
+**Der Expositions-Score in dieser Kurzfassung** weicht von den Anforderungen der Swiss Climate Scores ab, da die Swiss Climate Scores eingeführt wurden, als der PACTA-Klimatest Schweiz 2022 bereits in der Entwicklungsphase war. Während bei den Swiss Climate Scores der Anteil der Unternehmen mit fossilen Aktivitäten gemessen wird, erfasst der Indikator für die PACTA-Exposition das finanzielle Engagement (als verwaltetes Vermögen in \%) dieses Portfolios in den jeweiligen Technologien. Die PACTA-Exposition basiert nicht auf Umsatzdaten, sondern auf Asset-Level-Daten, die die tatsächlichen physischen Aktivitäten abbilden. Diese Aktivitäten werden dann den Wertpapieren und anschliessend dem Portfolio zugeordnet. Die Portfolioallokation erfolgt anhand des Ansatzes der Portfoliogewichtung, bei dem die Technologie-Exposition des Portfolios auf der Grundlage der Gewichtung jeder Position innerhalb des Portfolios berechnet wird.
 
-### Management to Net-Zero 
+Spezifizierungen:
 
-_The information for this indicator was not collected in the PACTA Climate Test 2022 and is therefore not shown._
+* Der Indikator zeigt das finanzielle Engagement in jeder Technologie auf der Grundlage des Technologiemix der einzelnen Unternehmen an.
+* Der Indikator basiert auf physischen Asset-Level-Unternehmensdaten und nicht auf Umsatzdaten 
+* Der Indikator zeigt nur die Exposition gegenüber dem Kernmarkt eines Unternehmens (hier: Kohle, Öl und Gas, Stromerzeugung). Dies bedeutet, dass die Stromerzeugungsanlagen von Apple nicht berücksichtigt werden, da das Kerngeschäft von Apple nicht die Stromerzeugung ist
+Der Indikator gibt Auskunft darüber, wie stark ein Portfolio gegenüber verschiedenen Technologien innerhalb desselben Sektors exponiert ist (z. B. Stromerzeugung aus fossilen Brennstoffen im Vergleich zu Stromerzeugung aus erneuerbaren Energien).
+* Bei der Ermittlung der Emissionen von Aktivitäten wird je nach Sektor unterschiedlich vorgegangen. Im Öl- und Gassektor werden die Upstream-Aktivitäten, im Kohlesektor der Kohlebergbau und im Stromsektor die Stromerzeugung mitberücksichtigt. Weitere Informationen finden Sie in der Dokumentation zum Gesamtscore auf der nächsten Seite 
 
-### Overall Climate Strategy inclucing Credible Climate Stewardship
+Um die Transition zu fördern, sind Investitionen in Klimalösungen entscheidend, die nicht durch CO~2~-Emissionskennzahlen erfasst werden können. Aus diesem Grund ist in der Expositionstabelle auch die Exposition gegenüber erneuerbaren Energien enthalten.
 
-**Implementation:** deviates from hard requirements for Swiss Climate Scores (see below)
+**Zwingende Anforderungen der Swiss Climate Scores:**
 
-* Climate initiatives should be consistent with the ambition of reaching net-zero by 2050
-  * Implementation:  "Yes" means that at least one initiative is ticked for the user. "No" means that the user has not ticked any initiative. "Name": returns names of all ticked initiatives, but summarises the free field as "Other“
-* Votes should be considered as climate-relevant measure
-
-  * Implementation: "YES (asset type)" means that the user has investment in the asset type AND ticked that they exercise voting rights. "NO" means that the user has investment in the asset type AND NOT ticked that they exercise voting rights. "NOT ANSWERED": means that the user has not indicated that they have investments in the asset type. Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type. Asset types covered are "listed equity (LE)", "private equity (PE)", "infrastructure (INF)", and "Other assets".
-* Engagement strategies should be considered as climate-relevant measure
-  * Implementation: conditions for "YES (asset type)“, “NO”, “NOT ANSWERED” defined as above but for engagement strategies. For “other assets”, the above conditions must apply in at least one of the other assets. Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type. Number of users with YES for other assets out of the number of users that have invested in at least one other asset type. Asset types covered are "listed equity (LE)", "corporate bonds (CB)", "real estate (RE)", and "Other assets".
-
-**Hard requirements:**
-
-* Votes/proxy votes should be consistent with the ambition of reaching net-zero by 2050.
-* Any linked climate engagement strategy should be consistent with the ambition of reaching net-zero by 2050.
-* The escalation procedure is clearly defined and made transparent.
-* An example for a climate engagement initiative is Climate Action 100+
-
-\newpage
-
-## Climate Score Indicators
-
-### PACTA Executive Summary 2022
-
-MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
+* Der Schwellenwert von 5\% der Einnahmen gilt sowohl für Aktivitäten, die direkt mit der Exploration und Produktion fossiler Brennstoffe verbunden sind, als auch – sofern Daten verfügbar sind.
+* Für Aktivitäten, die diese Produktion finanzieren (für Kohle gemäss der «Global Coal Exit List» oder ähnlichem). Der Umfang der Aktivitäten umfasst die gesamte Wertschöpfungskette, von der Exploration, Gewinnung und Produktion (Upstream) über den Transport und die Lagerung (Midstream) bis hin zur Raffinierung, Vermarktung und Elektrifizierung (Downstream).
 
 
-### PACTA Aggregated Climate Alignment Score
+### Immobilien und Hypotheken – zusätzlicher PACTA-Indikator
 
-**Implementation:**
+Durch die Substitution fossiler durch erneuerbare Heizsysteme und energieeffiziente Gebäudesanierungen kann ein direkter und wirksamer Beitrag zum Klimaschutz geleistet werden. Immobilien und Hypotheken sind daher wichtige Anlageklassen. Die Abbildung zeigt die durchschnittliche CO~2~-Intensität der Teilnehmer in den GEAK-Klassen, berechnet nach der PACTA-Methode.
 
-* PACTA measures alignment of firms’ 5-year forward-looking production plans with the GECO 2021 scenario
-* Sectoral score, aggregated to one score; cement is excluded as it is not covered in GECO 2021
-* Most climate relevant sectors including contributions
-* Use case: 
-  * Financial Institutions can communicate internally and externally about climate performance easily and understandably.
-  * Investors can understand portfolio priorities and get insights into potential long-term transition risks.
-  * Supervisors will be able to understand the FI's position relative to its peers regarding climate change.
+### Verifizierte Bekenntnisse zu Netto-Null
 
-**Hard requirements:**
+_Die zwingenden Anforderungen werden erfüllt._
 
-* Be guided by the goal to achieve net zero emissions by 2050, consistent with the 1.5°C warming limit of the Paris Agreement and in line with the latest IPCC findings.
-* Comply with the technical considerations of the TCFD 2021 PAT report “Measuring Portfolio Alignment – technical considerations”. In particular, comply with:
-  * Select a 1.5°C scenario that complies, at a minimum, with the scenario selection criteria set out by the Science Based Targets initiative (SBTi) in their document Foundations of Science-Based Target Setting (consideration 7).
-  * Prioritize granular benchmarks where they meaningfully capture material differences in decarbonization feasibility across industries or regions (Consideration 8).
-  * Include Scope 3 emissions for the sectors for which they are most material and for which benchmarks can be easily extracted from existing scenarios (fossil fuels, mining, automotive) (Consideration 11). 
-  * _Addition:_ Note that the PACTA methodology is not based on emissions but on production plans of companies. The production-based analysis however proxies for the following scopes: 
-    * Scope 1 and 2 for steel production
-    * Scope 3 for fossil fuel extraction, automotive manufacturing
-    * Scope 1 for power production, and aviation
-* Allow the Swiss government to disclose aggregate implied temperature scores based on your methodology on the following indices, to compare them with other providers: SMI, MSCI World, MSCI World Materials, MSCI World Industrials, MSCI World Utilities, MSCI World Real Estate.
+Zwingende Anforderungen:
 
-**Important, but not hard requirements:**
+* Die Unternehmen müssen sich öffentlich dazu bekannt haben, Netto-Null-Emissionen zu erreichen, und ihre  kurzfristigen Ziele müssen von einem der folgenden Dienstleister zertifiziert sein: Science Based Targets initiative (SBTi).
 
-Benchmark used:
+### Management auf Netto-Null 
 
-* At a minimum, a sub-industry level approach based on external, replicable, scientific sources to benchmarking should be used for high-emitting sectors, with companies allocated a ‘fair share’ of the global carbon budget based on their mix of activities.
-* Climate solutions, especially for the electricity sector should also be covered and compared with the respective scenario, as the scale up of renewable power is a key factor to transition according to the IEA. 
+_Für diesen Indikator wurden im Rahmen des PACTA-Klimatests 2022 keine Informationen erhoben_
 
-Company long-term targets, near-term action and data sources:
+### Gesamtklimastrategie einschliesslich eines glaubwürdigen Klimadialogs
 
-* Include near-term CapEx plans 
-* Use third-party validated data on asset level base where possible. Be as transparent as possible on data sources.
-* Do not allow for avoided emissions data at corporate level, given the lack of standards around corporate level avoided emissions reporting and the technical challenges and issues related to such calculation. Account instead for climate solutions, at minimum for renewable power.
-* _Requirements not met:_
-  * Assess the credibility of companies’ emission reduction plans and take into account whether they are externally validated (such as by SBTi) to be science-based, in line with the goal of achieving net zero by 2050. 
-  * Validate, if the long-term commitments match with the short term action
-  * Inclusion of scope 3 emissions must at a minimum be aligned to the schedule described in the EU benchmark regulation 2019/2089.
+**Umsetzung:** weicht von den zwingenden Anforderungen der Swiss Climate Scores ab (siehe unten)
 
-To calculate portfolio alignment
+* Klimainitiativen müssen mit dem 2050-Netto-Null-Ziel vereinbar sein
+  * Umsetzung: „Ja“ bedeutet, dass der Nutzer mindestens eine Initiative angekreuzt hat. „Nein“ bedeutet, dass der Nutzer keine Initiative angekreuzt hat. „Name“ zeigt die Namen aller angekreuzten Initiativen; das freie Feld wird mit „Andere“ zusammengefasst
+* Die Ausübung von Stimmrechten wird als klimarelevante Massnahme angesehen
+  * Umsetzung: „JA (Anlageklasse)“ bedeutet, dass der Nutzer in der Anlageklasse investiert hat UND angekreuzt hat, dass er Stimmrechte ausübt. „NEIN“ bedeutet, dass der Nutzer in der Anlageklasse investiert hat, aber NICHT angekreuzt hat, dass er Stimmrechte ausübt. „KEINE ANTWORT“: der Nutzer hat nicht angegeben, dass er in der Anlageklasse investiert hat. Peers: Anzahl der Nutzer mit einem JA für die Anlageklasse von allen Nutzern, die in diese Anlageklasse investiert haben. Die abgedeckten Anlageklassen sind "Aktien (LE)", "Private Equity (PE)", "Infrastrukturanlagen (INF)", und "Andere Anlageklassen".
+* Engagement-Strategien werden als klimarelevante Massnahme angesehen
+  * Umsetzung: Bedingungen für „JA (Anlageklasse)“, „NEIN“ und „KEINE ANTWORT“ wie oben definiert, aber für Engagement-Strategien. Für „Andere Anlagen“ müssen die oben genannten Bedingungen auf mindestens eine der anderen Anlagen zutreffen. Peers: Anzahl der Nutzer mit einem JA für die Anlageklasse  von allen Nutzern, die in diese Anlageklasse investiert haben. Anzahl der Nutzer mit einem JA für andere Anlagen von allen Nutzern, die in mindestens eine andere Anlageklasse investiert haben. Die abgedeckten Anlageklassen sind "Aktien (LE)", "Unternehmensanleihen (CB)", "Immobilien/Hypotheken (RE)", und "Andere Anlageklassen".
 
-* _Addition:_ The PACTA Aggregated Climate Alignment Score is not an Implied Temperature Rise (ITR) score. Therefore, PACTA cannot provide a confidence level for the score itself. Instead, confidence scenarios for the selected scenarios exist and are: 
-  * 50\% probability to not exceed 1.5°C warming for the 1.5°C Uniform scenario (GECO 2021)
-  * 50\% probability to not exceed 1.8°C warming for the 1.8°C NDC-LTS scenario (GECO 2021)
-  * 50\% probability to not exceed 3.0°C warming for the 3.0°C Current Policies Scenario (GECO 2021)
-* _Requirements not met_ as Aggregate score is no ITR.
-  * Implied temperature scores should be calculated using a confidence level of 66\%, rather than 50\%.
-  * Calculate warming scores on a cumulative-emissions basis until 2050, in order to accommodate appropriately the physical relationship between cumulative emissions and warming outcomes.
+**Zwingende Anforderungen:**
+
+* Abstimmungen/Stellvertreterabstimmungen sollen mit dem 2050-Netto-Null-Ziel vereinbar sein. 
+* Jede miteinbezogene Engagement-Strategie soll mit dem 2050-Netto-Null-Ziel vereinbar sein. 
+* Ein Beispiel für eine Klima-EngagementInitiative ist Climate Action 100+. 
+* Das Eskalationsverfahren muss klar definiert und transparent verfügbar sein.
+
+### PACTA Aggregierter Score zur Klimaausrichtung
+
+**Umsetzung:**
+
+* PACTA misst die Verträglichkeit der 5 Jahre vorausschauenden Produktionspläne der Unternehmen mit dem GECO 2021 Szenario. 
+* Die Sektor-Scores werden zu einem Score zusammengefasst.; Zement ist nicht im GECO 2021 Szenario enthalten und damit auch nicht Teil des Scores.
+* Die meisten klimarelevanten Sektoren, einschliesslich ihrer jeweiligen Beiträge sind einbezogen.
+* Anwendungsfall: 
+  * Finanzinstitute können intern und extern einfach und verständlich über ihre Klima-Performance kommunizieren.
+  * Anleger können die Portfolioprioritäten verstehen und sich über die potenziellen langfristigen Risiken der Transition informieren.
+  * Die Aufsichtsbehörden sind in der Lage, die Positionierung des Finanzinstituts in Bezug auf den Klimawandel im Vergleich zu seinen Peers zu verstehen.
+
+**Zwingende Anforderungen:**
+
+* Lassen Sie sich vom 2050-Netto-Null-Ziel leiten, welches mit der 1,5°C-Erwärmungsgrenze des Klimaübereinkommen von Paris und den neuesten Erkenntnissen des Weltklimarats im Einklang steht.
+* Befolgen Sie die technischen Überlegungen des TCFD 2021 PAT-Berichts „Measuring Portfolio Alignment - technical considerations“ („Messung der Klimaausrichtung des Portfolios – technische Überlegungen“). Halten Sie insbesondere folgende Punkte ein:
+  * Wählen Sie ein 1,5°C-Szenario, das mindestens den von der Science Based Targets Initiative (SBTi) in dem Dokument „Foundations of Science-Based Target Setting“ („Grundlagen der wissenschaftsbasierten Zielsetzung“) dargelegten Kriterien entspricht (Betrachtung 7).
+  * Priorisieren Sie granulare Benchmarks, wenn diese wesentliche Unterschiede in der Realisierbarkeit der Dekarbonisierung zwischen Branchen oder Regionen aufzeigen (Betrachtung 8).
+  * Beziehen Sie Scope-3-Emissionen für die Sektoren ein, die am bedeutendsten sind und für die Benchmarks leicht aus bestehenden Szenarien entnommen werden können (fossile Brennstoffe, Bergbau, Automobilindustrie) (Betrachtung 11). 
+  * Zusatz: Beachten Sie, dass PACTA nicht auf den Emissionen, sondern auf den Produktionsplänen der Unternehmen basiert. Die produktionsbasierte Analyse ermöglicht es, die folgenden Bereiche so genau wie möglich abzubilden: 
+    * Scope 1 und 2 für die Stahlproduktion
+    * Scope 3 für die Gewinnung fossiler Brennstoffe und die Automobilproduktion
+    * Scope 1 für die Stromerzeugung und die Luftfahrt
+* Erlauben Sie der Schweizer Regierung, die aggregierten impliziten Temperaturwerte basierend auf Ihrer Methodik für die folgenden Indizes offenzulegen, um sie mit anderen Anbietern zu vergleichen: SMI, MSCI World, MSCI World Materials, MSCI World Industrials, MSCI World Utilities, MSCI World Real Estate.
+
+**Wichtige, aber nicht zwingende Anforderungen:**
+
+Verwendete Benchmarks:
+
+* Zumindest sollte bei den emissionsintensiven Sektoren ein Ansatz für die Teilsektoren gewählt werden, bei dem die Benchmarks auf externen, replizierbaren, wissenschaftlichen Studien beruhen, wobei den Unternehmen ein „fairer Anteil“ am globalen CO~2~-Budget auf der Grundlage ihres Aktivitäten-Mix zugewiesen wird.
+* Klimalösungen, insbesondere für den Stromsektor, sollten ebenfalls erfasst und mit dem jeweiligen Szenario verglichen werden, da der Ausbau der erneuerbaren Energien laut IEA ein Schlüsselfaktor für die Transition ist. 
+
+Langfristige Unternehmensziele, kurzfristige Massnahmen und Datenquellen:
+
+* Kurzfristige Investitionspläne einbeziehen 
+* Verwenden Sie nach Möglichkeit von Dritten verifizierte Daten auf Vermögenswert-Ebene. Seien Sie bei den Datenquellen so transparent wie möglich.
+* Daten zu vermiedenen Emissionen auf Unternehmensebene sollten nicht berücksichtigt werden, da es keine Standards für die Berichterstattung über vermiedene Emissionen gibt und diese Berechnung mit technischen Herausforderungen und Problemen verbunden ist. Stattdessen sollten Klimalösungen berücksichtigt werden, zumindest Strom aus erneuerbaren Energien.
+* _Anforderungen nicht erfüllt:_ 
+  * Beurteilen Sie die Glaubwürdigkeit der Emissionsreduzierungspläne der Unternehmen und berücksichtigen Sie, ob sie extern auf ihre wissenschaftliche Fundiertheit hin validiert worden sind (z. B. durch SBTi) und im Einklang mit dem 2050-Netto-Null-Ziel stehen. 
+  * Überprüfen Sie, ob die kurzfristigen Massnahmen mit den langfristigen Verpflichtungen im Einklang stehen.
+  * Der Einbezug von Scope-3-Emissionen muss sich mindestens am Zeitplan der EU-Referenzwerte-Verordnung 2019/2089 orientieren. 
+
+Zur Berechnung der Klimaausrichtung des Portfolios
+
+* _Zusatz:_ Der PACTA-Gesamtscore zur Klimaausrichtung ist keine Bewertung des impliziten Temperaturanstiegs (ITR). Aus diesem Grund kann PACTA für den Score selbst kein Konfidenzniveau angeben. Stattdessen gibt es folgende Konfidenz-Szenarien: 
+  * Wahrscheinlichkeit von 50%, dass im Szenario mit 1,5°C-Ziel und einheitlichem CO2-Preis (GECO 2021) die globale Erwärmung 1,5°C nicht überschreitet
+  * Wahrscheinlichkeit von 50%, dass im Szenario mit 1,8°C-Ziel und Umsetzung der nationalen Beiträge (NDC) sowie langfristigen Strategien der Vertragsstaaten (LTS) (GECO 2021) die globale Erwärmung 1,8°C nicht überschreitet
+  * Wahrscheinlichkeit von 50%, dass im Szenario mit 3,0°C-Ziel und Umsetzung der bisher beschlossenen politischen Massnahmen (GECO 2021) die globale Erwärmung 3,0°C nicht überschreitet
+* _Anforderungen nicht erfüllt,_ da der Gesamtscore kein ITR-Score ist.
+  * Die impliziten Temperaturwerte sollen mit einem Konfidenzniveau von 66\% statt 50\% berechnet werden. 
+  * Die Erwärmungswerte werden auf Basis der kumulierten Emissionen bis 2050 berechnet, um die physikalische Beziehung zwischen kumulierten Emissionen und der Erwärmung angemessen zu berücksichtigen.
 
 
