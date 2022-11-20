@@ -51,13 +51,35 @@ Directly held buildings
 ```
 
 ```{r real_estate_bar_chart, out.width = '50%'}
-knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in real_estate energy_carrier. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
 ```
 
 Mortgages 
 
 ```{r real_estate_mortgages_bar_chart, out.width = '50%'}
-knitr::include_graphics(cleaned_mortgage_paths[["png_energy_carrier"]])
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_mortgage_paths[["png_energy_carrier"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in mortgages energy_carrier. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
 ```
 
 ```{=latex}
@@ -71,7 +93,18 @@ Geographical distribution of directly held buildings by use
 
 
 ```{r real_estate_map, out.width = '50%'}
-knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in real_estate map. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
 ```
 
 ```{=latex}
@@ -88,7 +121,18 @@ Distribution of the average CO\textsubscript{2} intensity of your real estate po
 
 
 ```{r real_estate_distribution, out.width = '50%'}
-knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in real_estate co2_distribution. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
 ```
 
 ```{=latex}
@@ -101,7 +145,18 @@ Distribution of the mean CO\textsubscript{2} intensity of your mortgage portfoli
 
 
 ```{r mortgage_distribution, out.width = '50%'}
-knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in mortgages co2_distribution. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
 ```
 
 ```{=latex}
@@ -118,7 +173,18 @@ knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
 ```
 
 ```{r real_estate_reduction_path, out.width = '50%'}
-knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in real_estate pathway Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
 ```
 
 ```{=latex}
@@ -130,7 +196,18 @@ knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
 ```
 
 ```{r real_estate_reduction_proportion, out.width = '50%'}
-knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in mortgages stranded_asset Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
 ```
 
 ```{=latex}
