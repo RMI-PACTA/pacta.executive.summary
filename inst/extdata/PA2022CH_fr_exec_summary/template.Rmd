@@ -59,26 +59,26 @@ emissions_data <- params$emissions_data
 ```
 
 ---
-title: "Executive Summary `r format.POSIXct(Sys.time(), tz = "CET")` CET"
+title: "Résumé `r format.POSIXct(Sys.time(), tz = "CET")` CET"
 subtitle:  |  
-  | PACTA Climate Test Switzerland 2022
-  | Results of `r investor_name`
+  | Test climatique PACTA Suisse 2022
+  | Résultats de `r investor_name`
 ---
 
 ```{=latex}
-\begin{esbox}[0.25\textwidth]{Table of contents}
+\begin{esbox}[0.25\textwidth]{Table des matières}
 
 \begin{enumerate}
-\item Equity \& Bonds (overview)
-\item Equity \& Bonds (current \& future)
-\item Survey
-\item Real estate \& mortgages
-\item Annex (Detailed chart explanations; FAQs)
-\item PACTA-based scorecard informed by Swiss Climate Scores
+\item Actions et obligations d'entreprise (aperçu)
+\item Actions et obligations d'entreprise (actuelles et futures)
+\item Enquête
+\item Immobilier et hypothèques
+\item Annexe (Explication détaillée du graphique; FAQ)
+\item Tableau de bord basé sur la méthode PACTA et informé par les Swiss Climate Scores
 \end{enumerate}
 
 \end{esbox}%
-\begin{esbox}[0.75\textwidth]{About the PACTA Climate Test 2022}
+\begin{esbox}[0.75\textwidth]{À propos du test climatique PACTA 2022}
 ```
 
 ```{r number_peer, fig.height = 6}
@@ -95,23 +95,16 @@ number_peers <- readr::read_csv(
 
 ```{=latex}
 
-Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C. The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals.
-\startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter
-was invited to the test by the FOEN \textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}{link})} and SIF \textbf{(\href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{link})} with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which
-\startunderscoreletter `r number_peers` \stopunderscoreletter
-were peers (i.e., participants from the same financial sector, such as pension funds; insurances; banks; asset managers).
+La Suisse et son marché financier se sont engagés à passer à zéro émission nette de gaz à effet de serre d'ici à 2050 afin d'atteindre les objectifs de l'accord de Paris sur le climat visant à limiter le réchauffement climatique bien en dessous de 2°C et de poursuivre leurs efforts pour le limiter à 1,5°C. Le test climatique PACTA 2022 fournit des informations comparables sur les progrès réalisés par la place financière suisse et les différentes institutions financières participantes en vue d’atteindre les objectifs climatiques. \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter a été invité à participer au test par l'OFEV \textbf{(\href{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/climat-et-marche-financier.html}{lien})} et le SIF \textbf{(\href{https://www.sif.admin.ch/sif/fr/home/finanzmarktpolitik/finance-durable.html}{lien})} avec le soutien des associations, en vue d’un examen volontaire de ses portefeuilles financiers. Le test PACTA associe une évaluation quantitative des portefeuilles mondiaux d'actions et d'obligations d'entreprises cotées ainsi que des portefeuilles immobiliers et hypothécaires suisses à une évaluation qualitative des actions climatiques. Au total, 133 institutions financières ont participé au test, dont \startunderscoreletter `r number_peers` \stopunderscoreletter étaient des pairs (c'est-à-dire des participants du même secteur financier que les institutions de prévoyance, les assurances, les banques et les gestionnaires d'actifs).
 
-This executive summary is a short version of the individual results of your uploaded portfolio \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter.
-\startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter
-received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access at platform.transitionmonitor.com) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website
-\textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}{link})}
-and is available for download.
+Ce résumé est une synthèse des résultats individuels de votre portefeuille téléchargé \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter. \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter a reçu un résumé par portefeuille. Un rapport interactif individuel détaillé (par portefeuille ou groupé) peut être consulté via un accès personnalisé sur le site platform.transitionmonitor.com) en allemand, en français et partiellement en anglais. Un méta-rapport contenant des données anonymisées et agrégées de tous les participants, ainsi que des rapports sectoriels, est publié sur le site Internet de l'OFEV \textbf{(\href{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/climat-et-marche-financier.html}{lien})}.
+
 
 \end{esbox}
 
-\begin{esbox}{Measuring climate alignment}
+\begin{esbox}{Mesure de l'alignement climatique}
 
-In the view of PACTA and FOEN, there are three main components that are useful to measure alignment with climate goals which are shown below. The icons are used throughout this document to indicate the category for each chart.
+Selon PACTA et l'OFEV, trois éléments principaux sont utiles pour mesurer l'alignement sur les objectifs climatiques, lesquels sont présentés ci-dessous. Les icônes sont utilisées tout au long de ce document pour indiquer la catégorie de chaque graphique.
 
 \begin{center}
 \begin{minipage}{0.3\linewidth}%
@@ -121,7 +114,7 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 \exposureImage[width=\textwidth]%
 \end{minipage}%
 \begin{minipage}[c]{0.7\textwidth}
-\textbf{Exposure:} Provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings.
+\textbf{Exposition:} fournit des informations sur l'exposition de votre portefeuille aux secteurs pertinents pour le climat, y compris celui des bâtiments, et offre donc une perspective de risque par rapport à l'alignement climatique.
 \end{minipage}%
 
 \end{center}
@@ -133,7 +126,7 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 \alignmentImage%[width=\textwidth]%
 \end{minipage}%
 \begin{minipage}[c]{0.7\textwidth}
-\textbf{Trajectory alignment:} Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
+\textbf{Alignement de la trajectoire:} Mesure l’alignement des plans de production des entreprises bénéficiant d’investissements ou des plans de rénovation de bâtiments par rapport aux scénarios climatiques et répartit ainsi la responsabilité et le risque entre chaque entreprise et bâtiment concernés.
 \end{minipage}%
 
 \end{center}
@@ -145,7 +138,7 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 \engagementImage[width=\textwidth]%
 \end{minipage}%
 \begin{minipage}[c]{0.7\textwidth}
-\textbf{Engagement \& other qualitative indicators:} Complementary analysis with information on climate actions that can have real-world climate impact.
+\textbf{Engagement et autres indicateurs qualitatifs:} complète l'analyse par des informations sur les actions climatiques susceptibles d’avoir un impact climatique réel.
 \end{minipage}%
 
 
@@ -155,9 +148,10 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 \end{center}
 \end{esbox}
 
-\begin{esbox}{Equity \& bonds module overview}[\exposureImage]
+\begin{esbox}{Aperçu des résultats pour les actions et obligations d’entreprise}[\exposureImage]
 
-The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to the PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
+L'analyse des portefeuilles d'actions et d'obligations d'entreprises cotées couvre 8 secteurs pertinents pour le climat*. Pour ces secteurs, l'exposition ainsi que l'alignement sur une trajectoire visant à limiter le réchauffement climatique bien en dessous de 1,5°C (Accord de Paris) ont été analysés. 
+La mesure de l'alignement de la trajectoire a été effectuée à l'aide de la méthode PACTA. PACTA compare les plans de production prospectifs de toutes les entreprises bénéficiant d’investissements dans les secteurs PACTA au niveau technologique aux objectifs tirés des scénarios climatiques. Pour obtenir de plus amples informations sur la méthodologie PACTA, veuillez consulter PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{lien})}.
 
 ```
 
@@ -184,20 +178,20 @@ tryCatch(
 
 ```{=latex}
 
-\raggedleft\footnotesize{* coal mining, oil \& gas extraction, power generation, automotive manufacturing, cement manufacturing, steel manufacturing and aviation}
+\raggedleft\footnotesize{* extraction de charbon, extraction de pétrole et de gaz, électricité, automobile, ciment, acier et aviation}
 
 \end{esbox}
 
 \newpage
 
-\section{Equity \& Bonds Results}
+\section{Résultats pour les actions et obligations d’entreprise}
 
-\begin{esbox}{Current state (PACTA sectors)}[\exposureImage]
+\begin{esbox}{Etat actuel (secteurs PACTA)}[\exposureImage]
 
 %FIXME: make footnote
-\textbf{Exposure* to climate-relevant sectors \& technologies as \% of AUM}
+\textbf{Exposition* aux secteurs et technologies concernés par le climat en \% de l'actif sous gestion}
 
-The chart provides information on the exposure to the PACTA sectors. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
+Le graphique fournit des informations sur l'exposition aux secteurs PACTA. Les combustibles fossiles (extraction de charbon, pétrole, gaz) sont présentés de manière agrégée et désagrégée à des fins de comparaison avec les pairs (institutions de prévoyance, les assurances, les banques ou les gestionnaires d'actif) et un indice.
 ```
 
 ```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
@@ -241,18 +235,15 @@ tryCatch(
 
 ```{=latex}
 
-\* exposure to companies with main activity in PACTA sectors
-
-\*\* ‘Low-carbon’ technologies: renewables for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
-
+\* Technologies «à faible émission de CO\textsubscript{2}» (low-carbon): énergies renouvelables pour l'électricité et énergie électrique pour l'automobile. Technologies «à forte émission de carbone» (high-carbon): charbon, pétrole, gaz 
 \end{esbox}
 
-\begin{esbox}{Current \& future state (power sector)}[\alignmentImage
+\begin{esbox}{État actuel et futur (secteur de l'électricité)}[\alignmentImage
 \exposureImage]
 
-\textbf{Current exposure vs. future alignment for Power sector}
+\textbf{Exposition actuelle par rapport à l'alignement futur pour le secteur de l'électricité}
 
-The chart below shows the current low-carbon exposure and the forward-looking climate scenario alignment in the power sector for you and your peers. The current exposure to low-carbon technologies in the power sector increases right-wards, while the alignment improves upwards. A significant increase in renewable energy capacity will be required to achieve a 1.5°C climate scenario, so even companies with a high current share of low-carbon technologies will need to build new capacity in order to be aligned in the future. A current high low-carbon share and a low future alignment would therefore indicate a lack of planned renewables investment.
+Le graphique ci-dessous montre l'exposition actuelle aux faibles émissions de carbone et l'alignement sur les scénarios climatiques prospectifs dans le secteur de l'électricité pour vous et pour vos pairs. L'exposition actuelle aux technologies à faible émission de carbone dans le secteur de l'électricité augmente en allant vers la droite, tandis que l'alignement s'améliore en allant vers le haut. Une augmentation significative des capacités en énergie renouvelable sera nécessaire afin d’atteindre un scénario climatique de 1,5°C, de sorte que même les entreprises présentant une part actuelle élevée de technologies à faible émission de carbone devront construire de nouvelles capacités afin d'être alignées à l'avenir. Une part actuelle élevée de faibles émissions de carbone et un faible alignement futur indiqueraient par conséquent un manque d'investissements planifiés dans le domaine des énergies renouvelables.
 
 ```
 
@@ -322,11 +313,11 @@ tryCatch(
 ```{=latex}
 \end{esbox}
 
-\begin{esbox}{Future (Other PACTA sectors)}[\alignmentImage]
+\begin{esbox}{Futur (autres secteurs PACTA)}[\alignmentImage]
 
-\textbf{PACTA Aggregated Climate Alignment Score}
+\textbf{Score agrégé PACTA d'alignement climatique}
 
-The aggregated score compares the alignment of all assets until 2026 to the GECO 2021 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector (except for cement which is not covered in GECO2021). GECO was chosen since it covered the most PACTA sectors.\footnote{Please note that the GECO scenarios expect major technology changes to happen after the five years analyzed by PACTA. As such your overall score could be lower when using other scenarios.}
+Le score agrégé compare l'alignement de tous les actifs sur le scénario GECO 2021 jusqu'en 2026. Le score est calculé à la fois au niveau du portefeuille agrégé (voir aussi voir aussi les indicateurs selon les "Swiss Climate Scores") et par secteur PACTA (à l'exception du ciment qui n'est pas couvert par GECO 2021).\footnote{Les scénarios climatiques GECO ont été choisis parce qu'ils couvraient le plus de secteurs PACTA. Veuillez noter que les scénarios GECO prévoient une accélération des changements technologiques après les cinq années analysées par PACTA. En tant que tel, votre score global pourrait être inférieur si vous utilisez d'autres scénarios.}
 
 ```
 
@@ -381,15 +372,16 @@ tryCatch(
 
 \newpage
 
-\section{Equity \& Bonds Results}
+\section{Résultats pour les actions et obligations d’entreprise}
 
 \begin{esbox}{Transition}[\alignmentImage \exposureImage]
 
-\textbf{Scenario alignment per technology}
+\textbf{Alignement sur les scénarios par technologie}
 
-While the previous section provided insights on the current exposure to the different PACTA sectors as well as an overview of the alignment on an aggregated level and sector level, this section provides complementary insights into alignment with the GECO 2021 scenario on a technology level for the PACTA sectors with technology roadmaps.
-The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as \% of AUM.
-To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
+Alors que la section précédente a fourni des informations sur l'exposition actuelle aux différents secteurs PACTA ainsi qu'un aperçu de l'alignement au niveau agrégé et par secteur, cette section fournit des informations complémentaires sur l'alignement avec les feuilles de route technologiques des scénarios publié par GECO 2021 pour les secteurs PACTA.
+Les graphiques ci-dessous indiquent sur quel scénario les technologies de votre portefeuille sont alignées par rapport à vos pairs. La position de chaque carré dans les bandes de couleur définit le scénario sur lequel votre portefeuille et les portefeuilles de vos pairs seront alignés d’ici 5 ans. La taille des carrés indique l'exposition en \% de l'actif sous gestion.
+Pour en savoir davantage sur l'évolution de l'alignement de votre portefeuille au cours des cinq prochaines années par technologie, vous pouvez consulter les graphiques de trajectoire respectifs dans le rapport interactif. Vous y trouverez également des informations supplémentaires au niveau de l'entreprise.
+
 ```
 
 ```{r alignment_table_bonds, fig.height=4, fig.width=6, fig.align='center'}
@@ -443,9 +435,9 @@ tryCatch(
 
 ```{=latex}
 %FIXME: footnote
-\* Renewables: include solar and wind power, exclude hydro and nuclear
+\* Energies renouvelables: inclut l'énergie solaire et éolienne, mais exclut l'hydroélectricité et le nucléaire
 
-\*\* Automotive: includes light-duty vehicles (LDV)
+\*\* Automobile: comprend les véhicules légers (LDV)
 
 \end{esbox}
 
@@ -470,14 +462,14 @@ tryCatch(
 
 \newpage
 
-\section{Annex (I): additional chart explanation}
+\section{Annexe (I) : explication supplémentaire}
 
-\subsection{Exposure to climate-relevant sectors \& technologies as \% of AUM} 
+\subsection{Exposition aux secteurs et technologies pertinents pour le climat en \% de l'actif sous gestion} 
 
 
 \begin{minipage}[t]{0.3\linewidth}
 \begin{center}
-\textbf{All PACTA sectors}
+\textbf{Tous les secteurs PACTA}
 
 \includegraphics[width=\textwidth]{chart_sample_1}
 
@@ -485,27 +477,28 @@ tryCatch(
 \end{minipage}%
 \begin{minipage}[t]{0.3\linewidth}
 \begin{center}
-\textbf{Fossil Fuels}
+\textbf{Combustibles fossiles}
 
 \includegraphics[width=\textwidth]{chart_sample_2}
 
 \end{center}
 \end{minipage}%
 
-The bar chart on the left shows the portfolio's exposure to each of the eight PACTA sectors as a percentage of assets under management. The bars are arranged by the amount of exposure in descending order. In addition, a breakdown of technologies (low-carbon, carbon-intensive, unspecified) is provided for those sectors for which such a breakdown is defined. The graph on the right shows the exposure to the fossil fuel extraction sector as a breakdown between the different fossil fuels coal, oil and gas. In addition, a comparison with peers (pension funds, insurance companies, banks or asset managers) as well as with an ETF for the MSCI World Index can be seen.
+La partie gauche de ce graphique est un graphique à barres représentant l'exposition du portefeuille à chacun des 8 secteurs PACTA  en pour cent de l'actif sous gestion. Les barres sont classées selon l’importance de l'exposition dont la plus élevée apparaît en haut. De plus, la répartition entre les différentes technologies (à faible émission de carbone, à forte émission de carbone, non spécifiée) est présentée pour les secteurs pour lesquels une telle répartition est définie.
+La partie droite du graphique détaille l'exposition au secteur de l'extraction de combustibles fossiles en indiquant la répartition entre les différents combustibles fossiles charbon, pétrole et gaz. En outre, une comparaison avec les pairs (institutions de prévonyance, assurances, banques ou gestionnaires de fortune) ainsi qu'avec un ETF pour l'indice MSCI World est visible.
 
-\subsection{Current exposure vs. future alignment for power sector}
+\subsection{Exposition actuelle par rapport à l'alignement futur pour le secteur de l'électricité}
 
 
 \includegraphics[width=0.5\textwidth]{chart_sample_3}
 
-This chart shows current low-carbon technology exposure (percentage of sectoral exposure, x-axis) plotted against the sector-level alignment metric (alignment score, y-axis). Colored dots represent different entities (portfolio, average of all participants, average of peers). It investigates the relation between the two values as well as provides context for the alignment score. Ideally, an insitution would like to be positioned in the upper right corner (high exposure to low-carbon and high alignment). The bottom left corner is the least desired position (low exposure to low-carbon and low alignment).
+Ce graphique indique l'exposition actuelle aux technologies à faible émission de carbone (pourcentage d'exposition sectorielle, axe des x) par rapport à la métrique d'alignement au niveau du secteur concerné (score d'alignement, axe des y). Les points colorés représentent différentes entités (portefeuille, moyenne de tous les participants, moyenne des pairs). Le graphique examine la relation qui existe entre les deux valeurs et fournit également un contexte pour le score d'alignement. Idéalement, une institution souhaiterait être positionnée dans l’angle supérieur droit (forte exposition au bas carbone et fort alignement). L’angle inférieur gauche correspond à la position la moins souhaitée (faible exposition au bas carbone et faible alignement).
 
 \newpage
 
-\section{Annex (I): additional chart explanation}
+\section{Annexe (I) : explication supplémentaire}
 
-\subsection{Aggregated alignment scores}
+\subsection{Scores d'alignement agrégés}
 
 
 \begin{minipage}[t]{0.4\textwidth}
@@ -516,22 +509,22 @@ This chart shows current low-carbon technology exposure (percentage of sectoral 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-This chart displays the alignment scores both on the aggregate level (left-most bar) and on sector level. The bigger, dark-blue triangle indicates the score obtained by this portfolio and the smaller grey triangle indicates the average peer result. The horizontal line delineates the scores aligned with the 1.8°C pathway (or higher) from those that are not aligned. The 1.8°C pathway matches with the target in the Paris Agreement of limiting global warming to “well below 2°C”. The scores indicate the scenario with which the production plans of the invested companies align. Please refer to the two visualizations below for more information. 
+Ce graphique affiche les scores d'alignement à la fois au niveau agrégé (barre la plus à gauche) et au niveau sectoriel. Le plus grand triangle bleu foncé indique le score obtenu par ce portefeuille et le plus petit triangle gris indique le résultat moyen obtenu par les pairs. La ligne horizontale délimite les scores alignés sur la trajectoire de 1,8 °C (ou plus) par rapport à ceux qui ne le sont pas. La trajectoire de 1,8°C correspond à l'objectif de l'Accord de Paris visant à limiter le réchauffement climatique à une hausse des températures « bien en dessous de 2°C ». Les scores indiquent le scénario sur lequel s'alignent les plans de production des entreprises bénéficiant d’investissements. Pour obtenir de plus amples informations, veuillez vous reporter aux deux représentations ci-dessous.
 
 \end{minipage}%
 
-\subsection{Scenario choice and grading}
+\subsection{Choix et notation du scénario}
 
-This table shows the technical specifications in regard to the scenarios to define the score. For each score, one can see the requirements in regard to each scenario in the same row.
+Ce tableau présente les spécifications techniques relatives aux scénarios afin de définir le score. Pour chaque score, on peut visualiser les exigences relatives à chaque scénario sur la même ligne. Vous trouverez plus d'explications sur les scénarios dans le rapport de test interactif.
 
 \begin{center}
 \includegraphics[width=\textwidth]{table_scenario_grading}
 \end{center}
 
 
-\subsection{Example of production plans for a green technology according to the scores.}
+\subsection{Exemple de plans de production d'une technologie verte selon les scores.}
 
-The chart below visualizes the specifications of the aggregated alignment score for an examplary production plan of a green technology. To derive the aggregated score, the sector-level scores are aggregated to one score. 
+Le graphique ci-dessous présente les spécifications du score d'alignement agrégé pour un plan exemplaire de production d'une technologie verte. Pour obtenir le score agrégé, les scores au niveau des secteurs sont agrégés en un seul score.
 
 
 \begin{center}
@@ -540,9 +533,9 @@ The chart below visualizes the specifications of the aggregated alignment score 
 
 \newpage
 
-\section{Annex (II): additional chart explanation}
+\section{Annexe (II): explication supplémentaire}
 
-\subsection{Dart chart: overall climate strategy}
+\subsection{Diagramme stratigraphique: stratégie climatique générales}
 
 \begin{minipage}[t]{0.4\textwidth}
 \verticalAlignImage
@@ -552,12 +545,12 @@ The chart below visualizes the specifications of the aggregated alignment score 
 \begin{minipage}[t]{0.6\textwidth}
 
 
-This dart chart shows whether your institution as a whole, according to your answers, practices reporting, has a climate strategy in place, and has concrete climate targets. An increasing efficacy from the first (outer layer) to the third (inner layer) is assumed. Best practice is defined as having all three layers covered.
-Transparency through reporting is a first step in the right direction, but ultimately a concrete climate goal needs to be set and backed by a trustworthy climate strategy to make a change. 
+Ce diagramme stratigraphique indique si votre institution dans son ensemble, selon vos réponses, dispose d’une pratique d'établissement de rapports, a mis en place une stratégie climatique, et poursuit des objectifs climatiques concrets. Une efficacité croissante apparaît en allant de la première strate (externe) à la troisième strate (interne). La meilleure pratique correspond au fait que les trois strates soient couvertes.
+La transparence, par le biais de rapports, constitue un premier pas dans la bonne direction, mais en définitive un objectif climatique concret doit être défini et soutenu par une stratégie climatique fiable afin d’apporter un réel changement.
 
 \end{minipage}%
 
-\subsection{Dart chart: investee engagement in fossil fuel, automotive, and power sector}
+\subsection{Diagramme stratigraphique: engagement des bénéficiaires d’investissements dans les secteurs des combustibles fossiles, de l'automobile et de l'énergie}
 
 \begin{minipage}[t]{0.4\textwidth}
 \verticalAlignImage
@@ -567,14 +560,14 @@ Transparency through reporting is a first step in the right direction, but ultim
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-This dart charts shows which engagement actions your institution is practicing, accoding to your answers. It starts with a general engagement policy, which can be improved in effectiveness through a dedicated engagement team and finally through joint engagement with other institutions. Best practice is when all three levels are covered.
-The chart is shown separately for fossil fuels, automotive, and power sector as these (i) are considered as the most climate relevant sectors and (ii) have low-carbon substitutes which allows investors to support the shift to existing technologies. 
+Ce diagramme stratigraphique indique, selon vos réponses, quelles actions votre institution pratique en matière d'engagement. Cela commence par une politique générale d'engagement, dont l'efficacité peut être améliorée grâce à une équipe dédiée à l'engagement, et enfin par un engagement conjoint avec d'autres institutions. Il est question de «meilleure pratique» lorsque les trois strates sont couvertes.
+Le graphique est présenté séparément pour les secteurs des combustibles fossiles, de l'automobile et de l'énergie car ceux-ci (i) sont considérés comme les secteurs les plus pertinents pour le climat et (ii) disposent de substituts à faible émission de carbone qui permettent aux investisseurs de soutenir la transition vers les technologies existantes.
+Le fait de considérer l'engagement conjoint comme un moyen d'accroître l'efficacité des pratiques en matière d'engagement est un argument partagé par la littérature sur le sujet et soutenu, par exemple, par la NZAOA \href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{(lien)}). 
 
-Considering joint engagement as a way to increase the efficacy of engagement practices is echoed by literature on the topic and supported by, for example, the NZAOA (Link to report \href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{here}). 
 
 \end{minipage}%
 
-\subsection{Dart chart: negative screening in oil and gas as well as coal sector}
+\subsection{Diagramme stratigraphique: sélection négative dans le secteur du pétrole et du gaz ainsi que du charbon}
 
 \begin{minipage}[t]{0.4\textwidth}
 \verticalAlignImage
@@ -584,14 +577,14 @@ Considering joint engagement as a way to increase the efficacy of engagement pra
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-This dart chart shows whether your institution as a whole, according to your answers, has exclusion criteria defined, practices underweighting in the respective sectors as well as excludes companies if your action is not successful. Best practice is defined as having all three layers covered.
-This layer chart is shown for coal on the one hand and oil and gas on the other hand separately, and compared to the exposure in the respective sectors. The comparison to the PACTA exposure aims to provide insights in the effectiveness of the negative screening actions.
+Ce diagramme stratigraphique indique si votre institution dans son ensemble, selon vos réponses, a défini des critères d'exclusion, pratique une sous-pondération dans les secteurs respectifs, et exclut des entreprises si votre action n'aboutit pas. La meilleure pratique correspond au fait que les trois strates soient couvertes.
+Ce diagramme stratigraphique est présenté séparément pour le charbon, d'une part, et le pétrole et le gaz, d'autre part, parallèlement à une comparaison avec l'exposition dans les secteurs respectifs. La comparaison avec l'exposition PACTA vise à donner un aperçu de l'efficacité des actions de sélection négative.
 
 \end{minipage}%
 
 \newpage
 
-\section{Annex (III): Explanation of Charts}
+\section{Annex (III): Explication des graphiques}
 
 \begin{minipage}[t]{0.4\textwidth}
 \verticalAlignImage
@@ -600,7 +593,7 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Geographical location of all directly held buildings in Switzerland. The color represents the main use of the respective building. 
+Localisation géographique de tous les bâtiments en détention directe en Suisse. La couleur représente l'utilisation principale du bâtiment respectif.
 
 \end{minipage}%
 
@@ -612,7 +605,7 @@ Geographical location of all directly held buildings in Switzerland. The color r
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Proportion of energy sources in the directly held buildings and mortgages. The values submitted or taken from the GWR are shown. If neither of the two figures is available, "oil" is used in accordance with FOEN specifications.
+Proportion des sources d'énergie dans les bâtiments et les hypothèques détenus directement. Les valeurs transmises ou tirées du GWR sont indiquées. Si aucune de ces deux valeurs n'est disponible, on utilise "pétrole" selon les indications de l'OFEV.
 
 \end{minipage}%
 
@@ -624,7 +617,7 @@ Proportion of energy sources in the directly held buildings and mortgages. The v
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Mean CO\textsubscript{2} intensity of all directly held buildings or mortgages per participant. The red column represents the mean value of the own respective portfolio. The horizontal line represents the value 15.7 kg/m\textsuperscript{2} of the reduction path "Switzerland's Long-Term Climate Strategy" for the year 2021. 
+Intensité CO\textsubscript{2} moyenne de tous les immeubles ou hypothèques détenus directement par participant. La colonne rouge représente la valeur moyenne du propre portefeuille respectif. La ligne horizontale représente la valeur 15,7 kg/m\textsuperscript{2} de la trajectoire de réduction "Stratégie climatique à long terme de la Suisse" pour l'année 2021.
 
 \end{minipage}%
 
@@ -636,7 +629,7 @@ Mean CO\textsubscript{2} intensity of all directly held buildings or mortgages p
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Development over time of the average CO\textsubscript{2} intensity of all directly held buildings per participant in comparison with the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy".
+Évolution dans le temps de l'intensité moyenne en CO\textsubscript{2} de tous les bâtiments détenus directement par participant en comparaison avec la trajectoire de réduction selon la "Stratégie climatique à long terme de la Suisse" de la Confédération.
 
 \end{minipage}%
 
@@ -647,23 +640,24 @@ Development over time of the average CO\textsubscript{2} intensity of all direct
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Proportions of mortgages above or below the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy" in relation to their mortgages at the respective time. In light green, those mortgages that are below the reduction path at the respective time due to renovation measures.
+Proportions d'hypothèques au-dessus ou au-dessous de la trajectoire de réduction selon la "Stratégie climatique à long terme de la Suisse" de la Confédération par rapport à leurs hypothèques à l'époque respective. En vert clair, les hypothèques qui se situent en dessous de la trajectoire de réduction au moment considéré en raison de mesures de rénovation.
 
 \end{minipage}%
 
 \newpage
 
-\section{Annex (IV): FAQs}
+\section{Annexe (IV): FAQ}
 
-\begin{esbox}{Which are the PACTA sectors?}
+\begin{esbox}{Quels sont les secteurs PACTA?}
 
-The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil \& gas production, power generation (fossil and renewable); automotive production (ICE , hybrid, electric), aviation, cement, and steel. Usually, 5-15\% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of portfolio emissions. Please see the graphs of a sample portfolio below:
+L'analyse PACTA couvre 8 secteurs concernés par le climat: extraction de charbon, production de pétrole et de gaz, production d'électricité (fossile et renouvelable); production automobile (thermique, hybride, électrique), aviation, ciment et acier.
+En règle générale, les portefeuilles des institutions financières sont investis à hauteur de 5 à 15\% en valeur dans ces secteurs. Même si l'exposition financière peut sembler faible, les investissements représentent toujours, en moyenne, une part beaucoup plus importante des émissions. Veuillez consulter les graphiques présentant un exemple de portefeuille ci-dessous: 
 
 \begin{center}
 
 \begin{minipage}[t]{0.4\textwidth}
 \begin{center}
-\textbf{Financial Exposure}
+\textbf{Exposition financière}
 
 
 \includegraphics[width=\textwidth]{chart_sample_8}
@@ -674,7 +668,7 @@ The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil \& gas pr
 \begin{minipage}[t]{0.4\textwidth}
 
 \begin{center}
-\textbf{Emission Exposure}
+\textbf{Exposition aux émissions}
 
 
 \includegraphics[width=\textwidth]{chart_sample_9}
@@ -684,32 +678,32 @@ The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil \& gas pr
 \end{center}
 \end{esbox}
 
-\begin{esbox}{Which asset classes does PACTA cover?}
+\begin{esbox}{Quelles classes d'actifs sont couvertes par l’analyse PACTA?}
 
-The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2022 also includes Swiss real estate and mortgages. 
-
-\end{esbox}
-
-\begin{esbox}{How can I use my results for disclosure?}
-
-To what extent you use your results is up to you. However, the results are suitable for a variety of reporting opportunities, such as:
-
-* Internal reporting and communication
-* Reporting in the environment of the participating financial institution (clients, insured parties etc.)
-* External disclosure: Implementing the federal council’s recommendations \href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}{link}) to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}{link}.
-* Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link}).
+La méthodologie PACTA porte sur les actions cotées en bourse et les obligations d’entreprises. En coopération avec Wüest Partner AG, le test climatique PACTA Suisse 2022 comprend également l'immobilier et les hypothèques suisses.
 
 \end{esbox}
 
-\begin{esbox}{Where can I find the full results of this test (interactive report)?}
+\begin{esbox}{Comment puis-je utiliser mes résultats à des fins de divulgation?}
 
-This Executive Summary serves as a supplement to the comprehensive and interactive presentation of your results in the so-called interactive report. You can view this on the Transition Monitor Platform under "Results" after logging in with your password \textbf{(\href{https://platform.transitionmonitor.com/}{link})}.
+La mesure dans laquelle vous utilisez vos résultats dépend de vous. Cependant, les résultats conviennent à une variété de productions de rapport, telles que:
+
+* Rapports et communication internes
+* Rapports dans l'environnement de l'institution financière participante (clients, assurés, etc.)
+* Communication externe: Mise en œuvre des recommandations du Conseil fédéral (\href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-85925.html}{lien}) concernant l'utilisation d’indicateurs de compatibilité climatique comparables et significatifs afin d’aider à générer de la transparence dans tous les produits financiers et portefeuilles des clients, avec notamment des indicateurs conçus selon les Swiss Climate Scores \href{https://www.sif.admin.ch/sif/fr/home/swiss-climate-scores/bewertungsparameter.html}{(lien)}.
+* Des détails concernant les modalités d'utilisation des résultats pour les rapports réalisés selon le TCFD, le SFDR de l'UE ou la taxonomie de l'UE sont disponibles dans le rapport "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{lien}).
 
 \end{esbox}
 
-\begin{esbox}{Where can I learn more about the PACTA Methodology?}
+\begin{esbox}{Où puis-je trouver les résultats complets de ce test (rapport interactif)?}
 
-If you want to learn more about the open-source methodology behind PACTA, you can do so on our "PACTA Knowledge Hub" \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
+Ce résumé analytique vient compléter la présentation générale et interactive de vos résultats dans le rapport de test dit «interactif». Vous pouvez le consulter sur la plateforme Transition Monitor sous l’onglet «Résultats» après vous être connecté(e) avec votre mot de passe \textbf{(\href{https://platform.transitionmonitor.com/}{lien})}.
+
+\end{esbox}
+
+\begin{esbox}{Où puis-je en apprendre davantage sur la méthodologie PACTA?}
+
+Si vous souhaitez en apprendre davantage sur la méthodologie open source qui sous-tend PACTA, vous pouvez le faire sur notre «PACTA Knowledge Hub» \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{lien})}.
 
 \end{esbox}
 
