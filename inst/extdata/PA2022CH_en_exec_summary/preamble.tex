@@ -49,28 +49,58 @@ headheight=0.0in
 % \setmainfont{OpenSans}
 \renewcommand{\familydefault}{\sfdefault}
 
-\NewDocumentCommand \exposureImage{}{
-  \fbox{\textbf{exposure}}
+\NewDocumentCommand \centeredImage{ o m }{
+  \begingroup
+  \setbox0=\hbox{
+  \IfValueTF{#1}{
+    \includegraphics[height=#1, keepaspectratio]{#2}
+  }{
+    \includegraphics{#2}
+  }
+  }
+  \parbox{\wd0}{\box0}\endgroup
 }
 
-\NewDocumentCommand \alignmentImage{}{
-  \fbox{\textbf{alignment}}
+\NewDocumentCommand \exposureImage{ O{24pt} }{
+  \IfValueTF{#1}{
+    \centeredImage[#1]{symbol_exposure}
+  }{
+    \centeredImage{symbol_exposure}
+  }
 }
 
 
-\NewDocumentCommand \engagementImage{}{
-  \fbox{\textbf{engagement}}
+\NewDocumentCommand \alignmentImage{ O{24pt} }{
+  \IfValueTF{#1}{
+    \centeredImage[#1]{symbol_alignment}
+  }{
+    \centeredImage{symbol_alignment}
+  }
+}
+
+\NewDocumentCommand \engagementImage{ O{24pt} }{
+  \IfValueTF{#1}{
+    \centeredImage[#1]{symbol_engagement}
+  }{
+    \centeredImage{symbol_engagement}
+  }
 }
 
 \mdfdefinestyle{esstyle}{
-  frametitlebackgroundcolor = esLightGray
+  frametitlebackgroundcolor = esLightGray,
+  linecolor=white,
+  linewidth=0,
+  frametitleaboveskip=0,
+  frametitlebelowskip=0
 }
 
 
 \mdfdefinestyle{debugstyle}{
   frametitlebackgroundcolor = watermelon,
   linecolor = candy,
-  linewidth = 2pt
+  linewidth = 2pt,
+  frametitleaboveskip=0,
+  frametitlebelowskip=0
 }
 
 \NewDocumentCommand \esboxTitleString{ m o }{

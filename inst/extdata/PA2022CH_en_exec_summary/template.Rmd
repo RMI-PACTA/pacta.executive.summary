@@ -111,18 +111,27 @@ This executive summary is a short version of the individual results of your uplo
 In the view of PACTA and FOEN, there are three main components that are useful to measure alignment with climate goals which are shown below. The icons are used throughout this document to indicate the category for each chart.
 
 \begin{minipage}{0.3333\linewidth}%
+
+\exposureImage
 \textbf{Exposure:} Provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings.
+
 \end{minipage}% % note the semantic % after end
 \begin{minipage}{0.3333\linewidth}%
+
+\alignmentImage
 \textbf{Trajectory alignment:} Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
+
 \end{minipage}% % note the semantic % after end
 \begin{minipage}{0.3333\linewidth}%
+
+\engagementImage
 \textbf{Engagement \& other qualitative indicators:} Complementary analysis with information on climate actions that can have real-world climate impact.
+
 \end{minipage}% % note the semantic % after end
 
 \end{esbox}
 
-\begin{esbox}{Equity \& bonds module overview}[exposure]
+\begin{esbox}{Equity \& bonds module overview}[\exposureImage]
 
 The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to the PACTA Knowledge Hub **([link](https://rmi.gitbook.io/pacta-knowledge-hub/))**.
 
@@ -160,7 +169,7 @@ tryCatch(
 
 \section{Equity \& Bonds Results}
 
-\begin{esbox}{Current state (PACTA sectors)}[exposure]
+\begin{esbox}{Current state (PACTA sectors)}[\exposureImage]
 
 %FIXME: make footnote
 \textbf{Exposure* to climate-relevant sectors \& technologies as \% of AUM}
@@ -215,7 +224,8 @@ tryCatch(
 
 \end{esbox}
 
-\begin{esbox}{Current \& future state (power sector)}[exposure, alignment]
+\begin{esbox}{Current \& future state (power sector)}[\alignmentImage
+\exposureImage]
 
 \textbf{Current exposure vs. future alignment for Power sector}
 
@@ -289,7 +299,7 @@ tryCatch(
 ```{=latex}
 \end{esbox}
 
-\begin{esbox}{Future (Other PACTA sectors)}[alignment]
+\begin{esbox}{Future (Other PACTA sectors)}[\alignmentImage]
 
 \textbf{PACTA Aggregated Climate Alignment Score}
 
@@ -350,7 +360,7 @@ tryCatch(
 
 \section{Equity \& Bonds Results}
 
-\begin{esbox}{Transition}[alignment, exposure]
+\begin{esbox}{Transition}[\alignmentImage \exposureImage]
 
 \textbf{Scenario alignment per technology}
 
