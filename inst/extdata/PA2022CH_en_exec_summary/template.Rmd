@@ -1,7 +1,6 @@
 ---
 output:
   pdf_document:
-    latex_engine: xelatex
     includes:
       in_header: "preamble.tex"
 fontsize: 10pt
@@ -65,17 +64,10 @@ subtitle:  |
   | Results of `r investor_name`
 ---
 
-<!-- This lives in create_interactive_report as template but an example template could also live in the executive-summary package if we have example data to run it -->
-
-<!--  Questions -->
-<!--  1. where should the example charts for this one live? 'img' folder in  -->
-<!--  'create_interactive_report' like for the report? Or in the standalone  -->
-<!--  executive-summary package?   -->
-<!--  2. Where will ES-specific calculations be performed (eg. alignment scores)? Inside of prep functions or as a  part of PACTA analysis?  -->
 ```{=latex}
 \begin{esbox}[0.25\textwidth]{Table of contents}
 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=*, nosep]
 \item Equity \& Bonds (overview)
 \item Equity \& Bonds (current \& future)
 \item Survey
@@ -112,22 +104,29 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 
 \begin{minipage}{0.3\linewidth}%
 
-\exposureImage
+\exposureImage[width=0.3\textwidth]%
+\parbox{0.6\textwidth}{
 \textbf{Exposure:} Provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings.
+}
+
 
 \end{minipage}% % note the semantic % after end
 \hspace{0.05\textwidth}
 \begin{minipage}{0.3\linewidth}%
 
-\alignmentImage
+\alignmentImage[width=0.3\textwidth]%
+\parbox{0.6\textwidth}{
 \textbf{Trajectory alignment:} Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
+}
 
 \end{minipage}% % note the semantic % after end
 \hspace{0.05\textwidth}
 \begin{minipage}{0.3\linewidth}%
 
-\engagementImage
+\engagementImage[width=0.3\textwidth]%
+\parbox{0.6\textwidth}{
 \textbf{Engagement \& other qualitative indicators:} Complementary analysis with information on climate actions that can have real-world climate impact.
+}
 
 \end{minipage}% % note the semantic % after end
 
@@ -162,8 +161,7 @@ tryCatch(
 
 ```{=latex}
 
-% FIXME: make this a footnote or something
-\* coal mining, oil \& gas extraction, power generation, automotive manufacturing, cement manufacturing, steel manufacturing and aviation
+\raggedleft\footnotesize{* coal mining, oil \& gas extraction, power generation, automotive manufacturing, cement manufacturing, steel manufacturing and aviation}
 
 \end{esbox}
 
@@ -235,7 +233,7 @@ The chart below shows the current low-carbon exposure and the forward-looking cl
 
 ```
 
-```{r scatter, fig.show="hold", out.width="45%", fig.align='center'}
+```{r scatter, fig.show="hold", out.width="0.4\\textwidth", fig.align='center'}
 
 tryCatch(
   {
@@ -309,7 +307,7 @@ The aggregated score compares the alignment of all assets until 2026 to the GECO
 
 ```
 
-```{r scores, fig.show='hold', out.width='45%', fig.align='center'}
+```{r scores, fig.show='hold', out.width='0.4\\textwidth', fig.align='center'}
 tryCatch(
   {
     data_scores_b <- prep_scores(
@@ -466,7 +464,7 @@ tryCatch(
 \begin{center}
 \textbf{Fossil Fuels}
 
-\includegraphics[width=\textwidth]{chart_sample_1}
+\includegraphics[width=\textwidth]{chart_sample_2}
 
 \end{center}
 \end{minipage}%
@@ -476,7 +474,7 @@ The bar chart on the left shows the portfolio's exposure to each of the eight PA
 \subsection{Current exposure vs. future alignment for power sector}
 
 
-\includegraphics{chart_sample_3}
+\includegraphics[width=0.5\textwidth]{chart_sample_3}
 
 This chart shows current low-carbon technology exposure (percentage of sectoral exposure, x-axis) plotted against the sector-level alignment metric (alignment score, y-axis). Colored dots represent different entities (portfolio, average of all participants, average of peers). It investigates the relation between the two values as well as provides context for the alignment score. Ideally, an insitution would like to be positioned in the upper right corner (high exposure to low-carbon and high alignment). The bottom left corner is the least desired position (low exposure to low-carbon and low alignment).
 
@@ -529,6 +527,7 @@ The chart below visualizes the specifications of the aggregated alignment score 
 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
+
 
 This dart chart shows whether your institution as a whole, according to your answers, practices reporting, has a climate strategy in place, and has concrete climate targets. An increasing efficacy from the first (outer layer) to the third (inner layer) is assumed. Best practice is defined as having all three layers covered.
 Transparency through reporting is a first step in the right direction, but ultimately a concrete climate goal needs to be set and backed by a trustworthy climate strategy to make a change. 
@@ -633,44 +632,63 @@ Proportions of mortgages above or below the reduction path according to the fede
 
 \section{Annex (IV): FAQs}
 
-\subsection{Which are the PACTA sectors?}
+\begin{esbox}{Which are the PACTA sectors?}
 
 The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil \& gas production, power generation (fossil and renewable); automotive production (ICE , hybrid, electric), aviation, cement, and steel. Usually, 5-15\% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of portfolio emissions. Please see the graphs of a sample portfolio below:
 
-\subsection{Financial Exposure}
+\begin{center}
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\textbf{Financial Exposure}
 
 
-\includegraphics{chart_sample_8}
+\includegraphics[width=\textwidth]{chart_sample_8}
+
+\end{center}
+
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+
+\begin{center}
+\textbf{Emission Exposure}
 
 
-\subsection{Emission Exposure}
+\includegraphics[width=\textwidth]{chart_sample_9}
+\end{center}
+\end{minipage}
 
+\end{center}
+\end{esbox}
 
-\includegraphics{chart_sample_9}
-
-
-\subsection{Which asset classes does PACTA cover?}
+\begin{esbox}{Which asset classes does PACTA cover?}
 
 The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2022 also includes Swiss real estate and mortgages. 
 
+\end{esbox}
 
-\subsection{How can I use my results for disclosure?}
+\begin{esbox}{How can I use my results for disclosure?}
 
 To what extent you use your results is up to you. However, the results are suitable for a variety of reporting opportunities, such as:
 
 * Internal reporting and communication
 * Reporting in the environment of the participating financial institution (clients, insured parties etc.)
-* External disclosure: Implementing the federal council’s recommendations **([link](https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html))** to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores **([link](https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html))**.
-* Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" **([link](https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf))**.
+* External disclosure: Implementing the federal council’s recommendations \href{link}{\url{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}}) to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \href{link}{\url{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}}.
+* Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" (\href{link}{\url{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}}).
 
-\subsection{Where can I find the full results of this test (interactive report)?}
+\end{esbox}
+
+\begin{esbox}{Where can I find the full results of this test (interactive report)?}
 
 This Executive Summary serves as a supplement to the comprehensive and interactive presentation of your results in the so-called interactive report. You can view this on the Transition Monitor Platform under "Results" after logging in with your password **([link](https://platform.transitionmonitor.com/))**.
 
-\subsection{Where can I learn more about the PACTA Methodology?}
+\end{esbox}
+
+\begin{esbox}{Where can I learn more about the PACTA Methodology?}
 
 If you want to learn more about the open-source methodology behind PACTA, you can do so on our "PACTA Knowledge Hub" **([link](https://rmi.gitbook.io/pacta-knowledge-hub/))**.
 
+\end{esbox}
 
 \newpage
 
@@ -1169,6 +1187,7 @@ _The information for this indicator was not collected in the PACTA Climate Test 
 * Climate initiatives should be consistent with the ambition of reaching net-zero by 2050
   * Implementation:  "Yes" means that at least one initiative is ticked for the user. "No" means that the user has not ticked any initiative. "Name": returns names of all ticked initiatives, but summarises the free field as "Other“
 * Votes should be considered as climate-relevant measure
+
   * Implementation: "YES (asset type)" means that the user has investment in the asset type AND ticked that they exercise voting rights. "NO" means that the user has investment in the asset type AND NOT ticked that they exercise voting rights. "NOT ANSWERED": means that the user has not indicated that they have investments in the asset type. Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type. Asset types covered are "listed equity (LE)", "private equity (PE)", "infrastructure (INF)", and "Other assets".
 * Engagement strategies should be considered as climate-relevant measure
   * Implementation: conditions for "YES (asset type)“, “NO”, “NOT ANSWERED” defined as above but for engagement strategies. For “other assets”, the above conditions must apply in at least one of the other assets. Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type. Number of users with YES for other assets out of the number of users that have invested in at least one other asset type. Asset types covered are "listed equity (LE)", "corporate bonds (CB)", "real estate (RE)", and "Other assets".
