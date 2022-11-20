@@ -59,7 +59,7 @@ emissions_data <- params$emissions_data
 ```
 
 ---
-title: "Zusammenfassung `r format.POSIXct(Sys.time(), tz = "CET")` CET"
+title: "Zusammenfassung"
 subtitle:  |  
   | PACTA-Klimatest Schweiz 2022
   | Ergebnisse von `r investor_name`
