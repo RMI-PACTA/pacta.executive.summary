@@ -364,8 +364,8 @@ tryCatch(
 
 \textbf{Scenario alignment per technology}
 
-While the previous section provided insights on the current exposure to the different PACTA sectors as well as an overview of the alignment on an aggregated level and sector level, this section provides complementary insights into alignment with the GECO 2021 scenario on a technology level for the PACTA sectors with technology roadmaps.<br/>
-The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as \% of AUM.<br/>
+While the previous section provided insights on the current exposure to the different PACTA sectors as well as an overview of the alignment on an aggregated level and sector level, this section provides complementary insights into alignment with the GECO 2021 scenario on a technology level for the PACTA sectors with technology roadmaps.
+The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as \% of AUM.
 To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
 ```
 
@@ -498,16 +498,25 @@ This chart shows current low-carbon technology exposure (percentage of sectoral 
 \subsection{Aggregated alignment scores}
 
 
-\includegraphics{chart_sample_4}
+\begin{minipage}[t]{0.4\textwidth}
+
+\verticalAlignImage
+\includegraphics[width=\textwidth]{chart_sample_4}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
 
 This chart displays the alignment scores both on the aggregate level (left-most bar) and on sector level. The bigger, dark-blue triangle indicates the score obtained by this portfolio and the smaller grey triangle indicates the average peer result. The horizontal line delineates the scores aligned with the 1.8°C pathway (or higher) from those that are not aligned. The 1.8°C pathway matches with the target in the Paris Agreement of limiting global warming to “well below 2°C”. The scores indicate the scenario with which the production plans of the invested companies align. Please refer to the two visualizations below for more information. 
+
+\end{minipage}%
 
 \subsection{Scenario choice and grading}
 
 This table shows the technical specifications in regard to the scenarios to define the score. For each score, one can see the requirements in regard to each scenario in the same row.
 
-
-\includegraphics{table_scenario_grading}
+\begin{center}
+\includegraphics[width=\textwidth]{table_scenario_grading}
+\end{center}
 
 
 \subsection{Example of production plans for a green technology according to the scores.}
@@ -515,8 +524,9 @@ This table shows the technical specifications in regard to the scenarios to defi
 The chart below visualizes the specifications of the aggregated alignment score for an examplary production plan of a green technology. To derive the aggregated score, the sector-level scores are aggregated to one score. 
 
 
+\begin{center}
 \includegraphics{chart_scenario_grading}
-
+\end{center}
 
 \newpage
 
@@ -524,45 +534,112 @@ The chart below visualizes the specifications of the aggregated alignment score 
 
 \subsection{Dart chart: overall climate strategy}
 
-
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
 \includegraphics{chart_sample_5}
 
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
 
-This dart chart shows whether your institution as a whole, according to your answers, practices reporting, has a climate strategy in place, and has concrete climate targets. An increasing efficacy from the first (outer layer) to the third (inner layer) is assumed. Best practice is defined as having all three layers covered.<br/>
+This dart chart shows whether your institution as a whole, according to your answers, practices reporting, has a climate strategy in place, and has concrete climate targets. An increasing efficacy from the first (outer layer) to the third (inner layer) is assumed. Best practice is defined as having all three layers covered.
 Transparency through reporting is a first step in the right direction, but ultimately a concrete climate goal needs to be set and backed by a trustworthy climate strategy to make a change. 
+
+\end{minipage}%
 
 \subsection{Dart chart: investee engagement in fossil fuel, automotive, and power sector}
 
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
 
-\includegraphics{chart_sample_6}
+\includegraphics[width=\textwidth]{chart_sample_6}
 
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
 
-This dart charts shows which engagement actions your institution is practicing, accoding to your answers. It starts with a general engagement policy, which can be improved in effectiveness through a dedicated engagement team and finally through joint engagement with other institutions. Best practice is when all three levels are covered.<br/>
+This dart charts shows which engagement actions your institution is practicing, accoding to your answers. It starts with a general engagement policy, which can be improved in effectiveness through a dedicated engagement team and finally through joint engagement with other institutions. Best practice is when all three levels are covered.
 The chart is shown separately for fossil fuels, automotive, and power sector as these (i) are considered as the most climate relevant sectors and (ii) have low-carbon substitutes which allows investors to support the shift to existing technologies. 
 
 Considering joint engagement as a way to increase the efficacy of engagement practices is echoed by literature on the topic and supported by, for example, the NZAOA (Link to report \href{[here]}{\url{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}}). 
 
-
+\end{minipage}%
 
 \subsection{Dart chart: negative screening in oil and gas as well as coal sector}
 
-\includegraphics{chart_sample_7}
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
 
+\includegraphics[width=\textwidth]{chart_sample_7}
 
-This dart chart shows whether your institution as a whole, according to your answers, has exclusion criteria defined, practices underweighting in the respective sectors as well as excludes companies if your action is not successful. Best practice is defined as having all three layers covered.<br/>
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+This dart chart shows whether your institution as a whole, according to your answers, has exclusion criteria defined, practices underweighting in the respective sectors as well as excludes companies if your action is not successful. Best practice is defined as having all three layers covered.
 This layer chart is shown for coal on the one hand and oil and gas on the other hand separately, and compared to the exposure in the respective sectors. The comparison to the PACTA exposure aims to provide insights in the effectiveness of the negative screening actions.
+
+\end{minipage}%
 
 \newpage
 
 \section{Annex (III): Explanation of Charts}
 
-```
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_map}
 
-```{r real_estate_explanations, child="real-estate-explanations.Rmd", eval = real_estate_flag}
-```
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
 
+Geographical location of all directly held buildings in Switzerland. The color represents the main use of the respective building. 
 
-```{=latex}
+\end{minipage}%
+
+\begin{minipage}[t]{0.4\textwidth}
+
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_energy_carrier}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Proportion of energy sources in the directly held buildings and mortgages. The values submitted or taken from the GWR are shown. If neither of the two figures is available, "oil" is used in accordance with FOEN specifications.
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.4\textwidth}
+
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_distribtion}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Mean CO\textsubscript{2} intensity of all directly held buildings or mortgages per participant. The red column represents the mean value of the own respective portfolio. The horizontal line represents the value 15.7 kg/m\textsuperscript{2} of the reduction path "Switzerland's Long-Term Climate Strategy" for the year 2021. 
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.4\textwidth}
+
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_emissions}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Development over time of the average CO\textsubscript{2} intensity of all directly held buildings per participant in comparison with the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy".
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_stranded_asset}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Proportions of mortgages above or below the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy" in relation to their mortgages at the respective time. In light green, those mortgages that are below the reduction path at the respective time due to renovation measures.
+
+\end{minipage}%
+
 \newpage
 
 \section{Annex (IV): FAQs}

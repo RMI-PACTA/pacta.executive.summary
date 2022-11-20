@@ -49,6 +49,10 @@ headheight=0.0in
 % \setmainfont{OpenSans}
 \renewcommand{\familydefault}{\sfdefault}
 
+\NewDocumentCommand \verticalAlignImage {}{
+  \strut\vspace*{-\baselineskip}\newline
+}
+
 \NewDocumentCommand \centeredImage{ o m }{
   \begingroup
   \setbox0=\hbox{
@@ -68,7 +72,6 @@ headheight=0.0in
     \centeredImage{symbol_exposure}
   }
 }
-
 
 \NewDocumentCommand \alignmentImage{ O{24pt} }{
   \IfValueTF{#1}{
