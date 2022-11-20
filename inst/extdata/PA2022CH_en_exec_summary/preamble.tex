@@ -57,7 +57,7 @@ headheight=0.0in
   \begingroup
   \setbox0=\hbox{
   \IfValueTF{#1}{
-    \includegraphics[height=#1, keepaspectratio]{#2}
+    \includegraphics[#1, keepaspectratio]{#2}
   }{
     \includegraphics{#2}
   }
@@ -65,7 +65,7 @@ headheight=0.0in
   \parbox{\wd0}{\box0}\endgroup
 }
 
-\NewDocumentCommand \exposureImage{ O{24pt} }{
+\NewDocumentCommand \exposureImage{ O{height=24pt} }{
   \IfValueTF{#1}{
     \centeredImage[#1]{symbol_exposure}
   }{
@@ -73,7 +73,7 @@ headheight=0.0in
   }
 }
 
-\NewDocumentCommand \alignmentImage{ O{24pt} }{
+\NewDocumentCommand \alignmentImage{ O{height=24pt} }{
   \IfValueTF{#1}{
     \centeredImage[#1]{symbol_alignment}
   }{
@@ -81,7 +81,7 @@ headheight=0.0in
   }
 }
 
-\NewDocumentCommand \engagementImage{ O{24pt} }{
+\NewDocumentCommand \engagementImage{ O{height=24pt} }{
   \IfValueTF{#1}{
     \centeredImage[#1]{symbol_engagement}
   }{
@@ -107,8 +107,9 @@ headheight=0.0in
 }
 
 \NewDocumentCommand \esboxTitleString{ m o }{
+  % \Large#1\vrule{24pt}{2pt}%
   \Large#1%
-  \IfValueT{#2}{\hfill \textbf{#2}}
+  \IfValueT{#2}{\hfill {#2}}
 }
 
 \NewDocumentEnvironment{esbox}{ O{\textwidth} m o }
