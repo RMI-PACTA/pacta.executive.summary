@@ -1,0 +1,200 @@
+```{=latex}
+
+\section{Umfrage zu Klimamassnahmen}
+
+Dieser Abschnitt bietet Einblicke in die Wirksamkeit von Klimamassnahmen auf institutioneller Ebene. Die Ergebnisse basieren auf der ergänzenden qualitativen Umfrage zu Klimamassnahmen. Die Umfrageergebnisse werden mit den Ergebnissen der Peers und den quantitativen Ergebnissen dieses Portfolios verglichen. Bitte beachten Sie, dass die Antworten der Umfrageteilnehmenden auf eigenen Angaben beruhen und nicht von 2DII, RMI und WP überprüft wurden.
+
+\fbox{\begin{minipage}{\textwidth}
+\textbf{Erläuterungen zu den unten dargestellten Zielscheibendiagrammen:} Die Zielscheibendiagramme sind neue grafische Darstellungen, die Ihre klimarelevanten Massnahmen abbilden. Jeder Kreis steht für eine klimarelevante Massnahme und ist farblich gekennzeichnet, wenn die Massnahme umgesetzt wurde. Der Wirksamkeitsgrad der Massnahmen nimmt vom äusseren zum inneren Ring und mit der Farbintensität zu. Je mehr Kreise vom äusseren zum inneren Kreis farblich markiert sind, desto ambitionierter sind die Klimamassnahmen Ihrer Institution. Weitere Informationen zu den einzelnen in den Kreisen dargestellten Massnahmen finden Sie im Annex. 
+\end{minipage}
+}
+
+\begin{esbox}{Initiativen, Klimastrategie und Berichterstattung}[\engagementImage]
+
+Auf der linken Seite sehen Sie die Initiativen, an denen Sie beteiligt sind. Je grösser die Schriftgrösse, desto mehr Peers sind daran beteiligt. In der Mitte sehen Sie ein Zielscheibendiagramm, das Ihre Klimastrategie darstellt. Auf der rechten Seite sehen Sie, wie viele Ihrer Peers alle drei Klimastrategien anwenden, was als Best Practice gilt.
+
+\begin{center}
+\begin{minipage}{0.4\textwidth}
+```
+
+```{r plots_overview_left, out.width="\\linewidth"}
+knitr::include_graphics(file.path(survey_dir, language, "plot_wordcloud.png"))
+```
+
+```{=latex}
+\end{minipage}%
+\hspace{0.15\textwidth}
+\begin{minipage}{0.4\textwidth}
+```
+
+
+```{r plots_overview_right, out.width="\\linewidth"}
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_climate_goals.png"))
+```
+
+```{=latex}
+
+\end{minipage}%
+\end{center}
+
+(Links) Initiativen, an denen Sie (dunkelblau) und Ihre Peers (hellblau) beteiligt sind. (Rechts) Von Ihnen angewandte Klimastrategien im Vergleich zu denen Ihrer Peers.
+
+\end{esbox}
+
+\begin{esbox}{Engagement bei Portfoliounternehmen nach Sektor}[\engagementImage]
+
+Untersuchungen zeigen, dass Engagement eine der effektivsten Methoden zur Verbesserung der Klimaausrichtung von investierten Unternehmen ist. Die nachstehenden Zielscheibendiagramme zeigen Ihre Engagement-Massnahmen für drei klimarelevante Sektoren und ergänzen damit den vorherigen Abschnitt zur Klimaausrichtung. Daneben wird der Anteil der Peers angegeben, die Best Practices umsetzen, d. h. alle Ebenen abdecken.
+
+\begin{center}
+\begin{minipage}{0.3\textwidth}
+```
+
+```{r plot_layer_with_peer_info_engagement_left, out.width="\\linewidth"}
+knitr::include_graphics(
+file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Fossil_Fuels.png")
+)
+```
+
+```{=latex}
+\end{minipage}%
+\begin{minipage}{0.3\textwidth}
+```
+
+
+```{r plot_layer_with_peer_info_engagement_center, out.width="\\linewidth"}
+knitr::include_graphics(
+file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png")
+)
+```
+
+```{=latex}
+\end{minipage}%
+\begin{minipage}{0.3\textwidth}
+```
+
+
+```{r plot_layer_with_peer_info_engagement_right, out.width="\\linewidth"}
+knitr::include_graphics(c(
+file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Automotive.png")
+))
+```
+
+```{=latex}
+\end{minipage}%
+
+Engagement und Peer-Vergleich je Sektor. Links: Fossile Brennstoffe, Mitte: Automobilindustrie, Rechts: Stromerzeigung.
+
+\end{center}
+
+\end{esbox}
+
+\begin{esbox}{Negativ-Screening vs. PACTA-Exposition gegenüber der fossilen Energiebranche}[\engagementImage]
+
+In diesen Grafiken werden die gemeldeten Klimastrategien mit der Exposition gegenüber dem Kohlebergbau sowie der Öl- und Gasförderung verglichen. Wenn Ausschlussstrategien auf institutioneller Ebene angewendet werden, dürfte die Exposition gegenüber diesen Technologien im Vergleich zu den Portfolios Ihrer Peers gleich Null oder sehr gering sein.
+
+\begin{center}
+```
+
+```{r plot_exclusion_coal, fig.width=10, fig.height=3.5}
+plot_bo_c_survey <- pacta.executive.summary::rasterGrob(
+  pacta.executive.summary::readPNG(
+    file.path(
+      survey_dir, 
+      language, 
+      "plot_layer_asset_exclusion_coal_Corporate_bonds.png"
+    )
+  )
+)
+
+data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
+                                               peers_results_aggregated,
+                                             sector = "coal",
+                                             asset_class = "bonds")
+
+plot_bo_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+
+plot_eq_c_survey <- pacta.executive.summary::rasterGrob(
+  pacta.executive.summary::readPNG(
+    file.path(
+      survey_dir, 
+      language, 
+      "plot_layer_asset_exclusion_coal_Listed_equities.png"
+    )
+  )
+)
+
+data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
+                                             sector = "coal",
+                                             asset_class = "equity")
+
+plot_eq_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+
+patchwork::wrap_elements(plot_bo_c_survey) + patchwork::wrap_elements(plot_bo_c_exp) +
+  patchwork::wrap_elements(plot_eq_c_survey) + patchwork::wrap_elements(plot_eq_c_exp) +
+  patchwork::plot_layout(widths = c(1, 1.2, 1, 1.2))
+```
+
+```{=latex}
+
+Ausschlussstrategien für Kohle, verglichen mit PACTA Exposition in Unternahmensanleihen (links) und Aktien (rechts).
+
+```
+
+
+```{r plot_exclusion_oil_gas, fig.width=10, fig.height=3.5}
+plot_bo_og_survey <- pacta.executive.summary::rasterGrob(
+  pacta.executive.summary::readPNG(
+  file.path(
+    survey_dir, 
+    language, 
+    "plot_layer_asset_exclusion_oil_Corporate_bonds.png"
+    )
+  )
+)
+
+data_exposures_survey_b <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
+                                             sector = "oil_and_gas",
+                                             asset_class = "bonds")
+
+plot_bo_og_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
+
+plot_eq_og_survey <- pacta.executive.summary::rasterGrob(
+  pacta.executive.summary::readPNG(
+    file.path(
+      survey_dir, 
+      language, 
+      "plot_layer_asset_exclusion_oil_Listed_equities.png"
+      )
+  )
+)
+
+data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
+                                             sector = "oil_and_gas",
+                                             asset_class = "equity")
+
+plot_eq_og_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
+
+patchwork::wrap_elements(plot_bo_og_survey) + patchwork::wrap_elements(plot_bo_og_exp) +
+  patchwork::wrap_elements(plot_eq_og_survey) + patchwork::wrap_elements(plot_eq_og_exp) +
+  patchwork::plot_layout(widths = c(1, 1.2, 1, 1.2))
+```
+
+Ausschlussstrategien für Öl und Gas, verglichen mit PACTA Exposition in Unternahmensanleihen (links) und Aktien (rechts).
+
+```{=latex}
+\end{center}
+\end{esbox}
+\newpage
+```
+

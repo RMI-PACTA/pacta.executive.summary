@@ -1,0 +1,140 @@
+\usepackage{geometry}
+\usepackage{xparse}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{multicol}
+
+% \usepackage[default]{opensans}
+\usepackage[T1]{fontenc}
+
+% \usepackage{showframe}
+% \renewcommand*\ShowFrameColor{\color{watermelon}}
+
+\graphicspath{ {img/} }
+
+\geometry{
+a4paper,
+left=0.4in,
+right=0.2in,
+top=0.2in,
+bottom=0.2in,
+headheight=0.0in
+}
+
+\NewDocumentCommand \scorecardGeometry{}{
+  \geometry{
+    a4paper,
+    left=0.2in,
+    right=0.2in,
+    top=0.2in,
+    bottom=0.2in,
+    headheight=0.0in
+  }
+}
+
+\definecolor{esLightGray}{HTML}{F2F2F2}
+\definecolor{watermelon}{HTML}{B4Da55}
+\definecolor{candy}{HTML}{f42069}
+
+% \setsansfont{OpenSans}[
+%     Path = fonts/OpenSans/,
+%     % Scale = 0.9,
+%     Extension = .ttf,
+%     UprightFont = *-Regular,
+%     BoldFont = *-Bold,
+%     ItalicFont = *-Italic,
+%     BoldItalicFont = *-BoldItalic
+%     ]
+
+% \setmainfont{OpenSans}
+\renewcommand{\familydefault}{\sfdefault}
+
+\NewDocumentCommand \verticalAlignImage {}{
+  \strut\vspace*{-\baselineskip}\newline
+}
+
+\NewDocumentCommand \centeredImage{ o m }{
+  \begingroup
+  \setbox0=\hbox{
+  \IfValueTF{#1}{
+    \includegraphics[#1, keepaspectratio]{#2}
+  }{
+    \includegraphics{#2}
+  }
+  }
+  \parbox{\wd0}{\box0}\endgroup
+}
+
+\NewDocumentCommand \exposureImage{ O{height=24pt} }{
+  \IfValueTF{#1}{
+    \centeredImage[#1]{symbol_exposure}
+  }{
+    \centeredImage{symbol_exposure}
+  }
+}
+
+\NewDocumentCommand \alignmentImage{ O{height=24pt} }{
+  \IfValueTF{#1}{
+    \centeredImage[#1]{symbol_alignment}
+  }{
+    \centeredImage{symbol_alignment}
+  }
+}
+
+\NewDocumentCommand \engagementImage{ O{height=24pt} }{
+  \IfValueTF{#1}{
+    \centeredImage[#1]{symbol_engagement}
+  }{
+    \centeredImage{symbol_engagement}
+  }
+}
+
+\mdfdefinestyle{esstyle}{
+  frametitlebackgroundcolor = esLightGray,
+  linecolor=white,
+  linewidth=0,
+  frametitleaboveskip=0,
+  frametitlebelowskip=0
+}
+
+
+\mdfdefinestyle{debugstyle}{
+  frametitlebackgroundcolor = watermelon,
+  linecolor = candy,
+  linewidth = 2pt,
+  frametitleaboveskip=0,
+  frametitlebelowskip=0
+}
+
+\NewDocumentCommand \esboxTitleString{ m o }{
+  % \Large#1\vrule{24pt}{2pt}%
+  \Large#1%
+  \IfValueT{#2}{\hfill {#2}}
+}
+
+\NewDocumentEnvironment{esbox}{ O{\textwidth} m o }
+{% begin code
+  \begin{minipage}[t]{#1}%
+  \begin{mdframed}[style=esstyle, frametitle={\esboxTitleString{#2}[#3]}]%
+}
+{ % enddef
+  \end{mdframed}%
+  \end{minipage}%
+}%
+
+\NewDocumentCommand \esSidebar{ m }{
+  foo
+}
+
+\NewDocumentCommand \scorecardHeader{ m }{
+  \begin{minipage}{0.25\pagewidth}
+    foo \\
+    bar
+  \end{minipage}%
+  \begin{minipage}{0.75\pagewidth}
+    #1
+  \end{minipage}%
+}
+
+\newcommand{\startunderscoreletter}{\catcode`_ 12\relax}
+\newcommand{\stopunderscoreletter}{\catcode`_ 8\relax}

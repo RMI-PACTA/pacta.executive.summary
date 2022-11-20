@@ -1,0 +1,230 @@
+```{=latex}
+\section{Résultats des portefeuilles immobiliers et hypothécaires}
+
+La section Immobilier et Hypothèques permet aux institutions financières de mesurer l'alignement de leur portefeuille immobilier et hypothécaire suisse avec l'objectif climatique du secteur du bâtiment suisse d'atteindre des émissions nettes nulles en 2050. Le test PACTA évalue donc les émissions de CO\textsubscript{2} de vos investissements immobiliers et hypothécaires.
+
+Les émissions du parc immobilier suisse représentent actuellement un peu plus d'un quart des émissions totales de CO\textsubscript{2} de la Suisse. Les nouveaux bâtiments sont aujourd'hui largement équipés de systèmes de chauffage renouvelables. D'ici 2020, les émissions de CO\textsubscript{2} de l'ensemble des bâtiments devraient avoir diminué d'au moins 40\% par rapport à 1990 - cet objectif n'a pas été atteint. Pour atteindre l'objectif "net zéro" déclaré par le Conseil fédéral en 2050, le parc immobilier suisse doit réduire plus rapidement ses émissions de CO\textsubscript{2} à l'avenir, notamment en rénovant les bâtiments existants. (\href{lien}{\url{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/reduction-emissions/objectifs-reduction/objectif-2050/strategie-climatique-2050.html}})
+
+
+
+```
+
+```{r real_estate_load_data}
+real_estate_data <- jsonlite::read_json(
+  path = file.path(real_estate_dir, "data", "data.json")
+)[["exec_sum"]]
+
+remove_list_null <- function(x){
+  nulls <- which(sapply(x, is.null))
+  if (length(nulls) > 0){
+    x <- x[-nulls]
+  }
+  return(x)
+}
+
+convert_re_user_path <- function(
+  wp_path,
+  parent_dir = file.path(real_estate_dir, "img")
+  ){
+  filename <- basename(wp_path)
+  return(file.path(parent_dir, filename))
+}
+
+real_estate_paths <- real_estate_data[["real_estate"]][[tolower(language)]]
+cleaned_real_estate_paths <- real_estate_paths %>%
+  remove_list_null %>%
+  lapply(X = ., FUN = convert_re_user_path)
+stopifnot(all(sapply(X = cleaned_real_estate_paths, FUN = file.exists)))
+
+mortgage_paths <- real_estate_data[["mortgage"]][[tolower(language)]]
+cleaned_mortgage_paths <- mortgage_paths %>%
+  remove_list_null %>%
+  lapply(X = ., FUN = convert_re_user_path)
+stopifnot(all(sapply(X = cleaned_mortgage_paths, FUN = file.exists)))
+```
+
+```{=latex}
+\begin{esbox}{État actuel}
+
+\begin{minipage}[t]{0.45\textwidth}
+Parts des sources d'énergie par rapport à l'ensemble des participants
+
+Bâtiments détenus directement
+```
+
+```{r real_estate_bar_chart, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in real_estate energy_carrier. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+Hypothèques 
+
+```{r real_estate_mortgages_bar_chart, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_mortgage_paths[["png_energy_carrier"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in mortgages energy_carrier. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+
+\begin{minipage}[t]{0.7\textwidth}
+Répartition géographique des immeubles détenus directement par utilisation
+\end{minipage}%
+
+\hfill\exposureImage
+```
+
+
+```{r real_estate_map, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in real_estate map. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+Carte des dangers naturels OFEV: 
+
+\href{lien}{\url{https://map.geo.admin.ch/?topic=bafu&lang=fr&bgLayer=ch.swisstopo.pixelkarte-grau}}
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.45\textwidth}
+Distribution de l'intensité moyenne en CO\textsubscript{2} de votre portefeuille immobilier (bâtiments détenus directement) par rapport à vos pairs.
+
+```
+
+
+```{r real_estate_distribution, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in real_estate co2_distribution. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+
+\begin{minipage}[t]{0.7\textwidth}
+Distribution de l'intensité moyenne de CO\textsubscript{2} de votre portefeuille de prêts hypothécaires par rapport à vos pairs.
+\end{minipage}
+\hfill\alignmentImage
+```
+
+
+```{r mortgage_distribution, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in mortgages co2_distribution. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\end{esbox}%
+
+
+
+\begin{esbox}{Futur}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Chemin de réduction} de tous les bâtiments détenus directement avec les plans de rénovation soumis.
+
+```
+
+```{r real_estate_reduction_path, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in real_estate pathway Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+
+\begin{minipage}[t]{0.7\textwidth}
+\textbf{Proportion} de leurs prêts hypothécaires qui se situent au-dessus ou au-dessous de la trajectoire de réduction pour un taux net zéro d'ici 2050.
+\end{minipage}
+\hfill\alignmentImage
+```
+
+```{r real_estate_reduction_proportion, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in mortgages stranded_asset Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\end{esbox}%
+```
+
+
+\newpage
