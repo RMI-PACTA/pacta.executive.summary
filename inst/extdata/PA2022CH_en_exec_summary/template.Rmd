@@ -544,7 +544,7 @@ The chart below visualizes the specifications of the aggregated alignment score 
 
 \subsection{Dart chart: overall climate strategy}
 
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 \includegraphics{chart_sample_5}
 
@@ -559,7 +559,7 @@ Transparency through reporting is a first step in the right direction, but ultim
 
 \subsection{Dart chart: investee engagement in fossil fuel, automotive, and power sector}
 
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 
 \includegraphics[width=\textwidth]{chart_sample_6}
@@ -576,7 +576,7 @@ Considering joint engagement as a way to increase the efficacy of engagement pra
 
 \subsection{Dart chart: negative screening in oil and gas as well as coal sector}
 
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 
 \includegraphics[width=\textwidth]{chart_sample_7}
