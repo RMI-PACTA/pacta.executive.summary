@@ -59,7 +59,7 @@ emissions_data <- params$emissions_data
 ```
 
 ---
-title: "Zusammenfassung `r format.POSIXct(Sys.time(), tz = "CET")` CET"
+title: "Zusammenfassung"
 subtitle:  |  
   | PACTA-Klimatest Schweiz 2022
   | Ergebnisse von `r investor_name`
@@ -541,7 +541,7 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 
 \subsection{Zielscheibendiagramm: allgemeine Klimastrategien}
 
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 \includegraphics{chart_sample_5}
 
@@ -557,7 +557,7 @@ Transparenz durch Berichterstattung ist ein erster Schritt in die richtige Richt
 
 \subsection{Zielscheibendiagramm: Engagement bei Portfoliounternehmen in den Sektoren fossile Brennstoffe, Automobil und Stromerzeugung}
 
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 
 \includegraphics[width=\textwidth]{chart_sample_6}
@@ -575,7 +575,7 @@ Gemeinsames Engagement als Möglichkeit zur Steigerung der Wirksamkeit von Engag
 
 \subsection{Zielscheibendiagramm: Negativ-Screening im Öl- und Gassektor sowie im Kohlesektor}
 
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 
 \includegraphics[width=\textwidth]{chart_sample_7}

@@ -59,7 +59,7 @@ emissions_data <- params$emissions_data
 ```
 
 ---
-title: "Résumé `r format.POSIXct(Sys.time(), tz = "CET")` CET"
+title: "Résumé"
 subtitle:  |  
   | Test climatique PACTA Suisse 2022
   | Résultats de `r investor_name`
@@ -537,7 +537,7 @@ Le graphique ci-dessous présente les spécifications du score d'alignement agr�
 
 \subsection{Diagramme stratigraphique: stratégie climatique générales}
 
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 \includegraphics{chart_sample_5}
 
@@ -552,7 +552,7 @@ La transparence, par le biais de rapports, constitue un premier pas dans la bonn
 
 \subsection{Diagramme stratigraphique: engagement des bénéficiaires d’investissements dans les secteurs des combustibles fossiles, de l'automobile et de l'énergie}
 
-\begin{minipage}[t]{0.4\textwidth}
+\begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 
 \includegraphics[width=\textwidth]{chart_sample_6}
@@ -569,7 +569,9 @@ Le fait de considérer l'engagement conjoint comme un moyen d'accroître l'effic
 
 \subsection{Diagramme stratigraphique: sélection négative dans le secteur du pétrole et du gaz ainsi que du charbon}
 
-\begin{minipage}[t]{0.4\textwidth}
+
+\begin{minipage}[t]{0.3\textwidth}
+
 \verticalAlignImage
 
 \includegraphics[width=\textwidth]{chart_sample_7}

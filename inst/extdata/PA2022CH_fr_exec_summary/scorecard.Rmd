@@ -111,6 +111,7 @@ tryCatch(
 ```{=latex}
 \end{multicols}
 
+
 \subsection{TRANSITION VERS LE NET ZÉRO}
 
 \begin{multicols}{2}
@@ -160,7 +161,6 @@ portfolio_emissions_covered <- emissions %>%
 ```
 
 ```{=latex}
-
 Émissions du portefeuille couvertes par l'évaluation: \textbf{`r round(portfolio_emissions_covered * 100)` \%}
 
 Actifs du portefeuille couverts par l'évaluation: \textbf{`r round(total_portfolio_percentage_coverage * 100)` \%}
@@ -216,9 +216,11 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 ```{=latex}
 
 \begin{itemize}
+
 \item Part des entreprises du portefeuille ayant pris des engagements vérifiés pour atteindre le «net zéro» et pour la fixation d’objectifs intermédiaires crédibles: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
 
 \item Part moyenne des entreprises dans les portefeuilles de pairs ayant des engagements vérifiés envers le net zéro et des objectifs intermédiaires crédibles: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
+
 \end{itemize}
 
 \vfill
@@ -267,6 +269,7 @@ if (real_estate_flag){
 ```
 
 ```{=latex}
+
 
 \subsection{Immobilier et hypothèques en Suisse}
 
@@ -340,6 +343,7 @@ member_initiatives_peers <-
 ```{=latex}
 
 \begin{itemize}
+
 \item L'institution financière est-elle membre d'une initiative climatique?
   \textbf{`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers:
    `r round(member_initiatives_peers * 100)` 
@@ -492,7 +496,6 @@ engagement_peers <-
 
 ```
 
-
 ## Indicateurs «Climate Scores»
 
 ### Résumé du PACTA 2022
@@ -616,6 +619,4 @@ Pour calculer l'alignement du portefeuille
 * _Exigences non satisfaites_ car le score global n'est pas un AIT.
   * Les scores de température implicites doivent être calculés en utilisant un niveau de confiance de 66\%, plutôt que de 50\%.
   * Calculer les scores de réchauffement sur une base d'émissions cumulées jusqu'en 2050 afin de tenir compte de manière appropriée de la relation physique entre les émissions cumulées et les résultats en termes de réchauffement.
-
-
-
+  
