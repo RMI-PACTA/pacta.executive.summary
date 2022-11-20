@@ -1,10 +1,10 @@
 ```{=latex}
 \section{Real Estate \& Mortgage Results}
 
-The Real Estate and Mortgage section allows financial institutions to measure the alignment of their Swiss real estate and mortgage portfolio with the climate target of the Swiss building sector to reach net-zero emissions in 2050. Therefore, the PACTA test assesses the CO~2~ emissions of your real estate and mortgage investments.<br/>
-Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO~2~ emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO~2~ emissions from buildings as a whole should have fallen by at least 40% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO~2~ emissions more rapidly in the future, in particular by renovating existing buildings. ([Link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html))
+The Real Estate and Mortgage section allows financial institutions to measure the alignment of their Swiss real estate and mortgage portfolio with the climate target of the Swiss building sector to reach net-zero emissions in 2050. Therefore, the PACTA test assesses the CO\textsubscript{2} emissions of your real estate and mortgage investments.
 
-% FIXME: fix link
+Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO\textsubscript{2} emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO\textsubscript{2} emissions from buildings as a whole should have fallen by at least 40\% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO\textsubscript{2} emissions more rapidly in the future, in particular by renovating existing buildings. (\href{Link}{\url{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html}})
+
 ```
 
 ```{r real_estate_load_data}
@@ -44,13 +44,13 @@ stopifnot(all(sapply(X = cleaned_mortgage_paths, FUN = file.exists)))
 ```{=latex}
 \begin{esbox}{Current Status}
 
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
 Shares of energy sources compared to all participants 
 
 Directly held buildings
 ```
 
-```{r real_estate_bar_chart, out.width = '50%'}
+```{r real_estate_bar_chart, out.width = '0.8\\textwidth'}
 tryCatch(
   {
     knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
@@ -67,7 +67,7 @@ tryCatch(
 
 Mortgages 
 
-```{r real_estate_mortgages_bar_chart, out.width = '50%'}
+```{r real_estate_mortgages_bar_chart, out.width = '0.8\\textwidth'}
 tryCatch(
   {
     knitr::include_graphics(cleaned_mortgage_paths[["png_energy_carrier"]])
@@ -84,15 +84,18 @@ tryCatch(
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
 
+\begin{minipage}[t]{0.7\textwidth}
 Geographical distribution of directly held buildings by use 
+\end{minipage}%
 
 \hfill\exposureImage
 ```
 
 
-```{r real_estate_map, out.width = '50%'}
+```{r real_estate_map, out.width = '0.8\\textwidth'}
 tryCatch(
   {
     knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
@@ -114,13 +117,13 @@ Link für Hinweise auf mögliche physische Klimarisiken:
 
 \end{minipage}%
 
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
 Distribution of the average CO\textsubscript{2} intensity of your real estate portfolio (directly held buildings) compared to peers. 
 
 ```
 
 
-```{r real_estate_distribution, out.width = '50%'}
+```{r real_estate_distribution, out.width = '0.8\\textwidth'}
 tryCatch(
   {
     knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
@@ -137,14 +140,17 @@ tryCatch(
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
 
+\begin{minipage}[t]{0.7\textwidth}
 Distribution of the mean CO\textsubscript{2} intensity of your mortgage portfolio compared to peers. 
+\end{minipage}
 \hfill\alignmentImage
 ```
 
 
-```{r mortgage_distribution, out.width = '50%'}
+```{r mortgage_distribution, out.width = '0.8\\textwidth'}
 tryCatch(
   {
     knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
@@ -167,12 +173,12 @@ tryCatch(
 
 \begin{esbox}{Future Status}
 
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
 \textbf{Reduction path} of all directly held buildings with the submitted refurbishment plans. 
 
 ```
 
-```{r real_estate_reduction_path, out.width = '50%'}
+```{r real_estate_reduction_path, out.width = '0.8\\textwidth'}
 tryCatch(
   {
     knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
@@ -189,13 +195,16 @@ tryCatch(
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
 
+\begin{minipage}[t]{0.7\textwidth}
 \textbf{Proportion} of their mortgages that are above or below the reduction path for net zero by 2050
+\end{minipage}
 \hfill\alignmentImage
 ```
 
-```{r real_estate_reduction_proportion, out.width = '50%'}
+```{r real_estate_reduction_proportion, out.width = '0.8\\textwidth'}
 tryCatch(
   {
     knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])

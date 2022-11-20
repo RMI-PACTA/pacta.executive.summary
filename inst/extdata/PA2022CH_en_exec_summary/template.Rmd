@@ -67,7 +67,7 @@ subtitle:  |
 ```{=latex}
 \begin{esbox}[0.25\textwidth]{Table of contents}
 
-\begin{enumerate}[leftmargin=*, nosep]
+\begin{enumerate}
 \item Equity \& Bonds (overview)
 \item Equity \& Bonds (current \& future)
 \item Survey
@@ -91,50 +91,72 @@ number_peers <- readr::read_csv(
   dplyr::filter(.data$organization_type == .env$peer_group) %>% 
   dplyr::pull("n")
 ```
-Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C. The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals. `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` was invited to the test by the FOEN **([link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html))** and SIF **([link](https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html))** with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which `r number_peers` were peers (i.e., participants from the same financial sector, such as pension funds; insurances; banks; asset managers).
-
-This executive summary is a short version of the individual results of your uploaded portfolio `r portfolio_name`. `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access at platform.transitionmonitor.com) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website **([link](https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html))** and is available for download.
 
 ```{=latex}
+
+Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C. The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals.
+\startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter
+was invited to the test by the FOEN \textbf{(\href{link}{\url{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}})} and SIF \textbf{(\href{link}{\url{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}})} with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which
+\startunderscoreletter `r number_peers` \stopunderscoreletter
+were peers (i.e., participants from the same financial sector, such as pension funds; insurances; banks; asset managers).
+
+This executive summary is a short version of the individual results of your uploaded portfolio \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter.
+\startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter
+received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access at platform.transitionmonitor.com) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website
+%FIXME: \textbf{(\href{link}{\url{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}})}
+and is available for download.
+
 \end{esbox}
 
 \begin{esbox}{Measuring climate alignment}
 
 In the view of PACTA and FOEN, there are three main components that are useful to measure alignment with climate goals which are shown below. The icons are used throughout this document to indicate the category for each chart.
 
+\begin{center}
 \begin{minipage}{0.3\linewidth}%
+\begin{center}
 
-\exposureImage[width=0.3\textwidth]%
-\parbox{0.6\textwidth}{
+\begin{minipage}[c]{0.3\textwidth}
+\exposureImage[width=\textwidth]%
+\end{minipage}%
+\begin{minipage}[c]{0.7\textwidth}
 \textbf{Exposure:} Provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings.
-}
+\end{minipage}%
 
-
+\end{center}
 \end{minipage}% % note the semantic % after end
-\hspace{0.05\textwidth}
 \begin{minipage}{0.3\linewidth}%
+\begin{center}
 
-\alignmentImage[width=0.3\textwidth]%
-\parbox{0.6\textwidth}{
+\begin{minipage}[c]{0.3\textwidth}
+\alignmentImage%[width=\textwidth]%
+\end{minipage}%
+\begin{minipage}[c]{0.7\textwidth}
 \textbf{Trajectory alignment:} Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
-}
+\end{minipage}%
 
+\end{center}
 \end{minipage}% % note the semantic % after end
-\hspace{0.05\textwidth}
 \begin{minipage}{0.3\linewidth}%
+\begin{center}
 
-\engagementImage[width=0.3\textwidth]%
-\parbox{0.6\textwidth}{
+\begin{minipage}[c]{0.3\textwidth}
+\engagementImage[width=\textwidth]%
+\end{minipage}%
+\begin{minipage}[c]{0.7\textwidth}
 \textbf{Engagement \& other qualitative indicators:} Complementary analysis with information on climate actions that can have real-world climate impact.
-}
+\end{minipage}%
 
+
+\end{center}
 \end{minipage}% % note the semantic % after end
 
+\end{center}
 \end{esbox}
 
 \begin{esbox}{Equity \& bonds module overview}[\exposureImage]
 
-The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to the PACTA Knowledge Hub **([link](https://rmi.gitbook.io/pacta-knowledge-hub/))**.
+The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to the PACTA Knowledge Hub \textbf{(\href{link}{\url{https://rmi.gitbook.io/pacta-knowledge-hub/}})}.
 
 ```
 
@@ -680,13 +702,13 @@ To what extent you use your results is up to you. However, the results are suita
 
 \begin{esbox}{Where can I find the full results of this test (interactive report)?}
 
-This Executive Summary serves as a supplement to the comprehensive and interactive presentation of your results in the so-called interactive report. You can view this on the Transition Monitor Platform under "Results" after logging in with your password **([link](https://platform.transitionmonitor.com/))**.
+This Executive Summary serves as a supplement to the comprehensive and interactive presentation of your results in the so-called interactive report. You can view this on the Transition Monitor Platform under "Results" after logging in with your password \textbf{(\href{link}{\url{https://platform.transitionmonitor.com/}})}.
 
 \end{esbox}
 
 \begin{esbox}{Where can I learn more about the PACTA Methodology?}
 
-If you want to learn more about the open-source methodology behind PACTA, you can do so on our "PACTA Knowledge Hub" **([link](https://rmi.gitbook.io/pacta-knowledge-hub/))**.
+If you want to learn more about the open-source methodology behind PACTA, you can do so on our "PACTA Knowledge Hub" \textbf{(\href{link}{\url{https://rmi.gitbook.io/pacta-knowledge-hub/}})}.
 
 \end{esbox}
 
@@ -698,7 +720,7 @@ If you want to learn more about the open-source methodology behind PACTA, you ca
 
 \subsection{PACTA Executive Summary 2022}
 
-The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the [Swiss Climate Scores](https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html) were defined during the PACTA Climate Test 2022, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
+The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the \href{Swiss Climate Scores}{\url{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}} were defined during the PACTA Climate Test 2022, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
 
 \subsection{Current State}
 
@@ -1006,8 +1028,13 @@ member_initiatives_peers <-
 
 * Is the financial institution member of a climate initiative?
 
-  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers: `r round(member_initiatives_peers * 100)` \%)**
-  `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}`
+  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers:
+\startunderscoreletter `r round(member_initiatives_peers * 100)`
+\stopunderscoreletter
+\%)**
+ 
+\startunderscoreletter `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}` \stopunderscoreletter
+
 
 
 ```{r climate_strategy_voting_rights}
@@ -1058,10 +1085,18 @@ voting_rights_peers <-
 
 * Does the financial institution support climate strategies through voting rights?
   
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \%)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE
+\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE
+\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF
+\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets
+\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%)**
   
 
 ```{r climate_strategy_engagement}
@@ -1113,10 +1148,18 @@ engagement_peers <-
 
 * Does the financial institution support climate strategies through engagement measures?
 
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \%)**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE
+\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB
+\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE
+\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets
+\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%)**
 
 ```{=latex}
 \end{multicols}
