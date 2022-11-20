@@ -32,15 +32,15 @@ plot_emissions_scorecard <- function(data) {
       aes(
         y = .data$emissions + 0.1 * max(data$emissions, na.rm = TRUE),
         label = paste(
-          format(.data$emissions, big.mark = ","),
-          " tonnes"
+          format(round(.data$emissions), big.mark = ","),
+          "t CO2/M CHF"
         )
       ),
-      size = 5
+      size = 4
     ) +
     scale_y_continuous(
       expand = expansion(mult = c(0, 0.1)),
-      name = expression(atop("Carbon footprint", "(tonnes" * CO[2] * ")"))
+      name = expression(atop("Carbon footprint", "(tonnes " * CO[2] * "/M CHF invested)"))
     ) +
     scale_fill_manual(
       values = c(

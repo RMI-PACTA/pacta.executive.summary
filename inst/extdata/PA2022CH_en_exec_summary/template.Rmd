@@ -734,7 +734,7 @@ All sources of carbon emissions from invested companies (scope 1-3) are included
 ```
 
 
-```{r emissions_scorecard, fig.height=2.5}
+```{r emissions_scorecard, fig.height=2.7}
 
 tryCatch(
   {
