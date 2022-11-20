@@ -73,8 +73,8 @@ subtitle:  |
 \item Equity \& Bonds (current \& future)
 \item Survey
 \item Real estate \& mortgages
-\item PACTA-based scorecard informed by Swiss Climate Scores
 \item Annex (Detailed chart explanations; FAQs)
+\item PACTA-based scorecard informed by Swiss Climate Scores
 \end{enumerate}
 
 \end{esbox}%
@@ -97,14 +97,14 @@ number_peers <- readr::read_csv(
 
 Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C. The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals.
 \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter
-was invited to the test by the FOEN \textbf{(\href{link}{\url{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}})} and SIF \textbf{(\href{link}{\url{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}})} with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which
+was invited to the test by the FOEN \textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}{link})} and SIF \textbf{(\href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{link})} with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which
 \startunderscoreletter `r number_peers` \stopunderscoreletter
 were peers (i.e., participants from the same financial sector, such as pension funds; insurances; banks; asset managers).
 
 This executive summary is a short version of the individual results of your uploaded portfolio \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter.
 \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter
 received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access at platform.transitionmonitor.com) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website
-%FIXME: \textbf{(\href{link}{\url{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}})}
+\textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}{link})}
 and is available for download.
 
 \end{esbox}
@@ -157,7 +157,7 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 
 \begin{esbox}{Equity \& bonds module overview}[\exposureImage]
 
-The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to the PACTA Knowledge Hub \textbf{(\href{link}{\url{https://rmi.gitbook.io/pacta-knowledge-hub/}})}.
+The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to the PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
 
 ```
 
@@ -570,7 +570,7 @@ Transparency through reporting is a first step in the right direction, but ultim
 This dart charts shows which engagement actions your institution is practicing, accoding to your answers. It starts with a general engagement policy, which can be improved in effectiveness through a dedicated engagement team and finally through joint engagement with other institutions. Best practice is when all three levels are covered.
 The chart is shown separately for fossil fuels, automotive, and power sector as these (i) are considered as the most climate relevant sectors and (ii) have low-carbon substitutes which allows investors to support the shift to existing technologies. 
 
-Considering joint engagement as a way to increase the efficacy of engagement practices is echoed by literature on the topic and supported by, for example, the NZAOA (Link to report \href{[here]}{\url{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}}). 
+Considering joint engagement as a way to increase the efficacy of engagement practices is echoed by literature on the topic and supported by, for example, the NZAOA (Link to report \href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{here}). 
 
 \end{minipage}%
 
@@ -696,20 +696,20 @@ To what extent you use your results is up to you. However, the results are suita
 
 * Internal reporting and communication
 * Reporting in the environment of the participating financial institution (clients, insured parties etc.)
-* External disclosure: Implementing the federal council’s recommendations \href{link}{\url{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}}) to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \href{link}{\url{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}}.
-* Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" (\href{link}{\url{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}}).
+* External disclosure: Implementing the federal council’s recommendations \href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}{link}) to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}{link}.
+* Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link}).
 
 \end{esbox}
 
 \begin{esbox}{Where can I find the full results of this test (interactive report)?}
 
-This Executive Summary serves as a supplement to the comprehensive and interactive presentation of your results in the so-called interactive report. You can view this on the Transition Monitor Platform under "Results" after logging in with your password \textbf{(\href{link}{\url{https://platform.transitionmonitor.com/}})}.
+This Executive Summary serves as a supplement to the comprehensive and interactive presentation of your results in the so-called interactive report. You can view this on the Transition Monitor Platform under "Results" after logging in with your password \textbf{(\href{https://platform.transitionmonitor.com/}{link})}.
 
 \end{esbox}
 
 \begin{esbox}{Where can I learn more about the PACTA Methodology?}
 
-If you want to learn more about the open-source methodology behind PACTA, you can do so on our "PACTA Knowledge Hub" \textbf{(\href{link}{\url{https://rmi.gitbook.io/pacta-knowledge-hub/}})}.
+If you want to learn more about the open-source methodology behind PACTA, you can do so on our "PACTA Knowledge Hub" \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
 
 \end{esbox}
 
@@ -721,7 +721,7 @@ If you want to learn more about the open-source methodology behind PACTA, you ca
 
 \subsection{PACTA Executive Summary 2022}
 
-The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the \href{Swiss Climate Scores}{\url{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}} were defined during the PACTA Climate Test 2022, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
+The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the \href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{Swiss Climate Scores} were defined during the PACTA Climate Test 2022, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
 
 \subsection{Current State}
 
@@ -882,7 +882,7 @@ Climate scenario used: **GECO 2021**
 
 \subsection{Verified Commitments to Net-Zero}
 
-Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from \href{SBTi}{\url{https://sciencebasedtargets.org/companies-taking-action}}.
+Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from \href{https://sciencebasedtargets.org/companies-taking-action}{SBTi}.
 
 
 ```
