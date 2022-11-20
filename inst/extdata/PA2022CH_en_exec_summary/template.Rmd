@@ -303,7 +303,7 @@ tryCatch(
 
 \textbf{PACTA Aggregated Climate Alignment Score}
 
-The aggregated score compares the alignment of all assets until 2026 to the GECO 2021 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector (except for cement which is not covered in GECO2021).
+The aggregated score compares the alignment of all assets until 2026 to the GECO 2021 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector (except for cement which is not covered in GECO2021). GECO was chosen since it covered the most PACTA sectors.\footnote{Please note that the GECO scenarios expect major technology changes to happen after the five years analyzed by PACTA. As such your overall score could be lower when using other scenarios.}
 
 ```
 
