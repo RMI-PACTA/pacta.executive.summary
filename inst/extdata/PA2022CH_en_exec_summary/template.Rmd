@@ -1,6 +1,7 @@
 ---
 output:
   pdf_document:
+    latex_engine: xelatex
     includes:
       in_header: "preamble.tex"
 fontsize: 10pt
