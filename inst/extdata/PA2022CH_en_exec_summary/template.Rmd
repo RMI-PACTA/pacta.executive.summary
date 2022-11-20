@@ -72,8 +72,8 @@ subtitle:  |
 \item Equity \& Bonds (current \& future)
 \item Survey
 \item Real estate \& mortgages
-\item PACTA-based scorecard informed by Swiss Climate Scores
 \item Annex (Detailed chart explanations; FAQs)
+\item PACTA-based scorecard informed by Swiss Climate Scores
 \end{enumerate}
 
 \end{esbox}%
