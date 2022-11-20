@@ -14,7 +14,7 @@ This section provides insights in the effectiveness of climate actions on an ins
 On the left hand side, you find the initiatives you are part of. The larger the font size, the more peers are part of it. In the middle, you see a dart chart indicating your climate. On the right, you can see how many of your peers have all three climate strategies in place, which is considered as best practice.
 
 \begin{center}
-\begin{minipage}{0.3\textwidth}
+\begin{minipage}{0.4\textwidth}
 ```
 
 ```{r plots_overview_left, out.width="\\linewidth"}
@@ -24,7 +24,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_wordcloud.png"))
 ```{=latex}
 \end{minipage}%
 \hspace{0.15\textwidth}
-\begin{minipage}{0.3\textwidth}
+\begin{minipage}{0.4\textwidth}
 ```
 
 
@@ -46,7 +46,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_in
 Research shows that engagement is one of the most effective ways to improve climate goal alignment of companies invested through equity and bonds. Therefore, the engagement dart charts below show your engagement measures for three climate crucial sectors and thereby complement the previous alignment section. The text besides provides a comparison to the share of peers with best practice, i.e., the ones that have all layers covered.
 
 \begin{center}
-\begin{minipage}{0.25\textwidth}
+\begin{minipage}{0.3\textwidth}
 ```
 
 ```{r plot_layer_with_peer_info_engagement_left, out.width="\\linewidth"}
@@ -57,7 +57,7 @@ file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Fossil_Fue
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}{0.25\textwidth}
+\begin{minipage}{0.3\textwidth}
 ```
 
 
@@ -69,7 +69,7 @@ file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png"
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}{0.25\textwidth}
+\begin{minipage}{0.3\textwidth}
 ```
 
 
@@ -95,12 +95,14 @@ These charts compare the reported climate-aligned strategies to the exposure to 
 \begin{center}
 ```
 
-```{r plot_exclusion_coal, out.height="3cm", out.out.width="0.75\\textwidth"}
-plot_bo_c_survey <- pacta.executive.summary::readPNG(
-  file.path(
-    survey_dir, 
-    language, 
-    "plot_layer_asset_exclusion_coal_Corporate_bonds.png"
+```{r plot_exclusion_coal, fig.width=10, fig.height=3.5}
+plot_bo_c_survey <- pacta.executive.summary::rasterGrob(
+  pacta.executive.summary::readPNG(
+    file.path(
+      survey_dir, 
+      language, 
+      "plot_layer_asset_exclusion_coal_Corporate_bonds.png"
+    )
   )
 )
 
@@ -109,14 +111,17 @@ data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
                                              sector = "coal",
                                              asset_class = "bonds")
 
-plot_bo_c_exp <- plot_exposures_survey(data_exposures_survey_b) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
+plot_bo_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
 
-plot_eq_c_survey <- pacta.executive.summary::readPNG(
-  file.path(
-    survey_dir, 
-    language, 
-    "plot_layer_asset_exclusion_coal_Listed_equities.png"
+plot_eq_c_survey <- pacta.executive.summary::rasterGrob(
+  pacta.executive.summary::readPNG(
+    file.path(
+      survey_dir, 
+      language, 
+      "plot_layer_asset_exclusion_coal_Listed_equities.png"
+    )
   )
 )
 
@@ -125,29 +130,30 @@ data_exposures_survey_e <- prep_exposures_survey(results_portfolio,
                                              sector = "coal",
                                              asset_class = "equity")
 
-plot_eq_c_exp <- plot_exposures_survey(data_exposures_survey_e) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
+plot_eq_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
 
-pacta.executive.summary::grid.arrange(
-  pacta.executive.summary::rasterGrob(plot_bo_c_survey), 
-  plot_bo_c_exp, 
-  pacta.executive.summary::rasterGrob(plot_eq_c_survey), 
-  plot_eq_c_exp, 
-  ncol = 4
-)
+patchwork::wrap_elements(plot_bo_c_survey) + patchwork::wrap_elements(plot_bo_c_exp) +
+  patchwork::wrap_elements(plot_eq_c_survey) + patchwork::wrap_elements(plot_eq_c_exp) +
+  patchwork::plot_layout(widths = c(1, 1.2, 1, 1.2))
 ```
 
 ```{=latex}
+
 Coal exclusion badges compared to PACTA exposure for Corporate bonds (Left) and Listed equity (Right).
+
 ```
 
 
-```{r plot_exclusion_oil_gas, out.height="3cm", out.width="0.75\\textwidth"}
-plot_bo_og_survey <- pacta.executive.summary::readPNG(
+```{r plot_exclusion_oil_gas, fig.width=10, fig.height=3.5}
+plot_bo_og_survey <- pacta.executive.summary::rasterGrob(
+  pacta.executive.summary::readPNG(
   file.path(
     survey_dir, 
     language, 
     "plot_layer_asset_exclusion_oil_Corporate_bonds.png"
+    )
   )
 )
 
@@ -155,30 +161,33 @@ data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
                                                peers_results_aggregated,
                                              sector = "oil_and_gas",
                                              asset_class = "bonds")
-plot_bo_og_exp <- plot_exposures_survey(data_exposures_survey_b) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 
-plot_eq_og_survey <- pacta.executive.summary::readPNG(
-  file.path(
-    survey_dir, 
-    language, 
-    "plot_layer_asset_exclusion_oil_Listed_equities.png")
+plot_bo_og_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
+
+plot_eq_og_survey <- pacta.executive.summary::rasterGrob(
+  pacta.executive.summary::readPNG(
+    file.path(
+      survey_dir, 
+      language, 
+      "plot_layer_asset_exclusion_oil_Listed_equities.png"
+      )
+  )
 )
 
 data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
                                              sector = "oil_and_gas",
                                              asset_class = "equity")
-plot_eq_og_exp <- plot_exposures_survey(data_exposures_survey_e) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")
 
-pacta.executive.summary::grid.arrange(
-  pacta.executive.summary::rasterGrob(plot_bo_og_survey), 
-  plot_bo_og_exp, 
-  pacta.executive.summary::rasterGrob(plot_eq_og_survey), 
-  plot_eq_og_exp, 
-  ncol = 4
-)
+plot_eq_og_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
+
+patchwork::wrap_elements(plot_bo_og_survey) + patchwork::wrap_elements(plot_bo_og_exp) +
+  patchwork::wrap_elements(plot_eq_og_survey) + patchwork::wrap_elements(plot_eq_og_exp) +
+  patchwork::plot_layout(widths = c(1, 1.2, 1, 1.2))
 ```
 
 Oil and gas exclusion badges compared to PACTA exposure for Corporate bonds (Left) and Listed equity (Right).
