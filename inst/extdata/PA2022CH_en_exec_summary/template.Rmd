@@ -710,7 +710,6 @@ tryCatch(
 )
 ```
 
-
 ```{r emissions_covered}
 
 portfolio_emissions_covered <- emissions %>%
@@ -736,16 +735,20 @@ portfolio_emissions_covered <- emissions %>%
 
 
 ```
-Portfolio emissions covered by assessment: **`r round(portfolio_emissions_covered * 100)` \%**
 
-Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100)` \%**
+```{=latex}
+
+Portfolio emissions covered by assessment: \textbf{`r round(portfolio_emissions_covered * 100)` \%}
+
+Portfolio assets covered by assessment: \textbf{`r round(total_portfolio_percentage_coverage * 100)` \%}
 
 Climate scenario used: **GECO 2021**
 
-#### Verified Commitments to Net-Zero
+\subsection{Verified Commitments to Net-Zero}
 
 Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from \href{SBTi}{\url{https://sciencebasedtargets.org/companies-taking-action}}.
 
+```
 
 ```{r sbti_net_zero_commitments}
 fin_data_net_zero_targets <- readr::read_csv(
@@ -775,10 +778,13 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 ```
 
+```{=latex}
+
 * Share of companies in portfolio with verified commitments to net-zero and credible near term targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%**
 
 * Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%**
 
+```
 
 #### Real Estate Score
 
@@ -1001,6 +1007,9 @@ engagement_peers <-
 \end{multicols}
 
 \newpage
+
+```
+
 
 ## Climate Score Indicators
 
