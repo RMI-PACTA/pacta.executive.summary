@@ -554,7 +554,6 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 
 ```{=latex}
 \newpage
-```
 
 \section{Annex (IV): FAQs}
 
