@@ -1,7 +1,6 @@
 ---
 output:
   pdf_document:
-    latex_engine: xelatex
     includes:
       in_header: "preamble.tex"
 fontsize: 10pt
@@ -106,7 +105,7 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 \begin{minipage}{0.3\linewidth}%
 
 \exposureImage[width=0.3\textwidth]%
-\parbox{0.7\textwidth}{
+\parbox{0.6\textwidth}{
 \textbf{Exposure:} Provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings.
 }
 
@@ -115,7 +114,7 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 \begin{minipage}{0.3\linewidth}%
 
 \alignmentImage[width=0.3\textwidth]%
-\parbox{0.7\textwidth}{
+\parbox{0.6\textwidth}{
 \textbf{Trajectory alignment:} Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
 }
 
@@ -124,7 +123,7 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 \begin{minipage}{0.3\linewidth}%
 
 \engagementImage[width=0.3\textwidth]%
-\parbox{0.7\textwidth}{
+\parbox{0.6\textwidth}{
 \textbf{Engagement \& other qualitative indicators:} Complementary analysis with information on climate actions that can have real-world climate impact.
 }
 
@@ -1186,7 +1185,7 @@ _The information for this indicator was not collected in the PACTA Climate Test 
 * Climate initiatives should be consistent with the ambition of reaching net-zero by 2050
   * Implementation:  "Yes" means that at least one initiative is ticked for the user. "No" means that the user has not ticked any initiative. "Name": returns names of all ticked initiatives, but summarises the free field as "Other“
 * Votes should be considered as climate-relevant measure
-  * Implementation: "YES (asset type)" means that the user has investment in the asset type AND ticked that they exercise voting rights. "NO" means that the user has investment in the asset type AND NOT ticked that they exercise voting rights. "NOT ANSWERED": means that the user has not indicated that they have investments in the asset type.  Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type
+  * Implementation: "YES (asset type)" means that the user has investment in the asset type AND ticked that they exercise voting rights. "NO" means that the user has investment in the asset type AND NOT ticked that they exercise voting rights. "NOT ANSWERED": means that the user has not indicated that they have investments in the asset type. Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type
 * Engagement strategies should be considered as climate-relevant measure
   * Implementation: conditions for "YES (asset type)“, “NO”, “NOT ANSWERED” defined as above but for engagement strategies. For “other assets”, the above conditions must apply in at least one of the other assets. Peers: Number of users with a YES for the asset type out of all users that have invested in that asset type. Number of users with YES for other assets out of the number of users that have invested in at least one other asset type.
 
