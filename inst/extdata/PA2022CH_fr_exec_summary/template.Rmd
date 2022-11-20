@@ -569,7 +569,9 @@ Le fait de considérer l'engagement conjoint comme un moyen d'accroître l'effic
 
 \subsection{Diagramme stratigraphique: sélection négative dans le secteur du pétrole et du gaz ainsi que du charbon}
 
+
 \begin{minipage}[t]{0.3\textwidth}
+
 \verticalAlignImage
 
 \includegraphics[width=\textwidth]{chart_sample_7}
