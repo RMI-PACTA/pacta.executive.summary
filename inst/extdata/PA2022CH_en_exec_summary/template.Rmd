@@ -442,6 +442,7 @@ tryCatch(
 \subsection{Exposure to climate-relevant sectors \& technologies as \% of AUM} 
 
 **All PACTA sectors**
+
 \begin{minipage}[t]{0.3\linewidth}
 
 \includegraphics{chart_sample_1}
@@ -475,6 +476,7 @@ The bar chart on the left shows the portfolio's exposure to each of the eight PA
 \end{minipage}%
 \begin{minipage}[t]{0.5\textwidth}
 
+
 This chart shows current low-carbon technology exposure (percentage of sectoral exposure, x-axis) plotted against the sector-level alignment metric (alignment score, y-axis). Colored dots represent different entities (portfolio, average of all participants, average of peers). It investigates the relation between the two values as well as provides context for the alignment score. Ideally, an insitution would like to be positioned in the upper right corner (high exposure to low-carbon and high alignment). The bottom left corner is the least desired position (low exposure to low-carbon and low alignment).
 
 \end{minipage}%
@@ -485,6 +487,7 @@ This chart shows current low-carbon technology exposure (percentage of sectoral 
 
 \subsection{Aggregated alignment scores}
 
+
 \includegraphics{chart_sample_4}
 
 This chart displays the alignment scores both on the aggregate level (left-most bar) and on sector level. The bigger, dark-blue triangle indicates the score obtained by this portfolio and the smaller grey triangle indicates the average peer result. The horizontal line delineates the scores aligned with the 1.8°C pathway (or higher) from those that are not aligned. The 1.8°C pathway matches with the target in the Paris Agreement of limiting global warming to “well below 2°C”. The scores indicate the scenario with which the production plans of the invested companies align. Please refer to the two visualizations below for more information. 
@@ -493,13 +496,17 @@ This chart displays the alignment scores both on the aggregate level (left-most 
 
 This table shows the technical specifications in regard to the scenarios to define the score. For each score, one can see the requirements in regard to each scenario in the same row.
 
+
 \includegraphics{table_scenario_grading}
+
 
 \subsection{Example of production plans for a green technology according to the scores.}
 
 The chart below visualizes the specifications of the aggregated alignment score for an examplary production plan of a green technology. To derive the aggregated score, the sector-level scores are aggregated to one score. 
 
+
 \includegraphics{chart_scenario_grading}
+
 
 \newpage
 
@@ -507,14 +514,18 @@ The chart below visualizes the specifications of the aggregated alignment score 
 
 \subsection{Dart chart: overall climate strategy}
 
+
 \includegraphics{chart_sample_5}
+
 
 This dart chart shows whether your institution as a whole, according to your answers, practices reporting, has a climate strategy in place, and has concrete climate targets. An increasing efficacy from the first (outer layer) to the third (inner layer) is assumed. Best practice is defined as having all three layers covered.<br/>
 Transparency through reporting is a first step in the right direction, but ultimately a concrete climate goal needs to be set and backed by a trustworthy climate strategy to make a change. 
 
 \subsection{Dart chart: investee engagement in fossil fuel, automotive, and power sector}
 
+
 \includegraphics{chart_sample_6}
+
 
 This dart charts shows which engagement actions your institution is practicing, accoding to your answers. It starts with a general engagement policy, which can be improved in effectiveness through a dedicated engagement team and finally through joint engagement with other institutions. Best practice is when all three levels are covered.<br/>
 The chart is shown separately for fossil fuels, automotive, and power sector as these (i) are considered as the most climate relevant sectors and (ii) have low-carbon substitutes which allows investors to support the shift to existing technologies. 
@@ -526,6 +537,7 @@ Considering joint engagement as a way to increase the efficacy of engagement pra
 \subsection{Dart chart: negative screening in oil and gas as well as coal sector}
 
 \includegraphics{chart_sample_7}
+
 
 This dart chart shows whether your institution as a whole, according to your answers, has exclusion criteria defined, practices underweighting in the respective sectors as well as excludes companies if your action is not successful. Best practice is defined as having all three layers covered.<br/>
 This layer chart is shown for coal on the one hand and oil and gas on the other hand separately, and compared to the exposure in the respective sectors. The comparison to the PACTA exposure aims to provide insights in the effectiveness of the negative screening actions.
@@ -542,6 +554,7 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 
 ```{=latex}
 \newpage
+```
 
 \section{Annex (IV): FAQs}
 
@@ -551,11 +564,15 @@ The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil \& gas pr
 
 \subsection{Financial Exposure}
 
+
 \includegraphics{chart_sample_8}
+
 
 \subsection{Emission Exposure}
 
+
 \includegraphics{chart_sample_9}
+
 
 \subsection{Which asset classes does PACTA cover?}
 
@@ -582,7 +599,9 @@ If you want to learn more about the open-source methodology behind PACTA, you ca
 
 \newpage
 
+
 \section{Climate Score Indicators}
+
 
 \subsection{PACTA Executive Summary 2022}
 
@@ -598,7 +617,9 @@ All sources of carbon emissions from invested companies (scope 1-3) are included
 
 ```
 
-```{r emissions_scorecard}
+
+```{r emissions_scorecard, fig.height=2.5}
+
 tryCatch(
   {
     data_emissions_scorecard <- prep_emissions_scorecard(
@@ -667,7 +688,8 @@ There is scientific consensus on the need to phase-out coal, stop financing new 
 
 ```
 
-```{r exposures_scorecard}
+```{r exposures_scorecard, fig.height=2.5}
+
 tryCatch(
   {
     data_exposures_scorecard <- prep_exposures_scorecard(results_portfolio)
@@ -694,7 +716,7 @@ tryCatch(
 
 ```
 
-```{r scores_scorecard}
+```{r scores_scorecard, fig.height=3}
 tryCatch(
   {
     data_scores_scorecard <- prep_scores_scorecard(results_portfolio)
@@ -748,6 +770,7 @@ Climate scenario used: **GECO 2021**
 
 Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from \href{SBTi}{\url{https://sciencebasedtargets.org/companies-taking-action}}.
 
+
 ```
 
 ```{r sbti_net_zero_commitments}
@@ -788,7 +811,8 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 #### Real Estate Score
 
-```{r real_estate_scores_scorecard}
+```{r real_estate_scores_scorecard, fig.height=3}
+
 if (real_estate_flag){
 
   tryCatch(

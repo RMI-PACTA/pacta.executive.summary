@@ -30,7 +30,7 @@ plot_emissions_scorecard <- function(data) {
     geom_bar(stat = "identity") +
     geom_text(
       aes(
-        y = .data$emissions * 1.05,
+        y = .data$emissions + 0.1 * max(data$emissions, na.rm = TRUE),
         label = paste(
           format(.data$emissions, big.mark = ","),
           " tonnes"
