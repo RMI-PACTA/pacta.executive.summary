@@ -1,0 +1,723 @@
+---
+output:
+  pdf_document:
+    latex_engine: xelatex
+    includes:
+      in_header: "preamble.tex"
+fontsize: 10pt
+always_allow_html: true
+params:
+  survey_dir: NULL
+  real_estate_dir: NULL
+  real_estate_flag: TRUE
+  score_card_dir: NULL
+  language: EN
+  investor_name: investor
+  portfolio_name: portfolio
+  peer_group: pensionfund
+  audit_data: NULL
+  total_portfolio: NULL
+  scenario_selected: NULL
+  emissions_data: NULL
+  results_portfolio: NULL
+  peers_results_aggregated: NULL
+  peers_results_individual: NULL
+  indices_results_portfolio: NULL
+  currency_exchange_value: NULL
+  log_dir: NULL
+---
+
+```{=latex}
+% please note that LaTeX has semantic whitespace, espescially line
+% breaks. Adjust or add carefully.
+% There are also spots where a comment character (%) is used
+% semantically, to suppress whitespace from being inserted (generally at
+% the end of an environment)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, 
+                      error=FALSE, fig.keep='all')
+
+survey_dir <- params$survey_dir
+real_estate_dir <- params$real_estate_dir
+score_card_dir <- params$score_card_dir
+investor_name <- params$investor_name
+portfolio_name <- params$portfolio_name
+peer_group <- params$peer_group
+scenario_selected <- params$scenario_selected
+currency_exchange_value <- params$currency_exchange_value
+log_dir <- params$log_dir
+
+results_portfolio <- params$results_portfolio
+peers_results_individual <- params$peers_results_individual
+peers_results_aggregated <- params$peers_results_aggregated
+indices_results_portfolio <- params$indices_results_portfolio
+total_portfolio <- params$total_portfolio
+audit_data <- params$audit_data
+emissions_data <- params$emissions_data
+```
+
+---
+title: "Zusammenfassung `r format.POSIXct(Sys.time(), tz = "CET")` CET"
+subtitle:  |  
+  | PACTA-Klimatest Schweiz 2022
+  | Ergebnisse von `r investor_name`
+---
+
+```{=latex}
+\begin{esbox}[0.25\textwidth]{Inhalt}
+
+\begin{enumerate}
+\item Aktien und Unternehmensanleihen (Übersicht)
+\item Aktien und Unternehmensanleihen (heute und zukünftig)
+\item Umfrage
+\item Immobilien und Hypotheken
+\item Anhang (Erläuterungen zu Grafiken; FAQs)
+\item PACTA-basierte Scorecard entlang der Swiss Climate Scores
+\end{enumerate}
+
+\end{esbox}%
+\begin{esbox}[0.75\textwidth]{Über den PACTA-Klimatest 2022}
+```
+
+```{r number_peer, fig.height = 6}
+number_peers <- readr::read_csv(
+  file.path(score_card_dir, "number_peers.csv"),
+  col_types = readr::cols_only(
+    organization_type = "c",
+    n = "n"
+  )
+) %>% 
+  dplyr::filter(.data$organization_type == .env$peer_group) %>% 
+  dplyr::pull("n")
+```
+
+```{=latex}
+
+Die Schweiz und ihr Finanzmarkt haben sich zum Übergang zu Netto-Null-Treibhausgasemissionen bis 2050 verpflichtet, um die Ziele aus dem Klimaübereinkommen von Paris zur Begrenzung der globalen Erwärmung auf deutlich unter 2°C zu erreichen und ihre Bemühungen zur Begrenzung auf 1,5°C fortzusetzen. Der PACTA-Klimatest 2022 liefert vergleichbare Daten über die Fortschritte des Schweizer Finanzmarktes und der einzelnen teilnehmenden Finanzinstitute im Hinblick auf die Erreichung der Klimaziele. \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter wurde vom BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt.html}{link})} und vom SIF \textbf{(\href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{link})} mit Unterstützung der Verbände zum Klimatest eingeladen, um seine Finanzportfolios freiwillig untersuchen zu lassen. Der PACTA-Klimatest kombiniert eine quantitative Bewertung von Portfolios aus globalen börsennotierten Aktien und Unternehmensanleihen sowie von Schweizer Immobilien- und Hypothekarportfolios mit einer qualitativen Bewertung weiterer Klimamassnahmen. Insgesamt haben 133 Finanzinstitute teilgenommen, \startunderscoreletter `r number_peers` \stopunderscoreletter davon waren Peers (d. h. Teilnehmer aus dem gleichen Finanzsektor also Pensionskassen, Versicherungen, Banken oder Vermögensverwalter).
+
+
+Diese Kurzfassung ist eine Zusammenfassung der Einzelergebnisse Ihres hochgeladenen Portfolios \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter. \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter hat eine Zusammenfassung pro Portfolio erhalten. Ein detaillierter interaktiver Einzelbericht (pro Portfolio oder gruppiert) kann über einen persönlichen Zugang auf platform.transitionmonitor.com in Deutsch, Französisch und teilweise Englisch eingesehen werden. Ein Metabericht mit anonymisierten und aggregierten Daten aller Teilnehmer sowie Sektorberichte sind auf der Website des BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt.html}{link})} publiziert und stehen zum Download bereit.
+
+\end{esbox}
+
+\begin{esbox}{Messung der Klimaverträglichkeit}
+
+PACTA und das BAFU sind der Ansicht, dass die drei unten aufgeführten Kernfaktoren geeignet sind, um die Ausrichtung an den Klimazielen zu messen. Die Symbole werden in diesem Dokument verwendet, um für jede Grafik die Kategorie anzugeben.
+
+\begin{center}
+\begin{minipage}{0.3\linewidth}%
+\begin{center}
+
+\begin{minipage}[c]{0.3\textwidth}
+\exposureImage[width=\textwidth]%
+\end{minipage}%
+\begin{minipage}[c]{0.7\textwidth}
+\textbf{Exposition:} gibt Aufschluss darüber, wie stark Ihr Portfolio gegenüber klimarelevanten Sektoren, einschliesslich Immobilien, exponiert ist und bietet somit eine Risikoperspektive zur Klimaausrichtung.
+\end{minipage}%
+
+\end{center}
+\end{minipage}% % note the semantic % after end
+\begin{minipage}{0.3\linewidth}%
+\begin{center}
+
+\begin{minipage}[c]{0.3\textwidth}
+\alignmentImage%[width=\textwidth]%
+\end{minipage}%
+\begin{minipage}[c]{0.7\textwidth}
+\textbf{Klimaausrichtung:} bewertet die Ausrichtung der Produktionspläne investierter Unternehmen oder der Sanierungspläne für Gebäude auf Klimaszenarien und weist damit jedem Unternehmen und Gebäude Verantwortung zur Klimawirkung und Risiko zu.
+\end{minipage}%
+
+\end{center}
+\end{minipage}% % note the semantic % after end
+\begin{minipage}{0.3\linewidth}%
+\begin{center}
+
+\begin{minipage}[c]{0.3\textwidth}
+\engagementImage[width=\textwidth]%
+\end{minipage}%
+\begin{minipage}[c]{0.7\textwidth}
+\textbf{Klima-Engagement und andere qualitative Indikatoren:} Ergänzung der Analyse mit Informationen über Klimamassnahmen, die einen tatsächlichen Einfluss auf das Klima haben können.
+\end{minipage}%
+
+
+\end{center}
+\end{minipage}% % note the semantic % after end
+
+\end{center}
+\end{esbox}
+
+\begin{esbox}{Übersicht über die Ergebnisse von Aktien- und Anleiheportfolios}[\exposureImage]
+
+Die Analyse der Portfolios mit börsennotierten Aktien und Unternehmensanleihen umfasst acht klimarelevante Sektoren*. Für diese Sektoren wurde sowohl die Exposition als auch die Ausrichtung an Klimazielen zur Begrenzung der globalen Erwärmung auf deutlich unter 1,5 Grad (Klimaübereinkommen von Paris) analysiert. 
+Die Messung der Klimaausrichtung wurde anhand der PACTA-Methode durchgeführt. Bei PACTA werden die zukunftsgerichteten Produktionspläne aller investierten Unternehmen in den PACTA-Sektoren auf Technologieebene mit den Zielen aus Klimaszenarien verglichen. Weitere Informationen über die PACTA-Methode finden Sie auf dem PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
+
+
+```
+
+```{r diagram, fig.width=8, fig.height=2}
+tryCatch(
+  {
+    data_diagram <- prep_diagram(
+      audit_data = audit_data,
+      emissions_data = emissions_data,
+      currency_exchange_value = currency_exchange_value
+    )
+    plot_diagram(data_diagram)
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in prep/plot_diagram(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+```
+
+```{=latex}
+
+\raggedleft\footnotesize{* Kohlebergbau, Öl- und Gasförderung, Stromerzeugung, Automobil-, Zement- und Stahlindustrie und Luftfahrt}
+
+\end{esbox}
+
+\newpage
+
+\section{Ergebnisse von Aktien- und Unternehmensanleiheportfolios}
+
+\begin{esbox}{Ist-Zustand (PACTA-Sektoren)}[\exposureImage]
+
+%FIXME: make footnote
+\textbf{Exposition gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens}
+
+Die Grafik zeigt die Exposition gegenüber den PACTA-Sektoren. Die Exposition gegenüber fossilen Brennstoffen (Förderung von Kohle, Öl, Gas) wird aggregiert und zu Vergleichszwecken zusätzlich einzeln ausgewiesen sowie mit Peers und einem Index verglichen.
+```
+
+```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
+tryCatch(
+  {
+    data_green_brown_bars <- prep_green_brown_bars(
+      results_portfolio = results_portfolio,
+      scenario_selected = scenario_selected
+    )
+    plot_green_brown_bars(data_green_brown_bars)
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in prep/plot_green_brown_bars(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+tryCatch(
+  {
+    data_fossil_bars <- prep_fossil_bars(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      indices_results_portfolio = indices_results_portfolio,
+      scenario_selected = scenario_selected
+    )
+    plot_fossil_bars(data_fossil_bars)
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in prep/plot_fossil_bars(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+```
+
+```{=latex}
+
+\* Kohlenstoffarme Technologien (low-carbon) : erneuerbare Energien für die Stromerzeugung und Elektroantrieb für die Automobilindustrie. Kohlenstoffintensive Technologien (high-carbon): Kohle, Öl, Gas für die Stromerzeugung, Hybrid- und Verbrennungsmotoren für die Automobilindustrie.
+
+\end{esbox}
+
+\begin{esbox}{Ist-Zustand und zukünftig (Stromerzeugung)}[\alignmentImage
+\exposureImage]
+
+\textbf{Heutige Exposition vs. zukünftige Ausrichtung im Sektor Stromerzeugung}
+
+Die nachstehende Grafik zeigt die heutige Exposition gegenüber kohlenstoffarmen Technologien und die zukunftsorientierte Ausrichtung auf Klimaszenarien in der Stromerzeugung für Sie und Ihre Peers. Die heutige Exposition gegenüber kohlenstoffarmen Technologien in der Stromerzeugung nimmt nach rechts hin zu, während sich die Klimaausrichtung nach oben verbessert. Um ein 1,5-Grad-Szenario zu erreichen, ist eine erhebliche Kapazitätsausweitung bei den erneuerbaren Energien erforderlich, sodass selbst Unternehmen mit einem hohen Anteil an kohlenstoffarmen Technologien neue Kapazitäten aufbauen müssen, um in der Zukunft klimaverträglich ausgerichtet zu sein. Ein derzeit hoher Anteil an kohlenstoffarmen Technologien und gleichzeitig eine geringe zukünftige Klimaausrichtung würden auf einen Mangel an geplanten Investitionen in erneuerbare Energien hindeuten.
+
+```
+
+```{r scatter, fig.show="hold", out.width="0.4\\textwidth", fig.align='center'}
+
+tryCatch(
+  {
+    data_scatter_power_b <- prep_scatter(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      peers_results_individual = peers_results_individual,
+      indices_results_portfolio = indices_results_portfolio,
+      scenario_selected = scenario_selected,
+      asset_class = "bonds"
+    )
+
+    all_entity_types <- length(unique(data_scatter_power_b$entity_type)) == 4
+
+    if (all_entity_types | nrow(data_scatter_power_b) == 0) {
+      plot_scatter(data_scatter_power_b) +
+        patchwork::plot_annotation(
+          title = "Bonds",
+          theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 18))
+        )
+    }
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in prep/plot_scatter() for bonds. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+tryCatch(
+  {
+    data_scatter_power_e <- prep_scatter(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      peers_results_individual = peers_results_individual,
+      indices_results_portfolio = indices_results_portfolio,
+      scenario_selected = scenario_selected,
+      asset_class = "equity"
+    )
+
+    all_entity_types <- length(unique(data_scatter_power_e$entity_type)) == 4
+
+    if (all_entity_types | nrow(data_scatter_power_e) == 0) {
+      plot_scatter(data_scatter_power_e) +
+        patchwork::plot_annotation(
+          title = "Equity",
+          theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 18))
+        )
+    }
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in prep/plot_scatter() for equity. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+```
+
+```{=latex}
+\end{esbox}
+
+\begin{esbox}{Zukünftig (Sonstige PACTA-Sektoren)}[\alignmentImage]
+
+\textbf{PACTA Aggregierter Score zur Klimaausrichtung}
+
+Der Aggregierte Score zeigt die Ausrichtung aller Vermögenswerte bis 2026 im Vergleich zum GECO 2021-Szenario. Der Score wird sowohl auf Portfolioebene (siehe auch Indikatoren gemäss "Swiss Climate Scores") als auch für jeden einzelnen PACTA-Sektor (ausser Zement, da nicht in GECO 2021 abgedeckt) berechnet.\footnote{Das GECO-Szenario wurde ausgewählt, da es die meisten PACTA-Sektoren abdeckt. Bitte beachten Sie, dass das GECO-Szenario größere technologische Veränderungen erst nach dem Zeitraum von fünf Jahren annimmt, der in der PACTA-Analyse berücksichtigt wird. Daher kann ihr Aggregierter Score niedriger ausfallen, wenn ein anderes Szenario zur Berechnung benutzt wird.}
+
+```
+
+```{r scores, fig.show='hold', out.width='0.4\\textwidth', fig.align='center'}
+tryCatch(
+  {
+    data_scores_b <- prep_scores(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      asset_class = "bonds"
+    )
+    plot_scores(data_scores_b) +
+      patchwork::plot_annotation(
+        title = "Bonds",
+        theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+      )
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in prep/plot_scores(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+tryCatch(
+  {
+    data_scores_e <- prep_scores(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      asset_class = "equity"
+    )
+    plot_scores(data_scores_e) +
+      patchwork::plot_annotation(
+        title = "Equity",
+        theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+      )
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in prep/plot_scores(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+```
+
+```{=latex}
+\end{esbox}
+
+\newpage
+
+\section{Ergebnisse von Aktien- und Unternehmensanleiheportfolios}
+
+\begin{esbox}{Transition}[\alignmentImage \exposureImage]
+
+\textbf{Szenarioausrichtung pro Technologie}
+
+Während der vorangegangene Abschnitt Einblicke in die derzeitige Exposition gegenüber den verschiedenen PACTA-Sektoren sowie einen Überblick über die Ausrichtung auf Gesamt- und Sektorebene lieferte, bietet dieser Abschnitt zusätzliche Informationen über die Verträglichkeit mit dem GECO 2021 Szenario auf Technologieebene für die PACTA Sektoren mit Technologiepfaden.
+
+Die nachstehenden Grafiken zeigen, auf welches Klimaszenario die Technologien in Ihrem Portfolio im Vergleich zu Ihren Peers ausgerichtet sind. Die Position jedes Quadrats in den farblich markierten Rechtecken zeigt das Klimaszenario, auf das Ihr Portfolio und die Portfolios Ihrer Peers in fünf Jahren ausgerichtet sein werden. Die Grösse der Quadrate gibt den Umfang der Exposition (in \% des verwalteten Vermögens) an.
+
+Für mehr Informationen über die Veränderung der Ausrichtung Ihres Portfolios in den nächsten fünf Jahren pro Technologie sei auf die entsprechenden Grafiken im interaktiven Bericht verwiesen. Dort finden Sie auch zusätzliche Informationen auf Unternehmensebene. 
+
+```
+
+```{r alignment_table_bonds, fig.height=4, fig.width=6, fig.align='center'}
+tryCatch(
+  {
+    data_alignment_table <- prep_alignment_table(
+      results_portfolio = results_portfolio, 
+      peers_results_aggregated = peers_results_aggregated,
+      asset_class = "bonds"
+    )
+    plot_alignment_table(data_alignment_table) +
+    patchwork::plot_annotation(
+      title = "Bonds",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 16))
+    )
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in prep/plot_alignment_table() for bonds. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+```
+
+
+```{r alignment_table_equity, fig.height=4, fig.width=6, fig.align='center'}
+tryCatch(
+  {
+    data_alignment_table <- prep_alignment_table(
+      results_portfolio = results_portfolio, 
+      peers_results_aggregated = peers_results_aggregated,
+      asset_class = "equity"
+    )
+    plot_alignment_table(data_alignment_table) +
+    patchwork::plot_annotation(
+      title = "Equity",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 16))
+    )
+  },
+  error = function(e) {
+    pacta.portfolio.analysis:::write_log(
+      "ES: There was an error in prep/plot_alignment_table() for equity. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+```
+
+```{=latex}
+%FIXME: footnote
+\* Erneuerbare Energien: umfasst Solar- und Windenergie, ohne Wasser- und Kernkraft
+
+\*\* Automobilindustrie: umfasst leichte Fahrzeuge (eng. Light-duty vehicles, LDV)
+
+\end{esbox}
+
+\newpage
+```
+
+```{r survey_chapter, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
+```
+
+```{r survey_chapter_alternate, child='survey-chapter-alternate.Rmd', eval = !(dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
+```
+
+
+```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
+```
+
+ <!-- FIXME: Find a more elegant way to make this switch. -->
+```{r real_estate_chapter, child="real-estate-chapter-alternate.Rmd", eval = !real_estate_flag}
+```
+
+```{=latex}
+
+\newpage
+
+\section{Anhang (I): Zusätzliche Erläuterungen zu den Graphen}
+
+\subsection{Exposition gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens} 
+
+
+\begin{minipage}[t]{0.3\linewidth}
+\begin{center}
+\textbf{Alle PACTA-Sektoren}
+
+\includegraphics[width=\textwidth]{chart_sample_1}
+
+\end{center}
+\end{minipage}%
+\begin{minipage}[t]{0.3\linewidth}
+\begin{center}
+\textbf{Fossile Brennstoffe}
+
+\includegraphics[width=\textwidth]{chart_sample_2}
+
+\end{center}
+\end{minipage}%
+
+In der linken Grafik ist ein Balkendiagramm dargestellt, das die Exposition des Portfolios gegenüber jedem der acht PACTA-Sektoren zeigt in Prozent des verwalteten Vermögens.  Die Balken sind nach dem Umfang der Exposition in absteigender Reihenfolge angeordnet. Zusätzlich wird eine Aufteilung der Technologien (kohlenstoffarm, kohlenstoffintensiv, nicht spezifiziert) für die Sektoren vorgenommen, für die eine solche Aufteilung definiert ist. Die rechte Grafik zeigt die Exposition gegenüber dem Sektor der Förderung fossiler Brennstoffe als Aufteilung auf die verschiedenen fossilen Brennstoffe Kohle, Öl und Gas. Zudem ist ein Vergleich mit den Peers (Pensionskassen, Versicherungen, Banken oder Vermögensverwalter) sowie mit einem ETF für den MSCI World Index ersichtlich.
+
+\subsection{Derzeitige Exposition vs. zukünftige Ausrichtung in der Stromerzeugung}
+
+
+\includegraphics[width=0.5\textwidth]{chart_sample_3}
+
+Diese Grafik zeigt die derzeitige Exposition gegenüber kohlenstoffarmen Technologien (Prozentsatz der Sektorexposition, x-Achse) und die Klimaausrichtung auf Sektorebene (Klimaausrichtungs-Score, y-Achse). Die farbigen Punkte stellen verschiedene Einheiten (Portfolio, Durchschnitt aller Teilnehmenden, Durchschnitt der Peers) dar. Die Grafik lässt Rückschlüsse auf die Beziehung zwischen den beiden Werten zu und liefert Kontext für den Klimaausrichtungs-Score. Die ideale Position ist in der oberen rechten Ecke (hohe Exposition gegenüber kohlenstoffarmen Stromquellen und hohe Klimaausrichtung). Die untere linke Ecke ist die am wenigsten erwünschte Position (geringe Exposition gegenüber kohlenstoffarmen Stromquellen und geringe Klimaausrichtung). 
+
+
+\newpage
+
+\section{Anhang (I): Zusätzliche Erläuterungen zu den Graphen}
+
+\subsection{Gesamtscore zur Klimaausrichtung}
+
+
+\begin{minipage}[t]{0.4\textwidth}
+
+\verticalAlignImage
+\includegraphics[width=\textwidth]{chart_sample_4}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Diese Grafik stellt die Klimaausrichtungs-Scores sowohl insgesamt (Balken ganz links) als auch für jeden Sektor dar. Das grössere, dunkelblaue Dreieck zeigt das Ergebnis für dieses Portfolio an, das kleinere graue Dreieck das durchschnittliche Ergebnis der Peers. Die horizontale Linie stellt den Grenzwert für die Erreichung des Klimaziels von 1,8°C (oder höher) dar. Der 1,8°C-Pfad entspricht dem Ziel des Klimaübereinkommens von Paris, die globale Erwärmung auf „deutlich unter 2°C“ zu begrenzen. Die Scores geben an, welchem Szenario die Produktionspläne der investierten Unternehmen entsprechen. Weitere Informationen dazu entnehmen Sie den beiden folgenden Abbildungen. 
+
+\end{minipage}%
+
+\subsection{Szenariowahl und -abstufungen}
+
+Diese Tabelle zeigt die Vorgaben für die Szenarien zur Festlegung der Scores. Für jeden Score sind die Anforderungen in Bezug auf jedes Szenario in der gleichen Zeile aufgeführt. Mehr Erklärungen zu den Szenarien finden Sie im interaktiven Testbericht.
+
+\begin{center}
+\includegraphics[width=\textwidth]{table_scenario_grading}
+\end{center}
+
+
+\subsection{Beispiel eines Produktionsplans für eine grüne Technologie entsprechend den Scores.}
+
+Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Klimaausrichtung anhand eines exemplarischen Produktionsplans für eine grüne Technologie. Zur Ermittlung des Gesamtscores werden die einzelnen Sektor-Scores summiert. 
+
+
+\begin{center}
+\includegraphics{chart_scenario_grading}
+\end{center}
+
+\newpage
+
+\section{Anhang (II): Zusätzliche Erläuterungen zu den Graphen}
+
+\subsection{Zielscheibendiagramm: allgemeine Klimastrategien}
+
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
+\includegraphics{chart_sample_5}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+
+Dieses Zielscheibendiagramm zeigt, ob gemäss Ihren Antworten Ihr Finanzinstitut als Ganzes über Klimabelange Bericht erstattet, eine Klimastrategie verfolgt und konkrete Klimaziele hat. Es wird davon ausgegangen, dass die Wirksamkeit vom ersten, äusseren Kreis zum dritten, inneren Kreis zunimmt. Als Best Practice wird definiert, dass alle drei Ebenen abgedeckt sind.
+Transparenz durch Berichterstattung ist ein erster Schritt in die richtige Richtung, aber letztlich muss ein konkretes Klimaziel gesetzt und dessen Erreichung mittels einer glaubwürdigen Klimastrategie unterstützt werden, um eine Veränderung zu bewirken. 
+
+
+\end{minipage}%
+
+\subsection{Zielscheibendiagramm: Engagement bei Portfoliounternehmen in den Sektoren fossile Brennstoffe, Automobil und Stromerzeugung}
+
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
+
+\includegraphics[width=\textwidth]{chart_sample_6}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Dieses Zielscheibendiagramm zeigt, welche Engagement-Massnahmen Ihr Finanzinstitut gemäss Ihren Antworten ergreift. Dazu gehören zunächst eine Engagement-Politik, deren Wirksamkeit durch ein spezielles Engagement-Team und schliesslich durch gemeinsames Engagement mit anderen Organisationen verbessert werden kann. Als Best Practice wird definiert, dass alle drei Ebenen abgedeckt sind.
+Die Grafik wird für die Sektoren fossile Brennstoffe, Automobil und Stromerzeugung getrennt dargestellt, da diese (i) als die klimarelevantesten Sektoren gelten und (ii) es für diese kohlenstoffarme Substitute gibt, die es Investoren ermöglichen, den Wechsel zu bestehenden Technologien zu unterstützen. 
+Gemeinsames Engagement als Möglichkeit zur Steigerung der Wirksamkeit von Engagement-Praktiken wird in der Literatur aufgegriffen und beispielsweise von der NZAOA unterstützt 
+\href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{link}
+
+
+\end{minipage}%
+
+\subsection{Zielscheibendiagramm: Negativ-Screening im Öl- und Gassektor sowie im Kohlesektor}
+
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
+
+\includegraphics[width=\textwidth]{chart_sample_7}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Dieses Zielscheibendiagramm zeigt, ob gemäss Ihren Antworten Ihr Finanzinstitut als Ganzes Ausschlusskriterien festgelegt hat, Untergewichtungen in den jeweiligen Sektoren vornimmt sowie Unternehmen aus dem Anlageuniversum ausschliesst, wenn die Massnahmen Ihres Finanzinstituts nicht erfolgreich waren. Als Best Practice wird definiert, dass alle drei Ebenen abgedeckt sind.
+Das Zielscheibendiagramm wird für den Kohle- sowie für den Öl- und Gassektor getrennt dargestellt, und die Exposition in den jeweiligen Sektoren wird verglichen. Der Vergleich mit der PACTA-Exposition soll Aufschluss über die Wirksamkeit von Negativ-Screenings geben. 
+
+\end{minipage}%
+
+\newpage
+
+\section{Anhang (III): Zusätzliche Erläuterungen zu den Graphen}
+
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_map}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Geographische Verortung aller direkt gehaltenen Gebäude in der Schweiz. Die Farbe repräsentiert die Hauptnutzung des jeweiligen Gebäudes.
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.4\textwidth}
+
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_energy_carrier}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Anteil der Energieträger bei den direkt gehaltenen Gebäuden bzw. Hypotheken. Es werden die eingereichten bzw. aus dem GWR übernommenen Werte gezeigt. Falls keine der beiden Angaben greifbar ist, wird gemäss BAFU-Vorgabe "Öl" verwendet.
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.4\textwidth}
+
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_distribtion}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Mittlere CO\textsubscript{2}-Intensität aller direkt gehaltenen Gebäude bzw. Hypotheken je Teilnehmer. Die rote Säule repräsentiert den Mittelwert der eigenen jeweiligen Portfolios. Die horizontale Linie repräsentiert den Wert 14.9 kg/m\textsuperscript{2} des Absenkpfades "Langfristige Klimastrategie 2050" für das Jahr 2021.
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.4\textwidth}
+
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_emissions}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Zeitliche Entwicklung der mittleren CO\textsubscript{2}-Intensität aller direkt gehaltenen Gebäude je Teilnehmer im Vergleich mit dem Absenkpfad gemäss der "Langfristigen Energiestrategie 2050" des Bundes.
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.4\textwidth}
+\verticalAlignImage
+\includegraphics[width=\textwidth]{real_estate_stranded_asset}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+Anteile der über bzw. unter dem Absenkpfad gemäss der "Langfristigen Klimastrategie 2050" des Bundes liegenden Hypotheken im Verhältnis zu ihren Hypotheken zum jeweiligen Zeitpunkt. In hellgrün jene Hypotheken, die durch Sanierungsmassnahmen zum jeweiligen Zeitpunkt unter dem Absenkpfad liegen.
+
+\end{minipage}%
+
+\newpage
+
+\section{Anhang (IV): FAQs}
+
+\begin{esbox}{Welches sind die PACTA-Sektoren?}
+
+Die PACTA-Analyse deckt acht klimarelevante Sektoren ab: Kohlebergbau, Öl- und Gasproduktion, Stromerzeugung (fossile und erneuerbare), Automobilproduktion (Verbrennungs-, Hybrid-, Elektromotor), Luftfahrt, Zement und Stahl.
+In der Regel sind die Portfolios von Finanzinstituten wertemässig zu 5-15\% in diesen Sektoren investiert. Das finanzielle Engagement mag zwar gering erscheinen, aber im Durchschnitt sind die Anlagen für einen viel grösseren Anteil der Emissionen verantwortlich. Nachstehend sind die Grafiken eines Beispielportfolios dargestellt: 
+
+\begin{center}
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\textbf{Finanzielles Engagement}
+
+
+\includegraphics[width=\textwidth]{chart_sample_8}
+
+\end{center}
+
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+
+\begin{center}
+\textbf{Emissionsexposition}
+
+
+\includegraphics[width=\textwidth]{chart_sample_9}
+\end{center}
+\end{minipage}
+
+\end{center}
+\end{esbox}
+
+\begin{esbox}{Welche Anlageklassen deckt PACTA ab?}
+
+Die PACTA-Methodik umfasst börsennotierte Aktien und Unternehmensanleihen. Der PACTA-Klimatest Schweiz 2022, der in Zusammenarbeit mit der Wüest Partner AG entwickelt wurde, umfasst auch den Schweizer Immobilien- und Hypothekarmarkt.
+
+\end{esbox}
+
+\begin{esbox}{Wie kann ich meine Ergebnisse für die Berichterstattung verwenden?}
+
+Inwieweit Sie Ihre Ergebnisse nutzen, bleibt Ihnen überlassen. Die Ergebnisse eignen sich jedoch für eine Vielzahl von Berichterstattungsmöglichkeiten, wie z. B.:
+
+* Interne Berichterstattung und Kommunikation
+* Berichterstattung im Umfeld des teilnehmenden Finanzinstituts (Kunden, Versicherte etc.)
+* Externe Berichterstattung: Umsetzung der Empfehlungen des Bundesrates \href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-85925.html}{link}) zur Verwendung von vergleichbaren und aussagekräftigen Klimaverträglichkeitsindikatoren zur Schaffung von Transparenz bei allen Finanzprodukten und Kundenportfolios, einschliesslich der Swiss Climate Scores-Indikatoren 
+\href{https://www.sif.admin.ch/sif/de/home/swiss-climate-scores/bewertungsparameter.html}{link}.
+* Details zur Verwendung der Ergebnisse für die Berichterstattung gemäss TCFD, EU-Verordnung über die Offenlegung nachhaltiger Finanzprodukte (SFDR) oder EU-Taxonomie finden Sie im Bericht "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link}).
+
+\end{esbox}
+
+\begin{esbox}{Wo finde ich die vollständigen Ergebnisse dieses Tests (interaktiver Bericht)?}
+
+Diese Kurzfassung dient als Ergänzung zur umfassenden und interaktiven Darstellung Ihrer Ergebnisse im sogenannten interaktiven Testbericht. Diesen können Sie auf der Transition Monitor Plattform unter „Ergebnisse“ („Results“) einsehen, nachdem Sie sich mit Ihrem Passwort angemeldet haben \textbf{(\href{https://platform.transitionmonitor.com/}{link})}.
+
+\end{esbox}
+
+\begin{esbox}{Wo kann ich mehr über die PACTA-Methodik erfahren?}
+
+Mehr über die Open-Source-Methodik hinter PACTA erfahren Sie auf unserem „PACTA Knowledge Hub“ \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
+
+\end{esbox}
+
+\newpage
+
+```
+
+```{r scorecard, child='scorecard.Rmd'}
+```
+
