@@ -94,9 +94,15 @@ number_peers <- readr::read_csv(
 
 ```{=latex}
 
-Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C. The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals. `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` was invited to the test by the FOEN \textbf{(\href{link}{\url{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}})} and SIF \textbf{(\href{link}{\url{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}})} with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which `r number_peers` were peers (i.e., participants from the same financial sector, such as pension funds; insurances; banks; asset managers).
+Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2°C and pursuing efforts to limit it to 1.5°C. The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals.
+\startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter
+was invited to the test by the FOEN \textbf{(\href{link}{\url{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}})} and SIF \textbf{(\href{link}{\url{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}})} with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which
+\startunderscoreletter `r number_peers` \stopunderscoreletter
+were peers (i.e., participants from the same financial sector, such as pension funds; insurances; banks; asset managers).
 
-This executive summary is a short version of the individual results of your uploaded portfolio \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter. `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access at platform.transitionmonitor.com) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website
+This executive summary is a short version of the individual results of your uploaded portfolio \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter.
+\startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter
+received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access at platform.transitionmonitor.com) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website
 %FIXME: \textbf{(\href{link}{\url{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}})}
 and is available for download.
 
@@ -1022,8 +1028,13 @@ member_initiatives_peers <-
 
 * Is the financial institution member of a climate initiative?
 
-  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers: `r round(member_initiatives_peers * 100)` \%)**
-  `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}`
+  **`r if (member_initiatives_portfolio$yes == 1) {"YES"} else if (member_initiatives_portfolio$yes == 0 & file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.csv"))) {"NO"} else {"Not Answered"}`  (Peers:
+\startunderscoreletter `r round(member_initiatives_peers * 100)`
+\stopunderscoreletter
+\%)**
+ 
+\startunderscoreletter `r if (member_initiatives_portfolio$yes == 1) {paste0("Name:", member_initiatives_portfolio$name_climate_initiative)}` \stopunderscoreletter
+
 
 
 ```{r climate_strategy_voting_rights}
@@ -1074,10 +1085,18 @@ voting_rights_peers <-
 
 * Does the financial institution support climate strategies through voting rights?
   
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \%)**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer")` LE  (Peers: LE
+\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("answer")` PE  (Peers: PE
+\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "PE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("answer")` INF  (Peers: INF
+\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "INF") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r voting_rights_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets
+\startunderscoreletter `r round(voting_rights_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%)**
   
 
 ```{r climate_strategy_engagement}
@@ -1129,10 +1148,18 @@ engagement_peers <-
 
 * Does the financial institution support climate strategies through engagement measures?
 
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` \%);**
-  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \%)**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("answer") ` LE  (Peers: LE
+\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "LE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("answer")` CB  (Peers: CB
+\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "CB") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("answer")` RE  (Peers: RE
+\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "RE") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%);**
+  **`r engagement_portfolio %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("answer")` Other assets (Peers: Other assets
+\startunderscoreletter `r round(engagement_peers %>% dplyr::filter(.data$asset_type == "Other") %>% dplyr::pull("yes") * 100)` \stopunderscoreletter
+\%)**
 
 ```{=latex}
 \end{multicols}
