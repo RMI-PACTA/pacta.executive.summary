@@ -110,19 +110,21 @@ This executive summary is a short version of the individual results of your uplo
 
 In the view of PACTA and FOEN, there are three main components that are useful to measure alignment with climate goals which are shown below. The icons are used throughout this document to indicate the category for each chart.
 
-\begin{minipage}{0.3333\linewidth}%
+\begin{minipage}{0.3\linewidth}%
 
 \exposureImage
 \textbf{Exposure:} Provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings.
 
 \end{minipage}% % note the semantic % after end
-\begin{minipage}{0.3333\linewidth}%
+\hspace{0.05\textwidth}
+\begin{minipage}{0.3\linewidth}%
 
 \alignmentImage
 \textbf{Trajectory alignment:} Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
 
 \end{minipage}% % note the semantic % after end
-\begin{minipage}{0.3333\linewidth}%
+\hspace{0.05\textwidth}
+\begin{minipage}{0.3\linewidth}%
 
 \engagementImage
 \textbf{Engagement \& other qualitative indicators:} Complementary analysis with information on climate actions that can have real-world climate impact.
@@ -451,45 +453,32 @@ tryCatch(
 
 \subsection{Exposure to climate-relevant sectors \& technologies as \% of AUM} 
 
-**All PACTA sectors**
 
 \begin{minipage}[t]{0.3\linewidth}
+\begin{center}
+\textbf{All PACTA sectors}
 
-\includegraphics{chart_sample_1}
+\includegraphics[width=\textwidth]{chart_sample_1}
 
+\end{center}
 \end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.3\linewidth}
+\begin{center}
+\textbf{Fossil Fuels}
 
-**Fossil Fuels**
+\includegraphics[width=\textwidth]{chart_sample_1}
 
-
-
+\end{center}
 \end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\includegraphics[width=\textwidth]{chart_sample_2}
-
-\end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
 
 The bar chart on the left shows the portfolio's exposure to each of the eight PACTA sectors as a percentage of assets under management. The bars are arranged by the amount of exposure in descending order. In addition, a breakdown of technologies (low-carbon, carbon-intensive, unspecified) is provided for those sectors for which such a breakdown is defined. The graph on the right shows the exposure to the fossil fuel extraction sector as a breakdown between the different fossil fuels coal, oil and gas. In addition, a comparison with peers (pension funds, insurance companies, banks or asset managers) as well as with an ETF for the MSCI World Index can be seen.
 
-\end{minipage}%
-
 \subsection{Current exposure vs. future alignment for power sector}
 
-\begin{minipage}[t]{0.4\textwidth}
 
 \includegraphics{chart_sample_3}
 
-\end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
-
-
 This chart shows current low-carbon technology exposure (percentage of sectoral exposure, x-axis) plotted against the sector-level alignment metric (alignment score, y-axis). Colored dots represent different entities (portfolio, average of all participants, average of peers). It investigates the relation between the two values as well as provides context for the alignment score. Ideally, an insitution would like to be positioned in the upper right corner (high exposure to low-carbon and high alignment). The bottom left corner is the least desired position (low exposure to low-carbon and low alignment).
-
-\end{minipage}%
 
 \newpage
 
@@ -792,8 +781,6 @@ tryCatch(
 ```
 ```{=latex}
 \end{multicols}
-
-\newpage
 
 \subsection{Transition to Net zero}
 

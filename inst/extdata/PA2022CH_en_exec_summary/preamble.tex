@@ -7,8 +7,8 @@
 % \usepackage[default]{opensans}
 \usepackage[T1]{fontenc}
 
-\usepackage{showframe}
-\renewcommand*\ShowFrameColor{\color{watermelon}}
+% \usepackage{showframe}
+% \renewcommand*\ShowFrameColor{\color{watermelon}}
 
 \graphicspath{ {img/} }
 
@@ -107,8 +107,7 @@ headheight=0.0in
 }
 
 \NewDocumentCommand \esboxTitleString{ m o }{
-  % FIXME: load in images
-  #1%
+  \Large#1%
   \IfValueT{#2}{\hfill \textbf{#2}}
 }
 
