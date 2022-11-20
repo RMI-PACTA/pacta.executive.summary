@@ -37,8 +37,6 @@ tryCatch(
     empty_plot_error_message()
   }
 )
-
-
 ```
 
 ```{r emissions_scorecard_info}
@@ -73,18 +71,24 @@ total_portfolio_percentage_coverage <- (total_portfolio_percentage_equity + tota
 
 Benchmark:
 
-|Listed Equity |Corporate Bonds |
-|:-------------|:---------------|
-|iShares MSCI World ETF | iShares Global Corp Bond UCITS ETF |
+\begin{center}
+\begin{tabular}{ c c c } 
+ \hline
+ Listed Equity & Corporate Bonds \\ 
+ \hline
+ iShares MSCI World ETF & iShares Global Corp Bond UCITS ETF \\ 
+ \hline
+\end{tabular}
+\end{center}
 
+Portfolio assets covered by assessment: \textbf{`r round(total_portfolio_percentage_coverage * 100)` \%}
 
-
-Portfolio assets covered by assessment: **`r round(total_portfolio_percentage_coverage * 100)` \%**
+\vfill\null
+\columnbreak
 
 \textbf{Exposure to fossil fuels and renewable power, based on PACTA methodology}
 
 There is scientific consensus on the need to phase-out coal, stop financing new fossil fuel projects, and to increase renewable power capacity. Below figure shows the financial exposure (as AUM in \%) of this portfolio to technologies in the industries coal mining, oil and gas upstream, fossil fuel power production, and renewable power production. The PACTA exposure is based on production capacities and not on revenues. 
-
 
 ```
 
@@ -104,6 +108,7 @@ tryCatch(
   }
 )
 ```
+
 ```{=latex}
 \end{multicols}
 
@@ -153,7 +158,6 @@ portfolio_emissions_covered <- emissions %>%
   dplyr::filter(.data$covered_pacta) %>% 
   dplyr::pull("emissions_pacta_percent")
 
-
 ```
 
 ```{=latex}
@@ -162,12 +166,11 @@ Portfolio emissions covered by assessment: \textbf{`r round(portfolio_emissions_
 
 Portfolio assets covered by assessment: \textbf{`r round(total_portfolio_percentage_coverage * 100)` \%}
 
-Climate scenario used: **GECO 2021**
+Climate scenario used: \textbf{GECO 2021}
 
 \subsection{Verified Commitments to Net-Zero}
 
 Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from \href{https://sciencebasedtargets.org/companies-taking-action}{SBTi}.
-
 
 ```
 
@@ -201,13 +204,15 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 ```{=latex}
 
-* Share of companies in portfolio with verified commitments to net-zero and credible near term targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%**
+\begin{itemize}
+\item Share of companies in portfolio with verified commitments to net-zero and credible near term targets: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
 
-* Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: **`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%**
+\item Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
+\end{itemize}
+
+\subsection{Real Estate Score}
 
 ```
-
-#### Real Estate Score
 
 ```{r real_estate_scores_scorecard, fig.height=3}
 
@@ -246,18 +251,26 @@ if (real_estate_flag){
 
 ```
 
-
-### Swiss real estate and mortgages
-
-CO~2~ intensity according to GEAK classes (Means of the participant)
-
-```{r real_estate_score_text, eval = real_estate_flag}
-cat("Directly held buildings: 12.5 kg/m2 -> D ")
-cat("Mortgages: 25.1 kg/m2 -> G")
-```
-
-
 ```{=latex}
+
+
+\subsection{Swiss real estate and mortgages}
+
+CO\textsubscript{2} intensity according to GEAK classes (Means of the participant)
+
+\begin{itemize}
+\item Directly held buildings:
+`r real_estate_data[["real_estate"]][["co2eq_emissions"]]`
+\rightarrow
+`r real_estate_data[["real_estate"]][["co2eq_emissions_grade"]]`
+
+\item Mortgages:
+`r real_estate_data[["mortgage"]][["co2eq_emissions"]]`
+\rightarrow
+`r real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]`
+
+\end{itemize}
+
 \vfill\null
 \columnbreak
 
