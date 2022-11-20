@@ -85,7 +85,16 @@ plot_score_portfolio <- function(data) {
       arrow = arrow(type = "closed", length = unit(0.2, "npc")),
       color = unname(fill_colours_entities_scores["benchmark"])
     ) +
-    theme(axis.line = element_blank())
+    theme_2dii(
+      base_size = 18
+    ) +
+    theme(
+      axis.title = element_blank(),
+      legend.position = "none",
+      axis.line = element_blank(),
+      axis.ticks = element_blank(),
+      axis.text.x = element_blank()
+    )
 
   p
 }
@@ -130,7 +139,13 @@ plot_score_sector <- function(data, sector) {
       arrow = arrow(type = "closed", length = unit(0.15, "npc")),
       color = unname(fill_colours_entities_scores["benchmark"])
     ) +
+    theme_2dii(
+      base_size = 18
+    ) +
     theme(
+      axis.title = element_blank(),
+      axis.ticks = element_blank(),
+      legend.position = "none",
       axis.line = element_blank(),
       axis.text = element_blank()
     ) +
@@ -187,7 +202,8 @@ legend_scores <- function() {
         y = .data$y,
         label = .data$label
       ),
-      hjust = 0
+      hjust = 0,
+      size = 5
     ) +
     scale_x_continuous(limits = c(-0.5, 3)) +
     scale_y_continuous(limits = c(0, 4)) +
