@@ -44,33 +44,36 @@ stopifnot(all(sapply(X = cleaned_mortgage_paths, FUN = file.exists)))
 ```{=latex}
 \begin{esbox}{Current Status}
 
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
 Shares of energy sources compared to all participants 
 
 Directly held buildings
 ```
 
-```{r real_estate_bar_chart, out.width = '50%'}
+```{r real_estate_bar_chart, out.width = '0.8\\textwidth'}
 knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
 ```
 
 Mortgages 
 
-```{r real_estate_mortgages_bar_chart, out.width = '50%'}
+```{r real_estate_mortgages_bar_chart, out.width = '0.8\\textwidth'}
 knitr::include_graphics(cleaned_mortgage_paths[["png_energy_carrier"]])
 ```
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
 
+\begin{minipage}[t]{0.7\textwidth}
 Geographical distribution of directly held buildings by use 
+\end{minipage}%
 
 \hfill\exposureImage
 ```
 
 
-```{r real_estate_map, out.width = '50%'}
+```{r real_estate_map, out.width = '0.8\\textwidth'}
 knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
 ```
 
@@ -81,26 +84,29 @@ Link für Hinweise auf mögliche physische Klimarisiken:
 
 \end{minipage}%
 
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
 Distribution of the average CO\textsubscript{2} intensity of your real estate portfolio (directly held buildings) compared to peers. 
 
 ```
 
 
-```{r real_estate_distribution, out.width = '50%'}
+```{r real_estate_distribution, out.width = '0.8\\textwidth'}
 knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
 ```
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
 
+\begin{minipage}[t]{0.7\textwidth}
 Distribution of the mean CO\textsubscript{2} intensity of your mortgage portfolio compared to peers. 
+\end{minipage}
 \hfill\alignmentImage
 ```
 
 
-```{r mortgage_distribution, out.width = '50%'}
+```{r mortgage_distribution, out.width = '0.8\\textwidth'}
 knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
 ```
 
@@ -112,24 +118,27 @@ knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
 
 \begin{esbox}{Future Status}
 
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
 \textbf{Reduction path} of all directly held buildings with the submitted refurbishment plans. 
 
 ```
 
-```{r real_estate_reduction_path, out.width = '50%'}
+```{r real_estate_reduction_path, out.width = '0.8\\textwidth'}
 knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
 ```
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
 
+\begin{minipage}[t]{0.7\textwidth}
 \textbf{Proportion} of their mortgages that are above or below the reduction path for net zero by 2050
+\end{minipage}
 \hfill\alignmentImage
 ```
 
-```{r real_estate_reduction_proportion, out.width = '50%'}
+```{r real_estate_reduction_proportion, out.width = '0.8\\textwidth'}
 knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
 ```
 
