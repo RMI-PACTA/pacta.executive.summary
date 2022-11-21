@@ -8,6 +8,12 @@ Emissions from the Swiss building stock currently account for just over a quarte
 ```
 
 ```{r real_estate_load_data}
+# keep original setting so that it can be retrieved after fixing for missing paths in english
+language_original <- language
+if (language_original == "EN") {
+  language <- "DE"
+}
+
 real_estate_data <- jsonlite::read_json(
   path = file.path(real_estate_dir, "data", "data.json")
 )[["exec_sum"]]
@@ -39,6 +45,11 @@ cleaned_mortgage_paths <- mortgage_paths %>%
   remove_list_null %>%
   lapply(X = ., FUN = convert_re_user_path)
 stopifnot(all(sapply(X = cleaned_mortgage_paths, FUN = file.exists)))
+
+if (language_original == "EN") {
+  language <- "EN"
+}
+
 ```
 
 ```{=latex}
