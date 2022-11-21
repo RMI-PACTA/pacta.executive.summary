@@ -275,14 +275,14 @@ CO\textsubscript{2}-Intensität nach GEAK-Klassen (Portfoliodurchschnitt)
 
 \begin{itemize}
 \item Direkt gehaltene Gebäude:
-`r real_estate_data[["real_estate"]][["co2eq_emissions"]]`
+`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
 \(\rightarrow\)
-`r real_estate_data[["real_estate"]][["co2eq_emissions_grade"]]`
+`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
 
 \item Hypotheken:
-`r real_estate_data[["mortgage"]][["co2eq_emissions"]]`
+`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
 \(\rightarrow\)
-`r real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]`
+`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
 
 \end{itemize}
 

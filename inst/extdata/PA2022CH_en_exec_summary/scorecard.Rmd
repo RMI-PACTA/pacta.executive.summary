@@ -274,14 +274,14 @@ CO\textsubscript{2} intensity according to GEAK classes (Means of the participan
 
 \begin{itemize}
 \item Directly held buildings:
-`r real_estate_data[["real_estate"]][["co2eq_emissions"]]`
+`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
 \(\rightarrow\)
-`r real_estate_data[["real_estate"]][["co2eq_emissions_grade"]]`
+`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
 
 \item Mortgages:
-`r real_estate_data[["mortgage"]][["co2eq_emissions"]]`
+`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
 \(\rightarrow\)
-`r real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]`
+`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
 
 \end{itemize}
 
