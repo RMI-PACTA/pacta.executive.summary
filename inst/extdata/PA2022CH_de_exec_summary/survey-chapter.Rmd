@@ -82,7 +82,7 @@ file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Automotive
 ```{=latex}
 \end{minipage}%
 
-Engagement und Peer-Vergleich je Sektor. Links: Fossile Brennstoffe, Mitte: Automobilindustrie, Rechts: Stromerzeigung.
+Engagement und Peer-Vergleich je Sektor. Links: Fossile Brennstoffe, Mitte: Automobilindustrie, Rechts: Stromerzeugung.
 
 \end{center}
 
