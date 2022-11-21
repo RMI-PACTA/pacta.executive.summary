@@ -157,7 +157,7 @@ In the view of PACTA and FOEN, there are three main components that are useful t
 
 \begin{esbox}{Equity \& bonds module overview}[\exposureImage]
 
-The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 1.5 degrees (Paris Agreement) has been analyzed. The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to the PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
+The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 2 degrees (Paris Agreement) has been analyzed. The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to the PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
 
 ```
 

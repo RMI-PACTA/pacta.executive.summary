@@ -150,7 +150,7 @@ Selon PACTA et l'OFEV, trois éléments principaux sont utiles pour mesurer l'al
 
 \begin{esbox}{Aperçu des résultats pour les actions et obligations d’entreprise}[\exposureImage]
 
-L'analyse des portefeuilles d'actions et d'obligations d'entreprises cotées couvre 8 secteurs pertinents pour le climat*. Pour ces secteurs, l'exposition ainsi que l'alignement sur une trajectoire visant à limiter le réchauffement climatique bien en dessous de 1,5°C (Accord de Paris) ont été analysés. 
+L'analyse des portefeuilles d'actions et d'obligations d'entreprises cotées couvre 8 secteurs pertinents pour le climat*. Pour ces secteurs, l'exposition ainsi que l'alignement sur une trajectoire visant à limiter le réchauffement climatique bien en dessous de 2°C (Accord de Paris) ont été analysés. 
 La mesure de l'alignement de la trajectoire a été effectuée à l'aide de la méthode PACTA. PACTA compare les plans de production prospectifs de toutes les entreprises bénéficiant d’investissements dans les secteurs PACTA au niveau technologique aux objectifs tirés des scénarios climatiques. Pour obtenir de plus amples informations sur la méthodologie PACTA, veuillez consulter PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{lien})}.
 
 ```
