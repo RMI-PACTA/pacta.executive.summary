@@ -526,7 +526,7 @@ Um die Transition zu fördern, sind Investitionen in Klimalösungen entscheidend
 
 **Zwingende Anforderungen der Swiss Climate Scores:**
 
-* Der Schwellenwert von 5\% der Einnahmen gilt sowohl für Aktivitäten, die direkt mit der Exploration und Produktion fossiler Brennstoffe verbunden sind, als auch – sofern Daten verfügbar sind - für Aktivitäten, die diese Produktion finanzieren (für Kohle gemäss der «Global Coal Exit List» oder ähnlichem).
+* Der Schwellenwert von 5\% der Einnahmen gilt sowohl für Aktivitäten, die direkt mit der Exploration und Produktion fossiler Brennstoffe verbunden sind, als auch – sofern Daten verfügbar sind - für Aktivitäten, die diese Produktion finanzieren (für Kohle gemäss der "Global Coal Exit List" oder ähnlichem).
 * Der Umfang der Aktivitäten umfasst die gesamte Wertschöpfungskette, von der Exploration, Gewinnung und Produktion (Upstream) über den Transport und die Lagerung (Midstream) bis hin zur Raffinierung, Vermarktung und Elektrifizierung (Downstream).
 
 
