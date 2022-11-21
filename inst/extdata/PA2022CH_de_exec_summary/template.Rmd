@@ -319,7 +319,7 @@ tryCatch(
 
 \textbf{PACTA Aggregierter Score zur Klimaausrichtung}
 
-Der Aggregierte Score zeigt die Ausrichtung aller Vermögenswerte bis 2026 im Vergleich zum GECO 2021-Szenario. Der Score wird sowohl auf Portfolioebene (siehe auch Indikatoren gemäss "Swiss Climate Scores") als auch für jeden einzelnen PACTA-Sektor (ausser Zement, da nicht in GECO 2021 abgedeckt) berechnet.\footnote{Das GECO-Szenario wurde ausgewählt, da es die meisten PACTA-Sektoren abdeckt. Bitte beachten Sie, dass das GECO-Szenario größere technologische Veränderungen erst nach dem Zeitraum von fünf Jahren annimmt, der in der PACTA-Analyse berücksichtigt wird. Daher kann ihr Aggregierter Score niedriger ausfallen, wenn ein anderes Szenario zur Berechnung benutzt wird.}
+Der Aggregierte Score zeigt die Ausrichtung aller Vermögenswerte bis 2026 im Vergleich zum GECO 2021-Szenario. Der Score wird sowohl auf Portfolioebene (siehe auch Indikatoren gemäss "Swiss Climate Scores") als auch für jeden einzelnen PACTA-Sektor (ausser Zement, da nicht in GECO 2021 abgedeckt) berechnet.\footnote{Das GECO-Szenario wurde ausgewählt, da es die meisten PACTA-Sektoren abdeckt. Bitte beachten Sie, dass das GECO-Szenario grössere technologische Veränderungen erst nach dem Zeitraum von fünf Jahren annimmt, der in der PACTA-Analyse berücksichtigt wird. Daher kann ihr Aggregierter Score niedriger ausfallen, wenn ein anderes Szenario zur Berechnung benutzt wird.}
 
 ```
 
