@@ -236,7 +236,7 @@ tryCatch(
 
 ```{=latex}
 
-\* Kohlenstoffarme Technologien (low-carbon) : erneuerbare Energien für die Stromerzeugung und Elektroantrieb für die Automobilindustrie. Kohlenstoffintensive Technologien (high-carbon): Kohle, Öl, Gas für die Stromerzeugung, Hybrid- und Verbrennungsmotoren für die Automobilindustrie.
+\* Kohlenstoffarme Technologien (low-carbon) : erneuerbare Energien und Wasserkraft für die Stromerzeugung und Elektroantrieb für die Automobilindustrie. Kohlenstoffintensive Technologien (high-carbon): Kohle, Öl, Gas für die Stromerzeugung, Hybrid- und Verbrennungsmotoren für die Automobilindustrie.
 
 \end{esbox}
 
