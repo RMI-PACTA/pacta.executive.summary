@@ -1,6 +1,6 @@
 ```{=latex}
 
-\section{Indicateurs «Climate Scores»}
+\section{Indicateurs \guillemetleft Climate Scores\guillemetright}
 
 
 \subsection{Résumé du PACTA 2022}
@@ -217,7 +217,7 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 \begin{itemize}
 
-\item Part des entreprises du portefeuille ayant pris des engagements vérifiés pour atteindre le «net zéro» et pour la fixation d’objectifs intermédiaires crédibles: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
+\item Part des entreprises du portefeuille ayant pris des engagements vérifiés pour atteindre le \guillemetleft net zéro\guillemetright et pour la fixation d’objectifs intermédiaires crédibles: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
 
 \item Part moyenne des entreprises dans les portefeuilles de pairs ayant des engagements vérifiés envers le net zéro et des objectifs intermédiaires crédibles: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
 
