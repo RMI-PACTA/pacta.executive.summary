@@ -179,7 +179,7 @@ tryCatch(
 
 ```{=latex}
 
-\raggedleft\footnotesize{* Kohlebergbau, Öl- und Gasförderung, Stromerzeugung, Automobil-, Zement- und Stahlindustrie und Luftfahrt}
+\raggedleft\footnotesize{* Kohle, Öl- und Gas, Strom, Automobilindustrie, Zement, Stahl und Luftfahrt}
 
 \end{esbox}
 

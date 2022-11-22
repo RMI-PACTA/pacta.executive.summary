@@ -178,7 +178,7 @@ tryCatch(
 
 ```{=latex}
 
-\raggedleft\footnotesize{* extraction de charbon, extraction de pétrole et de gaz, électricité, automobile, ciment, acier et aviation}
+\raggedleft\footnotesize{* charbon, pétrole, gaz, électricité, automobile, ciment, acier et aviation}
 
 \end{esbox}
 
