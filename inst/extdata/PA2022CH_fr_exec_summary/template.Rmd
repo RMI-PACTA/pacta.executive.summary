@@ -235,7 +235,7 @@ tryCatch(
 
 ```{=latex}
 
-** Technologies \guillemetleft à faible émission de CO\textsubscript{2}\guillemetright  (low-carbon): énergies renouvelables pour l'électricité et énergie électrique pour l'automobile. Technologies \guillemetleft à forte émission de carbone» (high-carbon): charbon, pétrole, gaz 
+** Technologies \guillemetleft à faible émission de CO\textsubscript{2}\guillemetright \ (low-carbon): énergies renouvelables pour l'électricité et énergie électrique pour l'automobile. Technologies \guillemetleft à forte émission de carbone\guillemetright \ (high-carbon): charbon, pétrole, gaz 
 \end{esbox}
 
 \begin{esbox}{État actuel et futur (secteur de l'électricité)}[\alignmentImage
@@ -509,7 +509,7 @@ Ce graphique indique l'exposition actuelle aux technologies à faible émission 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Ce graphique affiche les scores d'alignement à la fois au niveau agrégé (barre la plus à gauche) et au niveau sectoriel. Le plus grand triangle bleu foncé indique le score obtenu par ce portefeuille et le plus petit triangle gris indique le résultat moyen obtenu par les pairs. La ligne horizontale délimite les scores alignés sur la trajectoire de 1,8 °C (ou plus) par rapport à ceux qui ne le sont pas. La trajectoire de 1,8°C correspond à l'objectif de l'Accord de Paris visant à limiter le réchauffement climatique à une hausse des températures \guillemetleft bien en dessous de 2°C\guillemetright. Les scores indiquent le scénario sur lequel s'alignent les plans de production des entreprises bénéficiant d’investissements. Pour obtenir de plus amples informations, veuillez vous reporter aux deux représentations ci-dessous.
+Ce graphique affiche les scores d'alignement à la fois au niveau agrégé (barre la plus à gauche) et au niveau sectoriel. Le plus grand triangle bleu foncé indique le score obtenu par ce portefeuille et le plus petit triangle gris indique le résultat moyen obtenu par les pairs. La ligne horizontale délimite les scores alignés sur la trajectoire de 1,8 °C (ou plus) par rapport à ceux qui ne le sont pas. La trajectoire de 1,8°C correspond à l'objectif de l'Accord de Paris visant à limiter le réchauffement climatique à une hausse des températures \guillemetleft bien en dessous de 2°C\guillemetright . Les scores indiquent le scénario sur lequel s'alignent les plans de production des entreprises bénéficiant d’investissements. Pour obtenir de plus amples informations, veuillez vous reporter aux deux représentations ci-dessous.
 
 \end{minipage}%
 
@@ -560,7 +560,7 @@ La transparence, par le biais de rapports, constitue un premier pas dans la bonn
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Ce diagramme stratigraphique indique, selon vos réponses, quelles actions votre institution pratique en matière d'engagement. Cela commence par une politique générale d'engagement, dont l'efficacité peut être améliorée grâce à une équipe dédiée à l'engagement, et enfin par un engagement conjoint avec d'autres institutions. Il est question de \guillemetleft meilleure pratique\guillemetright lorsque les trois strates sont couvertes.
+Ce diagramme stratigraphique indique, selon vos réponses, quelles actions votre institution pratique en matière d'engagement. Cela commence par une politique générale d'engagement, dont l'efficacité peut être améliorée grâce à une équipe dédiée à l'engagement, et enfin par un engagement conjoint avec d'autres institutions. Il est question de \guillemetleft meilleure pratique\guillemetright \ lorsque les trois strates sont couvertes.
 Le graphique est présenté séparément pour les secteurs des combustibles fossiles, de l'automobile et de l'énergie car ceux-ci (i) sont considérés comme les secteurs les plus pertinents pour le climat et (ii) disposent de substituts à faible émission de carbone qui permettent aux investisseurs de soutenir la transition vers les technologies existantes.
 Le fait de considérer l'engagement conjoint comme un moyen d'accroître l'efficacité des pratiques en matière d'engagement est un argument partagé par la littérature sur le sujet et soutenu, par exemple, par la NZAOA \href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{(lien)}). 
 
@@ -699,13 +699,13 @@ La mesure dans laquelle vous utilisez vos résultats dépend de vous. Cependant,
 
 \begin{esbox}{Où puis-je trouver les résultats complets de ce test (rapport interactif)?}
 
-Ce résumé analytique vient compléter la présentation générale et interactive de vos résultats dans le rapport de test dit \guillemetleft interactif\guillemetright. Vous pouvez le consulter sur la plateforme Transition Monitor sous l’onglet \guillemetleft Résultats\guillemetright après vous être connecté(e) avec votre mot de passe \textbf{(\href{https://platform.transitionmonitor.com/}{lien})}.
+Ce résumé analytique vient compléter la présentation générale et interactive de vos résultats dans le rapport de test dit \guillemetleft interactif\guillemetright . Vous pouvez le consulter sur la plateforme Transition Monitor sous l’onglet \guillemetleft Résultats\guillemetright \ après vous être connecté(e) avec votre mot de passe \textbf{(\href{https://platform.transitionmonitor.com/}{lien})}.
 
 \end{esbox}
 
 \begin{esbox}{Où puis-je en apprendre davantage sur la méthodologie PACTA?}
 
-Si vous souhaitez en apprendre davantage sur la méthodologie open source qui sous-tend PACTA, vous pouvez le faire sur notre \guillemetleft PACTA Knowledge Hub\guillemetright \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{lien})}.
+Si vous souhaitez en apprendre davantage sur la méthodologie open source qui sous-tend PACTA, vous pouvez le faire sur notre \guillemetleft PACTA Knowledge Hub\guillemetright \ \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{lien})}.
 
 \end{esbox}
 
