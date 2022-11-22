@@ -11,7 +11,7 @@
 #'   aggregate peer group level PACTA results from a PACTA for investors
 #'   analysis.
 #' @param sector Character. Must be of length 1 and either `coal` or
-#'   `oil and gas`.
+#'   `oil_and_gas`.
 #' @param asset_class Character. Must be of length 1 and either `equity` or
 #'   `bonds`.
 #'
