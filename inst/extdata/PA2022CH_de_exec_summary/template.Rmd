@@ -656,7 +656,7 @@ Anteile der über bzw. unter dem Absenkpfad gemäss der "Langfristigen Klimastra
 
 \begin{esbox}{Welches sind die PACTA-Sektoren?}
 
-Die PACTA-Analyse deckt acht klimarelevante Sektoren ab: Kohlebergbau, Öl- und Gasproduktion, Stromerzeugung (fossile und erneuerbare), Automobilproduktion (Verbrennungs-, Hybrid-, Elektromotor), Luftfahrt, Zement und Stahl.
+Die PACTA-Analyse deckt acht klimarelevante Sektoren ab: Kohle, Öl & Gas, Strom, Automobilindustrie, Zement, Stahl und Luftfahrt.
 In der Regel sind die Portfolios von Finanzinstituten wertemässig zu 5-15\% in diesen Sektoren investiert. Das finanzielle Engagement mag zwar gering erscheinen, aber im Durchschnitt sind die Anlagen für einen viel grösseren Anteil der Emissionen verantwortlich. Nachstehend sind die Grafiken eines Beispielportfolios dargestellt: 
 
 \begin{center}
