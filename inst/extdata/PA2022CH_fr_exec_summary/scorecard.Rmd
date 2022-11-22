@@ -137,12 +137,16 @@ tryCatch(
 
 ```{r emissions_covered}
 
-aggregate_score_emissions_covered_perc <- prep_scores_emissions_scorecard(emissions_data)
+aggregate_score_emissions_covered_perc <- prep_scores_emissions_scorecard(
+  emissions_data,
+  log_dir = log_dir
+)
 
 aggregate_score_exposure_covered_perc <- prep_scores_exposure_scorecard(
   audit_data = audit_data,
   currency_exchange_value = currency_exchange_value,
-  total_portfolio_value_curr = total_portfolio_value_curr
+  total_portfolio_value_curr = total_portfolio_value_curr,
+  log_dir = log_dir
 )
 
 ```
