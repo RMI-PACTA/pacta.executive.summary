@@ -42,14 +42,14 @@ tryCatch(
 total_portfolio_value_curr <- audit_data %>%
   dplyr::filter(.data$entity == "portfolio") %>%
   dplyr::mutate(value_usd = dplyr::if_else(value_usd < 0, 0, value_usd)) %>%
-  dplyr::mutate(value_curr = .data$value_usd / currency_exchange_value) %>%
+  dplyr::mutate(value_curr = .data$value_usd / .env$currency_exchange_value) %>%
   dplyr::pull("value_curr") %>%
   sum(na.rm = TRUE)
 
 total_portfolio_percentage_equity <- (audit_data %>%
   dplyr::filter(.data$entity == "portfolio") %>%
   dplyr::filter(.data$asset_type == "Equity") %>%
-  dplyr::mutate(value_curr = .data$value_usd / currency_exchange_value) %>%
+  dplyr::mutate(value_curr = .data$value_usd / .env$currency_exchange_value) %>%
   dplyr::pull("value_curr") %>%
   sum(na.rm = TRUE)) /
   total_portfolio_value_curr
@@ -57,7 +57,7 @@ total_portfolio_percentage_equity <- (audit_data %>%
 total_portfolio_percentage_bonds <- (audit_data %>%
   dplyr::filter(.data$entity == "portfolio") %>%
   dplyr::filter(.data$asset_type == "Bonds") %>%
-  dplyr::mutate(value_curr = .data$value_usd / currency_exchange_value) %>%
+  dplyr::mutate(value_curr = .data$value_usd / .env$currency_exchange_value) %>%
   dplyr::pull("value_curr") %>%
   sum(na.rm = TRUE)) /
   total_portfolio_value_curr
