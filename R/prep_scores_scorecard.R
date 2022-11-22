@@ -98,3 +98,49 @@ prep_scores_emissions_scorecard <- function(emissions_data) {
     )
   }
 }
+
+#' Prepare share of portfolio emissions covered by aggregate score analysis
+#'
+#' @param audit_data Data frame that contains pre-wrangled audit data
+#' @param currency_exchange_value Numeric vector with exchange rate
+#' @param total_portfolio_value_curr Numeric vector with total portfolio value
+#'   in target currency
+#'
+#' @return numeric
+#' @export
+prep_scores_exposure_scorecard <- function(audit_data,
+                                           currency_exchange_value,
+                                           total_portfolio_value_curr) {
+  if (any(is.null(emissions) | is.null(currency_exchange_value) | is.null(total_portfolio_value_curr))) {
+    data_out <- NULL
+    return(data_out)
+  } else {
+    tryCatch(
+      {
+        value_covered <- audit_data %>%
+          dplyr::filter(.data$entity == "portfolio") %>%
+          dplyr::filter(.data$asset_type %in% c("Bonds", "Equity")) %>%
+          # sectors currently included in aggregate score calculation
+          dplyr::filter(
+            .data$financial_sector %in% c("Automotive", "Coal", "Oil&Gas", "Power", "Aviation", "Steel")
+          ) %>%
+          dplyr::mutate(value_curr = .data$value_usd / .env$currency_exchange_value) %>%
+          dplyr::pull("value_curr") %>%
+          sum(na.rm = TRUE)
+
+        data_out <- value_covered / total_portfolio_value_curr
+
+        stopifnot(length(data_out) == 1)
+
+        return(data_out)
+      },
+      error = function(e) {
+        pacta.portfolio.analysis:::write_log(
+          "ES: There was an error in prep_scores_exposure_scorecard().\nReturning NULL.\n",
+          file_path = log_dir
+        )
+        NULL
+      }
+    )
+  }
+}
