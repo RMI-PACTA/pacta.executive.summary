@@ -88,7 +88,7 @@ prep_scores_emissions_scorecard <- function(emissions_data,
           dplyr::filter(.data$covered_aggregate_score) %>%
           dplyr::pull("emissions_pacta_percent")
 
-        stopifnot(length(data_out) == 1)
+        stopifnot(length(data_out) == 1L)
 
         return(data_out)
       },
@@ -117,7 +117,7 @@ prep_scores_exposure_scorecard <- function(audit_data,
                                            currency_exchange_value,
                                            total_portfolio_value_curr,
                                            log_dir) {
-  if (any(is.null(emissions) | is.null(currency_exchange_value) | is.null(total_portfolio_value_curr))) {
+  if (is.null(emissions) || is.null(currency_exchange_value) || is.null(total_portfolio_value_curr)) {
     data_out <- NULL
     return(data_out)
   } else {
@@ -136,7 +136,7 @@ prep_scores_exposure_scorecard <- function(audit_data,
 
         data_out <- value_covered / total_portfolio_value_curr
 
-        stopifnot(length(data_out) == 1)
+        stopifnot(length(data_out) == 1L)
 
         return(data_out)
       },
