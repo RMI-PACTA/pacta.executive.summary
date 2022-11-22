@@ -243,7 +243,7 @@ tryCatch(
 
 \* exposure to companies with main activity in PACTA sectors
 
-\*\* ‘Low-carbon’ technologies: renewables for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
+\*\* ‘Low-carbon’ technologies: renewables and hydro for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
 
 \end{esbox}
 
