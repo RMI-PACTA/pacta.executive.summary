@@ -7,7 +7,8 @@
 prep_scores_exposure_scorecard(
   audit_data,
   currency_exchange_value,
-  total_portfolio_value_curr
+  total_portfolio_value_curr,
+  log_dir
 )
 }
 \arguments{
@@ -17,6 +18,8 @@ prep_scores_exposure_scorecard(
 
 \item{total_portfolio_value_curr}{Numeric vector with total portfolio value
 in target currency}
+
+\item{log_dir}{Path to log file}
 }
 \value{
 numeric

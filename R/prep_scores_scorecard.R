@@ -51,10 +51,12 @@ prep_scores_scorecard <- function(results_portfolio,
 #' Prepare share of portfolio emissions covered by aggregate score analysis
 #'
 #' @param emissions_data Data frame that contains pre-wrangled emissions data
+#' @param log_dir Path to log file
 #'
 #' @return numeric
 #' @export
-prep_scores_emissions_scorecard <- function(emissions_data) {
+prep_scores_emissions_scorecard <- function(emissions_data,
+                                            log_dir) {
   if (is.null(emissions)) {
     data_out <- NULL
     return(data_out)
@@ -71,15 +73,17 @@ prep_scores_emissions_scorecard <- function(emissions_data) {
               FALSE
             )
           ) %>%
-          dplyr::group_by(covered_aggregate_score) %>%
+          dplyr::group_by(.data$covered_aggregate_score) %>%
           dplyr::summarise(
             emissions_pacta = sum(.data$weighted_sector_emissions, na.rm = TRUE),
             .groups = "drop"
           ) %>%
           dplyr::ungroup() %>%
           dplyr::mutate(
-            emissions_portfolio = sum(.data$emissions_pacta, na.rm = TRUE),
-            emissions_pacta_percent = emissions_pacta / emissions_portfolio
+            emissions_portfolio = sum(.data$emissions_pacta, na.rm = TRUE)
+          ) %>%
+          dplyr::mutate(
+            emissions_pacta_percent = .data$emissions_pacta / .data$emissions_portfolio
           ) %>%
           dplyr::filter(.data$covered_aggregate_score) %>%
           dplyr::pull("emissions_pacta_percent")
@@ -105,12 +109,14 @@ prep_scores_emissions_scorecard <- function(emissions_data) {
 #' @param currency_exchange_value Numeric vector with exchange rate
 #' @param total_portfolio_value_curr Numeric vector with total portfolio value
 #'   in target currency
+#' @param log_dir Path to log file
 #'
 #' @return numeric
 #' @export
 prep_scores_exposure_scorecard <- function(audit_data,
                                            currency_exchange_value,
-                                           total_portfolio_value_curr) {
+                                           total_portfolio_value_curr,
+                                           log_dir) {
   if (any(is.null(emissions) | is.null(currency_exchange_value) | is.null(total_portfolio_value_curr))) {
     data_out <- NULL
     return(data_out)

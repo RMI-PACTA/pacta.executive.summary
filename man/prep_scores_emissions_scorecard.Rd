@@ -4,10 +4,12 @@
 \alias{prep_scores_emissions_scorecard}
 \title{Prepare share of portfolio emissions covered by aggregate score analysis}
 \usage{
-prep_scores_emissions_scorecard(emissions_data)
+prep_scores_emissions_scorecard(emissions_data, log_dir)
 }
 \arguments{
 \item{emissions_data}{Data frame that contains pre-wrangled emissions data}
+
+\item{log_dir}{Path to log file}
 }
 \value{
 numeric
