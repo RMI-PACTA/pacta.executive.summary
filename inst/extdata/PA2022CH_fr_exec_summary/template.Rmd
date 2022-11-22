@@ -97,7 +97,7 @@ number_peers <- readr::read_csv(
 
 La Suisse et son marché financier se sont engagés à passer à zéro émission nette de gaz à effet de serre d'ici à 2050 afin d'atteindre les objectifs de l'accord de Paris sur le climat visant à limiter le réchauffement climatique bien en dessous de 2°C et de poursuivre leurs efforts pour le limiter à 1,5°C. Le test climatique PACTA 2022 fournit des informations comparables sur les progrès réalisés par la place financière suisse et les différentes institutions financières participantes en vue d’atteindre les objectifs climatiques. \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter a été invité à participer au test par l'OFEV \textbf{(\href{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/climat-et-marche-financier.html}{lien})} et le SIF \textbf{(\href{https://www.sif.admin.ch/sif/fr/home/finanzmarktpolitik/finance-durable.html}{lien})} avec le soutien des associations, en vue d’un examen volontaire de ses portefeuilles financiers. Le test PACTA associe une évaluation quantitative des portefeuilles mondiaux d'actions et d'obligations d'entreprises cotées ainsi que des portefeuilles immobiliers et hypothécaires suisses à une évaluation qualitative des actions climatiques. Au total, 133 institutions financières ont participé au test, dont \startunderscoreletter `r number_peers` \stopunderscoreletter étaient des pairs (c'est-à-dire des participants du même secteur financier que les institutions de prévoyance, les assurances, les banques et les gestionnaires d'actifs).
 
-Ce résumé est une synthèse des résultats individuels de votre portefeuille téléchargé \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter. \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter a reçu un résumé par portefeuille. Un rapport interactif individuel détaillé (par portefeuille ou groupé) peut être consulté via un accès personnalisé sur le site platform.transitionmonitor.com) en allemand, en français et partiellement en anglais. Un méta-rapport contenant des données anonymisées et agrégées de tous les participants, ainsi que des rapports sectoriels, est publié sur le site Internet de l'OFEV \textbf{(\href{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/climat-et-marche-financier.html}{lien})}.
+Ce résumé est une synthèse des résultats individuels de votre portefeuille téléchargé \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter. \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter a reçu un résumé par portefeuille. Un rapport interactif individuel détaillé (par portefeuille ou groupé) peut être consulté via un accès personnalisé sur le site platform.transitionmonitor.com en allemand, en français et partiellement en anglais. Un méta-rapport contenant des données anonymisées et agrégées de tous les participants, ainsi que des rapports sectoriels, est publié sur le site Internet de l'OFEV \textbf{(\href{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/climat-et-marche-financier.html}{lien})}.
 
 
 \end{esbox}
@@ -150,7 +150,7 @@ Selon PACTA et l'OFEV, trois éléments principaux sont utiles pour mesurer l'al
 
 \begin{esbox}{Aperçu des résultats pour les actions et obligations d’entreprise}[\exposureImage]
 
-L'analyse des portefeuilles d'actions et d'obligations d'entreprises cotées couvre 8 secteurs pertinents pour le climat*. Pour ces secteurs, l'exposition ainsi que l'alignement sur une trajectoire visant à limiter le réchauffement climatique bien en dessous de 1,5°C (Accord de Paris) ont été analysés. 
+L'analyse des portefeuilles d'actions et d'obligations d'entreprises cotées couvre 8 secteurs pertinents pour le climat*. Pour ces secteurs, l'exposition ainsi que l'alignement sur une trajectoire visant à limiter le réchauffement climatique bien en dessous de 2°C (Accord de Paris) ont été analysés. 
 La mesure de l'alignement de la trajectoire a été effectuée à l'aide de la méthode PACTA. PACTA compare les plans de production prospectifs de toutes les entreprises bénéficiant d’investissements dans les secteurs PACTA au niveau technologique aux objectifs tirés des scénarios climatiques. Pour obtenir de plus amples informations sur la méthodologie PACTA, veuillez consulter PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{lien})}.
 
 ```
@@ -235,7 +235,7 @@ tryCatch(
 
 ```{=latex}
 
-\* Technologies «à faible émission de CO\textsubscript{2}» (low-carbon): énergies renouvelables et l'hydroélectricité pour l'électricité et énergie électrique pour l'automobile. Technologies «à forte émission de carbone» (high-carbon): charbon, pétrole, gaz 
+** Technologies \guillemetleft à faible émission de CO\textsubscript{2}\guillemetright \ (low-carbon): énergies renouvelables et l'hydroélectricité pour l'électricité et énergie électrique pour l'automobile. Technologies \guillemetleft à forte émission de carbone\guillemetright \ (high-carbon): charbon, pétrole, gaz 
 \end{esbox}
 
 \begin{esbox}{État actuel et futur (secteur de l'électricité)}[\alignmentImage
@@ -509,7 +509,7 @@ Ce graphique indique l'exposition actuelle aux technologies à faible émission 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Ce graphique affiche les scores d'alignement à la fois au niveau agrégé (barre la plus à gauche) et au niveau sectoriel. Le plus grand triangle bleu foncé indique le score obtenu par ce portefeuille et le plus petit triangle gris indique le résultat moyen obtenu par les pairs. La ligne horizontale délimite les scores alignés sur la trajectoire de 1,8 °C (ou plus) par rapport à ceux qui ne le sont pas. La trajectoire de 1,8°C correspond à l'objectif de l'Accord de Paris visant à limiter le réchauffement climatique à une hausse des températures « bien en dessous de 2°C ». Les scores indiquent le scénario sur lequel s'alignent les plans de production des entreprises bénéficiant d’investissements. Pour obtenir de plus amples informations, veuillez vous reporter aux deux représentations ci-dessous.
+Ce graphique affiche les scores d'alignement à la fois au niveau agrégé (barre la plus à gauche) et au niveau sectoriel. Le plus grand triangle bleu foncé indique le score obtenu par ce portefeuille et le plus petit triangle gris indique le résultat moyen obtenu par les pairs. La ligne horizontale délimite les scores alignés sur la trajectoire de 1,8 °C (ou plus) par rapport à ceux qui ne le sont pas. La trajectoire de 1,8°C correspond à l'objectif de l'Accord de Paris visant à limiter le réchauffement climatique à une hausse des températures \guillemetleft bien en dessous de 2°C\guillemetright . Les scores indiquent le scénario sur lequel s'alignent les plans de production des entreprises bénéficiant d’investissements. Pour obtenir de plus amples informations, veuillez vous reporter aux deux représentations ci-dessous.
 
 \end{minipage}%
 
@@ -560,7 +560,7 @@ La transparence, par le biais de rapports, constitue un premier pas dans la bonn
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Ce diagramme stratigraphique indique, selon vos réponses, quelles actions votre institution pratique en matière d'engagement. Cela commence par une politique générale d'engagement, dont l'efficacité peut être améliorée grâce à une équipe dédiée à l'engagement, et enfin par un engagement conjoint avec d'autres institutions. Il est question de «meilleure pratique» lorsque les trois strates sont couvertes.
+Ce diagramme stratigraphique indique, selon vos réponses, quelles actions votre institution pratique en matière d'engagement. Cela commence par une politique générale d'engagement, dont l'efficacité peut être améliorée grâce à une équipe dédiée à l'engagement, et enfin par un engagement conjoint avec d'autres institutions. Il est question de \guillemetleft meilleure pratique\guillemetright \ lorsque les trois strates sont couvertes.
 Le graphique est présenté séparément pour les secteurs des combustibles fossiles, de l'automobile et de l'énergie car ceux-ci (i) sont considérés comme les secteurs les plus pertinents pour le climat et (ii) disposent de substituts à faible émission de carbone qui permettent aux investisseurs de soutenir la transition vers les technologies existantes.
 Le fait de considérer l'engagement conjoint comme un moyen d'accroître l'efficacité des pratiques en matière d'engagement est un argument partagé par la littérature sur le sujet et soutenu, par exemple, par la NZAOA \href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{(lien)}). 
 
@@ -699,13 +699,13 @@ La mesure dans laquelle vous utilisez vos résultats dépend de vous. Cependant,
 
 \begin{esbox}{Où puis-je trouver les résultats complets de ce test (rapport interactif)?}
 
-Ce résumé analytique vient compléter la présentation générale et interactive de vos résultats dans le rapport de test dit «interactif». Vous pouvez le consulter sur la plateforme Transition Monitor sous l’onglet «Résultats» après vous être connecté(e) avec votre mot de passe \textbf{(\href{https://platform.transitionmonitor.com/}{lien})}.
+Ce résumé analytique vient compléter la présentation générale et interactive de vos résultats dans le rapport de test dit \guillemetleft interactif\guillemetright . Vous pouvez le consulter sur la plateforme Transition Monitor sous l’onglet \guillemetleft Résultats\guillemetright \ après vous être connecté(e) avec votre mot de passe \textbf{(\href{https://platform.transitionmonitor.com/}{lien})}.
 
 \end{esbox}
 
 \begin{esbox}{Où puis-je en apprendre davantage sur la méthodologie PACTA?}
 
-Si vous souhaitez en apprendre davantage sur la méthodologie open source qui sous-tend PACTA, vous pouvez le faire sur notre «PACTA Knowledge Hub» \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{lien})}.
+Si vous souhaitez en apprendre davantage sur la méthodologie open source qui sous-tend PACTA, vous pouvez le faire sur notre \guillemetleft PACTA Knowledge Hub\guillemetright \ \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{lien})}.
 
 \end{esbox}
 

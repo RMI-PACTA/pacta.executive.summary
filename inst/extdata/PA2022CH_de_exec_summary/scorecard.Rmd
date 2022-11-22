@@ -518,16 +518,16 @@ Spezifizierungen:
 
 * Der Indikator zeigt das finanzielle Engagement in jeder Technologie auf der Grundlage des Technologiemix der einzelnen Unternehmen an.
 * Der Indikator basiert auf physischen Asset-Level-Unternehmensdaten und nicht auf Umsatzdaten 
-* Der Indikator zeigt nur die Exposition gegenüber dem Kernmarkt eines Unternehmens (hier: Kohle, Öl und Gas, Stromerzeugung). Dies bedeutet, dass die Stromerzeugungsanlagen von Apple nicht berücksichtigt werden, da das Kerngeschäft von Apple nicht die Stromerzeugung ist
+* Der Indikator zeigt nur die Exposition gegenüber dem Kernmarkt eines Unternehmens (hier: Kohle, Öl und Gas, Stromerzeugung). Dies bedeutet, dass z. B. die Kraftwerke von Apple nicht berücksichtigt werden, da das Kerngeschäft von Apple nicht die Stromerzeugung ist
 Der Indikator gibt Auskunft darüber, wie stark ein Portfolio gegenüber verschiedenen Technologien innerhalb desselben Sektors exponiert ist (z. B. Stromerzeugung aus fossilen Brennstoffen im Vergleich zu Stromerzeugung aus erneuerbaren Energien).
-* Bei der Ermittlung der Emissionen von Aktivitäten wird je nach Sektor unterschiedlich vorgegangen. Im Öl- und Gassektor werden die Upstream-Aktivitäten, im Kohlesektor der Kohlebergbau und im Stromsektor die Stromerzeugung mitberücksichtigt. Weitere Informationen finden Sie in der Dokumentation zum Gesamtscore auf der nächsten Seite 
+* Bei der Ermittlung der Emissionen von Aktivitäten wird je nach Sektor unterschiedlich vorgegangen. Im Öl- und Gassektor werden die Upstream-Aktivitäten, im Kohlesektor der Kohlebergbau und im Elektrizizätssektor die Stromerzeugung mitberücksichtigt. Weitere Informationen finden Sie in der Dokumentation zum Gesamtscore auf der nächsten Seite 
 
 Um die Transition zu fördern, sind Investitionen in Klimalösungen entscheidend, die nicht durch CO~2~-Emissionskennzahlen erfasst werden können. Aus diesem Grund ist in der Expositionstabelle auch die Exposition gegenüber erneuerbaren Energien enthalten.
 
 **Zwingende Anforderungen der Swiss Climate Scores:**
 
-* Der Schwellenwert von 5\% der Einnahmen gilt sowohl für Aktivitäten, die direkt mit der Exploration und Produktion fossiler Brennstoffe verbunden sind, als auch – sofern Daten verfügbar sind.
-* Für Aktivitäten, die diese Produktion finanzieren (für Kohle gemäss der «Global Coal Exit List» oder ähnlichem). Der Umfang der Aktivitäten umfasst die gesamte Wertschöpfungskette, von der Exploration, Gewinnung und Produktion (Upstream) über den Transport und die Lagerung (Midstream) bis hin zur Raffinierung, Vermarktung und Elektrifizierung (Downstream).
+* Der Schwellenwert von 5\% der Einnahmen gilt sowohl für Aktivitäten, die direkt mit der Exploration und Produktion fossiler Brennstoffe verbunden sind, als auch – sofern Daten verfügbar sind - für Aktivitäten, die diese Produktion finanzieren (für Kohle gemäss der "Global Coal Exit List" oder ähnlichem).
+* Der Umfang der Aktivitäten umfasst die gesamte Wertschöpfungskette, von der Exploration, Gewinnung und Produktion (Upstream) über den Transport und die Lagerung (Midstream) bis hin zur Raffinierung, Vermarktung und Elektrifizierung (Downstream).
 
 
 ### Immobilien und Hypotheken – zusätzlicher PACTA-Indikator
@@ -553,15 +553,15 @@ _Für diesen Indikator wurden im Rahmen des PACTA-Klimatests 2022 keine Informat
 * Klimainitiativen müssen mit dem 2050-Netto-Null-Ziel vereinbar sein
   * Umsetzung: „Ja“ bedeutet, dass der Nutzer mindestens eine Initiative angekreuzt hat. „Nein“ bedeutet, dass der Nutzer keine Initiative angekreuzt hat. „Name“ zeigt die Namen aller angekreuzten Initiativen; das freie Feld wird mit „Andere“ zusammengefasst
 * Die Ausübung von Stimmrechten wird als klimarelevante Massnahme angesehen
-  * Umsetzung: „JA (Anlageklasse)“ bedeutet, dass der Nutzer in der Anlageklasse investiert hat UND angekreuzt hat, dass er Stimmrechte ausübt. „NEIN“ bedeutet, dass der Nutzer in der Anlageklasse investiert hat, aber NICHT angekreuzt hat, dass er Stimmrechte ausübt. „KEINE ANTWORT“: der Nutzer hat nicht angegeben, dass er in der Anlageklasse investiert hat. Peers: Anzahl der Nutzer mit einem JA für die Anlageklasse von allen Nutzern, die in diese Anlageklasse investiert haben. Die abgedeckten Anlageklassen sind "Aktien (LE)", "Private Equity (PE)", "Infrastrukturanlagen (INF)", und "Andere Anlageklassen".
+  * Umsetzung: „JA (Anlageklasse)“ bedeutet, dass der Nutzer in der Anlageklasse investiert hat UND angekreuzt hat, dass er Stimmrechte ausübt. „NEIN“ bedeutet, dass der Nutzer in der Anlageklasse investiert hat, aber NICHT angekreuzt hat, dass er Stimmrechte ausübt. „KEINE ANTWORT“: der Nutzer hat nicht angegeben, dass er in der Anlageklasse investiert hat. Peers: Anzahl der Nutzer mit einem JA für die Anlageklasse von allen Nutzern, die in diese Anlageklasse investiert haben. Die abgedeckten Anlageklassen sind "börsennotierte Aktien (LE)", "Private Equity (PE)", "Infrastrukturanlagen (INF)", und "Andere Anlageklassen".
 * Engagement-Strategien werden als klimarelevante Massnahme angesehen
-  * Umsetzung: Bedingungen für „JA (Anlageklasse)“, „NEIN“ und „KEINE ANTWORT“ wie oben definiert, aber für Engagement-Strategien. Für „Andere Anlagen“ müssen die oben genannten Bedingungen auf mindestens eine der anderen Anlagen zutreffen. Peers: Anzahl der Nutzer mit einem JA für die Anlageklasse  von allen Nutzern, die in diese Anlageklasse investiert haben. Anzahl der Nutzer mit einem JA für andere Anlagen von allen Nutzern, die in mindestens eine andere Anlageklasse investiert haben. Die abgedeckten Anlageklassen sind "Aktien (LE)", "Unternehmensanleihen (CB)", "Immobilien/Hypotheken (RE)", und "Andere Anlageklassen".
+  * Umsetzung: Bedingungen für „JA (Anlageklasse)“, „NEIN“ und „KEINE ANTWORT“ wie oben definiert, aber für Engagement-Strategien. Für „Andere Anlagen“ müssen die oben genannten Bedingungen auf mindestens eine der anderen Anlagen zutreffen. Peers: Anzahl der Nutzer mit einem JA für die Anlageklasse  von allen Nutzern, die in diese Anlageklasse investiert haben. Die abgedeckten Anlageklassen sind "börsennotierte Aktien (LE)", "Unternehmensanleihen (CB)", "Immobilien/Hypotheken (RE)", und "Andere Anlageklassen".
 
 **Zwingende Anforderungen:**
 
 * Abstimmungen/Stellvertreterabstimmungen sollen mit dem 2050-Netto-Null-Ziel vereinbar sein. 
 * Jede miteinbezogene Engagement-Strategie soll mit dem 2050-Netto-Null-Ziel vereinbar sein. 
-* Ein Beispiel für eine Klima-EngagementInitiative ist Climate Action 100+. 
+* Ein Beispiel für eine Klima-Engagementinitiative ist Climate Action 100+. 
 * Das Eskalationsverfahren muss klar definiert und transparent verfügbar sein.
 
 ### PACTA Aggregierter Score zur Klimaausrichtung
@@ -569,7 +569,7 @@ _Für diesen Indikator wurden im Rahmen des PACTA-Klimatests 2022 keine Informat
 **Umsetzung:**
 
 * PACTA misst die Verträglichkeit der 5 Jahre vorausschauenden Produktionspläne der Unternehmen mit dem GECO 2021 Szenario. 
-* Die Sektor-Scores werden zu einem Score zusammengefasst.; Zement ist nicht im GECO 2021 Szenario enthalten und damit auch nicht Teil des Scores.
+* Die Sektor-Scores werden zu einem Score zusammengefasst; Zement ist nicht im GECO 2021 Szenario enthalten und damit auch nicht Teil des Scores.
 * Die meisten klimarelevanten Sektoren, einschliesslich ihrer jeweiligen Beiträge sind einbezogen.
 * Anwendungsfall: 
   * Finanzinstitute können intern und extern einfach und verständlich über ihre Klima-Performance kommunizieren.
