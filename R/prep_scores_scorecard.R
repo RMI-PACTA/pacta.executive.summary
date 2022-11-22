@@ -47,3 +47,54 @@ prep_scores_scorecard <- function(results_portfolio,
   }
   data_out
 }
+
+#' Prepare share of portfolio emissions covered by aggregate score analysis
+#'
+#' @param emissions_data Data frame that contains pre-wrangled emissions data
+#'
+#' @return numeric
+#' @export
+prep_scores_emissions_scorecard <- function(emissions_data) {
+  if (is.null(emissions)) {
+    data_out <- NULL
+    return(data_out)
+  } else {
+    tryCatch(
+      {
+        data_out <- emissions_data %>%
+          dplyr::filter(.data$entity == "portfolio") %>%
+          dplyr::mutate(
+            covered_aggregate_score = dplyr::if_else(
+              # sectors currently included in aggregate score calculation
+              .data$sector %in% c("Automotive", "Coal", "Oil&Gas", "Power", "Aviation", "Steel"),
+              TRUE,
+              FALSE
+            )
+          ) %>%
+          dplyr::group_by(covered_aggregate_score) %>%
+          dplyr::summarise(
+            emissions_pacta = sum(.data$weighted_sector_emissions, na.rm = TRUE),
+            .groups = "drop"
+          ) %>%
+          dplyr::ungroup() %>%
+          dplyr::mutate(
+            emissions_portfolio = sum(.data$emissions_pacta, na.rm = TRUE),
+            emissions_pacta_percent = emissions_pacta / emissions_portfolio
+          ) %>%
+          dplyr::filter(.data$covered_aggregate_score) %>%
+          dplyr::pull("emissions_pacta_percent")
+
+        stopifnot(length(data_out) == 1)
+
+        return(data_out)
+      },
+      error = function(e) {
+        pacta.portfolio.analysis:::write_log(
+          "ES: There was an error in prep_scores_emissions_scorecard().\nReturning NULL.\n",
+          file_path = log_dir
+        )
+        NULL
+      }
+    )
+  }
+}

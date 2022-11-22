@@ -136,32 +136,13 @@ tryCatch(
 
 ```{r emissions_covered}
 
-portfolio_emissions_covered <- emissions %>%
-  dplyr::mutate(
-    covered_pacta = dplyr::if_else(
-      .data$sector %in% c("Automotive", "Coal", "Oil&Gas", "Power", "Aviation", "Cement", "Steel"),
-      TRUE,
-      FALSE
-    )
-  ) %>%
-  dplyr::group_by(covered_pacta) %>%
-  dplyr::summarise(
-    emissions_pacta = sum(.data$weighted_sector_emissions, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  dplyr::ungroup() %>%
-  dplyr::mutate(
-    emissions_portfolio = sum(.data$emissions_pacta, na.rm = TRUE),
-    emissions_pacta_percent = emissions_pacta / emissions_portfolio
-  ) %>%
-  dplyr::filter(.data$covered_pacta) %>% 
-  dplyr::pull("emissions_pacta_percent")
+aggregate_score_emissions_covered_perc <- prep_scores_emissions_scorecard(emissions_data)
 
 ```
 
 ```{=latex}
 
-Abgedeckte Portfolio-Emissionen: \textbf{`r round(portfolio_emissions_covered * 100)` \%}
+Abgedeckte Portfolio-Emissionen: \textbf{`r round(aggregate_score_emissions_covered_perc * 100)` \%}
 
 Portfolio-Vermögenswerte: \textbf{`r round(total_portfolio_percentage_coverage * 100)` \%}
 
