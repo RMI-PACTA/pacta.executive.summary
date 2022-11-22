@@ -139,12 +139,18 @@ tryCatch(
 
 aggregate_score_emissions_covered_perc <- prep_scores_emissions_scorecard(emissions_data)
 
+aggregate_score_exposure_covered_perc <- prep_scores_exposure_scorecard(
+  audit_data = audit_data,
+  currency_exchange_value = currency_exchange_value,
+  total_portfolio_value_curr = total_portfolio_value_curr
+)
+
 ```
 
 ```{=latex}
 Émissions du portefeuille couvertes par l'évaluation: \textbf{`r round(aggregate_score_emissions_covered_perc * 100)` \%}
 
-Actifs du portefeuille couverts par l'évaluation: \textbf{`r round(total_portfolio_percentage_coverage * 100)` \%}
+Actifs du portefeuille couverts par l'évaluation: \textbf{`r round(aggregate_score_exposure_covered_perc * 100)` \%}
 
 Scénario climatique utilisé: \textbf{GECO 2021}
 
