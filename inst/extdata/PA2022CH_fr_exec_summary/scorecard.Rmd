@@ -29,7 +29,7 @@ tryCatch(
     plot_emissions_scorecard(data_emissions_scorecard)
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_emissions_scorecard(). Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -99,7 +99,7 @@ tryCatch(
     plot_exposures_scorecard(data_exposures_scorecard)
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_exposures_scorecard(). Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -126,7 +126,7 @@ tryCatch(
     plot_scores_scorecard(data_scores_scorecard)
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_scores_scorecard(). Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -246,7 +246,7 @@ if (real_estate_flag){
       )
     },
     error = function(e) {
-      pacta.portfolio.analysis:::write_log(
+      write_log(
         "ES: There was an error in prep/plot_scores_scorecard_real_estate(). Returning empty plot object.\n",
         file_path = log_dir
       )

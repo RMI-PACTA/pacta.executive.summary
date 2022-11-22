@@ -93,7 +93,7 @@ prep_scores_emissions_scorecard <- function(emissions_data,
         return(data_out)
       },
       error = function(e) {
-        pacta.portfolio.analysis:::write_log(
+        write_log(
           "ES: There was an error in prep_scores_emissions_scorecard().\nReturning NULL.\n",
           file_path = log_dir
         )
@@ -141,7 +141,7 @@ prep_scores_exposure_scorecard <- function(audit_data,
         return(data_out)
       },
       error = function(e) {
-        pacta.portfolio.analysis:::write_log(
+        write_log(
           "ES: There was an error in prep_scores_exposure_scorecard().\nReturning NULL.\n",
           file_path = log_dir
         )
