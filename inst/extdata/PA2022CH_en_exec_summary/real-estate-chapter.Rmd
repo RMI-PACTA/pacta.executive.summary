@@ -3,7 +3,7 @@
 
 The Real Estate and Mortgage section allows financial institutions to measure the alignment of their Swiss real estate and mortgage portfolio with the climate target of the Swiss building sector to reach net-zero emissions in 2050. Therefore, the PACTA test assesses the CO\textsubscript{2} emissions of your real estate and mortgage investments.
 
-Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO\textsubscript{2} emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO\textsubscript{2} emissions from buildings as a whole should have fallen by at least 40\% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO\textsubscript{2} emissions more rapidly in the future, in particular by renovating existing buildings. (\href{Link}{\url{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html}})
+Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO\textsubscript{2} emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO\textsubscript{2} emissions from buildings as a whole should have fallen by at least 40\% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO\textsubscript{2} emissions more rapidly in the future, in particular by renovating existing buildings \textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html}{link})}.
 
 ```
 
@@ -122,9 +122,7 @@ tryCatch(
 ```
 
 ```{=latex}
-Link für Hinweise auf mögliche physische Klimarisiken: 
-
-\href{Natural Hazards}{\url{https://map.geo.admin.ch/?topic=bafu&lang=en&bgLayer=ch.swisstopo.pixelkarte-grau&catalogNodes=825,826,843,849,851,1505}}
+Natural Hazards map Switzerland: \textbf{\href{https://map.geo.admin.ch/?topic=bafu&lang=en&bgLayer=ch.swisstopo.pixelkarte-grau&catalogNodes=825,826,843,849,851,1505}{(link)}}
 
 \end{minipage}%
 
