@@ -435,9 +435,9 @@ tryCatch(
 
 ```{=latex}
 %FIXME: footnote
-\* Energies renouvelables: inclut l'énergie solaire et éolienne, mais exclut l'hydroélectricité et le nucléaire
+* Energies renouvelables: inclut l'énergie solaire et éolienne, mais exclut l'hydroélectricité et le nucléaire
 
-\*\* Automobile: comprend les véhicules légers (LDV)
+** Automobile: comprend les véhicules légers (LDV)
 
 \end{esbox}
 
