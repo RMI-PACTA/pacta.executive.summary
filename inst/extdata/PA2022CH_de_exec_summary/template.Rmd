@@ -439,9 +439,9 @@ tryCatch(
 
 ```{=latex}
 %FIXME: footnote
-\* Erneuerbare Energien: umfasst Solar- und Windenergie, ohne Wasser- und Kernkraft
+* Erneuerbare Energien: umfasst Solar- und Windenergie, ohne Wasser- und Kernkraft
 
-\*\* Automobilindustrie: umfasst leichte Fahrzeuge (eng. Light-duty vehicles, LDV)
+** Automobilindustrie: umfasst leichte Fahrzeuge (eng. Light-duty vehicles, LDV)
 
 \end{esbox}
 
