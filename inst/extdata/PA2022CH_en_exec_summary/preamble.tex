@@ -124,12 +124,6 @@ headheight=0.0in
   \IfValueT{#2}{\hfill {#2}}
 }
 
-\NewDocumentCommand \scheaderTitleString{ m o }{
-  % \Large#1\vrule{24pt}{2pt}%
-  \Large#1%
-  \IfValueT{#2}{\hfill {#2}}
-}
-
 \NewDocumentEnvironment{esbox}{ O{\textwidth} m o }
 {% begin code
   \begin{minipage}[t]{#1}%
@@ -140,10 +134,10 @@ headheight=0.0in
   \end{minipage}%
 }%
 
-\NewDocumentEnvironment{scheader}{ O{\textwidth} m o }
+\NewDocumentEnvironment{scheader}{ O{\textwidth}}
 {% begin code
   \begin{minipage}[t]{#1}%
-  \begin{mdframed}[style=scheaderstyle, frametitle={\scheaderTitleString{#2}[#3]}]%
+  \begin{mdframed}[style=scheaderstyle}]%
 }
 { % enddef
   \end{mdframed}%

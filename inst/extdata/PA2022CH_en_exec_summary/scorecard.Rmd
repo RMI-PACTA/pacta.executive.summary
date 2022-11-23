@@ -1,5 +1,5 @@
 ```{=latex}
-\begin{scheader}{Climate Score Indicators}
+\begin{scheader}
 \section{Climate Score Indicators}
 
 
