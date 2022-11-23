@@ -568,7 +568,7 @@ Transparenz durch Berichterstattung ist ein erster Schritt in die richtige Richt
 Dieses Zielscheibendiagramm zeigt, welche Engagement-Massnahmen Ihr Finanzinstitut gemäss Ihren Antworten ergreift. Dazu gehören zunächst eine Engagement-Politik, deren Wirksamkeit durch ein spezielles Engagement-Team und schliesslich durch gemeinsames Engagement mit anderen Organisationen verbessert werden kann. Als Best Practice wird definiert, dass alle drei Ebenen abgedeckt sind.
 Die Grafik wird für die Sektoren fossile Brennstoffe, Automobil und Stromerzeugung getrennt dargestellt, da diese (i) als die klimarelevantesten Sektoren gelten und (ii) es für diese kohlenstoffarme Substitute gibt, die es Investoren ermöglichen, den Wechsel zu bestehenden Technologien zu unterstützen. 
 Gemeinsames Engagement als Möglichkeit zur Steigerung der Wirksamkeit von Engagement-Praktiken wird in der Literatur aufgegriffen und beispielsweise von der NZAOA unterstützt 
-\href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{link}
+\textbf{\href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{(link)}}.
 
 
 \end{minipage}%

@@ -3,8 +3,7 @@
 
 Der Bereich Immobilien und Hypotheken ermöglicht es Finanzinstituten, die Übereinstimmung ihres Schweizer Immobilien- und Hypothekenportfolios mit dem Klimaziel des Schweizer Gebäudesektors, bis 2050 Netto-Null-Emissionen zu erreichen, zu messen. Der PACTA-Test bewertet daher die CO\textsubscript{2}-Emissionen Ihrer Immobilien- und Hypothekenanlagen.
 
-Die Emissionen des Schweizer Gebäudebestands machen derzeit etwas mehr als ein Viertel der gesamten CO\textsubscript{2}-Emissionen der Schweiz aus. Neubauten sind heute weitgehend mit Heizsystemen aus erneuerbaren Quellen ausgestattet. Bis 2020 sollten die CO\textsubscript{2}-Emissionen des gesamten Gebäudebestands um mindestens 40\% gegenüber 1990 sinken - dieses Ziel wurde verfehlt. Um das vom Bundesrat deklarierte Netto-Null-Ziel für 2050 zu erreichen, muss der Schweizer Gebäudebestand seine CO\textsubscript{2}-Emissionen in Zukunft schneller reduzieren, insbesondere durch die Sanierung bestehender Gebäude.
-(\href{Link}{\url{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/emissionsverminderung/verminderungsziele/ziel-2050/klimastrategie-2050.html}})
+Die Emissionen des Schweizer Gebäudebestands machen derzeit etwas mehr als ein Viertel der gesamten CO\textsubscript{2}-Emissionen der Schweiz aus. Neubauten sind heute weitgehend mit Heizsystemen aus erneuerbaren Quellen ausgestattet. Bis 2020 sollten die CO\textsubscript{2}-Emissionen des gesamten Gebäudebestands um mindestens 40\% gegenüber 1990 sinken - dieses Ziel wurde verfehlt. Um das vom Bundesrat deklarierte Netto-Null-Ziel für 2050 zu erreichen, muss der Schweizer Gebäudebestand seine CO\textsubscript{2}-Emissionen in Zukunft schneller reduzieren, insbesondere durch die Sanierung bestehender Gebäude \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/emissionsverminderung/verminderungsziele/ziel-2050/klimastrategie-2050.html}{link})}.
 
 ```
 
@@ -112,9 +111,7 @@ tryCatch(
 ```
 
 ```{=latex}
-Naturgefahrenkarte Schweiz:
-
-\href{Natural Hazards}{\url{https://map.geo.admin.ch/?topic=bafu&lang=de&bgLayer=ch.swisstopo.pixelkarte-grau}}
+Naturgefahrenkarte Schweiz: \textbf{\href{https://map.geo.admin.ch/?topic=bafu&lang=de&bgLayer=ch.swisstopo.pixelkarte-grau}{(link)}}
 
 \end{minipage}%
 
