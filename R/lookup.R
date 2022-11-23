@@ -16,4 +16,4 @@ index_cb_short_lookup <- "iShares_Global_Corp_Bond"
 
 scatter_sector_lookup <- "Power"
 
-alignment_table_temperatures_lookup <- c("<1.5C", "1.5-1.8C", ">1.8C")
+alignment_table_temperatures_lookup <- c("<1.5\u00B0C", "1.5-1.8\u00B0C", ">1.8\u00B0C")

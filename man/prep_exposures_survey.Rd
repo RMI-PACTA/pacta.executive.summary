@@ -20,7 +20,7 @@ aggregate peer group level PACTA results from a PACTA for investors
 analysis.}
 
 \item{sector}{Character. Must be of length 1 and either \code{coal} or
-\verb{oil and gas}.}
+\code{oil_and_gas}.}
 
 \item{asset_class}{Character. Must be of length 1 and either \code{equity} or
 \code{bonds}.}
