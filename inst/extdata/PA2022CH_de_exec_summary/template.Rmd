@@ -693,11 +693,13 @@ Die PACTA-Methodik umfasst börsennotierte Aktien und Unternehmensanleihen. Der 
 
 Inwieweit Sie Ihre Ergebnisse nutzen, bleibt Ihnen überlassen. Die Ergebnisse eignen sich jedoch für eine Vielzahl von Berichterstattungsmöglichkeiten, wie z. B.:
 
-* Interne Berichterstattung und Kommunikation
-* Berichterstattung im Umfeld des teilnehmenden Finanzinstituts (Kunden, Versicherte etc.)
-* Externe Berichterstattung: Umsetzung der Empfehlungen des Bundesrates \href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-85925.html}{link}) zur Verwendung von vergleichbaren und aussagekräftigen Klimaverträglichkeitsindikatoren zur Schaffung von Transparenz bei allen Finanzprodukten und Kundenportfolios, einschliesslich der Swiss Climate Scores-Indikatoren 
+\begin{itemize}
+\item Interne Berichterstattung und Kommunikation
+\item Berichterstattung im Umfeld des teilnehmenden Finanzinstituts (Kunden, Versicherte etc.)
+\item Externe Berichterstattung: Umsetzung der Empfehlungen des Bundesrates \href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-85925.html}{link}) zur Verwendung von vergleichbaren und aussagekräftigen Klimaverträglichkeitsindikatoren zur Schaffung von Transparenz bei allen Finanzprodukten und Kundenportfolios, einschliesslich der Swiss Climate Scores-Indikatoren 
 \href{https://www.sif.admin.ch/sif/de/home/swiss-climate-scores/bewertungsparameter.html}{link}.
-* Details zur Verwendung der Ergebnisse für die Berichterstattung gemäss TCFD, EU-Verordnung über die Offenlegung nachhaltiger Finanzprodukte (SFDR) oder EU-Taxonomie finden Sie im Bericht "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link}).
+\item Details zur Verwendung der Ergebnisse für die Berichterstattung gemäss TCFD, EU-Verordnung über die Offenlegung nachhaltiger Finanzprodukte (SFDR) oder EU-Taxonomie finden Sie im Bericht "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link}).
+\end{itemize}
 
 \end{esbox}
 

@@ -690,10 +690,11 @@ La méthodologie PACTA porte sur les actions cotées en bourse et les obligation
 
 La mesure dans laquelle vous utilisez vos résultats dépend de vous. Cependant, les résultats conviennent à une variété de productions de rapport, telles que:
 
-* Rapports et communication internes
-* Rapports dans l'environnement de l'institution financière participante (clients, assurés, etc.)
-* Communication externe: Mise en œuvre des recommandations du Conseil fédéral (\href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-85925.html}{lien}) concernant l'utilisation d’indicateurs de compatibilité climatique comparables et significatifs afin d’aider à générer de la transparence dans tous les produits financiers et portefeuilles des clients, avec notamment des indicateurs conçus selon les Swiss Climate Scores \href{https://www.sif.admin.ch/sif/fr/home/swiss-climate-scores/bewertungsparameter.html}{(lien)}.
-* Des détails concernant les modalités d'utilisation des résultats pour les rapports réalisés selon le TCFD, le SFDR de l'UE ou la taxonomie de l'UE sont disponibles dans le rapport "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{lien}).
+\begin{itemize}
+\item Rapports et communication internes
+\item Rapports dans l'environnement de l'institution financière participante (clients, assurés, etc.)
+\item Communication externe: Mise en œuvre des recommandations du Conseil fédéral (\href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-85925.html}{lien}) concernant l'utilisation d’indicateurs de compatibilité climatique comparables et significatifs afin d’aider à générer de la transparence dans tous les produits financiers et portefeuilles des clients, avec notamment des indicateurs conçus selon les Swiss Climate Scores \href{https://www.sif.admin.ch/sif/fr/home/swiss-climate-scores/bewertungsparameter.html}{(lien)}.
+\item Des détails concernant les modalités d'utilisation des résultats pour les rapports réalisés selon le TCFD, le SFDR de l'UE ou la taxonomie de l'UE sont disponibles dans le rapport "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{lien}).
 
 \end{esbox}
 
