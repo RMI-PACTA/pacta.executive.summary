@@ -37,7 +37,7 @@ plot_alignment_table <- function(data) {
       p_power <- patchwork::plot_spacer()
     }
 
-    if (nrow(data %>% filter(.data$sector == "fossil_fuels", entity == "portfolio")) > 0) {
+    if (nrow(filter(data, .data$sector == "fossil_fuels", .data$entity == "portfolio")) > 0) {
       p_fossil <- plot_alignment_table_sector_stripe(data, "fossil_fuels", size_lim,
         size_range,
         ncol = 3
