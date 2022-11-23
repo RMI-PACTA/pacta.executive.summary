@@ -1,5 +1,5 @@
 ```{=latex}
-
+\begin{scheader}
 \section{Climate Score Indicators}
 
 
@@ -7,6 +7,10 @@
 
 The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{(link)}} were defined during the PACTA Climate Test 2022, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
 
+\end{scheader}
+```
+
+```{=latex}
 \subsection{CURRENT STATE}
 
 \begin{multicols}{2}
@@ -164,15 +168,16 @@ Climate scenario used: \textbf{GECO 2021}
 This score represents the estimated aggregate alignment of the PACTA sectors (except for cement) in the portfolio with respect to the GECO 2021 scenarios. Please bear in mind that the interpretation of this score should be accompanied by an analysis of the underlying results and investment strategy used in each one of the analysed sectors, given the assumptions that an aggregated metric is based on. Some portfolios with climate objectives may intentionally include investments in companies that are not yet on track to achieve 1.5\textdegree C alignment, seeking instead to contribute actively to climate goals by improving the alignment of investee companies to bring a larger share of the economy into alignment over time. The combined set of indicators above and their display are considered by the Swiss government to represent the current best-practice in providing science-based transparency on the alignment of portfolio assets with global climate goals.
 
 \end{multicols}
+```
 
+\newpage
+
+```{=latex}
 \begin{multicols}{2}
 
 \subsection{Verified Commitments to Net-Zero}
 
 Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from \href{https://sciencebasedtargets.org/companies-taking-action}{SBTi}.
-
-\vfill\null
-\columnbreak
 
 ```
 
@@ -211,13 +216,10 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 \item Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
 \end{itemize}
+```
 
-\vfill
-
-\newpage
-
+```{=latex}
 \subsection{Real Estate Score}
-
 ```
 
 ```{r real_estate_scores_scorecard, fig.height=3}
@@ -278,7 +280,9 @@ CO\textsubscript{2} intensity according to GEAK classes (Means of the participan
 
 \vfill\null
 \columnbreak
+```
 
+```{=latex}
 \subsection{Overall Climate Strategy including Credible Climate Stewardship}
 
 Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
@@ -479,17 +483,21 @@ engagement_peers <-
 \end{itemize}
 \end{multicols}
 
-\newpage
-
 ```
 
+\newpage
 
-## Climate Score Indicators
+```{=latex}
+\begin{scheader}
+\section{Climate Score Indicators}
 
-### PACTA Executive Summary 2022
+
+\subsection{PACTA Executive Summary 2022}
 
 MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
 
+\end{scheader}
+```
 
 ### Carbon Footprint
 

@@ -1,12 +1,15 @@
 ```{=latex}
-
+\begin{scheader}
 \section{Climate Scores Indikatoren}
 
 
 \subsection{PACTA-Kurzfassung 2022}
 
 Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Kurzfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren. Da die Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{(link)}} während des PACTA-Klimatests 2022 definiert wurden, gibt es einige Abweichungen, die auf den Folgeseiten mit den Erläuterungen angegeben sind. Bitte beachten Sie, dass die Indikatoren für die Exposition gegenüber fossilen Brennstoffen und zum ‘globalen Erwärmungspotenzial’ auf der PACTA-Methodik und den PACTA-Sektoren basieren.
+\end{scheader}
+```
 
+```{=latex}
 \subsection{IST-ZUSTAND}
 
 \begin{multicols}{2}
@@ -165,15 +168,16 @@ Dieser Score zeigt die geschätzte Gesamtausrichtung der PACTA-Sektoren (ohne Ze
 
 
 \end{multicols}
+```
 
+\newpage
+
+```{=latex}
 \begin{multicols}{2}
 
 \subsection{Verifizierte Bekenntnisse zu Netto-Null}
 
 Immer mehr Unternehmen bekennen sich freiwillig zu Netto-Null Emissionszielen und formulieren Zwischenziele. Die Wirksamkeit solcher Bekenntnisse hängt davon ab, ob die Zwischenziele glaubwürdig, wissenschaftlich fundiert und transparent sind. Die folgenden Informationen beruhen auf Angaben der SBTi \textbf{\href{https://sciencebasedtargets.org/companies-taking-action}{(link)}}.
-
-\vfill\null
-\columnbreak
 
 ```
 
@@ -212,11 +216,9 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 \item Durchschnittlicher Anteil der Unternehmen in Peer-Portfolios mit verifizierten Bekenntnissen zu Netto-Null und glaubwürdigen Zwischenzielen: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
 \end{itemize}
+```
 
-\vfill
-
-\newpage
-
+```{=latex}
 \subsection{Real Estate Score}
 
 ```
@@ -279,7 +281,9 @@ CO\textsubscript{2}-Intensität nach GEAK-Klassen (Portfoliodurchschnitt)
 
 \vfill\null
 \columnbreak
+```
 
+```{=latex}
 \subsection{Gesamtklimastrategie einschliesslich eines glaubwürdigen Klimadialogs}
 
 Finanzinstitute können zur Transition zu Netto-Null beitragen, indem sie sich bei investierten Unternehmen für wissenschaftsbasierte und extern verifizierte Transitionspläne hin zu 2050 einsetzen.
@@ -479,18 +483,21 @@ engagement_peers <-
 
 \end{itemize}
 \end{multicols}
+```
 
 \newpage
 
-```
+```{=latex}
+\begin{scheader}
+\section{Klimaverträglichkeitsindikatoren}
 
 
-## Klimaverträglichkeitsindikatoren
-
-### PACTA-Kurzfassung 2022
+\subsection{PACTA-Kurzfassung 2022}
 
 MINDESTKRITERIEN FÜR DIE SWISS CLIMATE SCORES UND DEREN UMSETZUNG IM PACTA-KIMATEST
 
+\end{scheader}
+```
 
 ### CO~2~-Fussabdruck
 
