@@ -35,8 +35,27 @@ prep_exposures_scorecard <- function(results_portfolio,
       )
 
     # calculate current exposures and wrangle for score card
-    data_out <- data %>%
+    data <- data %>%
       wrangle_data_exposures_scorecard()
+
+    # ensure that all sector/tech combinations are returned for the given asset_classes
+    all_sector_or_tech <- expand.grid(
+      asset_class = unique(data$asset_class),
+      sector_or_tech = c("coal", "other_fossil_fuels", "fossil_power", "renewables_power")
+    )
+
+    data_out <- all_sector_or_tech %>%
+      dplyr::left_join(
+        data,
+        by = c("asset_class", "sector_or_tech")
+      ) %>%
+      dplyr::mutate(
+        exposure_perc_aum = dplyr::if_else(
+          is.na(.data$exposure_perc_aum),
+          0,
+          .data$exposure_perc_aum
+        )
+      )
   }
   data_out
 }
