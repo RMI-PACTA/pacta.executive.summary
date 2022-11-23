@@ -35,6 +35,7 @@ headheight=0.0in
 }
 
 \definecolor{esLightGray}{HTML}{F2F2F2}
+\definecolor{scBlueGray}{HTML}{475767}
 \definecolor{watermelon}{HTML}{B4Da55}
 \definecolor{candy}{HTML}{f42069}
 
@@ -99,6 +100,19 @@ headheight=0.0in
   frametitlebelowskip=0
 }
 
+\mdfdefinestyle{scheaderstyle}{
+  backgroundcolor = scBlueGray,
+  linecolor=white,
+  linewidth=0,
+  frametitleaboveskip=0,
+  frametitlebelowskip=0,
+  innerrightmargin=0.7em,
+  rightmargin=0.0em,
+  innerleftmargin=0.7em,
+  leftmargin=0.0em,
+  fontcolor=white
+}
+
 
 \mdfdefinestyle{debugstyle}{
   frametitlebackgroundcolor = watermelon,
@@ -124,19 +138,15 @@ headheight=0.0in
   \end{minipage}%
 }%
 
-\NewDocumentCommand \esSidebar{ m }{
-  foo
+\NewDocumentEnvironment{scheader}{ O{\textwidth}}
+{% begin code
+  \begin{minipage}[t]{#1}%
+  \begin{mdframed}[style=scheaderstyle]%
 }
-
-\NewDocumentCommand \scorecardHeader{ m }{
-  \begin{minipage}{0.25\pagewidth}
-    foo \\
-    bar
+{ % enddef
+  \end{mdframed}%
   \end{minipage}%
-  \begin{minipage}{0.75\pagewidth}
-    #1
-  \end{minipage}%
-}
+}%
 
 \newcommand{\startunderscoreletter}{\catcode`_ 12\relax}
 \newcommand{\stopunderscoreletter}{\catcode`_ 8\relax}

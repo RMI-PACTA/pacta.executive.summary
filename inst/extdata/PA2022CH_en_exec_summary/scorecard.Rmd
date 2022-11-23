@@ -1,5 +1,5 @@
 ```{=latex}
-
+\begin{scheader}
 \section{Climate Score Indicators}
 
 
@@ -7,6 +7,10 @@
 
 The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{(link)}} were defined during the PACTA Climate Test 2022, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
 
+\end{scheader}
+```
+
+```{=latex}
 \subsection{CURRENT STATE}
 
 \begin{multicols}{2}
@@ -479,17 +483,21 @@ engagement_peers <-
 \end{itemize}
 \end{multicols}
 
-\newpage
-
 ```
 
+\newpage
 
-## Climate Score Indicators
+```{=latex}
+\begin{scheader}
+\section{Climate Score Indicators}
 
-### PACTA Executive Summary 2022
+
+\subsection{PACTA Executive Summary 2022}
 
 MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
 
+\end{scheader}
+```
 
 ### Carbon Footprint
 
