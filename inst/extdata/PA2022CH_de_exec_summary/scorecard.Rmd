@@ -567,7 +567,7 @@ _Für diesen Indikator wurden im Rahmen des PACTA-Klimatests 2022 keine Informat
   * Anleger können die Portfolioprioritäten verstehen und sich über die potenziellen langfristigen Risiken der Transition informieren.
   * Die Aufsichtsbehörden sind in der Lage, die Positionierung des Finanzinstituts in Bezug auf den Klimawandel im Vergleich zu seinen Peers zu verstehen.
 
-**Zwingende Anforderungen:**
+**Zwingende Anforderungen an die Datenanbieter:**
 
 * Lassen Sie sich vom 2050-Netto-Null-Ziel leiten, welches mit der 1,5°C-Erwärmungsgrenze des Klimaübereinkommen von Paris und den neuesten Erkenntnissen des Weltklimarats im Einklang steht.
 * Befolgen Sie die technischen Überlegungen des TCFD 2021 PAT-Berichts „Measuring Portfolio Alignment - technical considerations“ („Messung der Klimaausrichtung des Portfolios – technische Überlegungen“). Halten Sie insbesondere folgende Punkte ein:
@@ -580,7 +580,7 @@ _Für diesen Indikator wurden im Rahmen des PACTA-Klimatests 2022 keine Informat
     * Scope 1 für die Stromerzeugung und die Luftfahrt
 * Erlauben Sie der Schweizer Regierung, die aggregierten impliziten Temperaturwerte basierend auf Ihrer Methodik für die folgenden Indizes offenzulegen, um sie mit anderen Anbietern zu vergleichen: SMI, MSCI World, MSCI World Materials, MSCI World Industrials, MSCI World Utilities, MSCI World Real Estate.
 
-**Wichtige, aber nicht zwingende Anforderungen:**
+**Wichtige, aber nicht zwingende Anforderungen an die Datenanbieter:**
 
 Verwendete Benchmarks:
 

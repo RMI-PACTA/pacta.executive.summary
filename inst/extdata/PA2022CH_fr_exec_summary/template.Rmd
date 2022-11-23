@@ -652,7 +652,7 @@ Proportions d'hypothèques au-dessus ou au-dessous de la trajectoire de réducti
 
 \begin{esbox}{Quels sont les secteurs PACTA?}
 
-L'analyse PACTA couvre 8 secteurs concernés par le climat: extraction de charbon, production de pétrole et de gaz, production d'électricité (fossile et renouvelable); production automobile (thermique, hybride, électrique), aviation, ciment et acier.
+L'analyse PACTA couvre 8 secteurs concernés par le climat: charbon, pétrole, gaz, automobile, électricité, ciment, acier et aviation.
 En règle générale, les portefeuilles des institutions financières sont investis à hauteur de 5 à 15\% en valeur dans ces secteurs. Même si l'exposition financière peut sembler faible, les investissements représentent toujours, en moyenne, une part beaucoup plus importante des émissions. Veuillez consulter les graphiques présentant un exemple de portefeuille ci-dessous: 
 
 \begin{center}
