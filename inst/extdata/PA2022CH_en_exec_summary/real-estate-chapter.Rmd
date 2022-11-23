@@ -67,7 +67,7 @@ tryCatch(
     knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in real_estate energy_carrier. Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -84,7 +84,7 @@ tryCatch(
     knitr::include_graphics(cleaned_mortgage_paths[["png_energy_carrier"]])
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in mortgages energy_carrier. Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -112,7 +112,7 @@ tryCatch(
     knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in real_estate map. Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -140,7 +140,7 @@ tryCatch(
     knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in real_estate co2_distribution. Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -167,7 +167,7 @@ tryCatch(
     knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in mortgages co2_distribution. Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -195,7 +195,7 @@ tryCatch(
     knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in real_estate pathway Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -221,7 +221,7 @@ tryCatch(
     knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in mortgages stranded_asset Returning empty plot object.\n",
       file_path = log_dir
     )
