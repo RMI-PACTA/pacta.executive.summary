@@ -130,5 +130,15 @@ headheight=0.0in
   \end{minipage}%
 }%
 
+\NewDocumentEnvironment{scheader}{ O{\textwidth} }
+{% begin code
+  \begin{minipage}[t]{#1}%
+  \begin{mdframed}[style=scheaderstyle]%
+}
+{ % enddef
+  \end{mdframed}%
+  \end{minipage}%
+}%
+
 \newcommand{\startunderscoreletter}{\catcode`_ 12\relax}
 \newcommand{\stopunderscoreletter}{\catcode`_ 8\relax}
