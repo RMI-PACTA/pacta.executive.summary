@@ -11,7 +11,7 @@ Cette section offre un aperçu de l'efficacité des actions climatiques au nivea
 
 \begin{esbox}{Initiatives, stratégie climatique et rapports}[\engagementImage]
 
-Sur le côté gauche, vous trouvez les initiatives dont vous faites partie. Plus la taille de la police est grande, plus le nombre de pairs qui en font partie est important. Au milieu, vous pouvez voir un diagramme stratigraphique indiquant votre climat. À droite, vous pouvez voir combien de vos pairs ont mis en place les trois stratégies climatiques, ce qui est considéré comme étant la meilleure pratique.
+Sur le côté gauche, vous trouvez les initiatives dont vous faites partie. Plus la taille de la police est grande, plus le nombre de pairs qui en font partie est important. Au milieu, vous pouvez voir un diagramme stratigraphique indiquant votre stratégie climatique. À droite, vous pouvez voir combien de vos pairs ont mis en place les trois stratégies climatiques, ce qui est considéré comme étant la meilleure pratique.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
