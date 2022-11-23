@@ -3,7 +3,7 @@
 
 La section Immobilier et Hypothèques permet aux institutions financières de mesurer l'alignement de leur portefeuille immobilier et hypothécaire suisse avec l'objectif climatique du secteur du bâtiment suisse d'atteindre des émissions nettes nulles en 2050. Le test PACTA évalue donc les émissions de CO\textsubscript{2} de vos investissements immobiliers et hypothécaires.
 
-Les émissions du parc immobilier suisse représentent actuellement un peu plus d'un quart des émissions totales de CO\textsubscript{2} de la Suisse. Les nouveaux bâtiments sont aujourd'hui largement équipés de systèmes de chauffage renouvelables. D'ici 2020, les émissions de CO\textsubscript{2} de l'ensemble des bâtiments devraient avoir diminué d'au moins 40\% par rapport à 1990 - cet objectif n'a pas été atteint. Pour atteindre l'objectif "net zéro" déclaré par le Conseil fédéral en 2050, le parc immobilier suisse doit réduire plus rapidement ses émissions de CO\textsubscript{2} à l'avenir, notamment en rénovant les bâtiments existants. (\href{lien}{\url{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/reduction-emissions/objectifs-reduction/objectif-2050/strategie-climatique-2050.html}})
+Les émissions du parc immobilier suisse représentent actuellement un peu plus d'un quart des émissions totales de CO\textsubscript{2} de la Suisse. Les nouveaux bâtiments sont aujourd'hui largement équipés de systèmes de chauffage renouvelables. D'ici 2020, les émissions de CO\textsubscript{2} de l'ensemble des bâtiments devraient avoir diminué d'au moins 40\% par rapport à 1990 - cet objectif n'a pas été atteint. Pour atteindre l'objectif "net zéro" déclaré par le Conseil fédéral en 2050, le parc immobilier suisse doit réduire plus rapidement ses émissions de CO\textsubscript{2} à l'avenir, notamment en rénovant les bâtiments existants \textbf{\href{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/reduction-emissions/objectifs-reduction/objectif-2050/strategie-climatique-2050.html}{(lien)}}.
 
 
 
@@ -113,9 +113,7 @@ tryCatch(
 ```
 
 ```{=latex}
-Carte des dangers naturels OFEV: 
-
-\href{lien}{\url{https://map.geo.admin.ch/?topic=bafu&lang=fr&bgLayer=ch.swisstopo.pixelkarte-grau}}
+Carte des dangers naturels OFEV: \textbf{\href{https://map.geo.admin.ch/?topic=bafu&lang=fr&bgLayer=ch.swisstopo.pixelkarte-grau}{(lien)}}
 
 \end{minipage}%
 

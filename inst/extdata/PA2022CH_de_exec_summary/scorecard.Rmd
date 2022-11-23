@@ -5,7 +5,7 @@
 
 \subsection{PACTA-Kurzfassung 2022}
 
-Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Kurzfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren. Da die Swiss Climate Scores \href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{Swiss Climate Scores} während des PACTA-Klimatests 2022 definiert wurden, gibt es einige Abweichungen, die auf den Folgeseiten mit den Erläuterungen angegeben sind. Bitte beachten Sie, dass die Indikatoren für die Exposition gegenüber fossilen Brennstoffen und zum ‘globalen Erwärmungspotenzial’ auf der PACTA-Methodik und den PACTA-Sektoren basieren.
+Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Kurzfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren. Da die Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{(link)}} während des PACTA-Klimatests 2022 definiert wurden, gibt es einige Abweichungen, die auf den Folgeseiten mit den Erläuterungen angegeben sind. Bitte beachten Sie, dass die Indikatoren für die Exposition gegenüber fossilen Brennstoffen und zum ‘globalen Erwärmungspotenzial’ auf der PACTA-Methodik und den PACTA-Sektoren basieren.
 
 \subsection{IST-ZUSTAND}
 
@@ -170,7 +170,7 @@ Dieser Score zeigt die geschätzte Gesamtausrichtung der PACTA-Sektoren (ohne Ze
 
 \subsection{Verifizierte Bekenntnisse zu Netto-Null}
 
-Immer mehr Unternehmen bekennen sich freiwillig zu Netto-Null Emissionszielen und formulieren Zwischenziele. Die Wirksamkeit solcher Bekenntnisse hängt davon ab, ob die Zwischenziele glaubwürdig, wissenschaftlich fundiert und transparent sind. Die folgenden Informationen beruhen auf Angaben der SBTi \href{https://sciencebasedtargets.org/companies-taking-action}{(link)}.
+Immer mehr Unternehmen bekennen sich freiwillig zu Netto-Null Emissionszielen und formulieren Zwischenziele. Die Wirksamkeit solcher Bekenntnisse hängt davon ab, ob die Zwischenziele glaubwürdig, wissenschaftlich fundiert und transparent sind. Die folgenden Informationen beruhen auf Angaben der SBTi \textbf{\href{https://sciencebasedtargets.org/companies-taking-action}{(link)}}.
 
 \vfill\null
 \columnbreak

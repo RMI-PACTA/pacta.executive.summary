@@ -5,7 +5,7 @@
 
 \subsection{Résumé du PACTA 2022}
 
-Les trois pages suivantes des indicateurs climatiques complètent le résumé analytique du PACTA en affichant les résultats générés automatiquement au niveau du portefeuille, sur la base des Swiss Climate Scores. Les Swiss Climate Scores \href{https://www.sif.admin.ch/sif/fr/home/finanzmarktpolitik/finance-durable.html}{Swiss Climate Scores} ayant été définis lors du test climatique PACTA 2022, il existe quelques écarts qui sont notés sur les pages d'explication. Veuillez noter que les indicateurs relatifs à l'exposition aux énergies fossiles et le ‘potentiel de réchauffement global’ sont basés sur la méthodologie et les secteurs PACTA.
+Les trois pages suivantes des indicateurs climatiques complètent le résumé analytique du PACTA en affichant les résultats générés automatiquement au niveau du portefeuille, sur la base des Swiss Climate Scores. Les Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/fr/home/finanzmarktpolitik/finance-durable.html}{(lien)}} ayant été définis lors du test climatique PACTA 2022, il existe quelques écarts qui sont notés sur les pages d'explication. Veuillez noter que les indicateurs relatifs à l'exposition aux énergies fossiles et le ‘potentiel de réchauffement global’ sont basés sur la méthodologie et les secteurs PACTA.
 
 \subsection{SITUATION ACTUELLE}
 
@@ -169,7 +169,7 @@ Ce score représente l'alignement agrégé estimé des secteurs PACTA (hors cime
 
 \subsection{Engagements vérifiés en faveur du net zéro}
 
-Un nombre croissant d’entreprises s’engage volontairement à atteindre zéro émissions nettes et formulent des objectifs intermédiaires pour y parvenir. L’efficacité de ces engagements dépend de la crédibilité, du fondement scientifique et de la transparence des objectifs intermédiaires. Les informations suivantes sont basées sur les informations émanant de SBTi \href{https://sciencebasedtargets.org/companies-taking-action}{lien}.
+Un nombre croissant d’entreprises s’engage volontairement à atteindre zéro émissions nettes et formulent des objectifs intermédiaires pour y parvenir. L’efficacité de ces engagements dépend de la crédibilité, du fondement scientifique et de la transparence des objectifs intermédiaires. Les informations suivantes sont basées sur les informations émanant de SBTi \textbf{\href{https://sciencebasedtargets.org/companies-taking-action}{(lien)}}.
 
 \vfill\null
 \columnbreak
