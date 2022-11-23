@@ -487,13 +487,17 @@ engagement_peers <-
 
 ```
 
+```{=latex}
+\begin{scheader}
+\section{Climate Score Indicators}
 
-## Climate Score Indicators
 
-### PACTA Executive Summary 2022
+\subsection{PACTA Executive Summary 2022}
 
 MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
 
+\end{scheader}
+```
 
 ### Carbon Footprint
 
