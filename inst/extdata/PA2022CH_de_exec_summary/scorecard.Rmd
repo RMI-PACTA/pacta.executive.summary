@@ -168,15 +168,16 @@ Dieser Score zeigt die geschätzte Gesamtausrichtung der PACTA-Sektoren (ohne Ze
 
 
 \end{multicols}
+```
 
+\newpage
+
+```{=latex}
 \begin{multicols}{2}
 
 \subsection{Verifizierte Bekenntnisse zu Netto-Null}
 
 Immer mehr Unternehmen bekennen sich freiwillig zu Netto-Null Emissionszielen und formulieren Zwischenziele. Die Wirksamkeit solcher Bekenntnisse hängt davon ab, ob die Zwischenziele glaubwürdig, wissenschaftlich fundiert und transparent sind. Die folgenden Informationen beruhen auf Angaben der SBTi \textbf{\href{https://sciencebasedtargets.org/companies-taking-action}{(link)}}.
-
-\vfill\null
-\columnbreak
 
 ```
 
@@ -215,11 +216,9 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 
 \item Durchschnittlicher Anteil der Unternehmen in Peer-Portfolios mit verifizierten Bekenntnissen zu Netto-Null und glaubwürdigen Zwischenzielen: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
 \end{itemize}
+```
 
-\vfill
-
-\newpage
-
+```{=latex}
 \subsection{Real Estate Score}
 
 ```
@@ -282,7 +281,9 @@ CO\textsubscript{2}-Intensität nach GEAK-Klassen (Portfoliodurchschnitt)
 
 \vfill\null
 \columnbreak
+```
 
+```{=latex}
 \subsection{Gesamtklimastrategie einschliesslich eines glaubwürdigen Klimadialogs}
 
 Finanzinstitute können zur Transition zu Netto-Null beitragen, indem sie sich bei investierten Unternehmen für wissenschaftsbasierte und extern verifizierte Transitionspläne hin zu 2050 einsetzen.
