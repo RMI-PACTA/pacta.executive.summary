@@ -571,9 +571,9 @@ _The information for this indicator was not collected in the PACTA Climate Test 
 
 **Hard requirements:**
 
-* Be guided by the goal to achieve net zero emissions by 2050, consistent with the 1.5$^\circ$C warming limit of the Paris Agreement and in line with the latest IPCC findings.
+* Be guided by the goal to achieve net zero emissions by 2050, consistent with the 1.5$\text{\textdegree}$C warming limit of the Paris Agreement and in line with the latest IPCC findings.
 * Comply with the technical considerations of the TCFD 2021 PAT report “Measuring Portfolio Alignment – technical considerations”. In particular, comply with:
-  * Select a 1.5$^\circ$C scenario that complies, at a minimum, with the scenario selection criteria set out by the Science Based Targets initiative (SBTi) in their document Foundations of Science-Based Target Setting (consideration 7).
+  * Select a 1.5$\text{\textdegree}$C scenario that complies, at a minimum, with the scenario selection criteria set out by the Science Based Targets initiative (SBTi) in their document Foundations of Science-Based Target Setting (consideration 7).
   * Prioritize granular benchmarks where they meaningfully capture material differences in decarbonization feasibility across industries or regions (Consideration 8).
   * Include Scope 3 emissions for the sectors for which they are most material and for which benchmarks can be easily extracted from existing scenarios (fossil fuels, mining, automotive) (Consideration 11). 
   * _Addition:_ Note that the PACTA methodology is not based on emissions but on production plans of companies. The production-based analysis however proxies for the following scopes: 
@@ -602,9 +602,9 @@ Company long-term targets, near-term action and data sources:
 To calculate portfolio alignment
 
 * _Addition:_ The PACTA Aggregated Climate Alignment Score is not an Implied Temperature Rise (ITR) score. Therefore, PACTA cannot provide a confidence level for the score itself. Instead, confidence scenarios for the selected scenarios exist and are: 
-  * 50\% probability to not exceed 1.5$^\circ$C warming for the 1.5$^\circ$C Uniform scenario (GECO 2021)
-  * 50\% probability to not exceed 1.8$^\circ$C warming for the 1.8$^\circ$C NDC-LTS scenario (GECO 2021)
-  * 50\% probability to not exceed 3.0$^\circ$C warming for the 3.0$^\circ$C Current Policies Scenario (GECO 2021)
+  * 50\% probability to not exceed 1.5$\text{\textdegree}$C warming for the 1.5$\text{\textdegree}$C Uniform scenario (GECO 2021)
+  * 50\% probability to not exceed 1.8$\text{\textdegree}$C warming for the 1.8$\text{\textdegree}$C NDC-LTS scenario (GECO 2021)
+  * 50\% probability to not exceed 3.0$\text{\textdegree}$C warming for the 3.0$\text{\textdegree}$C Current Policies Scenario (GECO 2021)
 * _Requirements not met_ as Aggregate score is no ITR.
   * Implied temperature scores should be calculated using a confidence level of 66\%, rather than 50\%.
   * Calculate warming scores on a cumulative-emissions basis until 2050, in order to accommodate appropriately the physical relationship between cumulative emissions and warming outcomes.
