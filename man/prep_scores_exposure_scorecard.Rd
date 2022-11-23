@@ -8,7 +8,7 @@ prep_scores_exposure_scorecard(
   audit_data,
   currency_exchange_value,
   total_portfolio_value_curr,
-  log_dir
+  log_dir = .GlobalEnv$log_dir
 )
 }
 \arguments{

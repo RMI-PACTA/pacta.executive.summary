@@ -27,7 +27,7 @@ prep_alignment_table <- function(results_portfolio,
     match.arg(asset_class)
     check_data_prep_alignment_table(scenario_source = scenario_source)
 
-    portfolio_data_asset <- results_portfolio %>% 
+    portfolio_data_asset <- results_portfolio %>%
       filter(asset_class == .env$asset_class)
     if (nrow(portfolio_data_asset) > 0) {
       # infer start_year
@@ -96,7 +96,7 @@ prep_alignment_table <- function(results_portfolio,
     } else {
       data_out <- toy_data_alignment_table[0L, ]
     }
-  } 
+  }
   data_out
 }
 
@@ -178,9 +178,9 @@ calculate_tech_traffic_light <- function(data,
     ) %>%
     dplyr::mutate(
       aligned_scen_temp = dplyr::case_when(
-        sum(.data$tech_score) >= 10 ~ "<1.5C",
-        sum(.data$tech_score) == 1 ~ "1.5-1.8C",
-        TRUE ~ ">1.8C"
+        sum(.data$tech_score) >= 10 ~ "<1.5\u00B0C",
+        sum(.data$tech_score) == 1 ~ "1.5-1.8\u00B0C",
+        TRUE ~ ">1.8\u00B0C"
       ),
       entity = replace(.data$entity, .data$entity == "this_portfolio", "portfolio")
     ) %>%
