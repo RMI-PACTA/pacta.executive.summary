@@ -163,9 +163,9 @@ legend_scores <- function() {
   )
 
   data_labels <- tibble::tibble(
-    label = c("Portfolio", "Peers", "1.8\u00B0 aligned\nthreshold"),
+    label = c("Portfolio", "Peers", "1.8\u00B0C\naligned\nthreshold"),
     x = c(1, 1, 1),
-    y = c(3.5, 2.5, 1)
+    y = c(4.6, 3.5, 1)
   )
 
   l <- ggplot(fake_data, aes(x = .data$x, y = .data$y)) +
@@ -173,8 +173,8 @@ legend_scores <- function() {
       "segment",
       x = 0.1,
       xend = -0.5,
-      y = 3.5,
-      yend = 3.5,
+      y = 4.5,
+      yend = 4.5,
       arrow = arrow(type = "closed", length = unit(0.2, "npc")),
       color = unname(fill_colours_entities_scores["portfolio"])
     ) +
@@ -182,8 +182,8 @@ legend_scores <- function() {
       "segment",
       x = 0.1,
       xend = -0.2,
-      y = 2.5,
-      yend = 2.5,
+      y = 3.5,
+      yend = 3.5,
       arrow = arrow(type = "closed", length = unit(0.15, "npc")),
       color = unname(fill_colours_entities_scores["benchmark"])
     ) +
@@ -191,8 +191,8 @@ legend_scores <- function() {
       "segment",
       x = -0.5,
       xend = 0.5,
-      y = 1,
-      yend = 1,
+      y = 2.3,
+      yend = 2.3,
       size = 1
     ) +
     geom_text(
@@ -206,7 +206,7 @@ legend_scores <- function() {
       size = 5
     ) +
     scale_x_continuous(limits = c(-0.5, 3)) +
-    scale_y_continuous(limits = c(0, 4)) +
+    scale_y_continuous(limits = c(0, 5)) +
     coord_cartesian(clip = "off") +
     theme_void() +
     theme(
