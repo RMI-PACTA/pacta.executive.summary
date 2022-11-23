@@ -106,6 +106,8 @@ Diese Kurzfassung ist eine Zusammenfassung der Einzelergebnisse Ihres hochgelade
 
 PACTA und das BAFU sind der Ansicht, dass die drei unten aufgeführten Kernfaktoren geeignet sind, um die Ausrichtung an den Klimazielen zu messen. Die Symbole werden in diesem Dokument verwendet, um für jede Grafik die Kategorie anzugeben.
 
+\vspace{1em}
+
 \begin{center}
 \begin{minipage}{0.3\linewidth}%
 \begin{center}

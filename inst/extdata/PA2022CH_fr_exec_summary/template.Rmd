@@ -106,6 +106,8 @@ Ce résumé est une synthèse des résultats individuels de votre portefeuille t
 
 Selon PACTA et l'OFEV, trois éléments principaux sont utiles pour mesurer l'alignement sur les objectifs climatiques, lesquels sont présentés ci-dessous. Les icônes sont utilisées tout au long de ce document pour indiquer la catégorie de chaque graphique.
 
+\vspace{1em}
+
 \begin{center}
 \begin{minipage}{0.3\linewidth}%
 \begin{center}
