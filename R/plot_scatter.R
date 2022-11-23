@@ -58,11 +58,11 @@ plot_scatter <- function(data) {
       ) +
       scale_colour_manual(
         values = colour_assignment_entities,
-        labels = r2dii.plot::to_title(levels(data$entity_type))
+        labels = relabel_entities(levels(data$entity_type))
         ) +
       scale_shape_manual(
         values = c("this_portfolio" = 16, "peers" = 1, "peers_mean" = 16, "benchmark" = 16),
-        labels = r2dii.plot::to_title(levels(data$entity_type))
+        labels = relabel_entities(levels(data$entity_type))
       ) +
       theme(
         axis.title.y = element_text()
@@ -97,11 +97,11 @@ plot_scatter <- function(data) {
       ) +
       scale_shape_manual(
         values = c("this_portfolio" = 16, "peers" = 1, "peers_mean" = 16, "benchmark" = 16),
-        labels = r2dii.plot::to_title(levels(data$entity_type))
+        labels = relabel_entities(levels(data$entity_type))
       ) +
       scale_colour_manual(
         values = colour_assignment_entities,
-        labels = r2dii.plot::to_title(levels(data$entity_type))
+        labels = relabel_entities(levels(data$entity_type))
         ) +
       theme_2dii(
         base_size = 14
@@ -137,11 +137,11 @@ plot_scatter <- function(data) {
       scale_fill_gradient(low = fill_colours_techmix["brown"], high = fill_colours_techmix["green"]) +
       scale_colour_manual(
         values = colour_assignment_entities,
-        labels = r2dii.plot::to_title(levels(data$entity_type))
+        labels = relabel_entities(levels(data$entity_type))
         ) +
       scale_shape_manual(
         values = c("this_portfolio" = 16, "peers" = 1, "peers_mean" = 16, "benchmark" = 16),
-        labels = r2dii.plot::to_title(levels(data$entity_type))
+        labels = relabel_entities(levels(data$entity_type))
       ) +
       theme_2dii(
         base_size = 14
@@ -218,4 +218,13 @@ plot_basic_scorebar <- function() {
       legend.position = "none"
     )
   score_bar
+}
+
+relabel_entities <- function(label) {
+  out <- case_when(
+    label == "peers_mean" ~ "Peers Aggr.",
+    label == "this_portfolio" ~ "This Portfolio",
+    TRUE ~ r2dii.plot::to_title(label)
+  )
+  out
 }
