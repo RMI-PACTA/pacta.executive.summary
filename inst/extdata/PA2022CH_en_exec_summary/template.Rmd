@@ -241,9 +241,9 @@ tryCatch(
 
 ```{=latex}
 
-\* exposure to companies with main activity in PACTA sectors
+* exposure to companies with main activity in PACTA sectors
 
-\*\* ‘Low-carbon’ technologies: renewables and hydro for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
+** ‘Low-carbon’ technologies: renewables and hydro for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
 
 \end{esbox}
 
@@ -443,9 +443,9 @@ tryCatch(
 
 ```{=latex}
 %FIXME: footnote
-\* Renewables: include solar and wind power, exclude hydro and nuclear
+* Renewables: include solar and wind power, exclude hydro and nuclear
 
-\*\* Automotive: includes light-duty vehicles (LDV)
+** Automotive: includes light-duty vehicles (LDV)
 
 \end{esbox}
 
