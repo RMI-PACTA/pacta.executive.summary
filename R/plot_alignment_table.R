@@ -46,7 +46,7 @@ plot_alignment_table <- function(data) {
       p_fossil <- patchwork::plot_spacer()
     }
 
-    if (nrow(data %>% filter(.data$sector == "automotive", entity == "portfolio")) > 0) {
+    if (nrow(filter(data, .data$sector == "automotive", .data$entity == "portfolio")) > 0) {
       p_auto <- plot_alignment_table_sector_stripe(data, "automotive", size_lim,
         size_range,
         ncol = 3
