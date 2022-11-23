@@ -103,7 +103,7 @@ were peers (i.e., participants from the same financial sector, such as pension f
 
 This executive summary is a short version of the individual results of your uploaded portfolio \startunderscoreletter {`r portfolio_name`}\stopunderscoreletter.
 \startunderscoreletter `r paste0(toupper(substr(investor_name, 1, 1)), substr(investor_name, 2, nchar(investor_name)))` \stopunderscoreletter
-received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access at platform.transitionmonitor.com) in German, French, and partly English. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website
+received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access on the Transition Monitor Platform in German, French, and partly English \textbf{\href{https://platform.transitionmonitor.com/}{(link)}}. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website
 \textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}{link})}
 and is available for download.
 
