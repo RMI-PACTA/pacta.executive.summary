@@ -172,7 +172,7 @@ tryCatch(
     plot_diagram(data_diagram)
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_diagram(). Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -210,7 +210,7 @@ tryCatch(
     plot_green_brown_bars(data_green_brown_bars)
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_green_brown_bars(). Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -229,7 +229,7 @@ tryCatch(
     plot_fossil_bars(data_fossil_bars)
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_fossil_bars(). Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -280,7 +280,7 @@ tryCatch(
     }
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_scatter() for bonds. Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -310,7 +310,7 @@ tryCatch(
     }
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_scatter() for equity. Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -345,7 +345,7 @@ tryCatch(
       )
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_scores(). Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -367,7 +367,7 @@ tryCatch(
       )
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_scores(). Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -407,7 +407,7 @@ tryCatch(
     )
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_alignment_table() for bonds. Returning empty plot object.\n",
       file_path = log_dir
     )
@@ -432,7 +432,7 @@ tryCatch(
     )
   },
   error = function(e) {
-    pacta.portfolio.analysis:::write_log(
+    write_log(
       "ES: There was an error in prep/plot_alignment_table() for equity. Returning empty plot object.\n",
       file_path = log_dir
     )
