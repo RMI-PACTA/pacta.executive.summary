@@ -191,7 +191,7 @@ tryCatch(
 %FIXME: make footnote
 \textbf{Exposition* aux secteurs et technologies concernés par le climat en \% de l'actif sous gestion}
 
-Le graphique fournit des informations sur l'exposition aux secteurs PACTA. Les combustibles fossiles (extraction de charbon, pétrole, gaz) sont présentés de manière agrégée et désagrégée à des fins de comparaison avec les pairs (institutions de prévoyance, les assurances, les banques ou les gestionnaires d'actif) et un indice.
+Le graphique fournit des information sur l'exposition aux entreprises avec des actifs physiques dans les parties de la chaîne de valeur couvert par PACTA. Les combustibles fossiles (extraction de charbon, pétrole, gaz) sont présentés de manière agrégée et désagrégée à des fins de comparaison avec les pairs (institutions de prévoyance, les assurances, les banques ou les gestionnaires d'actif) et un indice.
 ```
 
 ```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
