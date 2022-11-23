@@ -28,7 +28,7 @@ plot_alignment_table <- function(data) {
     size_lim <- c(min(data$perc_aum, na.rm = TRUE), max(data$perc_aum, na.rm = TRUE))
     size_range <- c(1, 5)
 
-    if (nrow(data %>% filter(.data$sector == "power", entity == "portfolio")) > 0) {
+    if (nrow(filter(data, .data$sector == "power", .data$entity == "portfolio")) > 0) {
       p_power <- plot_alignment_table_sector_stripe(data, "power", size_lim,
         size_range,
         ncol = 4
