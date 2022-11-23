@@ -1,12 +1,15 @@
 ```{=latex}
-
+\begin{scheader}
 \section{Indicateurs \guillemetleft Climate Scores\guillemetright}
 
 
 \subsection{Résumé du PACTA 2022}
 
 Les trois pages suivantes des indicateurs climatiques complètent le résumé analytique du PACTA en affichant les résultats générés automatiquement au niveau du portefeuille, sur la base des Swiss Climate Scores. Les Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/fr/home/finanzmarktpolitik/finance-durable.html}{(lien)}} ayant été définis lors du test climatique PACTA 2022, il existe quelques écarts qui sont notés sur les pages d'explication. Veuillez noter que les indicateurs relatifs à l'exposition aux énergies fossiles et le ‘potentiel de réchauffement global’ sont basés sur la méthodologie et les secteurs PACTA.
+\end{scheader}
+```
 
+```{=latex}
 \subsection{SITUATION ACTUELLE}
 
 \begin{multicols}{2}
@@ -482,17 +485,21 @@ engagement_peers <-
 
 \end{itemize}
 \end{multicols}
+```
 
 \newpage
 
-```
+```{=latex}
+\begin{scheader}
+\section{Indicateurs \guillemetleft Climate Scores\guillemetright}
 
-## Indicateurs \guillemetleft Climate Scores\guillemetright
 
-### Résumé du PACTA 2022
+\subsection{Résumé du PACTA 2022}
 
 CRITÈRES MINIMAUX POUR LES SWISS CLIMATE SCORES ET MISE EN ŒUVRE DANS LE TEST CLIMATIQUE PACTA COORDONNÉ
 
+\end{scheader}
+```
 
 ### L’empreinte carbone
 

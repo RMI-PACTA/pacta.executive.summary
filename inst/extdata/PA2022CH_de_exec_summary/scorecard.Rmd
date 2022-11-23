@@ -1,12 +1,15 @@
 ```{=latex}
-
+\begin{scheader}
 \section{Climate Scores Indikatoren}
 
 
 \subsection{PACTA-Kurzfassung 2022}
 
 Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Kurzfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren. Da die Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{(link)}} während des PACTA-Klimatests 2022 definiert wurden, gibt es einige Abweichungen, die auf den Folgeseiten mit den Erläuterungen angegeben sind. Bitte beachten Sie, dass die Indikatoren für die Exposition gegenüber fossilen Brennstoffen und zum ‘globalen Erwärmungspotenzial’ auf der PACTA-Methodik und den PACTA-Sektoren basieren.
+\end{scheader}
+```
 
+```{=latex}
 \subsection{IST-ZUSTAND}
 
 \begin{multicols}{2}
@@ -479,18 +482,21 @@ engagement_peers <-
 
 \end{itemize}
 \end{multicols}
+```
 
 \newpage
 
-```
+```{=latex}
+\begin{scheader}
+\section{Klimaverträglichkeitsindikatoren}
 
 
-## Klimaverträglichkeitsindikatoren
-
-### PACTA-Kurzfassung 2022
+\subsection{PACTA-Kurzfassung 2022}
 
 MINDESTKRITERIEN FÜR DIE SWISS CLIMATE SCORES UND DEREN UMSETZUNG IM PACTA-KIMATEST
 
+\end{scheader}
+```
 
 ### CO~2~-Fussabdruck
 
