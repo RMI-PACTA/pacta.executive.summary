@@ -192,7 +192,7 @@ tryCatch(
 %FIXME: make footnote
 \textbf{Exposition gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens}
 
-Die Grafik zeigt die Exposition gegenüber den PACTA-Sektoren. Die Exposition gegenüber fossilen Brennstoffen (Förderung von Kohle, Öl, Gas) wird aggregiert und zu Vergleichszwecken zusätzlich einzeln ausgewiesen sowie mit Peers und einem Index verglichen.
+Die Grafik zeigt die Exposition gegenüber Unternehmen mit Produktionsstätten in den von PACTA erfassten Teilen der Wertschöpfungskette. Die Exposition gegenüber fossilen Brennstoffen (Förderung von Kohle, Öl, Gas) wird aggregiert und zu Vergleichszwecken zusätzlich einzeln ausgewiesen sowie mit Peers und einem Index verglichen.
 ```
 
 ```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
