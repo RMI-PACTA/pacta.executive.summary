@@ -197,7 +197,7 @@ tryCatch(
 %FIXME: make footnote
 \textbf{Exposure* to climate-relevant sectors \& technologies as \% of AUM}
 
-The chart provides information on the exposure to the PACTA sectors. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
+The chart provides information on the exposure to companies with physical assts in the parts of the value chain covered by PACTA. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
 ```
 
 ```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
@@ -326,7 +326,7 @@ tryCatch(
 
 \textbf{PACTA Aggregated Climate Alignment Score}
 
-The aggregated score compares the alignment of all assets until 2026 to the GECO 2021 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector (except for cement which is not covered in GECO2021). GECO was chosen since it covered the most PACTA sectors.\footnote{Please note that the GECO scenarios expect major technology changes to happen after the five years analyzed by PACTA. As such your overall score could be lower when using other scenarios.}
+The aggregated score compares the alignment of all assets until 2026 to the GECO 2021 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector (except for cement which is not covered in GECO2021).\footnote{GECO was chosen since it covered the most PACTA sectors. Please note that the GECO scenarios expect major technology changes to happen after the five years analyzed by PACTA. As such your overall score could be lower when using other scenarios.}
 
 ```
 
@@ -694,10 +694,13 @@ The PACTA methodology covers listed equity and corporate bonds. In cooperation w
 
 To what extent you use your results is up to you. However, the results are suitable for a variety of reporting opportunities, such as:
 
-* Internal reporting and communication
-* Reporting in the environment of the participating financial institution (clients, insured parties etc.)
-* External disclosure: Implementing the federal council’s recommendations \href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}{link}) to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}{link}.
-* Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link}).
+\begin{itemize}
+\item Internal reporting and communication
+\item Reporting in the environment of the participating financial institution (clients, insured parties etc.)
+\item External disclosure: Implementing the federal council’s recommendations \textbf{\href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}{(link)}} to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}{(link)}}.
+\item Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link})}.
+\end{itemize}
+
 
 \end{esbox}
 
