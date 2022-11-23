@@ -56,7 +56,7 @@ prep_scores_scorecard <- function(results_portfolio,
 #' @return numeric
 #' @export
 prep_scores_emissions_scorecard <- function(emissions_data,
-                                            log_dir) {
+                                            log_dir = .GlobalEnv$log_dir) {
   if (is.null(emissions)) {
     data_out <- NULL
     return(data_out)
@@ -116,7 +116,7 @@ prep_scores_emissions_scorecard <- function(emissions_data,
 prep_scores_exposure_scorecard <- function(audit_data,
                                            currency_exchange_value,
                                            total_portfolio_value_curr,
-                                           log_dir) {
+                                           log_dir = .GlobalEnv$log_dir) {
   if (is.null(emissions) || is.null(currency_exchange_value) || is.null(total_portfolio_value_curr)) {
     data_out <- NULL
     return(data_out)
