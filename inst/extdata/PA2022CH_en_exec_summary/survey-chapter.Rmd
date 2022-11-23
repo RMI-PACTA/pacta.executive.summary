@@ -11,7 +11,7 @@ This section provides insights in the effectiveness of climate actions on an ins
 
 \begin{esbox}{Overview}[\engagementImage]
 
-On the left hand side, you find the initiatives you are part of. The larger the font size, the more peers are part of it. In the middle, you see a dart chart indicating your climate. On the right, you can see how many of your peers have all three climate strategies in place, which is considered as best practice.
+On the left hand side, you find the initiatives you are part of. The larger the font size, the more peers are part of it. In the middle, you see a dart chart indicating your climate strategy. On the right, you can see how many of your peers have all three climate strategies in place, which is considered as best practice.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
