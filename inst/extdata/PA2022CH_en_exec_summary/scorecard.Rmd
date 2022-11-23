@@ -483,9 +483,9 @@ engagement_peers <-
 \end{itemize}
 \end{multicols}
 
-\newpage
-
 ```
+
+\newpage
 
 ```{=latex}
 \begin{scheader}
