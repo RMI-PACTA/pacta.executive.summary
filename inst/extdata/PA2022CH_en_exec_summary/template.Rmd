@@ -113,6 +113,8 @@ and is available for download.
 
 In the view of PACTA and FOEN, there are three main components that are useful to measure alignment with climate goals which are shown below. The icons are used throughout this document to indicate the category for each chart.
 
+\vspace{1em}
+
 \begin{center}
 \begin{minipage}{0.3\linewidth}%
 \begin{center}
