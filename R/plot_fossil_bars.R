@@ -111,7 +111,7 @@ make_caption_indices <- function(data) {
       ) %>%
       pull(.data$entity_name) %>%
       unique()
-    caption <- glue::glue(caption, "{r2dii.plot::to_title(asset)}: {r2dii.plot::to_title(index_name)}")
+    caption <- glue::glue(caption, "{r2dii.plot::to_title(asset)}: {format_index_name(index_name)}")
     if (asset != last_asset) {
       caption <- glue::glue(caption, ", ")
     } else {
@@ -120,3 +120,10 @@ make_caption_indices <- function(data) {
   }
   caption
 }
+
+format_index_name <- function(name) {
+  out <- gsub('ETF','', name)
+  out <- gsub('_', ' ', out)
+  out <- trimws(out)
+  out
+  }
