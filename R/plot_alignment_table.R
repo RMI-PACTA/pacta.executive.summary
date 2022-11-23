@@ -28,7 +28,7 @@ plot_alignment_table <- function(data) {
     size_lim <- c(min(data$perc_aum, na.rm = TRUE), max(data$perc_aum, na.rm = TRUE))
     size_range <- c(1, 5)
 
-    if (nrow(data %>% filter(.data$sector == "power")) > 0) {
+    if (nrow(data %>% filter(.data$sector == "power", entity == "portfolio")) > 0) {
       p_power <- plot_alignment_table_sector_stripe(data, "power", size_lim,
         size_range,
         ncol = 4
@@ -37,7 +37,7 @@ plot_alignment_table <- function(data) {
       p_power <- patchwork::plot_spacer()
     }
 
-    if (nrow(data %>% filter(.data$sector == "fossil_fuels")) > 0) {
+    if (nrow(data %>% filter(.data$sector == "fossil_fuels", entity == "portfolio")) > 0) {
       p_fossil <- plot_alignment_table_sector_stripe(data, "fossil_fuels", size_lim,
         size_range,
         ncol = 3
@@ -46,7 +46,7 @@ plot_alignment_table <- function(data) {
       p_fossil <- patchwork::plot_spacer()
     }
 
-    if (nrow(data %>% filter(.data$sector == "automotive")) > 0) {
+    if (nrow(data %>% filter(.data$sector == "automotive", entity == "portfolio")) > 0) {
       p_auto <- plot_alignment_table_sector_stripe(data, "automotive", size_lim,
         size_range,
         ncol = 3
