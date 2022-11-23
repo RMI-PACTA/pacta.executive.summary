@@ -571,9 +571,9 @@ _Les informations pour cet indicateur n'ont pas été collectées dans le test c
 
 **Exigences impératives:**
 
-* Laissez-vous guider par l'objectif de neutralité carbone d'ici 2050, conformément à la limite de réchauffement de 1,5\u00B0C de l'Accord de Paris et conformément aux dernières conclusions du GIEC.
+* Laissez-vous guider par l'objectif de neutralité carbone d'ici 2050, conformément à la limite de réchauffement de 1,5$^\circ$C de l'Accord de Paris et conformément aux dernières conclusions du GIEC.
 * Se conformer aux considérations techniques du rapport PAT 2021 du TCFD intitulé \guillemetleft Evaluation de l'alignement du portefeuille – considérations techniques\guillemetright . Respecter notamment les points suivants:
-  * Sélectionner un scénario de 1,5\u00B0C qui respecte, au minimum, les critères de sélection de scénarios définis par l'initiative Science Based Targets (SBTi) dans son document intitulé \guillemetleft Foundations of Science-Based Target Setting\guillemetright \ (Fondements de l'établissement d'objectifs fondés sur la science) (considération 7).
+  * Sélectionner un scénario de 1,5$^\circ$C qui respecte, au minimum, les critères de sélection de scénarios définis par l'initiative Science Based Targets (SBTi) dans son document intitulé \guillemetleft Foundations of Science-Based Target Setting\guillemetright \ (Fondements de l'établissement d'objectifs fondés sur la science) (considération 7).
   * Accorder la priorité aux indices de référence détaillés lorsqu'ils reflètent de manière significative des différences importantes dans la faisabilité de la décarbonation entre les industries ou les régions concernées (considération 8).
   * Inclure les émissions de catégorie 3 pour les secteurs pour lesquels elles sont les plus significatives et pour lesquels des indices de référence peuvent être facilement extraits des scénarios existants (combustibles fossiles, mines, automobile) (considération 11). 
   * En outre: A noter que la méthodologie PACTA ne se base pas sur les émissions mais sur les plans de production des entreprises. L'analyse basée sur la production donne cependant une indication des catégories suivantes: 
@@ -604,9 +604,9 @@ Objectifs à long terme de l'entreprise, actions à court terme et sources de do
 Pour calculer l'alignement du portefeuille
 
 * _En outre:_ Le score d'alignement climatique agrégé PACTA n'est pas un score d'augmentation implicite de la température (AIT). Par conséquent, la méthode PACTA ne peut pas fournir un niveau de confiance pour le score lui-même. Au lieu de cela, des scénarios fiables pour les scénarios sélectionnés existent et sont comme suit: 
-  * 50% de probabilité de ne pas dépasser 1,5\u00B0C de réchauffement pour le scénario uniforme de 1,5\u00B0C (GECO 2021)
-  * 50% de probabilité de ne pas dépasser 1,8\u00B0C de réchauffement pour le scénario de 1,8\u00B0C CDN-SLT (GECO 2021)
-  * Probabilité de 50% de ne pas dépasser 3,0\u00B0C de réchauffement pour le scénario des politiques actuelles de 3,0\u00B0C (GECO 2021) 
+  * 50% de probabilité de ne pas dépasser 1,5$^\circ$C de réchauffement pour le scénario uniforme de 1,5$^\circ$C (GECO 2021)
+  * 50% de probabilité de ne pas dépasser 1,8$^\circ$C de réchauffement pour le scénario de 1,8$^\circ$C CDN-SLT (GECO 2021)
+  * Probabilité de 50% de ne pas dépasser 3,0$^\circ$C de réchauffement pour le scénario des politiques actuelles de 3,0$^\circ$C (GECO 2021) 
 * _Exigences non satisfaites_ car le score global n'est pas un AIT.
   * Les scores de température implicites doivent être calculés en utilisant un niveau de confiance de 66\%, plutôt que de 50\%.
   * Calculer les scores de réchauffement sur une base d'émissions cumulées jusqu'en 2050 afin de tenir compte de manière appropriée de la relation physique entre les émissions cumulées et les résultats en termes de réchauffement.
