@@ -569,9 +569,9 @@ _Für diesen Indikator wurden im Rahmen des PACTA-Klimatests 2022 keine Informat
 
 **Zwingende Anforderungen an die Datenanbieter:**
 
-* Lassen Sie sich vom 2050-Netto-Null-Ziel leiten, welches mit der 1,5\u00B0C-Erwärmungsgrenze des Klimaübereinkommen von Paris und den neuesten Erkenntnissen des Weltklimarats im Einklang steht.
+* Lassen Sie sich vom 2050-Netto-Null-Ziel leiten, welches mit der 1,5$^\circ$C-Erwärmungsgrenze des Klimaübereinkommen von Paris und den neuesten Erkenntnissen des Weltklimarats im Einklang steht.
 * Befolgen Sie die technischen Überlegungen des TCFD 2021 PAT-Berichts „Measuring Portfolio Alignment - technical considerations“ („Messung der Klimaausrichtung des Portfolios – technische Überlegungen“). Halten Sie insbesondere folgende Punkte ein:
-  * Wählen Sie ein 1,5\u00B0C-Szenario, das mindestens den von der Science Based Targets Initiative (SBTi) in dem Dokument „Foundations of Science-Based Target Setting“ („Grundlagen der wissenschaftsbasierten Zielsetzung“) dargelegten Kriterien entspricht (Betrachtung 7).
+  * Wählen Sie ein 1,5$^\circ$C-Szenario, das mindestens den von der Science Based Targets Initiative (SBTi) in dem Dokument „Foundations of Science-Based Target Setting“ („Grundlagen der wissenschaftsbasierten Zielsetzung“) dargelegten Kriterien entspricht (Betrachtung 7).
   * Priorisieren Sie granulare Benchmarks, wenn diese wesentliche Unterschiede in der Realisierbarkeit der Dekarbonisierung zwischen Branchen oder Regionen aufzeigen (Betrachtung 8).
   * Beziehen Sie Scope-3-Emissionen für die Sektoren ein, die am bedeutendsten sind und für die Benchmarks leicht aus bestehenden Szenarien entnommen werden können (fossile Brennstoffe, Bergbau, Automobilindustrie) (Betrachtung 11). 
   * Zusatz: Beachten Sie, dass PACTA nicht auf den Emissionen, sondern auf den Produktionsplänen der Unternehmen basiert. Die produktionsbasierte Analyse ermöglicht es, die folgenden Bereiche so genau wie möglich abzubilden: 
@@ -600,9 +600,9 @@ Langfristige Unternehmensziele, kurzfristige Massnahmen und Datenquellen:
 Zur Berechnung der Klimaausrichtung des Portfolios
 
 * _Zusatz:_ Der PACTA-Gesamtscore zur Klimaausrichtung ist keine Bewertung des impliziten Temperaturanstiegs (ITR). Aus diesem Grund kann PACTA für den Score selbst kein Konfidenzniveau angeben. Stattdessen gibt es folgende Konfidenz-Szenarien: 
-  * Wahrscheinlichkeit von 50%, dass im Szenario mit 1,5\u00B0C-Ziel und einheitlichem CO2-Preis (GECO 2021) die globale Erwärmung 1,5\u00B0C nicht überschreitet
-  * Wahrscheinlichkeit von 50%, dass im Szenario mit 1,8\u00B0C-Ziel und Umsetzung der nationalen Beiträge (NDC) sowie langfristigen Strategien der Vertragsstaaten (LTS) (GECO 2021) die globale Erwärmung 1,8\u00B0C nicht überschreitet
-  * Wahrscheinlichkeit von 50%, dass im Szenario mit 3,0\u00B0C-Ziel und Umsetzung der bisher beschlossenen politischen Massnahmen (GECO 2021) die globale Erwärmung 3,0\u00B0C nicht überschreitet
+  * Wahrscheinlichkeit von 50%, dass im Szenario mit 1,5$^\circ$C-Ziel und einheitlichem CO2-Preis (GECO 2021) die globale Erwärmung 1,5$^\circ$C nicht überschreitet
+  * Wahrscheinlichkeit von 50%, dass im Szenario mit 1,8$^\circ$C-Ziel und Umsetzung der nationalen Beiträge (NDC) sowie langfristigen Strategien der Vertragsstaaten (LTS) (GECO 2021) die globale Erwärmung 1,8$^\circ$C nicht überschreitet
+  * Wahrscheinlichkeit von 50%, dass im Szenario mit 3,0$^\circ$C-Ziel und Umsetzung der bisher beschlossenen politischen Massnahmen (GECO 2021) die globale Erwärmung 3,0$^\circ$C nicht überschreitet
 * _Anforderungen nicht erfüllt,_ da der Gesamtscore kein ITR-Score ist.
   * Die impliziten Temperaturwerte sollen mit einem Konfidenzniveau von 66\% statt 50\% berechnet werden. 
   * Die Erwärmungswerte werden auf Basis der kumulierten Emissionen bis 2050 berechnet, um die physikalische Beziehung zwischen kumulierten Emissionen und der Erwärmung angemessen zu berücksichtigen.
