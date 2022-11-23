@@ -694,10 +694,13 @@ The PACTA methodology covers listed equity and corporate bonds. In cooperation w
 
 To what extent you use your results is up to you. However, the results are suitable for a variety of reporting opportunities, such as:
 
-* Internal reporting and communication
-* Reporting in the environment of the participating financial institution (clients, insured parties etc.)
-* External disclosure: Implementing the federal council’s recommendations \href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}{link}) to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}{link}.
-* Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" (\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link}).
+\begin{itemize}
+\item Internal reporting and communication
+\item Reporting in the environment of the participating financial institution (clients, insured parties etc.)
+\item External disclosure: Implementing the federal council’s recommendations \textbf{\href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}{(link)}} to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}{(link)}}.
+\item Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link})}.
+\end{itemize}
+
 
 \end{esbox}
 
