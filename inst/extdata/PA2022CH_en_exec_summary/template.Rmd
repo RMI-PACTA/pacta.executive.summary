@@ -657,7 +657,7 @@ Proportions of mortgages above or below the reduction path according to the fede
 
 \begin{esbox}{Which are the PACTA sectors?}
 
-The PACTA analysis covers 8 climate-relevant sectors: coal mining, oil \& gas production, power generation (fossil and renewable); automotive production (ICE , hybrid, electric), aviation, cement, and steel. Usually, 5-15\% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of portfolio emissions. Please see the graphs of a sample portfolio below:
+The PACTA analysis covers 8 climate-relevant sectors: coal, oil \& gas, power, automotive, cement, steel, and aviation. Usually, 5-15\% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of portfolio emissions. Please see the graphs of a sample portfolio below:
 
 \begin{center}
 
