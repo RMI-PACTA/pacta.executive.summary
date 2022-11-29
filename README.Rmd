@@ -16,6 +16,10 @@ knitr::opts_chunk$set(
 # pacta.executive.summary <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/pacta.executive.summary)](https://CRAN.R-project.org/package=pacta.executive.summary)
+[![R-CMD-check](https://github.com/RMI-PACTA/pacta.executive.summary/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/RMI-PACTA/pacta.executive.summary/actions/workflows/R-CMD-check.yaml)
+[![pacta.executive.summary status badge](https://rmi-pacta.r-universe.dev/badges/pacta.executive.summary)](https://rmi-pacta.r-universe.dev/ui#package:pacta.executive.summary)
 <!-- badges: end -->
 
 Repo containing the code to generate charts in PACTA executive summary document.
