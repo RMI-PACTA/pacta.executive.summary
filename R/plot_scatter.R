@@ -221,7 +221,7 @@ plot_basic_scorebar <- function() {
 }
 
 relabel_entities <- function(label) {
-  out <- case_when(
+  out <- dplyr::case_when(
     label == "peers_mean" ~ "Peers Aggr.",
     label == "this_portfolio" ~ "This Portfolio",
     TRUE ~ r2dii.plot::to_title(label)
