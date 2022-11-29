@@ -117,7 +117,7 @@ prep_scores_exposure_scorecard <- function(audit_data,
                                            currency_exchange_value,
                                            total_portfolio_value_curr,
                                            log_dir = .GlobalEnv$log_dir) {
-  if (is.null(emissions_data) || is.null(currency_exchange_value) || is.null(total_portfolio_value_curr)) {
+  if (is.null(audit_data) || is.null(currency_exchange_value) || is.null(total_portfolio_value_curr)) {
     data_out <- NULL
     return(data_out)
   } else {
