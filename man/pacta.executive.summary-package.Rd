@@ -10,6 +10,14 @@
 
 This package contains plotting functions and a template for generating the executive summary that displays aggregated results of a PACTA COP exercise.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://rmi-pacta.github.io/pacta.executive.summary}
+  \item \url{https://github.com/RMI-PACTA/pacta.executive.summary}
+}
+
+}
 \author{
 \strong{Maintainer}: Monika Furdyna \email{monika.furdyna@gmail.com} (\href{https://orcid.org/0000-0002-3728-0646}{ORCID}) [contractor]
 
