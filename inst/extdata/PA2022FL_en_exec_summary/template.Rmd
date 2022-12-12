@@ -7,10 +7,12 @@ output:
 fontsize: 10pt
 always_allow_html: true
 params:
+  es_main_dir: NULL
   survey_dir: NULL
   real_estate_dir: NULL
-  real_estate_flag: TRUE
+  real_estate_flag: FALSE
   score_card_dir: NULL
+  score_card_flag: FALSE
   language: EN
   investor_name: investor
   portfolio_name: portfolio
@@ -39,6 +41,7 @@ params:
 knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, 
                       error=FALSE, fig.keep='all')
 
+es_main_dir <- params$es_main_dir
 survey_dir <- params$survey_dir
 real_estate_dir <- params$real_estate_dir
 score_card_dir <- params$score_card_dir
@@ -83,7 +86,7 @@ subtitle:  |
 
 ```{r number_peer, fig.height = 6}
 number_peers <- readr::read_csv(
-  file.path(score_card_dir, "number_peers.csv"),
+  file.path(es_main_dir, "number_peers.csv"),
   col_types = readr::cols_only(
     organization_type = "c",
     n = "n"
@@ -464,9 +467,6 @@ tryCatch(
 ```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
 ```
 
- <!-- FIXME: Find a more elegant way to make this switch. -->
-```{r real_estate_chapter, child="real-estate-chapter-alternate.Rmd", eval = !real_estate_flag}
-```
 
 ```{=latex}
 
@@ -722,6 +722,6 @@ If you want to learn more about the open-source methodology behind PACTA, you ca
 
 ```
 
-```{r scorecard, child='scorecard.Rmd'}
+```{r scorecard, child='scorecard.Rmd', eval = score_card_flag}
 ```
 
