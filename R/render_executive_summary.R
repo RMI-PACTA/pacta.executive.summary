@@ -4,12 +4,10 @@
 #' @param language Character single, valid two letter language identifier in uppercase e.g. "EN"
 #' @param output_dir Character single, valid filepath to a directory where the output will be saved
 #' @param exec_summary_dir Character single, valid filepath to a directory that contains the template, e.g. `system.file("extdata", "PA2022CH_en_exec_summary", package = "pacta.executive.summary")`
-#' @param es_main_dir Character single, valid filepath to a directory that contains the main executive summary files for the user
 #' @param survey_dir Character single, valid filepath to a directory that contains the survey files for the user
 #' @param real_estate_dir Character single, valid filepath to a directory that contains real estate files for the user
 #' @param real_estate_flag Logical single, whether or not to render the real estate section
 #' @param score_card_dir Character single, valid filepath to a directory that contains score card files for the user
-#' @param score_card_flag Logical single, whether or not to render the score_card section
 #' @param file_name Character single, valid filename of the Rmd template file, e.g. "template.Rmd"
 #' @param investor_name Character single string specifying the investor name
 #' @param portfolio_name Character single string specifying the portfolio name
@@ -26,12 +24,10 @@ render_executive_summary <- function(data,
                                      language,
                                      output_dir,
                                      exec_summary_dir,
-                                     es_main_dir,
                                      survey_dir,
                                      real_estate_dir,
                                      real_estate_flag,
                                      score_card_dir,
-                                     score_card_flag,
                                      file_name = "template.Rmd",
                                      investor_name,
                                      portfolio_name,
@@ -46,12 +42,10 @@ render_executive_summary <- function(data,
     clean = TRUE,
     quiet = TRUE,
     params = list(
-      es_main_dir = es_main_dir,
       survey_dir = survey_dir,
       real_estate_dir = real_estate_dir,
       real_estate_flag = real_estate_flag,
       score_card_dir = score_card_dir,
-      score_card_flag = score_card_flag,
       language = language,
       investor_name = investor_name,
       portfolio_name = portfolio_name,
