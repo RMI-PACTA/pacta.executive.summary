@@ -590,69 +590,7 @@ This layer chart is shown for coal on the one hand and oil and gas on the other 
 
 \newpage
 
-\section{Annex (III): Explanation of Charts}
-
-\begin{minipage}[t]{0.4\textwidth}
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_map}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Geographical location of all directly held buildings in Switzerland. The color represents the main use of the respective building. 
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_energy_carrier}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Proportion of energy sources in the directly held buildings and mortgages. The values submitted or taken from the GWR are shown. If neither of the two figures is available, "oil" is used in accordance with FOEN specifications.
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_distribtion}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Mean CO\textsubscript{2} intensity of all directly held buildings or mortgages per participant. The red column represents the mean value of the own respective portfolio. The horizontal line represents the value 15.7 kg/m\textsuperscript{2} of the reduction path "Switzerland's Long-Term Climate Strategy" for the year 2021. 
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_emissions}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Development over time of the average CO\textsubscript{2} intensity of all directly held buildings per participant in comparison with the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy".
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_stranded_asset}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Proportions of mortgages above or below the reduction path according to the federal government's "Switzerland's Long-Term Climate Strategy" in relation to their mortgages at the respective time. In light green, those mortgages that are below the reduction path at the respective time due to renovation measures.
-
-\end{minipage}%
-
-\newpage
-
-\section{Annex (IV): FAQs}
+\section{Annex (III): FAQs}
 
 \begin{esbox}{Which are the PACTA sectors?}
 
