@@ -1,0 +1,658 @@
+---
+output:
+  pdf_document:
+    latex_engine: xelatex
+    includes:
+      in_header: "preamble.tex"
+fontsize: 10pt
+always_allow_html: true
+params:
+  survey_dir: NULL
+  real_estate_dir: NULL
+  real_estate_flag: FALSE
+  score_card_dir: NULL
+  language: EN
+  investor_name: investor
+  portfolio_name: portfolio
+  peer_group: pensionfund
+  audit_data: NULL
+  total_portfolio: NULL
+  scenario_selected: NULL
+  emissions_data: NULL
+  results_portfolio: NULL
+  peers_results_aggregated: NULL
+  peers_results_individual: NULL
+  indices_results_portfolio: NULL
+  currency_exchange_value: NULL
+  log_dir: NULL
+---
+
+```{=latex}
+% please note that LaTeX has semantic whitespace, espescially line
+% breaks. Adjust or add carefully.
+% There are also spots where a comment character (%) is used
+% semantically, to suppress whitespace from being inserted (generally at
+% the end of an environment)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, 
+                      error=FALSE, fig.keep='all')
+
+survey_dir <- params$survey_dir
+real_estate_dir <- params$real_estate_dir
+score_card_dir <- params$score_card_dir
+investor_name <- params$investor_name
+portfolio_name <- params$portfolio_name
+peer_group <- params$peer_group
+scenario_selected <- params$scenario_selected
+currency_exchange_value <- params$currency_exchange_value
+log_dir <- params$log_dir
+
+results_portfolio <- params$results_portfolio
+peers_results_individual <- params$peers_results_individual
+peers_results_aggregated <- params$peers_results_aggregated
+indices_results_portfolio <- params$indices_results_portfolio
+total_portfolio <- params$total_portfolio
+audit_data <- params$audit_data
+emissions_data <- params$emissions_data
+```
+
+---
+title: "Executive Summary"
+subtitle:  |  
+  | PACTA Climate Test Switzerland 2022
+  | Results of `r investor_name`
+---
+
+```{=latex}
+\begin{esbox}[0.25\textwidth]{Table of contents}
+
+\begin{enumerate}
+\item Equity \& Bonds (overview)
+\item Equity \& Bonds (current \& future)
+\item Survey
+\item Real estate \& mortgages
+\item Annex (Detailed chart explanations; FAQs)
+\item PACTA-based scorecard informed by Swiss Climate Scores
+\end{enumerate}
+
+\end{esbox}%
+\begin{esbox}[0.75\textwidth]{About the PACTA Climate Test 2022}
+```
+
+```{r number_peer, fig.height = 6}
+number_peers <- readr::read_csv(
+  file.path(score_card_dir, "number_peers.csv"),
+  col_types = readr::cols_only(
+    organization_type = "c",
+    n = "n"
+  )
+) %>% 
+  dplyr::filter(.data$organization_type == .env$peer_group) %>% 
+  dplyr::pull("n")
+```
+
+```{=latex}
+
+Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2\textdegree C and pursuing efforts to limit it to 1.5\textdegree C. The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals.
+\startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter
+was invited to the test by the FOEN \textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}{link})} and SIF \textbf{(\href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{link})} with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which
+\startunderscoreletter `r number_peers` \stopunderscoreletter
+were peers (i.e., participants from the same financial sector, such as pension funds; insurances; banks; asset managers).
+
+This executive summary is a short version of the individual results of your uploaded portfolio \startunderscoreletter {`r gsub("&", "\\&", portfolio_name, fixed = TRUE)`}\stopunderscoreletter.
+\startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter
+received one executive summary per portfolio. A detailed individual interactive report (per portfolio or grouped) can be viewed via personalized access on the Transition Monitor Platform in German, French, and partly English \textbf{\href{https://platform.transitionmonitor.com/}{(link)}}. A meta report with anonymized and aggregated data from all participants, together with sector reports, is published on the FOEN website
+\textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}{link})}
+and is available for download.
+
+\end{esbox}
+
+\begin{esbox}{Measuring climate alignment}
+
+In the view of PACTA and FOEN, there are three main components that are useful to measure alignment with climate goals which are shown below. The icons are used throughout this document to indicate the category for each chart.
+
+\vspace{1em}
+
+\begin{center}
+\begin{minipage}{0.3\linewidth}%
+\begin{center}
+
+\begin{minipage}[c]{0.3\textwidth}
+\exposureImage[width=\textwidth]%
+\end{minipage}%
+\begin{minipage}[c]{0.7\textwidth}
+\textbf{Exposure:} Provides insights in how exposed your portfolio is to climate-relevant sectors, incl. buildings.
+\end{minipage}%
+
+\end{center}
+\end{minipage}% % note the semantic % after end
+\begin{minipage}{0.3\linewidth}%
+\begin{center}
+
+\begin{minipage}[c]{0.3\textwidth}
+\alignmentImage%[width=\textwidth]%
+\end{minipage}%
+\begin{minipage}[c]{0.7\textwidth}
+\textbf{Trajectory alignment:} Measures alignment of invested companies’ production plans or buildings’ refurbishment plans with climate scenarios and thereby allocates responsibility and risk to each company and building.
+\end{minipage}%
+
+\end{center}
+\end{minipage}% % note the semantic % after end
+\begin{minipage}{0.3\linewidth}%
+\begin{center}
+
+\begin{minipage}[c]{0.3\textwidth}
+\engagementImage[width=\textwidth]%
+\end{minipage}%
+\begin{minipage}[c]{0.7\textwidth}
+\textbf{Engagement \& other qualitative indicators:} Complementary analysis with information on climate actions that can have real-world climate impact.
+\end{minipage}%
+
+
+\end{center}
+\end{minipage}% % note the semantic % after end
+
+\end{center}
+\end{esbox}
+
+\begin{esbox}{Equity \& bonds module overview}[\exposureImage]
+
+The analysis of the listed equity and corporate bond portfolios covers 8 climate-relevant sectors*. For these sectors, the exposure as well as the alignment with a pathway to limit global warming well below 2 degrees (Paris Agreement) has been analyzed. The trajectory alignment measurement was done using the PACTA method. PACTA compares forward-looking production plans of all invested companies in the PACTA sectors on a technology level to the targets from climate scenarios. For more information on the PACTA methodology, please refer to the PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
+
+```
+
+```{r diagram, fig.width=8, fig.height=2}
+tryCatch(
+  {
+    data_diagram <- prep_diagram(
+      audit_data = audit_data,
+      emissions_data = emissions_data,
+      currency_exchange_value = currency_exchange_value
+    )
+    plot_diagram(data_diagram)
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_diagram(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+```
+
+```{=latex}
+
+\raggedleft\footnotesize{* coal, oil \& gas, power, automotive, cement, steel and aviation}
+
+\end{esbox}
+
+\newpage
+
+\section{Equity \& Bonds Results}
+
+\begin{esbox}{Current state (PACTA sectors)}[\exposureImage]
+
+%FIXME: make footnote
+\textbf{Exposure* to climate-relevant sectors \& technologies as \% of AUM}
+
+The chart provides information on the exposure to companies with physical assts in the parts of the value chain covered by PACTA. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
+```
+
+```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
+tryCatch(
+  {
+    data_green_brown_bars <- prep_green_brown_bars(
+      results_portfolio = results_portfolio,
+      scenario_selected = scenario_selected
+    )
+    plot_green_brown_bars(data_green_brown_bars)
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_green_brown_bars(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+tryCatch(
+  {
+    data_fossil_bars <- prep_fossil_bars(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      indices_results_portfolio = indices_results_portfolio,
+      scenario_selected = scenario_selected
+    )
+    plot_fossil_bars(data_fossil_bars)
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_fossil_bars(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+```
+
+```{=latex}
+
+* exposure to companies with main activity in PACTA sectors
+
+** ‘Low-carbon’ technologies: renewables and hydro for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
+
+\end{esbox}
+
+\begin{esbox}{Current \& future state (power sector)}[\alignmentImage
+\exposureImage]
+
+\textbf{Current exposure vs. future alignment for Power sector}
+
+The chart below shows the current low-carbon exposure and the forward-looking climate scenario alignment in the power sector for you and your peers. The current exposure to low-carbon technologies in the power sector increases right-wards, while the alignment improves upwards. A significant increase in renewable energy capacity will be required to achieve a 1.5\textdegree C climate scenario, so even companies with a high current share of low-carbon technologies will need to build new capacity in order to be aligned in the future. A current high low-carbon share and a low future alignment would therefore indicate a lack of planned renewables investment.
+
+```
+
+```{r scatter, fig.show="hold", out.width="0.4\\textwidth", fig.align='center'}
+
+tryCatch(
+  {
+    data_scatter_power_b <- prep_scatter(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      peers_results_individual = peers_results_individual,
+      indices_results_portfolio = indices_results_portfolio,
+      scenario_selected = scenario_selected,
+      asset_class = "bonds"
+    )
+
+    all_entity_types <- length(unique(data_scatter_power_b$entity_type)) == 4
+
+    if (all_entity_types | nrow(data_scatter_power_b) == 0) {
+      plot_scatter(data_scatter_power_b) +
+        patchwork::plot_annotation(
+          title = "Bonds",
+          theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 18))
+        )
+    }
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_scatter() for bonds. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+tryCatch(
+  {
+    data_scatter_power_e <- prep_scatter(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      peers_results_individual = peers_results_individual,
+      indices_results_portfolio = indices_results_portfolio,
+      scenario_selected = scenario_selected,
+      asset_class = "equity"
+    )
+
+    all_entity_types <- length(unique(data_scatter_power_e$entity_type)) == 4
+
+    if (all_entity_types | nrow(data_scatter_power_e) == 0) {
+      plot_scatter(data_scatter_power_e) +
+        patchwork::plot_annotation(
+          title = "Equity",
+          theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 18))
+        )
+    }
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_scatter() for equity. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+```
+
+```{=latex}
+\end{esbox}
+
+\begin{esbox}{Future (Other PACTA sectors)}[\alignmentImage]
+
+\textbf{PACTA Aggregated Climate Alignment Score}
+
+The aggregated score compares the alignment of all assets until 2026 to the GECO 2021 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector (except for cement which is not covered in GECO2021).\footnote{GECO was chosen since it covered the most PACTA sectors. Please note that the GECO scenarios expect major technology changes to happen after the five years analyzed by PACTA. As such your overall score could be lower when using other scenarios.}
+
+```
+
+```{r scores, fig.show='hold', out.width='0.4\\textwidth', fig.align='center'}
+tryCatch(
+  {
+    data_scores_b <- prep_scores(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      asset_class = "bonds"
+    )
+    plot_scores(data_scores_b) +
+      patchwork::plot_annotation(
+        title = "Bonds",
+        theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+      )
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_scores(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+
+tryCatch(
+  {
+    data_scores_e <- prep_scores(
+      results_portfolio = results_portfolio,
+      peers_results_aggregated = peers_results_aggregated,
+      asset_class = "equity"
+    )
+    plot_scores(data_scores_e) +
+      patchwork::plot_annotation(
+        title = "Equity",
+        theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 22))
+      )
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_scores(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+```
+
+```{=latex}
+\end{esbox}
+
+\newpage
+
+\section{Equity \& Bonds Results}
+
+\begin{esbox}{Transition}[\alignmentImage \exposureImage]
+
+\textbf{Scenario alignment per technology}
+
+While the previous section provided insights on the current exposure to the different PACTA sectors as well as an overview of the alignment on an aggregated level and sector level, this section provides complementary insights into alignment with the GECO 2021 scenario on a technology level for the PACTA sectors with technology roadmaps.
+The charts below indicate with which scenario the technologies in your portfolio are aligned, in comparison to your peers. The position of each square within the color strips defines the scenario with which your portfolio and your peers’ portfolios are aligned in 5 years from now. The size of the squares indicates the exposure as \% of AUM.
+To learn more about how the alignment of your portfolio evolves over the next five years per technology, you can find the respective trajectory charts in the interactive report. There you will also find additional information on company-level.
+```
+
+```{r alignment_table_bonds, fig.height=4, fig.width=7.1, fig.align='center'}
+tryCatch(
+  {
+    data_alignment_table <- prep_alignment_table(
+      results_portfolio = results_portfolio, 
+      peers_results_aggregated = peers_results_aggregated,
+      asset_class = "bonds"
+    )
+    plot_alignment_table(data_alignment_table) +
+    patchwork::plot_annotation(
+      title = "Bonds",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 16))
+    )
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_alignment_table() for bonds. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+```
+
+
+```{r alignment_table_equity, fig.height=4, fig.width=7.1, fig.align='center'}
+tryCatch(
+  {
+    data_alignment_table <- prep_alignment_table(
+      results_portfolio = results_portfolio, 
+      peers_results_aggregated = peers_results_aggregated,
+      asset_class = "equity"
+    )
+    plot_alignment_table(data_alignment_table) +
+    patchwork::plot_annotation(
+      title = "Equity",
+      theme = theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 16))
+    )
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_alignment_table() for equity. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+  }
+)
+```
+
+```{=latex}
+%FIXME: footnote
+* Renewables: include solar and wind power, exclude hydro and nuclear
+
+** Automotive: includes light-duty vehicles (LDV)
+
+\end{esbox}
+
+\newpage
+```
+
+```{r survey_chapter, child='survey-chapter.Rmd', eval = (dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
+```
+
+```{r survey_chapter_alternate, child='survey-chapter-alternate.Rmd', eval = !(dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
+```
+
+
+```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
+```
+
+
+```{=latex}
+
+\newpage
+
+\section{Annex (I): additional chart explanation}
+
+\subsection{Exposure to climate-relevant sectors \& technologies as \% of AUM} 
+
+
+\begin{minipage}[t]{0.3\linewidth}
+\begin{center}
+\textbf{All PACTA sectors}
+
+\includegraphics[width=\textwidth]{chart_sample_1}
+
+\end{center}
+\end{minipage}%
+\begin{minipage}[t]{0.3\linewidth}
+\begin{center}
+\textbf{Fossil Fuels}
+
+\includegraphics[width=\textwidth]{chart_sample_2}
+
+\end{center}
+\end{minipage}%
+
+The bar chart on the left shows the portfolio's exposure to each of the eight PACTA sectors as a percentage of assets under management. The bars are arranged by the amount of exposure in descending order. In addition, a breakdown of technologies (low-carbon, carbon-intensive, unspecified) is provided for those sectors for which such a breakdown is defined. The graph on the right shows the exposure to the fossil fuel extraction sector as a breakdown between the different fossil fuels coal, oil and gas. In addition, a comparison with peers (pension funds, insurance companies, banks or asset managers) as well as with an ETF for the MSCI World Index can be seen.
+
+\subsection{Current exposure vs. future alignment for power sector}
+
+
+\includegraphics[width=0.5\textwidth]{chart_sample_3}
+
+This chart shows current low-carbon technology exposure (percentage of sectoral exposure, x-axis) plotted against the sector-level alignment metric (alignment score, y-axis). Colored dots represent different entities (portfolio, average of all participants, average of peers). It investigates the relation between the two values as well as provides context for the alignment score. Ideally, an insitution would like to be positioned in the upper right corner (high exposure to low-carbon and high alignment). The bottom left corner is the least desired position (low exposure to low-carbon and low alignment).
+
+\newpage
+
+\section{Annex (I): additional chart explanation}
+
+\subsection{Aggregated alignment scores}
+
+
+\begin{minipage}[t]{0.4\textwidth}
+
+\verticalAlignImage
+\includegraphics[width=\textwidth]{chart_sample_4}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+This chart displays the alignment scores both on the aggregate level (left-most bar) and on sector level. The bigger, dark-blue triangle indicates the score obtained by this portfolio and the smaller grey triangle indicates the average peer result. The horizontal line delineates the scores aligned with the 1.8\textdegree C pathway (or higher) from those that are not aligned. The 1.8\textdegree C pathway matches with the target in the Paris Agreement of limiting global warming to “well below 2\textdegree C”. The scores indicate the scenario with which the production plans of the invested companies align. Please refer to the two visualizations below for more information. 
+
+\end{minipage}%
+
+\subsection{Scenario choice and grading}
+
+This table shows the technical specifications in regard to the scenarios to define the score. For each score, one can see the requirements in regard to each scenario in the same row.
+
+\begin{center}
+\includegraphics[width=\textwidth]{table_scenario_grading}
+\end{center}
+
+
+\subsection{Example of production plans for a green technology according to the scores.}
+
+The chart below visualizes the specifications of the aggregated alignment score for an examplary production plan of a green technology. To derive the aggregated score, the sector-level scores are aggregated to one score. 
+
+
+\begin{center}
+\includegraphics{chart_scenario_grading}
+\end{center}
+
+\newpage
+
+\section{Annex (II): additional chart explanation}
+
+\subsection{Dart chart: overall climate strategy}
+
+\begin{minipage}[t]{0.3\textwidth}
+\verticalAlignImage
+\includegraphics{chart_sample_5}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+
+This dart chart shows whether your institution as a whole, according to your answers, practices reporting, has a climate strategy in place, and has concrete climate targets. An increasing efficacy from the first (outer layer) to the third (inner layer) is assumed. Best practice is defined as having all three layers covered.
+Transparency through reporting is a first step in the right direction, but ultimately a concrete climate goal needs to be set and backed by a trustworthy climate strategy to make a change. 
+
+\end{minipage}%
+
+\subsection{Dart chart: investee engagement in fossil fuel, automotive, and power sector}
+
+\begin{minipage}[t]{0.3\textwidth}
+\verticalAlignImage
+
+\includegraphics[width=\textwidth]{chart_sample_6}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+This dart charts shows which engagement actions your institution is practicing, accoding to your answers. It starts with a general engagement policy, which can be improved in effectiveness through a dedicated engagement team and finally through joint engagement with other institutions. Best practice is when all three levels are covered.
+The chart is shown separately for fossil fuels, automotive, and power sector as these (i) are considered as the most climate relevant sectors and (ii) have low-carbon substitutes which allows investors to support the shift to existing technologies. 
+
+Considering joint engagement as a way to increase the efficacy of engagement practices is echoed by literature on the topic and supported by, for example, the NZAOA \textbf{\href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{(link)}}. 
+
+\end{minipage}%
+
+\subsection{Dart chart: negative screening in oil and gas as well as coal sector}
+
+\begin{minipage}[t]{0.3\textwidth}
+\verticalAlignImage
+
+\includegraphics[width=\textwidth]{chart_sample_7}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+This dart chart shows whether your institution as a whole, according to your answers, has exclusion criteria defined, practices underweighting in the respective sectors as well as excludes companies if your action is not successful. Best practice is defined as having all three layers covered.
+This layer chart is shown for coal on the one hand and oil and gas on the other hand separately, and compared to the exposure in the respective sectors. The comparison to the PACTA exposure aims to provide insights in the effectiveness of the negative screening actions.
+
+\end{minipage}%
+
+\newpage
+
+\section{Annex (III): FAQs}
+
+\begin{esbox}{Which are the PACTA sectors?}
+
+The PACTA analysis covers 8 climate-relevant sectors: coal, oil \& gas, power, automotive, cement, steel, and aviation. Usually, 5-15\% of FI’s portfolios are invested in these sectors. Even though the financial exposure can seem small, the investments still, on average, account for a much larger share of portfolio emissions. Please see the graphs of a sample portfolio below:
+
+\begin{center}
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\textbf{Financial Exposure}
+
+
+\includegraphics[width=\textwidth]{chart_sample_8}
+
+\end{center}
+
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
+
+\begin{center}
+\textbf{Emission Exposure}
+
+
+\includegraphics[width=\textwidth]{chart_sample_9}
+\end{center}
+\end{minipage}
+
+\end{center}
+\end{esbox}
+
+\begin{esbox}{Which asset classes does PACTA cover?}
+
+The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2022 also includes Swiss real estate and mortgages. 
+
+\end{esbox}
+
+\begin{esbox}{How can I use my results for disclosure?}
+
+To what extent you use your results is up to you. However, the results are suitable for a variety of reporting opportunities, such as:
+
+\begin{itemize}
+\item Internal reporting and communication
+\item Reporting in the environment of the participating financial institution (clients, insured parties etc.)
+\item External disclosure: Implementing the federal council’s recommendations \textbf{\href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}{(link)}} to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}{(link)}}.
+\item Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link})}.
+\end{itemize}
+
+
+\end{esbox}
+
+\begin{esbox}{Where can I find the full results of this test (interactive report)?}
+
+This Executive Summary serves as a supplement to the comprehensive and interactive presentation of your results in the so-called interactive report. You can view this on the Transition Monitor Platform under "Results" after logging in with your password \textbf{(\href{https://platform.transitionmonitor.com/}{link})}.
+
+\end{esbox}
+
+\begin{esbox}{Where can I learn more about the PACTA Methodology?}
+
+If you want to learn more about the open-source methodology behind PACTA, you can do so on our "PACTA Knowledge Hub" \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
+
+\end{esbox}
+
+\newpage
+
+```

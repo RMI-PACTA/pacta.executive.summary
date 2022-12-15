@@ -1,0 +1,237 @@
+```{=latex}
+\section{Real Estate \& Mortgage Results}
+
+The Real Estate and Mortgage section allows financial institutions to measure the alignment of their Swiss real estate and mortgage portfolio with the climate target of the Swiss building sector to reach net-zero emissions in 2050. Therefore, the PACTA test assesses the CO\textsubscript{2} emissions of your real estate and mortgage investments.
+
+Emissions from the Swiss building stock currently account for just over a quarter of Switzerland's total CO\textsubscript{2} emissions. New buildings are largely equipped with renewable heating systems today. By 2020, CO\textsubscript{2} emissions from buildings as a whole should have fallen by at least 40\% below 1990 levels - this target has been missed. In order to achieve the net zero target declared by the Federal Council in 2050, Switzerland's building stock must reduce its CO\textsubscript{2} emissions more rapidly in the future, in particular by renovating existing buildings \textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/emission-reduction/reduction-targets/2050-target/climate-strategy-2050.html}{link})}.
+
+```
+
+```{r real_estate_load_data}
+# keep original setting so that it can be retrieved after fixing for missing paths in english
+language_original <- language
+if (language_original == "EN") {
+  language <- "DE"
+}
+
+real_estate_data <- jsonlite::read_json(
+  path = file.path(real_estate_dir, "data", "data.json")
+)[["exec_sum"]]
+
+remove_list_null <- function(x){
+  nulls <- which(sapply(x, is.null))
+  if (length(nulls) > 0){
+    x <- x[-nulls]
+  }
+  return(x)
+}
+
+convert_re_user_path <- function(
+  wp_path,
+  parent_dir = file.path(real_estate_dir, "img")
+  ){
+  filename <- basename(wp_path)
+  return(file.path(parent_dir, filename))
+}
+
+real_estate_paths <- real_estate_data[["real_estate"]][[tolower(language)]]
+cleaned_real_estate_paths <- real_estate_paths %>%
+  remove_list_null %>%
+  lapply(X = ., FUN = convert_re_user_path)
+stopifnot(all(sapply(X = cleaned_real_estate_paths, FUN = file.exists)))
+
+mortgage_paths <- real_estate_data[["mortgage"]][[tolower(language)]]
+cleaned_mortgage_paths <- mortgage_paths %>%
+  remove_list_null %>%
+  lapply(X = ., FUN = convert_re_user_path)
+stopifnot(all(sapply(X = cleaned_mortgage_paths, FUN = file.exists)))
+
+if (language_original == "EN") {
+  language <- "EN"
+}
+
+```
+
+```{=latex}
+\begin{esbox}{Current Status}
+
+\begin{minipage}[t]{0.45\textwidth}
+Shares of energy sources compared to all participants 
+
+Directly held buildings
+```
+
+```{r real_estate_bar_chart, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_energy_carrier"]])
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in real_estate energy_carrier. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+Mortgages 
+
+```{r real_estate_mortgages_bar_chart, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_mortgage_paths[["png_energy_carrier"]])
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in mortgages energy_carrier. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+
+\begin{minipage}[t]{0.7\textwidth}
+Geographical distribution of directly held buildings by use 
+\end{minipage}%
+
+\hfill\exposureImage
+```
+
+
+```{r real_estate_map, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_map"]])
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in real_estate map. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+Natural Hazards map Switzerland: \textbf{\href{https://map.geo.admin.ch/?topic=bafu&lang=en&bgLayer=ch.swisstopo.pixelkarte-grau&catalogNodes=825,826,843,849,851,1505}{(link)}}
+
+\end{minipage}%
+
+\begin{minipage}[t]{0.45\textwidth}
+Distribution of the average CO\textsubscript{2} intensity of your real estate portfolio (directly held buildings) compared to peers. 
+
+```
+
+
+```{r real_estate_distribution, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_co2_distribution"]])
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in real_estate co2_distribution. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+
+\begin{minipage}[t]{0.7\textwidth}
+Distribution of the mean CO\textsubscript{2} intensity of your mortgage portfolio compared to peers. 
+\end{minipage}
+\hfill\alignmentImage
+```
+
+
+```{r mortgage_distribution, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_mortgage_paths[["png_co2_distribution"]])
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in mortgages co2_distribution. Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\end{esbox}%
+
+
+
+\begin{esbox}{Future Status}
+
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Reduction path} of all directly held buildings with the submitted refurbishment plans. 
+
+```
+
+```{r real_estate_reduction_path, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_real_estate_paths[["png_pathway"]])
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in real_estate pathway Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+
+\begin{minipage}[t]{0.7\textwidth}
+\textbf{Proportion} of their mortgages that are above or below the reduction path for net zero by 2050
+\end{minipage}
+\hfill\alignmentImage
+```
+
+```{r real_estate_reduction_proportion, out.width = '0.8\\textwidth'}
+tryCatch(
+  {
+    knitr::include_graphics(cleaned_mortgage_paths[["png_stranded_asset"]])
+  },
+  error = function(e) {
+    write_log(
+      "ES: There was an error in mortgages stranded_asset Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_no_data_message()
+  }
+)
+```
+
+```{=latex}
+\end{minipage}%
+\end{esbox}%
+```
+
+
+\newpage
