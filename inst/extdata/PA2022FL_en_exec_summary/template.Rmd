@@ -93,7 +93,7 @@ number_peers <- readr::read_csv(
 
 ```{=latex}
 
-By signing the Paris Agreement on climate change the Parliament of the Principality of Liechtenstein has committed itself to reduce its emissions by 40% (instead of the previous 20%) by 2030 compared to 1990 (LGBl. 2017 No. 286) and has been acting on climate change and sustainable development in several fronts: as a result from a report submitted to the UN the government implement 3 key projects to tackle the Sustainable Development Goals (Education Strategy 2025, Energy Strategy 2030, Mobility Concept 2030). Moreover, Liechtenstein also supports the Green Climate Fund (GCF) and together with the business associations of the Liechtenstein financial centre and the University of Liechtenstein, established the Life Climate Foundation, which provides ongoing information and draws attention to the importance of sustainability with various events and awards. The present executive summary is part of the PACTA test in Liechtenstein 2022 - a project that builts-up on the PACTA 2020 Test in the country and several other sustainable finance initiative in Liechtenstein. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios with a qualitative assessment of further climate actions. In total, 16 financial institutions participated, of which
+By signing the Paris Agreement on climate change the Parliament of the Principality of Liechtenstein has committed itself to reduce its emissions by 40\% (instead of the previous 20\%) by 2030 compared to 1990 (LGBl. 2017 No. 286) and has been acting on climate change and sustainable development in several fronts: as a result from a report submitted to the UN the government implement 3 key projects to tackle the Sustainable Development Goals (Education Strategy 2025, Energy Strategy 2030, Mobility Concept 2030). Moreover, Liechtenstein also supports the Green Climate Fund (GCF) and together with the business associations of the Liechtenstein financial centre and the University of Liechtenstein, established the Life Climate Foundation, which provides ongoing information and draws attention to the importance of sustainability with various events and awards. The present executive summary is part of the PACTA test in Liechtenstein 2022 - a project that builds upon the PACTA 2020 Test in the country and several other sustainable finance initiative in Liechtenstein. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios with a qualitative assessment of further climate actions. In total, 16 financial institutions participated, of which
 \startunderscoreletter `r number_peers` \stopunderscoreletter
 were peers (i.e., participants from the same financial sector, such as pension funds; insurances; banks; asset managers).
 
@@ -452,10 +452,6 @@ tryCatch(
 ```
 
 ```{r survey_chapter_alternate, child='survey-chapter-alternate.Rmd', eval = !(dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
-```
-
-
-```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = FALSE}
 ```
 
 
