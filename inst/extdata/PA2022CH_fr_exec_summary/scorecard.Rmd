@@ -300,7 +300,7 @@ if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.
       user_id = "n",
       peer_group = "c",
       name_climate_initiative = "c",
-      climate_initiative = "n"
+      climate_initiative = "l"
     )
   )
 } else {
@@ -308,7 +308,7 @@ if (file.exists(file.path(score_card_dir, "climate_scorecard_survey_initiatives.
     user_id = 0,
     peer_group = peer_group,
     name_climate_initiative = NA_character_,
-    climate_initiative = NA_real_
+    climate_initiative = NA
   )
 }
 
