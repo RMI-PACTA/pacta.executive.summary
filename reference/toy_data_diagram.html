@@ -79,14 +79,13 @@ user to create plots without PACTA_analysis-like input data.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">toy_data_diagram</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   exposure_portfolio asset_class expos…¹ expos…² expos…³ expos…⁴ emiss…⁵ emiss…⁶</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>            3<span style="text-decoration: underline;">000</span>000 bonds        <span style="text-decoration: underline;">300</span>000    0.1    <span style="text-decoration: underline;">60</span>000     0.2     0.8   <span style="text-decoration: underline;">70</span>000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>            3<span style="text-decoration: underline;">000</span>000 equity       <span style="text-decoration: underline;">450</span>000    0.15  <span style="text-decoration: underline;">135</span>000     0.3     0.7  <span style="text-decoration: underline;">100</span>000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with abbreviated variable names ¹​exposure_asset_class,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​exposure_asset_class_perc, ³​exposure_pacta,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​exposure_pacta_perc_asset_class_exposure, ⁵​emissions_pacta_perc,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁶​emissions_pacta</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   exposure_portfolio asset_class exposure_asset_class exposure_asset_class_perc</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>            3<span style="text-decoration: underline;">000</span>000 bonds                     <span style="text-decoration: underline;">300</span>000                      0.1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>            3<span style="text-decoration: underline;">000</span>000 equity                    <span style="text-decoration: underline;">450</span>000                      0.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4 more variables: exposure_pacta &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   exposure_pacta_perc_asset_class_exposure &lt;dbl&gt;, emissions_pacta_perc &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   emissions_pacta &lt;dbl&gt;</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

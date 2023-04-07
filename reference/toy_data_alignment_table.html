@@ -79,20 +79,19 @@ user to create plots without PACTA_analysis-like input data.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">toy_data_alignment_table</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 40 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    sector       technology asset_class entity    aligned_scen_…¹ perc_…² green…³</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> fossil_fuels coal       equity      portfolio &gt;1.8°C          0.101   High-c…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> automotive   hybrid     equity      portfolio &gt;1.8°C          0.001<span style="text-decoration: underline;">01</span> High-c…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> power        oil        equity      portfolio &gt;1.8°C          0.010<span style="text-decoration: underline;">1</span>  High-c…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> power        renewables equity      portfolio &gt;1.8°C          0.050<span style="text-decoration: underline;">6</span>  Low-ca…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> fossil_fuels oil        equity      portfolio 1.5-1.8°C       0.203   High-c…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> automotive   ice        equity      portfolio 1.5-1.8°C       0.001<span style="text-decoration: underline;">01</span> High-c…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> fossil_fuels gas        equity      portfolio &lt;1.5°C          0.101   High-c…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> automotive   electric   equity      portfolio &lt;1.5°C          0.001<span style="text-decoration: underline;">01</span> Low-ca…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> power        coal       equity      portfolio &lt;1.5°C          0.050<span style="text-decoration: underline;">6</span>  High-c…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> power        gas        equity      portfolio &lt;1.5°C          0.010<span style="text-decoration: underline;">1</span>  High-c…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 30 more rows, and abbreviated variable names ¹​aligned_scen_temp,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​perc_aum, ³​green_brown</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    sector   technology asset_class entity aligned_scen_temp perc_aum green_brown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> fossil_… coal       equity      portf… &gt;1.8°C             0.101   High-carbon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> automot… hybrid     equity      portf… &gt;1.8°C             0.001<span style="text-decoration: underline;">01</span> High-carbon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> power    oil        equity      portf… &gt;1.8°C             0.010<span style="text-decoration: underline;">1</span>  High-carbon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> power    renewables equity      portf… &gt;1.8°C             0.050<span style="text-decoration: underline;">6</span>  Low-carbon </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> fossil_… oil        equity      portf… 1.5-1.8°C          0.203   High-carbon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> automot… ice        equity      portf… 1.5-1.8°C          0.001<span style="text-decoration: underline;">01</span> High-carbon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> fossil_… gas        equity      portf… &lt;1.5°C             0.101   High-carbon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> automot… electric   equity      portf… &lt;1.5°C             0.001<span style="text-decoration: underline;">01</span> Low-carbon </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> power    coal       equity      portf… &lt;1.5°C             0.050<span style="text-decoration: underline;">6</span>  High-carbon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> power    gas        equity      portf… &lt;1.5°C             0.010<span style="text-decoration: underline;">1</span>  High-carbon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 30 more rows</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
