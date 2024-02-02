@@ -1,5 +1,5 @@
 url: https://rmi-pacta.github.io/pacta.executive.summary
 template:
-  package: pacta.pkgdown.template
+  package: pacta.pkgdown.rmitemplate
   bootstrap: 5
 
