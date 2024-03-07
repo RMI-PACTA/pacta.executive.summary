@@ -9,7 +9,7 @@ always_allow_html: true
 params:
   survey_dir: NULL
   real_estate_dir: NULL
-  real_estate_flag: TRUE
+  real_estate_flag: FALSE
   score_card_dir: NULL
   language: EN
   investor_name: investor
@@ -61,7 +61,7 @@ emissions_data <- params$emissions_data
 ---
 title: "Zusammenfassung"
 subtitle:  |  
-  | PACTA-Klimatest Schweiz 2022
+  | PACTA-Klimatest Schweiz 2024
   | Ergebnisse von `r investor_name`
 ---
 <span style="color:red"><font size="5">TO BE REVIEWED FOR COP 2024</font></span>

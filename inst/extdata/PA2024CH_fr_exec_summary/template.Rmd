@@ -9,7 +9,7 @@ always_allow_html: true
 params:
   survey_dir: NULL
   real_estate_dir: NULL
-  real_estate_flag: TRUE
+  real_estate_flag: FALSE
   score_card_dir: NULL
   language: EN
   investor_name: investor
@@ -61,7 +61,7 @@ emissions_data <- params$emissions_data
 ---
 title: "Résumé"
 subtitle:  |  
-  | Test climatique PACTA Suisse 2022
+  | Test climatique PACTA Suisse 2024
   | Résultats de `r investor_name`
 ---
 
