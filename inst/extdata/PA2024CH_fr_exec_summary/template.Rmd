@@ -8,8 +8,6 @@ fontsize: 10pt
 always_allow_html: true
 params:
   survey_dir: NULL
-  real_estate_dir: NULL
-  real_estate_flag: FALSE
   score_card_dir: NULL
   language: EN
   investor_name: investor
@@ -40,7 +38,6 @@ knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE,
                       error=FALSE, fig.keep='all')
 
 survey_dir <- params$survey_dir
-real_estate_dir <- params$real_estate_dir
 score_card_dir <- params$score_card_dir
 investor_name <- params$investor_name
 portfolio_name <- params$portfolio_name
@@ -454,14 +451,6 @@ tryCatch(
 ```{r survey_chapter_alternate, child='survey-chapter-alternate.Rmd', eval = !(dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
 
-
-```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
-```
-
- <!-- FIXME: Find a more elegant way to make this switch. -->
-```{r real_estate_chapter, child="real-estate-chapter-alternate.Rmd", eval = !real_estate_flag}
-```
-
 ```{=latex}
 
 \newpage
@@ -590,69 +579,7 @@ Ce diagramme stratigraphique est présenté séparément pour le charbon, d'une 
 
 \newpage
 
-\section{Annex (III): Explication des graphiques}
-
-\begin{minipage}[t]{0.4\textwidth}
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_map}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Localisation géographique de tous les bâtiments en détention directe en Suisse. La couleur représente l'utilisation principale du bâtiment respectif.
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_energy_carrier}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Proportion des sources d'énergie dans les bâtiments et les hypothèques détenus directement. Les valeurs transmises ou tirées du GWR sont indiquées. Si aucune de ces deux valeurs n'est disponible, on utilise "pétrole" selon les indications de l'OFEV.
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_distribtion}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Intensité CO\textsubscript{2} moyenne de tous les immeubles ou hypothèques détenus directement par participant. La colonne rouge représente la valeur moyenne du propre portefeuille respectif. La ligne horizontale représente la valeur 15,7 kg/m\textsuperscript{2} de la trajectoire de réduction "Stratégie climatique à long terme de la Suisse" pour l'année 2021.
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_emissions}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Évolution dans le temps de l'intensité moyenne en CO\textsubscript{2} de tous les bâtiments détenus directement par participant en comparaison avec la trajectoire de réduction selon la "Stratégie climatique à long terme de la Suisse" de la Confédération.
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_stranded_asset}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Proportions d'hypothèques au-dessus ou au-dessous de la trajectoire de réduction selon la "Stratégie climatique à long terme de la Suisse" de la Confédération par rapport à leurs hypothèques à l'époque respective. En vert clair, les hypothèques qui se situent en dessous de la trajectoire de réduction au moment considéré en raison de mesures de rénovation.
-
-\end{minipage}%
-
-\newpage
-
-\section{Annexe (IV): FAQ}
+\section{Annexe (III): FAQ}
 
 \begin{esbox}{Quels sont les secteurs PACTA?}
 
