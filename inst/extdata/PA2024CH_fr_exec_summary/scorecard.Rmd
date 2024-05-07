@@ -222,72 +222,6 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 ```
 
 ```{=latex}
-\subsection{Real Estate Score}
-
-```
-
-```{r real_estate_scores_scorecard, fig.height=3}
-
-if (real_estate_flag){
-
-  tryCatch(
-   {
-      real_estate_data <- jsonlite::read_json(
-        path = file.path(real_estate_dir, "data", "data.json")
-        )[["exec_sum"]]
-    
-      re_data_scores_scorecard <- tibble(
-        asset_class = c("directly held", "mortgages"),
-        score = c(
-          real_estate_data[["real_estate"]][["co2eq_emissions_grade"]],
-          real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]
-        )
-        ) %>%
-      dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
-
-      plot_scores_scorecard_real_estate(
-        data = re_data_scores_scorecard
-      )
-    },
-    error = function(e) {
-      write_log(
-        "ES: There was an error in prep/plot_scores_scorecard_real_estate(). Returning empty plot object.\n",
-        file_path = log_dir
-      )
-      empty_plot_error_message()
-    }
-  )
-} else {
-  empty_plot_no_data_message()
-}
-
-```
-
-```{=latex}
-
-
-\subsection{Immobilier et hypothèques en Suisse}
-
-Intensité de CO\textsubscript{2} selon les classes GEAK (Moyens du participant)
-
-\begin{itemize}
-\item Bâtiments à tenue directe:
-`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
-\(\rightarrow\)
-`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
-
-\item Hypothèques:
-`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
-\(\rightarrow\)
-`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
-
-\end{itemize}
-
-\vfill\null
-\columnbreak
-```
-
-```{=latex}
 \subsection{Stratégie climatique générale incluant une gestion crédible du climat}
 
 Les institutions financières peuvent contribuer à la transition vers la neutralité des émissions en faisant en sorte que les entreprises dans lesquelles elles investissent mettent en œuvre des plans de transition jusqu’en 2050 qui reposent sur une base scientifique et vérifiés par un tiers.
@@ -532,11 +466,6 @@ Pour favoriser la transition, les investissements dans les solutions climatiques
 
 * Le seuil de 5\% des recettes s’applique aussi bien aux activités directement liées à l’exploration et à la production de combustibles fossiles qu’aux activités – dès lors que des données sont disponibles – qui financent cette production (pour le charbon, selon la Global Coal Exit List ou une liste similaire). 
 * Les activités concernées englobent l’ensemble de la chaîne de création de valeur et vont de l’exploration, de l’extraction et de la production (upstream), au raffinage, à la commercialisation et à l’électrification (downstream), en passant par le transport et le stockage (midstream).
-
-
-### Immobilier et hypothèques – indicateur PACTA supplémentaire
-
-En remplaçant les combustibles fossiles par des systèmes de chauffage renouvelables et en rénovant les bâtiments de manière économe en énergie, il est possible d'apporter une contribution directe et significative au climat. L'immobilier et les hypothèques sont donc des classes d'actifs importantes. La figure montre l'intensité moyenne en CO~2~ du participant dans les classes GEAK calculée selon la méthodologie PACTA.
 
 ### Engagements vérifiés en faveur du net zéro
 
