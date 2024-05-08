@@ -1,5 +1,3 @@
-<span style="color:red"><font size="5">TO BE REVIEWED FOR COP 2024</font></span>
-
 ```{=latex}
 
 \section{Climate Action Survey}
@@ -7,13 +5,13 @@
 This section provides insights in the effectiveness of climate actions on an institutional level. The results base on the complementary qualitative climate action survey. The survey results are compared to peers and the quantitative results of this portfolio. Please note that survey answers were self-reported and not verified by RMI.
 
 \fbox{\begin{minipage}{\textwidth}
-\textbf{Explanation on dart charts below:} The dart charts are a newly developed chart type that depicts your climate-relevant measures. Each circle represents one climate relevant measure and is colored in case the measure is in place. The level of effectiveness of the measures increases from the outer to the inner ring and with colour intensity. The more circles are filled from the outer to the inner circle, the more ambitious are your institution’s climate actions. For more information on the specific measures shown in the layers, please refer to the Annex. 
+\textbf{Explanation on dart charts below:} Dart charts are a newly developed chart type that depicts your climate-relevant measures. Each circle represents one climate relevant measure and is colored in case the measure is in place. The level of effectiveness of the measures increases from the outer to the inner ring and with colour intensity. The more circles are filled in, from the outer to the inner circle, the more ambitious are your institution’s climate actions. For more information on the specific measures shown in the layers, please refer to the Annex. 
 \end{minipage}
 }
 
 \begin{esbox}{Climate measures contributing to Swiss climate goals}[\engagementImage]
 
-On the left hand side, you find the initiatives you are part of. The larger the font size, the more peers are part of it. In the middle, you see a dart chart indicating your climate strategy. On the right, you can see how many of your peers have all three climate strategies in place, which is considered as best practice.
+With the adoption of the Climate and innovation law in June 2023, Switzerland has committed to the goal of achieving net zero emissions by 2050 at the latest. The following two dart charts illustrate the level of ambition you and your peers have with respect to contributing to the Swiss national climate goal of net zero emissions by 2050. We also look into measures surrounding a transition plan which supports achieving net zero emissions. The text besides a dart chart provides a comparison to the share of peers with best practice, i.e., the ones that have all layers filled.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
@@ -43,7 +41,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_peers_transi
 
 \begin{esbox}{Engagement strategies within listed equity}[\engagementImage]
 
-Research shows that engagement is one of the most effective ways to improve climate goal alignment of companies invested through equity and bonds. Therefore, the engagement dart charts below show your engagement measures for three climate crucial sectors and thereby complement the previous alignment section. The text besides provides a comparison to the share of peers with best practice, i.e., the ones that have all layers covered.
+Research shows that engagement is one of the most effective ways to improve climate goal alignment of companies one is invested in. The dart charts below show your engagement measures, either carried out bilaterally or via exercising voting rights. The charts assess to what extent, based on evidence, your engagement is following the practices which are the most effective in achieving improvements in the climate performance of investee companies and funds.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
@@ -74,15 +72,15 @@ file.path(survey_dir, language, "plot_layer_voting.png")
 
 \end{esbox}
 
-\begin{esbox}{Use of exclusion policies within listed equity and corporate bonds vs. fossil fuel PACTA exposure}[\engagementImage]
+\begin{esbox}{Use of exclusion policies within bonds and equity vs. fossil fuel PACTA exposure}[\engagementImage]
 
-These charts compare the reported climate-aligned strategies to the exposure to coal mining and oil \& gas extraction. If exclusion strategies are applied at an institutional level, it is expected that exposure in these technologies will be zero or very low compared to the total portfolios peers.
+These charts compare the reported climate-aligned strategies to the exposure to coal mining and oil and gas extraction. If exclusion strategies are applied at an institutional level, it is expected that percentage exposure in these technologies will be zero or very low compared to the total percentage exposure of peers' portfolios.
 
 \begin{center}
 ```
 
 ```{r plot_exclusion_coal, fig.width=10, fig.height=3.5}
-plot_exlusion_coal <- pacta.executive.summary::rasterGrob(
+plot_exclusion_coal <- pacta.executive.summary::rasterGrob(
   pacta.executive.summary::readPNG(
     file.path(
       survey_dir, 
@@ -94,12 +92,28 @@ plot_exlusion_coal <- pacta.executive.summary::rasterGrob(
 
 data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
                                                peers_results_aggregated,
-                                             sector = "coal",
+                                             technology = "coal",
                                              asset_class = "bonds")
 
 plot_bo_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  labs(subtitle = "Coal exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
   patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+
+data_exposures_survey_e <- prep_exposures_survey(results_portfolio,
+                                               peers_results_aggregated,
+                                             technology = "coal",
+                                             asset_class = "equity")
+
+plot_eq_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Coal exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+
+patchwork::wrap_elements(plot_exclusion_coal) + patchwork::wrap_elements(plot_bo_c_exp) +
+  patchwork::wrap_elements(plot_eq_c_exp) +
+  patchwork::plot_layout(widths = c(1.2, 1, 1))
+```
+
+```{r plot_exclusion_oil, fig.width=10, fig.height=3.5}
 
 plot_exclusion_oil <- pacta.executive.summary::rasterGrob(
   pacta.executive.summary::readPNG(
@@ -111,26 +125,28 @@ plot_exclusion_oil <- pacta.executive.summary::rasterGrob(
   )
 )
 
-data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
                                                peers_results_aggregated,
-                                             sector = "coal",
-                                             asset_class = "equity")
+                                             technology = "oil",
+                                             asset_class = "bonds")
 
-plot_eq_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+plot_bo_o_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+  labs(subtitle = "Oil exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
   patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
 
-patchwork::wrap_elements(plot_exlusion_coal) + patchwork::wrap_elements(plot_bo_c_exp) +
-  patchwork::wrap_elements(plot_exclusion_oil) + patchwork::wrap_elements(plot_eq_c_exp) +
-  patchwork::plot_layout(widths = c(1, 1.2, 1, 1.2))
+data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
+                                             technology = "oil",
+                                             asset_class = "equity")
+
+plot_eq_o_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Oil exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+
+patchwork::wrap_elements(plot_exclusion_oil) + patchwork::wrap_elements(plot_bo_o_exp) +
+  patchwork::wrap_elements(plot_eq_o_exp) +
+  patchwork::plot_layout(widths = c(1.2, 1, 1))
 ```
-
-```{=latex}
-
-Coal exclusion badges compared to PACTA exposure for Corporate bonds (Left) and Listed equity (Right).
-
-```
-
 
 ```{r plot_exclusion_gas, fig.width=10, fig.height=3.5}
 plot_exclusion_gas <- pacta.executive.summary::rasterGrob(
@@ -145,16 +161,25 @@ plot_exclusion_gas <- pacta.executive.summary::rasterGrob(
 
 data_exposures_survey_b <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
-                                             sector = "oil_and_gas",
+                                             technology = "gas",
                                              asset_class = "bonds")
 
-plot_bo_og_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+plot_bo_g_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+  labs(subtitle = "Gas exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
   patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
 
-patchwork::wrap_elements(plot_exclusion_gas) + patchwork::wrap_elements(plot_bo_og_exp) +
-  plot_spacer()
-  patchwork::plot_layout(widths = c(1, 1.2, 2.2))
+data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
+                                             technology = "gas",
+                                             asset_class = "equity")
+
+plot_eq_g_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Gas exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
+
+patchwork::wrap_elements(plot_exclusion_gas) + patchwork::wrap_elements(plot_bo_g_exp) +
+  patchwork::wrap_elements(plot_eq_g_exp) +
+  patchwork::plot_layout(widths = c(1.2, 1, 1))
 ```
 
 ```{=latex}
