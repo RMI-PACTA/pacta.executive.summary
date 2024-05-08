@@ -34,14 +34,14 @@ plot_exposures_survey <- function(data) {
       aes(
         x = .data$entity,
         y = .data$exposure_perc_aum,
-        fill = .data$sector,
+        fill = .data$technology,
         alpha = .data$entity
       )
     ) +
       geom_bar(stat = "identity") +
       scale_x_discrete(labels = r2dii.plot::to_title) +
       scale_y_continuous(expand = expansion(mult = c(0, .1)), labels = scales::percent) +
-      r2dii.colours::scale_fill_2dii(palette = "pacta", colour_groups = data$sector) +
+      r2dii.colours::scale_fill_2dii(palette = "pacta", colour_groups = data$technology) +
       scale_alpha_discrete(range = c(1, 0.7)) +
       theme_2dii(base_size = 14) +
       theme(
@@ -59,14 +59,14 @@ check_data_exposures_survey <- function(data, env) {
   stopifnot(is.data.frame(data))
   abort_if_missing_names(
     data,
-    c("asset_class", "entity", "sector", "exposure_perc_aum")
+    c("asset_class", "entity", "technology", "exposure_perc_aum")
   )
   abort_if_multiple(data, "asset_class", env)
   abort_if_invalid_values(data, "entity", c("portfolio", "peers"))
   abort_if_invalid_values(
     data,
-    "sector",
-    c("coal", "oil_and_gas")
+    "technology",
+    c("coal", "oil", "gas")
   )
   stopifnot(is.numeric(data$exposure_perc_aum))
   stopifnot((data$exposure_perc_aum <= 1) & (data$exposure_perc_aum >= 0))
