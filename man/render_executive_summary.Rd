@@ -10,8 +10,6 @@ render_executive_summary(
   output_dir,
   exec_summary_dir,
   survey_dir,
-  real_estate_dir,
-  real_estate_flag,
   score_card_dir,
   file_name = "template.Rmd",
   investor_name,
@@ -34,10 +32,6 @@ render_executive_summary(
 
 \item{survey_dir}{Character single, valid filepath to a directory that contains the survey files for the user}
 
-\item{real_estate_dir}{Character single, valid filepath to a directory that contains real estate files for the user}
-
-\item{real_estate_flag}{Logical single, whether or not to render the real estate section}
-
 \item{score_card_dir}{Character single, valid filepath to a directory that contains score card files for the user}
 
 \item{file_name}{Character single, valid filename of the Rmd template file, e.g. "template.Rmd"}
@@ -55,6 +49,10 @@ render_executive_summary(
 \item{currency_exchange_value}{Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. \code{1.03}}
 
 \item{log_dir}{Character single, valid filepath to a directory that will contain the log file}
+
+\item{real_estate_dir}{Character single, valid filepath to a directory that contains real estate files for the user}
+
+\item{real_estate_flag}{Logical single, whether or not to render the real estate section}
 }
 \value{
 a pdf document written to output_dir

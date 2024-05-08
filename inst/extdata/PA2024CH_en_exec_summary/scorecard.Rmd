@@ -221,70 +221,6 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 ```
 
 ```{=latex}
-\subsection{Real Estate Score}
-```
-
-```{r real_estate_scores_scorecard, fig.height=3}
-
-if (real_estate_flag){
-
-  tryCatch(
-   {
-      real_estate_data <- jsonlite::read_json(
-        path = file.path(real_estate_dir, "data", "data.json")
-        )[["exec_sum"]]
-    
-      re_data_scores_scorecard <- tibble(
-        asset_class = c("directly held", "mortgages"),
-        score = c(
-          real_estate_data[["real_estate"]][["co2eq_emissions_grade"]],
-          real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]
-        )
-        ) %>%
-      dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
-
-      plot_scores_scorecard_real_estate(
-        data = re_data_scores_scorecard
-      )
-    },
-    error = function(e) {
-      write_log(
-        "ES: There was an error in prep/plot_scores_scorecard_real_estate(). Returning empty plot object.\n",
-        file_path = log_dir
-      )
-      empty_plot_error_message()
-    }
-  )
-} else {
-  empty_plot_no_data_message()
-}
-
-```
-
-```{=latex}
-
-\subsection{Swiss real estate and mortgages}
-
-CO\textsubscript{2} intensity according to GEAK classes (Means of the participant)
-
-\begin{itemize}
-\item Directly held buildings:
-`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
-\(\rightarrow\)
-`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
-
-\item Mortgages:
-`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
-\(\rightarrow\)
-`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
-
-\end{itemize}
-
-\vfill\null
-\columnbreak
-```
-
-```{=latex}
 \subsection{Overall Climate Strategy including Credible Climate Stewardship}
 
 Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
@@ -530,11 +466,6 @@ To foster the transition, investments in climate solutions are key and can not b
 
 * The threshold of 5\% of revenues applies both to activities directly linked with the exploration and production of fossil fuels and, if data is readily available, activities financing such production (for coal, according to the global coal exit list or similar).
 * The scope of activities includes the whole value chain, ranging from exploration, extraction, and production (upstream) to transportation and storage (midstream) and refining, marketing, and electrification (downstream).
-
-
-### Real Estate and Mortgages – additional PACTA indicator
-
-By substituting fossil with renewable heating systems and energy efficient refurbishments of buildings, a direct and impactful climate contribution can be achieved. Real estate and mortgage are therefore important asset classes. The figure shows the mean CO~2~ intensity of the participant in the GEAK classes calculated using the PACTA methodology.
 
 ### Verified Commitments to Net-Zero 
 

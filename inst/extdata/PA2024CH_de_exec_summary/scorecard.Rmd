@@ -221,71 +221,6 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 ```
 
 ```{=latex}
-\subsection{Real Estate Score}
-
-```
-
-```{r real_estate_scores_scorecard, fig.height=3}
-
-if (real_estate_flag){
-
-  tryCatch(
-   {
-      real_estate_data <- jsonlite::read_json(
-        path = file.path(real_estate_dir, "data", "data.json")
-        )[["exec_sum"]]
-    
-      re_data_scores_scorecard <- tibble(
-        asset_class = c("directly held", "mortgages"),
-        score = c(
-          real_estate_data[["real_estate"]][["co2eq_emissions_grade"]],
-          real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]
-        )
-        ) %>%
-      dplyr::mutate(score = dplyr::if_else(score %in% LETTERS[6:28], "E", score))
-
-      plot_scores_scorecard_real_estate(
-        data = re_data_scores_scorecard
-      )
-    },
-    error = function(e) {
-      write_log(
-        "ES: There was an error in prep/plot_scores_scorecard_real_estate(). Returning empty plot object.\n",
-        file_path = log_dir
-      )
-      empty_plot_error_message()
-    }
-  )
-} else {
-  empty_plot_no_data_message()
-}
-
-```
-
-```{=latex}
-
-\subsection{Schweizer Immobilien und Hypothekarportfolios}
-
-CO\textsubscript{2}-Intensität nach GEAK-Klassen (Portfoliodurchschnitt)
-
-\begin{itemize}
-\item Direkt gehaltene Gebäude:
-`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
-\(\rightarrow\)
-`r tryCatch({real_estate_data[["real_estate"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
-
-\item Hypotheken:
-`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions"]]}, error = function(e) {NULL})`
-\(\rightarrow\)
-`r tryCatch({real_estate_data[["mortgage"]][["co2eq_emissions_grade"]]}, error = function(e) {NULL})`
-
-\end{itemize}
-
-\vfill\null
-\columnbreak
-```
-
-```{=latex}
 \subsection{Gesamtklimastrategie einschliesslich eines glaubwürdigen Klimadialogs}
 
 Finanzinstitute können zur Transition zu Netto-Null beitragen, indem sie sich bei investierten Unternehmen für wissenschaftsbasierte und extern verifizierte Transitionspläne hin zu 2050 einsetzen.
@@ -528,11 +463,6 @@ Um die Transition zu fördern, sind Investitionen in Klimalösungen entscheidend
 
 * Der Schwellenwert von 5\% der Einnahmen gilt sowohl für Aktivitäten, die direkt mit der Exploration und Produktion fossiler Brennstoffe verbunden sind, als auch – sofern Daten verfügbar sind - für Aktivitäten, die diese Produktion finanzieren (für Kohle gemäss der "Global Coal Exit List" oder ähnlichem).
 * Der Umfang der Aktivitäten umfasst die gesamte Wertschöpfungskette, von der Exploration, Gewinnung und Produktion (Upstream) über den Transport und die Lagerung (Midstream) bis hin zur Raffinierung, Vermarktung und Elektrifizierung (Downstream).
-
-
-### Immobilien und Hypotheken – zusätzlicher PACTA-Indikator
-
-Durch die Substitution fossiler durch erneuerbare Heizsysteme und energieeffiziente Gebäudesanierungen kann ein direkter und wirksamer Beitrag zum Klimaschutz geleistet werden. Immobilien und Hypotheken sind daher wichtige Anlageklassen. Die Abbildung zeigt die durchschnittliche CO~2~-Intensität der Teilnehmer in den GEAK-Klassen, berechnet nach der PACTA-Methode.
 
 ### Verifizierte Bekenntnisse zu Netto-Null
 

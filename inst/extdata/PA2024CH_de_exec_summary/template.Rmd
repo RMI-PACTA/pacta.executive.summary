@@ -8,8 +8,6 @@ fontsize: 10pt
 always_allow_html: true
 params:
   survey_dir: NULL
-  real_estate_dir: NULL
-  real_estate_flag: FALSE
   score_card_dir: NULL
   language: EN
   investor_name: investor
@@ -40,7 +38,6 @@ knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE,
                       error=FALSE, fig.keep='all')
 
 survey_dir <- params$survey_dir
-real_estate_dir <- params$real_estate_dir
 score_card_dir <- params$score_card_dir
 investor_name <- params$investor_name
 portfolio_name <- params$portfolio_name
@@ -457,14 +454,6 @@ tryCatch(
 ```{r survey_chapter_alternate, child='survey-chapter-alternate.Rmd', eval = !(dir.exists(survey_dir) & length(list.files(survey_dir)) > 0)}
 ```
 
-
-```{r real_estate_chapter, child="real-estate-chapter.Rmd", eval = real_estate_flag}
-```
-
- <!-- FIXME: Find a more elegant way to make this switch. -->
-```{r real_estate_chapter, child="real-estate-chapter-alternate.Rmd", eval = !real_estate_flag}
-```
-
 ```{=latex}
 
 \newpage
@@ -593,69 +582,7 @@ Das Zielscheibendiagramm wird für den Kohle- sowie für den Öl- und Gassektor 
 
 \newpage
 
-\section{Anhang (III): Zusätzliche Erläuterungen zu den Graphen}
-
-\begin{minipage}[t]{0.4\textwidth}
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_map}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Geographische Verortung aller direkt gehaltenen Gebäude in der Schweiz. Die Farbe repräsentiert die Hauptnutzung des jeweiligen Gebäudes.
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_energy_carrier}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Anteil der Energieträger bei den direkt gehaltenen Gebäuden bzw. Hypotheken. Es werden die eingereichten bzw. aus dem GWR übernommenen Werte gezeigt. Falls keine der beiden Angaben greifbar ist, wird gemäss BAFU-Vorgabe "Öl" verwendet.
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_distribtion}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Mittlere CO\textsubscript{2}-Intensität aller direkt gehaltenen Gebäude bzw. Hypotheken je Teilnehmer. Die rote Säule repräsentiert den Mittelwert der eigenen jeweiligen Portfolios. Die horizontale Linie repräsentiert den Wert 14.9 kg/m\textsuperscript{2} des Absenkpfades "Langfristige Klimastrategie 2050" für das Jahr 2021.
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_emissions}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Zeitliche Entwicklung der mittleren CO\textsubscript{2}-Intensität aller direkt gehaltenen Gebäude je Teilnehmer im Vergleich mit dem Absenkpfad gemäss der "Langfristigen Energiestrategie 2050" des Bundes.
-
-\end{minipage}%
-
-\begin{minipage}[t]{0.4\textwidth}
-\verticalAlignImage
-\includegraphics[width=\textwidth]{real_estate_stranded_asset}
-
-\end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
-
-Anteile der über bzw. unter dem Absenkpfad gemäss der "Langfristigen Klimastrategie 2050" des Bundes liegenden Hypotheken im Verhältnis zu ihren Hypotheken zum jeweiligen Zeitpunkt. In hellgrün jene Hypotheken, die durch Sanierungsmassnahmen zum jeweiligen Zeitpunkt unter dem Absenkpfad liegen.
-
-\end{minipage}%
-
-\newpage
-
-\section{Anhang (IV): FAQs}
+\section{Anhang (III): FAQs}
 
 \begin{esbox}{Welches sind die PACTA-Sektoren?}
 
