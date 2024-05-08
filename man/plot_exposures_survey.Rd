@@ -27,7 +27,7 @@ Create a bar plot showing exposure to a sector
 }
 \examples{
 data <- toy_data_exposures_survey \%>\%
-  dplyr::filter(asset_class == "equity", sector == "coal")
+  dplyr::filter(asset_class == "equity", technology == "coal")
 
 plot_exposures_survey(data)
 }

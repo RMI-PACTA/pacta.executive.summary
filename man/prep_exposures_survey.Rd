@@ -7,7 +7,7 @@
 prep_exposures_survey(
   results_portfolio,
   peers_results_aggregated,
-  sector = c("coal", "oil_and_gas"),
+  technology = c("coal", "oil", "gas"),
   asset_class = c("equity", "bonds")
 )
 }
@@ -19,8 +19,8 @@ level PACTA results from a PACTA for investors analysis.}
 aggregate peer group level PACTA results from a PACTA for investors
 analysis.}
 
-\item{sector}{Character. Must be of length 1 and either \code{coal} or
-\code{oil_and_gas}.}
+\item{technology}{Character. Must be of length 1 and either \code{coal} or
+\code{oil} or \code{gas}.}
 
 \item{asset_class}{Character. Must be of length 1 and either \code{equity} or
 \code{bonds}.}

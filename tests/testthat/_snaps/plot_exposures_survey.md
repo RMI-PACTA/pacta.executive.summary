@@ -5,7 +5,7 @@
 # with missing crucial columns errors gracefully
 
     `data` must have all the expected names.
-    x Missing names: asset_class, entity, exposure_perc_aum, sector.
+    x Missing names: asset_class, entity, exposure_perc_aum, technology.
 
 # with multiple values for `asset_class` errors gracefully
 
@@ -19,10 +19,10 @@
     portfolio, peers.
     x You passed: bad.
 
-# with wrong values of `sector` errors gracefully
+# with wrong values of `technology` errors gracefully
 
-    Each value of `"sector"` must be one of these:
-    coal, oil_and_gas.
+    Each value of `"technology"` must be one of these:
+    coal, oil, gas.
     x You passed: bad.
 
 # with non-numeric values of `exposure_perc_aum` errors gracefully

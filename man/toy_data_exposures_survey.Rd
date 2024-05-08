@@ -5,7 +5,7 @@
 \alias{toy_data_exposures_survey}
 \title{An example output data of \code{prep_exposures_survey()}}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 8 rows and 4 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 12 rows and 4 columns.
 }
 \usage{
 toy_data_exposures_survey

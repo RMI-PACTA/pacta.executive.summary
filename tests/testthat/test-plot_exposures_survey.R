@@ -4,7 +4,7 @@ toy_data_exposures_survey_ex <- function() {
   toy_data_exposures_survey %>%
     dplyr::filter(
       asset_class == "equity",
-      sector == "coal"
+      technology == "coal"
     )
 }
 
@@ -29,10 +29,10 @@ test_that("with wrong values of `entity` errors gracefully", {
   expect_snapshot_error(plot_exposures_survey(data_wrong))
 })
 
-test_that("with wrong values of `sector` errors gracefully", {
+test_that("with wrong values of `technology` errors gracefully", {
   data_wrong <- toy_data_exposures_survey_ex()
-  data_wrong$sector <- as.character(data_wrong$sector)
-  data_wrong$sector[1] <- "bad"
+  data_wrong$technology <- as.character(data_wrong$technology)
+  data_wrong$technology[1] <- "bad"
   expect_snapshot_error(plot_exposures_survey(data_wrong))
 })
 

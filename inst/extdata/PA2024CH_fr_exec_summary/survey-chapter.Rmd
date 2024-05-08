@@ -4,7 +4,7 @@
 
 \section{Enquête sur l’action climatique}
 
-Cette section offre un aperçu de l'efficacité des actions climatiques au niveau institutionnel. Les résultats sont basés sur l'enquête qualitative complémentaire sur l'action climatique. Les résultats de l'enquête sont comparés aux pairs et aux résultats quantitatifs de ce portefeuille. Veuillez noter que les réponses à l'enquête ont été autodéclarées et non vérifiées par 2DII, RMI et WP.
+Cette section offre un aperçu de l'efficacité des actions climatiques au niveau institutionnel. Les résultats sont basés sur l'enquête qualitative complémentaire sur l'action climatique. Les résultats de l'enquête sont comparés aux pairs et aux résultats quantitatifs de ce portefeuille. Veuillez noter que les réponses à l'enquête ont été autodéclarées et non vérifiées par RMI.
 
 \fbox{\begin{minipage}{\textwidth}
 \textbf{Explication sur les graphiques à fléchettes ci-dessous:} Les graphiques à fléchettes sont un type de graphique nouvellement développé qui représente vos mesures pertinentes pour le climat. Chaque cercle représente une mesure pertinente pour le climat et est coloré si la mesure est en place. Le niveau d'efficacité des mesures augmente en allant de l'extérieur vers l'intérieur des anneaux et avec l'intensité de la couleur. Plus les cercles sont remplis en allant du cercle extérieur jusqu’au cercle intérieur, plus les actions climatiques de votre institution sont ambitieuses. Pour obtenir de plus amples informations sur les mesures spécifiques indiquées dans les différentes strates, veuillez consulter l‘annexe. 
@@ -20,7 +20,7 @@ Sur le côté gauche, vous trouvez les initiatives dont vous faites partie. Plus
 ```
 
 ```{r plots_overview_left, out.width="\\linewidth"}
-knitr::include_graphics(file.path(survey_dir, language, "plot_wordcloud.png"))
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_peers_net_zero.png"))
 ```
 
 ```{=latex}
@@ -31,7 +31,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_wordcloud.png"))
 
 
 ```{r plots_overview_right, out.width="\\linewidth"}
-knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_info_climate_goals.png"))
+knitr::include_graphics(file.path(survey_dir, language, "plot_layer_peers_transition_plan.png"))
 ```
 
 ```{=latex}
@@ -48,43 +48,28 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_with_peer_in
 Les recherches indiquent que l'engagement constitue l'un des moyens les plus efficaces pour améliorer l'alignement des entreprises bénéficiant d’investissements sur les objectifs climatiques par le biais d'actions et d'obligations. Par conséquent, les graphiques à fléchettes relatifs à l'engagement ci-dessous présentent vos mesures d'engagement pour trois secteurs cruciaux pour le climat et complètent ainsi la section précédente sur l'alignement. Le texte fournit en outre une comparaison avec la proportion de pairs appliquant les meilleures pratiques, c'est-à-dire celles qui couvrent toutes les strates.
 
 \begin{center}
-\begin{minipage}{0.3\textwidth}
+\begin{minipage}{0.4\textwidth}
 ```
 
 ```{r plot_layer_with_peer_info_engagement_left, out.width="\\linewidth"}
 knitr::include_graphics(
-file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Fossil_Fuels.png")
+file.path(survey_dir, language, "plot_layer_engagement.png")
 )
 ```
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}{0.3\textwidth}
+\begin{minipage}{0.4\textwidth}
 ```
-
 
 ```{r plot_layer_with_peer_info_engagement_center, out.width="\\linewidth"}
 knitr::include_graphics(
-file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Power.png")
+file.path(survey_dir, language, "plot_layer_voting.png")
 )
 ```
 
 ```{=latex}
 \end{minipage}%
-\begin{minipage}{0.3\textwidth}
-```
-
-
-```{r plot_layer_with_peer_info_engagement_right, out.width="\\linewidth"}
-knitr::include_graphics(c(
-file.path(survey_dir, language, "plot_layer_with_peer_info_engagement_Automotive.png")
-))
-```
-
-```{=latex}
-\end{minipage}%
-
-Badges d'engagement et comparaison avec les pairs par secteur. Gauche: Combustibles Fossiles, Milieu: Automobile, Droite: Electricité.
 
 \end{center}
 
@@ -98,105 +83,110 @@ Ces graphiques comparent les stratégies déclarées comme étant alignées sur 
 ```
 
 ```{r plot_exclusion_coal, fig.width=10, fig.height=3.5}
-plot_bo_c_survey <- pacta.executive.summary::rasterGrob(
+plot_exclusion_coal <- pacta.executive.summary::rasterGrob(
   pacta.executive.summary::readPNG(
     file.path(
       survey_dir, 
       language, 
-      "plot_layer_asset_exclusion_coal_Corporate_bonds.png"
+      "plot_layer_exclusion_coal.png"
     )
   )
 )
 
 data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
                                                peers_results_aggregated,
-                                             sector = "coal",
+                                             technology = "coal",
                                              asset_class = "bonds")
 
 plot_bo_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+  labs(subtitle = "Coal exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
   patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
 
-plot_eq_c_survey <- pacta.executive.summary::rasterGrob(
+data_exposures_survey_e <- prep_exposures_survey(results_portfolio,
+                                               peers_results_aggregated,
+                                             technology = "coal",
+                                             asset_class = "equity")
+
+plot_eq_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Coal exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+
+patchwork::wrap_elements(plot_exclusion_coal) + patchwork::wrap_elements(plot_bo_c_exp) +
+  patchwork::wrap_elements(plot_eq_c_exp) +
+  patchwork::plot_layout(widths = c(1.2, 1, 1))
+```
+
+```{r plot_exclusion_oil, fig.width=10, fig.height=3.5}
+
+plot_exclusion_oil <- pacta.executive.summary::rasterGrob(
   pacta.executive.summary::readPNG(
     file.path(
       survey_dir, 
       language, 
-      "plot_layer_asset_exclusion_coal_Listed_equities.png"
+      "plot_layer_exclusion_oil.png"
     )
   )
 )
 
-data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
                                                peers_results_aggregated,
-                                             sector = "coal",
-                                             asset_class = "equity")
+                                             technology = "oil",
+                                             asset_class = "bonds")
 
-plot_eq_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+plot_bo_o_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+  labs(subtitle = "Oil exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
   patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
 
-patchwork::wrap_elements(plot_bo_c_survey) + patchwork::wrap_elements(plot_bo_c_exp) +
-  patchwork::wrap_elements(plot_eq_c_survey) + patchwork::wrap_elements(plot_eq_c_exp) +
-  patchwork::plot_layout(widths = c(1, 1.2, 1, 1.2))
+data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+                                               peers_results_aggregated,
+                                             technology = "oil",
+                                             asset_class = "equity")
+
+plot_eq_o_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Oil exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
+  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+
+patchwork::wrap_elements(plot_exclusion_oil) + patchwork::wrap_elements(plot_bo_o_exp) +
+  patchwork::wrap_elements(plot_eq_o_exp) +
+  patchwork::plot_layout(widths = c(1.2, 1, 1))
 ```
 
-```{=latex}
-
-Badges d'exclusion pour le charbon comparé à l'exposure PACTA pour les obligations d'entreprise (Gauche) et actions (Droite).
-
-```
-
-
-```{r plot_exclusion_oil_gas, fig.width=10, fig.height=3.5}
-plot_bo_og_survey <- pacta.executive.summary::rasterGrob(
+```{r plot_exclusion_gas, fig.width=10, fig.height=3.5}
+plot_exclusion_gas <- pacta.executive.summary::rasterGrob(
   pacta.executive.summary::readPNG(
   file.path(
     survey_dir, 
     language, 
-    "plot_layer_asset_exclusion_oil_Corporate_bonds.png"
+    "plot_layer_exclusion_gas.png"
     )
   )
 )
 
 data_exposures_survey_b <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
-                                             sector = "oil_and_gas",
+                                             technology = "gas",
                                              asset_class = "bonds")
 
-plot_bo_og_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+plot_bo_g_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+  labs(subtitle = "Gas exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
   patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
-
-plot_eq_og_survey <- pacta.executive.summary::rasterGrob(
-  pacta.executive.summary::readPNG(
-    file.path(
-      survey_dir, 
-      language, 
-      "plot_layer_asset_exclusion_oil_Listed_equities.png"
-      )
-  )
-)
 
 data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
                                                peers_results_aggregated,
-                                             sector = "oil_and_gas",
+                                             technology = "gas",
                                              asset_class = "equity")
 
-plot_eq_og_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
-  labs(subtitle = "Sectoral exposure\n(as % of AUM)")) + patchwork::plot_spacer() +
+plot_eq_g_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+  labs(subtitle = "Gas exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
   patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
 
-patchwork::wrap_elements(plot_bo_og_survey) + patchwork::wrap_elements(plot_bo_og_exp) +
-  patchwork::wrap_elements(plot_eq_og_survey) + patchwork::wrap_elements(plot_eq_og_exp) +
-  patchwork::plot_layout(widths = c(1, 1.2, 1, 1.2))
+patchwork::wrap_elements(plot_exclusion_gas) + patchwork::wrap_elements(plot_bo_g_exp) +
+  patchwork::wrap_elements(plot_eq_g_exp) +
+  patchwork::plot_layout(widths = c(1.2, 1, 1))
 ```
-
-Badges d'exclusion pour le pétrole et le gaz comparé à l'exposure PACTA pour les obligations d'entreprise (Gauche) et actions (Droite).
 
 ```{=latex}
 \end{center}
 \end{esbox}
 \newpage
 ```
-
