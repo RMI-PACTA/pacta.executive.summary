@@ -11,7 +11,8 @@
 #' @param portfolio_name Character single string specifying the portfolio name
 #' @param peer_group Character single string specifying the peer group
 #' @param total_portfolio Data frame that contains the total portfolio as found in the standard PACTA processed inputs file "total_portfolio.rds"
-#' @param scenario_selected Character single string specifying the selected scenario, e.g. "1.5C-Unif"
+#' @param scenario_source_selected Character single string specifying the selected scenario source, e.g. "GECO2023"
+#' @param scenario_selected Character single string specifying the selected scenario, e.g. "1.5C"
 #' @param currency_exchange_value Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. `1.03`
 #' @param log_dir Character single, valid filepath to a directory that will contain the log file
 #'
@@ -29,6 +30,7 @@ render_executive_summary <- function(data,
                                      portfolio_name,
                                      peer_group,
                                      total_portfolio,
+                                     scenario_source_selected,
                                      scenario_selected,
                                      currency_exchange_value,
                                      log_dir) {
@@ -44,6 +46,7 @@ render_executive_summary <- function(data,
       investor_name = investor_name,
       portfolio_name = portfolio_name,
       peer_group = peer_group,
+      scenario_source_selected = scenario_source_selected,
       scenario_selected = scenario_selected,
       audit_data = data$audit_data,
       emissions_data = data$emissions_data,

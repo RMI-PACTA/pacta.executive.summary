@@ -16,6 +16,7 @@ render_executive_summary(
   portfolio_name,
   peer_group,
   total_portfolio,
+  scenario_source_selected,
   scenario_selected,
   currency_exchange_value,
   log_dir
@@ -44,7 +45,9 @@ render_executive_summary(
 
 \item{total_portfolio}{Data frame that contains the total portfolio as found in the standard PACTA processed inputs file "total_portfolio.rds"}
 
-\item{scenario_selected}{Character single string specifying the selected scenario, e.g. "1.5C-Unif"}
+\item{scenario_source_selected}{Character single string specifying the selected scenario source, e.g. "GECO2023"}
+
+\item{scenario_selected}{Character single string specifying the selected scenario, e.g. "1.5C"}
 
 \item{currency_exchange_value}{Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. \code{1.03}}
 
