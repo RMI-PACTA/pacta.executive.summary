@@ -63,7 +63,7 @@ this function.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">prep_exposures_survey</span><span class="op">(</span></span>
 <span>  <span class="va">results_portfolio</span>,</span>
 <span>  <span class="va">peers_results_aggregated</span>,</span>
-<span>  sector <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"coal"</span>, <span class="st">"oil_and_gas"</span><span class="op">)</span>,</span>
+<span>  technology <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"coal"</span>, <span class="st">"oil"</span>, <span class="st">"gas"</span><span class="op">)</span>,</span>
 <span>  asset_class <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"equity"</span>, <span class="st">"bonds"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -81,9 +81,9 @@ aggregate peer group level PACTA results from a PACTA for investors
 analysis.</p></dd>
 
 
-<dt>sector</dt>
+<dt>technology</dt>
 <dd><p>Character. Must be of length 1 and either <code>coal</code> or
-<code>oil_and_gas</code>.</p></dd>
+<code>oil</code> or <code>gas</code>.</p></dd>
 
 
 <dt>asset_class</dt>
