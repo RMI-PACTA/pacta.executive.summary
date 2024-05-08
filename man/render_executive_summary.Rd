@@ -49,10 +49,6 @@ render_executive_summary(
 \item{currency_exchange_value}{Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. \code{1.03}}
 
 \item{log_dir}{Character single, valid filepath to a directory that will contain the log file}
-
-\item{real_estate_dir}{Character single, valid filepath to a directory that contains real estate files for the user}
-
-\item{real_estate_flag}{Logical single, whether or not to render the real estate section}
 }
 \value{
 a pdf document written to output_dir
