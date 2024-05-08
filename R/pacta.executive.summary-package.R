@@ -25,5 +25,6 @@
 #' @importFrom tidyr pivot_wider
 #' @importFrom tidytext reorder_within
 #' @importFrom tidytext scale_x_reordered
+#' @importFrom utils head
 ## usethis namespace: end
 NULL
