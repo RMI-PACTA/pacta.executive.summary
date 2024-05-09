@@ -5,9 +5,9 @@
 \section{Indicateurs \guillemetleft Climate Scores\guillemetright}
 
 
-\subsection{Résumé du PACTA 2022}
+\subsection{Résumé du PACTA 2024}
 
-Les trois pages suivantes des indicateurs climatiques complètent le résumé analytique du PACTA en affichant les résultats générés automatiquement au niveau du portefeuille, sur la base des Swiss Climate Scores. Les Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/fr/home/finanzmarktpolitik/finance-durable.html}{(lien)}} ayant été définis lors du test climatique PACTA 2022, il existe quelques écarts qui sont notés sur les pages d'explication. Veuillez noter que les indicateurs relatifs à l'exposition aux énergies fossiles et le ‘potentiel de réchauffement global’ sont basés sur la méthodologie et les secteurs PACTA.
+Les trois pages suivantes des indicateurs climatiques complètent le résumé analytique du PACTA en affichant les résultats générés automatiquement au niveau du portefeuille, sur la base des Swiss Climate Scores. Les Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/fr/home/finanzmarktpolitik/finance-durable.html}{(lien)}} ayant été définis lors du test climatique PACTA 2024, il existe quelques écarts qui sont notés sur les pages d'explication. Veuillez noter que les indicateurs relatifs à l'exposition aux énergies fossiles et le ‘potentiel de réchauffement global’ sont basés sur la méthodologie et les secteurs PACTA.
 \end{scheader}
 ```
 
@@ -431,7 +431,7 @@ engagement_peers <-
 \section{Indicateurs \guillemetleft Climate Scores\guillemetright}
 
 
-\subsection{Résumé du PACTA 2022}
+\subsection{Résumé du PACTA 2024}
 
 CRITÈRES MINIMAUX POUR LES SWISS CLIMATE SCORES ET MISE EN ŒUVRE DANS LE TEST CLIMATIQUE PACTA COORDONNÉ
 
@@ -449,7 +449,7 @@ Exigences strictes:
 
 ### Exposition aux combustibles fossiles et aux énergies renouvelables
 
-**Score d'exposition dans le présent résumé analytique:** diffère des exigences de la proposition suisse, car les Swiss Scores ont été lancés alors que le Test climatique PACTA Suisse 2022 était déjà dans sa phase de développement. Alors que la proposition Swiss Scores mesure la part des entreprises ayant des activités liées aux combustibles fossiles, l'indicateur d'exposition PACTA mesure l'exposition financière, en termes d'actif sous gestion en \% de ce portefeuille, aux technologies concernées. L'exposition PACTA n'est pas basée sur les données relatives aux revenus, mais sur des données au niveau de l'entreprise basées sur les actifs et représentant les activités physiques réelles. Ces activités sont ensuite attribuées aux titres financiers, puis affectées au portefeuille. L'affectation par portefeuille se fait avec l'approche de pondération du portefeuille (PA) qui calcule les expositions technologiques du portefeuille en fonction de la pondération de chaque position au sein du portefeuille. 
+**Score d'exposition dans le présent résumé analytique:** diffère des exigences de la proposition suisse, car les Swiss Scores ont été lancés alors que le Test climatique PACTA Suisse 2024 était déjà dans sa phase de développement. Alors que la proposition Swiss Scores mesure la part des entreprises ayant des activités liées aux combustibles fossiles, l'indicateur d'exposition PACTA mesure l'exposition financière, en termes d'actif sous gestion en \% de ce portefeuille, aux technologies concernées. L'exposition PACTA n'est pas basée sur les données relatives aux revenus, mais sur des données au niveau de l'entreprise basées sur les actifs et représentant les activités physiques réelles. Ces activités sont ensuite attribuées aux titres financiers, puis affectées au portefeuille. L'affectation par portefeuille se fait avec l'approche de pondération du portefeuille (PA) qui calcule les expositions technologiques du portefeuille en fonction de la pondération de chaque position au sein du portefeuille. 
 
 
 Caractéristiques:
@@ -477,7 +477,7 @@ Exigences impératives:
 
 ### Gestion en faveur du net zéro
 
-_Les informations pour cet indicateur n'ont pas été collectées dans le test climatique PACTA 2022 et ne sont donc pas présentées_
+_Les informations pour cet indicateur n'ont pas été collectées dans le test climatique PACTA 2024 et ne sont donc pas présentées_
 
 ### Stratégie climatique générale incluant un dialog crédible sur le climat
 
