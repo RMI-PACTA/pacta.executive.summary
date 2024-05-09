@@ -5,9 +5,9 @@
 \section{Climate Score Indicators}
 
 
-\subsection{PACTA Executive Summary 2022}
+\subsection{PACTA Executive Summary 2024}
 
-The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{(link)}} were defined during the PACTA Climate Test 2022, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
+The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{(link)}} were defined during the PACTA Climate Test 2024, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
 
 \end{scheader}
 ```
@@ -433,7 +433,7 @@ engagement_peers <-
 \section{Climate Score Indicators}
 
 
-\subsection{PACTA Executive Summary 2022}
+\subsection{PACTA Executive Summary 2024}
 
 MINIMUM CRITERIA FOR THE SWISS CLIMATE SCORES AND IMPLEMENTATION IN THE COORDINATEED PACTA CLIMATE TEST
 
@@ -453,7 +453,7 @@ Hard Requirements:
 
 **Exposure score in this Executive Summary:** varies from the requirements in the Swiss proposal (see below)
 
-The exposure score in this document deviates from the Swiss Scores proposal, as the Swiss Scores were launched while the PACTA Climate Test Switzerland 2022 was already in its development phase. While the Swiss Scores proposal measure the share of companies with fossil fuel activities, the PACTA exposure indicator measures the financial exposure as AUM in \% of this portfolio to the respective technologies. The PACTA exposure is not based on revenue data, but on asset-based company level data representing real-world physical activities. These activities are then attributed to financial securities and afterwards allocated to the portfolio. The portfolio allocation is done with the Portfolio Weight Approach (PA) that calculates the portfolio’s technology exposures based on the weighting of each position within the portfolio. 
+The exposure score in this document deviates from the Swiss Scores proposal, as the Swiss Scores were launched while the PACTA Climate Test Switzerland 2024 was already in its development phase. While the Swiss Scores proposal measure the share of companies with fossil fuel activities, the PACTA exposure indicator measures the financial exposure as AUM in \% of this portfolio to the respective technologies. The PACTA exposure is not based on revenue data, but on asset-based company level data representing real-world physical activities. These activities are then attributed to financial securities and afterwards allocated to the portfolio. The portfolio allocation is done with the Portfolio Weight Approach (PA) that calculates the portfolio’s technology exposures based on the weighting of each position within the portfolio. 
 
 Specifications:
 
@@ -480,7 +480,7 @@ Hard requirements:
 
 ### Management to Net-Zero 
 
-_The information for this indicator was not collected in the PACTA Climate Test 2022 and is therefore not shown._
+_The information for this indicator was not collected in the PACTA Climate Test 2024 and is therefore not shown._
 
 ### Overall Climate Strategy inclucing Credible Climate Stewardship
 

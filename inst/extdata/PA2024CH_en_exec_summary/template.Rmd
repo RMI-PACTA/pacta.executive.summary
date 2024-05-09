@@ -77,7 +77,7 @@ subtitle:  |
 \end{enumerate}
 
 \end{esbox}%
-\begin{esbox}[0.75\textwidth]{About the PACTA Climate Test 2022}
+\begin{esbox}[0.75\textwidth]{About the PACTA Climate Test 2024}
 ```
 
 ```{r number_peer, fig.height = 6}
@@ -94,7 +94,7 @@ number_peers <- readr::read_csv(
 
 ```{=latex}
 
-Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2\textdegree C and pursuing efforts to limit it to 1.5\textdegree C. The PACTA Climate Test 2022 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals.
+Switzerland and its financial market are committed to transitioning to net-zero carbon emissions by 2050 to achieve its obligations under the Paris Agreement of limiting global warming to well below 2\textdegree C and pursuing efforts to limit it to 1.5\textdegree C. The PACTA Climate Test 2024 provides comparable information on the progress of the Swiss financial market and across the individual participating financial institutions to meet the climate goals.
 \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter
 was invited to the test by the FOEN \textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets.html}{link})} and SIF \textbf{(\href{https://www.sif.admin.ch/sif/en/home/finanzmarktpolitik/sustainable-finance.html}{link})} with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative assessment of further climate actions. In total, 133 financial institutions participated, of which
 \startunderscoreletter `r number_peers` \stopunderscoreletter
@@ -623,7 +623,7 @@ The PACTA analysis covers 8 climate-relevant sectors: coal, oil \& gas, power, a
 
 \begin{esbox}{Which asset classes does PACTA cover?}
 
-The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2022 also includes Swiss real estate and mortgages. 
+The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2024 also includes Swiss real estate and mortgages. 
 
 \end{esbox}
 

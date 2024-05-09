@@ -5,9 +5,9 @@
 \section{Climate Scores Indikatoren}
 
 
-\subsection{PACTA-Kurzfassung 2022}
+\subsection{PACTA-Kurzfassung 2024}
 
-Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Kurzfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren. Da die Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{(link)}} während des PACTA-Klimatests 2022 definiert wurden, gibt es einige Abweichungen, die auf den Folgeseiten mit den Erläuterungen angegeben sind. Bitte beachten Sie, dass die Indikatoren für die Exposition gegenüber fossilen Brennstoffen und zum ‘globalen Erwärmungspotenzial’ auf der PACTA-Methodik und den PACTA-Sektoren basieren.
+Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Kurzfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren. Da die Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{(link)}} während des PACTA-Klimatests 2024 definiert wurden, gibt es einige Abweichungen, die auf den Folgeseiten mit den Erläuterungen angegeben sind. Bitte beachten Sie, dass die Indikatoren für die Exposition gegenüber fossilen Brennstoffen und zum ‘globalen Erwärmungspotenzial’ auf der PACTA-Methodik und den PACTA-Sektoren basieren.
 \end{scheader}
 ```
 
@@ -435,7 +435,7 @@ engagement_peers <-
 \section{Klimaverträglichkeitsindikatoren}
 
 
-\subsection{PACTA-Kurzfassung 2022}
+\subsection{PACTA-Kurzfassung 2024}
 
 MINDESTKRITERIEN FÜR DIE SWISS CLIMATE SCORES UND DEREN UMSETZUNG IM PACTA-KIMATEST
 
@@ -453,7 +453,7 @@ Zwingende Anforderungen:
 
 ### Exposition gegenüber fossilen Brennstoffen und erneuerbaren Energien
 
-**Der Expositions-Score in dieser Kurzfassung** weicht von den Anforderungen der Swiss Climate Scores ab, da die Swiss Climate Scores eingeführt wurden, als der PACTA-Klimatest Schweiz 2022 bereits in der Entwicklungsphase war. Während bei den Swiss Climate Scores der Anteil der Unternehmen mit fossilen Aktivitäten gemessen wird, erfasst der Indikator für die PACTA-Exposition das finanzielle Engagement (als verwaltetes Vermögen in \%) dieses Portfolios in den jeweiligen Technologien. Die PACTA-Exposition basiert nicht auf Umsatzdaten, sondern auf Asset-Level-Daten, die die tatsächlichen physischen Aktivitäten abbilden. Diese Aktivitäten werden dann den Wertpapieren und anschliessend dem Portfolio zugeordnet. Die Portfolioallokation erfolgt anhand des Ansatzes der Portfoliogewichtung, bei dem die Technologie-Exposition des Portfolios auf der Grundlage der Gewichtung jeder Position innerhalb des Portfolios berechnet wird.
+**Der Expositions-Score in dieser Kurzfassung** weicht von den Anforderungen der Swiss Climate Scores ab, da die Swiss Climate Scores eingeführt wurden, als der PACTA-Klimatest Schweiz 2024 bereits in der Entwicklungsphase war. Während bei den Swiss Climate Scores der Anteil der Unternehmen mit fossilen Aktivitäten gemessen wird, erfasst der Indikator für die PACTA-Exposition das finanzielle Engagement (als verwaltetes Vermögen in \%) dieses Portfolios in den jeweiligen Technologien. Die PACTA-Exposition basiert nicht auf Umsatzdaten, sondern auf Asset-Level-Daten, die die tatsächlichen physischen Aktivitäten abbilden. Diese Aktivitäten werden dann den Wertpapieren und anschliessend dem Portfolio zugeordnet. Die Portfolioallokation erfolgt anhand des Ansatzes der Portfoliogewichtung, bei dem die Technologie-Exposition des Portfolios auf der Grundlage der Gewichtung jeder Position innerhalb des Portfolios berechnet wird.
 
 Spezifizierungen:
 
@@ -480,7 +480,7 @@ Zwingende Anforderungen:
 
 ### Management auf Netto-Null 
 
-_Für diesen Indikator wurden im Rahmen des PACTA-Klimatests 2022 keine Informationen erhoben_
+_Für diesen Indikator wurden im Rahmen des PACTA-Klimatests 2024 keine Informationen erhoben_
 
 ### Gesamtklimastrategie einschliesslich eines glaubwürdigen Klimadialogs
 
