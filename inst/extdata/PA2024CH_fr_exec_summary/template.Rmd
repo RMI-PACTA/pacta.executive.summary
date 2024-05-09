@@ -15,7 +15,7 @@ params:
   peer_group: pensionfund
   audit_data: NULL
   total_portfolio: NULL
-  scenario_source_selected: NULL
+  scenario_source: NULL
   scenario_selected: NULL
   emissions_data: NULL
   results_portfolio: NULL
@@ -259,7 +259,7 @@ tryCatch(
       peers_results_individual = peers_results_individual,
       indices_results_portfolio = indices_results_portfolio,
       scenario_selected = scenario_selected,
-      scenario_source = scenario_source_selected,
+      scenario_source = scenario_source,
       asset_class = "bonds"
     )
 
@@ -290,7 +290,7 @@ tryCatch(
       peers_results_individual = peers_results_individual,
       indices_results_portfolio = indices_results_portfolio,
       scenario_selected = scenario_selected,
-      scenario_source = scenario_source_selected,
+      scenario_source = scenario_source,
       asset_class = "equity"
     )
 
@@ -332,7 +332,7 @@ tryCatch(
       results_portfolio = results_portfolio,
       peers_results_aggregated = peers_results_aggregated,
       asset_class = "bonds",
-      scenario_source = scenario_source_selected
+      scenario_source = scenario_source
     )
     plot_scores(data_scores_b) +
       patchwork::plot_annotation(
@@ -355,7 +355,7 @@ tryCatch(
       results_portfolio = results_portfolio,
       peers_results_aggregated = peers_results_aggregated,
       asset_class = "equity",
-      scenario_source = scenario_source_selected
+      scenario_source = scenario_source
     )
     plot_scores(data_scores_e) +
       patchwork::plot_annotation(
@@ -397,7 +397,7 @@ tryCatch(
       results_portfolio = results_portfolio, 
       peers_results_aggregated = peers_results_aggregated,
       asset_class = "bonds",
-      scenario_source = scenario_source_selected
+      scenario_source = scenario_source
     )
     plot_alignment_table(data_alignment_table) +
     patchwork::plot_annotation(
@@ -423,7 +423,7 @@ tryCatch(
       results_portfolio = results_portfolio, 
       peers_results_aggregated = peers_results_aggregated,
       asset_class = "equity",
-      scenario_source = scenario_source_selected
+      scenario_source = scenario_source
     )
     plot_alignment_table(data_alignment_table) +
     patchwork::plot_annotation(

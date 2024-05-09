@@ -17,7 +17,7 @@ params:
   peer_group: pensionfund
   audit_data: NULL
   total_portfolio: NULL
-  scenario_source_selected: NULL
+  scenario_source: NULL
   scenario_selected: NULL
   emissions_data: NULL
   results_portfolio: NULL
