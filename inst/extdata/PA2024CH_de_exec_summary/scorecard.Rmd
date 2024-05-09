@@ -100,7 +100,10 @@ Es besteht ein wissenschaftlicher Konsens über die Notwendigkeit, aus Kohle aus
 
 tryCatch(
   {
-    data_exposures_scorecard <- prep_exposures_scorecard(results_portfolio)
+    data_exposures_scorecard <- prep_exposures_scorecard(
+      results_portfolio,
+      scenario_selected = scenario_selected
+      )
     plot_exposures_scorecard(data_exposures_scorecard)
   },
   error = function(e) {
@@ -126,7 +129,10 @@ tryCatch(
 ```{r scores_scorecard, fig.height=3}
 tryCatch(
   {
-    data_scores_scorecard <- prep_scores_scorecard(results_portfolio)
+    data_scores_scorecard <- prep_scores_scorecard(
+      results_portfolio,
+      scenario_source = scenario_source
+      )
     plot_scores_scorecard(data_scores_scorecard)
   },
   error = function(e) {
