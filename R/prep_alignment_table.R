@@ -38,10 +38,10 @@ prep_alignment_table <- function(results_portfolio,
       dplyr::bind_rows(peers_results_aggregated)
 
     # get scenarios
-    scenario_thresholds <- get("scenario_thresholds")
+    scenario_thresholds <- get("scenario_thresholds") %>%
+      dplyr::filter(.data$scenario_source == .env$scenario_source)
 
     scenarios <- scenario_thresholds %>%
-      dplyr::filter(.data$scenario_source == .env$scenario_source) %>%
       dplyr::pull("scenario")
 
     # get scenarios for relevant thresholds
