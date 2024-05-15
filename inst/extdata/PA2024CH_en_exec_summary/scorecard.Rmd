@@ -223,6 +223,67 @@ data_prep_net_zero_commitments <- prep_net_zero_commitments(
 ```
 
 ```{=latex}
+\subsection{Management to Net-Zero}
+
+Financial institutions can contribute to the transition to net-zero, by aligning their investment strategy with a consistent 1.5\textdegree C
+decarbonisation pathway.
+
+```
+
+```{r management_to_net_zero}
+data_net_zero_available <- file.exists(file.path(score_card_dir, "management_to_net_zero.csv"))
+if (data_net_zero_available) {
+  management_to_net_zero_info <- readr::read_csv(
+    file.path(score_card_dir, "management_to_net_zero.csv"),
+    col_types = readr::cols_only(
+      question = "c",
+      user = "l",
+      peers = "d"
+    )
+  )
+  
+  are_interim_targets_self_managed_assets_user <- management_to_net_zero_info %>% 
+    filter(.data$question == "interim_targets_self_managed_assets") %>% 
+    pull(.data$user)
+  
+  perc_interim_targets_self_managed_assets_peers <- management_to_net_zero_info %>% 
+    filter(.data$question == "interim_targets_self_managed_assets") %>% 
+    pull(.data$peers)
+  
+  are_interim_targets_external_assets_user <- management_to_net_zero_info %>% 
+    filter(.data$question == "interim_targets_external_assets") %>% 
+    pull(.data$user)
+  
+  perc_interim_targets_external_assets_peers <- management_to_net_zero_info %>% 
+    filter(.data$question == "interim_targets_external_assets") %>% 
+    pull(.data$peers)
+  
+  is_verified_commitment_net_zero_user <- management_to_net_zero_info %>% 
+    filter(.data$question == "verified_commitment_net_zero") %>% 
+    pull(.data$user)
+  
+  perc_iverified_commitment_net_zero_peers <- management_to_net_zero_info %>% 
+    filter(.data$question == "verified_commitment_net_zero") %>% 
+    pull(.data$peers)
+
+}
+```
+```{=latex}
+
+\begin{itemize}
+\item Does the institution have concrete interim targets available for achieving net zero target by 2050, for example for 2030?
+\begin{itemize}
+  \item For self-managed assets in the investment business, in particular listed equity and corporate bonds: \textbf{`r if (data_net_zero_available) {if (are_interim_targets_self_managed_assets_user) {"YES"} else {"NO"}} else {"Unknown"}` (Peers: `r if (data_net_zero_available) {paste0(round(perc_interim_targets_self_managed_assets_peers * 100),"\\% - YES")} else {"Unknown"}`)}
+   \item As requirements for external/mandated investments/investment funds, in particular for listed equity and corporate bonds: \textbf{`r if (data_net_zero_available) {if (are_interim_targets_self_managed_assets_user) {"YES"} else {"NO"}} else {"Unknown"}` (Peers: `r if (data_net_zero_available) {paste0(round(perc_interim_targets_external_assets_peers * 100),"\\% - YES")} else {"Unknown"}`)}
+  \end{itemize}
+\item Is the portfolio part of a third-party verified commitment to net-zero by the financial institution, including credible interim targets?
+  \textbf{`r if (data_net_zero_available) {if (is_verified_commitment_net_zero_user) {"YES"} else {"NO"}} else {"Unknown"}`  (Peers: `r if (data_net_zero_available) {paste0(round(perc_iverified_commitment_net_zero_peers * 100), "\\% - YES")} else {"Unknown"}`)}
+ 
+\end{itemize}
+  
+```
+
+```{=latex}
 \subsection{Credible Climate Stewardship}
 
 Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
