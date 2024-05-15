@@ -5,7 +5,7 @@
 
 \subsection{PACTA Executive Summary 2024}
 
-The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/brief-summary.html}{(link)}} were defined during the PACTA Climate Test 2024, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
+The following three pages of the “Climate Scores” complement the PACTA Executive Summary by showing automatically generated results on portfolio-level, based on the Swiss Climate Scores. As not all information required by Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/brief-summary.html}{(link)}} is submitted by the users during the PACTA exercise, there are some deviations which are noted on the explanation page. Please note that the indicators on exposure to fossil fuels and the Global Warming Alignment are based on the PACTA methodology and sectors.
 
 \end{scheader}
 ```
@@ -164,6 +164,7 @@ Portfolio emissions covered by assessment: \textbf{`r round(aggregate_score_emis
 
 Portfolio assets covered by assessment: \textbf{`r round(aggregate_score_exposure_covered_perc * 100)` \%}
 %TODO: update scenario
+
 Climate scenario used: \textbf{GECO 2021}
 
 \vfill\null
@@ -407,11 +408,11 @@ Hard requirements:
 * Companies must have publically communicated a pledge to reach net-zero and have near-term targets be certified by one of the following providers: Science based targets initiative (SBTi).
 
 ### Management to Net-Zero 
-
+<!-- TODO: update the text with how what we show differs and check hard requirements -->
 _The information for this indicator was not collected in the PACTA Climate Test 2024 and is therefore not shown._
 
-### Overall Climate Strategy inclucing Credible Climate Stewardship
-
+### Credible Climate Stewardship
+<!-- TODO: update the text with how what we show differs. This time we show much more than last because institutions answered this question in survey -->
 **Implementation:** deviates from hard requirements for Swiss Climate Scores (see below)
 
 * Climate initiatives should be consistent with the ambition of reaching net-zero by 2050
@@ -471,8 +472,8 @@ Company long-term targets, near-term action and data sources:
   * Validate, if the long-term commitments match with the short term action
   * Inclusion of scope 3 emissions must at a minimum be aligned to the schedule described in the EU benchmark regulation 2019/2089.
 
+<!-- TODO: update the scenario info and calculations info -->
 To calculate portfolio alignment
-
 * _Addition:_ The PACTA Aggregated Climate Alignment Score is not an Implied Temperature Rise (ITR) score. Therefore, PACTA cannot provide a confidence level for the score itself. Instead, confidence scenarios for the selected scenarios exist and are: 
   * 50\% probability to not exceed 1.5$\text{\textdegree}$C warming for the 1.5$\text{\textdegree}$C Uniform scenario (GECO 2021)
   * 50\% probability to not exceed 1.8$\text{\textdegree}$C warming for the 1.8$\text{\textdegree}$C NDC-LTS scenario (GECO 2021)
