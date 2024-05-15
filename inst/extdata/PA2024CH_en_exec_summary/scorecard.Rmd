@@ -129,7 +129,10 @@ tryCatch(
 ```{r scores_scorecard, fig.height=3}
 tryCatch(
   {
-    data_scores_scorecard <- prep_scores_scorecard(results_portfolio)
+    data_scores_scorecard <- prep_scores_scorecard(
+      results_portfolio,
+      scenario_source = scenario_source
+    )
     plot_scores_scorecard(data_scores_scorecard)
   },
   error = function(e) {
