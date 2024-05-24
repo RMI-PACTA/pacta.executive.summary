@@ -20,7 +20,7 @@
 prep_fossil_bars <- function(results_portfolio,
                              peers_results_aggregated,
                              indices_results_portfolio,
-                             scenario_selected = "1.5C-Unif") {
+                             scenario_selected = "NZE") {
   if (is.null(results_portfolio)) {
     data_out <- use_toy_data("fossil_bars")
   } else {
