@@ -8,7 +8,7 @@ prep_scores(
   results_portfolio,
   peers_results_aggregated,
   asset_class = c("equity", "bonds"),
-  scenario_source = "GECO2021"
+  scenario_source = "WEO2023"
 )
 }
 \arguments{

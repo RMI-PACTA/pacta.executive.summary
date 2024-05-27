@@ -8,7 +8,7 @@ prep_fossil_bars(
   results_portfolio,
   peers_results_aggregated,
   indices_results_portfolio,
-  scenario_selected = "1.5C-Unif"
+  scenario_selected = "NZE"
 )
 }
 \arguments{

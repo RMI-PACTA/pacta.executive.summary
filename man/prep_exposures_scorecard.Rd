@@ -4,7 +4,7 @@
 \alias{prep_exposures_scorecard}
 \title{Prepare data input for plotting exposure chart on the climate score card}
 \usage{
-prep_exposures_scorecard(results_portfolio, scenario_selected = "1.5C-Unif")
+prep_exposures_scorecard(results_portfolio, scenario_selected = "NZE")
 }
 \arguments{
 \item{results_portfolio}{Data frame that contains pre-wrangled portfolio
