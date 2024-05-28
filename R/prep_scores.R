@@ -19,7 +19,7 @@
 prep_scores <- function(results_portfolio,
                         peers_results_aggregated,
                         asset_class = c("equity", "bonds"),
-                        scenario_source = "GECO2021") {
+                        scenario_source = "WEO2023") {
   if (is.null(results_portfolio)) {
     data_out <- use_toy_data("scores") %>% filter(asset_class == .env$asset_class)
   } else {
@@ -31,7 +31,7 @@ prep_scores <- function(results_portfolio,
       scenario_source = scenario_source
     )
 
-    portfolio_data_asset <- results_portfolio %>% 
+    portfolio_data_asset <- results_portfolio %>%
       filter(asset_class == .env$asset_class)
     if (nrow(portfolio_data_asset) > 0) {
       # infer start_year

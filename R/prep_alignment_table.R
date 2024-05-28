@@ -19,7 +19,7 @@
 prep_alignment_table <- function(results_portfolio,
                                  peers_results_aggregated,
                                  asset_class = c("equity", "bonds"),
-                                 scenario_source = "GECO2021") {
+                                 scenario_source = "WEO2023") {
   if (is.null(results_portfolio)) {
     data_out <- use_toy_data("alignment_table") %>% filter(asset_class == .env$asset_class)
   } else {

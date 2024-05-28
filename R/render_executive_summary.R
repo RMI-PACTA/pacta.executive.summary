@@ -30,8 +30,8 @@ render_executive_summary <- function(data,
                                      portfolio_name,
                                      peer_group,
                                      total_portfolio,
-                                     scenario_source = "GECO2021",
-                                     scenario_selected = "1.5C-Unif",
+                                     scenario_source = "WEO2023",
+                                     scenario_selected = "NZE",
                                      currency_exchange_value,
                                      log_dir) {
   render(

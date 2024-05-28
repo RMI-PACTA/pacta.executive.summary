@@ -5,7 +5,7 @@
 \alias{scenario_thresholds}
 \title{Scenario names mapped to temperature thresholds}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 6 rows and 3 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 9 rows and 3 columns.
 }
 \usage{
 scenario_thresholds

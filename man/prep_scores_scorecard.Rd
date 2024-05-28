@@ -5,7 +5,7 @@
 \title{Prepare data input for plotting aggregate climate scores in the scorecard
 section}
 \usage{
-prep_scores_scorecard(results_portfolio, scenario_source = "GECO2021")
+prep_scores_scorecard(results_portfolio, scenario_source = "WEO2023")
 }
 \arguments{
 \item{results_portfolio}{Data frame that contains pre-wrangled portfolio
