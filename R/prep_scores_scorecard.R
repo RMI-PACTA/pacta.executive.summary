@@ -15,7 +15,7 @@
 #' @return data.frame
 #' @export
 prep_scores_scorecard <- function(results_portfolio,
-                                  scenario_source = "GECO2021") {
+                                  scenario_source = "WEO2023") {
   if (is.null(results_portfolio)) {
     data_out <- use_toy_data("scores") %>% filter(
       .data$scope == "portfolio",

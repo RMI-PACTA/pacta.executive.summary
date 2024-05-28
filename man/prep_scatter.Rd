@@ -9,8 +9,8 @@ prep_scatter(
   peers_results_aggregated,
   peers_results_individual,
   indices_results_portfolio,
-  scenario_source = "GECO2021",
-  scenario_selected = "1.5C-Unif",
+  scenario_source = "WEO2023",
+  scenario_selected = "NZE",
   asset_class = c("equity", "bonds")
 )
 }
