@@ -12,3 +12,4 @@
 ^docs$
 ^pkgdown$
 ^\.DS_Store$
+^codecov\.yml$
