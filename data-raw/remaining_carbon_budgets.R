@@ -1,5 +1,11 @@
 # styler: off
-carbon_emissions <- read_xlsx("/Users/antoinelalechere/Library/CloudStorage/OneDrive-RMI/PACTA_Documents/General Projects/Scenarios/IEA WEO/WEO 2023 Extended Data/WEO2023_Extended_Data.xlsx",
+# The Extended file data for WEO 2023 is stored here:
+# https://portal.azure.com/#view/Microsoft_Azure_FileStorage/FileShareMenuBlade/~/browse/storageAccountId/%2Fsubscriptions%2Ffeef729b-4584-44af-a0f9-4827075512f9%2FresourceGroups%2FRMI-SP-PACTA-PROD%2Fproviders%2FMicrosoft.Storage%2FstorageAccounts%2Fpactarawdata/path/scenario-sources/protocol/SMB
+# The specific file is 'weo_2023-20240222/WEO2023 extended data/WEO2023_Extended_Data.xlsx'
+# Please download the file and replace the dummy path in variable 'file_scenario_emissions_data'
+# to the path on your computer before running the code.
+file_scenario_emissions_data <- "PATH/TO/WEO2023/SCENARIO/EXTENDED/DATA"
+carbon_emissions <- read_xlsx(file_scenario_emissions_data,
                               sheet = "World CO2 Emissions",
                               range = "J7:AP45") %>%
   select(-c("2022...5", "2030...6", "2035...7", "2040...8", "2045...9", "2050...10", "...11", "2030...12", "2050...13",
