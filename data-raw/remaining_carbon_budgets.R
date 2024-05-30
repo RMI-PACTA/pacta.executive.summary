@@ -5,12 +5,10 @@
 # Please download the file and replace the dummy path in variable 'file_scenario_emissions_data'
 # to the path on your computer before running the code.
 file_scenario_emissions_data <- "PATH/TO/WEO2023/SCENARIO/EXTENDED/DATA"
-carbon_emissions <- read_xlsx(file_scenario_emissions_data,
+carbon_emissions <- readxl::read_xlsx(file_scenario_emissions_data,
                               sheet = "World CO2 Emissions",
                               range = "J7:AP45") %>%
-  select(-c("2022...5", "2030...6", "2035...7", "2040...8", "2045...9", "2050...10", "...11", "2030...12", "2050...13",
-            "2022...15", "2030...16", "2035...17", "2040...18", "2045...19", "2050...20", "...21", "2030...22", "2050...23", "...24",
-            "...31", "2030...32", "2050...33", "...14")) %>%
+  filter(!row_number() %in% c(12, 13, 14, 18, 19, 20)) %>%
   rename(
     sector = "...1",
     emissions_2022 = "2022...25",
@@ -20,19 +18,12 @@ carbon_emissions <- read_xlsx(file_scenario_emissions_data,
     emissions_2045 = "2045...29",
     emissions_2050 = "2050...30",
   ) %>%
+  select(c("sector", "2010", "2015", "2021", "emissions_2022", "emissions_2030", "emissions_2035", "emissions_2040", "emissions_2045", "emissions_2050")) %>%
   filter(sector %in% c("Coal", "Oil", "Natural gas", "Electricity and heat sectors", "Iron and steel**", "Cement**", "Passenger cars", "Aviation")) %>%
   mutate(
     scenario_source = "WEO2023",
     unit = "Mt CO2 (2022)"
   )
-
-carbon_emissions <- carbon_emissions[-5,]
-carbon_emissions <- carbon_emissions[-5,]
-carbon_emissions <- carbon_emissions[-5,]
-carbon_emissions <- carbon_emissions[-5,]
-carbon_emissions <- carbon_emissions[-5,]
-carbon_emissions <- carbon_emissions[-5,]
-
 
 remaining_carbon_budgets <- carbon_emissions %>%
   mutate(
