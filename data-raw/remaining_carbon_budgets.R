@@ -27,7 +27,11 @@ carbon_emissions <- readxl::read_xlsx(file_scenario_emissions_data,
 
 remaining_carbon_budgets <- carbon_emissions %>%
   mutate(
-    remaining_carbon_budget = emissions_2022 * 4 + emissions_2030 * 4, # remaining carbon dbusget is the interpolized carbon budget until 2030 for a sector
+    # Remaining carbon budget for a sector is the sum of scenario emissions from 2022 until 2030.
+    # We interpolate the emissions linearly between points for which we have scenario values (2022 and 2030).
+    # The sum of 7 linearly interpolated points between x and y (including x and y) is equal to 4x + 5y:
+    # x + 7*x + ((1 + 2 + 3 + 4 + 5 + 6 + 7)/7)*(y-x) + y = 8x + 5y - 4x = 4x + 5y
+    remaining_carbon_budget = emissions_2022 * 4 + emissions_2030 * 5,
     weighting_factor = remaining_carbon_budget/ sum(remaining_carbon_budget)
          ) %>%
   mutate(ald_sector = case_when(
