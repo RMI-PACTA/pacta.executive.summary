@@ -14,7 +14,7 @@
 #' @return data.frame
 #' @export
 prep_exposures_scorecard <- function(results_portfolio,
-                                     scenario_selected = "NZE") {
+                                     scenario_selected = "NZE_2050") {
   if (is.null(results_portfolio)) {
     data_out <- use_toy_data("exposures_scorecard")
   } else {

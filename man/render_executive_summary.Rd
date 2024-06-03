@@ -17,7 +17,7 @@ render_executive_summary(
   peer_group,
   total_portfolio,
   scenario_source = "WEO2023",
-  scenario_selected = "NZE",
+  scenario_selected = "NZE_2050",
   currency_exchange_value,
   log_dir
 )

@@ -4,7 +4,7 @@
 \alias{prep_green_brown_bars}
 \title{Prepare data input for plotting green brown bar chart}
 \usage{
-prep_green_brown_bars(results_portfolio, scenario_selected = "NZE")
+prep_green_brown_bars(results_portfolio, scenario_selected = "NZE_2050")
 }
 \arguments{
 \item{results_portfolio}{Data frame that contains pre-wrangled portfolio
