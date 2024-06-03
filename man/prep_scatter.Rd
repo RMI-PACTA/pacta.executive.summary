@@ -10,7 +10,7 @@ prep_scatter(
   peers_results_individual,
   indices_results_portfolio,
   scenario_source = "WEO2023",
-  scenario_selected = "NZE",
+  scenario_selected = "NZE_2050",
   asset_class = c("equity", "bonds")
 )
 }

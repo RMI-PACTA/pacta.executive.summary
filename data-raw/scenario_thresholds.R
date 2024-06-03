@@ -7,7 +7,7 @@ scenario_thresholds <- tibble::tribble(
   "GECO2023",            "1.5C",     "high",
   "GECO2023",         "NDC-LTS",      "mid",
   "GECO2023",       "Reference",      "low",
-   "WEO2023",             "NZE",     "high",
+   "WEO2023",             "NZE_2050",     "high",
    "WEO2023",             "APS",      "mid",
    "WEO2023",           "STEPS",      "low"
 )
