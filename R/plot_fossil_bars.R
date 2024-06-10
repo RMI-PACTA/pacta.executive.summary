@@ -81,7 +81,7 @@ check_single_index_per_asset_class <- function(data, column, env) {
   .data <- deparse_1(substitute(data, env = env))
   data <- data %>%
     filter(.data$entity == "index")
-  if (nrow(data) > 0)
+  if (nrow(data) > 0) {
     asset_classes <- unique(data$asset_class)
 
     for (asset in asset_classes) {
@@ -97,6 +97,7 @@ check_single_index_per_asset_class <- function(data, column, env) {
         }
       }
     }
+  }
 }
 
 make_caption_indices <- function(data) {
