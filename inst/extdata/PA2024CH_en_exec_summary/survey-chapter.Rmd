@@ -49,7 +49,7 @@ Research shows that engagement is one of the most effective ways to improve clim
 
 ```{r plot_layer_with_peer_info_engagement_left, out.width="\\linewidth"}
 knitr::include_graphics(
-file.path(survey_dir, language, "plot_layer_engagement.png")
+file.path(survey_dir, language, "plot_layer_peers_engagement.png")
 )
 ```
 
@@ -61,7 +61,7 @@ file.path(survey_dir, language, "plot_layer_engagement.png")
 
 ```{r plot_layer_with_peer_info_engagement_center, out.width="\\linewidth"}
 knitr::include_graphics(
-file.path(survey_dir, language, "plot_layer_voting.png")
+file.path(survey_dir, language, "plot_layer_peers_voting.png")
 )
 ```
 
