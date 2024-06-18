@@ -26,7 +26,7 @@ prep_data_executive_summary(
   indices_bonds_results_portfolio,
   audit_file,
   emissions_portfolio,
-  score_card_dir
+  index_dir
 )
 }
 \arguments{
@@ -72,7 +72,7 @@ prep_data_executive_summary(
 
 \item{emissions_portfolio}{Some description}
 
-\item{score_card_dir}{Some description}
+\item{index_dir}{Directory containing \code{.rds} files with index benchmarks}
 }
 \value{
 data.frame
