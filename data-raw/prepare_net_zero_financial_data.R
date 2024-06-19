@@ -6,11 +6,9 @@ companies_sbti <- readxl::read_xlsx(
 )
 
 # read financial data file
-# fin_data <- readr::read_rds(
-#   file.path("../pacta-data", "2023Q4", "financial_data.rds")
-# )
-
-fin_data <- readr::read_rds("/Users/antoinelalechere/Downloads/2023Q4_20240527T092929Z/financial_data.rds")
+fin_data <- readr::read_rds(
+  file.path("../pacta-data", "2023Q4", "financial_data.rds")
+)
 
 prep_fin_data_net_zero_targets <- function(data,
                                            financial_data) {
