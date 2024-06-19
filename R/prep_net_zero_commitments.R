@@ -86,7 +86,7 @@ prep_portfolio_sbti_compliant_commitments <- function(total_portfolio,
     ) %>%
     dplyr::left_join(
       net_zero_targets,
-      by = c("isin", "factset_entity_id")
+      by = c("isin", "factset_entity_id", "asset_type")
     )  %>%
     dplyr::filter(asset_type %in% c("Bonds", "Equity")) %>%
     mutate(
