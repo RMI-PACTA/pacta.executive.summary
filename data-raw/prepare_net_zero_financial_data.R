@@ -38,9 +38,9 @@ prep_fin_data_net_zero_targets <- function(data,
   # that have net zero targets (this will include isins that may have been missed)
   fin_data_net_zero_targets <- financial_data %>%
     dplyr::mutate(
-      sbti = ifelse(factset_entity_id %in% companies_sbti_net_zero_completed$Factset_id, TRUE, FALSE)
+      has_net_zero_commitment = ifelse(factset_entity_id %in% companies_sbti_net_zero_completed$Factset_id, TRUE, FALSE)
     )%>%
-    dplyr::select(dplyr::all_of(c("isin", "asset_type", "factset_entity_id", "sbti")))
+    dplyr::select(dplyr::all_of(c("isin", "asset_type", "factset_entity_id", "has_net_zero_commitment")))
 
   return(fin_data_net_zero_targets)
 }
