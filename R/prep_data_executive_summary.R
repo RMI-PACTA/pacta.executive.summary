@@ -21,7 +21,7 @@
 #' @param indices_bonds_results_portfolio Some description
 #' @param audit_file Some description
 #' @param emissions_portfolio Some description
-#' @param score_card_dir Some description
+#' @param index_dir Directory containing `.rds` files with index benchmarks
 #'
 #' @return data.frame
 #' @export
@@ -47,7 +47,7 @@ prep_data_executive_summary <- function(investor_name,
                                         indices_bonds_results_portfolio,
                                         audit_file,
                                         emissions_portfolio,
-                                        score_card_dir) {
+                                        index_dir) {
 
   equity_results_portfolio <- equity_results_portfolio %>%
     apply_general_filters(
@@ -244,11 +244,11 @@ prep_data_executive_summary <- function(investor_name,
   emissions_portfolio <- emissions_portfolio %>%
     dplyr::mutate(entity = "portfolio")
 
-  emissions_indices_eq <- readRDS(file.path(score_card_dir, "Indices_equity_emissions.rds")) %>%
+  emissions_indices_eq <- readRDS(file.path(index_dir, "Indices_equity_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
     dplyr::filter(grepl("MSCI World", .data$portfolio_name))
 
-  emissions_indices_cb <- readRDS(file.path(score_card_dir, "Indices_bonds_emissions.rds")) %>%
+  emissions_indices_cb <- readRDS(file.path(index_dir, "Indices_bonds_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
     dplyr::filter(grepl("Global Corp Bond", .data$portfolio_name))
 
@@ -260,11 +260,11 @@ prep_data_executive_summary <- function(investor_name,
   audit_portfolio <- audit_file %>%
     dplyr::mutate(entity = "portfolio")
 
-  audit_indices_eq <- readRDS(file.path(score_card_dir, "Indices_equity_audit.rds")) %>%
+  audit_indices_eq <- readRDS(file.path(index_dir, "Indices_equity_audit.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
     dplyr::filter(grepl("MSCI World", .data$portfolio_name))
 
-  audit_indices_cb <- readRDS(file.path(score_card_dir, "Indices_bonds_audit.rds")) %>%
+  audit_indices_cb <- readRDS(file.path(index_dir, "Indices_bonds_audit.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
     dplyr::filter(grepl("Global Corp Bond", .data$portfolio_name))
 
