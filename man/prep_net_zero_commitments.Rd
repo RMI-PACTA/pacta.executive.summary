@@ -8,6 +8,7 @@ prep_net_zero_commitments(
   total_portfolio,
   peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
   net_zero_targets,
+  peer_group_company_number_net_zero,
   peer_group_share_net_zero
 )
 }
