@@ -88,7 +88,7 @@ prep_portfolio_sbti_compliant_commitments <- function(total_portfolio,
       net_zero_targets,
       by = c("isin", "factset_entity_id", "asset_type")
     )  %>%
-    dplyr::filter(asset_type %in% c("Bonds", "Equity")) %>%
+    dplyr::filter(.data$asset_type %in% c("Bonds", "Equity")) %>%
     mutate(
       usd_value_net_zero_commitment = ifelse(.data$has_net_zero_commitment,
                                        .data$value_usd,
