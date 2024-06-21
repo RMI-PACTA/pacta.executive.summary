@@ -21,10 +21,10 @@ prepare_peers_net_zero_commitment <- function(total_portfolio,
 
   share <- calculate_peers_share_sbti_commitments(total_portfolio,
                                          net_zero_targets)
-  out <- company_number %>%
+  peers_net_zero_commitment <- company_number %>%
     left_join(share, by = c("investor_name", "portfolio_name"))
 
-  return(out)
+  return(peers_net_zero_commitment)
 }
 
 
