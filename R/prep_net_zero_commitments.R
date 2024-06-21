@@ -16,8 +16,8 @@
 prep_net_zero_commitments <- function(total_portfolio,
                                       peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
                                       net_zero_targets,
-                                      peer_group_company_number_net_zero,
-                                      peer_group_share_net_zero) {
+                                      peers_net_zero_commitment
+                                      ) {
   # match input arg
   peer_group <- match.arg(peer_group)
 
@@ -33,23 +33,18 @@ prep_net_zero_commitments <- function(total_portfolio,
   )
 
   # get peers sbti commitment for appropriate peer group
-  peer_group_share_net_zero <- peer_group_share_net_zero %>%
+  peers_net_zero_commitment <- peers_net_zero_commitment %>%
     dplyr::filter(.data$investor_name == .env$peer_group)
 
-  peer_group_company_number_net_zero <- peer_group_company_number_net_zero %>%
-    dplyr::filter(.data$investor_name == .env$peer_group)
-
-  # combin portfolio and peer level results
-  data_out_number_company <- portfolio_number_company_net_zero %>%
-    dplyr::bind_rows(peer_group_company_number_net_zero) %>%
-    dplyr::mutate(indicator = "number_company")
-
-  data_out_share_portfolio <- portfolio_portfolio_share_net_zero %>%
-    dplyr::bind_rows(peer_group_share_net_zero) %>%
-    dplyr::mutate(indicator = "exposure_share")
-
-  data_out <- data_out_number_company %>%
-    dplyr::bind_rows(data_out_share_portfolio)
+  # combine portfolio and peer level results
+  data_out <- portfolio_number_company_net_zero %>%
+    left_join(portfolio_portfolio_share_net_zero, by = c("investor_name", "portfolio_name")) %>%
+    bind_rows(peers_net_zero_commitment) %>%
+    pivot_longer(cols = c("company_share_net_zero", "exposure_share_net_zero")) %>%
+    select(-"investor_name") %>%
+    pivot_wider(
+      names_from ="portfolio_name"
+    )
 
   return(data_out)
 }
@@ -69,7 +64,7 @@ prep_portfolio_sbti_commitments <- function(total_portfolio,
     dplyr::distinct(.data$investor_name, .data$portfolio_name, .data$factset_entity_id, .data$has_net_zero_commitment) %>%
     dplyr::group_by(.data$investor_name, .data$portfolio_name) %>%
     dplyr::summarise(
-      share_net_zero = sum(.data$has_net_zero_commitment, na.rm = TRUE) / dplyr::n(),
+      company_share_net_zero = sum(.data$has_net_zero_commitment, na.rm = TRUE) / dplyr::n(),
       .groups = "drop"
     ) %>%
     dplyr::ungroup()
@@ -97,7 +92,7 @@ prep_portfolio_sbti_compliant_commitments <- function(total_portfolio,
     )  %>%
     dplyr::group_by(.data$investor_name, .data$portfolio_name) %>%
     dplyr::summarise(
-      share_net_zero = sum(.data$usd_value_net_zero_commitment, na.rm = TRUE) / sum(.data$value_usd, na.rm = TRUE),
+      exposure_share_net_zero = sum(.data$usd_value_net_zero_commitment, na.rm = TRUE) / sum(.data$value_usd, na.rm = TRUE),
       .groups = "drop"
     ) %>%
     dplyr::ungroup()
