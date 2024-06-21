@@ -15,12 +15,12 @@
 #' @export
 
 prepare_peers_net_zero_commitment <- function(total_portfolio,
-                                               net_zero_targets){
+                                              fin_data_net_zero_targets){
   company_number <- calculate_peers_company_number_sbti_commitments(total_portfolio,
-                                                                    net_zero_targets)
+                                                                    fin_data_net_zero_targets)
 
   share <- calculate_peers_share_sbti_commitments(total_portfolio,
-                                         net_zero_targets)
+                                         fin_data_net_zero_targets)
   peers_net_zero_commitment <- company_number %>%
     left_join(share, by = c("investor_name", "portfolio_name"))
 
@@ -29,11 +29,11 @@ prepare_peers_net_zero_commitment <- function(total_portfolio,
 
 
 calculate_peers_company_number_sbti_commitments <- function(total_portfolio,
-                                                            net_zero_targets) {
+                                                            fin_data_net_zero_targets) {
 
   peer_group_company_number_net_zero <- total_portfolio_peers %>%
     dplyr::left_join(
-      net_zero_targets,
+      fin_data_net_zero_targets,
       by = c("isin", "factset_entity_id")
     ) %>%
     dplyr::distinct(investor_name, portfolio_name, factset_entity_id, has_net_zero_commitment) %>%
@@ -48,11 +48,11 @@ calculate_peers_company_number_sbti_commitments <- function(total_portfolio,
 }
 
 calculate_peers_share_sbti_commitments <- function(total_portfolio,
-                                                   net_zero_targets) {
+                                                   fin_data_net_zero_targets) {
 
   peer_group_share_net_zero <- total_portfolio %>%
     dplyr::left_join(
-      net_zero_targets,
+      fin_data_net_zero_targets,
       by = c("isin", "factset_entity_id", "asset_type")
     )  %>%
     dplyr::filter(asset_type %in% c("Bonds", "Equity")) %>%
