@@ -6,7 +6,7 @@
 #' @param total_portfolio Data frame. Contains processed input of the PACTA for
 #'   Investors calculation.
 #' @param peer_group Character. Peer group of the analysed portfolio.
-#' @param net_zero_targets Data frame. Contains information on which ISINs
+#' @param fin_data_net_zero_targets Data frame. Contains information on which ISINs
 #'   belong to companies that have committed to SBTI net zero targets.
 #' @param peers_net_zero_commitment DataFrame. Contains informations on results at peer group level to be compared with portfolio
 #'
@@ -14,7 +14,7 @@
 #' @export
 prep_net_zero_commitments <- function(total_portfolio,
                                       peer_group = c("pensionfund", "assetmanager", "bank", "insurance", "other"),
-                                      net_zero_targets,
+                                      fin_data_net_zero_targets,
                                       peers_net_zero_commitment
                                       ) {
   # match input arg
@@ -23,12 +23,12 @@ prep_net_zero_commitments <- function(total_portfolio,
   # calculate portfolio level share of sbti commitments
   portfolio_number_company_net_zero <- prep_portfolio_sbti_commitments(
     total_portfolio = total_portfolio,
-    net_zero_targets = net_zero_targets
+    fin_data_net_zero_targets = fin_data_net_zero_targets
   )
 
   portfolio_portfolio_share_net_zero <- prep_portfolio_sbti_compliant_commitments(
     total_portfolio = total_portfolio,
-    net_zero_targets = net_zero_targets
+    fin_data_net_zero_targets = fin_data_net_zero_targets
   )
 
   # get peers sbti commitment for appropriate peer group
@@ -51,7 +51,7 @@ prep_net_zero_commitments <- function(total_portfolio,
 }
 
 prep_portfolio_sbti_commitments <- function(total_portfolio,
-                                            net_zero_targets) {
+                                            fin_data_net_zero_targets) {
 
   portfolio_sbti_commitments <- total_portfolio %>%
     dplyr::mutate(
@@ -59,7 +59,7 @@ prep_portfolio_sbti_commitments <- function(total_portfolio,
       portfolio_name = "this_portfolio"
     ) %>%
     dplyr::left_join(
-      net_zero_targets,
+      fin_data_net_zero_targets,
       by = c("isin", "factset_entity_id")
     ) %>%
     dplyr::distinct(.data$investor_name, .data$portfolio_name, .data$factset_entity_id, .data$has_net_zero_commitment) %>%
@@ -74,14 +74,14 @@ prep_portfolio_sbti_commitments <- function(total_portfolio,
 }
 
 prep_portfolio_sbti_compliant_commitments <- function(total_portfolio,
-                                                      net_zero_targets) {
+                                                      fin_data_net_zero_targets) {
   portfolio_sbti_compliant_commitments <- total_portfolio %>%
     dplyr::mutate(
       investor_name = "this_portfolio",
       portfolio_name = "this_portfolio"
     ) %>%
     dplyr::left_join(
-      net_zero_targets,
+      fin_data_net_zero_targets,
       by = c("isin", "factset_entity_id", "asset_type")
     )  %>%
     dplyr::filter(.data$asset_type %in% c("Bonds", "Equity")) %>%
