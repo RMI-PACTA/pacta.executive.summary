@@ -20,7 +20,7 @@ Investors calculation.}
 \item{net_zero_targets}{Data frame. Contains information on which ISINs
 belong to companies that have committed to SBTI net zero targets.}
 
-\item{peer_net_zero_commitment}{DataFrame. Contains informations on results at peer group level to be compared with portfolio}
+\item{peers_net_zero_commitment}{DataFrame. Contains informations on results at peer group level to be compared with portfolio}
 }
 \value{
 data.frame

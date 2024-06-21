@@ -8,7 +8,7 @@
 #' @param peer_group Character. Peer group of the analysed portfolio.
 #' @param net_zero_targets Data frame. Contains information on which ISINs
 #'   belong to companies that have committed to SBTI net zero targets.
-#' @param peer_net_zero_commitment DataFrame. Contains informations on results at peer group level to be compared with portfolio
+#' @param peers_net_zero_commitment DataFrame. Contains informations on results at peer group level to be compared with portfolio
 #'
 #' @return data.frame
 #' @export
@@ -34,16 +34,16 @@ prep_net_zero_commitments <- function(total_portfolio,
   # get peers sbti commitment for appropriate peer group
   peers_net_zero_commitment <- peers_net_zero_commitment %>%
     dplyr::filter(.data$investor_name == .env$peer_group)  %>%
-    mutate(investor_name = "peergroup",
+    dplyr::mutate(investor_name = "peergroup",
            portfolio_name = "peergroup")
 
   # combine portfolio and peer level results
   data_out <- portfolio_number_company_net_zero %>%
-    left_join(portfolio_portfolio_share_net_zero, by = c("investor_name", "portfolio_name")) %>%
-    bind_rows(peers_net_zero_commitment) %>%
-    pivot_longer(cols = c("company_share_net_zero", "exposure_share_net_zero")) %>%
-    select(-"investor_name") %>%
-    pivot_wider(
+    dplyr::left_join(portfolio_portfolio_share_net_zero, by = c("investor_name", "portfolio_name")) %>%
+    dplyr::bind_rows(peers_net_zero_commitment) %>%
+    dplyr::pivot_longer(cols = c("company_share_net_zero", "exposure_share_net_zero")) %>%
+    dplyr::select(-"investor_name") %>%
+    dplyr::pivot_wider(
       names_from ="portfolio_name"
     )
 
