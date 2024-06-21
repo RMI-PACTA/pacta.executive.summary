@@ -34,7 +34,9 @@ prep_net_zero_commitments <- function(total_portfolio,
 
   # get peers sbti commitment for appropriate peer group
   peers_net_zero_commitment <- peers_net_zero_commitment %>%
-    dplyr::filter(.data$investor_name == .env$peer_group)
+    dplyr::filter(.data$investor_name == .env$peer_group)  %>%
+    mutate(investor_name = "peergroup",
+           portfolio_name = "peergroup")
 
   # combine portfolio and peer level results
   data_out <- portfolio_number_company_net_zero %>%
