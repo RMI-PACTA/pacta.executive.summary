@@ -41,9 +41,9 @@ prep_net_zero_commitments <- function(total_portfolio,
   data_out <- portfolio_number_company_net_zero %>%
     dplyr::left_join(portfolio_portfolio_share_net_zero, by = c("investor_name", "portfolio_name")) %>%
     dplyr::bind_rows(peers_net_zero_commitment) %>%
-    dplyr::pivot_longer(cols = c("company_share_net_zero", "exposure_share_net_zero")) %>%
+    tidyr::pivot_longer(cols = c("company_share_net_zero", "exposure_share_net_zero")) %>%
     dplyr::select(-"investor_name") %>%
-    dplyr::pivot_wider(
+    tidyr::pivot_wider(
       names_from ="portfolio_name"
     )
 
