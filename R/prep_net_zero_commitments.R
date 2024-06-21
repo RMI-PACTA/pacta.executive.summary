@@ -8,8 +8,7 @@
 #' @param peer_group Character. Peer group of the analysed portfolio.
 #' @param net_zero_targets Data frame. Contains information on which ISINs
 #'   belong to companies that have committed to SBTI net zero targets.
-#' @param peer_group_share_net_zero Data frame. Contains precalculated shares of
-#'   companies in the peer group portfolios that have SBTI net zero commitments.
+#' @param peer_net_zero_commitment DataFrame. Contains informations on results at peer group level to be compared with portfolio
 #'
 #' @return data.frame
 #' @export
