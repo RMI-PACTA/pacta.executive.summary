@@ -74,7 +74,7 @@ file.path(survey_dir, language, "plot_layer_peers_voting.png")
 
 \begin{esbox}{Use of exclusion policies within bonds and equity vs. fossil fuel PACTA exposure}[\engagementImage]
 
-Exclusion policies can be effective measures to align a portfolio with set values and climate goals. The charts below compare the reported exclusion strategies in fossil fuel sectors to the exposure to coal mining and oil and gas extraction according to PACTA results of this portfolio. If exclusion strategies are applied at an institutional level, it is expected that percentage exposure in these technologies will be zero or very low compared to the total percentage exposure of peers' portfolios. Please be aware, that the quantitative PACTA analysis sometimes takes into account the activities of investee’s doughter and mother companies in fossil fuel technologies as well.
+Exclusion policies can be effective measures to align a portfolio with set values and climate goals. The charts below compare the reported exclusion strategies in fossil fuel sectors to the exposure to coal mining and oil and gas extraction according to PACTA results of this portfolio. If exclusion strategies are applied at an institutional level, it is expected that percentage exposure in these technologies will be zero or very low compared to the total percentage exposure of peers' portfolios. Please note that the exposures displayed below, also reflect your indirect exposures to these sectors coming from your funds' investments.
 
 \begin{center}
 ```
