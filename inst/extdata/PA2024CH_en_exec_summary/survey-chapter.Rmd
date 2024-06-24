@@ -5,13 +5,13 @@
 This section provides insights in the effectiveness of climate strategies and actions on an institutional level. The results are based on the complementary qualitative survey. They are compared to peers and the quantitative PACTA results of this portfolio. Please note that survey answers were self-reported and not verified by RMI.
 
 \fbox{\begin{minipage}{\textwidth}
-\textbf{Explanation on dart charts below:} Each circle represents one climate relevant measure and is colored in case the measure is in place. The level of effectiveness of the measures increases from the outer to the inner ring and with colour intensity. \textbf{The more circles are filled in, from the outer to the inner circle, the more ambitious are your institution’s climate actions.} For more information on the specific measures shown in the layers, please refer to the Annex. 
+\textbf{Explanation on dart charts below:} Each circle represents one climate relevant measure and is colored in case the measure is in place. The level of effectiveness of the measures increases from the outer to the inner ring and with colour intensity. \textbf{The more circles are filled in, from the outer to the inner circle, the more ambitious are your institution's climate actions.} For more information on reading the dart charts, please refer to the Annex and the qualitative survey section in the interactive report. 
 \end{minipage}
 }
 
 \begin{esbox}{Net zero targets and transition plans}[\engagementImage]
 
-With the adoption of the \href{https://www.fedlex.admin.ch/eli/fga/2022/2403/de}{Climate and innovation law} in June 2023, Switzerland has committed to the goal of achieving net zero emissions by 2050 at the latest. In addition, it is mandatory for large companies, and recommended for all institutions, to \href{https://www.fedlex.admin.ch/eli/oc/2022/747/de}{report on their net-zero transition plans}. The following two dart charts illustrate the level of ambition you and your peers have with respect to net-zero targets and transition plans. The least ambitious action is to have a target/transition plan for some business areas, more ambitious is to have them for all climate-relevant business areas of your organisation and finally the best practice is to publish it publicly. The text besides a dart chart provides a comparison to the share of peers with best practice, i.e., the ones that have all layers filled.
+With the adoption of the \href{https://www.fedlex.admin.ch/eli/fga/2022/2403/de}{Climate and innovation law} in June 2023, Switzerland has committed to the goal of achieving net zero emissions by 2050 at the latest. In addition, it is mandatory for large companies, and recommended for all institutions, to \href{https://www.fedlex.admin.ch/eli/oc/2022/747/de}{report on their net-zero transition plans}. The following two dart charts illustrate the level of ambition you and your peers have with respect to net-zero targets and transition plans. The least ambitious action is to have a target/transition plan for some business areas, more ambitious is to have them for all climate-relevant business areas of your organisation and finally the best practice is to announce it publicly. The text besides a dart chart provides a comparison to the share of peers implementing best practices, i.e., the ones that have all layers filled.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
@@ -41,7 +41,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_peers_transi
 
 \begin{esbox}{Engagement strategies within listed equity}[\engagementImage]
 
-Research shows that credible engagement can be one of the most effective ways to improve climate goal alignment of companies one is invested in and therefore actively contribute to the climate goals of a financial institution and align its portfolios with climate targets. The dart charts below assess your engagement activities (direct bilaterall or via exercising voting rights), whether they are carried out by your own institution or outsourced. The charts assess to what extent your engagement activities are following the practices which are the most effective in achieving improvements in the climate performance of investee companies and funds. First, it is impoartant to carry out the engagement, then it is crucial to have sufficient resources inhouse or to monitor the outsourcing party periodically if outsourced. Finally, the most impactful action is to use exclusion policies as an escalation strategy. The text besides a dart chart provides a comparison to the share of peers with best practice, i.e., the ones that have all layers filled.
+Research shows that credible engagement can be one of the most effective ways to improve climate goal alignment of companies one is invested in, and therefore actively contribute to the climate goals of a financial institution and align its portfolios with climate targets. The dart charts below assess your engagement activities (bilaterall or via exercising voting rights), whether they are carried out by your own institution or outsourced. The charts assess to what extent your engagement activities are following the practices which are the most effective in achieving improvements in the climate performance of investee companies and funds. The text besides a dart chart provides a comparison to the share of peers implementing best practices, i.e., the ones that have all layers filled.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
@@ -72,9 +72,9 @@ file.path(survey_dir, language, "plot_layer_peers_voting.png")
 
 \end{esbox}
 
-\begin{esbox}{Use of exclusion policies within bonds and equity vs. fossil fuel PACTA exposure}[\engagementImage]
+\begin{esbox}{Bonds and equity: Use of fossil fuel exclusion policies vs. PACTA exposure}[\engagementImage]
 
-Exclusion policies can be effective measures to align a portfolio with set values and climate goals. The charts below compare the reported exclusion strategies in fossil fuel sectors to the exposure to coal mining and oil and gas extraction according to PACTA results of this portfolio. If exclusion strategies are applied at an institutional level, it is expected that percentage exposure in these technologies will be zero or very low compared to the total percentage exposure of peers' portfolios. Please note that the exposures displayed below, also reflect your indirect exposures to these sectors coming from your funds' investments.
+Exclusion policies can be effective measures to align a portfolio with climate goals. The charts below compare the reported exclusion strategies in fossil fuel sectors to the exposure to coal mining and oil and gas extraction according to PACTA results for this portfolio. If exclusion strategies are applied at an institutional level, it is expected that percentage exposure in these sectors will be zero or very low compared to the total percentage exposure of peers' portfolios. Please note that the exposures below also reflect your indirect exposure to these sectors coming from your funds' investments.
 
 \begin{center}
 ```
