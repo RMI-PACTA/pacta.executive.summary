@@ -72,9 +72,9 @@ file.path(survey_dir, language, "plot_layer_peers_voting.png")
 
 \end{esbox}
 
-\begin{esbox}{Bonds and equity: Use of fossil fuel exclusion policies vs. PACTA exposure}[\engagementImage]
+\begin{esbox}{Bonds and equity: use of fossil fuel exclusion policies vs. PACTA exposure}[\engagementImage]
 
-Exclusion policies can be effective measures to align a portfolio with climate goals. The charts below compare the reported exclusion strategies in fossil fuel sectors to the exposure to coal mining and oil and gas extraction according to PACTA results for this portfolio. If exclusion strategies are applied at an institutional level, it is expected that percentage exposure in these sectors will be zero or very low compared to the total percentage exposure of peers' portfolios. Please note that the exposures below also reflect your indirect exposure to these sectors coming from your funds' investments.
+Exclusion policies can be effective measures to align a portfolio with climate goals. The charts below compare the reported exclusion strategies in fossil fuel sectors to the exposure to coal mining and oil and gas extraction according to PACTA results for this portfolio. If exclusion strategies are applied at an institutional level, it is expected that percentage exposure in these sectors will be zero or very low compared to the total percentage exposure of peers' portfolios. Please note that the exposures below also reflect your indirect exposure to these sectors coming from your funds' investments. Please also note that the dart chart labels for coal are different from oil and gas sectors. This is because the carbon-intensity of coal extraction is so high that it needs to be abandoned as soon as possible.
 
 \begin{center}
 ```
