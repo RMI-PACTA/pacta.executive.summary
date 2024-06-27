@@ -57,8 +57,8 @@ based on PACTA for investors output files.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">prep_net_zero_commitments</span><span class="op">(</span></span>
 <span>  <span class="va">total_portfolio</span>,</span>
 <span>  peer_group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pensionfund"</span>, <span class="st">"assetmanager"</span>, <span class="st">"bank"</span>, <span class="st">"insurance"</span>, <span class="st">"other"</span><span class="op">)</span>,</span>
-<span>  <span class="va">net_zero_targets</span>,</span>
-<span>  <span class="va">peer_group_share_net_zero</span></span>
+<span>  <span class="va">fin_data_net_zero_targets</span>,</span>
+<span>  <span class="va">peers_net_zero_commitment</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -73,14 +73,13 @@ Investors calculation.</p></dd>
 <dd><p>Character. Peer group of the analysed portfolio.</p></dd>
 
 
-<dt>net_zero_targets</dt>
+<dt>fin_data_net_zero_targets</dt>
 <dd><p>Data frame. Contains information on which ISINs
 belong to companies that have committed to SBTI net zero targets.</p></dd>
 
 
-<dt>peer_group_share_net_zero</dt>
-<dd><p>Data frame. Contains precalculated shares of
-companies in the peer group portfolios that have SBTI net zero commitments.</p></dd>
+<dt>peers_net_zero_commitment</dt>
+<dd><p>DataFrame. Contains informations on results at peer group level to be compared with portfolio</p></dd>
 
 </dl></div>
     <div class="section level2">
