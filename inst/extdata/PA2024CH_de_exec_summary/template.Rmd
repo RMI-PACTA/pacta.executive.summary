@@ -536,56 +536,69 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 
 \newpage
 
-\section{Anhang (II): Zusätzliche Erläuterungen zu den Graphen}
+\section{Annex (II): additional chart explanation - Climate Action Survey}
 
-\subsection{Zielscheibendiagramm: allgemeine Klimastrategien}
+\subsection{Example dart chart: user employing best practices}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
-\includegraphics{chart_sample_5}
+\includegraphics{chart_sample_dart_chart_full}
 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
 
-Dieses Zielscheibendiagramm zeigt, ob gemäss Ihren Antworten Ihr Finanzinstitut als Ganzes über Klimabelange Bericht erstattet, eine Klimastrategie verfolgt und konkrete Klimaziele hat. Es wird davon ausgegangen, dass die Wirksamkeit vom ersten, äusseren Kreis zum dritten, inneren Kreis zunimmt. Als Best Practice wird definiert, dass alle drei Ebenen abgedeckt sind.
-Transparenz durch Berichterstattung ist ein erster Schritt in die richtige Richtung, aber letztlich muss ein konkretes Klimaziel gesetzt und dessen Erreichung mittels einer glaubwürdigen Klimastrategie unterstützt werden, um eine Veränderung zu bewirken. 
-
+This is an example dart chart for a user who employs best practices within the area the chart concerns (see the title, in this case exclusion policies within the oil sector). All the circles are filled with color from light to dark and all the labels are positive statemens. It means that the user applies all strategies and/or measures that are considered important or impactful within the area of concern, starting from the least effective (but important nevertheless), outer ring, to the most effective, inner circle. 
 
 \end{minipage}%
 
-\subsection{Zielscheibendiagramm: Engagement bei Portfoliounternehmen in den Sektoren fossile Brennstoffe, Automobil und Stromerzeugung}
+\subsection{Example dart chart: user employing some good practices but not all}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 
-\includegraphics[width=\textwidth]{chart_sample_6}
+\includegraphics[width=\textwidth]{chart_sample_dart_chart_part}
 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Dieses Zielscheibendiagramm zeigt, welche Engagement-Massnahmen Ihr Finanzinstitut gemäss Ihren Antworten ergreift. Dazu gehören zunächst eine Engagement-Politik, deren Wirksamkeit durch ein spezielles Engagement-Team und schliesslich durch gemeinsames Engagement mit anderen Organisationen verbessert werden kann. Als Best Practice wird definiert, dass alle drei Ebenen abgedeckt sind.
-Die Grafik wird für die Sektoren fossile Brennstoffe, Automobil und Stromerzeugung getrennt dargestellt, da diese (i) als die klimarelevantesten Sektoren gelten und (ii) es für diese kohlenstoffarme Substitute gibt, die es Investoren ermöglichen, den Wechsel zu bestehenden Technologien zu unterstützen. 
-Gemeinsames Engagement als Möglichkeit zur Steigerung der Wirksamkeit von Engagement-Praktiken wird in der Literatur aufgegriffen und beispielsweise von der NZAOA unterstützt 
-\textbf{\href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{(link)}}.
-
+This an example dart chart for a user who employs some good practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds') but not all. In this case user applies the measure considered to have a medium impact/importance which is having a sector based approach for a transion plan, but does not apply the other practices (concrete interim targets, and measures planned for achieving the interim targets). The middle ring is filled with color and has a label with a positive statement while the outer ring and inner circle are white and have labels with negative statements (starting with the word 'No'). In this case, user is on a good path but there are some areas of improvement. Especially the middle circle is important one to consider.
 
 \end{minipage}%
 
-\subsection{Zielscheibendiagramm: Negativ-Screening im Öl- und Gassektor sowie im Kohlesektor}
+\subsection{Example dart chart: user does not employ best practices}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 
-\includegraphics[width=\textwidth]{chart_sample_7}
+\includegraphics[width=\textwidth]{chart_sample_dart_chart_empty}
 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Dieses Zielscheibendiagramm zeigt, ob gemäss Ihren Antworten Ihr Finanzinstitut als Ganzes Ausschlusskriterien festgelegt hat, Untergewichtungen in den jeweiligen Sektoren vornimmt sowie Unternehmen aus dem Anlageuniversum ausschliesst, wenn die Massnahmen Ihres Finanzinstituts nicht erfolgreich waren. Als Best Practice wird definiert, dass alle drei Ebenen abgedeckt sind.
-Das Zielscheibendiagramm wird für den Kohle- sowie für den Öl- und Gassektor getrennt dargestellt, und die Exposition in den jeweiligen Sektoren wird verglichen. Der Vergleich mit der PACTA-Exposition soll Aufschluss über die Wirksamkeit von Negativ-Screenings geben. 
+This example dart chart would appear for a user who does not apply any of the best practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds'). All layers (rings and circles) are white and their labels are negative statements (they start with the word 'No'). In this case there is a room for improvement towards best practice (dart plot which is fully filled) within the area the chart is concerning and the chart can help to decide what should be the next steps relevant to the user's institution to support the alignment of financial flows with the net-zero goal by 2050.
 
 \end{minipage}%
+
+\newpage
+
+\section{Annex (II): additional chart explanation - Climate Action Survey}
+
+\subsection{Example dart chart: user and peer information}
+
+\begin{minipage}[t]{0.3\textwidth}
+\verticalAlignImage
+
+\includegraphics[width=\textwidth]{chart_sample_dart_chart_peers}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+This is an example of a dart chart containing peer information together with the user result. On the left we see the user result which could be any of the variants of the dart chart discussed above. In this case the user employs best practices within the area of the chart (Exercising shareholder voting rights). On the right we see the percentage number of other users within this user's peer group who apply best practice (all layers filled in just like in the small icon beside and user's chart in this case). 
+
+\end{minipage}%
+
+For more exmplanation on the best practices shown in the dart charts please refer to the survey section ('Qualitative survey results for your institution') in your interactive report.
 
 \newpage
 

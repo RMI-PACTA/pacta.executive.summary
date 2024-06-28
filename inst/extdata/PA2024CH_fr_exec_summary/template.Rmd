@@ -533,56 +533,69 @@ Le graphique ci-dessous présente les spécifications du score d'alignement agr�
 
 \newpage
 
-\section{Annexe (II): explication supplémentaire}
+\section{Annex (II): additional chart explanation - Climate Action Survey}
 
-\subsection{Diagramme stratigraphique: stratégie climatique générales}
+\subsection{Example dart chart: user employing best practices}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
-\includegraphics{chart_sample_5}
+\includegraphics{chart_sample_dart_chart_full}
 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
 
-Ce diagramme stratigraphique indique si votre institution dans son ensemble, selon vos réponses, dispose d’une pratique d'établissement de rapports, a mis en place une stratégie climatique, et poursuit des objectifs climatiques concrets. Une efficacité croissante apparaît en allant de la première strate (externe) à la troisième strate (interne). La meilleure pratique correspond au fait que les trois strates soient couvertes.
-La transparence, par le biais de rapports, constitue un premier pas dans la bonne direction, mais en définitive un objectif climatique concret doit être défini et soutenu par une stratégie climatique fiable afin d’apporter un réel changement.
+This is an example dart chart for a user who employs best practices within the area the chart concerns (see the title, in this case exclusion policies within the oil sector). All the circles are filled with color from light to dark and all the labels are positive statemens. It means that the user applies all strategies and/or measures that are considered important or impactful within the area of concern, starting from the least effective (but important nevertheless), outer ring, to the most effective, inner circle. 
 
 \end{minipage}%
 
-\subsection{Diagramme stratigraphique: engagement des bénéficiaires d’investissements dans les secteurs des combustibles fossiles, de l'automobile et de l'énergie}
+\subsection{Example dart chart: user employing some good practices but not all}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
 
-\includegraphics[width=\textwidth]{chart_sample_6}
+\includegraphics[width=\textwidth]{chart_sample_dart_chart_part}
 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Ce diagramme stratigraphique indique, selon vos réponses, quelles actions votre institution pratique en matière d'engagement. Cela commence par une politique générale d'engagement, dont l'efficacité peut être améliorée grâce à une équipe dédiée à l'engagement, et enfin par un engagement conjoint avec d'autres institutions. Il est question de \guillemetleft meilleure pratique\guillemetright \ lorsque les trois strates sont couvertes.
-Le graphique est présenté séparément pour les secteurs des combustibles fossiles, de l'automobile et de l'énergie car ceux-ci (i) sont considérés comme les secteurs les plus pertinents pour le climat et (ii) disposent de substituts à faible émission de carbone qui permettent aux investisseurs de soutenir la transition vers les technologies existantes.
-Le fait de considérer l'engagement conjoint comme un moyen d'accroître l'efficacité des pratiques en matière d'engagement est un argument partagé par la littérature sur le sujet et soutenu, par exemple, par la NZAOA \textbf{\href{https://www.unepfi.org/wordpress/wp-content/uploads/2022/03/NZAOA_The-future-of-investor-engagement.pdf}{(lien)}}. 
-
+This an example dart chart for a user who employs some good practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds') but not all. In this case user applies the measure considered to have a medium impact/importance which is having a sector based approach for a transion plan, but does not apply the other practices (concrete interim targets, and measures planned for achieving the interim targets). The middle ring is filled with color and has a label with a positive statement while the outer ring and inner circle are white and have labels with negative statements (starting with the word 'No'). In this case, user is on a good path but there are some areas of improvement. Especially the middle circle is important one to consider.
 
 \end{minipage}%
 
-\subsection{Diagramme stratigraphique: sélection négative dans le secteur du pétrole et du gaz ainsi que du charbon}
-
+\subsection{Example dart chart: user does not employ best practices}
 
 \begin{minipage}[t]{0.3\textwidth}
-
 \verticalAlignImage
 
-\includegraphics[width=\textwidth]{chart_sample_7}
+\includegraphics[width=\textwidth]{chart_sample_dart_chart_empty}
 
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Ce diagramme stratigraphique indique si votre institution dans son ensemble, selon vos réponses, a défini des critères d'exclusion, pratique une sous-pondération dans les secteurs respectifs, et exclut des entreprises si votre action n'aboutit pas. La meilleure pratique correspond au fait que les trois strates soient couvertes.
-Ce diagramme stratigraphique est présenté séparément pour le charbon, d'une part, et le pétrole et le gaz, d'autre part, parallèlement à une comparaison avec l'exposition dans les secteurs respectifs. La comparaison avec l'exposition PACTA vise à donner un aperçu de l'efficacité des actions de sélection négative.
+This example dart chart would appear for a user who does not apply any of the best practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds'). All layers (rings and circles) are white and their labels are negative statements (they start with the word 'No'). In this case there is a room for improvement towards best practice (dart plot which is fully filled) within the area the chart is concerning and the chart can help to decide what should be the next steps relevant to the user's institution to support the alignment of financial flows with the net-zero goal by 2050.
 
 \end{minipage}%
+
+\newpage
+
+\section{Annex (II): additional chart explanation - Climate Action Survey}
+
+\subsection{Example dart chart: user and peer information}
+
+\begin{minipage}[t]{0.3\textwidth}
+\verticalAlignImage
+
+\includegraphics[width=\textwidth]{chart_sample_dart_chart_peers}
+
+\end{minipage}%
+\begin{minipage}[t]{0.6\textwidth}
+
+This is an example of a dart chart containing peer information together with the user result. On the left we see the user result which could be any of the variants of the dart chart discussed above. In this case the user employs best practices within the area of the chart (Exercising shareholder voting rights). On the right we see the percentage number of other users within this user's peer group who apply best practice (all layers filled in just like in the small icon beside and user's chart in this case). 
+
+\end{minipage}%
+
+For more exmplanation on the best practices shown in the dart charts please refer to the survey section ('Qualitative survey results for your institution') in your interactive report.
 
 \newpage
 
