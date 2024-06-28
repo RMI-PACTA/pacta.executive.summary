@@ -66,7 +66,7 @@ wrangle_data_exposures_scorecard <- function(data) {
         .data$ald_sector == "oil and gas" ~ "other_fossil_fuels",
         .data$ald_sector == "oil_and_gas" ~ "other_fossil_fuels",
         .data$technology %in% c("coalcap", "gascap", "oilcap") ~ "fossil_power",
-        .data$technology == "renewablescap" ~ "renewables_power",
+        .data$technology %in% c("renewablescap", "hydrocap") ~ "renewables_power",
         TRUE ~ NA_character_
       )
     ) %>%
