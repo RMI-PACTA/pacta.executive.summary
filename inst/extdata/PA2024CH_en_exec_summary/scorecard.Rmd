@@ -182,47 +182,61 @@ This score represents the estimated aggregate alignment of the PACTA sectors (ex
 
 ```{=latex}
 \begin{multicols}{2}
-%TODO: update depending on decision wrt SBTi
 \subsection{Verified Commitments to Net-Zero}
 
-Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from \href{https://sciencebasedtargets.org/companies-taking-action}{SBTi}.
+Companies are increasingly committing voluntarily to transitioning to net zero and setting interim targets. The effectiveness of such commitments depends on whether interim emissions reduction targets applied are credible, science-based, transparent, and supported by credible action to cut emissions. The following information is based on information from SBTi \textbf{\href{https://sciencebasedtargets.org/companies-taking-action}{(link)}}.
 
 ```
 
 ```{r sbti_net_zero_commitments}
 fin_data_net_zero_targets <- readr::read_csv(
-  file.path(score_card_dir, "fin_data_net_zero_targets.csv"),
+  file.path(analysis_inputs_dir, "fin_data_net_zero_targets.csv"),
   col_types = readr::cols_only(
     isin = "c",
     asset_type = "c",
-    factset_entity_id = "c"
+    factset_entity_id = "c",
+    has_net_zero_commitment = "l"
   )
 )
 
-peer_group_share_net_zero <- readr::read_csv(
-  file.path(score_card_dir, "peer_group_share_net_zero.csv"),
+peers_net_zero_commitment <- readr::read_csv(
+  file.path(score_card_dir, "peers_sbti_results.csv"),
   col_types = readr::cols_only(
     investor_name = "c",
     portfolio_name = "c",
-    share_net_zero = "n"
+    company_share_net_zero = "d",
+    exposure_share_net_zero = "d"
   )
 )
 
-data_prep_net_zero_commitments <- prep_net_zero_commitments(
+data_net_zero_commitments <- prep_net_zero_commitments(
   total_portfolio = total_portfolio,
   peer_group = peer_group,
-  net_zero_targets = fin_data_net_zero_targets,
-  peer_group_share_net_zero = peer_group_share_net_zero
+  fin_data_net_zero_targets = fin_data_net_zero_targets,
+  peers_net_zero_commitment = peers_net_zero_commitment
 )
 
+portfolio_company_share_net_zero <- data_net_zero_commitments %>% 
+    filter(.data$name == "company_share_net_zero") %>% 
+    pull(.data$this_portfolio)
+peers_company_share_net_zero <- data_net_zero_commitments %>% 
+    filter(.data$name == "company_share_net_zero") %>% 
+    pull(.data$peergroup)
+
+portfolio_exposure_share_net_zero <- data_net_zero_commitments %>% 
+    filter(.data$name == "exposure_share_net_zero") %>% 
+    pull(.data$this_portfolio)
+peers_exposure_share_net_zero <- data_net_zero_commitments %>% 
+    filter(.data$name == "exposure_share_net_zero") %>% 
+    pull(.data$peergroup)
 ```
 
 ```{=latex}
 
 \begin{itemize}
-\item Share of companies in portfolio with verified commitments to net-zero and credible near term targets: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == "this_portfolio") %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
+\item Proportion of portfolio subject to public commitments to net zero and verified credible interim targets: \textbf{`r paste0(round(portfolio_exposure_share_net_zero * 100))` \% (Peers average: `r paste0(round(peers_exposure_share_net_zero * 100))` \%)}
 
-\item Average share of companies in peer portfolios with verified commitments to net-zero and credible interim targets: \textbf{`r round(data_prep_net_zero_commitments %>% dplyr::filter(.data$portfolio_name == peer_group) %>% dplyr::pull("share_net_zero") * 100, 1)` \%}
+\item Share of companies in portfolio with verified commitments to net-zero and credible interim targets (as provided in the 2022 Swiss scorecard): \textbf{`r paste0(round(portfolio_company_share_net_zero * 100))` \% (Peers average: `r paste0(round(peers_company_share_net_zero * 100))` \%)}
 \end{itemize}
 ```
 

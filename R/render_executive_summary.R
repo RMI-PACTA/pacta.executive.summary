@@ -6,6 +6,7 @@
 #' @param exec_summary_dir Character single, valid filepath to a directory that contains the template, e.g. `system.file("extdata", "PA2022CH_en_exec_summary", package = "pacta.executive.summary")`
 #' @param survey_dir Character single, valid filepath to a directory that contains the survey files for the user
 #' @param score_card_dir Character single, valid filepath to a directory that contains score card files for the user
+#' @param analysis_inputs_dir Character single, valid filepath to a PACTA analysis results directory that contains the SBTi data merged with financial data in the COP case
 #' @param file_name Character single, valid filename of the Rmd template file, e.g. "template.Rmd"
 #' @param investor_name Character single string specifying the investor name
 #' @param portfolio_name Character single string specifying the portfolio name
@@ -25,6 +26,7 @@ render_executive_summary <- function(data,
                                      exec_summary_dir,
                                      survey_dir,
                                      score_card_dir,
+                                     analysis_inputs_dir,
                                      file_name = "template.Rmd",
                                      investor_name,
                                      portfolio_name,
@@ -42,6 +44,7 @@ render_executive_summary <- function(data,
     params = list(
       survey_dir = survey_dir,
       score_card_dir = score_card_dir,
+      analysis_inputs_dir = analysis_inputs_dir,
       language = language,
       investor_name = investor_name,
       portfolio_name = portfolio_name,
