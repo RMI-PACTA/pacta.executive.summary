@@ -36,6 +36,8 @@ render_executive_summary(
 
 \item{score_card_dir}{Character single, valid filepath to a directory that contains score card files for the user}
 
+\item{analysis_inputs_dir}{Character single, valid filepath to a PACTA analysis results directory that contains the SBTi data merged with financial data in the COP case}
+
 \item{file_name}{Character single, valid filename of the Rmd template file, e.g. "template.Rmd"}
 
 \item{investor_name}{Character single string specifying the investor name}
@@ -53,8 +55,6 @@ render_executive_summary(
 \item{currency_exchange_value}{Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. \code{1.03}}
 
 \item{log_dir}{Character single, valid filepath to a directory that will contain the log file}
-
-\item{analysis_inputs_dir:}{Character single, valid filepath to a PACTA analysis results directory that contains the SBTi data merged with financial data in the COP case}
 }
 \value{
 a pdf document written to output_dir
