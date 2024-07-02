@@ -11,6 +11,7 @@ render_executive_summary(
   exec_summary_dir,
   survey_dir,
   score_card_dir,
+  analysis_inputs_dir,
   file_name = "template.Rmd",
   investor_name,
   portfolio_name,
@@ -52,6 +53,8 @@ render_executive_summary(
 \item{currency_exchange_value}{Numeric single numeric value specifying the exchange rate from USD into the desired display currency, e.g. \code{1.03}}
 
 \item{log_dir}{Character single, valid filepath to a directory that will contain the log file}
+
+\item{analysis_inputs_dir:}{Character single, valid filepath to a PACTA analysis results directory that contains the SBTi data merged with financial data in the COP case}
 }
 \value{
 a pdf document written to output_dir
