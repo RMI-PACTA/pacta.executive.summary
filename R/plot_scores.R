@@ -227,7 +227,7 @@ check_data_scores <- function(data, env) {
   abort_if_invalid_values(
     data,
     "sector",
-    c(NA, "power", "automotive", "coal", "oil", "gas", "aviation", "steel")
+    c(NA, "power", "automotive", "coal", "oil", "gas", "aviation", "steel", "cement")
   )
   abort_if_invalid_values(data, "score", c("A+", "A", "B", "C", "D", "E"))
 }
