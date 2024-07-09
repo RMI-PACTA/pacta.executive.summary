@@ -1,171 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/404.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/alignment_scores_values.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/blank_pdf.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/lookup.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/p4i_p4b_sector_technology_mapper.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/pacta.executive.summary-package.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_alignment_table.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_diagram.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_emissions_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_exposures_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_exposures_survey.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_fossil_bars.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_green_brown_bars.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_scatter.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_scores.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_scores_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_alignment_table.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_climate_strategy_scorecard_engagement.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_climate_strategy_scorecard_initiatives.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_climate_strategy_scorecard_voting.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_data_executive_summary.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_diagram.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_emissions_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_exposures_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_exposures_survey.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_fossil_bars.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_green_brown_bars.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_net_zero_commitments.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scatter.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scores.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scores_emissions_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scores_exposure_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scores_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/rasterGrob.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/readPNG.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/remaining_carbon_budgets.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/render_executive_summary.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/scenario_thresholds.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/scores_real_estate.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_alignment_table.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_diagram.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_emissions_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_exposures_scorecard.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_exposures_survey.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_fossil_bars.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_green_brown_bars.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_scatter.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_scores.html</loc>
-  </url>
-  <url>
-    <loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_scores_scorecard_re.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/404.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/LICENSE-text.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/LICENSE.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/authors.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/index.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/news/index.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/alignment_scores_values.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/blank_pdf.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/index.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/lookup.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/p4i_p4b_sector_technology_mapper.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/pacta.executive.summary-package.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/pipe.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_alignment_table.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_diagram.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_emissions_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_exposures_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_exposures_survey.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_fossil_bars.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_green_brown_bars.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_scatter.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_scores.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/plot_scores_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_alignment_table.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_climate_strategy_scorecard_engagement.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_climate_strategy_scorecard_initiatives.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_climate_strategy_scorecard_voting.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_data_executive_summary.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_diagram.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_emissions_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_exposures_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_exposures_survey.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_fossil_bars.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_green_brown_bars.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_net_zero_commitments.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scatter.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scores.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scores_emissions_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scores_exposure_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/prep_scores_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/rasterGrob.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/readPNG.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/remaining_carbon_budgets.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/render_executive_summary.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/scenario_thresholds.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/scores_real_estate.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_alignment_table.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_diagram.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_emissions_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_exposures_scorecard.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_exposures_survey.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_fossil_bars.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_green_brown_bars.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_scatter.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_scores.html</loc></url>
+<url><loc>https://rmi-pacta.github.io/pacta.executive.summary/reference/toy_data_scores_scorecard_re.html</loc></url>
 </urlset>
+
