@@ -74,7 +74,6 @@ total_portfolio_percentage_coverage <- (total_portfolio_percentage_equity + tota
 
 Benchmark:
 
-%TODO: make sure that these are still the indices we use
 \begin{center}
 \begin{tabular}{ p{0.5\linewidth} p{0.5\linewidth} } 
  \hline
