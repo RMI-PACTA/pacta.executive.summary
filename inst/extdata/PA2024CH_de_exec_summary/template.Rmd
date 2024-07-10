@@ -9,6 +9,7 @@ always_allow_html: true
 params:
   survey_dir: NULL
   score_card_dir: NULL
+  analysis_inputs_dir: NULL
   language: EN
   investor_name: investor
   portfolio_name: portfolio
