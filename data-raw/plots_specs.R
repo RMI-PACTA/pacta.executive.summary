@@ -24,6 +24,7 @@ fill_colours_techmix <- c("green" = "#7bc17e", "brown" = "#986B41")
 
 fill_colours_exposures_scorecard <- c(
   "renewables_power" = "#7BC17E",
+  "renewables_and_hydro_power" = "#7BC17E",
   "other_fossil_fuels" = "#181716",
   "coal" = "#4e3b37",
   "fossil_power" = "#977447"
