@@ -76,11 +76,12 @@ Benchmark:
 
 %TODO: make sure that these are still the indices we use
 \begin{center}
-\begin{tabular}{ p{0.5\linewidth} p{0.5\linewidth} } 
+\begin{tabular}{ p{0.46\linewidth} p{0.46\linewidth} } 
  \hline
  Listed Equity & Corporate Bonds \\ 
  \hline
- iShares MSCI World ETF & iShares Global Corp Bond UCITS ETF \\ 
+ iShares MSCI World ETF & iShares Global Corp Bond \\ 
+  & UCITS ETF \\
  \hline
 \end{tabular}
 \end{center}

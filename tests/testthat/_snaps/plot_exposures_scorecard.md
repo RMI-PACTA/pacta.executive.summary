@@ -15,7 +15,7 @@
 # with wrong values of `sector_or_tech` errors gracefully
 
     Each value of `"sector_or_tech"` must be one of these:
-    coal, other_fossil_fuels, fossil_power, renewables_power.
+    coal, other_fossil_fuels, fossil_power, renewables_power, renewables_and_hydro_power.
     x You passed: bad.
 
 # with non-numeric values of `exposure_perc_aum` errors gracefully
