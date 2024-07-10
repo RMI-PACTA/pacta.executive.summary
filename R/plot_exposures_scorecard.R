@@ -34,7 +34,7 @@ plot_exposures_scorecard <- function(data) {
       hjust = -0.2,
       size = 4
     ) +
-    scale_x_discrete(labels = r2dii.plot::to_title) +
+    scale_x_discrete(labels = as_labeller(exposures_scorecard_labeller)) +
     scale_y_continuous(expand = expansion(mult = c(0, .8)), labels = scales::percent) +
     scale_fill_manual(values = fill_colours_exposures_scorecard) +
     coord_flip() +
@@ -61,8 +61,19 @@ check_data_exposures_scorecard <- function(data, env) {
   abort_if_invalid_values(
     data,
     "sector_or_tech",
-    c("coal", "other_fossil_fuels", "fossil_power", "renewables_power")
+    c("coal", "other_fossil_fuels", "fossil_power", "renewables_power", "renewables_and_hydro_power")
   )
   stopifnot(is.numeric(data$exposure_perc_aum))
   stopifnot((data$exposure_perc_aum <= 1) & (data$exposure_perc_aum >= 0))
+}
+
+exposures_scorecard_labeller <- function(label) {
+  if (label == "renewables_and_hydro_power") {
+    out <- "Renewables and\nHydro Power"
+  } else if (label == "other_fossil_fuels") {
+    out <- "Other\nFossil Fuels"
+  } else {
+    out <- r2dii.plot::to_title(label)
+  }
+  out
 }

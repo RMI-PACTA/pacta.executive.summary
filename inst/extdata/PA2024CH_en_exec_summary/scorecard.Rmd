@@ -75,11 +75,12 @@ total_portfolio_percentage_coverage <- (total_portfolio_percentage_equity + tota
 Benchmark:
 
 \begin{center}
-\begin{tabular}{ p{0.5\linewidth} p{0.5\linewidth} } 
+\begin{tabular}{ p{0.46\linewidth} p{0.46\linewidth} } 
  \hline
  Listed Equity & Corporate Bonds \\ 
  \hline
- MSCI World & iShares Global Corp Bond UCITS ETF \\ 
+ MSCI World & iShares Global Corp Bond \\ 
+ & UCITS ETF \\
  \hline
 \end{tabular}
 \end{center}
