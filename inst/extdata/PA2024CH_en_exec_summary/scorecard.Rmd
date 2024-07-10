@@ -515,7 +515,7 @@ To calculate portfolio alignment:
   * 50\% probability to not exceed 1.7$\text{\textdegree}$C warming in 2100 for the Announced Pledges scenario (WEO 2023)
   * 50\% probability to not exceed 2.4$\text{\textdegree}$C warming in 2100 for the Baseline scenario (WEO 2023)
 
-For the Swiss Climate Test 2022, RMI used the GECO 2021 scenario to generate the PACTA Aggregated Climate Alignment Score. For the 2024 assessment, RMI has opted for the WEO 2023 scenario due to its broader sector coverage in comparison to the GECO scenario. RMI is using the WEO 2023 scenario, given its larger sector coverage compared to the GECO. It's worth noting that both sets of scenarios encompass three scenarios with different ambitions: one 1.5$\text{\textdegree}$C scenario, one scenario that incorporates announced ambitions, including countries' NDCs, and one baseline scenario. Additionally, the IEA scenarios demonstrate more ambitious goals in specific technologies, as outlined below:
+For the Swiss Climate Test 2022, RMI used the GECO 2021 scenario to generate the PACTA Aggregated Climate Alignment Score. For the 2024 assessment, RMI is using the WEO 2023 scenario, given its larger sector coverage compared to the GECO. It's worth noting that both sets of scenarios encompass three scenarios with different ambitions: one 1.5$\text{\textdegree}$C scenario, one scenario that incorporates announced ambitions, including countries' NDCs, and one baseline scenario. Additionally, the IEA scenarios demonstrate more ambitious goals in specific technologies, as outlined below:
 
 * The NZE from the IEA expects a faster transition towards electrification than the GECO 1.5.
 * Oil and Gas are expected to decrease faster in the APS and NZE scenario compared to GECO expectations.
