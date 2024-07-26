@@ -179,7 +179,7 @@ tryCatch(
 
 ```{=latex}
 
-\raggedleft\footnotesize{* coal, oil \& gas, power, automotive, cement, steel and aviation}
+\raggedleft\footnotesize{* Coal, oil \& gas, power, automotive, cement, steel and aviation.}
 
 \end{esbox}
 
@@ -235,10 +235,9 @@ tryCatch(
 ```
 
 ```{=latex}
+\raggedright\footnotesize{* Exposure to companies with main activity in PACTA sectors}
 
-* exposure to companies with main activity in PACTA sectors
-
-** ‘Low-carbon’ technologies: renewables and hydro for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.
+\raggedright\footnotesize{** ‘Low-carbon’ technologies: renewables and hydro for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.}
 
 \end{esbox}
 
@@ -323,7 +322,7 @@ tryCatch(
 
 \textbf{PACTA Aggregated Climate Alignment Score}
 
-The aggregated score compares the alignment of all assets until 2028 to the WEO 2023 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector.\footnote{WEO 2023 was chosen since it provided data coverage for all PACTA sectors. More information about how WEO2023 compares with GECO2021 is provided in the comments section at the end of this executive summary.}
+The aggregated score compares the alignment of all assets until 2028 to the WEO 2023 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector.\footnote{WEO 2023 was chosen since it provided data coverage for all PACTA sectors. More information about how WEO 2023 compares with GECO 2021 is provided in the comments section at the end of this executive summary.}
 
 ```
 
@@ -646,7 +645,7 @@ To what extent you use your results is up to you. However, the results are suita
 \item External disclosure: Implementing the federal council’s recommendations \textbf{\href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}{(link)}} to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}{(link)}}.
 \item Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link})}.
 % TODO: add link once known
-\item Details on how to use PACTA results in light of the target setting protocol, can be found in the following guide “to be defined” (Link) 
+\item Details on how to use PACTA results in light of the NZAOA target setting protocol, can be found in the following guide “to be defined” (Link) 
 \end{itemize}
 
 
