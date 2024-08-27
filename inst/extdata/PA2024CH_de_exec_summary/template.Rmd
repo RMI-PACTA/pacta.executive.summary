@@ -152,7 +152,7 @@ PACTA und das BAFU sind der Ansicht, dass die drei unten aufgeführten Kernfakto
 
 \begin{esbox}{Übersicht über die Ergebnisse von Aktien- und Anleiheportfolios}[\exposureImage]
 
-Die Analyse der Portfolios mit börsennotierten Aktien und Unternehmensanleihen umfasst acht klimarelevante Sektoren*. Für diese Sektoren wurde sowohl die Exposition als auch die Ausrichtung an Klimazielen zur Begrenzung der globalen Erwärmung auf deutlich unter 2 Grad (Klimaübereinkommen von Paris) analysiert. 
+Die Analyse der Portfolios mit börsennotierten Aktien und Unternehmensanleihen umfasst acht klimarelevante Sektoren. Für diese Sektoren wurde sowohl die Exposition als auch die Ausrichtung an Klimazielen zur Begrenzung der globalen Erwärmung auf deutlich unter 2\textdegree (Klimaübereinkommen von Paris) analysiert. 
 Die Messung der Klimaausrichtung wurde anhand der PACTA-Methode durchgeführt. Bei PACTA werden die zukunftsgerichteten Produktionspläne aller investierten Unternehmen in den PACTA-Sektoren auf Technologieebene mit den Zielen aus Klimaszenarien verglichen. Weitere Informationen über die PACTA-Methode finden Sie auf dem PACTA Knowledge Hub \textbf{(\href{https://rmi.gitbook.io/pacta-knowledge-hub/}{link})}.
 
 
@@ -192,7 +192,7 @@ tryCatch(
 \begin{esbox}{Ist-Zustand (PACTA-Sektoren)}[\exposureImage]
 
 %FIXME: make footnote
-\textbf{Exposition gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens}
+\textbf{Exposition* gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens}
 
 Die Grafik zeigt die Exposition gegenüber Unternehmen mit Produktionsstätten in den von PACTA erfassten Teilen der Wertschöpfungskette. Die Exposition gegenüber fossilen Brennstoffen (Förderung von Kohle, Öl, Gas) wird aggregiert und zu Vergleichszwecken zusätzlich einzeln ausgewiesen sowie mit Peers und einem Index verglichen.
 ```
@@ -238,7 +238,7 @@ tryCatch(
 
 ```{=latex}
 
-** Kohlenstoffarme Technologien (low-carbon): erneuerbare Energien und Wasserkraft für die Stromerzeugung und Elektroantrieb für die Automobilindustrie. Kohlenstoffintensive Technologien (high-carbon): Kohle, Öl, Gas für die Stromerzeugung, Hybrid- und Verbrennungsmotoren für die Automobilindustrie.
+\raggedright\footnotesize{** Kohlenstoffarme Technologien (low-carbon): erneuerbare Energien und Wasserkraft für die Stromerzeugung und Elektroantrieb für die Automobilindustrie. Kohlenstoffintensive Technologien (high-carbon): Kohle, Öl, Gas für die Stromerzeugung, Hybrid- und Verbrennungsmotoren für die Automobilindustrie.}
 
 \end{esbox}
 
@@ -386,7 +386,7 @@ tryCatch(
 
 \textbf{Szenarioausrichtung pro Technologie}
 
-Während der vorangegangene Abschnitt Einblicke in die derzeitige Exposition gegenüber den verschiedenen PACTA-Sektoren sowie einen Überblick über die Ausrichtung auf Gesamt- und Sektorebene lieferte, bietet dieser Abschnitt zusätzliche Informationen über die Verträglichkeit mit dem GECO 2021 Szenario auf Technologieebene für die PACTA Sektoren mit Technologiepfaden.
+Während der vorangegangene Abschnitt Einblicke in die derzeitige Exposition gegenüber den verschiedenen PACTA-Sektoren sowie einen Überblick über die Ausrichtung auf Gesamt- und Sektorebene lieferte, bietet dieser Abschnitt zusätzliche Informationen über die Verträglichkeit mit dem WEO 2023 Szenario auf Technologieebene für die PACTA Sektoren mit Technologiepfaden.
 
 Die nachstehenden Grafiken zeigen, auf welches Klimaszenario die Technologien in Ihrem Portfolio im Vergleich zu Ihren Peers ausgerichtet sind. Die Position jedes Quadrats in den farblich markierten Rechtecken zeigt das Klimaszenario, auf das Ihr Portfolio und die Portfolios Ihrer Peers in fünf Jahren ausgerichtet sein werden. Die Grösse der Quadrate gibt den Umfang der Exposition (in \% des verwalteten Vermögens) an.
 
