@@ -66,7 +66,7 @@ subtitle:  |
 
 ```{=latex}
 \begin{esbox}[0.25\textwidth]{Table of contents}
-
+% UPDATED 1:
 \begin{enumerate}
 \item Equity \& Corporate Bonds (overview)
 \item Equity \& Corporate Bonds (current \& future)
@@ -76,7 +76,9 @@ subtitle:  |
 \end{enumerate}
 
 \end{esbox}%
+
 \begin{esbox}[0.75\textwidth]{About the PACTA Climate Test 2024}
+% UPDATED 1 END
 ```
 
 ```{r number_peer, fig.height = 6}
@@ -92,13 +94,14 @@ number_peers <- readr::read_csv(
 ```
 
 ```{=latex}
-
+% UPDATED 2: 
 \textbf{Switzerland and its financial market are dedicated to achieving net-zero carbon emissions by 2050} in order to fulfill its commitments under the Swiss Climate and Innovation law \textbf{\href{https://www.fedlex.admin.ch/eli/fga/2022/2403/de}{(link)}}. The PACTA Climate Test 2024 offers consistent and comparable information about the Swiss financial market and the progress of individual participating financial institutions towards meeting these climate goals. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter - \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(peer_group), fixed = TRUE)` \stopunderscoreletter was invited to the test by the FOEN \textbf{\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets/pacta.html}{(link)}} and SIF with support of the associations, to have its financial portfolios examined voluntarily. The PACTA test combines a quantitative assessment of global listed equity and corporate bond portfolios as well as Swiss real estate and mortgage portfolios with a qualitative survey of climate strategies and actions. 
 
 % TODO: update two links in the section below marked as (link)
 \textbf{This executive summary} is a condensed version of the individual results from your uploaded equity and corporate bond portfolio \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(portfolio_name), fixed = TRUE)` \stopunderscoreletter as well as extracts from your survey results. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter receives one executive summary per portfolio. In the end of this executive summary you find some Climate indicators based on the \textbf{Swiss Climate Scores} \textbf{\href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-99293.html}{(link)}}. \textbf{A detailed individual interactive report} (per portfolio or grouped) can be viewed via personalized access on the Transition Monitor Platform in German, French, and partly English (link). There is a \textbf{separate individual report with an executive summary available for real estate and mortgage portfolios} (link). \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter decides on the publication of this individual results. In addition, several information out of these reports can be used for mandatory or recommended reporting requirements by Swiss law, the federal council and associations.
 
 \textbf{A meta-report with anonymized and aggregated data} for Switzerland from all participants, together with sector reports, is published on the FOEN website \textbf{\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt.html}{(link)}}. 122 financial institutions participated in 2024, indicating the peer group they belong to, such as pension funds, insurances, banks, and asset managers.
+% UPDATED 2 END
 
 \end{esbox}
 
@@ -235,8 +238,9 @@ tryCatch(
 ```
 
 ```{=latex}
+% UPDATED 3:(missing from German version) 
 \raggedright\footnotesize{* Exposure to companies with main activity in PACTA sectors}
-
+% UPDATED 3 END
 \raggedright\footnotesize{** ‘Low-carbon’ technologies: renewables and hydro for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.}
 
 \end{esbox}
@@ -322,8 +326,9 @@ tryCatch(
 
 \textbf{PACTA Aggregated Climate Alignment Score}
 
+% UPDATED 4: (mostly years)
 The aggregated score compares the alignment of all assets until 2028 to the WEO 2023 Scenario. The score is calculated both on aggregate portfolio level (see also Climate Scores) and per PACTA sector.\footnote{WEO 2023 was chosen since it provided data coverage for all PACTA sectors. More information about how WEO 2023 compares with GECO 2021 is provided in the comments section at the end of this executive summary.}
-
+% UPDATED 4 END
 ```
 
 ```{r scores, fig.show='hold', out.width='0.4\\textwidth', fig.align='center'}
@@ -461,9 +466,9 @@ tryCatch(
 ```{=latex}
 
 \newpage
-
+% UPDATED 5
 \section{Annex (I): additional chart explanation - Equity \& Bonds Results}
-
+% UPDATED 5 END
 \subsection{Exposure to climate-relevant sectors \& technologies as \% of AUM} 
 
 
@@ -483,9 +488,9 @@ tryCatch(
 
 \end{center}
 \end{minipage}%
-
+% UPDATED 6 (last line - not ETF anymore)
 The bar chart on the left shows the portfolio's exposure to each of the eight PACTA sectors as a percentage of assets under management. The bars are arranged by the amount of exposure in descending order. In addition, a breakdown of technologies (low-carbon, carbon-intensive, unspecified) is provided for those sectors for which such a breakdown is defined. The graph on the right shows the exposure to the fossil fuel extraction sector as a breakdown between the different fossil fuels coal, oil and gas. In addition, a comparison with peers (pension funds, insurance companies, banks or asset managers) as well as with MSCI World Index can be seen.
-
+% UPDATED 6 END
 \subsection{Current exposure vs. future alignment for power sector}
 
 
@@ -494,9 +499,9 @@ The bar chart on the left shows the portfolio's exposure to each of the eight PA
 This chart shows current low-carbon technology exposure (percentage of sectoral exposure, x-axis) plotted against the sector-level alignment metric (alignment score, y-axis). Colored dots represent different entities (portfolio, average of all participants, average of peers). It investigates the relation between the two values as well as provides context for the alignment score. Ideally, an insitution would like to be positioned in the upper right corner (high exposure to low-carbon and high alignment). The bottom left corner is the least desired position (low exposure to low-carbon and low alignment).
 
 \newpage
-
+% UPDATED 7
 \section{Annex (I): additional chart explanation - Equity \& Bonds Results}
-
+% UPDATED 7 END
 \subsection{Aggregated alignment scores}
 
 
@@ -531,7 +536,7 @@ The chart below visualizes the specifications of the aggregated alignment score 
 \end{center}
 
 \newpage
-
+% UPDATED 8 (entire section is new in German template in English right now)
 \section{Annex (II): additional chart explanation - Climate Action Survey}
 
 \subsection{Example dart chart: user employing best practices}
@@ -595,7 +600,7 @@ This is an example of a dart chart containing peer information together with the
 \end{minipage}%
 
 For more exmplanation on the best practices shown in the dart charts please refer to the survey section ('Qualitative survey results for your institution') in your interactive report.
-
+% UPDATED 8 END
 \newpage
 
 \section{Annex (III): FAQs}
@@ -645,9 +650,10 @@ To what extent you use your results is up to you. However, the results are suita
 \item External disclosure: Implementing the federal council’s recommendations \textbf{\href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-85925.html}{(link)}} to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/swiss-climate-scores/valuation-parameters.html}{(link)}}.
 \item Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link})}.
 % TODO: add link once known
+% UPDATED 9 (new item)
 \item Details on how to use PACTA results in light of the NZAOA target setting protocol, can be found in the following guide “to be defined” (Link) 
 \end{itemize}
-
+% UPDATED 9 END
 
 
 
