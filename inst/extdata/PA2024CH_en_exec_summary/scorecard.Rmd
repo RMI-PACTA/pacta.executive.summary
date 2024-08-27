@@ -363,7 +363,7 @@ if (data_stewardship_available) {
  
 \end{itemize}
 \end{multicols}
-% UPDATTED 3 END
+% UPDATED 3 END
 ```
 
 \newpage
