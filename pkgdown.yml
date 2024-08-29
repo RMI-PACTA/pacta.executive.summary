@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-08-27T14:33Z
+last_built: 2024-08-29T12:04Z
 urls:
   reference: https://rmi-pacta.github.io/pacta.executive.summary/reference
   article: https://rmi-pacta.github.io/pacta.executive.summary/articles
