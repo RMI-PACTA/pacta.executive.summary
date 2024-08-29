@@ -1,5 +1,3 @@
-<span style="color:red"><font size="5">TO BE REVIEWED FOR COP 2024</font></span>
-
 ```{=latex}
 
 \section{Umfrage zu Klimamassnahmen}
@@ -7,13 +5,13 @@
 Dieser Abschnitt bietet Einblicke in die Wirksamkeit von Klimamassnahmen auf institutioneller Ebene. Die Ergebnisse basieren auf der ergänzenden qualitativen Umfrage zu Klimamassnahmen. Die Umfrageergebnisse werden mit den Ergebnissen der Peers und den quantitativen Ergebnissen dieses Portfolios verglichen. Bitte beachten Sie, dass die Antworten der Umfrageteilnehmenden auf eigenen Angaben beruhen und nicht von RMI überprüft wurden.
 
 \fbox{\begin{minipage}{\textwidth}
-\textbf{Erläuterungen zu den unten dargestellten Zielscheibendiagrammen:} Die Zielscheibendiagramme sind neue grafische Darstellungen, die Ihre klimarelevanten Massnahmen abbilden. Jeder Kreis steht für eine klimarelevante Massnahme und ist farblich gekennzeichnet, wenn die Massnahme umgesetzt wurde. Der Wirksamkeitsgrad der Massnahmen nimmt vom äusseren zum inneren Ring und mit der Farbintensität zu. Je mehr Kreise vom äusseren zum inneren Kreis farblich markiert sind, desto ambitionierter sind die Klimamassnahmen Ihrer Institution. Weitere Informationen zu den einzelnen in den Kreisen dargestellten Massnahmen finden Sie im Annex. 
+\textbf{Erläuterungen zu den unten dargestellten Zielscheibendiagrammen:} Jeder Kreis steht für eine klimarelevante Massnahme und ist farblich gekennzeichnet, wenn die Massnahme umgesetzt wurde. Der Wirksamkeitsgrad der Massnahmen nimmt vom äusseren zum inneren Ring und mit der Farbintensität zu. \textbf{Je mehr Kreise vom äusseren zum inneren Kreis farblich markiert sind, desto ambitionierter sind die Klimamassnahmen Ihrer Institution.} Weitere Informationen zum Lesen der Zielscheibendiagramm finden Sie im Anhang und im Abschnitt über die qualitative Umfrage im interaktiven Bericht. 
 \end{minipage}
 }
 
-\begin{esbox}{Initiativen, Klimastrategie und Berichterstattung}[\engagementImage]
+\begin{esbox}{Netto-Null-Ziele und Übergangspläne}[\engagementImage]
 
-Auf der linken Seite sehen Sie die Initiativen, an denen Sie beteiligt sind. Je grösser die Schriftgrösse, desto mehr Peers sind daran beteiligt. In der Mitte sehen Sie ein Zielscheibendiagramm, das Ihre Klimastrategie darstellt. Auf der rechten Seite sehen Sie, wie viele Ihrer Peers alle drei Klimastrategien anwenden, was als Best Practice gilt.
+Mit der Verabschiedung des Bundesgesetzes über die Ziele im Klimaschutz, die Innovation und die Stärkung der Energiesicherheit \textbf{\href{https://www.fedlex.admin.ch/eli/fga/2022/2403/de}{(link)}} im Juni 2023 hat sich die Schweiz dem Ziel verpflichtet, bis spätestens 2050 Netto-Null-Emissionen zu erreichen. Darüber hinaus ist es für große Unternehmen verpflichtend und für alle Institutionen empfohlen, über ihre Netto-Null-Umstellungspläne zu berichten \textbf{\href{https://www.fedlex.admin.ch/eli/oc/2022/747/de}{(link)}}. Die folgenden beiden Zielscheibendiagramme zeigen, wie ehrgeizig Sie und Ihre Peers in Bezug auf Netto-Null-Ziele und Übergangspläne sind. Die am wenigsten ehrgeizige Maßnahme ist die Erstellung eines Ziel- bzw. Übergangsplans für einige Geschäftsbereiche, die ehrgeizigste ist die Erstellung eines Plans für alle klimarelevanten Geschäftsbereiche Ihres Unternehmens, und die Best-Practice ist schließlich die öffentliche Bekanntgabe des Plans. Der Text neben einem Zielscheiben-Diagramm bietet einen Vergleich mit dem Anteil der Peers, die Best-Practies anwenden, d. h. die jenigen, bei welchen alle Ebenen ausgefüllt sind.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
@@ -39,13 +37,11 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_peers_transi
 \end{minipage}%
 \end{center}
 
-(Links) Initiativen, an denen Sie (dunkelblau) und Ihre Peers (hellblau) beteiligt sind. (Rechts) Von Ihnen angewandte Klimastrategien im Vergleich zu denen Ihrer Peers.
-
 \end{esbox}
 
-\begin{esbox}{Engagement bei Portfoliounternehmen nach Sektor}[\engagementImage]
+\begin{esbox}{Engagementstrategien bei börsennotierten Aktien}[\engagementImage]
 
-Untersuchungen zeigen, dass Engagement eine der effektivsten Methoden zur Verbesserung der Klimaausrichtung von investierten Unternehmen ist. Die nachstehenden Zielscheibendiagramme zeigen Ihre Engagement-Massnahmen für drei klimarelevante Sektoren und ergänzen damit den vorherigen Abschnitt zur Klimaausrichtung. Daneben wird der Anteil der Peers angegeben, die Best Practices umsetzen, d. h. alle Ebenen abdecken.
+Die Forschung zeigt, dass ein glaubwürdiges Engagement eine der effektivsten Methoden sein kann, um die Ausrichtung der Klimaziele von Unternehmen, in die man investiert, zu verbessern und somit aktiv zu den Klimazielen eines Finanzinstituts beizutragen und seine Portfolios auf die Klimaziele auszurichten.Die nachstehenden Zielscheiben-Diagramme bewerten Ihre Engagement-Aktivitäten (bilateral oder über die Ausübung von Stimmrechten), unabhängig davon, ob sie von Ihrer Institution durchgeführt oder ausgelagert wurden. In den Diagrammen wird bewertet, inwieweit Ihre Engagement-Aktivitäten den Praktiken folgen, welche zu den effektivsten zur Verbesserung der Klimaleistung von Unternehmen und Fonds zählen, in die Sie investieren. Der Text neben einem Zielscheiben-Diagramm bietet einen Vergleich mit dem Anteil der Peers, die Best-Practies anwenden, d. h. die jenigen, bei welchen alle Ebenen ausgefüllt sind.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
@@ -76,9 +72,9 @@ file.path(survey_dir, language, "plot_layer_peers_voting.png")
 
 \end{esbox}
 
-\begin{esbox}{Negativ-Screening vs. PACTA-Exposition gegenüber der fossilen Energiebranche}[\engagementImage]
+\begin{esbox}{Anleihen und Aktien: Verwendung von Ausschlussstrategien für fossile Brennstoffe vs. PACTA-Exposure}[\engagementImage]
 
-In diesen Grafiken werden die gemeldeten Klimastrategien mit der Exposition gegenüber dem Kohlebergbau sowie der Öl- und Gasförderung verglichen. Wenn Ausschlussstrategien auf institutioneller Ebene angewendet werden, dürfte die Exposition gegenüber diesen Technologien im Vergleich zu den Portfolios Ihrer Peers gleich Null oder sehr gering sein.
+Ausschlussstrategien können wirksame Maßnahmen sein, um ein Portfolio mit Klimazielen in Einklang zu bringen. In den nachstehenden Diagrammen werden die angegebenen Ausschlussstrategien in fossilen Brennstoffsektoren mit dem Engagement im Kohlebergbau sowie in der Öl- und Gasförderung gemäß den PACTA-Ergebnissen für dieses Portfolio verglichen. Wenn Ausschlussstrategien auf institutioneller Ebene angewandt werden, ist davon auszugehen, dass das prozentuale Engagement in diesen Sektoren im Vergleich zum gesamten prozentualen Engagement der Portfolios von Peers gleich Null oder sehr gering ist. Bitte beachten Sie, dass die unten aufgeführten Engagements auch Ihr indirektes Engagement in diesen Sektoren widerspiegeln, das sich aus ihren Anlagen in Fonds ergibt. Bitte beachten Sie auch, dass sich die Beschriftungen der Zielscheiben-Diagramme für Kohle von denen für Öl und Gas unterscheiden. Der Grund dafür ist, dass die Kohlenstoffintensität der Kohleförderung so hoch ist, dass sie so schnell wie möglich aufgegeben werden muss.
 
 \begin{center}
 ```
@@ -191,4 +187,3 @@ patchwork::wrap_elements(plot_exclusion_gas) + patchwork::wrap_elements(plot_bo_
 \end{esbox}
 \newpage
 ```
-
