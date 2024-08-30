@@ -72,7 +72,6 @@ subtitle:  |
 \item Aktien und Unternehmensanleihen (Übersicht)
 \item Aktien und Unternehmensanleihen (heute und zukünftig)
 \item Umfrage
-\item Immobilien und Hypotheken
 \item Anhang (Erläuterungen zu Grafiken; FAQs)
 \item PACTA-basierte Scorecard entlang der Swiss Climate Scores
 \end{enumerate}
@@ -95,10 +94,12 @@ number_peers <- readr::read_csv(
 
 ```{=latex}
 
-Die Schweiz und ihr Finanzmarkt haben sich zum Übergang zu Netto-Null-Treibhausgasemissionen bis 2050 verpflichtet, um die Ziele aus dem Klimaübereinkommen von Paris zur Begrenzung der globalen Erwärmung auf deutlich unter 2\textdegree C zu erreichen und ihre Bemühungen zur Begrenzung auf 1,5\textdegree C fortzusetzen. Der PACTA-Klimatest 2024 liefert vergleichbare Daten über die Fortschritte des Schweizer Finanzmarktes und der einzelnen teilnehmenden Finanzinstitute im Hinblick auf die Erreichung der Klimaziele. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter wurde vom BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt.html}{link})} und vom SIF \textbf{(\href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{link})} mit Unterstützung der Verbände zum Klimatest eingeladen, um seine Finanzportfolios freiwillig untersuchen zu lassen. Der PACTA-Klimatest kombiniert eine quantitative Bewertung von Portfolios aus globalen börsennotierten Aktien und Unternehmensanleihen sowie von Schweizer Immobilien- und Hypothekarportfolios mit einer qualitativen Bewertung weiterer Klimamassnahmen. Insgesamt haben 133 Finanzinstitute teilgenommen, \startunderscoreletter `r number_peers` \stopunderscoreletter davon waren Peers (d. h. Teilnehmer aus dem gleichen Finanzsektor also Pensionskassen, Versicherungen, Banken oder Vermögensverwalter).
+\textbf{Die Schweiz und ihr Finanzmarkt haben sich zum Übergang zu Netto-Null-Treibhausgasemissionen bis 2050 verpflichtet}, um ihre Verpflichtungen aus dem Schweizer Bundesgesetz über die Ziele im Klimaschutz, die Innovation und die Stärkung der Energiesicherheit zu erfüllen \textbf{\href{https://www.fedlex.admin.ch/eli/fga/2022/2403/de}{(link)}}. Der PACTA-Klimatest 2024 liefert vergleichbare Daten über die Fortschritte des Schweizer Finanzmarktes und der einzelnen teilnehmenden Finanzinstitute im Hinblick auf die Erreichung der Klimaziele.  \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter - \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(peer_group), fixed = TRUE)` \stopunderscoreletter wurde vom BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt/pacta.html}{link})} und vom SIF mit Unterstützung der Verbände zum Klimatest eingeladen, um seine Finanzportfolios freiwillig untersuchen zu lassen. Der PACTA-Klimatest kombiniert eine quantitative Bewertung von Portfolios aus globalen börsennotierten Aktien und Unternehmensanleihen sowie von Schweizer Immobilien- und Hypothekarportfolios mit einer qualitativen Bewertung weiterer Klimamassnahmen. 
 
+% TODO: update two links in the section below marked as (link)
+\textbf{Diese Zusammenfassung} ist eine Kurzfassung der Einzelergebnisse Ihres hochgeladenen Aktien- und Unternehmensanleihenportfolios \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(portfolio_name), fixed = TRUE)` \stopunderscoreletter, sowie Auszüge aus Ihren Umfrageergebnissen. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter erhält eine Zusammenfassung pro Portfolio. Am Ende dieser Zusammenfassung finden Sie einige Klimaindikatoren auf der Grundlage der Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-99293.html}{(link)}}. \textbf{Ein detaillierter individueller interaktiver Bericht} (pro Portfolio oder gruppiert) können über einen personalisierten Zugang auf der Transition Monitor Plattform in Deutsch, Französisch und teilweise Englisch eingesehen werden (Link). Für \textbf{Immobilien- und Hypothekenportfolios wird ein separater Einzelbericht mit einer Zusammenfassung} bereitgestellt (Link). \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter entscheidet über die Veröffentlichung dieser Einzelergebnisse. Darüber hinaus können verschiedene Informationen aus diesen Berichten für die obligatorische oder empfohlene Berichterstattung durch die Schweizer Gesetzgebung, den Bundesrat und Verbände verwendet werden.
 
-Diese Kurzfassung ist eine Zusammenfassung der Einzelergebnisse Ihres hochgeladenen Portfolios \startunderscoreletter {`r gsub("&", "\\&", portfolio_name, fixed = TRUE)`}\stopunderscoreletter. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter hat eine Zusammenfassung pro Portfolio erhalten. Ein detaillierter interaktiver Einzelbericht (pro Portfolio oder gruppiert) kann über einen persönlichen Zugang auf der Transition Monitor Plattform in Deutsch, Französisch und teilweise Englisch eingesehen werden \textbf{\href{https://platform.transitionmonitor.com/}{(link)}}. Ein Metabericht mit anonymisierten und aggregierten Daten aller Teilnehmer sowie Sektorberichte sind auf der Website des BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt.html}{link})} publiziert und stehen zum Download bereit.
+\textbf{Ein Metabericht mit anonymisierten und aggregierten Daten} für die Schweiz aller Teilnehmer sowie Sektorberichte sind auf der Website des BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt.html}{link})} publiziert und stehen zum Download bereit. 122 Finanzinstitute nahmen 2024 teil und gaben an, zu welcher Peer-Group sie gehören, z. B. Pensionsfonds, Versicherungen, Banken und Vermögensverwalter.
 
 \end{esbox}
 
@@ -238,6 +239,8 @@ tryCatch(
 
 ```{=latex}
 
+\raggedright\footnotesize{* Engagement in Unternehmen, die hauptsächlich in PACTA-Sektoren tätig sind}
+
 \raggedright\footnotesize{** Kohlenstoffarme Technologien (low-carbon): erneuerbare Energien und Wasserkraft für die Stromerzeugung und Elektroantrieb für die Automobilindustrie. Kohlenstoffintensive Technologien (high-carbon): Kohle, Öl, Gas für die Stromerzeugung, Hybrid- und Verbrennungsmotoren für die Automobilindustrie.}
 
 \end{esbox}
@@ -323,7 +326,7 @@ tryCatch(
 
 \textbf{PACTA Aggregierter Score zur Klimaausrichtung}
 
-Der Aggregierte Score zeigt die Ausrichtung aller Vermögenswerte bis 2026 im Vergleich zum GECO 2021-Szenario. Der Score wird sowohl auf Portfolioebene (siehe auch Indikatoren gemäss "Swiss Climate Scores") als auch für jeden einzelnen PACTA-Sektor (ausser Zement, da nicht in GECO 2021 abgedeckt) berechnet.\footnote{Das GECO-Szenario wurde ausgewählt, da es die meisten PACTA-Sektoren abdeckt. Bitte beachten Sie, dass das GECO-Szenario grössere technologische Veränderungen erst nach dem Zeitraum von fünf Jahren annimmt, der in der PACTA-Analyse berücksichtigt wird. Daher kann ihr Aggregierter Score niedriger ausfallen, wenn ein anderes Szenario zur Berechnung benutzt wird.}
+Der Aggregierte Score zeigt die Ausrichtung aller Vermögenswerte bis 2028 im Vergleich zum WEO 2023-Szenario. Der Score wird sowohl auf Portfolioebene (siehe auch Indikatoren gemäss "Swiss Climate Scores") als auch für jeden einzelnen PACTA-Sektor berechnet.\footnote{Das WEO 2023 Szenario wurde ausgewählt, da es Daten für alle PACTA-Sektoren enthält. Weitere Informationen darüber, wie WEO 2023 mit GECO 2021 verglichen wird, finden Sie im Kommentarteil am Ende dieser Zusammenfassung.}
 
 ```
 
@@ -466,7 +469,7 @@ tryCatch(
 
 \newpage
 
-\section{Anhang (I): Zusätzliche Erläuterungen zu den Graphen}
+\section{Anhang (I): zusätzliche Erläuterung des Diagramms - Ergebnisse Aktien \& Unternehmensanleihen}
 
 \subsection{Exposition gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens} 
 
@@ -488,7 +491,7 @@ tryCatch(
 \end{center}
 \end{minipage}%
 
-In der linken Grafik ist ein Balkendiagramm dargestellt, das die Exposition des Portfolios gegenüber jedem der acht PACTA-Sektoren zeigt in Prozent des verwalteten Vermögens.  Die Balken sind nach dem Umfang der Exposition in absteigender Reihenfolge angeordnet. Zusätzlich wird eine Aufteilung der Technologien (kohlenstoffarm, kohlenstoffintensiv, nicht spezifiziert) für die Sektoren vorgenommen, für die eine solche Aufteilung definiert ist. Die rechte Grafik zeigt die Exposition gegenüber dem Sektor der Förderung fossiler Brennstoffe als Aufteilung auf die verschiedenen fossilen Brennstoffe Kohle, Öl und Gas. Zudem ist ein Vergleich mit den Peers (Pensionskassen, Versicherungen, Banken oder Vermögensverwalter) sowie mit einem ETF für den MSCI World Index ersichtlich.
+In der linken Grafik ist ein Balkendiagramm dargestellt, das die Exposition des Portfolios gegenüber jedem der acht PACTA-Sektoren zeigt in Prozent des verwalteten Vermögens.  Die Balken sind nach dem Umfang der Exposition in absteigender Reihenfolge angeordnet. Zusätzlich wird eine Aufteilung der Technologien (kohlenstoffarm, kohlenstoffintensiv, nicht spezifiziert) für die Sektoren vorgenommen, für die eine solche Aufteilung definiert ist. Die rechte Grafik zeigt die Exposition gegenüber dem Sektor der Förderung fossiler Brennstoffe als Aufteilung auf die verschiedenen fossilen Brennstoffe Kohle, Öl und Gas. Zudem ist ein Vergleich mit den Peers (Pensionskassen, Versicherungen, Banken oder Vermögensverwalter) sowie mit dem MSCI World Index ersichtlich.
 
 \subsection{Derzeitige Exposition vs. zukünftige Ausrichtung in der Stromerzeugung}
 
@@ -500,7 +503,7 @@ Diese Grafik zeigt die derzeitige Exposition gegenüber kohlenstoffarmen Technol
 
 \newpage
 
-\section{Anhang (I): Zusätzliche Erläuterungen zu den Graphen}
+\section{Anhang (I): zusätzliche Erläuterung des Diagramms - Ergebnisse Aktien \& Unternehmensanleihen}
 
 \subsection{Gesamtscore zur Klimaausrichtung}
 
@@ -537,9 +540,9 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 
 \newpage
 
-\section{Annex (II): additional chart explanation - Climate Action Survey}
+\section {Anhang (II): zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimamassnahmen}
 
-\subsection{Example dart chart: user employing best practices}
+\subsection{Beispiel für Zielscheiben-Diagramm: Benutzer, die Best-Practices anwenden}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -549,11 +552,11 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 \begin{minipage}[t]{0.6\textwidth}
 
 
-This is an example dart chart for a user who employs best practices within the area the chart concerns (see the title, in this case exclusion policies within the oil sector). All the circles are filled with color from light to dark and all the labels are positive statemens. It means that the user applies all strategies and/or measures that are considered important or impactful within the area of concern, starting from the least effective (but important nevertheless), outer ring, to the most effective, inner circle. 
+Dies ist ein Beispiel-Zielschreibendiagramm für einen Nutzer, der Best-Practices in dem Bereich anwendet, auf den sich die Karte bezieht (siehe Titel, in diesem Fall Ausschlussverfahren im Ölsektor).  Alle Kreise sind mit Farben von hell bis dunkel gefüllt und alle Beschriftungen sind positive Aussagen. Das bedeutet, dass der Nutzer alle Strategien und/oder Maßnahmen anwendet, die innerhalb des betreffenden Bereichs als wichtig oder wirksam erachtet werden, beginnend mit dem äußeren Ring, der am wenigsten wirksam (aber dennoch wichtig) ist, bis hin zum inneren Kreis, der am wirksamsten ist. 
 
 \end{minipage}%
 
-\subsection{Example dart chart: user employing some good practices but not all}
+\subsection{Beispiel für ein Zielscheibendiagramm: Nutzer wendet einige Best-Practices an, aber nicht alle}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -563,11 +566,11 @@ This is an example dart chart for a user who employs best practices within the a
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-This an example dart chart for a user who employs some good practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds') but not all. In this case user applies the measure considered to have a medium impact/importance which is having a sector based approach for a transion plan, but does not apply the other practices (concrete interim targets, and measures planned for achieving the interim targets). The middle ring is filled with color and has a label with a positive statement while the outer ring and inner circle are white and have labels with negative statements (starting with the word 'No'). In this case, user is on a good path but there are some areas of improvement. Especially the middle circle is important one to consider.
+Dies ist ein Beispiel für ein Zielscheiben-Diagramm für einen Nutzer, der einige Best-Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe den Titel des Diagramms, hier „Konkrete Klimamaßnahmen bei börsennotierten Aktien und Unternehmensanleihen“), aber nicht alle. In diesem Fall wendet der Nutzer die Maßnahme an, die mit mittlerer Auswirkung/Wichtigkeit eingestuft wird, nämlich ein sektorbezogenes Konzept für einen Übergangsplan, wendet aber  anderen Praktiken nicht an (konkrete Zwischenziele und geplante Maßnahmen zur Erreichung der Zwischenziele). Der mittlere Ring ist mit Farbe gefüllt und trägt ein Label mit einer positiven Aussage, während der äußere Ring und der innere Kreis weiß sind und Labels mit negativen Aussagen tragen (beginnend mit dem Wort „Nein“). In diesem Fall ist der Benutzer auf einem guten Weg, aber es gibt einige Bereiche, die verbessert werden können. Vor allem der mittlere Kreis ist ein wichtiger Punkt, den es zu beachten gilt.
 
 \end{minipage}%
 
-\subsection{Example dart chart: user does not employ best practices}
+\subsection{Beispiel für ein Zielscheibendiagramm: Benutzer wendet keine Best-Practices an}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -577,15 +580,15 @@ This an example dart chart for a user who employs some good practices within the
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-This example dart chart would appear for a user who does not apply any of the best practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds'). All layers (rings and circles) are white and their labels are negative statements (they start with the word 'No'). In this case there is a room for improvement towards best practice (dart plot which is fully filled) within the area the chart is concerning and the chart can help to decide what should be the next steps relevant to the user's institution to support the alignment of financial flows with the net-zero goal by 2050.
+Dieses Beispiel-Dart-Diagramm würde für einen Nutzer erscheinen, der keine der Best Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel des Diagramms, hier „Konkrete Klimamaßnahmen bei börsennotierten Aktien und Unternehmensanleihen“).  Alle Ebenen (Ringe und Kreise) sind weiß und ihre Bezeichnungen sind negative Aussagen (sie beginnen mit dem Wort „Nein“). In diesem Fall gibt es in dem Bereich, auf den sich das Diagramm bezieht, Raum für Verbesserungen für die Anwednung von Best Practices (vollständig ausgefüllter Dartplot) und das Diagramm kann bei der Entscheidung helfen welche nächsten Schritte für die Institution des Nutzers relevant sind, um die Ausrichtung der Finanzströme auf das Netto-Null-Ziel bis 2050 zu unterstützen.
 
 \end{minipage}%
 
 \newpage
 
-\section{Annex (II): additional chart explanation - Climate Action Survey}
+\section{Anhang (II): zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimamassnahmen}
 
-\subsection{Example dart chart: user and peer information}
+\subsection{Beispiel für eine Dartscheibe: Nutzer- und Peer-Informationen}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -595,11 +598,11 @@ This example dart chart would appear for a user who does not apply any of the be
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-This is an example of a dart chart containing peer information together with the user result. On the left we see the user result which could be any of the variants of the dart chart discussed above. In this case the user employs best practices within the area of the chart (Exercising shareholder voting rights). On the right we see the percentage number of other users within this user's peer group who apply best practice (all layers filled in just like in the small icon beside and user's chart in this case). 
+Dies ist ein Beispiel für ein Zielscheiben-Diagramm, das Peer-Informationen zusammen mit dem Nutzerergebnis enthält. Auf der linken Seite sehen wir das Ergebnis des Nutzers, das jede der oben beschriebenen Varianten des Zielscheiben-Diagramms sein könnte. In diesem Fall wendet der Benutzer Best-Practices im Bereich des Diagramms an (Ausübung der Stimmrechte der Aktionäre). Auf der rechten Seite sehen wir die prozentuale Anzahl der anderen Nutzer innerhalb der Peer Group dieses Nutzers, die die Best Practice anwenden (alle Ebenen sind ausgefüllt, wie im kleinen Symbol neben dem Diagramm des Nutzers).  
 
 \end{minipage}%
 
-For more exmplanation on the best practices shown in the dart charts please refer to the survey section ('Qualitative survey results for your institution') in your interactive report.
+Weitere Erläuterungen zu den in den Zielscheiben-Diagrammen dargestellten Best Practices finden Sie im Abschnitt „Ergebnisse der qualitativen Umfrage“ in Ihrem interaktiven Bericht.
 
 \newpage
 
@@ -650,6 +653,8 @@ Inwieweit Sie Ihre Ergebnisse nutzen, bleibt Ihnen überlassen. Die Ergebnisse e
 \item Externe Berichterstattung: Umsetzung der Empfehlungen des Bundesrates \textbf{\href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-85925.html}{(link)}} zur Verwendung von vergleichbaren und aussagekräftigen Klimaverträglichkeitsindikatoren zur Schaffung von Transparenz bei allen Finanzprodukten und Kundenportfolios, einschliesslich der Swiss Climate Scores-Indikatoren 
 \textbf{\href{https://www.sif.admin.ch/sif/de/home/swiss-climate-scores/bewertungsparameter.html}{(link)}}.
 \item Details zur Verwendung der Ergebnisse für die Berichterstattung gemäss TCFD, EU-Verordnung über die Offenlegung nachhaltiger Finanzprodukte (SFDR) oder EU-Taxonomie finden Sie im Bericht "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link})}.
+% TODO: add link once known
+\item Details zur Verwendung der PACTA-Ergebnisse im Lichte des NZAOA-Zielsetzungsprotokolls finden Sie im folgenden Leitfaden, "to be defined". (Link) 
 \end{itemize}
 
 \end{esbox}
