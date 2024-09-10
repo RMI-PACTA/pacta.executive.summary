@@ -4,10 +4,7 @@
 \begin{scheader}
 \section{Climate Scores Indikatoren}
 
-
-\subsection{PACTA-Kurzfassung 2024}
-
-Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Kurzfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren. Da die Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/de/home/finanzmarktpolitik/nachhalt_finanzsektor.html}{(link)}} während des PACTA-Klimatests 2024 definiert wurden, gibt es einige Abweichungen, die auf den Folgeseiten mit den Erläuterungen angegeben sind. Bitte beachten Sie, dass die Indikatoren für die Exposition gegenüber fossilen Brennstoffen und zum ‘globalen Erwärmungspotenzial’ auf der PACTA-Methodik und den PACTA-Sektoren basieren.
+Die folgenden drei Seiten der Climate Scores ergänzen die PACTA-Zusammenfassung, indem sie automatisch generierte Ergebnisse auf Portfolioebene zeigen, die auf den am 29.06.2022 veröffentlichten Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-89524.html}{(link)}} beruhen. Dies ist die Version, die die Finanzinstitute für ihre freiwillige Veröffentlichung im Jahr 2024 berücksichtigen sollten. Das RMI hat beschlossen, einige der in der letzten Version des Swiss Climate Scores, welche am 08.12.2023 veröffentlicht wurde, enthaltenen Aktualisierungen zur Verfügung zu stellen. Beispielsweise die neue Methodik, die bei den verifizierten Verpflichtungen zu Net Zero angewandt werden soll und die Einbeziehung der Exposition gegenüber Wasserkraftwerken in die „Exposition gegenüber Aktivitäten im Bereich fossiler Brennstoffe und erneuerbarer Energien, basierend auf der PACTA-Methodik“. Bitte beachten Sie, dass nicht alle von Swiss Climate Scores geforderten Informationen von den Nutzern während der PACTA-Übung eingereicht werden; es gibt einige Abweichungen, die auf der Erklärungsseite vermerkt sind. Zusätzlich basieren die Indikatoren für die Exposition gegenüber fossilen Brennstoffen und die Ausrichtung auf die globale Erwärmung auf der PACTA-Methodik und -Sektoren. Weitere Informationen über die Methodik und die Umsetzung finden Sie im Abschnitt Kommentare.
 \end{scheader}
 ```
 
@@ -304,7 +301,7 @@ if (data_net_zero_available) {
 ```
 
 ```{=latex}
-\subsection{Credible Climate Stewardship}
+\subsection{Glaubwürdige Klimaverantwortung}
 
 Financial institutions can contribute to the transition to net-zero, by engaging with invested companies on third-party verified, science-based net-zero aligned transition plans until 2050.
 
