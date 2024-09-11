@@ -286,7 +286,7 @@ if (data_net_zero_available) {
 ```{=latex}
 
 \begin{itemize}
-\item L'institution dispose-t-elle d'objectifs intermédiaires concrets pour atteindre l'objectif zéro net d'ici 2050, par exemple pour 2030 ?
+\item L'institution dispose-t-elle d'objectifs intermédiaires concrets pour atteindre l'objectif Net Zéro d'ici 2050, par exemple pour 2030 ?
 \begin{itemize}
   \item Pour les actifs autogérés dans le domaine de l'investissement, en particulier les actions cotées et les obligations d'entreprises: \textbf{`r if (data_net_zero_available) {if (are_interim_targets_self_managed_assets_user) {"YES"} else {"NO"}} else {"Unknown"}` (Pairs: `r if (data_net_zero_available) {paste0(round(perc_interim_targets_self_managed_assets_peers * 100),"\\% - YES")} else {"Unknown"}`)}
    \item Comme exigences pour les investissements externes/obligatoires/fonds d'investissement, en particulier pour les actions cotées et les obligations d'entreprises : \textbf{`r if (data_net_zero_available) {if (are_interim_targets_self_managed_assets_user) {"YES"} else {"NO"}} else {"Unknown"}` (Pairs: `r if (data_net_zero_available) {paste0(round(perc_interim_targets_external_assets_peers * 100),"\\% - YES")} else {"Unknown"}`)}
@@ -451,7 +451,7 @@ Les réponses qui ont été prises en compte pour chaque question sont présent�
   
 * Part du portefeuille faisant actuellement l'objet d'un engagement actif : 
   * Mise en œuvre : Valeur indiquée dans l'enquête qualitative par l'utilisateur.
-* Proportion des votes sur les résolutions relatives au climat au cours de l'année écoulée compatibles avec un objectif de zéro net en 2050.
+* Proportion des votes sur les résolutions relatives au climat au cours de l'année écoulée compatibles avec un objectif de Net Zéro en 2050.
   * Mise en œuvre : Valeur indiquée dans l'enquête qualitative par l'utilisateur.
 * L'institution financière est-elle membre d'une initiative climatique ?
   * Mise en œuvre : \guillemetleft Oui \guillemetright indique que l'utilisateur a répondu \guillemetleft Oui \guillemetright aux deux premières options de la section 6 du questionnaire qualitatif : \guillemetleft Oui , membre d'une initiative d'engagement non commerciale et collaborative \guillemetright et/ou \guillemetleft Oui, nous attribuons un contrat d'engagement climatique à des fournisseurs commerciaux\guillemetright.
