@@ -37,8 +37,6 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_peers_transi
 \end{minipage}%
 \end{center}
 
-(Gauche) Les initiatives dans lesquels vous (bleu foncé) et vos pairs (bleu clair) font partie. (Droite) Votre badge de stratégie climat et celui de vos pairs.
-
 \end{esbox}
 
 \begin{esbox}{Stratégies d'engagement en fonction du secteur}[\engagementImage]
