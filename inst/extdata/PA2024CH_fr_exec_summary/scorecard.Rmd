@@ -3,14 +3,14 @@
 \section{Indicateurs \guillemetleft Climate Scores\guillemetright}
 
 
-\subsection{Résumé du PACTA 2024}
+\subsection{Résumé du Test Climatique PACTA 2024}
 
 Les trois pages suivantes des notes climatiques complètent le résumé exécutif de la PACTA en montrant les résultats générés automatiquement au niveau du portefeuille, sur la base des notes climatiques suisses publiées le 29.06.2022 \textbf{\href{https://www.sif.admin.ch/sif/fr/home/documentation/communiques-presse/medienmitteilungen.msg-id-89524.html}{(link)}},qui est la version que les Institutions Financières devraient prendre en compte pour leur publication volontaire de 2024. RMI a décidé de fournir certaines des améliorations incluses dans la dernière version des Swiss Climate Scores, publiée le 08.12.2023 \textbf{\href{https://www.sif.admin.ch/sif/fr/home/documentation/communiques-presse/medienmitteilungen.msg-id-99293.html}{(link)}} telles que la nouvelle méthodologie à appliquer dans les engagements vérifiés pour le Net Zero et l'inclusion de l'exposition à l'hydroélectricité dans l'« exposition aux activités liées aux combustibles fossiles et à l'énergie renouvelable, sur la base de la méthodologie PACTA ». Veuillez noter que toutes les informations requises par Swiss Climate Scores ne sont pas soumises par les utilisateurs lors de l'exercice PACTA ; il y a quelques déviations qui sont notées sur la page d'explication. En outre, les indicateurs d'exposition aux combustibles fossiles et l'alignement sur le réchauffement climatique sont basés sur la méthodologie et les secteurs PACTA. De plus amples informations sur la méthodologie et la mise en œuvre sont disponibles dans la section des commentaires.
 \end{scheader}
 ```
 
 ```{=latex}
-\subsection{SITUATION ACTUELLE}
+\subsection{Situation actuelle}
 
 \begin{multicols}{2}
 
@@ -118,7 +118,7 @@ tryCatch(
 \end{multicols}
 
 
-\subsection{TRANSITION VERS LE NET ZÉRO}
+\subsection{Transition Net Zéro}
 
 \begin{multicols}{2}
 \textbf{Score agrégé PACTA d'alignement climatique}
@@ -239,7 +239,7 @@ peers_exposure_share_net_zero <- data_net_zero_commitments %>%
 ```
 
 ```{=latex}
-\subsection{Management to Net-Zero}
+\subsection{Suivi de l'objectif Net Zéro}
 
 Les institutions financières peuvent contribuer à la transition vers un niveau net zéro en alignant leur stratégie d'investissement sur une trajectoire cohérente de décarbonisation de  1.5\textdegree C.
 
@@ -299,9 +299,9 @@ if (data_net_zero_available) {
 ```
 
 ```{=latex}
-\subsection{Credible Climate Stewardship}
+\subsection{Gestion Crédible des questions climatiques}
 
-Les institutions financières peuvent contribuer à la transition vers le net-zéro, en s'engageant avec les entreprises investies dans des plans de transition alignés sur le net-zéro, vérifiés par des tiers et fondés sur des données scientifiques, jusqu'en 2050.
+Les institutions financières peuvent contribuer à la transition vers le Net Zéro, en s'engageant avec les entreprises investies dans des plans de transition alignés sur le net-zéro, vérifiés par des tiers et fondés sur des données scientifiques, jusqu'en 2050.
 
 ```
 
@@ -376,7 +376,7 @@ if (data_stewardship_available) {
 \section{Indicateurs \guillemetleft Climate Scores\guillemetright}
 
 
-\subsection{Résumé du PACTA 2024}
+\subsection{Résumé Analytique PACTA 2024}
 
 CRITÈRES MINIMAUX POUR LES SWISS CLIMATE SCORES ET MISE EN ŒUVRE DANS LE TEST CLIMATIQUE PACTA COORDONNÉ
 
