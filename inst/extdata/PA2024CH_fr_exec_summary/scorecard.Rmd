@@ -165,12 +165,12 @@ aggregate_score_exposure_covered_perc <- prep_scores_exposure_scorecard(
 
 Actifs du portefeuille couverts par l'évaluation: \textbf{`r round(aggregate_score_exposure_covered_perc * 100)` \%}
 
-Scénario climatique utilisé: \textbf{GECO 2021}
+Scénario climatique utilisé: \textbf{WEO 2023}
 
 \vfill\null
 \columnbreak
 
-Ce score représente l'alignement agrégé estimé des secteurs PACTA (hors ciment) du portefeuille par rapport aux scénarios GECO 2021. Veuillez garder à l'esprit que l'interprétation de ce score doit être accompagnée d'une analyse des résultats sous-jacents et de la stratégie d'investissement utilisée dans chacun des secteurs analysés, compte tenu des hypothèses sur lesquelles se base une métrique agrégée. Certains portefeuilles assortis d’objectifs climatiques peuvent intentionnellement inclure des investissements dans des entreprises qui ne sont pas encore sur la bonne voie pour atteindre l'alignement à 1,5\textdegree C, le but étant plutôt de contribuer activement aux objectifs climatiques en améliorant l'alignement des entreprises bénéficiaires d’investissements afin d’aligner une plus grande part de l'économie au fil du temps. L'ensemble combiné d'indicateurs ci-dessus et leur présentation sont considérés par le conseil fédéral suisse comme représentant la meilleure pratique actuelle en matière de transparence scientifique sur l'alignement des actifs du portefeuille sur les objectifs climatiques mondiaux.
+Ce score représente l'alignement agrégé estimé des secteurs PACTA du portefeuille par rapport aux scénarios du WEO 2023. Il convient de garder à l'esprit que l'interprétation de ce score doit s'accompagner d'une analyse des résultats sous-jacents et de la stratégie d'investissement utilisée dans chacun des secteurs analysés, compte tenu des hypothèses sur lesquelles repose une mesure agrégée. Certains portefeuilles ayant des objectifs climatiques peuvent intentionnellement inclure des investissements dans des entreprises qui ne sont pas encore sur la bonne voie pour atteindre un alignement de 1,5 degré Celsius, cherchant plutôt à contribuer activement aux objectifs climatiques en améliorant l'alignement des entreprises investies afin d'amener une plus grande part de l'économie dans l'alignement au fil du temps. Le gouvernement suisse considère que l'ensemble des indicateurs ci-dessus et leur affichage représentent les meilleures pratiques actuelles en matière de transparence scientifique sur l'alignement des actifs du portefeuille avec les objectifs climatiques mondiaux.
 
 \end{multicols}
 ```
@@ -180,9 +180,9 @@ Ce score représente l'alignement agrégé estimé des secteurs PACTA (hors cime
 ```{=latex}
 \begin{multicols}{2}
 
-\subsection{Engagements vérifiés en faveur du net zéro}
+\subsection{Engagements vérifiés aligné avec l'objectif Net Zéro}
 
-Companies are increasingly making voluntary commitments to transition to net-zero and set interim targets. The effectiveness of such commitments depends on whether interim targets are credible, science-based, and transparent. The following information is based on information from SBTi \textbf{\href{https://sciencebasedtargets.org/companies-taking-action}{(link)}}.
+Les entreprises s'engagent de plus en plus volontairement à passer à une consommation nette nulle et à fixer des objectifs intermédiaires. L'efficacité de ces engagements dépend de la crédibilité, de la scientificité et de la transparence des objectifs intermédiaires. Les informations suivantes sont basées sur les données du SBTi \textbf{\href{https://sciencebasedtargets.org/companies-taking-action}{(link)}}.
 
 ```
 
@@ -467,7 +467,7 @@ Les réponses qui ont été prises en compte pour chaque question sont présent�
 **Mise en œuvre:**
 
 * PACTA mesure l'alignement des plans de production prospectifs à 5 ans des entreprises avec le scénario WEO 2023.
-* Score sectoriel, agrégé en un seul score ; le ciment est exclu car il n'est pas couvert par WEO 2023.
+* Score sectoriel, agrégé en un seul score ;
 * La plupart des secteurs pertinents pour le climat, y compris les contributions
 * Cas d'utilisation: 
   * Les institutions financières peuvent communiquer en interne et en externe sur les performances climatiques de manière simple et compréhensible.
