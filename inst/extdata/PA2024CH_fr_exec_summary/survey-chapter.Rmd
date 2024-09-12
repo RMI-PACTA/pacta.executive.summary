@@ -1,19 +1,17 @@
-<span style="color:red"><font size="5">TO BE REVIEWED FOR COP 2024</font></span>
-
 ```{=latex}
 
 \section{Enquête sur l’action climatique}
 
-Cette section offre un aperçu de l'efficacité des actions climatiques au niveau institutionnel. Les résultats sont basés sur l'enquête qualitative complémentaire sur l'action climatique. Les résultats de l'enquête sont comparés aux pairs et aux résultats quantitatifs de ce portefeuille. Veuillez noter que les réponses à l'enquête ont été autodéclarées et non vérifiées par RMI.
+Cette section donne un aperçu de l'efficacité des stratégies et actions climatiques au niveau institutionnel. Les résultats sont basés sur l'enquête qualitative complémentaire. Ils sont comparés à ceux des pairs et aux résultats quantitatifs PACTA pour ce portefeuille. Veuillez noter que les réponses à l'enquête ont été fournies par les intéressés eux-mêmes et n'ont pas été vérifiées par RMI.
 
 \fbox{\begin{minipage}{\textwidth}
-\textbf{Explication sur les graphiques à fléchettes ci-dessous:} Les graphiques à fléchettes sont un type de graphique nouvellement développé qui représente vos mesures pertinentes pour le climat. Chaque cercle représente une mesure pertinente pour le climat et est coloré si la mesure est en place. Le niveau d'efficacité des mesures augmente en allant de l'extérieur vers l'intérieur des anneaux et avec l'intensité de la couleur. Plus les cercles sont remplis en allant du cercle extérieur jusqu’au cercle intérieur, plus les actions climatiques de votre institution sont ambitieuses. Pour obtenir de plus amples informations sur les mesures spécifiques indiquées dans les différentes strates, veuillez consulter l‘annexe. 
+\textbf{Explication sur les diagramme en anneaux ci-dessous:} Chaque cercle représente une mesure pertinente pour le climat et est coloré si la mesure est en place. Le niveau d'efficacité des mesures augmente de l'anneaux extérieur à l'anneaux intérieur et avec l'intensité de la couleur. \textbf{Plus les cercles sont remplis, de l'extérieur vers l'intérieur, plus les actions climatiques de votre institution sont ambitieuses.} Pour plus d'informations sur la lecture des diagrammes de fléchettes, veuillez consulter l'annexe et la section relative à l'enquête qualitative dans le rapport interactif. 
 \end{minipage}
 }
 
-\begin{esbox}{Initiatives, stratégie climatique et rapports}[\engagementImage]
+\begin{esbox}{Objectifs Net Zéro et Plans de Transitions}[\engagementImage]
 
-Sur le côté gauche, vous trouvez les initiatives dont vous faites partie. Plus la taille de la police est grande, plus le nombre de pairs qui en font partie est important. Au milieu, vous pouvez voir un diagramme stratigraphique indiquant votre stratégie climatique. À droite, vous pouvez voir combien de vos pairs ont mis en place les trois stratégies climatiques, ce qui est considéré comme étant la meilleure pratique.
+Avec l'adoption de la loi sur le climat et l'innovation \textbf{\href{https://www.fedlex.admin.ch/eli/fga/2022/2403/fr}{(link)}} en juin 2023, la Suisse s'est engagée à atteindre l'objectif de zéro émission nette au plus tard en 2050. En outre, il est obligatoire pour les grandes entreprises, et recommandé pour toutes les institutions, de rendre compte de leurs plans de transition vers des émissions nettes nulles \textbf{\href{https://www.fedlex.admin.ch/eli/oc/2022/747/fr}{(link)}}. Les deux diagrammes en anneaux suivants illustrent le niveau d'ambition que vous et vos pairs avez en ce qui concerne les objectifs Net Zéro et les plans de transition. L'action la moins ambitieuse consiste à disposer d'un objectif ou d'un plan de transition pour certains domaines d'activité, une option intermédiaire consiste à en disposer pour tous les domaines d'activité de votre organisation ayant une incidence sur le climat et, enfin, la meilleure pratique consiste à l'annoncer publiquement. Le texte figurant à côté du diagramme en anneaux fournit une comparaison avec la part des pairs mettant en œuvre les meilleures pratiques, c'est-à-dire ceux dont toutes les couches sont remplies.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
@@ -39,13 +37,11 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_peers_transi
 \end{minipage}%
 \end{center}
 
-(Gauche) Les initiatives dans lesquels vous (bleu foncé) et vos pairs (bleu clair) font partie. (Droite) Votre badge de stratégie climat et celui de vos pairs.
-
 \end{esbox}
 
-\begin{esbox}{Engagement des bénéficiaires d’investissements par secteur}[\engagementImage]
+\begin{esbox}{Stratégies d'engagement en fonction du secteur}[\engagementImage]
 
-Les recherches indiquent que l'engagement constitue l'un des moyens les plus efficaces pour améliorer l'alignement des entreprises bénéficiant d’investissements sur les objectifs climatiques par le biais d'actions et d'obligations. Par conséquent, les graphiques à fléchettes relatifs à l'engagement ci-dessous présentent vos mesures d'engagement pour trois secteurs cruciaux pour le climat et complètent ainsi la section précédente sur l'alignement. Le texte fournit en outre une comparaison avec la proportion de pairs appliquant les meilleures pratiques, c'est-à-dire celles qui couvrent toutes les strates.
+La recherche montre qu'un engagement crédible peut être l'un des moyens les plus efficaces d'améliorer l'alignement des objectifs climatiques des entreprises dans lesquelles on investit, et donc de contribuer activement aux objectifs climatiques d'une institution financière et d'aligner ses portefeuilles sur les objectifs climatiques. Les graphiques ci-dessous évaluent vos activités d'engagement (bilatérales ou par l'exercice de droits de vote), qu'elles soient menées par votre propre institution ou externalisées. Les graphiques évaluent dans quelle mesure vos activités d'engagement suivent les pratiques les plus efficaces pour améliorer la performance climatique des entreprises et des fonds investis. Le texte figurant à côté d'un diagramme en anneaux fournit une comparaison avec la part des pairs mettant en œuvre les meilleures pratiques, c'est-à-dire ceux dont toutes les couches sont remplies.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
@@ -75,9 +71,9 @@ file.path(survey_dir, language, "plot_layer_peers_voting.png")
 
 \end{esbox}
 
-\begin{esbox}{Sélection négative par rapport à l'exposition PACTA aux combustibles fossiles}[\engagementImage]
+\begin{esbox}{Actions cotées et obligations d'entreprise: politiques d'exclusion aux combustibles fossiles comparés aux résultats PACTA}[\engagementImage]
 
-Ces graphiques comparent les stratégies déclarées comme étant alignées sur les objectifs climatiques à l'exposition à l'extraction de charbon et à l'extraction de pétrole et de gaz. Si des stratégies d'exclusion sont appliquées au niveau institutionnel, on s'attend à ce que l'exposition à ces technologies soit nulle ou très faible par rapport à l'ensemble des portefeuilles pairs.
+Les politiques d'exclusion peuvent être des mesures efficaces pour aligner un portefeuille sur les objectifs climatiques. Les graphiques ci-dessous comparent les stratégies d'exclusion signalées dans les secteurs des combustibles fossiles à l'exposition à l'extraction du charbon, du pétrole et du gaz selon les résultats de l'étude PACTA pour ce portefeuille. Si les stratégies d'exclusion sont appliquées au niveau institutionnel, le pourcentage d'exposition à ces secteurs devrait être nul ou très faible par rapport au pourcentage total d'exposition des portefeuilles des pairs. Veuillez noter que les expositions ci-dessous reflètent également votre exposition indirecte à ces secteurs provenant des investissements de vos fonds. Veuillez également noter que les étiquettes des diagrammes en fléchettes pour le charbon sont différentes de celles des secteurs du pétrole et du gaz. Cela s'explique par le fait que l'intensité en carbone de l'extraction du charbon est si élevée qu'elle doit être abandonnée dès que possible.
 
 \begin{center}
 ```

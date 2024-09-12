@@ -71,7 +71,6 @@ subtitle:  |
 \item Actions et obligations d'entreprise (aperçu)
 \item Actions et obligations d'entreprise (actuelles et futures)
 \item Enquête
-\item Immobilier et hypothèques
 \item Annexe (Explication détaillée du graphique; FAQ)
 \item Tableau de bord basé sur la méthode PACTA et informé par les Swiss Climate Scores
 \end{enumerate}
@@ -92,14 +91,13 @@ number_peers <- readr::read_csv(
   dplyr::pull("n")
 ```
 
-<span style="color:red"><font size="5">TO BE REVIEWED FOR COP 2024</font></span>
-
 ```{=latex}
 
-La Suisse et son marché financier se sont engagés à passer à zéro émission nette de gaz à effet de serre d'ici à 2050 afin d'atteindre les objectifs de l'accord de Paris sur le climat visant à limiter le réchauffement climatique bien en dessous de 2\textdegree C et de poursuivre leurs efforts pour le limiter à 1,5\textdegree C. Le test climatique PACTA 2024 fournit des informations comparables sur les progrès réalisés par la place financière suisse et les différentes institutions financières participantes en vue d’atteindre les objectifs climatiques. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter a été invité à participer au test par l'OFEV \textbf{(\href{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/climat-et-marche-financier.html}{lien})} et le SIF \textbf{(\href{https://www.sif.admin.ch/sif/fr/home/finanzmarktpolitik/finance-durable.html}{lien})} avec le soutien des associations, en vue d’un examen volontaire de ses portefeuilles financiers. Le test PACTA associe une évaluation quantitative des portefeuilles mondiaux d'actions et d'obligations d'entreprises cotées ainsi que des portefeuilles immobiliers et hypothécaires suisses à une évaluation qualitative des actions climatiques. Au total, 133 institutions financières ont participé au test, dont \startunderscoreletter `r number_peers` \stopunderscoreletter étaient des pairs (c'est-à-dire des participants du même secteur financier que les institutions de prévoyance, les assurances, les banques et les gestionnaires d'actifs).
+\textbf{La Suisse et son marché financier se sont engagés à atteindre des émissions nettes de carbone nulles d'ici 2050} afin de remplir ses engagements en vertu de la loi suisse sur le climat et l'innovation \textbf{\href{https://www.fedlex.admin.ch/eli/fga/2022/2403/fr}{(link)}}. Le test climatique 2024 de la PACTA fournit des informations cohérentes et comparables sur le marché financier suisse et sur les progrès réalisés par les différentes institutions financières participantes pour atteindre ces objectifs climatiques. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter - \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(peer_group), fixed = TRUE)` \stopunderscoreletter a été invitée au test par l'OFEV \textbf{\href{https://www. bafu.admin.ch/bafu/fr/home/topics/climate/info-specialists/climate-and-financial-markets/pacta.html}{(link)}} et le SIF, avec le soutien des associations, à faire examiner volontairement ses portefeuilles financiers. Le test PACTA combine une évaluation quantitative des portefeuilles d'actions et d'obligations d'entreprises cotées en bourse, ainsi que des portefeuilles immobiliers et hypothécaires suisses, avec une enquête qualitative sur les stratégies et les actions en faveur du climat. 
 
-Ce résumé est une synthèse des résultats individuels de votre portefeuille téléchargé \startunderscoreletter {`r gsub("&", "\\&", portfolio_name, fixed = TRUE)`}\stopunderscoreletter. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter a reçu un résumé par portefeuille. Un rapport interactif individuel détaillé (par portefeuille ou agrégés) peut être consulté via votre compte personnel sur la Plateforme Transition Monitor en allemand, français et partiellement en anglais \textbf{\href{https://platform.transitionmonitor.com/}{(lien)}}. Un méta-rapport contenant des données anonymisées et agrégées de tous les participants, ainsi que des rapports sectoriels, est publié sur le site Internet de l'OFEV \textbf{(\href{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/climat-et-marche-financier.html}{lien})}.
+\textbf{Ce résumé} est une version condensée des résultats individuels de votre portefeuille d'actions et d'obligations d'entreprises \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(portfolio_name), fixed = TRUE)` \stopunderscoreletter ainsi que des extraits des résultats de votre enquête. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter reçoit un executive summary par portefeuille. A la fin de ce résumé, vous trouverez quelques indicateurs climatiques basés sur les \textbf{Swiss Climate Scores} \textbf{\href{https://www.sif.admin.ch/sif/fr/home/documentation/communiques-presse/medienmitteilungen.msg-id-99293.html}{(link)}}. \textbf{Un rapport interactif individuel détaillé} (par portefeuille ou groupé) peut être consulté via un accès personnalisé sur la plateforme Transition Monitor en allemand, en français et en partie en anglais (lien). Un \textbf{rapport individuel séparé avec un résumé exécutif est disponible pour les portefeuilles immobiliers et hypothécaires} (lien). \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter décide de la publication de ces résultats individuels. En outre, plusieurs informations contenues dans ces rapports peuvent être utilisées pour les exigences de déclaration obligatoires ou recommandées par la loi suisse, le conseil fédéral et les associations. 
 
+\textbf{Un méta-rapport contenant des données anonymes et agrégées} pour la Suisse de tous les participants, ainsi que des rapports sectoriels, est publié sur le site Internet de l'OFEV \textbf{\href{https://www.bafu.admin.ch/bafu/fr/home/themes/climat/info-specialistes/climat-et-marche-financier.html}{(link)}}. 122 institutions financières ont participé en 2024, en indiquant le groupe de pairs auquel elles appartiennent, comme les fonds de pension, les assurances, les banques et les gestionnaires d'actifs.
 
 \end{esbox}
 
@@ -238,6 +236,8 @@ tryCatch(
 
 ```{=latex}
 
+\raggedright\footnotesize{* Exposition aux entreprises dont le principal secteur d'activité est couvert par PACTA}
+
 ** Technologies \guillemetleft à faible émission de CO\textsubscript{2}\guillemetright \ (low-carbon): énergies renouvelables et l'hydroélectricité pour l'électricité et énergie électrique pour l'automobile. Technologies \guillemetleft à forte émission de carbone\guillemetright \ (high-carbon): charbon, pétrole, gaz 
 \end{esbox}
 
@@ -322,7 +322,7 @@ tryCatch(
 
 \textbf{Score agrégé PACTA d'alignement climatique}
 
-Le score agrégé compare l'alignement de tous les actifs sur le scénario GECO 2021 jusqu'en 2026. Le score est calculé à la fois au niveau du portefeuille agrégé (voir aussi voir aussi les indicateurs selon les "Swiss Climate Scores") et par secteur PACTA (à l'exception du ciment qui n'est pas couvert par GECO 2021).\footnote{Les scénarios climatiques GECO ont été choisis parce qu'ils couvraient le plus de secteurs PACTA. Veuillez noter que les scénarios GECO prévoient une accélération des changements technologiques après les cinq années analysées par PACTA. En tant que tel, votre score global pourrait être inférieur si vous utilisez d'autres scénarios.}
+Le score agrégé compare l'alignement de tous les actifs jusqu'en 2028 au scénario WEO 2023. Le score est calculé à la fois au niveau du portefeuille global (voir également les scores climatiques) et par secteur PACTA.\footnote{Le scénario WEO 2023 a été choisi car il fournit une couverture de données pour tous les secteurs PACTA. De plus amples informations sur la comparaison entre WEO 2023 et GECO 2021 sont fournies dans la section des commentaires à la fin de ce résumé exécutif.}
 
 ```
 
@@ -385,9 +385,9 @@ tryCatch(
 
 \textbf{Alignement sur les scénarios par technologie}
 
-Alors que la section précédente a fourni des informations sur l'exposition actuelle aux différents secteurs PACTA ainsi qu'un aperçu de l'alignement au niveau agrégé et par secteur, cette section fournit des informations complémentaires sur l'alignement avec les feuilles de route technologiques des scénarios publié par GECO 2021 pour les secteurs PACTA.
-Les graphiques ci-dessous indiquent sur quel scénario les technologies de votre portefeuille sont alignées par rapport à vos pairs. La position de chaque carré dans les bandes de couleur définit le scénario sur lequel votre portefeuille et les portefeuilles de vos pairs seront alignés d’ici 5 ans. La taille des carrés indique l'exposition en \% de l'actif sous gestion.
-Pour en savoir davantage sur l'évolution de l'alignement de votre portefeuille au cours des cinq prochaines années par technologie, vous pouvez consulter les graphiques de trajectoire respectifs dans le rapport interactif. Vous y trouverez également des informations supplémentaires au niveau de l'entreprise.
+Alors que la section précédente donnait un aperçu de l'exposition actuelle aux différents secteurs PACTA ainsi qu'une vue d'ensemble de l'alignement au niveau agrégé et au niveau sectoriel, cette section fournit des informations complémentaires sur l'alignement avec le scénario WEO 2023 au niveau technologique pour les secteurs PACTA dotés de feuilles de route technologiques.
+Les graphiques ci-dessous indiquent sur quel scénario les technologies de votre portefeuille sont alignées, par rapport à vos pairs. La position de chaque carré dans les bandes de couleur définit le scénario sur lequel votre portefeuille et celui de vos pairs sont alignés dans 5 ans. La taille des carrés indique l'exposition en % des actifs sous gestion.
+Pour en savoir plus sur l'évolution de l'alignement de votre portefeuille au cours des cinq prochaines années par technologie, vous pouvez consulter les graphiques de trajectoire respectifs dans le rapport interactif. Vous y trouverez également des informations complémentaires au niveau des entreprises.
 
 ```
 
@@ -463,7 +463,7 @@ tryCatch(
 
 \newpage
 
-\section{Annexe (I) : explication supplémentaire}
+\section{Annexe (I) : explication supplémentaire - Resultats des portefeuilles d'actions et d'obligations en entreprises}
 
 \subsection{Exposition aux secteurs et technologies pertinents pour le climat en \% de l'actif sous gestion} 
 
@@ -486,7 +486,7 @@ tryCatch(
 \end{minipage}%
 
 La partie gauche de ce graphique est un graphique à barres représentant l'exposition du portefeuille à chacun des 8 secteurs PACTA  en pour cent de l'actif sous gestion. Les barres sont classées selon l’importance de l'exposition dont la plus élevée apparaît en haut. De plus, la répartition entre les différentes technologies (à faible émission de carbone, à forte émission de carbone, non spécifiée) est présentée pour les secteurs pour lesquels une telle répartition est définie.
-La partie droite du graphique détaille l'exposition au secteur de l'extraction de combustibles fossiles en indiquant la répartition entre les différents combustibles fossiles charbon, pétrole et gaz. En outre, une comparaison avec les pairs (institutions de prévonyance, assurances, banques ou gestionnaires de fortune) ainsi qu'avec un ETF pour l'indice MSCI World est visible.
+La partie droite du graphique détaille l'exposition au secteur de l'extraction de combustibles fossiles en indiquant la répartition entre les différents combustibles fossiles charbon, pétrole et gaz. En outre, une comparaison avec les pairs (institutions de prévonyance, assurances, banques ou gestionnaires de fortune) ainsi qu'avec l'indice MSCI World est visible.
 
 \subsection{Exposition actuelle par rapport à l'alignement futur pour le secteur de l'électricité}
 
@@ -497,7 +497,7 @@ Ce graphique indique l'exposition actuelle aux technologies à faible émission 
 
 \newpage
 
-\section{Annexe (I) : explication supplémentaire}
+\section{Annexe (I) : explication supplémentaire - Résultats du portefeuille d'actions et d'obligations d'entreprise}
 
 \subsection{Scores d'alignement agrégés}
 
@@ -534,9 +534,9 @@ Le graphique ci-dessous présente les spécifications du score d'alignement agr�
 
 \newpage
 
-\section{Annex (II): additional chart explanation - Climate Action Survey}
+\section{Annex (II): Explication des diagrammes supplémentaire - Questionnaire d'Action Climatique}
 
-\subsection{Example dart chart: user employing best practices}
+\subsection{Exemple de diagramme en anneaux: l'utilisateur emploie les meilleures pratiques}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -546,11 +546,11 @@ Le graphique ci-dessous présente les spécifications du score d'alignement agr�
 \begin{minipage}[t]{0.6\textwidth}
 
 
-This is an example dart chart for a user who employs best practices within the area the chart concerns (see the title, in this case exclusion policies within the oil sector). All the circles are filled with color from light to dark and all the labels are positive statemens. It means that the user applies all strategies and/or measures that are considered important or impactful within the area of concern, starting from the least effective (but important nevertheless), outer ring, to the most effective, inner circle. 
+Il s'agit d'un exemple de diagramme en anneaux pour un utilisateur qui utilise les meilleures pratiques dans le domaine concerné par le diagramme (voir le titre, dans ce cas les politiques d'exclusion dans le secteur pétrolier). Tous les cercles sont remplis de couleurs allant du clair au foncé et toutes les étiquettes sont des énoncés positifs. Cela signifie que l'utilisateur applique toutes les stratégies et/ou mesures considérées comme importantes ou ayant un impact dans le domaine concerné, en commençant par l'anneau extérieur, le moins efficace (mais néanmoins important), jusqu'au cercle intérieur, le plus efficace. 
 
 \end{minipage}%
 
-\subsection{Example dart chart: user employing some good practices but not all}
+\subsection{Exemple - diagramme en anneaux : l'utilisateur emploie quelques bonnes pratiques, mais pas toutes}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -560,11 +560,11 @@ This is an example dart chart for a user who employs best practices within the a
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-This an example dart chart for a user who employs some good practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds') but not all. In this case user applies the measure considered to have a medium impact/importance which is having a sector based approach for a transion plan, but does not apply the other practices (concrete interim targets, and measures planned for achieving the interim targets). The middle ring is filled with color and has a label with a positive statement while the outer ring and inner circle are white and have labels with negative statements (starting with the word 'No'). In this case, user is on a good path but there are some areas of improvement. Especially the middle circle is important one to consider.
+Voici un exemple de diagramme en anneaux pour un utilisateur qui utilise certaines bonnes pratiques dans le domaine concerné par le diagramme (voir le titre du diagramme, ici « Mesures climatiques concrètes au sein des actions et obligations d'entreprises cotées en bourse »), mais pas toutes. Dans ce cas, l'utilisateur applique la mesure considérée comme ayant un impact/importance moyen, à savoir une approche sectorielle pour un plan de transition, mais n'applique pas les autres pratiques (objectifs intermédiaires concrets et mesures prévues pour atteindre les objectifs intermédiaires). L'anneau central est coloré et comporte une étiquette avec une déclaration positive, tandis que l'anneau extérieur et le cercle intérieur sont blancs et comportent des étiquettes avec des déclarations négatives **(commençant par le mot « No ») - tbc**. Dans ce cas, l'utilisateur est sur la bonne voie, mais il y a des points à améliorer. Le cercle du milieu est particulièrement important à prendre en considération.
 
 \end{minipage}%
 
-\subsection{Example dart chart: user does not employ best practices}
+\subsection{Exemple de diagramme en anneaux: l'utilisateur n'emploie pas les meilleures pratiques}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -574,15 +574,15 @@ This an example dart chart for a user who employs some good practices within the
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-This example dart chart would appear for a user who does not apply any of the best practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds'). All layers (rings and circles) are white and their labels are negative statements (they start with the word 'No'). In this case there is a room for improvement towards best practice (dart plot which is fully filled) within the area the chart is concerning and the chart can help to decide what should be the next steps relevant to the user's institution to support the alignment of financial flows with the net-zero goal by 2050.
+Cet exemple de diagramme en anneaux apparaîtrait pour un utilisateur qui n'applique aucune des meilleures pratiques dans le domaine concerné par le diagramme (voir le titre du diagramme, ici « Mesures climatiques concrètes dans les actions et les obligations d'entreprises cotées en bourse »). Toutes les couches (anneaux et cercles) sont blanches et leurs étiquettes sont des déclarations négatives **(elles commencent par le mot « No ») - tbc **. Dans ce cas, il existe une marge d'amélioration vers les meilleures pratiques (anneau entièrement remplie) dans le domaine concerné par le graphique, et le graphique peut aider à décider quelles devraient être les prochaines étapes pour l'institution de l'utilisateur afin de soutenir l'alignement des flux financiers sur l'objectif de Net Zéro d'ici à 2050.
 
 \end{minipage}%
 
 \newpage
 
-\section{Annex (II): additional chart explanation - Climate Action Survey}
+\section{Annex (II): Explication des diagrammes supplémentaires - Questionnaire d'Actions Climatiques}
 
-\subsection{Example dart chart: user and peer information}
+\subsection{Exemple de diagramme en anneaux: informations sur l'utilisateur et sur les pairs}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -592,11 +592,11 @@ This example dart chart would appear for a user who does not apply any of the be
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-This is an example of a dart chart containing peer information together with the user result. On the left we see the user result which could be any of the variants of the dart chart discussed above. In this case the user employs best practices within the area of the chart (Exercising shareholder voting rights). On the right we see the percentage number of other users within this user's peer group who apply best practice (all layers filled in just like in the small icon beside and user's chart in this case). 
+Voici un exemple de diagramme en anneaux contenant des informations sur les pairs ainsi que le résultat de l'utilisateur. À gauche, nous voyons le résultat de l'utilisateur, qui peut être n'importe quelle variante du diagramme en anneaux présenté ci-dessus. Dans ce cas, l'utilisateur emploie les meilleures pratiques dans la zone du graphique (Exercice des droits de vote des actionnaires). À droite, nous voyons le pourcentage d'autres utilisateurs au sein du groupe de pairs de cet utilisateur qui appliquent la meilleure pratique (toutes les couches sont remplies comme dans la petite icône à côté du graphique de l'utilisateur dans ce cas). 
 
 \end{minipage}%
 
-For more exmplanation on the best practices shown in the dart charts please refer to the survey section ('Qualitative survey results for your institution') in your interactive report.
+Pour plus d'explications sur les meilleures pratiques présentées dans les diagrammes en anneaux, veuillez vous référer à la section de l'enquête (« Résultats de l'enquête qualitative pour votre institution ») dans votre rapport interactif.
 
 \newpage
 
@@ -647,6 +647,8 @@ La mesure dans laquelle vous utilisez vos résultats dépend de vous. Cependant,
 \item Rapports dans l'environnement de l'institution financière participante (clients, assurés, etc.)
 \item Communication externe: Mise en œuvre des recommandations du Conseil fédéral \textbf{(\href{https://www.sif.admin.ch/sif/de/home/dokumentation/medienmitteilungen/medienmitteilungen.msg-id-85925.html}{lien})} concernant l'utilisation d’indicateurs de compatibilité climatique comparables et significatifs afin d’aider à générer de la transparence dans tous les produits financiers et portefeuilles des clients, avec notamment des indicateurs conçus selon les Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/sif/fr/home/swiss-climate-scores/bewertungsparameter.html}{(lien)}}.
 \item Des détails concernant les modalités d'utilisation des résultats pour les rapports réalisés selon le TCFD, le SFDR de l'UE ou la taxonomie de l'UE sont disponibles dans le rapport "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{lien})}.
+
+\item Des détails sur l'utilisation des résultats du PACTA à la lumière du protocole de définition des objectifs de la NZAOA sont disponibles dans le guide suivant  “to be defined” (Link) 
 \end{itemize}
 
 \end{esbox}
