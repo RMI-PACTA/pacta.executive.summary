@@ -385,9 +385,9 @@ tryCatch(
 
 \textbf{Alignement sur les scénarios par technologie}
 
-Alors que la section précédente a fourni des informations sur l'exposition actuelle aux différents secteurs PACTA ainsi qu'un aperçu de l'alignement au niveau agrégé et par secteur, cette section fournit des informations complémentaires sur l'alignement avec les feuilles de route technologiques des scénarios publié par GECO 2021 pour les secteurs PACTA.
-Les graphiques ci-dessous indiquent sur quel scénario les technologies de votre portefeuille sont alignées par rapport à vos pairs. La position de chaque carré dans les bandes de couleur définit le scénario sur lequel votre portefeuille et les portefeuilles de vos pairs seront alignés d’ici 5 ans. La taille des carrés indique l'exposition en \% de l'actif sous gestion.
-Pour en savoir davantage sur l'évolution de l'alignement de votre portefeuille au cours des cinq prochaines années par technologie, vous pouvez consulter les graphiques de trajectoire respectifs dans le rapport interactif. Vous y trouverez également des informations supplémentaires au niveau de l'entreprise.
+Alors que la section précédente donnait un aperçu de l'exposition actuelle aux différents secteurs PACTA ainsi qu'une vue d'ensemble de l'alignement au niveau agrégé et au niveau sectoriel, cette section fournit des informations complémentaires sur l'alignement avec le scénario WEO 2023 au niveau technologique pour les secteurs PACTA dotés de feuilles de route technologiques.
+Les graphiques ci-dessous indiquent sur quel scénario les technologies de votre portefeuille sont alignées, par rapport à vos pairs. La position de chaque carré dans les bandes de couleur définit le scénario sur lequel votre portefeuille et celui de vos pairs sont alignés dans 5 ans. La taille des carrés indique l'exposition en % des actifs sous gestion.
+Pour en savoir plus sur l'évolution de l'alignement de votre portefeuille au cours des cinq prochaines années par technologie, vous pouvez consulter les graphiques de trajectoire respectifs dans le rapport interactif. Vous y trouverez également des informations complémentaires au niveau des entreprises.
 
 ```
 
