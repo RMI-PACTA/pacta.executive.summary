@@ -322,7 +322,7 @@ tryCatch(
 
 \textbf{Score agrégé PACTA d'alignement climatique}
 
-Le score agrégé compare l'alignement de tous les actifs avec les scénarios publiés dans le WEO2023 jusqu'en 2028. Le score est calculé à la fois au niveau du portefeuille agrégé (voir aussi voir aussi les indicateurs selon les "Swiss Climate Scores") et par secteur PACTA.\footnote{Les scénarios climatiques WEO ont été choisis parce qu'ils couvraient le plus de secteurs PACTA. Veuillez noter que les scénarios WEO prévoient une accélération des changements technologiques après les cinq années analysées par PACTA. En tant que tel, votre score global pourrait être inférieur si vous utilisez d'autres scénarios.}
+Le score agrégé compare l'alignement de tous les actifs jusqu'en 2028 au scénario WEO 2023. Le score est calculé à la fois au niveau du portefeuille global (voir également les scores climatiques) et par secteur PACTA.\footnote{Le scénario WEO 2023 a été choisi car il fournit une couverture de données pour tous les secteurs PACTA. De plus amples informations sur la comparaison entre WEO 2023 et GECO 2021 sont fournies dans la section des commentaires à la fin de ce résumé exécutif.}
 
 ```
 
