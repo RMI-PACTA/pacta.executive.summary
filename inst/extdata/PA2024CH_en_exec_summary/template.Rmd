@@ -467,7 +467,7 @@ tryCatch(
 
 \newpage
 % UPDATED 5
-\section{Annex (I): additional chart explanation - Equity \& Bonds Results}
+\section{Annex (I): additional chart explanation - Equity \& Corporate Bonds Results}
 % UPDATED 5 END
 \subsection{Exposure to climate-relevant sectors \& technologies as \% of AUM} 
 
@@ -500,7 +500,7 @@ This chart shows current low-carbon technology exposure (percentage of sectoral 
 
 \newpage
 % UPDATED 7
-\section{Annex (I): additional chart explanation - Equity \& Bonds Results}
+\section{Annex (I): additional chart explanation - Equity \& Corporate Bonds Results}
 % UPDATED 7 END
 \subsection{Aggregated alignment scores}
 
