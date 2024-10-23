@@ -3,7 +3,7 @@
 ```{=latex}
 \begin{scheader}
 \section{Climate Score Indikatoren}
-Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Zusammenfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren, welche 29.06.2022 veröffentlicht wurden. \textbf{\href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-89524.html}{(link)}}. Diese Version sollten die Finanzinstitute für ihre freiwillige Veröffentlichung im Jahr 2024 beachten. Das RMI hat beschlossen zusätzlich einige der in der letzten Version des Swiss Climate Scores vom 08.12.2023 enthaltenen Verbesserungen zur Verfügung zu stellen,\textbf{\href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-99293.html}{(link)}},wie z.B. die neue Methodik, die bei den überprüften Verpflichtungen zu Net-Zero angewandt wird, und die Einbeziehung der Wasserkraft in das „Engagement gegenüber fossilen Brennstoffen und erneuerbaren Energien, basierend auf der PACTA-Methodik“.  Bitte beachten Sie, dass nicht alle für die Swiss Climate Scores geforderten Informationen von den Nutzern während der PACTA-Übung eingereicht werden; es gibt einige Abweichungen, die auf der Informationsseite vermerkt sind. Außerdem basieren die Indikatoren für das Engagement durch fossile Brennstoffe und die Ausrichtung auf die globale Erwärmung auf der PACTA-Methodik und den Sektoren. Weitere Informationen über die Methodik und die Umsetzung finden Sie im Kommentar-Abschnitt.
+Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen die PACTA-Zusammenfassung mit automatisch generierten Ergebnissen auf Portfolioebene, die auf den Swiss Climate Scores basieren, welche 29.06.2022 veröffentlicht wurden \textbf{\href{https://www.sif.admin.ch/de/swiss-climate-scores-de}{(link)}}. Diese Version sollten die Finanzinstitute für ihre freiwillige Veröffentlichung im Jahr 2024 beachten. Das RMI hat beschlossen zusätzlich einige der in der letzten Version des Swiss Climate Scores vom 08.12.2023 enthaltenen Verbesserungen zur Verfügung zu stellen,\textbf{\href{https://www.sif.admin.ch/sif/en/home/documentation/press-releases/medienmitteilungen.msg-id-99293.html}{(link)}},wie z.B. die neue Methodik, die bei den überprüften Verpflichtungen zu Net-Zero angewandt wird, und die Einbeziehung der Wasserkraft in das „Engagement gegenüber fossilen Brennstoffen und erneuerbaren Energien, basierend auf der PACTA-Methodik“.  Bitte beachten Sie, dass nicht alle für die Swiss Climate Scores geforderten Informationen von den Nutzern während der PACTA-Übung eingereicht werden; es gibt einige Abweichungen, die auf der Informationsseite vermerkt sind. Außerdem basieren die Indikatoren für das Engagement durch fossile Brennstoffe und die Ausrichtung auf die globale Erwärmung auf der PACTA-Methodik und den Sektoren. Weitere Informationen über die Methodik und die Umsetzung finden Sie im Kommentar-Abschnitt.
 \end{scheader}
 ```
 
@@ -169,7 +169,7 @@ Verwendetes Klimaszenario: \textbf{WEO 2023}
 \vfill\null
 \columnbreak
 
-Dieser Score zeigt die geschätzte Gesamtausrichtung der PACTA-Sektoren im Portfolio auf die WEO 2023-Szenarien hin. Bitte beachten Sie, dass bei der Interpretation dieses Scores die Analyse der zugrundeliegenden Ergebnisse und die in jedem der analysierten Sektoren angewandte Anlagestrategie berücksichtigt werden muss, da ein aggregiertes Ergebnis immer auf bestimmten Annahmen beruht. Manche Portfolios, die sich Klimaziele setzen, enthalten absichtlich Unternehmen, die noch nicht auf dem Weg zur Erreichung des 1,5\textdegree C-Ziels sind, und versuchen stattdessen, die Ausrichtung der investierten Unternehmen zu verbessern, um auf diese Weise im Laufe der Zeit einen wachsenden Anteil der Wirtschaft klimafreundlich zu machen und so aktiv zur Erreichung der Klimaziele beizutragen. Die oben genannte Kombination von Indikatoren und ihre Darstellung werden vom Schweizer Bundesrat als aktuelle Best Practice angesehen, um wissenschaftsbasierte Transparenz über die Ausrichtung der Portfolioanlagen auf die globalen Klimaziele hin zu schaffen.
+Dieser Score zeigt die geschätzte Gesamtausrichtung der PACTA-Sektoren im Portfolio auf die WEO 2023-Szenarien. Bitte beachten Sie, dass bei der Interpretation dieses Scores die Analyse der zugrundeliegenden Ergebnisse und die in jedem der analysierten Sektoren angewandte Anlagestrategie berücksichtigt werden muss, eischließlich Annahmen, auf dem das aggregiertes Ergebnis  beruht. Manche Portfolios, die sich Klimaziele setzen, enthalten absichtlich Unternehmen, die noch nicht auf dem Weg zur Erreichung des 1,5\textdegree C-Ziels sind, und versuchen stattdessen, die Ausrichtung der Unternehmen zu verbessern in welche investiert wurde, um auf diese Weise im Laufe der Zeit einen wachsenden Anteil der Wirtschaft klimafreundlich zu machen und so aktiv zur Erreichung der Klimaziele beizutragen. Die oben genannte Kombination von Indikatoren und ihre Darstellung werden vom Schweizer Bundesrat als aktuelle Best Practice angesehen, um wissenschaftsbasierte Transparenz über die Ausrichtung der Portfolioanlagen auf die globalen Klimaziele hin zu schaffen.
 
 
 \end{multicols}
@@ -182,7 +182,7 @@ Dieser Score zeigt die geschätzte Gesamtausrichtung der PACTA-Sektoren im Portf
 
 \subsection{Verifizierte Bekenntnisse zu Netto-Null}
 
-Die Unternehmen verpflichten sich zunehmend freiwillig zur Umstellung auf Netto-Null und legen Zwischenziele fest. Die Wirksamkeit solcher Verpflichtungen hängt davon ab, ob die Zwischenziele für die Emissionssenkung glaubwürdig, wissenschaftlich fundiert und transparent sind und durch glaubwürdige Maßnahmen zur Emissionssenkung unterstützt werden. Die folgenden Informationen beruhen auf Angaben von SBTi \textbf{\href{https://sciencebasedtargets.org/companies-taking-action}{(link)}}.
+Unternehmen verpflichten sich zunehmend freiwillig zur Umstellung auf Netto-Null und legen Zwischenziele fest. Die Wirksamkeit solcher Verpflichtungen hängt davon ab, ob die Zwischenziele für die Emissionssenkung glaubwürdig, wissenschaftlich fundiert und transparent sind und durch glaubwürdige Maßnahmen zur Emissionssenkung unterstützt werden. Die folgenden Informationen beruhen auf Angaben von SBTi \textbf{\href{https://sciencebasedtargets.org/companies-taking-action}{(link)}}.
 
 ```
 
@@ -355,7 +355,7 @@ if (data_stewardship_available) {
 ```{=latex}
 
 \begin{itemize}
-\item Unterliegen die Unternehmen des Portfolios einem glaubwürdigen Stewardship Im Bezug auf den Klimawandel?
+\item Unterliegen die Unternehmen des Portfolios einem glaubwürdigen Stewardship im Bezug auf den Klimawandel?
 \textbf{`r if (data_stewardship_available) {if (active_climate_engagement_user == 1) {"YES"} else {"NO"}} else {"Unknown"}` (Peers: `r if (data_stewardship_available) {paste0(round(perc_active_climate_engagement_peers * 100),"\\% - YES")} else {"Unknown"}`)}
 \begin{itemize}
   \item Anteil der Unternehmen, die sich derzeit aktiv für den Klimaschutz einsetzen: \textbf{`r if (data_stewardship_available) {paste0(round(share_active_enagagement_user * 100), "\\%")} else {"Unknown"}` (Peers average: `r if (data_stewardship_available) {paste0(round(avg_share_active_enagagement_peers * 100),"\\%")} else {"Unknown"}`)}
@@ -385,7 +385,7 @@ MINDESTKRITERIEN FÜR DIE SWISS CLIMATE SCORES UND DEREN UMSETZUNG IM PACTA-KIMA
 
 ### CO~2~-Fussabdruck
 
-Der Indikator „CO~2~-Fussabdruck“ umfasst den CO~2~-Fussabdruck (CO~2~e/CHF Mio. investiert), nicht aber die CO~2~-Intensität (Emissionen pro Umsatz), wie dies bei den «Swiss Climate Scores» der Fall ist. Die zwingenden Anforderungen werden erfüllt.
+Der Indikator „CO~2~-Fussabdruck“ umfasst den CO~2~-Fussabdruck (CO~2~e/CHF Mio. investiert), nicht aber die CO~2~-Intensität (Emissionen pro Umsatz), wie dies bei den "Swiss Climate Scores" der Fall ist. Die zwingenden Anforderungen werden erfüllt.
 
 Zwingende Anforderungen: 
 
@@ -393,7 +393,7 @@ Zwingende Anforderungen:
 * Der Einbezug von Scope 3 Emissionen muss sich mindestens am Zeitplan der EU-Referenzwerte-Verordnung 2019/2089 orientieren.
 
 ### Exposition gegenüber fossilen Brennstoffen und erneuerbaren Energien: 
-**Expositionsbewertung in dieser Zusammenfassung:** weicht von den Anforderungen des Schweizer Vorschlags ab (siehe unten).
+**Expositionsbewertung in dieser Zusammenfassung:** Weicht von den Anforderungen des Schweizer Vorschlags ab (siehe unten).
 
 Der Exposure Score in diesem Dokument weicht vom Vorschlag des Swiss Climate Scores ab. Während bei den Swiss Climate Scores der Anteil der Unternehmen mit fossilen Aktivitäten gemessen wird, erfasst der Indikator für die PACTA-Exposition das finanzielle Engagement (als verwaltetes Vermögen in \%) dieses Portfolios in den jeweiligen Technologien. Die PACTA-Exposition basiert nicht auf Umsatzdaten, sondern auf Asset-Level-Daten, die die tatsächlichen physischen Aktivitäten abbilden. Diese Aktivitäten werden dann den Wertpapieren und anschliessend dem Portfolio zugeordnet. Die Portfolioallokation erfolgt anhand des Ansatzes der Portfoliogewichtung, bei dem die Technologie-Exposition des Portfolios auf der Grundlage der Gewichtung jeder Position innerhalb des Portfolios berechnet wird.
 
@@ -409,31 +409,31 @@ Um die Transition zu fördern, sind Investitionen in Klimalösungen entscheidend
 
 **Zwingende Anforderungen der Swiss Climate Scores:**
 
-Für die Indikatoren „Kohle“ und „Andere fossile Brennstoffe“:
+Für die Indikatoren "Kohle" und "Andere fossile Brennstoffe":
 
-* Der Schwellenwert von 5\% der Einnahmen (PAI4 gemäß EU-SFDR-Verordnung 2019/2088) gilt sowohl für Aktivitäten, die direkt mit der Exploration und Produktion fossiler Brennstoffe verbunden sind, als auch – sofern Daten verfügbar sind - für Aktivitäten, die diese Produktion finanzieren (für Kohle gemäss der "Global Coal Exit List" oder ähnlichem).
+* Der Schwellenwert von 5\% der Einnahmen (PAI4 gemäß EU-SFDR-Verordnung 2019/2088) gilt sowohl für Aktivitäten, die direkt mit der Exploration und Produktion fossiler Brennstoffe verbunden sind, als auch – sofern Daten verfügbar sind - für Aktivitäten, die diese Produktion finanzieren (für Kohle gemäß der "Global Coal Exit List" oder ähnlichem).
 * Der Umfang der Aktivitäten umfasst die gesamte Wertschöpfungskette von der Exploration, dem Bergbau, der Gewinnung, der Produktion, der Verarbeitung, der Lagerung, der Raffination und dem Vertrieb, einschließlich Transport, Lagerung und Handel (im Einklang mit der EU-SFDR-Verordnung 2019/2088).
 
 ### Verifizierte Bekenntnisse zu Netto-Null
 
-_Die Mindestanforderungen werden erfüllt, und das RMI stellt den Finanzinstituten auch die frühere Version der Kennzahl zur Verfügung, um eine nützliche Vergleichsgrundlage zu schaffen._
+_Die Mindestanforderungen werden erfüllt. RMI stellt den Finanzinstituten auch die frühere Version der Kennzahl zur Verfügung, um eine nützliche Vergleichsgrundlage zu schaffen._
 
 Mindestkriterien und Erläuterungen zur Umsetzung:
 
 * Unternehmen müssen sich öffentlich dazu verpflichtet haben, bis 2050 netto null zu erreichen, oder sie müssen gesetzlich dazu verpflichtet sein. Ihre kurzfristigen Ziele müssen von einem externen Anbieter zertifiziert sein, z. B: Science Based Targets initiative (SBTi).
 
-### Management auf Netto-Null 
+### Management zu Netto-Null 
 
 _Die Angaben zu diesem Indikator weichen von den zwingenden Anforderungen für die Swiss Climate Scores ab (siehe unten)._
 
-Die ursprüngliche Frage „Beinhaltet die Anlagestrategie das Ziel, die Treibhausgasemissionen der zugrunde liegenden Investitionen durch konkrete kurz- (1-3 Jahre) oder mittelfristige (5 Jahre) Ziele zu reduzieren? **NEIN/JA**” wurde wie folgt umformuliert: „Verfügt die Einrichtung über konkrete Zwischenziele für das Erreichen des Netto-Null-Ziels bis 2050, z. B. 2030?“ Diese Änderung zielt darauf ab, die in der qualitativen Umfrage gestellte Frage besser zu erfassen.
+Die ursprüngliche Frage "Beinhaltet die Anlagestrategie das Ziel, die Treibhausgasemissionen der zugrunde liegenden Investitionen durch konkrete kurz- (1-3 Jahre) oder mittelfristige (5 Jahre) Ziele zu reduzieren? **NEIN/JA**" wurde wie folgt umformuliert: "Verfügt die Einrichtung über konkrete Zwischenziele für das Erreichen des Netto-Null-Ziels bis 2050, z. B. 2030?" Diese Änderung zielt darauf ab, die in der qualitativen Umfrage gestellte Frage besser zu erfassen.
 
 Die Antworten, die für jede Frage berücksichtigt wurden, sind im Folgenden aufgeführt:
 
 * Verfügt die Institution über konkrete Zwischenziele für das Erreichen des Netto-Null-Ziels bis 2050, z. B. für 2030? 
     * Umsetzung: Die Ergebnisse dieses Abschnitts spiegeln die Antworten wider, die die Finanzinstitute in Abschnitt 3 der qualitativen Umfrage gegeben haben. 
 * Ist das Portfolio Teil einer von Dritten überprüften Verpflichtung des Finanzinstituts zur Netto-Nullstellung, einschließlich glaubwürdiger Zwischenziele? 
-    * Umsetzung: „Ja“ bedeutet, dass der Nutzer in der qualitativen Umfrage angegeben hat, dass sich seine Organisation als Mitglied einer unabhängigen Initiative in Frage 1, Abschnitt 3 der qualitativen Umfrage öffentlich dazu verpflichtet hat.
+    * Umsetzung: "Ja" bedeutet, dass der Nutzer in der qualitativen Umfrage angegeben hat, dass sich seine Organisation als Mitglied einer unabhängigen Initiative in Frage 1, Abschnitt 3 der qualitativen Umfrage öffentlich dazu verpflichtet hat.
 
 
 **Zwingende Anforderungen für die Swiss Climate Scores:**
@@ -444,20 +444,20 @@ Die Antworten, die für jede Frage berücksichtigt wurden, sind im Folgenden auf
 
 ### Glaubwürdige Klimaverantwortung
 
-_**Umsetzung:** weicht von den strikten Anforderungen für die Swiss Climate Scores ab (siehe unten)._
+_**Umsetzung:** "eicht von den strikten Anforderungen für die Swiss Climate Scores ab (siehe unten)._
 
 Die in diesem Abschnitt dargestellten Ergebnisse basieren auf den Antworten der Nutzer auf die in der qualitativen Umfrage gestellten Fragen und weichen daher von den strikten Anforderungen für die Swiss Climate Scores ab (siehe unten). Finanzinstitute sollten überprüfen, ob sie die strikten Anforderungen des Swiss Climate Scores erfüllen.
 
 Die Antworten, die für jede Frage berücksichtigt wurden, sind im Folgenden aufgeführt:
 
-* Unterliegen die Unternehmen im Portfolio einer glaubwürdigen Stewardship für den Klimawandel? 
-  * Umsetzung: „Ja“ bedeutet, dass der Nutzer in der qualitativen Umfrage angegeben hat, dass seine Organisation sich engagiert oder dass sie direkt Stimmrechte ausübt oder eine dieser Optionen ganz oder teilweise auslagert.
+* Unterliegen die Unternehmen im Portfolio einem glaubwürdigen Stewardship für den Klimawandel? 
+  * Umsetzung: "Ja" bedeutet, dass der Nutzer in der qualitativen Umfrage angegeben hat, dass seine Organisation sich engagiert oder dass sie direkt Stimmrechte ausübt oder eine dieser Optionen ganz oder teilweise auslagert.
 * Anteil des Portfolios, der aktivem Engagement unterliegt: 
   * Umsetzung: Vom Nutzer in der qualitativen Umfrage angegebener Wert.
 * Anteil der Abstimmungen über Klimabeschlüsse im letzten Jahr, die mit einem Netto-Null-Ziel für 2050 vereinbar sind.
   * Umsetzung: Vom Nutzer in der qualitativen Umfrage angegebener Wert.
 * Ist das Finanzinstitut Mitglied in einer Klimainitiative?
-  * Umsetzung: „Ja“ bedeutet, dass der Nutzer die ersten beiden Optionen in Abschnitt 6 des qualitativen Fragebogens mit ‚Ja‘ beantwortet hat: „Ja, Mitglied einer nicht-kommerziellen, gemeinschaftlichen Engagement-Initiative“ und/oder ‚Ja, wir vergeben einen Klima-Engagement-Vertrag an kommerzielle Anbieter‘.
+  * Umsetzung: "Ja" bedeutet, dass der Nutzer die ersten beiden Optionen in Abschnitt 6 des qualitativen Fragebogens mit "Ja" beantwortet hat: "Ja, Mitglied einer nicht-kommerziellen, gemeinschaftlichen Engagement-Initiative" und/oder "Ja, wir vergeben einen Klima-Engagement-Vertrag an kommerzielle Anbieter".
 
 **Strikte Anforderungen für Swiss Score:**
 
@@ -480,7 +480,7 @@ Die Antworten, die für jede Frage berücksichtigt wurden, sind im Folgenden auf
 **Zwingende Anforderungen an die Datenanbieter:**
 
 * Lassen Sie sich vom 2050-Netto-Null-Ziel leiten, welches mit der 1,5$\text{\textdegree}$C-Erwärmungsgrenze des Klimaübereinkommen von Paris und den neuesten Erkenntnissen des Weltklimarats im Einklang steht.
-* Befolgen Sie die technischen Überlegungen des TCFD 2021 PAT-Berichts „Measuring Portfolio Alignment - technical considerations“ („Messung der Klimaausrichtung des Portfolios – technische Überlegungen“). Halten Sie insbesondere folgende Punkte ein:
+* Befolgen Sie die technischen Überlegungen des TCFD 2021 PAT-Berichts „Measuring Portfolio Alignment - technical considerations“ ("Messung der Klimaausrichtung des Portfolios – technische Überlegungen"). Halten Sie insbesondere folgende Punkte ein:
   * Wählen Sie ein 1,5$\text{\textdegree}$C-Szenario, das mindestens den von der Science Based Targets Initiative (SBTi) in dem Dokument „Foundations of Science-Based Target Setting“ („Grundlagen der wissenschaftsbasierten Zielsetzung“) dargelegten Kriterien entspricht (Betrachtung 7).
   * Priorisieren Sie granulare Benchmarks, wenn diese wesentliche Unterschiede in der Realisierbarkeit der Dekarbonisierung zwischen Branchen oder Regionen aufzeigen (Betrachtung 8).
   * Beziehen Sie Scope-3-Emissionen für die Sektoren ein, die am bedeutendsten sind und für die Benchmarks leicht aus bestehenden Szenarien entnommen werden können (fossile Brennstoffe, Bergbau, Automobilindustrie) (Betrachtung 11). 
@@ -494,12 +494,12 @@ Die Antworten, die für jede Frage berücksichtigt wurden, sind im Folgenden auf
 
 Verwendete Benchmarks:
 
-* Zumindest sollte bei den emissionsintensiven Sektoren ein Ansatz für die Teilsektoren gewählt werden, bei dem die Benchmarks auf externen, replizierbaren, wissenschaftlichen Studien beruhen, wobei den Unternehmen ein „fairer Anteil“ am globalen CO~2~-Budget auf der Grundlage ihres Aktivitäten-Mix zugewiesen wird.
+* Bei den emissionsintensiven Sektoren sollte mindestens ein Ansatz für die Teilsektoren gewählt werden, bei dem die Benchmarks auf externen, replizierbaren, wissenschaftlichen Studien beruhen, wobei den Unternehmen ein "fairer Anteil" am globalen CO~2~-Budget auf der Grundlage ihres Aktivitäten-Mix zugewiesen wird.
 * Klimalösungen, insbesondere für den Stromsektor, sollten ebenfalls erfasst und mit dem jeweiligen Szenario verglichen werden, da der Ausbau der erneuerbaren Energien laut IEA ein Schlüsselfaktor für die Transition ist. 
 
-Langfristige Unternehmensziele, kurzfristige Massnahmen und Datenquellen:
+Langfristige Unternehmensziele, kurzfristige Maßnahmen und Datenquellen:
 
-* Kurzfristige Investitionspläne einbeziehen.
+* Einbezug kurzfristiger Investitionspläne.
 * Verwenden Sie nach Möglichkeit von Dritten verifizierte Daten auf Vermögenswert-Ebene. Seien Sie bei den Datenquellen so transparent wie möglich.
 * Daten zu vermiedenen Emissionen auf Unternehmensebene sollten nicht berücksichtigt werden, da es keine Standards für die Berichterstattung über vermiedene Emissionen gibt und diese Berechnung mit technischen Herausforderungen und Problemen verbunden ist. Stattdessen sollten Klimalösungen berücksichtigt werden, zumindest Strom aus erneuerbaren Energien.
 * _Anforderungen nicht erfüllt:_ 
@@ -516,13 +516,13 @@ Zur Berechnung der Klimaausrichtung des Portfolios:
   * 50\% Wahrscheinlichkeit, dass die Erwärmung im Jahr 2100 für das Szenario „Announced Pledges“ (WEO 2023) 1,7$\text{\textdegree}$C nicht überschreitet
   * 50 % Wahrscheinlichkeit, dass die Erwärmung im Jahr 2100 für das Baseline-Szenario (WEO 2023) 2,4$\text{\textdegree}$C nicht überschreitet
 
-Für den Schweizer Klimatest 2022 verwendete das RMI das GECO-Szenario 2021, um den PACTA Aggregated Climate Alignment Score zu ermitteln. Für die Bewertung 2024 verwendet das RMI das WEO-Szenario 2023, da es im Vergleich zum GECO-Szenario einen größeren Sektor abdeckt. Es ist erwähnenswert, dass beide Szenarien drei Szenarien mit unterschiedlichen Ambitionen umfassen. Ein 1,5$\text{\textdegree}$C Szenario, ein Szenario, das die angekündigten Ziele, einschließlich der NDCs der Länder, berücksichtigt, und ein Basisszenario. Darüber hinaus weisen die IEA-Szenarien ehrgeizigere Ziele für bestimmte Technologien auf, wie im Folgenden dargelegt wird:
+Für den Schweizer Klimatest 2022 verwendete das RMI das GECO-Szenario 2021, um den PACTA Aggregated Climate Alignment Score zu ermitteln. Für die Bewertung 2024 verwendet das RMI das WEO-Szenario 2023, da es im Vergleich zum GECO-Szenario mehr Sektoren abdeckt. Es ist erwähnenswert, dass beide Szenarien drei Szenarien mit unterschiedlichen Ambitionen umfassen. Ein 1,5$\text{\textdegree}$C Szenario, ein Szenario, das die angekündigten Ziele, einschließlich der NDCs der Länder, berücksichtigt, und ein Basisszenario. Darüber hinaus weisen die IEA-Szenarien ehrgeizigere Ziele für bestimmte Technologien auf, wie im Folgenden dargelegt wird:
 
 * Das NZE Szenario der IEA nimmt einen schnelleren Übergang zur Elektrifizierung an als das GECO 1.5 Szenario.
 * Es wird erwartet, dass Öl und Gas im APS- und NZE-Szenario im Vergleich zu den GECO-Annahmen schneller abnehmen werden.
 * Auch die erneuerbaren Energien werden im STEPS-Szenario im Vergleich zur GECO2021-Basisvariante voraussichtlich doppelt so schnell zunehmen.
 
-* _Anforderungen nicht erfüllt,_ da der Gesamtscore kein ITR-Score ist._
+* _Anforderungen nicht erfüllt,_ da der Gesamtscore kein ITR-Score ist.
 
   * Die impliziten Temperaturwerte sollen mit einem Konfidenzniveau von 66\% statt 50\% berechnet werden. 
   * Die Erwärmungswerte werden auf Basis der kumulierten Emissionen bis 2050 berechnet, um die physikalische Beziehung zwischen kumulierten Emissionen und der Erwärmung angemessen zu berücksichtigen.
