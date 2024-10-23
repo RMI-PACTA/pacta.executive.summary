@@ -627,7 +627,7 @@ The PACTA analysis covers 8 climate-relevant sectors: coal, oil \& gas, power, a
 
 \begin{esbox}{Which asset classes does PACTA cover?}
 
-The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2024 also includes Swiss real estate and mortgages. 
+The PACTA methodology covers listed equity and corporate bonds. In cooperation with Fahrländer Partner AG, the PACTA Test Switzerland 2024 also includes Swiss real estate and mortgages. 
 
 \end{esbox}
 
