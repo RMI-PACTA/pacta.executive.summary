@@ -192,7 +192,7 @@ tryCatch(
 %FIXME: make footnote
 \textbf{Exposure* to climate-relevant sectors \& technologies as \% of AUM}
 
-The chart provides information on the exposure to companies with physical assts in the parts of the value chain covered by PACTA. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
+The chart provides information on the exposure to companies with physical assets in the parts of the value chain covered by PACTA. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
 ```
 
 ```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
