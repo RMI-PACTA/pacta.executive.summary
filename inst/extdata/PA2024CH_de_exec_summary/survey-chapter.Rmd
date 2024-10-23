@@ -1,11 +1,11 @@
 ```{=latex}
 
-\section{Umfrage zu Klimamassnahmen}
+\section{Umfrage zu Klimamaßnahmen}
 
-Dieser Abschnitt bietet Einblicke in die Wirksamkeit von Klimamassnahmen auf institutioneller Ebene. Die Ergebnisse basieren auf der ergänzenden qualitativen Umfrage zu Klimamassnahmen. Die Umfrageergebnisse werden mit den Ergebnissen der Peers und den quantitativen Ergebnissen dieses Portfolios verglichen. Bitte beachten Sie, dass die Antworten der Umfrageteilnehmenden auf eigenen Angaben beruhen und nicht von RMI überprüft wurden.
+Dieser Abschnitt bietet Einblicke in die Wirksamkeit von Klimamaßnahmen auf institutioneller Ebene. Die Ergebnisse basieren auf der ergänzenden qualitativen Umfrage zu Klimamaßnahmen. Die Umfrageergebnisse werden mit den Ergebnissen der Peers und den quantitativen Ergebnissen dieses Portfolios verglichen. Bitte beachten Sie, dass die Antworten der Umfrageteilnehmenden auf eigenen Angaben beruhen und nicht von RMI überprüft wurden.
 
 \fbox{\begin{minipage}{\textwidth}
-\textbf{Erläuterungen zu den unten dargestellten Zielscheibendiagrammen:} Jeder Kreis steht für eine klimarelevante Massnahme und ist farblich gekennzeichnet, wenn die Massnahme umgesetzt wurde. Der Wirksamkeitsgrad der Massnahmen nimmt vom äusseren zum inneren Ring und mit der Farbintensität zu. \textbf{Je mehr Kreise vom äusseren zum inneren Kreis farblich markiert sind, desto ambitionierter sind die Klimamassnahmen Ihrer Institution.} Weitere Informationen zum Lesen der Zielscheibendiagramm finden Sie im Anhang und im Abschnitt über die qualitative Umfrage im interaktiven Bericht. 
+\textbf{Erläuterungen zu den unten dargestellten Zielscheibendiagrammen:} Jeder Kreis steht für eine klimarelevante Maßnahme und ist farblich gekennzeichnet, wenn die Massnahme umgesetzt wurde. Der Wirksamkeitsgrad der Massnahmen nimmt vom äusseren zum inneren Ring und mit der Farbintensität zu. \textbf{Je mehr Kreise vom äusseren zum inneren Kreis farblich markiert sind, desto ambitionierter sind die Klimamaßnahmen Ihrer Institution.} Weitere Informationen zum Lesen der Zielscheibendiagramm finden Sie im Anhang und im Abschnitt über die qualitative Umfrage im interaktiven Bericht. 
 \end{minipage}
 }
 
@@ -41,7 +41,7 @@ knitr::include_graphics(file.path(survey_dir, language, "plot_layer_peers_transi
 
 \begin{esbox}{Engagementstrategien bei börsennotierten Aktien}[\engagementImage]
 
-Die Forschung zeigt, dass ein glaubwürdiges Engagement eine der effektivsten Methoden sein kann, um die Ausrichtung der Klimaziele von Unternehmen, in die man investiert, zu verbessern und somit aktiv zu den Klimazielen eines Finanzinstituts beizutragen und seine Portfolios auf die Klimaziele auszurichten.Die nachstehenden Zielscheiben-Diagramme bewerten Ihre Engagement-Aktivitäten (bilateral oder über die Ausübung von Stimmrechten), unabhängig davon, ob sie von Ihrer Institution durchgeführt oder ausgelagert wurden. In den Diagrammen wird bewertet, inwieweit Ihre Engagement-Aktivitäten den Praktiken folgen, welche zu den effektivsten zur Verbesserung der Klimaleistung von Unternehmen und Fonds zählen, in die Sie investieren. Der Text neben einem Zielscheiben-Diagramm bietet einen Vergleich mit dem Anteil der Peers, die Best-Practies anwenden, d. h. die jenigen, bei welchen alle Ebenen ausgefüllt sind.
+Forschung zeigt, dass glaubwürdiges Engagement eine der effektivsten Methoden sein kann, um die Ausrichtung der Klimaziele von Unternehmen in die man investiert zu verbessern und somit aktiv zu den Klimazielen eines Finanzinstituts beizutragen und seine Portfolios auf Klimaziele auszurichten. Die nachstehenden Zielscheiben-Diagramme bewerten Ihre Engagement-Aktivitäten (bilateral oder über die Ausübung von Stimmrechten), unabhängig davon, ob sie von Ihrer Institution durchgeführt oder ausgelagert wurden. In den Diagrammen wird bewertet, inwieweit Ihre Engagement-Aktivitäten den Praktiken folgen, welche zu den effektivsten zur Verbesserung der Klimaleistung von Unternehmen und Fonds zählen in die Sie investiert sind. Der Text neben einem Zielscheiben-Diagramm bietet einen Vergleich mit dem Anteil der Peers, welche alle Best-Practies anwenden, d. h. die jenigen, bei welchen alle Ebenen ausgefüllt sind.
 
 \begin{center}
 \begin{minipage}{0.4\textwidth}
