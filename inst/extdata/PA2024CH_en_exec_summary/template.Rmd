@@ -192,7 +192,7 @@ tryCatch(
 %FIXME: make footnote
 \textbf{Exposure* to climate-relevant sectors \& technologies as \% of AUM}
 
-The chart provides information on the exposure to companies with physical assts in the parts of the value chain covered by PACTA. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
+The chart provides information on the exposure to companies with physical assets in the parts of the value chain covered by PACTA. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
 ```
 
 ```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
@@ -627,7 +627,7 @@ The PACTA analysis covers 8 climate-relevant sectors: coal, oil \& gas, power, a
 
 \begin{esbox}{Which asset classes does PACTA cover?}
 
-The PACTA methodology covers listed equity and corporate bonds. In cooperation with Wüest Partner AG, the PACTA Test Switzerland 2024 also includes Swiss real estate and mortgages. 
+The PACTA methodology covers listed equity and corporate bonds. In cooperation with Fahrländer Partner AG, the PACTA Test Switzerland 2024 also includes Swiss real estate and mortgages. 
 
 \end{esbox}
 

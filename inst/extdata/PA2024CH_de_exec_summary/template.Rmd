@@ -94,18 +94,18 @@ number_peers <- readr::read_csv(
 
 ```{=latex}
 
-\textbf{Die Schweiz und ihr Finanzmarkt haben sich zum Übergang zu Netto-Null-Treibhausgasemissionen bis 2050 verpflichtet}, um ihre Verpflichtungen aus dem Schweizer Bundesgesetz über die Ziele im Klimaschutz, die Innovation und die Stärkung der Energiesicherheit zu erfüllen \textbf{\href{https://www.fedlex.admin.ch/eli/fga/2022/2403/de}{(link)}}. Der PACTA-Klimatest 2024 liefert vergleichbare Daten über die Fortschritte des Schweizer Finanzmarktes und der einzelnen teilnehmenden Finanzinstitute im Hinblick auf die Erreichung der Klimaziele.  \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter - \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(peer_group), fixed = TRUE)` \stopunderscoreletter wurde vom BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt/pacta.html}{link})} und vom SIF mit Unterstützung der Verbände zum Klimatest eingeladen, um seine Finanzportfolios freiwillig untersuchen zu lassen. Der PACTA-Klimatest kombiniert eine quantitative Bewertung von Portfolios aus globalen börsennotierten Aktien und Unternehmensanleihen sowie von Schweizer Immobilien- und Hypothekarportfolios mit einer qualitativen Bewertung weiterer Klimamassnahmen. 
+\textbf{Die Schweiz und ihr Finanzmarkt haben sich zum Übergang zu Netto-Null-Treibhausgasemissionen bis 2050 verpflichtet}, um ihre Verpflichtungen aus dem Schweizer Bundesgesetz über die Ziele im Klimaschutz, die Innovation und die Stärkung der Energiesicherheit zu erfüllen \textbf{\href{https://www.fedlex.admin.ch/eli/fga/2022/2403/de}{(link)}}. Der PACTA-Klimatest 2024 liefert vergleichbare Daten über die Fortschritte des Schweizer Finanzmarktes und der einzelnen teilnehmenden Finanzinstitute im Hinblick auf die Erreichung der Klimaziele.  \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter - \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(peer_group), fixed = TRUE)` \stopunderscoreletter wurde vom BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt/pacta.html}{link})} und vom SIF mit Unterstützung der Verbände zum Klimatest eingeladen, um die eingereichten Finanzportfolios freiwillig untersuchen zu lassen. Der PACTA-Klimatest kombiniert eine quantitative Bewertung von Portfolios aus globalen börsennotierten Aktien und Unternehmensanleihen sowie von Schweizer Immobilien- und Hypothekarportfolios mit einer qualitativen Analyse weiterer Klimamassnahmen. 
 
 % TODO: update two links in the section below marked as (link)
 \textbf{Diese Zusammenfassung} ist eine Kurzfassung der Einzelergebnisse Ihres hochgeladenen Aktien- und Unternehmensanleihenportfolios \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(portfolio_name), fixed = TRUE)` \stopunderscoreletter, sowie Auszüge aus Ihren Umfrageergebnissen. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter erhält eine Zusammenfassung pro Portfolio. Am Ende dieser Zusammenfassung finden Sie einige Klimaindikatoren auf der Grundlage der Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/de/swiss-climate-scores-de}{(link)}}. \textbf{Ein detaillierter individueller interaktiver Bericht} (pro Portfolio oder gruppiert) können über einen personalisierten Zugang auf der Transition Monitor Plattform in Deutsch, Französisch und teilweise Englisch eingesehen werden \textbf{\href{https://platform.transitionmonitor.com}{(link)}}. Für \textbf{Immobilien- und Hypothekenportfolios wird ein separater Einzelbericht mit einer Zusammenfassung} bereitgestellt (Link). \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter entscheidet über die Veröffentlichung dieser Einzelergebnisse. Darüber hinaus können verschiedene Informationen aus diesen Berichten für die obligatorische oder empfohlene Berichterstattung durch die Schweizer Gesetzgebung, den Bundesrat und Verbände verwendet werden.
 
-\textbf{Ein Metabericht mit anonymisierten und aggregierten Daten} für die Schweiz aller Teilnehmer sowie Sektorberichte sind auf der Website des BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt.html}{link})} publiziert und stehen zum Download bereit. 122 Finanzinstitute nahmen 2024 teil und gaben an, zu welcher Peer-Group sie gehören, z. B. Pensionsfonds, Versicherungen, Banken und Vermögensverwalter.
+\textbf{Ein Metabericht mit anonymisierten und aggregierten Daten} für die Schweiz aller Teilnehmer sowie Sektorberichte sind auf der Website des BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt.html}{link})} publiziert und stehen zum Download bereit. 122 Finanzinstitute nahmen 2024 teil und gaben an zu welcher Peer-Group sie gehören, z. B. Pensionsfonds, Versicherungen, Banken und Vermögensverwalter.
 
 \end{esbox}
 
 \begin{esbox}{Messung der Klimaverträglichkeit}
 
-PACTA und das BAFU sind der Ansicht, dass die drei unten aufgeführten Kernfaktoren geeignet sind, um die Ausrichtung an den Klimazielen zu messen. Die Symbole werden in diesem Dokument verwendet, um für jede Grafik die Kategorie anzugeben.
+PACTA und das BAFU sind der Ansicht, dass die drei unten aufgeführten Kernfaktoren geeignet sind, um eine Ausrichtung an Klimazielen zu messen. Die Symbole werden in diesem Dokument verwendet, um für jede Grafik die jweilige Kategorie anzugeben.
 
 \vspace{1em}
 
@@ -117,7 +117,7 @@ PACTA und das BAFU sind der Ansicht, dass die drei unten aufgeführten Kernfakto
 \exposureImage[width=\textwidth]%
 \end{minipage}%
 \begin{minipage}[c]{0.7\textwidth}
-\textbf{Exposition:} gibt Aufschluss darüber, wie stark Ihr Portfolio gegenüber klimarelevanten Sektoren, einschliesslich Immobilien, exponiert ist und bietet somit eine Risikoperspektive zur Klimaausrichtung.
+\textbf{Exposition:} Gibt Aufschluss darüber, wie stark Ihr Portfolio gegenüber klimarelevanten Sektoren, einschliesslich Immobilien, exponiert ist.
 \end{minipage}%
 
 \end{center}
@@ -129,7 +129,7 @@ PACTA und das BAFU sind der Ansicht, dass die drei unten aufgeführten Kernfakto
 \alignmentImage%[width=\textwidth]%
 \end{minipage}%
 \begin{minipage}[c]{0.7\textwidth}
-\textbf{Klimaausrichtung:} bewertet die Ausrichtung der Produktionspläne investierter Unternehmen oder der Sanierungspläne für Gebäude auf Klimaszenarien und weist damit jedem Unternehmen und Gebäude Verantwortung zur Klimawirkung und Risiko zu.
+\textbf{Klimaausrichtung:} Bewertet die Ausrichtung der Produktionspläne investierter Unternehmen oder der Sanierungspläne für Gebäude auf Klimaszenarien und weist damit jedem Unternehmen und Gebäude Verantwortung und Risiko zu.
 \end{minipage}%
 
 \end{center}
@@ -141,7 +141,7 @@ PACTA und das BAFU sind der Ansicht, dass die drei unten aufgeführten Kernfakto
 \engagementImage[width=\textwidth]%
 \end{minipage}%
 \begin{minipage}[c]{0.7\textwidth}
-\textbf{Klima-Engagement und andere qualitative Indikatoren:} Ergänzung der Analyse mit Informationen über Klimamassnahmen, die einen tatsächlichen Einfluss auf das Klima haben können.
+\textbf{Klima-Engagement und andere qualitative Indikatoren:} Ergänzung der Analyse mit Informationen über Klimamassnahmen, die einen reellen Einfluss auf das Klima haben können.
 \end{minipage}%
 
 
@@ -188,14 +188,14 @@ tryCatch(
 
 \newpage
 
-\section{Ergebnisse von Aktien- und Unternehmensanleiheportfolios}
+\section{Ergebnisse Aktien- und Unternehmensanleiheportfolios}
 
 \begin{esbox}{Ist-Zustand (PACTA-Sektoren)}[\exposureImage]
 
 %FIXME: make footnote
 \textbf{Exposition* gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens}
 
-Die Grafik zeigt die Exposition gegenüber Unternehmen mit Produktionsstätten in den von PACTA erfassten Teilen der Wertschöpfungskette. Die Exposition gegenüber fossilen Brennstoffen (Förderung von Kohle, Öl, Gas) wird aggregiert und zu Vergleichszwecken zusätzlich einzeln ausgewiesen sowie mit Peers und einem Index verglichen.
+Die Grafik zeigt die Exposition gegenüber Unternehmen mit Produktionsstätten in den von PACTA erfassten Teilen der Wertschöpfungskette. Die Exposition gegenüber fossilen Brennstoffen (Förderung von Kohle, Öl, Gas) wird aggregiert sowie zu Vergleichszwecken zusätzlich einzeln ausgewiesen und mit Peers und einem Index verglichen.
 ```
 
 ```{r exposure, fig.height=3.5, fig.width=6, fig.show='hold', out.width='50%'}
@@ -239,7 +239,7 @@ tryCatch(
 
 ```{=latex}
 
-\raggedright\footnotesize{* Engagement in Unternehmen, die hauptsächlich in PACTA-Sektoren tätig sind}
+\raggedright\footnotesize{* Exposition gegenüber Unternehmen, die hauptsächlich in PACTA-Sektoren tätig sind}
 
 \raggedright\footnotesize{** Kohlenstoffarme Technologien (low-carbon): erneuerbare Energien und Wasserkraft für die Stromerzeugung und Elektroantrieb für die Automobilindustrie. Kohlenstoffintensive Technologien (high-carbon): Kohle, Öl, Gas für die Stromerzeugung, Hybrid- und Verbrennungsmotoren für die Automobilindustrie.}
 
@@ -469,7 +469,7 @@ tryCatch(
 
 \newpage
 
-\section{Anhang (I): zusätzliche Erläuterung des Diagramms - Ergebnisse Aktien \& Unternehmensanleihen}
+\section{Anhang (I): Zusätzliche Diagramm-Erläuterung - Ergebnisse Aktien \& Unternehmensanleihen}
 
 \subsection{Exposition gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens} 
 
@@ -491,19 +491,19 @@ tryCatch(
 \end{center}
 \end{minipage}%
 
-In der linken Grafik ist ein Balkendiagramm dargestellt, das die Exposition des Portfolios gegenüber jedem der acht PACTA-Sektoren zeigt in Prozent des verwalteten Vermögens.  Die Balken sind nach dem Umfang der Exposition in absteigender Reihenfolge angeordnet. Zusätzlich wird eine Aufteilung der Technologien (kohlenstoffarm, kohlenstoffintensiv, nicht spezifiziert) für die Sektoren vorgenommen, für die eine solche Aufteilung definiert ist. Die rechte Grafik zeigt die Exposition gegenüber dem Sektor der Förderung fossiler Brennstoffe als Aufteilung auf die verschiedenen fossilen Brennstoffe Kohle, Öl und Gas. Zudem ist ein Vergleich mit den Peers (Pensionskassen, Versicherungen, Banken oder Vermögensverwalter) sowie mit dem MSCI World Index ersichtlich.
+In der linken Grafik ist ein Balkendiagramm dargestellt, das die Exposition des Portfolios gegenüber jedem der acht PACTA-Sektoren zeigt in Prozent des verwalteten Vermögens.  Die Balken sind nach dem Umfang der Exposition in absteigender Reihenfolge angeordnet. Zusätzlich wird eine Aufteilung der Technologien (kohlenstoffarm, kohlenstoffintensiv, nicht spezifiziert) für die Sektoren vorgenommen, für die eine solche Aufteilung definiert ist. Die rechte Grafik zeigt die Exposition gegenüber dem Sektor der Förderung fossiler Brennstoffe als Aufteilung auf die verschiedenen fossilen Brennstoffe Kohle, Öl und Gas. Zudem ist ein Vergleich mit den Peers (Pensionskassen, Versicherungen, Banken oder Vermögensverwalter) sowie mit dem MSCI World Index dargestellt.
 
 \subsection{Derzeitige Exposition vs. zukünftige Ausrichtung in der Stromerzeugung}
 
 
 \includegraphics[width=0.5\textwidth]{chart_sample_3}
 
-Diese Grafik zeigt die derzeitige Exposition gegenüber kohlenstoffarmen Technologien (Prozentsatz der Sektorexposition, x-Achse) und die Klimaausrichtung auf Sektorebene (Klimaausrichtungs-Score, y-Achse). Die farbigen Punkte stellen verschiedene Einheiten (Portfolio, Durchschnitt aller Teilnehmenden, Durchschnitt der Peers) dar. Die Grafik lässt Rückschlüsse auf die Beziehung zwischen den beiden Werten zu und liefert Kontext für den Klimaausrichtungs-Score. Die ideale Position ist in der oberen rechten Ecke (hohe Exposition gegenüber kohlenstoffarmen Stromquellen und hohe Klimaausrichtung). Die untere linke Ecke ist die am wenigsten erwünschte Position (geringe Exposition gegenüber kohlenstoffarmen Stromquellen und geringe Klimaausrichtung). 
+Diese Grafik zeigt die derzeitige Exposition gegenüber kohlenstoffarmen Technologien (Prozentsatz der Sektorexposition, x-Achse) und die Klimaausrichtung auf Sektorebene (Klimaausrichtungs-Score, y-Achse). Die farbigen Punkte stellen verschiedene Einheiten (Portfolio, Durchschnitt aller Teilnehmenden, Durchschnitt der Peers) dar. Die Grafik bietet eine Betrachtung der Beziehung zwischen den beiden Werten und liefert Kontext für den Klimaausrichtungs-Score. Die ideale Position ist in der oberen rechten Ecke (hohe Exposition gegenüber kohlenstoffarmen Stromquellen und hohe Klimaausrichtung). Die untere linke Ecke ist die am wenigsten erwünschte Position (geringe Exposition gegenüber kohlenstoffarmen Stromquellen und geringe Klimaausrichtung). 
 
 
 \newpage
 
-\section{Anhang (I): zusätzliche Erläuterung des Diagramms - Ergebnisse Aktien \& Unternehmensanleihen}
+\section{Anhang (I): zusätzliche Diagramm-Erläuterung - Ergebnisse Aktien \& Unternehmensanleihen}
 
 \subsection{Gesamtscore zur Klimaausrichtung}
 
@@ -516,7 +516,7 @@ Diese Grafik zeigt die derzeitige Exposition gegenüber kohlenstoffarmen Technol
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Diese Grafik stellt die Klimaausrichtungs-Scores sowohl insgesamt (Balken ganz links) als auch für jeden Sektor dar. Das grössere, dunkelblaue Dreieck zeigt das Ergebnis für dieses Portfolio an, das kleinere graue Dreieck das durchschnittliche Ergebnis der Peers. Die horizontale Linie stellt den Grenzwert für die Erreichung des Klimaziels von 1,8\textdegree C (oder höher) dar. Der 1,8\textdegree C-Pfad entspricht dem Ziel des Klimaübereinkommens von Paris, die globale Erwärmung auf „deutlich unter 2\textdegree C“ zu begrenzen. Die Scores geben an, welchem Szenario die Produktionspläne der investierten Unternehmen entsprechen. Weitere Informationen dazu entnehmen Sie den beiden folgenden Abbildungen. 
+Diese Grafik stellt die Klimaausrichtungs-Scores sowohl aggregiert (Balken ganz links), als auch für jeden Sektor dar. Das grössere, dunkelblaue Dreieck zeigt das Ergebnis für dieses Portfolio an, das kleinere graue Dreieck das durchschnittliche Ergebnis der Peers. Die horizontale Linie stellt den Grenzwert für die Erreichung des Klimaziels von 1,8\textdegree C (oder höher) dar. Der 1,8\textdegree C-Pfad entspricht dem Ziel des Klimaübereinkommens von Paris, die globale Erwärmung auf „deutlich unter 2\textdegree C“ zu begrenzen. Die Scores geben an, welchem Szenario die Produktionspläne der investierten Unternehmen entsprechen. Weitere Informationen dazu entnehmen Sie den beiden folgenden Abbildungen. 
 
 \end{minipage}%
 
@@ -540,9 +540,9 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 
 \newpage
 
-\section {Anhang (II): zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimamassnahmen}
+\section {Anhang (II): Zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimamaßnahmen}
 
-\subsection{Beispiel für Zielscheiben-Diagramm: Benutzer, die Best-Practices anwenden}
+\subsection{Beispiel für Zielscheiben-Diagramm: Benutzer, die alle Best-Practices anwenden}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -552,11 +552,11 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 \begin{minipage}[t]{0.6\textwidth}
 
 
-Dies ist ein Beispiel-Zielschreibendiagramm für einen Nutzer, der Best-Practices in dem Bereich anwendet, auf den sich die Karte bezieht (siehe Titel, in diesem Fall Ausschlussverfahren im Ölsektor).  Alle Kreise sind mit Farben von hell bis dunkel gefüllt und alle Beschriftungen sind positive Aussagen. Das bedeutet, dass der Nutzer alle Strategien und/oder Maßnahmen anwendet, die innerhalb des betreffenden Bereichs als wichtig oder wirksam erachtet werden, beginnend mit dem äußeren Ring, der am wenigsten wirksam (aber dennoch wichtig) ist, bis hin zum inneren Kreis, der am wirksamsten ist. 
+Dies ist ein Beispiel-Zielschreiben-Diagramm für einen Nutzer, der Best-Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel, in diesem Fall Ausschlussverfahren im Ölsektor).  Alle Kreise sind mit Farben von hell bis dunkel gefüllt und alle Beschriftungen sind positive Aussagen. Das bedeutet, dass der Nutzer alle Strategien und/oder Maßnahmen anwendet, die innerhalb des betreffenden Bereichs als wichtig oder wirksam erachtet werden, beginnend mit dem äußeren Ring, der am wenigsten wirksam (aber dennoch wichtig) ist, bis hin zum inneren Kreis, der am wirksamsten ist. 
 
 \end{minipage}%
 
-\subsection{Beispiel für ein Zielscheibendiagramm: Nutzer wendet einige Best-Practices an, aber nicht alle}
+\subsection{Beispiel für ein Zielscheiben-Diagramm: Nutzer wendet einige Best-Practices an, aber nicht alle}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -570,7 +570,7 @@ Dies ist ein Beispiel für ein Zielscheiben-Diagramm für einen Nutzer, der eini
 
 \end{minipage}%
 
-\subsection{Beispiel für ein Zielscheibendiagramm: Benutzer wendet keine Best-Practices an}
+\subsection{Beispiel für ein Zielscheiben-Diagramm: Benutzer wendet keine Best-Practices an}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -580,15 +580,15 @@ Dies ist ein Beispiel für ein Zielscheiben-Diagramm für einen Nutzer, der eini
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Dieses Beispiel-Dart-Diagramm würde für einen Nutzer erscheinen, der keine der Best Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel des Diagramms, hier „Konkrete Klimamaßnahmen bei börsennotierten Aktien und Unternehmensanleihen“).  Alle Ebenen (Ringe und Kreise) sind weiß und ihre Bezeichnungen sind negative Aussagen (sie beginnen mit dem Wort „Nein“). In diesem Fall gibt es in dem Bereich, auf den sich das Diagramm bezieht, Raum für Verbesserungen für die Anwednung von Best Practices (vollständig ausgefüllter Dartplot) und das Diagramm kann bei der Entscheidung helfen welche nächsten Schritte für die Institution des Nutzers relevant sind, um die Ausrichtung der Finanzströme auf das Netto-Null-Ziel bis 2050 zu unterstützen.
+Dieses Beispiel-Zielscheiben-Diagramm würde für einen Nutzer erscheinen, der keine der Best Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel des Diagramms, hier „Konkrete Klimamaßnahmen bei börsennotierten Aktien und Unternehmensanleihen“).  Alle Ebenen (Ringe und Kreise) sind weiß und ihre Bezeichnungen sind negative Aussagen (sie beginnen mit dem Wort „Nein“). In diesem Fall gibt es in dem Bereich auf den sich das Diagramm bezieht Raum für Verbesserungen für die Anwednung von Best Practices (vollständig ausgefülltes Zielscheiben-Diagramm) und das Diagramm kann bei der Entscheidung helfen welche nächsten Schritte für die Institution des Nutzers relevant sind, um die Ausrichtung der Finanzströme auf das Netto-Null-Ziel bis 2050 zu unterstützen.
 
 \end{minipage}%
 
 \newpage
 
-\section{Anhang (II): zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimamassnahmen}
+\section{Anhang (II): zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimamaßnahmen}
 
-\subsection{Beispiel für eine Dartscheibe: Nutzer- und Peer-Informationen}
+\subsection{Beispiel für ein Zielscheiben-Diagramm: Nutzer- und Peer-Informationen}
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
@@ -598,7 +598,7 @@ Dieses Beispiel-Dart-Diagramm würde für einen Nutzer erscheinen, der keine der
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Dies ist ein Beispiel für ein Zielscheiben-Diagramm, das Peer-Informationen zusammen mit dem Nutzerergebnis enthält. Auf der linken Seite sehen wir das Ergebnis des Nutzers, das jede der oben beschriebenen Varianten des Zielscheiben-Diagramms sein könnte. In diesem Fall wendet der Benutzer Best-Practices im Bereich des Diagramms an (Ausübung der Stimmrechte der Aktionäre). Auf der rechten Seite sehen wir die prozentuale Anzahl der anderen Nutzer innerhalb der Peer Group dieses Nutzers, die die Best Practice anwenden (alle Ebenen sind ausgefüllt, wie im kleinen Symbol neben dem Diagramm des Nutzers).  
+Dies ist ein Beispiel für ein Zielscheiben-Diagramm, das Peer-Informationen zusammen mit dem Nutzerergebnis enthält. Auf der linken Seite sehen wir das Ergebnis des Nutzers, das jede der oben beschriebenen Varianten des Zielscheiben-Diagramms sein könnte. In diesem Fall wendet der Benutzer alle Best-Practices im Bereich des Diagramms an (Ausübung der Stimmrechte der Aktionäre). Auf der rechten Seite sehen wir die prozentuale Anzahl der anderen Nutzer innerhalb der Peer Group dieses Nutzers, die alle Best Practice anwenden (alle Ebenen sind ausgefüllt, wie im kleinen Symbol neben dem Diagramm des Nutzers).  
 
 \end{minipage}%
 
