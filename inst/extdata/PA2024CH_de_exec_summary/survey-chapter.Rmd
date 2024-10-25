@@ -1,6 +1,6 @@
 ```{=latex}
 
-\section{Umfrage zu Klimamassnahmen}
+\section{Umfrage zu Klimama\ssnahmen}
 
 Dieser Abschnitt bietet Einblicke in die Wirksamkeit von Klimamassnahmen auf institutioneller Ebene. Die Ergebnisse basieren auf der ergänzenden qualitativen Umfrage zu Klimamassnahmen. Die Umfrageergebnisse werden mit den Ergebnissen der Peers und den quantitativen Ergebnissen dieses Portfolios verglichen. Bitte beachten Sie, dass die Antworten der Umfrageteilnehmenden auf eigenen Angaben beruhen und nicht von RMI überprüft wurden.
 
