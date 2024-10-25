@@ -639,7 +639,7 @@ Die PACTA-Analyse deckt acht klimarelevante Sektoren ab: Kohle, Öl und Gas, Str
 
 \begin{esbox}{Welche Anlageklassen deckt PACTA ab?}
 
-Die PACTA-Methodik umfasst börsennotierte Aktien und Unternehmensanleihen. Der PACTA-Klimatest Schweiz 2024, der in Zusammenarbeit mit der Wüest Partner AG entwickelt wurde, umfasst auch den Schweizer Immobilien- und Hypothekarmarkt.
+Die PACTA-Methodik umfasst börsennotierte Aktien und Unternehmensanleihen. Der PACTA-Klimatest Schweiz 2024, der in Zusammenarbeit mit der Fahrländer Partner AG entwickelt wurde, umfasst auch den Schweizer Immobilien- und Hypothekarmarkt.
 
 \end{esbox}
 
