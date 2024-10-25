@@ -1,6 +1,6 @@
 ```{=latex}
 
-\section{Enquête sur l’action climatique}
+\section{Enquête sur l'action climatique}
 
 Cette section donne un aperçu de l'efficacité des stratégies et actions climatiques au niveau institutionnel. Les résultats sont basés sur l'enquête qualitative complémentaire. Ils sont comparés à ceux des pairs et aux résultats quantitatifs PACTA pour ce portefeuille. Veuillez noter que les réponses à l'enquête ont été fournies par les intéressés eux-mêmes et n'ont pas été vérifiées par RMI.
 
