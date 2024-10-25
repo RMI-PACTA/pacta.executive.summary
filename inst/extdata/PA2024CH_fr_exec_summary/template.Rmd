@@ -634,7 +634,7 @@ En règle générale, les portefeuilles des institutions financières sont inves
 
 \begin{esbox}{Quelles classes d'actifs sont couvertes par l’analyse PACTA?}
 
-La méthodologie PACTA porte sur les actions cotées en bourse et les obligations d’entreprises. En coopération avec Wüest Partner AG, le test climatique PACTA Suisse 2024 comprend également l'immobilier et les hypothèques suisses.
+La méthodologie PACTA porte sur les actions cotées en bourse et les obligations d’entreprises. En coopération avec Fahrländer Partner AG, le test climatique PACTA Suisse 2024 comprend également l'immobilier et les hypothèques suisses.
 
 \end{esbox}
 
