@@ -11,7 +11,7 @@ Die folgenden drei Seiten zu den Klimaverträglichkeits-Indikatoren ergänzen di
 
 \begin{multicols}{2}
 
-\textbf{CO\textsubscript{2}-Fussabdruck}
+\textbf{CO\textsubscript{2}-Fu{\ss}abdruck}
 
 Erfasst werden alle Quellen von Treibhausgasemissionen der investierten Unternehmen (Scope 1-3), einschliesslich der relevanten Emissionen ihrer Lieferanten und Produkte.
 
@@ -382,9 +382,9 @@ MINDESTKRITERIEN FÜR DIE SWISS CLIMATE SCORES UND DEREN UMSETZUNG IM PACTA-KIMA
 \end{scheader}
 ```
 
-### CO~2~-Fussabdruck
+### CO~2~-Fußabdruck
 
-Der Indikator „CO~2~-Fussabdruck“ umfasst den CO~2~-Fussabdruck (CO~2~e/CHF Mio. investiert), nicht aber die CO~2~-Intensität (Emissionen pro Umsatz), wie dies bei den "Swiss Climate Scores" der Fall ist. Die zwingenden Anforderungen werden erfüllt.
+Der Indikator „CO~2~-Fußabdruck“ umfasst den CO~2~-Fußabdruck (CO~2~e/CHF Mio. investiert), nicht aber die CO~2~-Intensität (Emissionen pro Umsatz), wie dies bei den "Swiss Climate Scores" der Fall ist. Die zwingenden Anforderungen werden erfüllt.
 
 Zwingende Anforderungen: 
 
