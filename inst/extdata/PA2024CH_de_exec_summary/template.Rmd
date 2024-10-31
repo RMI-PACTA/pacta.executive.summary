@@ -93,7 +93,7 @@ number_peers <- readr::read_csv(
 
 ```{=latex}
 
-\textbf{Die Schweiz und ihr Finanzmarkt haben sich zum Übergang zu Netto-Null-Treibhausgasemissionen bis 2050 verpflichtet}, um ihre Verpflichtungen aus dem Schweizer Bundesgesetz über die Ziele im Klimaschutz, die Innovation und die Stärkung der Energiesicherheit zu erfüllen \textbf{\href{https://www.fedlex.admin.ch/eli/fga/2022/2403/de}{(link)}}. Der PACTA-Klimatest 2024 liefert vergleichbare Daten über die Fortschritte des Schweizer Finanzmarktes und der einzelnen teilnehmenden Finanzinstitute im Hinblick auf die Erreichung der Klimaziele.  \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter - \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(peer_group), fixed = TRUE)` \stopunderscoreletter wurde vom BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt/pacta.html}{link})} und vom SIF mit Unterstützung der Verbände zum Klimatest eingeladen, um die eingereichten Finanzportfolios freiwillig untersuchen zu lassen. Der PACTA-Klimatest kombiniert eine quantitative Bewertung von Portfolios aus globalen börsennotierten Aktien und Unternehmensanleihen sowie von Schweizer Immobilien- und Hypothekarportfolios mit einer qualitativen Analyse weiterer Klimamassnahmen. 
+\textbf{Die Schweiz und ihr Finanzmarkt haben sich zum Übergang zu Netto-Null-Treibhausgasemissionen bis 2050 verpflichtet}, um ihre Verpflichtungen aus dem Schweizer Bundesgesetz über die Ziele im Klimaschutz, die Innovation und die Stärkung der Energiesicherheit zu erfüllen \textbf{\href{https://www.fedlex.admin.ch/eli/fga/2022/2403/de}{(link)}}. Der PACTA-Klimatest 2024 liefert vergleichbare Daten über die Fortschritte des Schweizer Finanzmarktes und der einzelnen teilnehmenden Finanzinstitute im Hinblick auf die Erreichung der Klimaziele.  \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter - \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(peer_group), fixed = TRUE)` \stopunderscoreletter wurde vom BAFU \textbf{(\href{https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/klima-und-finanzmarkt/pacta.html}{link})} und vom SIF mit Unterstützung der Verbände zum Klimatest eingeladen, um die eingereichten Finanzportfolios freiwillig untersuchen zu lassen. Der PACTA-Klimatest kombiniert eine quantitative Bewertung von Portfolios aus globalen börsennotierten Aktien und Unternehmensanleihen sowie von Schweizer Immobilien- und Hypothekarportfolios mit einer qualitativen Analyse weiterer Klimama{\ss}nahmen. 
 
 \textbf{Diese Zusammenfassung} ist eine Kurzfassung der Einzelergebnisse Ihres hochgeladenen Aktien- und Unternehmensanleihenportfolios \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(portfolio_name), fixed = TRUE)` \stopunderscoreletter, sowie Auszüge aus Ihren Umfrageergebnissen. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter erhält eine Zusammenfassung pro Portfolio. Am Ende dieser Zusammenfassung finden Sie einige Klimaindikatoren auf der Grundlage der Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/de/swiss-climate-scores-de}{(link)}}. \textbf{Ein detaillierter individueller interaktiver Bericht} (pro Portfolio oder gruppiert) können über einen personalisierten Zugang auf der Transition Monitor Plattform in Deutsch, Französisch und teilweise Englisch eingesehen werden \textbf{\href{https://platform.transitionmonitor.com}{(link)}}. \startunderscoreletter `r gsub("&", "\\&", stringr::str_to_title(investor_name), fixed = TRUE)` \stopunderscoreletter entscheidet über die Veröffentlichung dieser Einzelergebnisse. Darüber hinaus können verschiedene Informationen aus diesen Berichten für die obligatorische oder empfohlene Berichterstattung durch die Schweizer Gesetzgebung, den Bundesrat und Verbände verwendet werden.
 
@@ -139,7 +139,7 @@ PACTA und das BAFU sind der Ansicht, dass die drei unten aufgeführten Kernfakto
 \engagementImage[width=\textwidth]%
 \end{minipage}%
 \begin{minipage}[c]{0.7\textwidth}
-\textbf{Klima-Engagement und andere qualitative Indikatoren:} Ergänzung der Analyse mit Informationen über Klimamassnahmen, die einen reellen Einfluss auf das Klima haben können.
+\textbf{Klima-Engagement und andere qualitative Indikatoren:} Ergänzung der Analyse mit Informationen über Klimama{\ss}nahmen, die einen reellen Einfluss auf das Klima haben können.
 \end{minipage}%
 
 
@@ -389,7 +389,7 @@ tryCatch(
 
 Während der vorangegangene Abschnitt Einblicke in die derzeitige Exposition gegenüber den verschiedenen PACTA-Sektoren sowie einen Überblick über die Ausrichtung auf Gesamt- und Sektorebene lieferte, bietet dieser Abschnitt zusätzliche Informationen über die Verträglichkeit mit dem WEO 2023 Szenario auf Technologieebene für die PACTA Sektoren mit Technologiepfaden.
 
-Die nachstehenden Grafiken zeigen, auf welches Klimaszenario die Technologien in Ihrem Portfolio im Vergleich zu Ihren Peers ausgerichtet sind. Die Position jedes Quadrats in den farblich markierten Rechtecken zeigt das Klimaszenario, auf das Ihr Portfolio und die Portfolios Ihrer Peers in fünf Jahren ausgerichtet sein werden. Die Grösse der Quadrate gibt den Umfang der Exposition (in \% des verwalteten Vermögens) an.
+Die nachstehenden Grafiken zeigen, auf welches Klimaszenario die Technologien in Ihrem Portfolio im Vergleich zu Ihren Peers ausgerichtet sind. Die Position jedes Quadrats in den farblich markierten Rechtecken zeigt das Klimaszenario, auf das Ihr Portfolio und die Portfolios Ihrer Peers in fünf Jahren ausgerichtet sein werden. Die Grö{\ss}e der Quadrate gibt den Umfang der Exposition (in \% des verwalteten Vermögens) an.
 
 Für mehr Informationen über die Veränderung der Ausrichtung Ihres Portfolios in den nächsten fünf Jahren pro Technologie sei auf die entsprechenden Grafiken im interaktiven Bericht verwiesen. Dort finden Sie auch zusätzliche Informationen auf Unternehmensebene. 
 
@@ -514,7 +514,7 @@ Diese Grafik zeigt die derzeitige Exposition gegenüber kohlenstoffarmen Technol
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Diese Grafik stellt die Klimaausrichtungs-Scores sowohl aggregiert (Balken ganz links), als auch für jeden Sektor dar. Das grössere, dunkelblaue Dreieck zeigt das Ergebnis für dieses Portfolio an, das kleinere graue Dreieck das durchschnittliche Ergebnis der Peers. Die horizontale Linie stellt den Grenzwert für die Erreichung des Klimaziels von 1,8\textdegree C (oder höher) dar. Der 1,8\textdegree C-Pfad entspricht dem Ziel des Klimaübereinkommens von Paris, die globale Erwärmung auf „deutlich unter 2\textdegree C“ zu begrenzen. Die Scores geben an, welchem Szenario die Produktionspläne der investierten Unternehmen entsprechen. Weitere Informationen dazu entnehmen Sie den beiden folgenden Abbildungen. 
+Diese Grafik stellt die Klimaausrichtungs-Scores sowohl aggregiert (Balken ganz links), als auch für jeden Sektor dar. Das grö{\ss}ere, dunkelblaue Dreieck zeigt das Ergebnis für dieses Portfolio an, das kleinere graue Dreieck das durchschnittliche Ergebnis der Peers. Die horizontale Linie stellt den Grenzwert für die Erreichung des Klimaziels von 1,8\textdegree C (oder höher) dar. Der 1,8\textdegree C-Pfad entspricht dem Ziel des Klimaübereinkommens von Paris, die globale Erwärmung auf „deutlich unter 2\textdegree C“ zu begrenzen. Die Scores geben an, welchem Szenario die Produktionspläne der investierten Unternehmen entsprechen. Weitere Informationen dazu entnehmen Sie den beiden folgenden Abbildungen. 
 
 \end{minipage}%
 
@@ -538,7 +538,7 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 
 \newpage
 
-\section {Anhang (II): Zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimamaßnahmen}
+\section {Anhang (II): Zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimama{\ss}nahmen}
 
 \subsection{Beispiel für Zielscheiben-Diagramm: Benutzer, die alle Best-Practices anwenden}
 
@@ -550,7 +550,7 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 \begin{minipage}[t]{0.6\textwidth}
 
 
-Dies ist ein Beispiel-Zielschreiben-Diagramm für einen Nutzer, der Best-Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel, in diesem Fall Ausschlussverfahren im Ölsektor).  Alle Kreise sind mit Farben von hell bis dunkel gefüllt und alle Beschriftungen sind positive Aussagen. Das bedeutet, dass der Nutzer alle Strategien und/oder Maßnahmen anwendet, die innerhalb des betreffenden Bereichs als wichtig oder wirksam erachtet werden, beginnend mit dem äußeren Ring, der am wenigsten wirksam (aber dennoch wichtig) ist, bis hin zum inneren Kreis, der am wirksamsten ist. 
+Dies ist ein Beispiel-Zielschreiben-Diagramm für einen Nutzer, der Best-Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel, in diesem Fall Ausschlussverfahren im Ölsektor).  Alle Kreise sind mit Farben von hell bis dunkel gefüllt und alle Beschriftungen sind positive Aussagen. Das bedeutet, dass der Nutzer alle Strategien und/oder Ma{\ss}nahmen anwendet, die innerhalb des betreffenden Bereichs als wichtig oder wirksam erachtet werden, beginnend mit dem äu{\ss}eren Ring, der am wenigsten wirksam (aber dennoch wichtig) ist, bis hin zum inneren Kreis, der am wirksamsten ist. 
 
 \end{minipage}%
 
@@ -564,7 +564,7 @@ Dies ist ein Beispiel-Zielschreiben-Diagramm für einen Nutzer, der Best-Practic
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Dies ist ein Beispiel für ein Zielscheiben-Diagramm für einen Nutzer, der einige Best-Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe den Titel des Diagramms, hier „Konkrete Klimamaßnahmen bei börsennotierten Aktien und Unternehmensanleihen“), aber nicht alle. In diesem Fall wendet der Nutzer die Maßnahme an, die mit mittlerer Auswirkung/Wichtigkeit eingestuft wird, nämlich ein sektorbezogenes Konzept für einen Übergangsplan, wendet aber  anderen Praktiken nicht an (konkrete Zwischenziele und geplante Maßnahmen zur Erreichung der Zwischenziele). Der mittlere Ring ist mit Farbe gefüllt und trägt ein Label mit einer positiven Aussage, während der äußere Ring und der innere Kreis weiß sind und Labels mit negativen Aussagen tragen (beginnend mit dem Wort „Nein“). In diesem Fall ist der Benutzer auf einem guten Weg, aber es gibt einige Bereiche, die verbessert werden können. Vor allem der mittlere Kreis ist ein wichtiger Punkt, den es zu beachten gilt.
+Dies ist ein Beispiel für ein Zielscheiben-Diagramm für einen Nutzer, der einige Best-Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe den Titel des Diagramms, hier „Konkrete Klimama{\ss}nahmen bei börsennotierten Aktien und Unternehmensanleihen“), aber nicht alle. In diesem Fall wendet der Nutzer die Ma{\ss}nahme an, die mit mittlerer Auswirkung/Wichtigkeit eingestuft wird, nämlich ein sektorbezogenes Konzept für einen Übergangsplan, wendet aber  anderen Praktiken nicht an (konkrete Zwischenziele und geplante Ma{\ss}nahmen zur Erreichung der Zwischenziele). Der mittlere Ring ist mit Farbe gefüllt und trägt ein Label mit einer positiven Aussage, während der äu{\ss}ere Ring und der innere Kreis wei{\ss} sind und Labels mit negativen Aussagen tragen (beginnend mit dem Wort „Nein“). In diesem Fall ist der Benutzer auf einem guten Weg, aber es gibt einige Bereiche, die verbessert werden können. Vor allem der mittlere Kreis ist ein wichtiger Punkt, den es zu beachten gilt.
 
 \end{minipage}%
 
@@ -578,13 +578,13 @@ Dies ist ein Beispiel für ein Zielscheiben-Diagramm für einen Nutzer, der eini
 \end{minipage}%
 \begin{minipage}[t]{0.6\textwidth}
 
-Dieses Beispiel-Zielscheiben-Diagramm würde für einen Nutzer erscheinen, der keine der Best Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel des Diagramms, hier „Konkrete Klimamaßnahmen bei börsennotierten Aktien und Unternehmensanleihen“).  Alle Ebenen (Ringe und Kreise) sind weiß und ihre Bezeichnungen sind negative Aussagen (sie beginnen mit dem Wort „Nein“). In diesem Fall gibt es in dem Bereich auf den sich das Diagramm bezieht Raum für Verbesserungen für die Anwednung von Best Practices (vollständig ausgefülltes Zielscheiben-Diagramm) und das Diagramm kann bei der Entscheidung helfen welche nächsten Schritte für die Institution des Nutzers relevant sind, um die Ausrichtung der Finanzströme auf das Netto-Null-Ziel bis 2050 zu unterstützen.
+Dieses Beispiel-Zielscheiben-Diagramm würde für einen Nutzer erscheinen, der keine der Best Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel des Diagramms, hier „Konkrete Klimama{\ss}nahmen bei börsennotierten Aktien und Unternehmensanleihen“).  Alle Ebenen (Ringe und Kreise) sind wei{\ss} und ihre Bezeichnungen sind negative Aussagen (sie beginnen mit dem Wort „Nein“). In diesem Fall gibt es in dem Bereich auf den sich das Diagramm bezieht Raum für Verbesserungen für die Anwednung von Best Practices (vollständig ausgefülltes Zielscheiben-Diagramm) und das Diagramm kann bei der Entscheidung helfen welche nächsten Schritte für die Institution des Nutzers relevant sind, um die Ausrichtung der Finanzströme auf das Netto-Null-Ziel bis 2050 zu unterstützen.
 
 \end{minipage}%
 
 \newpage
 
-\section{Anhang (II): zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimamaßnahmen}
+\section{Anhang (II): zusätzliche Erläuterungen zum Diagramm - Umfrage zu Klimama{\ss}nahmen}
 
 \subsection{Beispiel für ein Zielscheiben-Diagramm: Nutzer- und Peer-Informationen}
 
@@ -608,7 +608,7 @@ Weitere Erläuterungen zu den in den Zielscheiben-Diagrammen dargestellten Best 
 
 \begin{esbox}{Welches sind die PACTA-Sektoren?}
 
-Die PACTA-Analyse deckt acht klimarelevante Sektoren ab: Kohle, Öl und Gas, Strom, Automobilindustrie, Zement, Stahl und Luftfahrt. In der Regel sind die Portfolios von Finanzinstituten wertemässig zu 5-15\% in diesen Sektoren investiert. Das finanzielle Engagement mag zwar gering erscheinen, aber im Durchschnitt sind die Anlagen für einen viel grösseren Anteil der Emissionen verantwortlich. Nachstehend sind die Grafiken eines Beispielportfolios dargestellt: 
+Die PACTA-Analyse deckt acht klimarelevante Sektoren ab: Kohle, Öl und Gas, Strom, Automobilindustrie, Zement, Stahl und Luftfahrt. In der Regel sind die Portfolios von Finanzinstituten wertemässig zu 5-15\% in diesen Sektoren investiert. Das finanzielle Engagement mag zwar gering erscheinen, aber im Durchschnitt sind die Anlagen für einen viel grö{\ss}eren Anteil der Emissionen verantwortlich. Nachstehend sind die Grafiken eines Beispielportfolios dargestellt: 
 
 \begin{center}
 
