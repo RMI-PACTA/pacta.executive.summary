@@ -547,7 +547,8 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 \includegraphics{chart_sample_dart_chart_full}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 
 Dies ist ein Beispiel-Zielschreiben-Diagramm für einen Nutzer, der Best-Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel, in diesem Fall Ausschlussverfahren im Ölsektor).  Alle Kreise sind mit Farben von hell bis dunkel gefüllt und alle Beschriftungen sind positive Aussagen. Das bedeutet, dass der Nutzer alle Strategien und/oder Ma{\ss}nahmen anwendet, die innerhalb des betreffenden Bereichs als wichtig oder wirksam erachtet werden, beginnend mit dem äu{\ss}eren Ring, der am wenigsten wirksam (aber dennoch wichtig) ist, bis hin zum inneren Kreis, der am wirksamsten ist. 
@@ -562,7 +563,8 @@ Dies ist ein Beispiel-Zielschreiben-Diagramm für einen Nutzer, der Best-Practic
 \includegraphics[width=\textwidth]{chart_sample_dart_chart_part}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 Dies ist ein Beispiel für ein Zielscheiben-Diagramm für einen Nutzer, der einige Best-Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe den Titel des Diagramms, hier „Konkrete Klimama{\ss}nahmen bei börsennotierten Aktien und Unternehmensanleihen“), aber nicht alle. In diesem Fall wendet der Nutzer die Ma{\ss}nahme an, die mit mittlerer Auswirkung/Wichtigkeit eingestuft wird, nämlich ein sektorbezogenes Konzept für einen Übergangsplan, wendet aber  anderen Praktiken nicht an (konkrete Zwischenziele und geplante Ma{\ss}nahmen zur Erreichung der Zwischenziele). Der mittlere Ring ist mit Farbe gefüllt und trägt ein Label mit einer positiven Aussage, während der äu{\ss}ere Ring und der innere Kreis wei{\ss} sind und Labels mit negativen Aussagen tragen (beginnend mit dem Wort „Nein“). In diesem Fall ist der Benutzer auf einem guten Weg, aber es gibt einige Bereiche, die verbessert werden können. Vor allem der mittlere Kreis ist ein wichtiger Punkt, den es zu beachten gilt.
 
@@ -576,7 +578,8 @@ Dies ist ein Beispiel für ein Zielscheiben-Diagramm für einen Nutzer, der eini
 \includegraphics[width=\textwidth]{chart_sample_dart_chart_empty}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 Dieses Beispiel-Zielscheiben-Diagramm würde für einen Nutzer erscheinen, der keine der Best Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel des Diagramms, hier „Konkrete Klimama{\ss}nahmen bei börsennotierten Aktien und Unternehmensanleihen“).  Alle Ebenen (Ringe und Kreise) sind wei{\ss} und ihre Bezeichnungen sind negative Aussagen (sie beginnen mit dem Wort „Nein“). In diesem Fall gibt es in dem Bereich auf den sich das Diagramm bezieht Raum für Verbesserungen für die Anwednung von Best Practices (vollständig ausgefülltes Zielscheiben-Diagramm) und das Diagramm kann bei der Entscheidung helfen welche nächsten Schritte für die Institution des Nutzers relevant sind, um die Ausrichtung der Finanzströme auf das Netto-Null-Ziel bis 2050 zu unterstützen.
 
@@ -594,7 +597,8 @@ Dieses Beispiel-Zielscheiben-Diagramm würde für einen Nutzer erscheinen, der k
 \includegraphics[width=\textwidth]{chart_sample_dart_chart_peers}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 Dies ist ein Beispiel für ein Zielscheiben-Diagramm, das Peer-Informationen zusammen mit dem Nutzerergebnis enthält. Auf der linken Seite sehen wir das Ergebnis des Nutzers, das jede der oben beschriebenen Varianten des Zielscheiben-Diagramms sein könnte. In diesem Fall wendet der Benutzer alle Best-Practices im Bereich des Diagramms an (Ausübung der Stimmrechte der Aktionäre). Auf der rechten Seite sehen wir die prozentuale Anzahl der anderen Nutzer innerhalb der Peer Group dieses Nutzers, die alle Best Practice anwenden (alle Ebenen sind ausgefüllt, wie im kleinen Symbol neben dem Diagramm des Nutzers).  
 

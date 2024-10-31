@@ -543,7 +543,8 @@ Le graphique ci-dessous présente les spécifications du score d'alignement agr�
 \includegraphics{chart_sample_dart_chart_full}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 
 Il s'agit d'un exemple de diagramme en anneaux pour un utilisateur qui utilise les meilleures pratiques dans le domaine concerné par le diagramme (voir le titre, dans ce cas les politiques d'exclusion dans le secteur pétrolier). Tous les cercles sont remplis de couleurs allant du clair au foncé et toutes les étiquettes sont des énoncés positifs. Cela signifie que l'utilisateur applique toutes les stratégies et/ou mesures considérées comme importantes ou ayant un impact dans le domaine concerné, en commençant par l'anneau extérieur, le moins efficace (mais néanmoins important), jusqu'au cercle intérieur, le plus efficace. 
@@ -558,7 +559,8 @@ Il s'agit d'un exemple de diagramme en anneaux pour un utilisateur qui utilise l
 \includegraphics[width=\textwidth]{chart_sample_dart_chart_part}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 Voici un exemple de diagramme en anneaux pour un utilisateur qui utilise certaines bonnes pratiques dans le domaine concerné par le diagramme (voir le titre du diagramme, ici « Mesures climatiques concrètes au sein des actions et obligations d'entreprises cotées en bourse »), mais pas toutes. Dans ce cas, l'utilisateur applique la mesure considérée comme ayant un impact/importance moyen, à savoir une approche sectorielle pour un plan de transition, mais n'applique pas les autres pratiques (objectifs intermédiaires concrets et mesures prévues pour atteindre les objectifs intermédiaires). L'anneau central est coloré et comporte une étiquette avec une déclaration positive, tandis que l'anneau extérieur et le cercle intérieur sont blancs et comportent des étiquettes avec des déclarations négatives **(commençant par le mot « No ») - tbc**. Dans ce cas, l'utilisateur est sur la bonne voie, mais il y a des points à améliorer. Le cercle du milieu est particulièrement important à prendre en considération.
 
@@ -572,7 +574,8 @@ Voici un exemple de diagramme en anneaux pour un utilisateur qui utilise certain
 \includegraphics[width=\textwidth]{chart_sample_dart_chart_empty}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 Cet exemple de diagramme en anneaux apparaîtrait pour un utilisateur qui n'applique aucune des meilleures pratiques dans le domaine concerné par le diagramme (voir le titre du diagramme, ici « Mesures climatiques concrètes dans les actions et les obligations d'entreprises cotées en bourse »). Toutes les couches (anneaux et cercles) sont blanches et leurs étiquettes sont des déclarations négatives **(elles commencent par le mot « No ») - tbc **. Dans ce cas, il existe une marge d'amélioration vers les meilleures pratiques (anneau entièrement remplie) dans le domaine concerné par le graphique, et le graphique peut aider à décider quelles devraient être les prochaines étapes pour l'institution de l'utilisateur afin de soutenir l'alignement des flux financiers sur l'objectif de Net Zéro d'ici à 2050.
 
@@ -590,7 +593,8 @@ Cet exemple de diagramme en anneaux apparaîtrait pour un utilisateur qui n'appl
 \includegraphics[width=\textwidth]{chart_sample_dart_chart_peers}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 Voici un exemple de diagramme en anneaux contenant des informations sur les pairs ainsi que le résultat de l'utilisateur. À gauche, nous voyons le résultat de l'utilisateur, qui peut être n'importe quelle variante du diagramme en anneaux présenté ci-dessus. Dans ce cas, l'utilisateur emploie les meilleures pratiques dans la zone du graphique (Exercice des droits de vote des actionnaires). À droite, nous voyons le pourcentage d'autres utilisateurs au sein du groupe de pairs de cet utilisateur qui appliquent la meilleure pratique (toutes les couches sont remplies comme dans la petite icône à côté du graphique de l'utilisateur dans ce cas). 
 

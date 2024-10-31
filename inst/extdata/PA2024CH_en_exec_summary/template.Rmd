@@ -501,7 +501,8 @@ This chart shows current low-carbon technology exposure (percentage of sectoral 
 \includegraphics[width=\textwidth]{chart_sample_4}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 This chart displays the alignment scores both on the aggregate level (left-most bar) and on sector level. The bigger, dark-blue triangle indicates the score obtained by this portfolio and the smaller grey triangle indicates the average peer result. The horizontal line delineates the scores aligned with the 1.8\textdegree C pathway (or higher) from those that are not aligned. The 1.8\textdegree C pathway matches with the target in the Paris Agreement of limiting global warming to “well below 2\textdegree C”. The scores indicate the scenario with which the production plans of the invested companies align. Please refer to the two visualizations below for more information. 
 
@@ -536,7 +537,8 @@ The chart below visualizes the specifications of the aggregated alignment score 
 \includegraphics{chart_sample_dart_chart_full}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 
 This is an example dart chart for a user who employs best practices within the area the chart concerns (see the title, in this case exclusion policies within the oil sector). All the circles are filled with color from light to dark and all the labels are positive statemens. It means that the user applies all strategies and/or measures that are considered important or impactful within the area of concern, starting from the least effective (but important nevertheless), outer ring, to the most effective, inner circle. 
@@ -551,7 +553,8 @@ This is an example dart chart for a user who employs best practices within the a
 \includegraphics[width=\textwidth]{chart_sample_dart_chart_part}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 This an example dart chart for a user who employs some good practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds') but not all. In this case user applies the measure considered to have a medium impact/importance which is having a sector based approach for a transion plan, but does not apply the other practices (concrete interim targets, and measures planned for achieving the interim targets). The middle ring is filled with color and has a label with a positive statement while the outer ring and inner circle are white and have labels with negative statements (starting with the word 'No'). In this case, user is on a good path but there are some areas of improvement. Especially the middle circle is important one to consider.
 
@@ -565,7 +568,8 @@ This an example dart chart for a user who employs some good practices within the
 \includegraphics[width=\textwidth]{chart_sample_dart_chart_empty}
 
 \end{minipage}%
-\begin{minipage}[t]{0.6\textwidth}
+\hspace{0.05\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 
 This example dart chart would appear for a user who does not apply any of the best practices within the area the chart concerns (see the chart title, here 'Concrete climate measures within listed equity and corporate bonds'). All layers (rings and circles) are white and their labels are negative statements (they start with the word 'No'). In this case there is a room for improvement towards best practice (dart plot which is fully filled) within the area the chart is concerning and the chart can help to decide what should be the next steps relevant to the user's institution to support the alignment of financial flows with the net-zero goal by 2050.
 
