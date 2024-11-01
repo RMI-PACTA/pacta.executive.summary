@@ -645,7 +645,7 @@ La mesure dans laquelle vous utilisez vos résultats dépend de vous. Cependant,
 \item Communication externe: Mise en œuvre des recommandations du Conseil fédéral \textbf{(\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets/regulatory-work.html}{lien})} concernant l'utilisation d’indicateurs de compatibilité climatique comparables et significatifs afin d’aider à générer de la transparence dans tous les produits financiers et portefeuilles des clients, avec notamment des indicateurs conçus selon les Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/fr/swiss-climate-scores-fr}{(lien)}}.
 \item Des détails concernant les modalités d'utilisation des résultats pour les rapports réalisés selon le TCFD, le SFDR de l'UE ou la taxonomie de l'UE sont disponibles dans le rapport "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{lien})}.
 
-\item Des détails sur l'utilisation des résultats du PACTA à la lumière du protocole de définition des objectifs de la NZAOA sont disponibles dans le guide suivant \textbf{\href{https://pacta.rmi.org/wp-content/uploads/2024/10/Using-PACTA-with-the-NZAOA-Target-Setting-Protocol.pdf}{(lien)}}. 
+\item Des détails sur l'utilisation des résultats du PACTA à la lumière du protocole de définition des objectifs de la NZAOA sont disponibles dans le guide suivant \textbf{\href{https://pacta.rmi.org/wp-content/uploads/2024/11/Using-PACTA-with-the-NZAOA-Target-Setting-Protocol.pdf}{(lien)}}. 
 \end{itemize}
 
 \end{esbox}
