@@ -183,8 +183,6 @@ tryCatch(
 
 \end{esbox}
 
-\newpage
-
 \section{Résultats pour les actions et obligations d’entreprise}
 
 \begin{esbox}{Etat actuel (secteurs PACTA)}[\exposureImage]
@@ -375,10 +373,6 @@ tryCatch(
 
 ```{=latex}
 \end{esbox}
-
-\newpage
-
-\section{Résultats pour les actions et obligations d’entreprise}
 
 \begin{esbox}{Transition}[\alignmentImage \exposureImage]
 

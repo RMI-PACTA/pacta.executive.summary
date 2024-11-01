@@ -184,8 +184,6 @@ tryCatch(
 
 \end{esbox}
 
-\newpage
-
 \section{Ergebnisse Aktien- und Unternehmensanleiheportfolios}
 
 \begin{esbox}{Ist-Zustand (PACTA-Sektoren)}[\exposureImage]
@@ -377,10 +375,6 @@ tryCatch(
 
 ```{=latex}
 \end{esbox}
-
-\newpage
-
-\section{Ergebnisse von Aktien- und Unternehmensanleiheportfolios}
 
 \begin{esbox}{Transition}[\alignmentImage \exposureImage]
 
