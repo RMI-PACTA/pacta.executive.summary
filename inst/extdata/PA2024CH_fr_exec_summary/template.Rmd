@@ -484,6 +484,7 @@ tryCatch(
 
 \end{center}
 \end{minipage}%
+\hfill\break
 
 La partie gauche de ce graphique est un graphique à barres représentant l'exposition du portefeuille à chacun des 8 secteurs PACTA  en pour cent de l'actif sous gestion. Les barres sont classées selon l’importance de l'exposition dont la plus élevée apparaît en haut. De plus, la répartition entre les différentes technologies (à faible émission de carbone, à forte émission de carbone, non spécifiée) est présentée pour les secteurs pour lesquels une telle répartition est définie.
 La partie droite du graphique détaille l'exposition au secteur de l'extraction de combustibles fossiles en indiquant la répartition entre les différents combustibles fossiles charbon, pétrole et gaz. En outre, une comparaison avec les pairs (institutions de prévonyance, assurances, banques ou gestionnaires de fortune) ainsi qu'avec l'indice MSCI World est visible.

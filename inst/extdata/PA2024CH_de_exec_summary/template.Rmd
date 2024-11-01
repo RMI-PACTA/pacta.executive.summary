@@ -488,6 +488,7 @@ tryCatch(
 
 \end{center}
 \end{minipage}%
+\hfill\break
 
 In der linken Grafik ist ein Balkendiagramm dargestellt, das die Exposition des Portfolios gegenüber jedem der acht PACTA-Sektoren zeigt in Prozent des verwalteten Vermögens.  Die Balken sind nach dem Umfang der Exposition in absteigender Reihenfolge angeordnet. Zusätzlich wird eine Aufteilung der Technologien (kohlenstoffarm, kohlenstoffintensiv, nicht spezifiziert) für die Sektoren vorgenommen, für die eine solche Aufteilung definiert ist. Die rechte Grafik zeigt die Exposition gegenüber dem Sektor der Förderung fossiler Brennstoffe als Aufteilung auf die verschiedenen fossilen Brennstoffe Kohle, Öl und Gas. Zudem ist ein Vergleich mit den Peers (Pensionskassen, Versicherungen, Banken oder Vermögensverwalter) sowie mit dem MSCI World Index dargestellt.
 
