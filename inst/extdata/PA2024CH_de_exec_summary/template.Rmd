@@ -190,7 +190,6 @@ tryCatch(
 
 \begin{esbox}{Ist-Zustand (PACTA-Sektoren)}[\exposureImage]
 
-%FIXME: make footnote
 \textbf{Exposition* gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens}
 
 Die Grafik zeigt die Exposition gegenüber Unternehmen mit Produktionsstätten in den von PACTA erfassten Teilen der Wertschöpfungskette. Die Exposition gegenüber fossilen Brennstoffen (Förderung von Kohle, Öl, Gas) wird aggregiert sowie zu Vergleichszwecken zusätzlich einzeln ausgewiesen und mit Peers und einem Index verglichen.
@@ -447,10 +446,9 @@ tryCatch(
 ```
 
 ```{=latex}
-%FIXME: footnote
-* Erneuerbare Energien: umfasst Solar- und Windenergie, ohne Wasser- und Kernkraft
+\raggedright\footnotesize{* Erneuerbare Energien: umfasst Solar- und Windenergie, ohne Wasser- und Kernkraft}
 
-** Automobilindustrie: umfasst leichte Fahrzeuge (eng. Light-duty vehicles, LDV)
+\raggedright\footnotesize{** Automobilindustrie: umfasst leichte Fahrzeuge (eng. Light-duty vehicles, LDV)}
 
 \end{esbox}
 
