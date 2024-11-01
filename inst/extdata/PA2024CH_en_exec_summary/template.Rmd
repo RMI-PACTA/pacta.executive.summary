@@ -539,7 +539,7 @@ The chart below visualizes the specifications of the aggregated alignment score 
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
-\includegraphics{chart_sample_dart_chart_full}
+\includegraphics[width=\textwidth]{chart_sample_dart_chart_full}
 
 \end{minipage}%
 \hspace{0.05\textwidth}
