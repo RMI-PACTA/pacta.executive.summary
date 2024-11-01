@@ -188,7 +188,6 @@ tryCatch(
 
 \begin{esbox}{Current state (PACTA sectors)}[\exposureImage]
 
-%FIXME: make footnote
 \textbf{Exposure* to climate-relevant sectors \& technologies as \% of AUM}
 
 The chart provides information on the exposure to companies with physical assets in the parts of the value chain covered by PACTA. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
@@ -235,6 +234,7 @@ tryCatch(
 
 ```{=latex}
 \raggedright\footnotesize{* Exposure to companies with main activity in PACTA sectors}
+
 \raggedright\footnotesize{** ‘Low-carbon’ technologies: renewables and hydro for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.}
 
 \end{esbox}
@@ -439,10 +439,12 @@ tryCatch(
 ```
 
 ```{=latex}
-%FIXME: footnote
-* Renewables: include solar and wind power, exclude hydro and nuclear
+\raggedright\footnotesize{* Renewables: include solar and wind power, exclude hydro and nuclear}
 
-** Automotive: includes light-duty vehicles (LDV)
+\raggedright\footnotesize{** Automotive: includes light-duty vehicles (LDV)}
+
+
+
 
 \end{esbox}
 

@@ -189,7 +189,6 @@ tryCatch(
 
 \begin{esbox}{Etat actuel (secteurs PACTA)}[\exposureImage]
 
-%FIXME: make footnote
 \textbf{Exposition* aux secteurs et technologies concernés par le climat en \% de l'actif sous gestion}
 
 Le graphique fournit des information sur l'exposition aux entreprises avec des actifs physiques dans les parties de la chaîne de valeur couvert par PACTA. Les combustibles fossiles (extraction de charbon, pétrole, gaz) sont présentés de manière agrégée et désagrégée à des fins de comparaison avec les pairs (institutions de prévoyance, les assurances, les banques ou les gestionnaires d'actif) et un indice.
@@ -238,7 +237,7 @@ tryCatch(
 
 \raggedright\footnotesize{* Exposition aux entreprises dont le principal secteur d'activité est couvert par PACTA}
 
-** Technologies \guillemetleft à faible émission de CO\textsubscript{2}\guillemetright \ (low-carbon): énergies renouvelables et l'hydroélectricité pour l'électricité et énergie électrique pour l'automobile. Technologies \guillemetleft à forte émission de carbone\guillemetright \ (high-carbon): charbon, pétrole, gaz 
+\raggedright\footnotesize{** Technologies \guillemetleft à faible émission de CO\textsubscript{2}\guillemetright \ (low-carbon): énergies renouvelables et l'hydroélectricité pour l'électricité et énergie électrique pour l'automobile. Technologies \guillemetleft à forte émission de carbone\guillemetright \ (high-carbon): charbon, pétrole, gaz}
 \end{esbox}
 
 \begin{esbox}{État actuel et futur (secteur de l'électricité)}[\alignmentImage
@@ -443,10 +442,9 @@ tryCatch(
 ```
 
 ```{=latex}
-%FIXME: footnote
-* Energies renouvelables: inclut l'énergie solaire et éolienne, mais exclut l'hydroélectricité et le nucléaire
+\raggedright\footnotesize{* Energies renouvelables: inclut l'énergie solaire et éolienne, mais exclut l'hydroélectricité et le nucléaire}
 
-** Automobile: comprend les véhicules légers (LDV)
+\raggedright\footnotesize{** Automobile: comprend les véhicules légers (LDV)}
 
 \end{esbox}
 
