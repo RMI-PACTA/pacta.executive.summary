@@ -36,7 +36,6 @@ prep_green_brown_bars <- function(results_portfolio,
     # map sectors to p4b style
     # map tech_type and fossil_fuels
     data <- data %>%
-      # TODO: use input args to define groupings?
       map_sectors_and_tech_type()
 
     # calculate tech_type and sector exposures

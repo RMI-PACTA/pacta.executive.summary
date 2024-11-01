@@ -272,8 +272,6 @@ prep_data_executive_summary <- function(investor_name,
     dplyr::bind_rows(audit_indices_eq) %>%
     dplyr::bind_rows(audit_indices_cb)
 
-  # TODO: translate data
-
   data_out <- list(
     results_portfolio = results_portfolio,
     peers_results_aggregated = peers_results_aggregated,
