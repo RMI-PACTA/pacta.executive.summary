@@ -34,7 +34,6 @@ plot_green_brown_bars <- function(data) {
     geom_text(
       aes(
         y = .data$perc_sec_exposure,
-        # TODO: refine percentages
         label = scales::percent(round(.data$perc_sec_exposure, digits = 3))
       ),
       hjust = -0.2,

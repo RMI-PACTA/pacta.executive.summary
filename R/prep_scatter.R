@@ -66,7 +66,6 @@ prep_scatter <- function(results_portfolio,
       # map sectors to p4b style
       # map tech_type and fossil_fuels
       data_exposure <- data_exposure %>%
-        # TODO: use input args to define groupings?
         map_sectors_and_tech_type()
 
       # calculate tech_type and sector exposures
