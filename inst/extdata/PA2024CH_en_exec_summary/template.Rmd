@@ -505,7 +505,7 @@ This chart shows current low-carbon technology exposure (percentage of sectoral 
 
 \end{minipage}%
 \hspace{0.05\textwidth}
-\begin{minipage}[t]{0.65\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
 
 This chart displays the alignment scores both on the aggregate level (left-most bar) and on sector level. The bigger, dark-blue triangle indicates the score obtained by this portfolio and the smaller grey triangle indicates the average peer result. The horizontal line delineates the scores aligned with the 1.8\textdegree C pathway (or higher) from those that are not aligned. The 1.8\textdegree C pathway matches with the target in the Paris Agreement of limiting global warming to “well below 2\textdegree C”. The scores indicate the scenario with which the production plans of the invested companies align. Please refer to the two visualizations below for more information. 
 

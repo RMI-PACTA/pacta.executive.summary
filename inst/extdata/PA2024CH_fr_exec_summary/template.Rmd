@@ -545,7 +545,7 @@ Le graphique ci-dessous présente les spécifications du score d'alignement agr�
 
 \end{minipage}%
 \hspace{0.05\textwidth}
-\begin{minipage}[t]{0.65\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
 
 
 Il s'agit d'un exemple de diagramme en anneaux pour un utilisateur qui utilise les meilleures pratiques dans le domaine concerné par le diagramme (voir le titre, dans ce cas les politiques d'exclusion dans le secteur pétrolier). Tous les cercles sont remplis de couleurs allant du clair au foncé et toutes les étiquettes sont des énoncés positifs. Cela signifie que l'utilisateur applique toutes les stratégies et/ou mesures considérées comme importantes ou ayant un impact dans le domaine concerné, en commençant par l'anneau extérieur, le moins efficace (mais néanmoins important), jusqu'au cercle intérieur, le plus efficace. 
