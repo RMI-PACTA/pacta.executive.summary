@@ -1,6 +1,6 @@
 Package: pacta.executive.summary
 Title: Creates Plots for the PACTA COP Executive Summary
-Version: 0.1.1.9001
+Version: 0.1.1.9002
 Authors@R: 
     person(given = "Monika",
              family = "Furdyna",
