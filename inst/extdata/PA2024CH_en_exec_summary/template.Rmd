@@ -188,7 +188,6 @@ tryCatch(
 
 \begin{esbox}{Current state (PACTA sectors)}[\exposureImage]
 
-%FIXME: make footnote
 \textbf{Exposure* to climate-relevant sectors \& technologies as \% of AUM}
 
 The chart provides information on the exposure to companies with physical assets in the parts of the value chain covered by PACTA. Fossil fuels (extraction) is shown aggregated as well as disaggregated for peer- and index-comparison.
@@ -235,6 +234,7 @@ tryCatch(
 
 ```{=latex}
 \raggedright\footnotesize{* Exposure to companies with main activity in PACTA sectors}
+
 \raggedright\footnotesize{** ‘Low-carbon’ technologies: renewables and hydro for power and electric for automotive. ‘High-carbon’ technologies:  oil, gas and coal for power, hybrid, ICE for automotive.}
 
 \end{esbox}
@@ -439,10 +439,12 @@ tryCatch(
 ```
 
 ```{=latex}
-%FIXME: footnote
-* Renewables: include solar and wind power, exclude hydro and nuclear
+\raggedright\footnotesize{* Renewables: include solar and wind power, exclude hydro and nuclear}
 
-** Automotive: includes light-duty vehicles (LDV)
+\raggedright\footnotesize{** Automotive: includes light-duty vehicles (LDV)}
+
+
+
 
 \end{esbox}
 
@@ -480,7 +482,10 @@ tryCatch(
 
 \end{center}
 \end{minipage}%
+\hfill\break
+
 The bar chart on the left shows the portfolio's exposure to each of the eight PACTA sectors as a percentage of assets under management. The bars are arranged by the amount of exposure in descending order. In addition, a breakdown of technologies (low-carbon, carbon-intensive, unspecified) is provided for those sectors for which such a breakdown is defined. The graph on the right shows the exposure to the fossil fuel extraction sector as a breakdown between the different fossil fuels coal, oil and gas. In addition, a comparison with peers (pension funds, insurance companies, banks or asset managers) as well as with MSCI World Index can be seen.
+
 \subsection{Current exposure vs. future alignment for power sector}
 
 
@@ -502,7 +507,7 @@ This chart shows current low-carbon technology exposure (percentage of sectoral 
 
 \end{minipage}%
 \hspace{0.05\textwidth}
-\begin{minipage}[t]{0.65\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
 
 This chart displays the alignment scores both on the aggregate level (left-most bar) and on sector level. The bigger, dark-blue triangle indicates the score obtained by this portfolio and the smaller grey triangle indicates the average peer result. The horizontal line delineates the scores aligned with the 1.8\textdegree C pathway (or higher) from those that are not aligned. The 1.8\textdegree C pathway matches with the target in the Paris Agreement of limiting global warming to “well below 2\textdegree C”. The scores indicate the scenario with which the production plans of the invested companies align. Please refer to the two visualizations below for more information. 
 
@@ -534,7 +539,7 @@ The chart below visualizes the specifications of the aggregated alignment score 
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
-\includegraphics{chart_sample_dart_chart_full}
+\includegraphics[width=\textwidth]{chart_sample_dart_chart_full}
 
 \end{minipage}%
 \hspace{0.05\textwidth}

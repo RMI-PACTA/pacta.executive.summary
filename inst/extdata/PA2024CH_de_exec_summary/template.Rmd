@@ -190,7 +190,6 @@ tryCatch(
 
 \begin{esbox}{Ist-Zustand (PACTA-Sektoren)}[\exposureImage]
 
-%FIXME: make footnote
 \textbf{Exposition* gegenüber klimarelevanten Sektoren und Technologien in \% des verwalteten Vermögens}
 
 Die Grafik zeigt die Exposition gegenüber Unternehmen mit Produktionsstätten in den von PACTA erfassten Teilen der Wertschöpfungskette. Die Exposition gegenüber fossilen Brennstoffen (Förderung von Kohle, Öl, Gas) wird aggregiert sowie zu Vergleichszwecken zusätzlich einzeln ausgewiesen und mit Peers und einem Index verglichen.
@@ -447,10 +446,9 @@ tryCatch(
 ```
 
 ```{=latex}
-%FIXME: footnote
-* Erneuerbare Energien: umfasst Solar- und Windenergie, ohne Wasser- und Kernkraft
+\raggedright\footnotesize{* Erneuerbare Energien: umfasst Solar- und Windenergie, ohne Wasser- und Kernkraft}
 
-** Automobilindustrie: umfasst leichte Fahrzeuge (eng. Light-duty vehicles, LDV)
+\raggedright\footnotesize{** Automobilindustrie: umfasst leichte Fahrzeuge (eng. Light-duty vehicles, LDV)}
 
 \end{esbox}
 
@@ -488,6 +486,7 @@ tryCatch(
 
 \end{center}
 \end{minipage}%
+\hfill\break
 
 In der linken Grafik ist ein Balkendiagramm dargestellt, das die Exposition des Portfolios gegenüber jedem der acht PACTA-Sektoren zeigt in Prozent des verwalteten Vermögens.  Die Balken sind nach dem Umfang der Exposition in absteigender Reihenfolge angeordnet. Zusätzlich wird eine Aufteilung der Technologien (kohlenstoffarm, kohlenstoffintensiv, nicht spezifiziert) für die Sektoren vorgenommen, für die eine solche Aufteilung definiert ist. Die rechte Grafik zeigt die Exposition gegenüber dem Sektor der Förderung fossiler Brennstoffe als Aufteilung auf die verschiedenen fossilen Brennstoffe Kohle, Öl und Gas. Zudem ist ein Vergleich mit den Peers (Pensionskassen, Versicherungen, Banken oder Vermögensverwalter) sowie mit dem MSCI World Index dargestellt.
 
@@ -544,11 +543,11 @@ Die folgende Grafik zeigt die Anforderungen in Bezug auf den Gesamtscore zur Kli
 
 \begin{minipage}[t]{0.3\textwidth}
 \verticalAlignImage
-\includegraphics{chart_sample_dart_chart_full}
+\includegraphics[width=\textwidth]{chart_sample_dart_chart_full}
 
 \end{minipage}%
 \hspace{0.05\textwidth}
-\begin{minipage}[t]{0.65\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
 
 
 Dies ist ein Beispiel-Zielschreiben-Diagramm für einen Nutzer, der Best-Practices in dem Bereich anwendet, auf den sich das Diagramm bezieht (siehe Titel, in diesem Fall Ausschlussverfahren im Ölsektor).  Alle Kreise sind mit Farben von hell bis dunkel gefüllt und alle Beschriftungen sind positive Aussagen. Das bedeutet, dass der Nutzer alle Strategien und/oder Ma{\ss}nahmen anwendet, die innerhalb des betreffenden Bereichs als wichtig oder wirksam erachtet werden, beginnend mit dem äu{\ss}eren Ring, der am wenigsten wirksam (aber dennoch wichtig) ist, bis hin zum inneren Kreis, der am wirksamsten ist. 
@@ -655,7 +654,6 @@ Inwieweit Sie Ihre Ergebnisse nutzen, bleibt Ihnen überlassen. Die Ergebnisse e
 \item Externe Berichterstattung: Umsetzung der Empfehlungen des Bundesrates \textbf{\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets/regulatory-work.html}{(link)}} zur Verwendung von vergleichbaren und aussagekräftigen Klimaverträglichkeitsindikatoren zur Schaffung von Transparenz bei allen Finanzprodukten und Kundenportfolios, einschliesslich der Swiss Climate Scores-Indikatoren 
 \textbf{\href{https://www.sif.admin.ch/de/swiss-climate-scores-de}{(link)}}.
 \item Details zur Verwendung der Ergebnisse für die Berichterstattung gemäss TCFD, EU-Verordnung über die Offenlegung nachhaltiger Finanzprodukte (SFDR) oder EU-Taxonomie finden Sie im Bericht "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link})}.
-% TODO: add link once known
 \item Details zur Verwendung der PACTA-Ergebnisse im Lichte des NZAOA-Zielsetzungsprotokolls finden Sie im folgenden Leitfaden \textbf{\href{https://pacta.rmi.org/wp-content/uploads/2024/10/Using-PACTA-with-the-NZAOA-Target-Setting-Protocol.pdf}{(Link)}}. 
 \end{itemize}
 
