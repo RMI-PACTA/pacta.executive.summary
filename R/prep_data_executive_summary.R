@@ -133,7 +133,7 @@ prep_data_executive_summary <- function(investor_name,
       start_year = start_year,
       allocation_type = portfolio_allocation_method_equity
     ) %>%
-    dplyr::filter(grepl("MSCI World", .data$portfolio_name))
+    dplyr::filter(grepl("MSCI - World", .data$portfolio_name))
 
   indices_bonds_results_portfolio <- indices_bonds_results_portfolio %>%
     apply_general_filters(
@@ -246,7 +246,7 @@ prep_data_executive_summary <- function(investor_name,
 
   emissions_indices_eq <- readRDS(file.path(index_dir, "Indices_equity_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(grepl("MSCI World", .data$portfolio_name))
+    dplyr::filter(grepl("MSCI - World", .data$portfolio_name))
 
   emissions_indices_cb <- readRDS(file.path(index_dir, "Indices_bonds_emissions.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
@@ -262,7 +262,7 @@ prep_data_executive_summary <- function(investor_name,
 
   audit_indices_eq <- readRDS(file.path(index_dir, "Indices_equity_audit.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
-    dplyr::filter(grepl("MSCI World", .data$portfolio_name))
+    dplyr::filter(grepl("MSCI - World", .data$portfolio_name))
 
   audit_indices_cb <- readRDS(file.path(index_dir, "Indices_bonds_audit.rds")) %>%
     dplyr::mutate(entity = "benchmark") %>%
