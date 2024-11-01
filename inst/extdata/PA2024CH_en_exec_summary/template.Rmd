@@ -182,8 +182,6 @@ tryCatch(
 
 \end{esbox}
 
-\newpage
-
 \section{Equity \& Bonds Results}
 
 \begin{esbox}{Current state (PACTA sectors)}[\exposureImage]
@@ -373,10 +371,6 @@ tryCatch(
 
 ```{=latex}
 \end{esbox}
-
-\newpage
-
-\section{Equity \& Bonds Results}
 
 \begin{esbox}{Transition}[\alignmentImage \exposureImage]
 
