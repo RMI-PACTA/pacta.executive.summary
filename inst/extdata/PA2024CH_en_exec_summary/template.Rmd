@@ -642,7 +642,7 @@ To what extent you use your results is up to you. However, the results are suita
 \item Reporting in the environment of the participating financial institution (clients, insured parties etc.)
 \item External disclosure: Implementing the federal council’s recommendations \textbf{\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets/regulatory-work.html}{(link)}} to use comparable and meaningful climate compatibility indicators to help create transparency in all financial products and client portfolios incl. indicators following the Swiss Climate Scores \textbf{\href{https://www.sif.admin.ch/en/swiss-climate-scores-en}{(link)}}.
 \item Details on how to use the results for reporting according to TCFD, the EU SFDR or EU Taxonomy can be found in the following report "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link})}.
-\item Details on how to use PACTA results in light of the NZAOA target setting protocol, can be found in the following guide \textbf{\href{https://pacta.rmi.org/wp-content/uploads/2024/11/Using-PACTA-with-the-NZAOA-Target-Setting-Protocol.pdf}{(link)}}.
+\item Details on how to use PACTA results in light of the NZAOA target setting protocol, can be found in the following guide \textbf{\href{https://pacta.rmi.org/wp-content/uploads/2024/11/Using-PACTA-with-NZAOA-Target-Setting-Protocol.pdf}{(link)}}.
 \end{itemize}
 
 
