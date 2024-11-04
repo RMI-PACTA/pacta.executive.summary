@@ -80,106 +80,135 @@ Exclusion policies can be effective measures to align a portfolio with climate g
 ```
 
 ```{r plot_exclusion_coal, fig.width=10, fig.height=3.5}
-plot_exclusion_coal <- pacta.executive.summary::rasterGrob(
-  pacta.executive.summary::readPNG(
-    file.path(
-      survey_dir, 
-      language, 
-      "plot_layer_exclusion_coal.png"
+tryCatch( {
+  plot_exclusion_coal <- pacta.executive.summary::rasterGrob(
+    pacta.executive.summary::readPNG(
+      file.path(
+        survey_dir, 
+        language, 
+        "plot_layer_exclusion_coal.png"
+      )
     )
   )
+  
+  data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
+                                                 peers_results_aggregated,
+                                               technology = "coal",
+                                               asset_class = "bonds")
+  
+  plot_bo_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+    labs(subtitle = "Coal exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
+    patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+  
+  data_exposures_survey_e <- prep_exposures_survey(results_portfolio,
+                                                 peers_results_aggregated,
+                                               technology = "coal",
+                                               asset_class = "equity")
+  
+  plot_eq_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+    labs(subtitle = "Coal exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
+    patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+  
+  patchwork::wrap_elements(plot_exclusion_coal) + patchwork::wrap_elements(plot_bo_c_exp) +
+    patchwork::wrap_elements(plot_eq_c_exp) +
+    patchwork::plot_layout(widths = c(1.2, 1, 1))
+},
+error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_exclusion_coal(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+}
 )
-
-data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
-                                               peers_results_aggregated,
-                                             technology = "coal",
-                                             asset_class = "bonds")
-
-plot_bo_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
-  labs(subtitle = "Coal exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
-  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
-
-data_exposures_survey_e <- prep_exposures_survey(results_portfolio,
-                                               peers_results_aggregated,
-                                             technology = "coal",
-                                             asset_class = "equity")
-
-plot_eq_c_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
-  labs(subtitle = "Coal exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
-  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
-
-patchwork::wrap_elements(plot_exclusion_coal) + patchwork::wrap_elements(plot_bo_c_exp) +
-  patchwork::wrap_elements(plot_eq_c_exp) +
-  patchwork::plot_layout(widths = c(1.2, 1, 1))
 ```
 
 ```{r plot_exclusion_oil, fig.width=10, fig.height=3.5}
-
-plot_exclusion_oil <- pacta.executive.summary::rasterGrob(
-  pacta.executive.summary::readPNG(
-    file.path(
-      survey_dir, 
-      language, 
-      "plot_layer_exclusion_oil.png"
+tryCatch( {
+  plot_exclusion_oil <- pacta.executive.summary::rasterGrob(
+    pacta.executive.summary::readPNG(
+      file.path(
+        survey_dir, 
+        language, 
+        "plot_layer_exclusion_oil.png"
+      )
     )
   )
+  
+  data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
+                                                 peers_results_aggregated,
+                                               technology = "oil",
+                                               asset_class = "bonds")
+  
+  plot_bo_o_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+    labs(subtitle = "Oil exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
+    patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+  
+  data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+                                                 peers_results_aggregated,
+                                               technology = "oil",
+                                               asset_class = "equity")
+  
+  plot_eq_o_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+    labs(subtitle = "Oil exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
+    patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
+  
+  patchwork::wrap_elements(plot_exclusion_oil) + patchwork::wrap_elements(plot_bo_o_exp) +
+    patchwork::wrap_elements(plot_eq_o_exp) +
+    patchwork::plot_layout(widths = c(1.2, 1, 1))
+},
+error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_exclusion_oil(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+}
 )
-
-data_exposures_survey_b <- prep_exposures_survey(results_portfolio,
-                                               peers_results_aggregated,
-                                             technology = "oil",
-                                             asset_class = "bonds")
-
-plot_bo_o_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
-  labs(subtitle = "Oil exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
-  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
-
-data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
-                                               peers_results_aggregated,
-                                             technology = "oil",
-                                             asset_class = "equity")
-
-plot_eq_o_exp <- (patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
-  labs(subtitle = "Oil exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
-  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1)))
-
-patchwork::wrap_elements(plot_exclusion_oil) + patchwork::wrap_elements(plot_bo_o_exp) +
-  patchwork::wrap_elements(plot_eq_o_exp) +
-  patchwork::plot_layout(widths = c(1.2, 1, 1))
 ```
 
 ```{r plot_exclusion_gas, fig.width=10, fig.height=3.5}
-plot_exclusion_gas <- pacta.executive.summary::rasterGrob(
-  pacta.executive.summary::readPNG(
-  file.path(
-    survey_dir, 
-    language, 
-    "plot_layer_exclusion_gas.png"
+tryCatch( {
+  plot_exclusion_gas <- pacta.executive.summary::rasterGrob(
+    pacta.executive.summary::readPNG(
+    file.path(
+      survey_dir, 
+      language, 
+      "plot_layer_exclusion_gas.png"
+      )
     )
   )
+  
+  data_exposures_survey_b <- prep_exposures_survey(results_portfolio, 
+                                                 peers_results_aggregated,
+                                               technology = "gas",
+                                               asset_class = "bonds")
+  
+  plot_bo_g_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
+    labs(subtitle = "Gas exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
+    patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
+  
+  data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
+                                                 peers_results_aggregated,
+                                               technology = "gas",
+                                               asset_class = "equity")
+  
+  plot_eq_g_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
+    labs(subtitle = "Gas exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
+    patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
+  
+  patchwork::wrap_elements(plot_exclusion_gas) + patchwork::wrap_elements(plot_bo_g_exp) +
+    patchwork::wrap_elements(plot_eq_g_exp) +
+    patchwork::plot_layout(widths = c(1.2, 1, 1))
+},
+error = function(e) {
+    write_log(
+      "ES: There was an error in prep/plot_exclusion_gas(). Returning empty plot object.\n",
+      file_path = log_dir
+    )
+    empty_plot_error_message()
+}
 )
-
-data_exposures_survey_b <- prep_exposures_survey(results_portfolio, 
-                                               peers_results_aggregated,
-                                             technology = "gas",
-                                             asset_class = "bonds")
-
-plot_bo_g_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_b) +
-  labs(subtitle = "Gas exposure - bonds\n(as % of AUM)")) + patchwork::plot_spacer() +
-  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
-
-data_exposures_survey_e <- prep_exposures_survey(results_portfolio, 
-                                               peers_results_aggregated,
-                                             technology = "gas",
-                                             asset_class = "equity")
-
-plot_eq_g_exp <- patchwork::plot_spacer() + (plot_exposures_survey(data_exposures_survey_e) +
-  labs(subtitle = "Gas exposure - equity\n(as % of AUM)")) + patchwork::plot_spacer() +
-  patchwork::plot_layout(nrow = 3, heights = c(0.1, 1, 0.1))
-
-patchwork::wrap_elements(plot_exclusion_gas) + patchwork::wrap_elements(plot_bo_g_exp) +
-  patchwork::wrap_elements(plot_eq_g_exp) +
-  patchwork::plot_layout(widths = c(1.2, 1, 1))
 ```
 
 ```{=latex}
