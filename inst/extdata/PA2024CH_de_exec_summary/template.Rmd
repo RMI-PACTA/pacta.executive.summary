@@ -648,7 +648,7 @@ Inwieweit Sie Ihre Ergebnisse nutzen, bleibt Ihnen überlassen. Die Ergebnisse e
 \item Externe Berichterstattung: Umsetzung der Empfehlungen des Bundesrates \textbf{\href{https://www.bafu.admin.ch/bafu/en/home/topics/climate/info-specialists/climate-and-financial-markets/regulatory-work.html}{(link)}} zur Verwendung von vergleichbaren und aussagekräftigen Klimaverträglichkeitsindikatoren zur Schaffung von Transparenz bei allen Finanzprodukten und Kundenportfolios, einschliesslich der Swiss Climate Scores-Indikatoren 
 \textbf{\href{https://www.sif.admin.ch/de/swiss-climate-scores-de}{(link)}}.
 \item Details zur Verwendung der Ergebnisse für die Berichterstattung gemäss TCFD, EU-Verordnung über die Offenlegung nachhaltiger Finanzprodukte (SFDR) oder EU-Taxonomie finden Sie im Bericht "The Disclosure Puzzle – the role of PACTA" \textbf{(\href{https://2degrees-investing.org/wp-content/uploads/2020/03/PACTA-disclosures-report.pdf}{link})}.
-\item Details zur Verwendung der PACTA-Ergebnisse im Lichte des NZAOA-Zielsetzungsprotokolls finden Sie im folgenden Leitfaden \textbf{\href{https://pacta.rmi.org/wp-content/uploads/2024/11/Using-PACTA-with-NZAOA-Target-Setting-Protocol.pdf}{(Link)}}. 
+\item Details zur Verwendung der PACTA-Ergebnisse im Lichte des NZAOA-Zielsetzungsprotokolls finden Sie im folgenden Leitfaden \textbf{\href{https://pacta.rmi.org/wp-content/uploads/2024/11/202410_Using-PACTA-with-the-NZAOA-Target-Setting-Protocol.pdf}{(Link)}}. 
 \end{itemize}
 
 \end{esbox}
